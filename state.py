@@ -150,7 +150,7 @@ def load_remote(path, ref="origin/main"):
 
 
 def merge(local, remote):
-    base = remote if remote is not None else _empty()
+    base = _from_dict(remote) if remote is not None else _empty()
     m = {
         "posted": dict(base["posted"]),
         "feedback": dict(base["feedback"]),

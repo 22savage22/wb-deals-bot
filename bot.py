@@ -144,7 +144,7 @@ def process_updates(data, settings):
     if not events:
         return
     changed = admin.handle_events(
-        config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings
+        config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
     )
     if changed:
         config.save_settings(settings)

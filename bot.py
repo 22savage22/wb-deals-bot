@@ -10,19 +10,28 @@ import tg
 import wb
 
 
+def _run(*args):
+    res = subprocess.run(args, capture_output=True, text=True)
+    if res.returncode != 0:
+        print("git error:", " ".join(args), "->", res.returncode)
+        print(res.stderr.strip()[:400])
+    return res
+
+
 def commit_state(path):
     if not os.getenv("GITHUB_TOKEN"):
+        print("GITHUB_TOKEN не задан, state не коммитится")
         return
-    status = subprocess.run(
-        ["git", "status", "--porcelain", path], capture_output=True, text=True
-    )
+    status = _run("git", "status", "--porcelain", path)
     if not status.stdout.strip():
+        print("state.json не изменился, коммит не нужен")
         return
-    subprocess.run(["git", "config", "user.name", "wb-bot"], check=False)
-    subprocess.run(["git", "config", "user.email", "actions@github.com"], check=False)
-    subprocess.run(["git", "add", path], check=False)
-    subprocess.run(["git", "commit", "-m", "chore: update state"], check=False)
-    subprocess.run(["git", "push"], check=False)
+    _run("git", "config", "user.name", "wb-bot")
+    _run("git", "config", "user.email", "actions@github.com")
+    _run("git", "add", path)
+    _run("git", "commit", "-m", "chore: update state")
+    _run("git", "push")
+    print("state.json закоммичен")
 
 
 def main():

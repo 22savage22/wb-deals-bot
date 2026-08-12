@@ -1,0 +1,16 @@
+##[group]Run python admin_run.py
+^[[36;1mpython admin_run.py^[[0m
+shell: /usr/bin/bash -e {0}
+env:
+pythonLocation: /opt/hostedtoolcache/Python/3.12.13/x64
+PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib/pkgconfig
+Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.13/x64
+LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.13/x64/lib
+TG_BOT_TOKEN: ***
+TG_ADMIN_ID:
+GITHUB_TOKEN: ***
+##[endgroup]
+state.json ╨╖╨░╨║╨╛╨╝╨╝╨╕╤З╨╡╨╜
+╨Ю╨▒╨╜╨╛╨▓╨╗╨╡╨╜╨╕╤П ╨╛╨▒╤А╨░╨▒╨╛╤В╨░╨╜╤Л: 0 | state: 17

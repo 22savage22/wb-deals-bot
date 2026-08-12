@@ -22,16 +22,26 @@ def commit_state(path):
     if not os.getenv("GITHUB_TOKEN"):
         print("GITHUB_TOKEN не задан, state не коммитится")
         return
-    status = _run("git", "status", "--porcelain", path)
-    if not status.stdout.strip():
-        print("state.json не изменился, коммит не нужен")
-        return
     _run("git", "config", "user.name", "wb-bot")
     _run("git", "config", "user.email", "actions@github.com")
-    _run("git", "add", path)
-    _run("git", "commit", "-m", "chore: update state")
-    _run("git", "push")
-    print("state.json закоммичен")
+    pushed = False
+    for attempt in range(5):
+        _run("git", "fetch", "origin", "main")
+        remote = state.load_remote(path)
+        merged = state.merge(state.load(path), remote)
+        state.save(path, merged)
+        _run("git", "add", path)
+        _run("git", "commit", "-m", "chore: update state")
+        res = _run("git", "push")
+        if res.returncode == 0:
+            pushed = True
+            break
+        print("push не удался, попытка", attempt + 1)
+        time.sleep(3 + attempt * 3)
+    if pushed:
+        print("state.json закоммичен")
+    else:
+        print("state.json НЕ закоммичен после 5 попыток")
 
 
 def main():
@@ -77,13 +87,18 @@ def main():
 
     deals.sort(key=lambda d: (d["discount"], d["benefit"]), reverse=True)
 
+    now = time.time()
+    deals = [
+        d
+        for d in deals
+        if not (d["id"] in posted and now - posted[d["id"]] < state.WEEK)
+    ]
+
     published = 0
     for deal in deals:
         if published >= config.MAX_POSTS:
             break
         pid = deal["id"]
-        if pid in posted:
-            continue
         image = wb.photo(pid)
         if image is None:
             print("Нет фото:", pid)
@@ -101,7 +116,7 @@ def main():
             print("Ошибка публикации:", pid, exc)
             ok = False
         if ok:
-            posted.add(pid)
+            posted[pid] = int(now)
             published += 1
             print("Опубликовано:", pid, f"{deal['discount']}%", deal["title"][:50])
         time.sleep(1.5)

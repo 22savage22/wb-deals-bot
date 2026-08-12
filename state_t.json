@@ -1,0 +1,27 @@
+{
+ "posted": {
+  "222": 1786387275,
+  "111": 1786560075
+ },
+ "feedback": {},
+ "query_stats": {},
+ "cat_stats": {},
+ "tg": {
+  "offset": 0
+ },
+ "recent": [
+  {
+   "pid": 111,
+   "title": "Тест",
+   "discount": 70,
+   "price": 100,
+   "link": "https://x/{nm}",
+   "query": "телефон",
+   "cat": "Электроника",
+   "ts": 1786560075
+  }
+ ],
+ "meta": {
+  "last_run": 1786560075
+ }
+}

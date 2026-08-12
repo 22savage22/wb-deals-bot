@@ -3,7 +3,7 @@ import json
 
 import requests
 
-URL = "https://api.telegram.org/bot{token}/sendPhoto"
+API = "https://api.telegram.org/bot{token}/{method}"
 
 
 def fmt(n):
@@ -30,19 +30,69 @@ def caption(deal):
     return "\n".join(lines)
 
 
-def send_photo(token, chat_id, photo, text, link):
+def send_photo(token, chat_id, photo, text, link, pid):
     payload = {
         "chat_id": chat_id,
         "caption": text,
         "parse_mode": "HTML",
         "reply_markup": json.dumps(
-            {"inline_keyboard": [[{"text": "Купить", "url": link}]]}
+            {
+                "inline_keyboard": [
+                    [{"text": "Купить", "url": link}],
+                    [
+                        {"text": "👍", "callback_data": f"l{pid}"},
+                        {"text": "👎", "callback_data": f"d{pid}"},
+                        {"text": "🛒 Купил", "callback_data": f"b{pid}"},
+                    ],
+                ]
+            }
         ),
     }
     resp = requests.post(
-        URL.format(token=token),
+        API.format(token=token, method="sendPhoto"),
         data=payload,
         files={"photo": ("photo.jpg", photo, "image/jpeg")},
         timeout=90,
     )
     return resp.ok
+
+
+def send_message(token, chat_id, text):
+    try:
+        resp = requests.post(
+            API.format(token=token, method="sendMessage"),
+            data={"chat_id": chat_id, "text": text, "parse_mode": "HTML"},
+            timeout=20,
+        )
+        return resp.ok
+    except requests.RequestException:
+        return False
+
+
+def get_updates(token, offset, timeout=3):
+    try:
+        resp = requests.get(
+            API.format(token=token, method="getUpdates"),
+            params={
+                "timeout": timeout,
+                "offset": offset,
+                "allowed_updates": json.dumps(["callback_query", "message"]),
+            },
+            timeout=25,
+        )
+        if resp.ok:
+            return resp.json().get("result") or []
+    except requests.RequestException:
+        pass
+    return []
+
+
+def answer_callback(token, callback_id, text=""):
+    try:
+        requests.post(
+            API.format(token=token, method="answerCallbackQuery"),
+            data={"callback_query_id": callback_id, "text": text},
+            timeout=15,
+        )
+    except requests.RequestException:
+        pass

@@ -118,6 +118,9 @@ def deal(card):
         "benefit": basic - product,
         "rating": rating,
         "feedbacks": card.get("feedbacks") or card.get("nmFeedbacks") or 0,
+        "category": str(
+            card.get("subjectName") or card.get("subject") or "другое"
+        ).strip(),
     }
 
 
@@ -130,6 +133,8 @@ def deal_from_search(item):
             "sizes": item.get("sizes") or [],
             "rating": item.get("reviewRating") or item.get("rating") or 0,
             "feedbacks": item.get("feedbacks") or item.get("nmFeedbacks") or 0,
+            "subjectName": item.get("subjectName"),
+            "subject": item.get("subject"),
         }
     )
 

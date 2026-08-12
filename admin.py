@@ -90,13 +90,15 @@ def handle_events(token, admin_id, data, settings, events):
                 _command(token, chat_id, data, settings, ev.get("text", ""))
                 or changed
             )
-        else:
+        elif not admin_id:
             _reply(
                 token,
                 chat_id,
                 "Это админ-бот канала @WBmarket22.",
                 f"Доступ только для владельца. Ваш ID: <code>{user_id}</code>",
             )
+        else:
+            _reply(token, chat_id, "У вас нет доступа к этому боту.")
     return changed
 
 
@@ -138,7 +140,17 @@ def _command(token, chat_id, data, settings, text):
         _reply(token, chat_id, "Постинг возобновлён")
         return True
     else:
-        _reply(token, chat_id, "Неизвестная команда. /help — список команд")
+        if text.startswith("/"):
+            _reply(token, chat_id, "Неизвестная команда. /help — список команд")
+        else:
+            _reply(
+                token,
+                chat_id,
+                "Привет! Я админ-бот канала @WBmarket22. 🤖",
+                "Я публикую скидки Wildberries, учусь на реакциях подписчиков и слушаюсь тебя.",
+                "",
+                "/help — все команды",
+            )
     return False
 
 

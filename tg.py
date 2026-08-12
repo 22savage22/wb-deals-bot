@@ -96,3 +96,30 @@ def answer_callback(token, callback_id, text=""):
         )
     except requests.RequestException:
         pass
+
+
+COMMANDS = [
+    ("help", "Список команд"),
+    ("status", "Состояние бота"),
+    ("last", "Последние посты"),
+    ("stats", "Что нравится подписчикам"),
+    ("cfg", "Текущие настройки"),
+    ("set", "Изменить настройку"),
+    ("pause", "Пауза постинга"),
+    ("resume", "Возобновить постинг"),
+]
+
+
+def set_commands(token):
+    try:
+        requests.post(
+            API.format(token=token, method="setMyCommands"),
+            data={
+                "commands": json.dumps(
+                    [{"command": c, "description": d} for c, d in COMMANDS]
+                )
+            },
+            timeout=20,
+        )
+    except requests.RequestException:
+        pass

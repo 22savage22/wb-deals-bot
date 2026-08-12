@@ -6,6 +6,7 @@ import admin
 import config
 import gitutil
 import state
+import tg
 
 LIFETIME = 6 * 3600
 CYCLE = 15
@@ -37,6 +38,7 @@ def main():
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
+    tg.set_commands(config.TG_BOT_TOKEN)
     last_commit = 0.0
     start = time.time()
     while time.time() - start < LIFETIME - 180:

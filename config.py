@@ -20,6 +20,11 @@ MAX_POSTS = _int("WB_MAX_POSTS", 5)
 PAGES = _int("WB_PAGES", 1)
 STATE_FILE = os.getenv("WB_STATE_FILE", "state.json")
 
+LINK_TEMPLATE = os.getenv(
+    "WB_LINK_TEMPLATE",
+    "https://www.wildberries.ru/catalog/{nm}/detail.aspx",
+)
+
 DEFAULT_QUERIES = [
     "телефон",
     "наушники",

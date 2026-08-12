@@ -28,6 +28,6 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           WB_MIN_DISCOUNT: "50"
-          WB_MAX_POSTS: "5"
+          WB_MAX_POSTS: "3"
           WB_PAGES: "1"
           GITHUB_TOKEN: ${{ github.token }}

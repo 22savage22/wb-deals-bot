@@ -79,7 +79,7 @@ def main():
         if image is None:
             print("Нет фото:", pid)
             continue
-        link = f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
+        link = config.LINK_TEMPLATE.format(nm=pid)
         try:
             ok = tg.send_photo(
                 config.TG_BOT_TOKEN,

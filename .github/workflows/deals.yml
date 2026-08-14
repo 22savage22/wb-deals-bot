@@ -2,7 +2,7 @@ name: WB Deals Bot
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/20 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -30,6 +30,6 @@ jobs:
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
           WB_MIN_DISCOUNT: "50"
           WB_MIN_RATING: "4.5"
-          WB_MAX_POSTS: "3"
+          WB_MAX_POSTS: "1"
           WB_PAGES: "1"
           GITHUB_TOKEN: ${{ github.token }}

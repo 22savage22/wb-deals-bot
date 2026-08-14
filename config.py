@@ -28,6 +28,9 @@ MAX_PRICE = _int("WB_MAX_PRICE", 0)
 MIN_RATING = _float("WB_MIN_RATING", 0)
 MAX_POSTS = _int("WB_MAX_POSTS", 5)
 PAGES = _int("WB_PAGES", 1)
+REPOST_DAYS = _float("WB_REPOST_DAYS", 7)
+QUERIES_PER_RUN = _int("WB_QUERIES_PER_RUN", 4)
+WEEKLY_DIGEST = _int("WB_WEEKLY_DIGEST", 1)
 STATE_FILE = os.getenv("WB_STATE_FILE", "state.json")
 SETTINGS_FILE = os.getenv("WB_SETTINGS_FILE", "settings.json")
 
@@ -75,6 +78,12 @@ def apply(settings):
         globals()["MAX_POSTS"] = int(settings["max_posts"])
     if settings.get("pages") is not None:
         globals()["PAGES"] = int(settings["pages"])
+    if settings.get("queries_per_run") is not None:
+        globals()["QUERIES_PER_RUN"] = int(settings["queries_per_run"])
+    if settings.get("repost_days") is not None:
+        globals()["REPOST_DAYS"] = float(settings["repost_days"])
+    if settings.get("dest") is not None:
+        globals()["DEST"] = int(settings["dest"])
     q = settings.get("queries")
     if isinstance(q, str):
         q = [x.strip() for x in q.split(",") if x.strip()]
@@ -82,3 +91,5 @@ def apply(settings):
         globals()["QUERIES"] = q
     if settings.get("link_template"):
         globals()["LINK_TEMPLATE"] = settings["link_template"]
+    if settings.get("weekly_digest") is not None:
+        globals()["WEEKLY_DIGEST"] = int(settings["weekly_digest"])

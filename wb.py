@@ -86,7 +86,7 @@ def cards(ids):
     return result
 
 
-def deal(card):
+def raw_deal(card):
     sizes = card.get("sizes") or []
     price = None
     for size in sizes:
@@ -94,20 +94,14 @@ def deal(card):
         if p.get("product") and p.get("basic"):
             price = p
             break
-    if not price:
-        return None
-    product = price["product"] // 100
-    basic = price["basic"] // 100
-    if product <= 0 or basic <= product:
-        return None
-    discount = round(100 - product * 100 / basic)
-    if discount < config.MIN_DISCOUNT:
-        return None
-    if config.MAX_PRICE and product > config.MAX_PRICE:
-        return None
+    product = basic = 0
+    discount = 0
+    if price:
+        product = price["product"] // 100
+        basic = price["basic"] // 100
+        if basic > 0:
+            discount = round(100 - product * 100 / basic)
     rating = card.get("reviewRating") or card.get("rating") or 0
-    if config.MIN_RATING and rating < config.MIN_RATING:
-        return None
     return {
         "id": card.get("id"),
         "title": card.get("name") or "",
@@ -122,6 +116,23 @@ def deal(card):
             card.get("subjectName") or card.get("subject") or "другое"
         ).strip(),
     }
+
+
+def deal(card):
+    d = raw_deal(card)
+    if (
+        not d["id"]
+        or d["product"] <= 0
+        or d["basic"] <= d["product"]
+    ):
+        return None
+    if d["discount"] < config.MIN_DISCOUNT:
+        return None
+    if config.MAX_PRICE and d["product"] > config.MAX_PRICE:
+        return None
+    if config.MIN_RATING and d["rating"] < config.MIN_RATING:
+        return None
+    return d
 
 
 def deal_from_search(item):
@@ -184,3 +195,19 @@ def photo(nm):
         except Exception:
             continue
     return None
+
+
+def image_hash(buf):
+    """Перцептивный хэш картинки (dHash 9x8): один и тот же товар
+    под разными артикулами даёт одинаковый хэш."""
+    try:
+        buf.seek(0)
+        img = Image.open(buf).convert("L").resize((9, 8), Image.BILINEAR)
+        px = list(img.getdata())
+        bits = 0
+        for y in range(8):
+            for x in range(8):
+                bits = (bits << 1) | (px[y * 9 + x] > px[y * 9 + x + 1])
+        return format(bits, "016x")
+    except Exception:
+        return None

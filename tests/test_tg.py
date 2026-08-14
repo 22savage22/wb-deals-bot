@@ -84,6 +84,17 @@ def main():
     assert c == tg.caption(_deal(99))
     print("9. pid fallback OK")
 
+    # 10. подпись для падения цены
+    d = _deal(5)
+    d["price_drop"] = True
+    d["last_price"] = 20000
+    c = tg.caption(d, 5)
+    assert "Цена упала ещё ниже" in c
+    assert "20 000" in c and "12 990" in c
+    assert "<s>20 000</s>" in c
+    assert len(c) <= 1024
+    print("10. price drop caption OK")
+
 
 if __name__ == "__main__":
     main()

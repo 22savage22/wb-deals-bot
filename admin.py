@@ -24,6 +24,7 @@ SETTABLE = {
     "queries": ("queries", "по каким запросам искать товары"),
     "link_template": ("template", "шаблон ссылки на товар, нужен {nm}"),
     "weekly_digest": ("int", "еженедельный итоговый пост в канал (1 — вкл, 0 — выкл)"),
+    "blacklist": ("queries", "бренды или артикулы, которые никогда не постить (через запятую)"),
 }
 
 NAMES = {
@@ -38,6 +39,7 @@ NAMES = {
     "queries": "Запросы",
     "link_template": "Шаблон ссылки",
     "weekly_digest": "Итоги недели",
+    "blacklist": "Чёрный список",
 }
 
 ICONS = {
@@ -52,6 +54,7 @@ ICONS = {
     "queries": "🔍",
     "link_template": "🔗",
     "weekly_digest": "📣",
+    "blacklist": "🚫",
 }
 
 MAIN_KEYS = [
@@ -64,7 +67,7 @@ MAIN_KEYS = [
     "pages",
     "queries",
 ]
-ADV_KEYS = ["dest", "link_template", "weekly_digest"]
+ADV_KEYS = ["dest", "link_template", "weekly_digest", "blacklist"]
 
 STEPS = {
     "min_discount": 5,
@@ -353,10 +356,27 @@ def _status_view(data, settings):
             _btn("🕓 Посты", MENU + "last:0"),
             _btn("📈 Статистика", MENU + "stats:q:0"),
         ],
-        [pause_btn(settings)],
+        [pause_btn(settings), _btn("⚠️ Ошибки", MENU + "errors")],
         _home_row()[0],
     ]
     return text, markup
+
+
+def _errors_view(data):
+    errors = (data.get("meta") or {}).get("errors") or []
+    rows = ["⚠️ <b>Журнал ошибок</b>", ""]
+    if not errors:
+        rows.append("Ошибок нет — всё работает. ✨")
+    else:
+        for e in errors[-10:]:
+            if not isinstance(e, dict):
+                continue
+            rows.append(
+                f"<b>{_ft(e.get('ts', 0))}</b> — "
+                f"{html.escape(str(e.get('msg', ''))[:150])}"
+            )
+        rows += ["", f"Всего в журнале: <b>{len(errors)}</b>"]
+    return "\n".join(rows), _home_row()
 
 
 def pause_btn(settings):
@@ -478,6 +498,7 @@ def _current(settings, key):
         "queries": config.QUERIES or config.DEFAULT_QUERIES,
         "link_template": config.LINK_TEMPLATE,
         "weekly_digest": config.WEEKLY_DIGEST,
+        "blacklist": config.BLACKLIST,
     }
     return fallback[key]
 
@@ -485,6 +506,8 @@ def _current(settings, key):
 def _human(key, value):
     if key == "queries" and isinstance(value, list):
         return ", ".join(str(q) for q in value)
+    if key == "blacklist" and isinstance(value, list):
+        return ", ".join(str(q) for q in value) or "пусто"
     if key == "min_discount":
         return f"{value:g}%"
     if key == "min_rating":
@@ -586,6 +609,7 @@ def _adv_markup():
         ],
         [
             _btn(f"{ICONS['weekly_digest']} {NAMES['weekly_digest']}", MENU + "advset:weekly_digest"),
+            _btn(f"{ICONS['blacklist']} {NAMES['blacklist']}", MENU + "advset:blacklist"),
         ],
         [_btn("⬅️ К настройкам", MENU + "cfg")],
         _home_row()[0],
@@ -701,6 +725,9 @@ def _help_view():
             "   после поста категория отдыхает 12 часов",
             "🧠 Самообучение: сам пробует новые запросы, оставляет те,"
             "   что нравятся подписчикам, и списывает пустые",
+            "📉 Падение цены: уже показанный товар репостится, если подешевел ещё на 15%+",
+            "🚫 Чёрный список: бренды и артикулы, которые никогда не постим",
+            "⚠️ Журнал ошибок — в статусе бота, если что-то сломалось",
             "",
             "⌨️ Есть и команды: /status /last /stats /cfg /set /pause /resume /post /preview",
             "",
@@ -843,8 +870,8 @@ def _start_review(token, chat_id, cb_id, pid):
         if cb_id:
             tg.answer_callback(token, cb_id, "❌ Не удалось получить карточку")
         return
-    image = wb.photo(pid)
-    if image is None:
+    images = wb.photos(pid)
+    if not images:
         if cb_id:
             tg.answer_callback(token, cb_id, "⚠️ Нет фото")
         tg.send_message(
@@ -861,7 +888,10 @@ def _start_review(token, chat_id, cb_id, pid):
         [_btn("✅ Опубликовать в канал", MENU + "manual:publish:" + str(pid))],
         [_btn("❌ Отмена", MENU + "manual:cancel")],
     ]
-    tg.send_photo(token, chat_id, image, caption, markup=markup)
+    if len(images) > 1:
+        tg.send_album(token, chat_id, images, caption, markup=markup)
+    else:
+        tg.send_photo(token, chat_id, images[0], caption, markup=markup)
 
 
 def _do_publish(token, data, chat_id, cb_id, pid):
@@ -874,18 +904,30 @@ def _do_publish(token, data, chat_id, cb_id, pid):
         tg.answer_callback(token, cb_id, "❌ Артикул не найден")
         return False
     deal = wb.raw_deal(cards[0])
-    image = wb.photo(pid)
-    if image is None or not deal or not deal.get("id"):
+    images = wb.photos(pid)
+    if not images or not deal or not deal.get("id"):
+        state.record_error(data, f"Не удалось подготовить пост {pid}")
         tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
         return False
     link = config.LINK_TEMPLATE.format(nm=pid)
-    if not tg.send_photo(token, config.TG_CHAT_ID, image, tg.caption(deal, pid), link, pid):
+    caption = tg.caption(deal, pid)
+    if len(images) > 1:
+        ok = tg.send_album(token, config.TG_CHAT_ID, images, caption, link, pid)
+    else:
+        ok = tg.send_photo(token, config.TG_CHAT_ID, images[0], caption, link, pid)
+    if not ok:
+        state.record_error(data, f"Ошибка отправки в канал {pid}")
         tg.answer_callback(token, cb_id, "❌ Ошибка отправки в канал")
         return False
     data["posted"][pid] = now
     key = smart.norm_title(deal["title"])
     if key:
         data.setdefault("titles", {})[key] = now
+    data.setdefault("prices", {})[pid] = {
+        "price": deal["product"],
+        "basic": deal["basic"],
+        "ts": now,
+    }
     data["recent"].append(
         {
             "pid": pid,
@@ -946,6 +988,10 @@ def _admin_callback(token, data, settings, cb):
         text, markup = _status_view(data, settings)
         ok = _render(token, chat_id, msg_id, text, markup)
         tg.answer_callback(token, cb_id, "" if ok is not False else "Актуально")
+    elif cmd == "errors":
+        text, markup = _errors_view(data)
+        _render(token, chat_id, msg_id, text, markup)
+        tg.answer_callback(token, cb_id)
     elif cmd.startswith("last:"):
         try:
             page = int(cmd.split(":", 1)[1])

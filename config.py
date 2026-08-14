@@ -33,6 +33,20 @@ QUERIES_PER_RUN = _int("WB_QUERIES_PER_RUN", 4)
 WEEKLY_DIGEST = _int("WB_WEEKLY_DIGEST", 1)
 STATE_FILE = os.getenv("WB_STATE_FILE", "state.json")
 SETTINGS_FILE = os.getenv("WB_SETTINGS_FILE", "settings.json")
+PRICE_DROP_MIN = _float("WB_PRICE_DROP_MIN", 0.15)
+HAMMING_MAX = _int("WB_HAMMING_MAX", 6)
+
+FALLBACK_DESTS = [
+    int(x.strip())
+    for x in os.getenv("WB_FALLBACK_DESTS", "123585633,-1").split(",")
+    if x.strip().lstrip("-").isdigit()
+]
+
+BLACKLIST = [
+    x.strip().lower()
+    for x in os.getenv("WB_BLACKLIST", "").split(",")
+    if x.strip()
+]
 
 LINK_TEMPLATE = os.getenv(
     "WB_LINK_TEMPLATE",
@@ -93,3 +107,15 @@ def apply(settings):
         globals()["LINK_TEMPLATE"] = settings["link_template"]
     if settings.get("weekly_digest") is not None:
         globals()["WEEKLY_DIGEST"] = int(settings["weekly_digest"])
+    b = settings.get("blacklist")
+    if isinstance(b, str):
+        b = [x.strip() for x in b.split(",") if x.strip()]
+    if b:
+        globals()["BLACKLIST"] = [str(x).strip().lower() for x in b]
+    d = settings.get("fallback_dests")
+    if isinstance(d, str):
+        d = [int(x.strip()) for x in d.split(",") if x.strip().lstrip("-").isdigit()]
+    if d:
+        globals()["FALLBACK_DESTS"] = [int(x) for x in d]
+    if settings.get("price_drop_min") is not None:
+        globals()["PRICE_DROP_MIN"] = float(settings["price_drop_min"])

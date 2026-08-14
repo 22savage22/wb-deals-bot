@@ -75,6 +75,28 @@ def caption(deal, pid=None):
     if len(title) > 100:
         title = title[:97] + "..."
     pid = pid or deal.get("id") or 0
+    tags = "#вайлдберриз #скидки #wb"
+    tags += _tag(deal["category"])
+    if deal["brand"]:
+        tags += _tag(deal["brand"])
+    for w in _title_tags(deal["title"]):
+        tags += " #" + w
+    footer = _pick(pid, FOOTERS)
+    if deal.get("price_drop"):
+        last_price = deal.get("last_price") or deal["basic"]
+        lines = [
+            "📉 <b>Цена упала ещё ниже!</b>",
+            "",
+            f"<b>{title}</b>",
+            "",
+            f"Было: <s>{fmt(last_price)}</s> руб → Стало: <b>{fmt(deal['product'])}</b> руб",
+            f"🔥 -{deal['discount']}% · выгода {fmt(deal['benefit'])} руб",
+            f"Рейтинг: {deal['rating']} | Отзывов: {deal['feedbacks']}",
+        ]
+        if deal["brand"]:
+            lines.append(f"Бренд: {html.escape(deal['brand'])}")
+        lines += ["", tags, footer]
+        return "\n".join(lines)
     emoji, opener = _pick(pid, OPENERS)
     price_word = _pick(pid, PRICE_WORDS)
     lines = [
@@ -89,14 +111,8 @@ def caption(deal, pid=None):
     if deal["brand"]:
         lines.append(f"Бренд: {html.escape(deal['brand'])}")
     lines.append("")
-    tags = "#вайлдберриз #скидки #wb"
-    tags += _tag(deal["category"])
-    if deal["brand"]:
-        tags += _tag(deal["brand"])
-    for w in _title_tags(deal["title"]):
-        tags += " #" + w
     lines.append(tags)
-    lines.append(_pick(pid, FOOTERS))
+    lines.append(footer)
     return "\n".join(lines)
 
 
@@ -104,6 +120,19 @@ def _kb(markup):
     if isinstance(markup, dict):
         return markup
     return {"inline_keyboard": markup}
+
+
+def _buttons(link, pid):
+    return {
+        "inline_keyboard": [
+            [{"text": "Купить", "url": link}],
+            [
+                {"text": "👍", "callback_data": f"l{pid}"},
+                {"text": "👎", "callback_data": f"d{pid}"},
+                {"text": "🛒 Купил", "callback_data": f"b{pid}"},
+            ],
+        ]
+    }
 
 
 def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
@@ -115,18 +144,7 @@ def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
     if markup is not None:
         payload["reply_markup"] = json.dumps(_kb(markup))
     elif link and pid:
-        payload["reply_markup"] = json.dumps(
-            {
-                "inline_keyboard": [
-                    [{"text": "Купить", "url": link}],
-                    [
-                        {"text": "👍", "callback_data": f"l{pid}"},
-                        {"text": "👎", "callback_data": f"d{pid}"},
-                        {"text": "🛒 Купил", "callback_data": f"b{pid}"},
-                    ],
-                ]
-            }
-        )
+        payload["reply_markup"] = json.dumps(_buttons(link, pid))
     resp = requests.post(
         API.format(token=token, method="sendPhoto"),
         data=payload,
@@ -134,6 +152,32 @@ def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
         timeout=90,
     )
     return resp.ok
+
+
+def send_album(token, chat_id, photos, text, link=None, pid=None, markup=None):
+    media = []
+    for i, p in enumerate(photos):
+        item = {"type": "photo", "media": f"attach://p{i}.jpg"}
+        if i == 0:
+            item["caption"] = text
+            item["parse_mode"] = "HTML"
+            if markup is not None:
+                item["reply_markup"] = json.dumps(_kb(markup))
+            elif link and pid:
+                item["reply_markup"] = json.dumps(_buttons(link, pid))
+        media.append(item)
+    payload = {"chat_id": chat_id, "media": json.dumps(media)}
+    files = {f"p{i}.jpg": (f"p{i}.jpg", p, "image/jpeg") for i, p in enumerate(photos)}
+    try:
+        resp = requests.post(
+            API.format(token=token, method="sendMediaGroup"),
+            data=payload,
+            files=files,
+            timeout=90,
+        )
+        return resp.ok
+    except requests.RequestException:
+        return False
 
 
 def send_message(token, chat_id, text, markup=None):

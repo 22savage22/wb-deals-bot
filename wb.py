@@ -20,6 +20,7 @@ SEARCH = "https://search.wb.ru/exactmatch/ru/common/v9/search"
 CARDS = "https://card.wb.ru/cards/v4/detail"
 
 _HOSTS = {}
+FORMAT_FAILS = 0
 
 
 def _get(url, params=None, tries=5):
@@ -30,7 +31,11 @@ def _get(url, params=None, tries=5):
             if resp.status_code == 200:
                 return resp.json()
             if resp.status_code == 429:
-                time.sleep(sleeps[min(attempt, len(sleeps) - 1)] + random.uniform(0, 4))
+                wait = sleeps[min(attempt, len(sleeps) - 1)]
+                retry_after = resp.headers.get("Retry-After")
+                if retry_after and str(retry_after).isdigit():
+                    wait = max(wait, int(retry_after))
+                time.sleep(wait + random.uniform(0, 4))
                 continue
             return None
         except requests.RequestException:
@@ -53,6 +58,7 @@ def search(query, page):
         "ab_testing": "false",
         "suppressSpellcheck": "false",
     }
+    global FORMAT_FAILS
     for attempt in range(3):
         data = _get(SEARCH, params)
         if not data:
@@ -61,46 +67,103 @@ def search(query, page):
         if products is None:
             products = data.get("products")
         if products is not None:
+            FORMAT_FAILS = 0
             return products
         time.sleep(5 + attempt * 10)
+    FORMAT_FAILS += 1
     return []
+
+
+def search_healthy():
+    return FORMAT_FAILS < 3
+
+
+def _has_price(card):
+    for size in card.get("sizes") or []:
+        p = size.get("price") or {}
+        if p.get("product") and p.get("basic"):
+            return True
+    return False
+
+
+def _cards_chunk(ids, dest):
+    data = _get(
+        CARDS,
+        params={
+            "appType": "1",
+            "curr": "rub",
+            "dest": str(dest),
+            "spp": "30",
+            "nm": ";".join(str(x) for x in ids),
+        },
+    )
+    return (data or {}).get("products") or []
 
 
 def cards(ids):
     result = []
     for i in range(0, len(ids), 20):
         chunk = ids[i : i + 20]
-        data = _get(
-            CARDS,
-            params={
-                "appType": "1",
-                "curr": "rub",
-                "dest": str(config.DEST),
-                "spp": "30",
-                "nm": ";".join(str(x) for x in chunk),
-            },
-        )
-        if data:
-            result.extend(data.get("products") or [])
+        prods = _cards_chunk(chunk, config.DEST)
+        result.extend(prods)
+        missing = [p for p in prods if not _has_price(p)]
+        if missing:
+            for d2 in config.FALLBACK_DESTS:
+                if not missing:
+                    break
+                alt = _cards_chunk([p.get("id") for p in missing], d2)
+                by_id = {p.get("id"): p for p in alt}
+                for j, p in enumerate(prods):
+                    rep = by_id.get(p.get("id"))
+                    if rep is not None and _has_price(rep):
+                        prods[j] = rep
+                missing = [p for p in prods if not _has_price(p)]
         time.sleep(random.uniform(0.3, 0.8))
     return result
 
 
+def _out_of_stock(card):
+    sizes = card.get("sizes") or []
+    if not sizes:
+        return False
+    qtys = [s.get("qty") for s in sizes if s.get("qty") is not None]
+    if not qtys:
+        return False
+    return sum(qtys) <= 0
+
+
+def _blacklisted(d):
+    bl = config.BLACKLIST or []
+    if not bl:
+        return False
+    pid = str(d.get("id") or "")
+    brand = str(d.get("brand") or "").lower()
+    return any(x and (x == pid or x in brand) for x in bl)
+
+
 def raw_deal(card):
     sizes = card.get("sizes") or []
-    price = None
+    best = None
     for size in sizes:
         p = size.get("price") or {}
-        if p.get("product") and p.get("basic"):
-            price = p
-            break
-    product = basic = 0
-    discount = 0
-    if price:
-        product = price["product"] // 100
-        basic = price["basic"] // 100
-        if basic > 0:
-            discount = round(100 - product * 100 / basic)
+        product = p.get("product") or 0
+        basic = p.get("basic") or 0
+        if not product or not basic:
+            continue
+        product_rub = product // 100
+        basic_rub = basic // 100
+        if basic_rub <= 0:
+            continue
+        discount = round(100 - product_rub * 100 / basic_rub)
+        key = (discount, basic_rub - product_rub)
+        if best is None or key > best[0]:
+            best = (key, product_rub, basic_rub)
+    if best is None:
+        product = basic = discount = benefit = 0
+    else:
+        _, product, basic = best
+        discount = round(100 - product * 100 / basic)
+        benefit = basic - product
     rating = card.get("reviewRating") or card.get("rating") or 0
     return {
         "id": card.get("id"),
@@ -109,7 +172,7 @@ def raw_deal(card):
         "product": product,
         "basic": basic,
         "discount": discount,
-        "benefit": basic - product,
+        "benefit": benefit,
         "rating": rating,
         "feedbacks": card.get("feedbacks") or card.get("nmFeedbacks") or 0,
         "category": str(
@@ -125,6 +188,10 @@ def deal(card):
         or d["product"] <= 0
         or d["basic"] <= d["product"]
     ):
+        return None
+    if _out_of_stock(card):
+        return None
+    if _blacklisted(d):
         return None
     if d["discount"] < config.MIN_DISCOUNT:
         return None
@@ -172,29 +239,57 @@ def _basket_host(nm):
     return None
 
 
-def photo(nm):
+def _fetch_photo(url):
+    try:
+        resp = SESSION.get(url, timeout=20)
+        if resp.status_code != 200:
+            return None
+        img = Image.open(BytesIO(resp.content))
+        if img.mode != "RGB":
+            img = img.convert("RGB")
+        img.thumbnail((1280, 1280))
+        buf = BytesIO()
+        img.save(buf, format="JPEG", quality=88)
+        buf.seek(0)
+        return buf
+    except Exception:
+        return None
+
+
+def photos(nm, limit=3):
     host = _basket_host(nm)
     if not host:
-        return None
+        return []
     vol = nm // 100000
     part = nm // 1000
     base = f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/images"
-    for path in ("big/1.webp", "c516x688/1.webp", "c246x328/1.webp"):
-        try:
-            resp = SESSION.get(f"{base}/{path}", timeout=20)
-            if resp.status_code != 200:
-                continue
-            img = Image.open(BytesIO(resp.content))
-            if img.mode != "RGB":
-                img = img.convert("RGB")
-            img.thumbnail((1280, 1280))
-            buf = BytesIO()
-            img.save(buf, format="JPEG", quality=88)
-            buf.seek(0)
-            return buf
-        except Exception:
+    out = []
+    for idx in range(1, limit + 1):
+        buf = _fetch_photo(f"{base}/big/{idx}.webp")
+        if buf is None:
+            for path in (f"c516x688/{idx}.webp", f"c246x328/{idx}.webp"):
+                buf = _fetch_photo(f"{base}/{path}")
+                if buf is not None:
+                    break
+        if buf is None:
+            break
+        if out and image_hash(buf) == image_hash(out[0]):
             continue
-    return None
+        out.append(buf)
+    return out
+
+
+def photo(nm):
+    out = photos(nm, 1)
+    return out[0] if out else None
+
+
+def hamming(a, b):
+    """Расстояние Хэмминга между двумя dHash-строками."""
+    try:
+        return bin(int(a, 16) ^ int(b, 16)).count("1")
+    except (ValueError, TypeError):
+        return 2**32
 
 
 def image_hash(buf):

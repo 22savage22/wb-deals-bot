@@ -11,12 +11,14 @@ import config
 from PIL import Image
 
 
-def card(pid=42, product=5500, basic=11000, rating=4.2, cat="Электроника", name="Тест"):
+def card(pid=42, product=5500, basic=11000, rating=4.2, cat="Электроника", name="Тест", sizes=None):
+    if sizes is None:
+        sizes = [{"price": {"product": product, "basic": basic}}]
     return {
         "id": pid,
         "name": name,
         "brand": "B",
-        "sizes": [{"price": {"product": product, "basic": basic}}],
+        "sizes": sizes,
         "reviewRating": rating,
         "feedbacks": 7,
         "subjectName": cat,
@@ -122,6 +124,47 @@ def main():
     assert len(h1) == 16 and all(c in "0123456789abcdef" for c in h1)
     assert wb.image_hash("не картинка") is None
     print("7. image_hash OK")
+
+    # 8. hamming: свои строки совпадают, один бит различается
+    assert wb.hamming("0000", "0000") == 0
+    assert wb.hamming("0000", "0001") == 1
+    assert wb.hamming("ffff", "0000") == 16
+    assert wb.hamming(None, "0000") > 1000  # мусор не считается дублем
+    print("8. hamming OK")
+
+    # 9. лучшая цена из размеров: дешёвый размер не первым
+    c = card(sizes=[
+        {"price": {"product": 8000, "basic": 10000}},  # 20%
+        {"price": {"product": 3000, "basic": 10000}},  # 70%
+    ])
+    d = wb.raw_deal(c)
+    assert d["product"] == 30 and d["discount"] == 70, d
+    c2 = card(sizes=[{"price": {"product": 0, "basic": 10000}}, {"price": {"product": 5500, "basic": 11000}}])
+    assert wb.raw_deal(c2)["discount"] == 50  # битый размер пропускается
+    print("9. best size OK")
+
+    # 10. распроданные товары не постим; отсутствие qty не мешает
+    c = card()
+    assert wb.deal(c) is not None
+    c["sizes"][0]["qty"] = 0
+    assert wb.deal(c) is None
+    c["sizes"][0]["qty"] = 2
+    assert wb.deal(c) is not None
+    assert wb.deal(card(sizes=[{"price": {"product": 5500, "basic": 11000}}])) is not None
+    print("10. out of stock OK")
+
+    # 11. чёрный список: бренд-подстрока и точный артикул
+    config.BLACKLIST = ["спам"]
+    c = card()
+    assert wb.deal(c) is not None  # бренд "B" не в списке — ок
+    c["brand"] = "СпамБренд"
+    assert wb.deal(c) is None  # подстрока
+    c["brand"] = "B"
+    config.BLACKLIST = ["42"]
+    assert wb.deal(c) is None  # артикул
+    config.BLACKLIST = []
+    assert wb.deal(c) is not None
+    print("11. blacklist OK")
 
 
 if __name__ == "__main__":

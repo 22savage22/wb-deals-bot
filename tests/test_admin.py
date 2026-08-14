@@ -27,6 +27,11 @@ class FakeTG:
         return True
 
     @staticmethod
+    def send_album(t, c, photos, text, link=None, pid=None, markup=None):
+        FakeTG.calls.append(("album", text[:30], markup))
+        return True
+
+    @staticmethod
     def answer_callback(t, c, text=""):
         FakeTG.calls.append(("answer", text, None))
 
@@ -229,7 +234,7 @@ def main():
 
     # --- flow: review + publish ---
     wbmod.cards = lambda ids: [card]
-    wbmod.photo = lambda nm: b"jpeg"
+    wbmod.photos = lambda nm, limit=3: [b"jpeg"]
     admin.wb = wbmod
     d = make_data()
     admin._start_review("tok", 111, "c1", 777)
@@ -242,9 +247,30 @@ def main():
     assert changed is True
     assert d["posted"].get(777) and d["recent"][0]["pid"] == 777
     assert d["meta"]["total_posts"] == 11
+    assert d["prices"][777]["price"] == 99
     changed2 = admin._do_publish("tok", d, 111, "c3", 777)
     assert changed2 is False  # защита от дубля
     print("15. review/publish flow OK")
+
+    # --- 16. чёрный список: настройка через админку ---
+    s = {}
+    ok, msg = admin._apply_setting(s, "blacklist", "спам, 9999")
+    assert ok and s["blacklist"] == ["спам", "9999"]
+    ok, msg = admin._apply_setting(s, "blacklist", " ")
+    assert not ok
+    ok, msg = admin._apply_setting(s, "blacklist", "бренд")
+    assert ok and s["blacklist"] == ["бренд"]
+    print("16. blacklist setting OK")
+
+    # --- 17. журнал ошибок ---
+    t, m = admin._errors_view(make_data())
+    assert "Ошибок нет" in t
+    d = make_data()
+    d["meta"]["errors"] = [{"ts": int(time.time()), "msg": "сломалась X"}]
+    t, m = admin._errors_view(d)
+    assert "сломалась X" in t and "Журнал" in t
+    changed, d, s = run("errors")
+    print("17. errors view OK")
 
 
 if __name__ == "__main__":

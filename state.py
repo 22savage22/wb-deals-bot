@@ -26,6 +26,7 @@ def _empty():
         "titles": {},
         "img_hash": {},
         "learned": {},
+        "prices": {},
     }
 
 
@@ -193,6 +194,30 @@ def _norm_learned(raw):
     return out
 
 
+def _norm_prices(raw):
+    if not isinstance(raw, dict):
+        return {}
+    now = time.time()
+    out = {}
+    for pid, p in raw.items():
+        try:
+            pid = int(pid)
+        except (TypeError, ValueError):
+            continue
+        if not isinstance(p, dict):
+            continue
+        try:
+            price = int(p.get("price", 0) or 0)
+            basic = int(p.get("basic", 0) or 0)
+            ts = float(p.get("ts", 0) or 0)
+        except (TypeError, ValueError):
+            continue
+        if not price or now - ts >= PRUNE_AFTER:
+            continue
+        out[pid] = {"price": price, "basic": basic, "ts": ts}
+    return out
+
+
 def _norm_admin_ui(raw):
     if not isinstance(raw, dict):
         return {"pending": None}
@@ -216,6 +241,7 @@ def _from_dict(data):
         "titles": _norm_titles(data.get("titles")),
         "img_hash": _norm_img_hash(data.get("img_hash")),
         "learned": _norm_learned(data.get("learned")),
+        "prices": _norm_prices(data.get("prices")),
     }
 
 
@@ -269,6 +295,7 @@ def merge(local, remote):
         "titles": dict(base["titles"]),
         "img_hash": dict(base["img_hash"]),
         "learned": dict(base["learned"]),
+        "prices": dict(base["prices"]),
     }
     for pid, ts in local["posted"].items():
         if pid not in m["posted"] or ts > m["posted"][pid]:
@@ -311,9 +338,22 @@ def merge(local, remote):
             "ts", 0
         ):
             m["learned"][query] = st
+    for pid, p in (local.get("prices") or {}).items():
+        if pid not in m["prices"] or p.get("ts", 0) > m["prices"][pid].get("ts", 0):
+            m["prices"][pid] = p
     local_ui = local.get("admin_ui") or {}
     m["admin_ui"] = {"pending": local_ui.get("pending")}
     return m
+
+
+def record_error(data, msg):
+    meta = data.setdefault("meta", {})
+    errors = meta.setdefault("errors", [])
+    if not isinstance(errors, list):
+        errors = []
+    errors = [e for e in errors if isinstance(e, dict)]
+    errors.append({"ts": int(time.time()), "msg": str(msg)[:400]})
+    meta["errors"] = errors[-20:]
 
 
 def bump_meta(data, n=1):
@@ -355,6 +395,15 @@ def save(path, data):
         for q, st in data["learned"].items()
         if st["status"] != "retired" or now - st["ts"] < LEARNED_KEEP
     }
+    data["prices"] = {
+        pid: p
+        for pid, p in data.get("prices", {}).items()
+        if now - p.get("ts", 0) < PRUNE_AFTER
+    }
+    keep_prices = sorted(
+        data["prices"].items(), key=lambda kv: kv[1].get("ts", 0)
+    )[-MAX_KEPT:]
+    data["prices"] = dict(keep_prices)
     data["feedback"] = {
         pid: fb
         for pid, fb in data["feedback"].items()

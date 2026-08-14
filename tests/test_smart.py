@@ -217,6 +217,25 @@ def main():
     assert smart.learned_counts(data) == (1, 1)
     print("20. learned_counts OK")
 
+    # 21. price_drop: падение на 15%+ -> репост, рост -> базовая линия обновляется
+    prices = {1: {"price": 1000, "basic": 2000, "ts": 0}}
+    d = deal(1, "a", 50)
+    d["product"] = 900
+    assert smart.price_drop(d, prices, 0.15) is False  # -10% мало
+    d["product"] = 850
+    assert smart.price_drop(d, prices, 0.15) is True
+    assert d.get("price_drop") is True and d.get("last_price") == 1000
+    assert prices[1]["price"] == 1000  # базовая линия не сдвинулась вниз
+    d["product"] = 1200
+    assert smart.price_drop(d, prices, 0.15) is False  # рост
+    assert prices[1]["price"] == 1200  # линия поднялась
+    assert smart.price_drop(d, prices, 0.15) is False
+    assert smart.price_drop(d, {}, 0.15) is False  # нет истории
+    d2 = deal(9, "a", 50)
+    d2["product"] = 1
+    assert smart.price_drop(d2, prices, 0.15) is False
+    print("21. price_drop OK")
+
 
 if __name__ == "__main__":
     main()

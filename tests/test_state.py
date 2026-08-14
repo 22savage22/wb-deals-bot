@@ -15,7 +15,7 @@ def main():
     e = state._empty()
     assert set(e) == {
         "posted", "feedback", "query_stats", "cat_stats", "tg", "recent", "meta", "admin_ui", "titles",
-        "img_hash", "learned",
+        "img_hash", "learned", "prices",
     }
     print("1. empty OK")
 
@@ -171,6 +171,44 @@ def main():
     finally:
         os.unlink(path)
     print("14. save prune OK")
+
+    # 15. prices: нормализация, merge, обрезка в save
+    out = state._norm_prices({1: {"price": 100, "basic": 200, "ts": now - 100},
+                              "2": {"price": 0, "basic": 0, "ts": now},
+                              "x": "junk",
+                              3: {"price": 50, "basic": 100, "ts": now - 1000 * 86400}})
+    assert 1 in out and out[1]["price"] == 100
+    assert 2 not in out and "x" not in out and 3 not in out
+    assert state._norm_prices([]) == {}
+    base = state._empty()
+    base["prices"] = {1: {"price": 200, "basic": 300, "ts": now - 500}}
+    loc = state._empty()
+    loc["prices"] = {1: {"price": 100, "basic": 200, "ts": now}, 2: {"price": 50, "basic": 100, "ts": now}}
+    merged = state.merge(loc, base)
+    assert merged["prices"][1]["price"] == 100  # свежее побеждает
+    assert merged["prices"][2]["price"] == 50
+    d = state._empty()
+    d["prices"] = {1: {"price": 100, "basic": 200, "ts": now - 100},
+                   2: {"price": 50, "basic": 100, "ts": now - 15 * 86400}}
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+        path = f.name
+    try:
+        state.save(path, d)
+        assert set(d["prices"]) == {1}, d["prices"]
+    finally:
+        os.unlink(path)
+    print("15. prices OK")
+
+    # 16. record_error: журнал, обрезка до 20
+    d = state._empty()
+    for i in range(25):
+        state.record_error(d, "ошибка %d" % i)
+    errs = d["meta"]["errors"]
+    assert len(errs) == 20 and errs[-1]["msg"] == "ошибка 24"
+    assert errs[0]["msg"] == "ошибка 5"
+    state.record_error(d, "x" * 500)
+    assert len(d["meta"]["errors"][-1]["msg"]) == 400
+    print("16. record_error OK")
 
 
 if __name__ == "__main__":

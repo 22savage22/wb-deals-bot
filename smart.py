@@ -29,6 +29,29 @@ def norm_title(text):
     return "".join(ch for ch in str(text or "").lower() if ch.isalnum())
 
 
+def price_drop(deal, prices, min_drop=0.15):
+    """Цена упала на min_drop (15% по умолчанию) с момента прошлого поста?
+    Если цена выросла — обновляем базовую линию, чтобы ловить будущие падения."""
+    if not prices:
+        return False
+    base = prices.get(deal.get("id"))
+    if not base or not base.get("price"):
+        return False
+    current = deal.get("product") or 0
+    base_price = float(base["price"])
+    if current <= 0 or base_price <= 0:
+        return False
+    if current >= base_price:
+        if current > base_price:
+            base["price"] = current
+        return False
+    if current / base_price > 1.0 - max(0.0, float(min_drop)):
+        return False
+    deal["price_drop"] = True
+    deal["last_price"] = int(base_price)
+    return True
+
+
 def _decay(stats):
     days = max(0, (time.time() - stats.get("ts", time.time())) / 86400)
     f = 0.9 ** days

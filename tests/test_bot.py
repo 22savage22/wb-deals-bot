@@ -26,6 +26,11 @@ class FakeTG:
         return True
 
     @staticmethod
+    def send_album(t, c, photos, text, link=None, pid=None, markup=None):
+        FakeTG.sent.append(("photo", c, pid, text))
+        return True
+
+    @staticmethod
     def fmt(n):
         return f"{n:,}".replace(",", " ")
 
@@ -45,6 +50,17 @@ class FakeWB:
     @staticmethod
     def cards(ids):
         return []
+
+    @staticmethod
+    def search_healthy():
+        return True
+
+    @staticmethod
+    def hamming(a, b):
+        try:
+            return bin(int(a, 16) ^ int(b, 16)).count("1")
+        except (ValueError, TypeError):
+            return 2**32
 
     @staticmethod
     def deal_from_search(item):
@@ -74,11 +90,14 @@ class FakeWB:
         return FakeWB.photo_map.get(nm, b"jpeg-%d" % nm)
 
     @staticmethod
+    def photos(nm, limit=3):
+        return [FakeWB.photo(nm)]
+
+    @staticmethod
     def image_hash(buf):
-        h = 0
-        for ch in buf:
-            h = (h * 33 + ch) & 0x7FFFFFFF
-        return format(h, "x")
+        import hashlib
+
+        return hashlib.sha1(buf).hexdigest()[:16]
 
 
 def make_items(n=12, start=1000):
@@ -247,10 +266,9 @@ def main():
     assert published == 4, published  # фото "same" + 3 разных: 4 уникальных картинки
     photos = [c for c in FakeTG.sent if c[0] == "photo"]
     assert len(photos) == 4, photos
-    h = 0
-    for ch in b"same":
-        h = (h * 33 + ch) & 0x7FFFFFFF
-    assert format(h, "x") in data["img_hash"]
+    import hashlib
+
+    assert hashlib.sha1(b"same").hexdigest()[:16] in data["img_hash"]
     assert 3000 not in data["img_hash"]
     # уже после поста повторный артикул той же картинки не публикуется
     FakeWB.photo_map = {3004: b"same"}
@@ -267,6 +285,49 @@ def main():
     bot.run_posting(data, {"queries": None}, notify=True)
     assert data["meta"].get("learn_ts"), "learn_categories не запустился"
     print("9. learning pipeline OK")
+
+    # --- 10. падение цены: опубликованный товар репостится при скидке ещё ниже ---
+    config.MAX_POSTS = 4
+    items = {}
+    for i in range(4):
+        pid = 4000 + i
+        items[pid] = {
+            "id": pid,
+            "name": "Ценовой товар %d" % pid,
+            "brand": "Бр",
+            "sizes": [{"price": {"product": 1000 * 100, "basic": 2000 * 100}}],
+            "reviewRating": 4.6,
+            "feedbacks": 10,
+            "subjectName": "КатЦ",
+        }
+    FakeWB.items = items
+    data = empty_data()
+    FakeTG.sent = []
+    published = bot.run_posting(data, {"queries": None}, notify=True)
+    assert published == 4
+    pid = 4000
+    items[pid]["sizes"][0]["price"]["product"] = 400 * 100  # -60% от базовой
+    FakeTG.sent = []
+    published2 = bot.run_posting(data, {"queries": None}, notify=True)
+    assert published2 == 1, published2  # только падение цены прошло
+    drops = [c for c in FakeTG.sent if c[0] == "photo" and c[2] == pid]
+    assert len(drops) == 1
+    assert data["prices"][pid]["price"] == 400
+    # ещё раз тот же запуск — уже не дублируем (цена не падала дальше)
+    FakeTG.sent = []
+    bot.run_posting(data, {"queries": None}, notify=True)
+    assert not [c for c in FakeTG.sent if c[0] == "photo"], FakeTG.sent
+    # маленькое падение (10%) не триггерит
+    items[pid]["sizes"][0]["price"]["product"] = 370 * 100
+    FakeTG.sent = []
+    bot.run_posting(data, {"queries": None}, notify=True)
+    assert not [c for c in FakeTG.sent if c[0] == "photo"], FakeTG.sent
+    # ещё 10% суммарно — 22.5% от базы 400 -> триггер
+    items[pid]["sizes"][0]["price"]["product"] = 300 * 100
+    FakeTG.sent = []
+    bot.run_posting(data, {"queries": None}, notify=True)
+    assert [c for c in FakeTG.sent if c[0] == "photo"], FakeTG.sent
+    print("10. price drop repost OK")
 
 
 if __name__ == "__main__":

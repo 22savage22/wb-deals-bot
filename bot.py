@@ -1,4 +1,5 @@
 import html
+import logging
 import os
 import random
 import subprocess
@@ -8,10 +9,13 @@ import time
 import admin
 import config
 import gitutil
+import log
 import smart
 import state
 import tg
 import wb
+
+logger = logging.getLogger("wb.bot")
 
 
 def _run(*args):
@@ -40,6 +44,22 @@ def commit_settings(path, settings):
     return gitutil.commit(path, merge_fn, "chore: update settings")
 
 
+def _img_dup(img_hash, h, now, repost_secs):
+    if not h or not img_hash:
+        return False
+    for stored_h, stored_ts in img_hash.items():
+        if now - stored_ts < repost_secs and wb.hamming(h, stored_h) <= config.HAMMING_MAX:
+            return True
+    return False
+
+
+def _post_images(token, chat_id, images, caption, link, pid):
+    if len(images) > 1:
+        if tg.send_album(token, chat_id, images, caption, link, pid):
+            return True
+    return tg.send_photo(token, chat_id, images[0], caption, link, pid)
+
+
 def run_posting(data, settings, notify=True):
     posted = data["posted"]
     pool = settings.get("queries") or config.QUERIES or config.DEFAULT_QUERIES
@@ -62,6 +82,19 @@ def run_posting(data, settings, notify=True):
             time.sleep(random.uniform(2.0, 4.0))
         time.sleep(random.uniform(3.0, 6.0))
 
+    if not wb.search_healthy():
+        state.record_error(data, "WB API вернул неожиданный формат ответа")
+        if (
+            config.TG_ADMIN_ID
+            and smart.notice_ok(data, "api_fail_notice_ts", 24 * 3600)
+        ):
+            tg.send_message(
+                config.TG_BOT_TOKEN,
+                config.TG_ADMIN_ID,
+                "⚠️ <b>Wildberries изменил формат ответа</b> — бот может "
+                "ничего не находить. Проверь wb.py, пока данные не потерялись.",
+            )
+
     if not seen:
         print("Поиск не дал результатов")
         _notify_run(data, settings, queries, 0, [], notify)
@@ -83,15 +116,24 @@ def run_posting(data, settings, notify=True):
 
     now = time.time()
     repost_secs = config.REPOST_DAYS * 86400
-    deals = [
-        d
-        for d in deals
-        if not (d["id"] in posted and now - posted[d["id"]] < repost_secs)
-    ]
+    prices = data.setdefault("prices", {})
+    allowed = []
+    for d in deals:
+        pid = d["id"]
+        last = posted.get(pid)
+        if last and now - last < repost_secs:
+            if smart.price_drop(d, prices, config.PRICE_DROP_MIN):
+                allowed.append(d)
+            continue
+        allowed.append(d)
+    deals = allowed
     titles = data.setdefault("titles", {})
     seen_titles = set()
     unique = []
     for d in sorted(deals, key=lambda x: (x["discount"], x["benefit"]), reverse=True):
+        if d.get("price_drop"):
+            unique.append(d)
+            continue
         key = smart.norm_title(d["title"])
         if not key:
             unique.append(d)
@@ -115,32 +157,39 @@ def run_posting(data, settings, notify=True):
         if published >= config.MAX_POSTS:
             break
         pid = deal["id"]
-        image = wb.photo(pid)
-        if image is None:
+        images = wb.photos(pid)
+        if not images:
+            state.record_error(data, f"Нет фото: {pid}")
             print("Нет фото:", pid)
             continue
-        h = wb.image_hash(image)
-        if h and img_hash.get(h) and now - img_hash[h] < repost_secs:
+        h = wb.image_hash(images[0])
+        if h and not deal.get("price_drop") and _img_dup(img_hash, h, now, repost_secs):
             posted[pid] = int(now)
             print("Повтор по фото:", pid)
             continue
         link = config.LINK_TEMPLATE.format(nm=pid)
         try:
-            ok = tg.send_photo(
+            ok = _post_images(
                 config.TG_BOT_TOKEN,
                 config.TG_CHAT_ID,
-                image,
+                images,
                 tg.caption(deal, pid),
                 link,
                 pid,
             )
         except Exception as exc:
+            state.record_error(data, f"Ошибка публикации {pid}: {exc}")
             print("Ошибка публикации:", pid, exc)
             ok = False
         if ok:
             posted[pid] = int(now)
-            if h:
+            if h and not deal.get("price_drop"):
                 img_hash[h] = int(now)
+            prices[pid] = {
+                "price": deal["product"],
+                "basic": deal["basic"],
+                "ts": now,
+            }
             key = smart.norm_title(deal["title"])
             if key:
                 titles[key] = int(now)
@@ -157,6 +206,7 @@ def run_posting(data, settings, notify=True):
                     "query": pid_query.get(pid),
                     "cat": deal["category"],
                     "ts": int(now),
+                    "drop": int(deal.get("price_drop") or 0),
                 }
             )
             smart.record_post(data, pid_query.get(pid), deal["category"])
@@ -233,6 +283,7 @@ def process_updates(data, settings):
 
 
 def main():
+    log.setup()
     if not config.TG_BOT_TOKEN or not config.TG_CHAT_ID:
         print("Задайте TG_BOT_TOKEN и TG_CHAT_ID")
         sys.exit(1)
@@ -252,6 +303,8 @@ def main():
         try:
             run_posting(data, settings)
         except Exception as exc:
+            state.record_error(data, f"Запуск упал: {exc}")
+            logger.error("Запуск упал: %s", exc)
             print("Ошибка постинга:", exc)
             if config.TG_ADMIN_ID:
                 try:

@@ -1,3 +1,4 @@
+import logging
 import subprocess
 import sys
 import time
@@ -5,9 +6,12 @@ import time
 import admin
 import config
 import gitutil
+import log
 import smart
 import state
 import tg
+
+logger = logging.getLogger("wb.poller")
 
 LIFETIME = 6 * 3600
 CYCLE = 15
@@ -63,6 +67,7 @@ def _maybe_week_digest(token, data, settings):
 
 
 def main():
+    log.setup()
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
@@ -89,6 +94,8 @@ def main():
                 published = bot.run_posting(data, settings, notify=False)
                 msg = f"🚀 Ручной запуск завершён: опубликовано <b>{published}</b>"
             except Exception as exc:
+                state.record_error(data, f"Ручной запуск упал: {exc}")
+                logger.error("Ручной запуск упал: %s", exc)
                 msg = f"❌ Ручной запуск упал: {exc}"
             finally:
                 settings.pop("post_now_ts", None)
@@ -105,7 +112,7 @@ def main():
             state.save(config.STATE_FILE, data)
             commit_state(config.STATE_FILE, data)
             last_commit = time.time()
-            print("poller alive | posted:", len(data["posted"]))
+            logger.info("poller alive | posted: %d", len(data["posted"]))
         time.sleep(CYCLE)
     _pull()
     state.save(config.STATE_FILE, data)

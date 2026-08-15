@@ -3,6 +3,9 @@ import random
 import time
 
 CAT_COOLDOWN_H = 12
+CATS_RETIRE_EMPTY = 5
+CATS_REACTIVATE_SECS = 14 * 86400
+CATS_WEIGHT_MIN = 0.2
 
 LEARNED_MAX = 30
 TRIAL_ATTEMPTS = 5
@@ -285,6 +288,89 @@ def pick_deals(deals, data, n):
         if not progressed:
             break
     return selected
+
+
+def refresh_categories(data, menu):
+    """Сливает каталог WB в память: категории (name, shard) без потери статистики."""
+    if not menu:
+        return 0
+    cats = data.setdefault("cats", {})
+    added = 0
+    for name, shard in menu:
+        if not name or not isinstance(name, str):
+            continue
+        st = cats.get(name)
+        if st is None:
+            cats[name] = {"shard": str(shard or ""), "ts": 0, "runs": 0, "empty": 0}
+            added += 1
+        else:
+            st["shard"] = str(shard or "") or st.get("shard", "")
+    return added
+
+
+def pick_categories(data, n):
+    """Выбирает n категорий: реже пустые и проверенные, чаще успешные."""
+    cats = (data or {}).get("cats") or {}
+    if not cats or n <= 0:
+        return []
+    now = time.time()
+    active = []
+    retired = []
+    for name, st in cats.items():
+        if not isinstance(st, dict):
+            continue
+        empty = int(st.get("empty", 0) or 0)
+        if empty >= CATS_RETIRE_EMPTY:
+            retired.append(name)
+            if now - float(st.get("ts", 0) or 0) >= CATS_REACTIVATE_SECS:
+                st["empty"] = 0
+                active.append(name)
+        else:
+            active.append(name)
+    if not active:
+        if not retired:
+            return []
+        names = sorted(retired, key=lambda x: cats[x].get("ts", 0))[:n]
+        for nm in names:
+            cats[nm]["empty"] = 0
+        return names
+    cat_stats = (data or {}).get("cat_stats") or {}
+    pool = []
+    for name in active:
+        sc = score(cat_stats.get(name, {}))
+        empty = int(cats[name].get("empty", 0) or 0)
+        weight = max(CATS_WEIGHT_MIN, sc) * (0.5 ** empty)
+        pool.append((name, weight))
+    picks = []
+    for _ in range(min(n, len(pool))):
+        total = sum(w for _, w in pool)
+        if total <= 0:
+            break
+        r = random.uniform(0, total)
+        acc = 0
+        for i, (name, w) in enumerate(pool):
+            acc += w
+            if r <= acc:
+                picks.append(name)
+                pool.pop(i)
+                break
+    return picks
+
+
+def tally_cats(data, used, posts_by_name):
+    """Учёт запусков категорий: пост сбрасывает счётчик пустоты, пусто — копит."""
+    cats = data.setdefault("cats", {})
+    now = time.time()
+    for name in used:
+        st = cats.get(name)
+        if st is None or not isinstance(st, dict):
+            continue
+        st["runs"] = int(st.get("runs", 0) or 0) + 1
+        st["ts"] = now
+        if posts_by_name.get(name):
+            st["empty"] = 0
+        else:
+            st["empty"] = int(st.get("empty", 0) or 0) + 1
 
 
 def notice_ok(data, key, cooldown):

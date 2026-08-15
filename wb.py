@@ -17,7 +17,14 @@ SESSION.headers.update(
 )
 
 SEARCH = "https://search.wb.ru/exactmatch/ru/common/v9/search"
+CATALOG = "https://catalog.wb.ru/catalog"
 CARDS = "https://card.wb.ru/cards/v4/detail"
+MENU_URL = "https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json"
+MENU_FALLBACKS = [
+    "https://static-basket-02.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json",
+    "https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v2.json",
+    "https://static-basket-02.wbbasket.ru/vol0/data/main-menu-ru-ru-v2.json",
+]
 
 _HOSTS = {}
 FORMAT_FAILS = 0
@@ -44,7 +51,7 @@ def _get(url, params=None, tries=5):
     return None
 
 
-def search(query, page):
+def search(query, page, subject=None):
     params = {
         "appType": "1",
         "curr": "rub",
@@ -60,7 +67,8 @@ def search(query, page):
     }
     global FORMAT_FAILS
     for attempt in range(3):
-        data = _get(SEARCH, params)
+        url = f"{CATALOG}/{subject}/catalog" if subject else SEARCH
+        data = _get(url, params)
         if not data:
             return []
         products = (data.get("data") or {}).get("products")
@@ -68,9 +76,81 @@ def search(query, page):
             products = data.get("products")
         if products is not None:
             FORMAT_FAILS = 0
-            return products
+            if products or not subject:
+                return products
+            # категория не отдала товары по subject — пробуем текстовый поиск
+            products = _search_plain(query, page)
+            return products or []
         time.sleep(5 + attempt * 10)
     FORMAT_FAILS += 1
+    return []
+
+
+def _search_plain(query, page):
+    params = {
+        "appType": "1",
+        "curr": "rub",
+        "dest": str(config.DEST),
+        "spp": "30",
+        "lang": "ru",
+        "query": query,
+        "sort": "benefit",
+        "page": str(page),
+        "resultset": "catalog",
+        "ab_testing": "false",
+        "suppressSpellcheck": "false",
+    }
+    data = _get(SEARCH, params)
+    if not data:
+        return []
+    products = (data.get("data") or {}).get("products")
+    if products is None:
+        products = data.get("products")
+    return products or []
+
+
+def _parse_menu(data):
+    """Плоский список категорий: [(name, shard)] — без blackhole и пустых."""
+    out = []
+    seen = set()
+
+    def walk(node):
+        if isinstance(node, list):
+            for item in node:
+                walk(item)
+            return
+        if not isinstance(node, dict):
+            return
+        name = node.get("name")
+        shard = node.get("shard") or ""
+        if (
+            name
+            and isinstance(name, str)
+            and name.strip()
+            and shard
+            and shard != "blackhole"
+        ):
+            key = name.strip()
+            if key not in seen:
+                seen.add(key)
+                out.append((key, str(shard)))
+        for key in ("childs", "children"):
+            for child in node.get(key) or []:
+                walk(child)
+
+    if isinstance(data, dict):
+        data = data.get("data") or data
+    walk(data)
+    return out
+
+
+def menu():
+    for url in [MENU_URL] + MENU_FALLBACKS:
+        data = _get(url, tries=1)
+        if data:
+            parsed = _parse_menu(data)
+            if parsed:
+                return parsed
     return []
 
 

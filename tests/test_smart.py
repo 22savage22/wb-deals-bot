@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+import random
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -235,6 +236,52 @@ def main():
     d2["product"] = 1
     assert smart.price_drop(d2, prices, 0.15) is False
     print("21. price_drop OK")
+
+    # 22. refresh_categories: категории из каталога, статистика не теряется
+    data = make_data()
+    added = smart.refresh_categories(data, [("Смартфоны", "smartfony"), ("Кроссовки", "krossovki")])
+    assert added == 2
+    assert data["cats"]["Смартфоны"]["shard"] == "smartfony"
+    data["cats"]["Смартфоны"]["runs"] = 5
+    assert smart.refresh_categories(data, [("Смартфоны", "smartfony")]) == 0  # повторно не добавляет
+    assert data["cats"]["Смартфоны"]["runs"] == 5  # статистика на месте
+    assert smart.refresh_categories(data, []) == 0
+    print("22. refresh_categories OK")
+
+    # 23. pick_categories: ротация + вес успешных, пустые на пенсию
+    data = make_data()
+    smart.refresh_categories(data, [("A", "a"), ("B", "b"), ("C", "c")])
+    data["cat_stats"]["A"] = {"posts": 10, "likes": 9, "dislikes": 0, "bought": 0, "ts": 0}
+    random.seed(1)
+    seen = set()
+    for _ in range(60):
+        picks = smart.pick_categories(data, 1)
+        assert len(picks) == 1
+        seen.add(picks[0])
+    assert "A" in seen  # успешная категория рано или поздно попадает
+    assert smart.pick_categories(make_data(), 2) == []  # пусто — нет категорий
+    data2 = make_data()
+    smart.refresh_categories(data2, [("A", "a"), ("B", "b")])
+    for _ in range(5):
+        smart.tally_cats(data2, ["A"], {})
+    picks = smart.pick_categories(data2, 2)
+    assert "A" not in picks  # 5 пустых запусков — категория на пенсии
+    data2["cats"]["A"]["ts"] = int(time.time()) - 15 * 86400
+    picks = smart.pick_categories(data2, 2)
+    assert "A" in picks  # через 14 дней возвращается
+    assert data2["cats"]["A"]["empty"] == 0
+    print("23. pick_categories OK")
+
+    # 24. tally_cats: пост сбрасывает пустоту, пустота копится
+    data = make_data()
+    smart.refresh_categories(data, [("A", "a")])
+    smart.tally_cats(data, ["A"], {"A": 2})
+    assert data["cats"]["A"]["runs"] == 1 and data["cats"]["A"]["empty"] == 0
+    smart.tally_cats(data, ["A"], {})
+    assert data["cats"]["A"]["empty"] == 1 and data["cats"]["A"]["runs"] == 2
+    smart.tally_cats(data, [], {})
+    assert data["cats"]["A"]["runs"] == 2  # пустой список не трогает
+    print("24. tally_cats OK")
 
 
 if __name__ == "__main__":

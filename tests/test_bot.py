@@ -42,10 +42,18 @@ class FakeTG:
 class FakeWB:
     items = {}
     photo_map = {}
+    cat_menu = []
+    search_subject_only = False
 
     @staticmethod
-    def search(query, page):
+    def search(query, page, subject=None):
+        if FakeWB.search_subject_only and subject is None:
+            return []
         return list(FakeWB.items.values())
+
+    @staticmethod
+    def menu():
+        return list(FakeWB.cat_menu)
 
     @staticmethod
     def cards(ids):
@@ -328,6 +336,30 @@ def main():
     bot.run_posting(data, {"queries": None}, notify=True)
     assert [c for c in FakeTG.sent if c[0] == "photo"], FakeTG.sent
     print("10. price drop repost OK")
+
+    # --- 11. поиск по всем категориям каталога WB + самообучение ---
+    config.CATS_PER_RUN = 1
+    FakeWB.cat_menu = [("КатСмартфоны", "smartfony")]
+    FakeWB.search_subject_only = True
+    FakeWB.items = make_items(4)
+    FakeWB.photo_map = {}
+    data = empty_data()
+    FakeTG.sent = []
+    bot.run_posting(data, {"queries": None}, notify=True)
+    assert data["meta"].get("last_cats") == ["КатСмартфоны"]
+    st = data["cats"]["КатСмартфоны"]
+    assert st["shard"] == "smartfony" and st["runs"] == 1
+    # категория дала посты — пустота не копится, посты записаны под её именем
+    assert st["empty"] == 0
+    assert data["query_stats"]["КатСмартфоны"]["posts"] >= 1
+    # второй запуск: та же категория, но уже пустая выдача
+    FakeWB.items = {}
+    FakeTG.sent = []
+    bot.run_posting(data, {"queries": None}, notify=True)
+    assert data["cats"]["КатСмартфоны"]["runs"] == 2
+    assert data["cats"]["КатСмартфоны"]["empty"] == 1
+    FakeWB.search_subject_only = False
+    print("11. category search + learning OK")
 
 
 if __name__ == "__main__":

@@ -166,6 +166,70 @@ def main():
     assert wb.deal(c) is not None
     print("11. blacklist OK")
 
+    # 12. _parse_menu: из каталога WB берём подкатегории (name, shard)
+    menu_json = [
+        {
+            "id": 306,
+            "name": "Электроника",
+            "shard": "blackhole",
+            "childs": [
+                {"id": 1, "name": "Смартфоны", "shard": "smartfony"},
+                {"id": 2, "name": "Телевизоры", "shard": "televizory"},
+            ],
+        },
+        {
+            "id": 307,
+            "name": "Женщинам",
+            "shard": "blackhole",
+            "childs": [
+                {"id": 3, "name": "Платья", "shard": "platya"},
+                {"id": 4, "name": "", "shard": "bad"},
+                {
+                    "id": 5,
+                    "name": "Белье",
+                    "shard": "blackhole",
+                    "childs": [{"id": 6, "name": "Аксессуары", "shard": "women_underwear2"}],
+                },
+            ],
+        },
+    ]
+    flat = wb._parse_menu(menu_json)
+    assert ("Смартфоны", "smartfony") in flat
+    assert ("Платья", "platya") in flat
+    assert ("Аксессуары", "women_underwear2") in flat
+    assert not any(n == "Электроника" or n == "Белье" for n, _ in flat)  # blackhole не нужен
+    assert not any(n == "" for n, _ in flat)
+    assert wb._parse_menu(None) == []
+    assert wb._parse_menu({}) == []
+    assert wb._parse_menu("junk") == []
+    print("12. parse menu OK")
+
+    # 13. search: subject → catalog.wb.ru (shard в URL), иначе search.wb.ru
+    calls = []
+
+    def fake_get(url, params=None, tries=5):
+        calls.append((url, params))
+        if url.startswith(wb.CATALOG):
+            return {"data": {"products": [{"id": 1, "name": "X", "discount": 10,
+                                           "sizes": [{"price": {"product": 900, "basic": 1000}}]}]}}
+        return None
+
+    orig_get = wb._get
+    wb._get = fake_get
+    try:
+        r = wb.search("Смартфоны", 1, subject="smartfony")
+        assert len(r) == 1
+        url, params = calls[-1]
+        assert url == wb.CATALOG + "/smartfony/catalog"
+        assert "subject" not in params  # shard ушёл в URL
+        calls.clear()
+        r = wb.search("кофе", 1)
+        assert not r
+        assert calls[-1][0] == wb.SEARCH
+    finally:
+        wb._get = orig_get
+    print("13. search endpoint OK")
+
 
 if __name__ == "__main__":
     main()

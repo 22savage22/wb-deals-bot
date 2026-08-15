@@ -67,6 +67,16 @@ def run_posting(data, settings, notify=True):
         pool, data["query_stats"], config.QUERIES_PER_RUN, data
     )
 
+    meta = data.setdefault("meta", {})
+    now = time.time()
+    if not data.get("cats") or now - float(meta.get("cats_ts", 0) or 0) > 24 * 3600:
+        try:
+            smart.refresh_categories(data, wb.menu())
+        except Exception:
+            pass
+        meta["cats_ts"] = now
+    cat_names = smart.pick_categories(data, config.CATS_PER_RUN)
+
     seen = {}
     pid_query = {}
     for query in queries:
@@ -79,6 +89,19 @@ def run_posting(data, settings, notify=True):
                 if pid and pid not in seen:
                     seen[pid] = item
                     pid_query[pid] = query
+            time.sleep(random.uniform(2.0, 4.0))
+        time.sleep(random.uniform(3.0, 6.0))
+    for name in cat_names:
+        shard = (data.get("cats") or {}).get(name, {}).get("shard") or ""
+        for page in range(1, config.PAGES + 1):
+            items = wb.search(name, page, subject=shard or None)
+            if not items:
+                break
+            for item in items:
+                pid = item.get("id")
+                if pid and pid not in seen:
+                    seen[pid] = item
+                    pid_query[pid] = name
             time.sleep(random.uniform(2.0, 4.0))
         time.sleep(random.uniform(3.0, 6.0))
 
@@ -95,9 +118,12 @@ def run_posting(data, settings, notify=True):
                 "ничего не находить. Проверь wb.py, пока данные не потерялись.",
             )
 
+    meta["last_cats"] = list(cat_names)
+
     if not seen:
+        smart.tally_cats(data, cat_names, {})
         print("Поиск не дал результатов")
-        _notify_run(data, settings, queries, 0, [], notify)
+        _notify_run(data, settings, queries, cat_names, 0, [], notify)
         return 0
 
     cards = wb.cards(list(seen.keys()))
@@ -114,7 +140,6 @@ def run_posting(data, settings, notify=True):
             if d:
                 deals.append(d)
 
-    now = time.time()
     repost_secs = config.REPOST_DAYS * 86400
     prices = data.setdefault("prices", {})
     allowed = []
@@ -224,15 +249,24 @@ def run_posting(data, settings, notify=True):
         if q:
             posts_by_query[q] = posts_by_query.get(q, 0) + 1
     smart.tally_run(data, pool, queries, posts_by_query)
+    posts_by_cat = {}
+    for d in posted_deals:
+        q = pid_query.get(d["id"])
+        if q in cat_names:
+            posts_by_cat[q] = posts_by_cat.get(q, 0) + 1
+    smart.tally_cats(data, cat_names, posts_by_cat)
     added = smart.learn_categories(data, pool)
     if added:
         print("Новые запросы из категорий:", added)
-    print("Запросы этого запуска:", ", ".join(queries))
-    _notify_run(data, settings, queries, published, posted_deals, notify)
+    parts = ["Запросы: " + ", ".join(queries)]
+    if cat_names:
+        parts.append("Категории: " + ", ".join(cat_names))
+    print(" · ".join(parts))
+    _notify_run(data, settings, queries, cat_names, published, posted_deals, notify)
     return published
 
 
-def _notify_run(data, settings, queries, published, posted_deals, notify):
+def _notify_run(data, settings, queries, cat_names, published, posted_deals, notify):
     admin = config.TG_ADMIN_ID
     token = config.TG_BOT_TOKEN
     if not notify or not admin:
@@ -256,19 +290,16 @@ def _notify_run(data, settings, queries, published, posted_deals, notify):
         )
         return
     if smart.notice_ok(data, "empty_notice_ts", 12 * 3600):
-        tg.send_message(
-            token,
-            admin,
-            "\n".join(
-                [
-                    "😴 <b>Запуск ничего не нашёл</b>",
-                    "",
-                    "Запросы: " + ", ".join(str(q) for q in queries),
-                    "",
-                    "Пора обновить запросы в ⚙️ Настройках → 🔍 Запросы.",
-                ]
-            ),
-        )
+        lines = ["😴 <b>Запуск ничего не нашёл</b>", ""]
+        if queries:
+            lines.append("Запросы: " + ", ".join(str(q) for q in queries))
+        if cat_names:
+            lines.append("Категории: " + ", ".join(str(c) for c in cat_names))
+        lines += [
+            "",
+            "Бот сам ротирует категории каталога WB — пустые уходят на паузу.",
+        ]
+        tg.send_message(token, admin, "\n".join(lines))
 
 
 def process_updates(data, settings):

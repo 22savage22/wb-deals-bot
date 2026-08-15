@@ -19,6 +19,7 @@ SETTABLE = {
     "max_posts": ("int", "сколько постов публиковать за один запуск"),
     "pages": ("int", "сколько страниц поиска просматривать"),
     "queries_per_run": ("int", "по скольким запросам искать за запуск"),
+    "cats_per_run": ("int", "сколько категорий WB проверять за запуск (самообучение)"),
     "repost_days": ("float", "через сколько дней повторять уже показанный товар"),
     "dest": ("int", "номер региона доставки Wildberries"),
     "queries": ("queries", "по каким запросам искать товары"),
@@ -34,6 +35,7 @@ NAMES = {
     "max_posts": "Постов за запуск",
     "pages": "Страниц поиска",
     "queries_per_run": "Запросов за запуск",
+    "cats_per_run": "Категорий за запуск",
     "repost_days": "Повтор через",
     "dest": "Регион WB",
     "queries": "Запросы",
@@ -49,6 +51,7 @@ ICONS = {
     "max_posts": "📦",
     "pages": "📄",
     "queries_per_run": "🎯",
+    "cats_per_run": "🗂",
     "repost_days": "🔁",
     "dest": "📍",
     "queries": "🔍",
@@ -67,7 +70,7 @@ MAIN_KEYS = [
     "pages",
     "queries",
 ]
-ADV_KEYS = ["dest", "link_template", "weekly_digest", "blacklist"]
+ADV_KEYS = ["dest", "link_template", "weekly_digest", "blacklist", "cats_per_run"]
 
 STEPS = {
     "min_discount": 5,
@@ -77,6 +80,7 @@ STEPS = {
     "pages": 1,
     "queries_per_run": 1,
     "repost_days": 1,
+    "cats_per_run": 1,
 }
 
 PRESETS = {
@@ -86,6 +90,7 @@ PRESETS = {
     "max_posts": [("1", "1"), ("3", "3"), ("5", "5"), ("8", "8"), ("10", "10")],
     "pages": [("1", "1"), ("2", "2"), ("3", "3")],
     "queries_per_run": [("1", "1"), ("2", "2"), ("3", "3"), ("4", "4")],
+    "cats_per_run": [("1", "1"), ("2", "2"), ("3", "3"), ("5", "5"), ("8", "8")],
     "repost_days": [("3", "3 дн."), ("7", "7 дн."), ("14", "14 дн."), ("30", "30 дн.")],
 }
 
@@ -97,6 +102,7 @@ BOUNDS = {
     "pages": (1, 5),
     "queries_per_run": (1, 10),
     "repost_days": (0.5, 90),
+    "cats_per_run": (1, 20),
     "weekly_digest": (0, 1),
 }
 
@@ -348,6 +354,8 @@ def _status_view(data, settings):
         rows.append(
             f"🧠 Самообучение: запросов в ротации <b>{active}</b> · на испытании <b>{trials}</b>"
         )
+    n_cats = len(data.get("cats") or {})
+    rows.append(f"🗂 Категорий WB в ротации: <b>{tg.fmt(n_cats)}</b>")
     rows.append(f"🆔 Чат: <code>{config.TG_CHAT_ID}</code> · Админ: <code>{config.TG_ADMIN_ID or 'не задан'}</code>")
     text = "\n".join(rows)
     markup = [
@@ -493,6 +501,7 @@ def _current(settings, key):
         "max_posts": config.MAX_POSTS,
         "pages": config.PAGES,
         "queries_per_run": config.QUERIES_PER_RUN,
+        "cats_per_run": config.CATS_PER_RUN,
         "repost_days": config.REPOST_DAYS,
         "dest": config.DEST,
         "queries": config.QUERIES or config.DEFAULT_QUERIES,
@@ -518,7 +527,7 @@ def _human(key, value):
         return f"{value:g} дн."
     if key == "dest":
         return tg.fmt(int(value))
-    if key in ("max_posts", "pages", "queries_per_run"):
+    if key in ("max_posts", "pages", "queries_per_run", "cats_per_run"):
         return f"{value:g}"
     if key == "weekly_digest":
         return "вкл" if value else "выкл"
@@ -611,6 +620,7 @@ def _adv_markup():
             _btn(f"{ICONS['weekly_digest']} {NAMES['weekly_digest']}", MENU + "advset:weekly_digest"),
             _btn(f"{ICONS['blacklist']} {NAMES['blacklist']}", MENU + "advset:blacklist"),
         ],
+        [_btn(f"{ICONS['cats_per_run']} {NAMES['cats_per_run']}", MENU + "advset:cats_per_run")],
         [_btn("⬅️ К настройкам", MENU + "cfg")],
         _home_row()[0],
     ]

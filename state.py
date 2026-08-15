@@ -27,6 +27,7 @@ def _empty():
         "img_hash": {},
         "learned": {},
         "prices": {},
+        "cats": {},
     }
 
 
@@ -194,6 +195,26 @@ def _norm_learned(raw):
     return out
 
 
+def _norm_cats(raw):
+    if not isinstance(raw, dict):
+        return {}
+    out = {}
+    for name, st in raw.items():
+        if not isinstance(name, str) or not name:
+            continue
+        if not isinstance(st, dict):
+            continue
+        try:
+            shard = str(st.get("shard", "") or "")
+            ts = float(st.get("ts", 0) or 0)
+            runs = int(st.get("runs", 0) or 0)
+            empty = int(st.get("empty", 0) or 0)
+        except (TypeError, ValueError):
+            continue
+        out[name] = {"shard": shard, "ts": ts, "runs": runs, "empty": empty}
+    return out
+
+
 def _norm_prices(raw):
     if not isinstance(raw, dict):
         return {}
@@ -242,6 +263,7 @@ def _from_dict(data):
         "img_hash": _norm_img_hash(data.get("img_hash")),
         "learned": _norm_learned(data.get("learned")),
         "prices": _norm_prices(data.get("prices")),
+        "cats": _norm_cats(data.get("cats")),
     }
 
 
@@ -296,6 +318,7 @@ def merge(local, remote):
         "img_hash": dict(base["img_hash"]),
         "learned": dict(base["learned"]),
         "prices": dict(base["prices"]),
+        "cats": dict(base["cats"]),
     }
     for pid, ts in local["posted"].items():
         if pid not in m["posted"] or ts > m["posted"][pid]:
@@ -341,6 +364,9 @@ def merge(local, remote):
     for pid, p in (local.get("prices") or {}).items():
         if pid not in m["prices"] or p.get("ts", 0) > m["prices"][pid].get("ts", 0):
             m["prices"][pid] = p
+    for name, st in (local.get("cats") or {}).items():
+        if name not in m["cats"] or st.get("ts", 0) > m["cats"][name].get("ts", 0):
+            m["cats"][name] = st
     local_ui = local.get("admin_ui") or {}
     m["admin_ui"] = {"pending": local_ui.get("pending")}
     return m
@@ -404,6 +430,11 @@ def save(path, data):
         data["prices"].items(), key=lambda kv: kv[1].get("ts", 0)
     )[-MAX_KEPT:]
     data["prices"] = dict(keep_prices)
+    data["cats"] = {
+        name: st
+        for name, st in data.get("cats", {}).items()
+        if now - st.get("ts", 0) < LEARNED_KEEP
+    }
     data["feedback"] = {
         pid: fb
         for pid, fb in data["feedback"].items()

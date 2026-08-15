@@ -35,6 +35,9 @@ STATE_FILE = os.getenv("WB_STATE_FILE", "state.json")
 SETTINGS_FILE = os.getenv("WB_SETTINGS_FILE", "settings.json")
 PRICE_DROP_MIN = _float("WB_PRICE_DROP_MIN", 0.15)
 HAMMING_MAX = _int("WB_HAMMING_MAX", 6)
+CATS_PER_RUN = _int("WB_CATS_PER_RUN", 2)
+CATS_RETIRE_EMPTY = _int("WB_CATS_RETIRE_EMPTY", 5)
+CATS_REACTIVATE_DAYS = _float("WB_CATS_REACTIVATE_DAYS", 14)
 
 FALLBACK_DESTS = [
     int(x.strip())
@@ -119,3 +122,5 @@ def apply(settings):
         globals()["FALLBACK_DESTS"] = [int(x) for x in d]
     if settings.get("price_drop_min") is not None:
         globals()["PRICE_DROP_MIN"] = float(settings["price_drop_min"])
+    if settings.get("cats_per_run") is not None:
+        globals()["CATS_PER_RUN"] = int(settings["cats_per_run"])

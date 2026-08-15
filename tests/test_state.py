@@ -15,7 +15,7 @@ def main():
     e = state._empty()
     assert set(e) == {
         "posted", "feedback", "query_stats", "cat_stats", "tg", "recent", "meta", "admin_ui", "titles",
-        "img_hash", "learned", "prices",
+        "img_hash", "learned", "prices", "cats",
     }
     print("1. empty OK")
 
@@ -209,6 +209,32 @@ def main():
     state.record_error(d, "x" * 500)
     assert len(d["meta"]["errors"][-1]["msg"]) == 400
     print("16. record_error OK")
+
+    # 17. cats: нормализация, merge, обрезка в save
+    out = state._norm_cats({1: "junk",
+                            "Смартфоны": {"shard": "smartfony", "ts": now - 100, "runs": 3, "empty": 1},
+                            "": {"shard": "x", "ts": now, "runs": 0, "empty": 0},
+                            "Старые": {"shard": "old", "ts": now - 61 * 86400, "runs": 1, "empty": 5}})
+    assert set(out) == {"Смартфоны", "Старые"}, out
+    assert out["Смартфоны"]["shard"] == "smartfony" and out["Смартфоны"]["runs"] == 3
+    assert state._norm_cats([]) == {}
+    base = state._empty()
+    base["cats"] = {"A": {"shard": "a", "ts": now - 500, "runs": 1, "empty": 0}}
+    loc = state._empty()
+    loc["cats"] = {"A": {"shard": "a", "ts": now, "runs": 2, "empty": 0}, "B": {"shard": "b", "ts": now, "runs": 0, "empty": 0}}
+    merged = state.merge(loc, base)
+    assert merged["cats"]["A"]["runs"] == 2 and merged["cats"]["B"]["shard"] == "b"
+    d = state._empty()
+    d["cats"] = {"A": {"shard": "a", "ts": now, "runs": 1, "empty": 0},
+                 "B": {"shard": "b", "ts": now - 61 * 86400, "runs": 1, "empty": 0}}
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+        path = f.name
+    try:
+        state.save(path, d)
+        assert set(d["cats"]) == {"A"}, d["cats"]
+    finally:
+        os.unlink(path)
+    print("17. cats OK")
 
 
 if __name__ == "__main__":

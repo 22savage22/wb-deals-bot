@@ -243,7 +243,10 @@ def run_posting(data, settings, notify=True):
     for d in deals:
         if d.get("category", "другое") == "другое" and pid_query.get(d["id"]):
             d["category"] = pid_query[d["id"]]
-    deals = smart.pick_deals(deals, data, config.MAX_POSTS)
+    # Keep backup candidates: a broken image or one rejected Telegram upload
+    # must not turn the whole scheduled run into zero posts.
+    attempt_limit = max(config.MAX_POSTS + 2, config.MAX_POSTS * 5)
+    deals = smart.pick_deals(deals, data, attempt_limit)
     funnel["selected"] = len(deals)
 
     published = 0

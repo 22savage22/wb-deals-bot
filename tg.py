@@ -20,6 +20,9 @@ def _remember_error(resp=None, exc=None):
         description = resp.json().get("description", "")
     except (ValueError, AttributeError):
         description = ""
+    if "message is not modified" in description:
+        LAST_ERROR = ""
+        return
     LAST_ERROR = f"HTTP {getattr(resp, 'status_code', '?')}: {description or 'Telegram rejected request'}"[:400]
 
 

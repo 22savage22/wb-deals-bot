@@ -145,6 +145,15 @@ def main():
         tg.requests.post = original_post
     print("12. telegram diagnostics OK")
 
+    # 13. уже установленная клавиатура — успешный идемпотентный результат
+    class SameResponse(ErrorResponse):
+        def json(self):
+            return {"description": "Bad Request: message is not modified"}
+
+    tg._remember_error(SameResponse())
+    assert tg.last_error() == ""
+    print("13. idempotent edit OK")
+
 
 if __name__ == "__main__":
     main()

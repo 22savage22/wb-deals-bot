@@ -147,6 +147,19 @@
  },
  "recent": [
   {
+   "pid": 535440587,
+   "title": "Наушники проводные Type-C",
+   "discount": 82,
+   "price": 414,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/535440587/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786918159,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 460659363,
    "title": "Смартфон SANSUNG S26 Ultra,Телефон 12+1TB,6000мАч",
    "discount": 78,
@@ -386,19 +399,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 535440587,
-   "title": "Наушники проводные Type-C",
-   "discount": 82,
-   "price": 414,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/535440587/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786918159,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

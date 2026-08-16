@@ -22,7 +22,8 @@
   "218285580": 1786714295,
   "1007424720": 1786714295,
   "392057688": 1786714295,
-  "1213160938": 1786714295
+  "1213160938": 1786714295,
+  "1181876719": 1786899184
  },
  "feedback": {
   "855179327": {
@@ -74,6 +75,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1786619324.8373554
+  },
+  "наушники": {
+   "posts": 1.9999999999979647,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
+   "ts": 1786899509.953995
   }
  },
  "tg": {
@@ -178,11 +186,23 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
+  },
+  {
+   "pid": 1181876719,
+   "title": "Наушники проводные iphone",
+   "discount": 87,
+   "price": 332,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1181876719/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786899184,
+   "drop": 0
   }
  ],
  "meta": {
-  "last_run": 1786898101,
-  "last_posts": 0,
+  "last_run": 1786899184,
+  "last_posts": 1,
   "last_queries": [
    "телефон",
    "телевизор",
@@ -193,8 +213,8 @@
   "empty_notice_ts": 1786881867,
   "cats_ts": 1786862228.316423,
   "last_cats": [
-   "Пылевыбивалки",
    "Репринтные издания 1860 - 1869 годов",
+   "Пылевыбивалки",
    "Средства для мытья посуды и продуктов"
   ],
   "digest_date": "2026-08-16",
@@ -202,17 +222,16 @@
   "last_funnel": {
    "found": 300,
    "cards": 300,
-   "bad_price": 73,
-   "rating": 28,
-   "ok": 131,
-   "discount": 68,
-   "strict": 131,
+   "bad_price": 106,
+   "rating": 33,
+   "ok": 100,
+   "discount": 61,
+   "strict": 100,
    "fallback": 0,
    "repost": 7,
-   "title_duplicate": 30,
+   "title_duplicate": 16,
    "selected": 1,
-   "send_failed": 1,
-   "published": 0
+   "published": 1
   },
   "wb_http": {
    "calls": 65,
@@ -226,22 +245,39 @@
    {
     "ts": 1786898415,
     "msg": "Telegram не принял 218295861: HTTP 400: Bad Request: file must be non-empty"
+   },
+   {
+    "ts": 1786899509,
+    "msg": "Пост 1181876719 отправлен, но кнопки не добавились: HTTP 400: Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message"
    }
-  ]
+  ],
+  "today": "2026-08-16",
+  "today_posts": 1,
+  "total_posts": 1
  },
  "admin_ui": {
   "pending": null
  },
- "titles": {},
- "img_hash": {},
+ "titles": {
+  "наушникипроводныеiphone": 1786899184
+ },
+ "img_hash": {
+  "2131b1d3df2d2d2f": 1786899184
+ },
  "learned": {},
- "prices": {},
+ "prices": {
+  "1181876719": {
+   "price": 332,
+   "basic": 2500,
+   "ts": 1786899184.9837115
+  }
+ },
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1786898417.061406,
-   "runs": 52,
-   "empty": 2
+   "ts": 1786899511.4543276,
+   "runs": 53,
+   "empty": 3
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -251,15 +287,15 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1786898417.061406,
-   "runs": 12,
-   "empty": 2
+   "ts": 1786899511.4543276,
+   "runs": 13,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1786898417.061406,
-   "runs": 12,
-   "empty": 2
+   "ts": 1786899511.4543276,
+   "runs": 13,
+   "empty": 3
   }
  }
 }

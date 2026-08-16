@@ -419,6 +419,10 @@ def image_hash(buf):
     """Перцептивный хэш картинки (dHash 9x8): один и тот же товар
     под разными артикулами даёт одинаковый хэш."""
     try:
+        original_pos = buf.tell()
+    except (AttributeError, OSError):
+        original_pos = None
+    try:
         buf.seek(0)
         img = Image.open(buf).convert("L").resize((9, 8), Image.BILINEAR)
         px = list(img.getdata())
@@ -429,3 +433,9 @@ def image_hash(buf):
         return format(bits, "016x")
     except Exception:
         return None
+    finally:
+        if original_pos is not None:
+            try:
+                buf.seek(original_pos)
+            except (AttributeError, OSError):
+                pass

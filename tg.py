@@ -183,6 +183,14 @@ def _buttons(link, pid):
     }
 
 
+def _rewind(photo):
+    try:
+        photo.seek(0)
+    except (AttributeError, OSError):
+        pass
+    return photo
+
+
 def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
     payload = {
         "chat_id": chat_id,
@@ -197,7 +205,7 @@ def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
         resp = requests.post(
             API.format(token=token, method="sendPhoto"),
             data=payload,
-            files={"photo": ("photo.jpg", photo, "image/jpeg")},
+            files={"photo": ("photo.jpg", _rewind(photo), "image/jpeg")},
             timeout=90,
         )
         _remember_error(resp)
@@ -216,7 +224,10 @@ def send_album(token, chat_id, photos, text, link=None, pid=None, markup=None):
             item["parse_mode"] = "HTML"
         media.append(item)
     payload = {"chat_id": chat_id, "media": json.dumps(media)}
-    files = {f"p{i}.jpg": (f"p{i}.jpg", p, "image/jpeg") for i, p in enumerate(photos)}
+    files = {
+        f"p{i}.jpg": (f"p{i}.jpg", _rewind(p), "image/jpeg")
+        for i, p in enumerate(photos)
+    }
     try:
         resp = requests.post(
             API.format(token=token, method="sendMediaGroup"),

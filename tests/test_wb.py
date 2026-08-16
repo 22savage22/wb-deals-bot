@@ -123,6 +123,10 @@ def main():
     assert h1 != h2 != h3, (h1, h2, h3)
     assert len(h1) == 16 and all(c in "0123456789abcdef" for c in h1)
     assert wb.image_hash("не картинка") is None
+    positioned = make_img("red")
+    positioned.seek(7)
+    wb.image_hash(positioned)
+    assert positioned.tell() == 7  # хэширование не опустошает файл перед Telegram
     print("7. image_hash OK")
 
     # 8. hamming: свои строки совпадают, один бит различается

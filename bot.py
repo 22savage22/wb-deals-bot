@@ -62,7 +62,7 @@ def _img_dup(img_hash, h, now, repost_secs):
 
 
 def _post_images(token, chat_id, images, caption, link, pid):
-    if len(images) > 1:
+    if config.USE_ALBUMS and len(images) > 1:
         if tg.send_album(token, chat_id, images, caption, link, pid):
             return True
     return tg.send_photo(token, chat_id, images[0], caption, link, pid)

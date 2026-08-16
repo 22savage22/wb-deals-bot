@@ -41,6 +41,7 @@ def main():
     assert "#электроника" in c  # хештег категории
     assert "#samsung" in c  # хештег бренда
     assert "СКИДКА <b>" not in c  # старый формат убран
+    assert c.count("#электроника") == 1
     print("2. content OK")
 
     # 3. плохие категории не дают хештеги
@@ -153,6 +154,12 @@ def main():
     tg._remember_error(SameResponse())
     assert tg.last_error() == ""
     print("13. idempotent edit OK")
+
+    # 14. категория и слова заголовка не дублируют один хештег
+    d = _deal(8, title="Наушники беспроводные", category="Наушники", brand="")
+    c = tg.caption(d, 8)
+    assert c.count("#наушники") == 1
+    print("14. hashtag dedupe OK")
 
 
 if __name__ == "__main__":

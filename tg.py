@@ -118,17 +118,25 @@ def _insight(deal, pid):
     return _pick(str(pid) + "insight", variants)
 
 
+def _hashtags(deal):
+    tags = ["#вайлдберриз", "#скидки", "#wb"]
+    for value in (deal.get("category"), deal.get("brand")):
+        tag = _tag(value).strip()
+        if tag and tag not in tags:
+            tags.append(tag)
+    for word in _title_tags(deal.get("title")):
+        tag = "#" + word
+        if tag not in tags:
+            tags.append(tag)
+    return " ".join(tags)
+
+
 def caption(deal, pid=None):
     title = html.escape(deal["title"])
     if len(title) > 100:
         title = title[:97] + "..."
     pid = pid or deal.get("id") or 0
-    tags = "#вайлдберриз #скидки #wb"
-    tags += _tag(deal["category"])
-    if deal["brand"]:
-        tags += _tag(deal["brand"])
-    for w in _title_tags(deal["title"]):
-        tags += " #" + w
+    tags = _hashtags(deal)
     footer = _pick(pid, FOOTERS)
     insight = _insight(deal, pid)
     if deal.get("price_drop"):

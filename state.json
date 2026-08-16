@@ -181,7 +181,7 @@
   }
  ],
  "meta": {
-  "last_run": 1786897215,
+  "last_run": 1786898101,
   "last_posts": 0,
   "last_queries": [
    "телефон",
@@ -193,35 +193,41 @@
   "empty_notice_ts": 1786881867,
   "cats_ts": 1786862228.316423,
   "last_cats": [
-   "Средства для мытья посуды и продуктов",
    "Пылевыбивалки",
-   "Репринтные издания 1860 - 1869 годов"
+   "Репринтные издания 1860 - 1869 годов",
+   "Средства для мытья посуды и продуктов"
   ],
   "digest_date": "2026-08-16",
   "week_digest_ts": 1786897023,
   "last_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 82,
-   "bad_price": 49,
-   "ok": 63,
-   "rating": 6,
-   "strict": 63,
+   "found": 300,
+   "cards": 300,
+   "bad_price": 73,
+   "rating": 28,
+   "ok": 131,
+   "discount": 68,
+   "strict": 131,
    "fallback": 0,
-   "repost": 10,
-   "title_duplicate": 12,
+   "repost": 7,
+   "title_duplicate": 30,
    "selected": 1,
    "send_failed": 1,
    "published": 0
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 22,
+   "calls": 65,
+   "ok": 33,
    "rate_limited": 14,
-   "http_error": 13,
+   "http_error": 18,
    "network_error": 0,
    "json_error": 0
-  }
+  },
+  "errors": [
+   {
+    "ts": 1786898415,
+    "msg": "Telegram не принял 218295861: HTTP 400: Bad Request: file must be non-empty"
+   }
+  ]
  },
  "admin_ui": {
   "pending": null
@@ -233,9 +239,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1786897564.3475785,
-   "runs": 51,
-   "empty": 1
+   "ts": 1786898417.061406,
+   "runs": 52,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -245,15 +251,15 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1786897564.3475785,
-   "runs": 11,
-   "empty": 1
+   "ts": 1786898417.061406,
+   "runs": 12,
+   "empty": 2
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1786897564.3475785,
-   "runs": 11,
-   "empty": 1
+   "ts": 1786898417.061406,
+   "runs": 12,
+   "empty": 2
   }
  }
 }

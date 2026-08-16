@@ -23,7 +23,8 @@
   "1007424720": 1786714295,
   "392057688": 1786714295,
   "1213160938": 1786714295,
-  "1181876719": 1786899184
+  "1181876719": 1786899184,
+  "321789200": 1786906178
  },
  "feedback": {
   "855179327": {
@@ -82,6 +83,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1786899509.953995
+  },
+  "кроссовки": {
+   "posts": 1.9999999999973834,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
+   "ts": 1786906196.7322562
   }
  },
  "tg": {
@@ -198,10 +206,23 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
+  },
+  {
+   "pid": 321789200,
+   "title": "Кроссовки спортивные легкие на тонкой подошве низкие",
+   "discount": 89,
+   "price": 672,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/321789200/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1786906178,
+   "drop": 0,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1786899184,
+  "last_run": 1786906178,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -220,18 +241,8 @@
   "digest_date": "2026-08-16",
   "week_digest_ts": 1786897023,
   "last_funnel": {
-   "found": 300,
-   "cards": 300,
-   "bad_price": 106,
-   "rating": 33,
-   "ok": 100,
-   "discount": 61,
-   "strict": 100,
-   "fallback": 0,
-   "repost": 7,
-   "title_duplicate": 16,
-   "selected": 1,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
    "calls": 34,
@@ -252,8 +263,8 @@
    }
   ],
   "today": "2026-08-16",
-  "today_posts": 1,
-  "total_posts": 1,
+  "today_posts": 2,
+  "total_posts": 2,
   "last_scan": 1786905841,
   "last_scan_queries": [
    "телефон",
@@ -267,7 +278,7 @@
    "Средства для мытья посуды и продуктов",
    "Пылевыбивалки"
   ],
-  "queue_size": 30,
+  "queue_size": 29,
   "last_scan_added": 30,
   "last_scan_funnel": {
    "found": 99,
@@ -281,16 +292,23 @@
    "reserve": 0,
    "duplicate": 5,
    "title_duplicate": 6
+  },
+  "last_queue": {
+   "queue_before": 30,
+   "selected": 1,
+   "queue_after": 29
   }
  },
  "admin_ui": {
   "pending": null
  },
  "titles": {
-  "наушникипроводныеiphone": 1786899184
+  "наушникипроводныеiphone": 1786899184,
+  "кроссовкиспортивныелегкиенатонкойподошвенизкие": 1786906178
  },
  "img_hash": {
-  "2131b1d3df2d2d2f": 1786899184
+  "2131b1d3df2d2d2f": 1786899184,
+  "37271735272d2d6c": 1786906178
  },
  "learned": {},
  "prices": {
@@ -298,6 +316,11 @@
    "price": 332,
    "basic": 2500,
    "ts": 1786899184.9837115
+  },
+  "321789200": {
+   "price": 672,
+   "basic": 6000,
+   "ts": 1786906178.147433
   }
  },
  "cats": {
@@ -327,22 +350,6 @@
   }
  },
  "queue": [
-  {
-   "id": 321789200,
-   "title": "Кроссовки спортивные легкие на тонкой подошве низкие",
-   "brand": "SHAGAMI",
-   "product": 672,
-   "basic": 6000,
-   "discount": 89,
-   "benefit": 5328,
-   "rating": 4.8,
-   "feedbacks": 171,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1786905841
-  },
   {
    "id": 936628258,
    "title": "Кроссовки изи дышащие спортивные летние",

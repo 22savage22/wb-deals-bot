@@ -54,7 +54,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1786909617,
+   "ts": 1786909617.604592,
    "query": "кроссовки",
    "cat": "кроссовки",
    "voters": {
@@ -119,6 +119,19 @@
   "offset": 810944583
  },
  "recent": [
+  {
+   "pid": 1024083178,
+   "title": "Смартфон Phone (3a) 12ГБ+256ГБ NFC Синий JP",
+   "discount": 80,
+   "price": 25576,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1024083178/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1786910152,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 1218307161,
    "title": "Наушники проводные Type-C вакуумные с микрофоном",
@@ -294,19 +307,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1024083178,
-   "title": "Смартфон Phone (3a) 12ГБ+256ГБ NFC Синий JP",
-   "discount": 80,
-   "price": 25576,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1024083178/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786910152,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -366,7 +366,7 @@
    "Средства для мытья посуды и продуктов",
    "Пылевыбивалки"
   ],
-  "queue_size": 57,
+  "queue_size": 58,
   "last_scan_added": 30,
   "last_scan_funnel": {
    "found": 99,

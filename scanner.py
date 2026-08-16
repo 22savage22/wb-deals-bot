@@ -7,6 +7,7 @@ import time
 
 import bot
 import config
+import deal_queue
 import log
 import smart
 import state
@@ -149,11 +150,16 @@ def main():
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
+    data["queue"] = deal_queue.load(config.QUEUE_FILE)
     try:
         fill_queue(data, settings)
     except Exception as exc:
         state.record_error(data, f"Сканер упал: {exc}")
         logger.exception("Сканер упал")
+    data["queue"] = deal_queue.save(
+        config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}
+    )
+    bot.commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
     state.save(config.STATE_FILE, data)
     bot.commit_state(config.STATE_FILE, data)
 

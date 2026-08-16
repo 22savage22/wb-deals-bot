@@ -4,7 +4,9 @@ import sys
 import time
 
 import admin
+import bot
 import config
+import deal_queue
 import gitutil
 import log
 import smart
@@ -74,6 +76,7 @@ def main():
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
+    data["queue"] = deal_queue.load(config.QUEUE_FILE)
     tg.set_commands(config.TG_BOT_TOKEN)
     last_commit = 0.0
     start = time.time()
@@ -107,8 +110,6 @@ def main():
             settings["post_lock"] = 1
             config.save_settings(settings)
             try:
-                import bot
-
                 published = bot.run_posting(data, settings, notify=False)
                 msg = f"🚀 Ручной запуск завершён: опубликовано <b>{published}</b>"
             except Exception as exc:
@@ -122,6 +123,10 @@ def main():
                 config.save_settings(settings)
                 commit_settings(config.SETTINGS_FILE, settings)
             state.save(config.STATE_FILE, data)
+            data["queue"] = deal_queue.save(
+                config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}
+            )
+            bot.commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
             commit_state(config.STATE_FILE, data)
             if config.TG_ADMIN_ID:
                 tg.send_message(config.TG_BOT_TOKEN, config.TG_ADMIN_ID, msg)

@@ -22,6 +22,7 @@ def main():
     run("test_tg", lambda: __import__("test_tg").main())
     run("test_smart", lambda: __import__("test_smart").main())
     run("test_state", lambda: __import__("test_state").main())
+    run("test_deal_queue", lambda: __import__("test_deal_queue").main())
     run("test_wb", lambda: __import__("test_wb").main())
     run("test_admin", lambda: __import__("test_admin").main())
     run("test_bot", lambda: __import__("test_bot").main())

@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 import admin
 import config
+import deal_queue
 import gitutil
 import log
 import smart
@@ -58,6 +59,14 @@ def commit_settings(path, settings):
         return settings
 
     return gitutil.commit(path, merge_fn, "chore: update settings")
+
+
+def commit_queue(path, queue, posted):
+    return gitutil.commit(
+        path,
+        lambda remote: deal_queue.merge(queue, remote, posted),
+        "chore: update deal queue",
+    )
 
 
 def _img_dup(img_hash, h, now, repost_secs):
@@ -545,6 +554,7 @@ def main():
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
+    data["queue"] = deal_queue.load(config.QUEUE_FILE)
 
     paused_until = settings.get("pause_until", 0) or 0
     manual = bool(settings.get("post_now_ts"))
@@ -582,6 +592,10 @@ def main():
 
     process_updates(data, settings)
 
+    data["queue"] = deal_queue.save(
+        config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}
+    )
+    commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
     state.save(config.STATE_FILE, data)
     commit_state(config.STATE_FILE, data)
 

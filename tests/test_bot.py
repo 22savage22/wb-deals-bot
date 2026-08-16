@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -162,6 +163,25 @@ def main():
     cfg = config
     config.TG_ADMIN_ID = "42"
     config.TG_BOT_TOKEN = "tok"
+
+    # --- 0. расписание и публикация из заранее наполненной очереди ---
+    assert bot.active_posting_time(datetime(2026, 1, 1, 6, 0))
+    assert bot.active_posting_time(datetime(2026, 1, 1, 22, 40))
+    assert not bot.active_posting_time(datetime(2026, 1, 1, 23, 0))
+    queued = empty_data()
+    queued["queue"] = [
+        {"id": 999, "title": "Товар из очереди", "brand": "Бр",
+         "product": 500, "basic": 1000, "discount": 50, "benefit": 500,
+         "rating": 4.8, "feedbacks": 300, "category": "Дом",
+         "selection_mode": "strict", "quality": "A", "query": "дом",
+         "queued_ts": int(time.time())}
+    ]
+    config.MAX_POSTS = 1
+    FakeTG.sent = []
+    assert bot.run_posting(queued, {"queries": None}, notify=False) == 1
+    assert queued["queue"] == [] and queued["posted"].get(999)
+    assert [x for x in FakeTG.sent if x[0] == "photo" and x[2] == 999]
+    print("0. schedule + queue publish OK")
 
     # --- 1. обычный запуск: посты из разных категорий, отчёт админу ---
     config.MIN_DISCOUNT = 20

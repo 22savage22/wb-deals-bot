@@ -43,6 +43,14 @@ FALLBACK_MIN_DISCOUNT = _int("WB_FALLBACK_MIN_DISCOUNT", 40)
 FALLBACK_MIN_RATING = _float("WB_FALLBACK_MIN_RATING", 4.3)
 FALLBACK_MIN_FEEDBACKS = _int("WB_FALLBACK_MIN_FEEDBACKS", 20)
 USE_ALBUMS = _int("TG_USE_ALBUMS", 0)
+QUEUE_TARGET = _int("WB_QUEUE_TARGET", 30)
+QUEUE_MAX_AGE_HOURS = _float("WB_QUEUE_MAX_AGE_HOURS", 8)
+RESERVE_MIN_DISCOUNT = _int("WB_RESERVE_MIN_DISCOUNT", 30)
+RESERVE_MIN_RATING = _float("WB_RESERVE_MIN_RATING", 4.5)
+RESERVE_MIN_FEEDBACKS = _int("WB_RESERVE_MIN_FEEDBACKS", 200)
+ACTIVE_HOUR_START = _int("WB_ACTIVE_HOUR_START", 6)
+ACTIVE_HOUR_END = _int("WB_ACTIVE_HOUR_END", 22)
+FORCE_POST = _int("WB_FORCE_POST", 0)
 
 FALLBACK_DESTS = [
     int(x.strip())
@@ -53,6 +61,14 @@ FALLBACK_DESTS = [
 BLACKLIST = [
     x.strip().lower()
     for x in os.getenv("WB_BLACKLIST", "").split(",")
+    if x.strip()
+]
+
+CATEGORY_BLOCKLIST = [
+    x.strip().lower()
+    for x in os.getenv(
+        "WB_CATEGORY_BLOCKLIST", "18+;эротические товары;табак;вейпы"
+    ).split(";")
     if x.strip()
 ]
 

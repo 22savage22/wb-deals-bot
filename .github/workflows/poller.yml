@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: wb-bot
+  group: wb-poller
   cancel-in-progress: false
 
 jobs:

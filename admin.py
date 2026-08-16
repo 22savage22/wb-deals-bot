@@ -378,6 +378,15 @@ def _status_view(data, settings):
         f"💬 Обратная связь: 👍 <b>{tg.fmt(likes)}</b> · 👎 <b>{tg.fmt(dislikes)}</b> · 🛒 <b>{tg.fmt(bought)}</b>"
     )
     rows.append(f"📥 Артикулов в памяти: <b>{tg.fmt(len(data['posted']))}</b>")
+    queue = data.get("queue") or []
+    qtarget = max(1, config.QUEUE_TARGET)
+    qicon = "🟢" if len(queue) >= min(15, qtarget) else ("🟡" if queue else "🔴")
+    rows.append(f"{qicon} Готовых товаров в очереди: <b>{len(queue)}/{qtarget}</b>")
+    if meta.get("last_scan"):
+        rows.append(
+            f"🔎 Последнее наполнение: {_ft(meta['last_scan'])} · "
+            f"добавлено <b>{int(meta.get('last_scan_added', 0))}</b>"
+        )
     active, trials = smart.learned_counts(data)
     if active or trials:
         rows.append(

@@ -15,7 +15,7 @@ def main():
     e = state._empty()
     assert set(e) == {
         "posted", "feedback", "query_stats", "cat_stats", "tg", "recent", "meta", "admin_ui", "titles",
-        "img_hash", "learned", "prices", "cats",
+        "img_hash", "learned", "prices", "cats", "queue",
     }
     print("1. empty OK")
 
@@ -235,6 +235,26 @@ def main():
     finally:
         os.unlink(path)
     print("17. cats OK")
+
+    # 18. queue: normalizes, deduplicates and merge removes published items
+    d = state._empty()
+    d["queue"] = [
+        {"id": 50, "title": "A", "product": 100, "basic": 200,
+         "discount": 50, "rating": 4.8, "feedbacks": 100,
+         "category": "C", "queued_ts": now},
+        {"id": 50, "title": "Old", "product": 120, "basic": 200,
+         "discount": 40, "rating": 4.8, "feedbacks": 100,
+         "category": "C", "queued_ts": now - 10},
+    ]
+    d = state._from_dict(d)
+    assert len(d["queue"]) == 1 and d["queue"][0]["title"] == "A"
+    remote = state._empty()
+    remote["queue"] = list(d["queue"])
+    local = state._empty()
+    local["posted"] = {50: now}
+    merged = state.merge(local, remote)
+    assert merged["queue"] == []
+    print("18. queue OK")
 
 
 if __name__ == "__main__":

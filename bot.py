@@ -5,6 +5,8 @@ import random
 import subprocess
 import sys
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import admin
 import config
@@ -16,6 +18,12 @@ import tg
 import wb
 
 logger = logging.getLogger("wb.bot")
+
+
+def active_posting_time(now=None):
+    """Scheduled posts are allowed 06:00..22:59 Moscow time."""
+    current = now or datetime.now(ZoneInfo("Europe/Moscow"))
+    return config.ACTIVE_HOUR_START <= current.hour <= config.ACTIVE_HOUR_END
 
 
 def _run(*args):
@@ -83,6 +91,7 @@ def _find_deals(candidates, limit, funnel):
         deal, reason = wb.evaluate(card)
         funnel[reason] = funnel.get(reason, 0) + 1
         if deal:
+            deal["quality"] = "A"
             strict.append(deal)
         else:
             rejected.append(card)
@@ -98,10 +107,28 @@ def _find_deals(candidates, limit, funnel):
             )
             if deal:
                 deal["selection_mode"] = "smart_fallback"
+                deal["quality"] = "B"
                 fallback.append(deal)
+    reserve = []
+    if config.SMART_FALLBACK and len(strict) + len(fallback) < limit:
+        fallback_ids = {d["id"] for d in fallback}
+        for card in rejected:
+            if card.get("id") in fallback_ids:
+                continue
+            deal, _ = wb.evaluate(
+                card,
+                min_discount=config.RESERVE_MIN_DISCOUNT,
+                min_rating=config.RESERVE_MIN_RATING,
+                min_feedbacks=config.RESERVE_MIN_FEEDBACKS,
+            )
+            if deal:
+                deal["selection_mode"] = "quality_reserve"
+                deal["quality"] = "C"
+                reserve.append(deal)
     funnel["strict"] = len(strict)
     funnel["fallback"] = len(fallback)
-    return strict + fallback
+    funnel["reserve"] = len(reserve)
+    return strict + fallback + reserve
 
 
 def _funnel_text(funnel):
@@ -110,6 +137,7 @@ def _funnel_text(funnel):
         ("cards", "карточек"),
         ("strict", "прошли строго"),
         ("fallback", "умный резерв"),
+        ("reserve", "качественный запас"),
         ("repost", "недавний повтор"),
         ("title_duplicate", "похожее название"),
         ("photo_duplicate", "похожее фото"),
@@ -119,7 +147,115 @@ def _funnel_text(funnel):
     return " · ".join(f"{label}: {int(funnel.get(key, 0))}" for key, label in labels)
 
 
+def _publish_queued(data, limit):
+    """Publish pre-vetted deals; broken entries are discarded and backups tried."""
+    now = time.time()
+    repost_secs = config.REPOST_DAYS * 86400
+    queue = list(data.get("queue") or [])
+    data["queue"] = []
+    published = 0
+    posted_deals = []
+    keep = []
+    funnel = {"queue_before": len(queue), "selected": 0}
+    posted = data["posted"]
+    titles = data.setdefault("titles", {})
+    prices = data.setdefault("prices", {})
+    img_hash = data.setdefault("img_hash", {})
+
+    for deal in queue:
+        pid = deal["id"]
+        if published >= limit:
+            keep.append(deal)
+            continue
+        if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
+            funnel["expired"] = funnel.get("expired", 0) + 1
+            continue
+        if posted.get(pid) and now - posted[pid] < repost_secs:
+            funnel["repost"] = funnel.get("repost", 0) + 1
+            continue
+        key = smart.norm_title(deal.get("title", ""))
+        if key and titles.get(key) and now - titles[key] < repost_secs:
+            funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
+            continue
+        images = wb.photos(pid)
+        if not images:
+            funnel["no_photo"] = funnel.get("no_photo", 0) + 1
+            state.record_error(data, f"Очередь: нет фото {pid}")
+            continue
+        h = wb.image_hash(images[0])
+        if h and _img_dup(img_hash, h, now, repost_secs):
+            funnel["photo_duplicate"] = funnel.get("photo_duplicate", 0) + 1
+            posted[pid] = int(now)
+            continue
+        link = _link(pid)
+        try:
+            ok = _post_images(
+                config.TG_BOT_TOKEN,
+                config.TG_CHAT_ID,
+                images,
+                tg.caption(deal, pid),
+                link,
+                pid,
+            )
+        except Exception as exc:
+            ok = False
+            state.record_error(data, f"Очередь: ошибка публикации {pid}: {exc}")
+        if not ok:
+            funnel["send_failed"] = funnel.get("send_failed", 0) + 1
+            detail = tg.last_error() if hasattr(tg, "last_error") else ""
+            state.record_error(data, f"Telegram не принял {pid}: {detail or 'без описания'}")
+            continue
+
+        posted[pid] = int(now)
+        if h:
+            img_hash[h] = int(now)
+        prices[pid] = {"price": deal["product"], "basic": deal["basic"], "ts": now}
+        if key:
+            titles[key] = int(now)
+        published += 1
+        funnel["selected"] += 1
+        posted_deals.append(deal)
+        data["recent"].append(
+            {
+                "pid": pid,
+                "title": deal["title"],
+                "discount": deal["discount"],
+                "price": deal["product"],
+                "rating": deal["rating"],
+                "link": link,
+                "query": deal.get("query"),
+                "cat": deal["category"],
+                "ts": int(now),
+                "drop": int(deal.get("price_drop") or 0),
+                "quality": deal.get("quality", "A"),
+            }
+        )
+        smart.record_post(data, deal.get("query"), deal["category"])
+        print("Опубликовано из очереди:", pid, f"{deal['discount']}%", deal["title"][:50])
+
+    data["queue"] = keep
+    funnel["queue_after"] = len(keep)
+    return published, posted_deals, funnel
+
+
 def run_posting(data, settings, notify=True):
+    meta = data.setdefault("meta", {})
+    now = time.time()
+    meta["last_run"] = int(now)
+    meta["last_posts"] = 0
+    if data.get("queue"):
+        published, queued_deals, queue_funnel = _publish_queued(data, config.MAX_POSTS)
+        meta["queue_size"] = len(data.get("queue") or [])
+        meta["last_queue"] = queue_funnel
+        if published:
+            meta["last_posts"] = published
+            meta["last_funnel"] = {"published": published, "selected": published}
+            state.bump_meta(data, published)
+            queries = [d.get("query") for d in queued_deals if d.get("query")]
+            cats = [d.get("category") for d in queued_deals if d.get("category")]
+            _notify_run(data, settings, queries, cats, published, queued_deals, notify)
+            return published
+
     wb.reset_health()
     posted = data["posted"]
     pool = settings.get("queries") or config.QUERIES or config.DEFAULT_QUERIES
@@ -129,10 +265,6 @@ def run_posting(data, settings, notify=True):
         pool, data["query_stats"], config.QUERIES_PER_RUN, data
     )
 
-    meta = data.setdefault("meta", {})
-    now = time.time()
-    meta["last_run"] = int(now)
-    meta["last_posts"] = 0
     meta["last_queries"] = list(queries)
     funnel = {"found": 0, "cards": 0}
     if not data.get("cats") or now - float(meta.get("cats_ts", 0) or 0) > 24 * 3600:
@@ -416,7 +548,10 @@ def main():
 
     paused_until = settings.get("pause_until", 0) or 0
     manual = bool(settings.get("post_now_ts"))
-    if paused_until > time.time() and not manual:
+    forced = manual or bool(config.FORCE_POST)
+    if not active_posting_time() and not forced:
+        print("Тихие часы: автопостинг разрешён с 06:00 до 22:59 по Москве")
+    elif paused_until > time.time() and not forced:
         print(
             "Постинг на паузе до",
             time.strftime("%Y-%m-%d %H:%M", time.localtime(paused_until)),

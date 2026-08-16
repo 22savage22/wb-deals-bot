@@ -11,6 +11,7 @@ IMG_KEEP = 30 * 24 * 3600
 LEARNED_KEEP = 60 * 24 * 3600
 MAX_KEPT = 20000
 RECENT_MAX = 60
+QUEUE_MAX = 100
 
 
 def _empty():
@@ -28,6 +29,7 @@ def _empty():
         "learned": {},
         "prices": {},
         "cats": {},
+        "queue": [],
     }
 
 
@@ -248,6 +250,49 @@ def _norm_admin_ui(raw):
     return {"pending": pending}
 
 
+def _norm_queue(raw):
+    """Keep only complete, fresh queue entries and deduplicate by article."""
+    if not isinstance(raw, list):
+        return []
+    now = time.time()
+    out = {}
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        try:
+            pid = int(item.get("id"))
+            queued_ts = int(item.get("queued_ts", 0) or 0)
+            product = int(item.get("product", 0) or 0)
+            basic = int(item.get("basic", 0) or 0)
+            discount = int(item.get("discount", 0) or 0)
+            rating = float(item.get("rating", 0) or 0)
+            feedbacks = int(item.get("feedbacks", 0) or 0)
+        except (TypeError, ValueError):
+            continue
+        if not pid or not product or not queued_ts or now - queued_ts >= 48 * 3600:
+            continue
+        clean = {
+            "id": pid,
+            "title": str(item.get("title") or "Товар Wildberries")[:300],
+            "brand": str(item.get("brand") or "")[:150],
+            "product": product,
+            "basic": basic,
+            "discount": discount,
+            "benefit": max(0, int(item.get("benefit", basic - product) or 0)),
+            "rating": rating,
+            "feedbacks": feedbacks,
+            "category": str(item.get("category") or "другое")[:200],
+            "selection_mode": str(item.get("selection_mode") or "strict")[:30],
+            "quality": str(item.get("quality") or "A")[:10],
+            "query": str(item.get("query") or "")[:200],
+            "queued_ts": queued_ts,
+        }
+        old = out.get(pid)
+        if old is None or queued_ts > old["queued_ts"]:
+            out[pid] = clean
+    return sorted(out.values(), key=lambda x: x["queued_ts"], reverse=True)[:QUEUE_MAX]
+
+
 def _from_dict(data):
     data = data or {}
     return {
@@ -264,6 +309,7 @@ def _from_dict(data):
         "learned": _norm_learned(data.get("learned")),
         "prices": _norm_prices(data.get("prices")),
         "cats": _norm_cats(data.get("cats")),
+        "queue": _norm_queue(data.get("queue")),
     }
 
 
@@ -319,6 +365,7 @@ def merge(local, remote):
         "learned": dict(base["learned"]),
         "prices": dict(base["prices"]),
         "cats": dict(base["cats"]),
+        "queue": list(base["queue"]),
     }
     for pid, ts in local["posted"].items():
         if pid not in m["posted"] or ts > m["posted"][pid]:
@@ -367,6 +414,14 @@ def merge(local, remote):
     for name, st in (local.get("cats") or {}).items():
         if name not in m["cats"] or st.get("ts", 0) > m["cats"][name].get("ts", 0):
             m["cats"][name] = st
+    queued = {item["id"]: item for item in m.get("queue", [])}
+    for item in local.get("queue", []):
+        old = queued.get(item["id"])
+        if old is None or item.get("queued_ts", 0) > old.get("queued_ts", 0):
+            queued[item["id"]] = item
+    m["queue"] = _norm_queue(
+        [item for pid, item in queued.items() if pid not in m["posted"]]
+    )
     local_ui = local.get("admin_ui") or {}
     m["admin_ui"] = {"pending": local_ui.get("pending")}
     return m
@@ -435,6 +490,10 @@ def save(path, data):
         for name, st in data.get("cats", {}).items()
         if now - st.get("ts", 0) < LEARNED_KEEP
     }
+    data["queue"] = _norm_queue(data.get("queue") or [])
+    data["queue"] = [
+        item for item in data["queue"] if item["id"] not in data["posted"]
+    ][:QUEUE_MAX]
     data["feedback"] = {
         pid: fb
         for pid, fb in data["feedback"].items()

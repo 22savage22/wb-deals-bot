@@ -1,20 +1,20 @@
-name: WB Deals Bot
+name: WB Queue Scanner
 
 on:
-  schedule:
-    # Every 20 minutes, 06:00 through 22:40 Moscow time (UTC+3).
-    - cron: "*/20 3-19 * * *"
   workflow_dispatch:
+  schedule:
+    # Hourly. A full queue exits immediately, reducing WB API load.
+    - cron: "7 * * * *"
 
 permissions:
   contents: write
 
 concurrency:
-  group: wb-publisher
+  group: wb-scanner
   cancel-in-progress: false
 
 jobs:
-  deals:
+  scanner:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -27,19 +27,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Post deals
-        run: python bot.py
+      - name: Fill vetted deal queue
+        run: python scanner.py
         env:
-          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-          TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
           WB_MIN_DISCOUNT: "50"
           WB_MIN_RATING: "4.5"
-          WB_MAX_POSTS: "1"
           WB_PAGES: "2"
           WB_QUERIES_PER_RUN: "6"
-          WB_CATS_PER_RUN: "3"
+          WB_CATS_PER_RUN: "4"
           WB_QUEUE_TARGET: "30"
           WB_QUEUE_MAX_AGE_HOURS: "8"
-          WB_FORCE_POST: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
           GITHUB_TOKEN: ${{ github.token }}

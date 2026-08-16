@@ -313,23 +313,84 @@ def _menu_view(data, settings):
     lines.append("")
     lines.append("Канал: @WBmarket22")
     text = "\n".join(lines)
+    queue_count = len(data.get("queue") or [])
     rows = [
+        [
+            _btn(f"📥 Найдено: {queue_count}", MENU + "queue"),
+            _btn("📤 Опубликовать", MENU + "queue:bulk:1"),
+        ],
         [
             _btn("📊 Статус", MENU + "status"),
             _btn("🕓 Посты", MENU + "last:0"),
-            _btn("📈 Статистика", MENU + "stats:q:0"),
         ],
-        [_btn("⚙️ Настройки", MENU + "cfg"), _btn(pause_lbl, pause_cmd)],
         [
-            _btn("🚀 Пост сейчас", MENU + "postnow"),
+            _btn("🧠 Найти ещё", MENU + "postnow"),
             _btn("📦 По артикулу", MENU + "manual"),
         ],
         [
-            _btn("🔍 Превью", MENU + "preview"),
+            _btn("⚙️ Настройки", MENU + "cfg"),
+            _btn(pause_lbl, pause_cmd),
+        ],
+        [
+            _btn("📈 Статистика", MENU + "stats:q:0"),
             _btn("❓ Помощь", MENU + "help"),
         ],
     ]
     return text, rows
+
+
+def _queue_view(data):
+    queue = list(data.get("queue") or [])
+    if not queue:
+        return (
+            "📥 <b>Найденные товары</b>\n\n"
+            "Очередь пока пуста. Сканер наполнит её автоматически.\n"
+            "Можно запустить поиск вручную кнопкой ниже.",
+            [
+                [_btn("🧠 Найти товары", MENU + "postnow")],
+                [_btn("🔄 Обновить", MENU + "queue")],
+                _home_row()[0],
+            ],
+        )
+
+    shown = queue[:5]
+    lines = [
+        "📥 <b>Найденные товары</b>",
+        "",
+        f"Готово к публикации: <b>{len(queue)}</b>",
+        "Умный отбор уже проверил скидку, рейтинг и дубли.",
+        "",
+    ]
+    markup = [
+        [
+            _btn("📤 1 пост", MENU + "queue:bulk:1"),
+            _btn("📤📤 3 поста", MENU + "queue:bulk:3"),
+            _btn("🚀 5 постов", MENU + "queue:bulk:5"),
+        ]
+    ]
+    for i, deal in enumerate(shown, 1):
+        title = html.escape(str(deal.get("title") or "Товар"))
+        if len(title) > 54:
+            title = title[:51] + "..."
+        lines.append(
+            f"{i}. 🔥 <b>{int(deal.get('discount', 0))}%</b> · "
+            f"<b>{tg.fmt(int(deal.get('product', 0)))} ₽</b> · "
+            f"⭐ {deal.get('rating', 0):g}"
+        )
+        lines.append(f"   {title}")
+        lines.append(f"   <code>{deal.get('id')}</code>")
+        lines.append("")
+        markup.append(
+            [
+                _btn(f"👁 №{i}", MENU + f"preview:post:{deal.get('id')}"),
+                _btn(f"📤 Опубликовать №{i}", MENU + f"queue:post:{deal.get('id')}"),
+            ]
+        )
+    lines.append("👁 — посмотреть пост перед публикацией.")
+    lines.append("Кнопки сверху публикуют товары подряд без подтверждений.")
+    markup.append([_btn("🔄 Обновить", MENU + "queue")])
+    markup.append(_home_row()[0])
+    return "\n".join(lines).rstrip(), markup
 
 
 def _status_view(data, settings):
@@ -762,6 +823,9 @@ def _help_view():
             "❓ <b>Помощь</b>",
             "",
             "🛠 <b>Что умеет бот:</b>",
+            "📥 Найдено — готовая очередь после умного отбора",
+            "📤 Опубликовать — моментально отправить следующий товар в канал",
+            "   В очереди можно выпустить 1, 3 или 5 постов подряд",
             "📊 Статус — состояние, запуски, счётчики",
             "🕓 Посты — что опубликовано; 🗑 забывает артикул",
             "📈 Статистика — запросы и категории, которым радуются подписчики",
@@ -951,20 +1015,23 @@ def _start_review(token, chat_id, cb_id, pid):
         tg.send_photo(token, chat_id, images[0], caption, markup=markup)
 
 
-def _do_publish(token, data, chat_id, cb_id, pid):
+def _do_publish(token, data, chat_id, cb_id, pid, announce=True):
     now = int(time.time())
     if pid in data["posted"] and now - data["posted"][pid] < 1800:
-        tg.answer_callback(token, cb_id, "⏳ Уже публиковали недавно — подожди")
+        if cb_id:
+            tg.answer_callback(token, cb_id, "⏳ Уже публиковали недавно — подожди")
         return False
     cards = wb.cards([pid])
     if not cards:
-        tg.answer_callback(token, cb_id, "❌ Артикул не найден")
+        if cb_id:
+            tg.answer_callback(token, cb_id, "❌ Артикул не найден")
         return False
     deal = wb.raw_deal(cards[0])
     images = wb.photos(pid)
     if not images or not deal or not deal.get("id"):
         state.record_error(data, f"Не удалось подготовить пост {pid}")
-        tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
+        if cb_id:
+            tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
         return False
     link = _link(pid)
     caption = tg.caption(deal, pid)
@@ -974,7 +1041,8 @@ def _do_publish(token, data, chat_id, cb_id, pid):
         ok = tg.send_photo(token, config.TG_CHAT_ID, images[0], caption, link, pid)
     if not ok:
         state.record_error(data, f"Ошибка отправки в канал {pid}")
-        tg.answer_callback(token, cb_id, "❌ Ошибка отправки в канал")
+        if cb_id:
+            tg.answer_callback(token, cb_id, "❌ Ошибка отправки в канал")
         return False
     data["posted"][pid] = now
     key = smart.norm_title(deal["title"])
@@ -1000,10 +1068,14 @@ def _do_publish(token, data, chat_id, cb_id, pid):
     )
     data["recent"] = sorted(
         data["recent"], key=lambda r: r["ts"], reverse=True
-    )[-60:]
+    )[:60]
     smart.record_post(data, None, deal["category"])
     state.bump_meta(data, 1)
-    tg.answer_callback(token, cb_id, f"✅ Опубликовано #{pid}")
+    data["queue"] = [item for item in (data.get("queue") or []) if item.get("id") != pid]
+    if cb_id:
+        tg.answer_callback(token, cb_id, f"✅ Опубликовано #{pid}")
+    if not announce:
+        return True
     title = html.escape(deal["title"])
     if len(title) > 60:
         title = title[:57] + "..."
@@ -1027,6 +1099,19 @@ def _do_publish(token, data, chat_id, cb_id, pid):
     return True
 
 
+def _publish_from_queue(token, data, chat_id, count):
+    count = max(1, min(int(count), 5))
+    candidates = list(data.get("queue") or [])
+    published = []
+    for item in candidates:
+        if len(published) >= count:
+            break
+        pid = _clean_pid(item.get("id"))
+        if pid and _do_publish(token, data, chat_id, "", pid, announce=False):
+            published.append(pid)
+    return published
+
+
 def _admin_callback(token, data, settings, cb):
     raw = str(cb.get("data", ""))
     cmd = raw[len(MENU):]
@@ -1045,6 +1130,36 @@ def _admin_callback(token, data, settings, cb):
         text, markup = _status_view(data, settings)
         ok = _render(token, chat_id, msg_id, text, markup)
         tg.answer_callback(token, cb_id, "" if ok is not False else "Актуально")
+    elif cmd == "queue":
+        text, markup = _queue_view(data)
+        _render(token, chat_id, msg_id, text, markup)
+        tg.answer_callback(token, cb_id)
+    elif cmd.startswith("queue:post:"):
+        pid = _clean_pid(cmd.split(":", 2)[2])
+        tg.answer_callback(token, cb_id, "📤 Публикую…")
+        ok = bool(pid and _do_publish(token, data, chat_id, "", pid, announce=False))
+        changed = ok or changed
+        text, markup = _queue_view(data)
+        if ok:
+            text = f"✅ <b>Пост опубликован</b> · <code>{pid}</code>\n\n" + text
+        else:
+            text = "❌ <b>Не удалось опубликовать товар</b>\n\n" + text
+        _render(token, chat_id, msg_id, text, markup)
+    elif cmd.startswith("queue:bulk:"):
+        try:
+            count = int(cmd.rsplit(":", 1)[1])
+        except (ValueError, IndexError):
+            count = 1
+        tg.answer_callback(token, cb_id, f"📤 Публикую до {min(max(count, 1), 5)} постов…")
+        published = _publish_from_queue(token, data, chat_id, count)
+        changed = bool(published) or changed
+        text, markup = _queue_view(data)
+        if published:
+            ids = ", ".join(str(pid) for pid in published)
+            text = f"✅ <b>Опубликовано: {len(published)}</b> · <code>{ids}</code>\n\n" + text
+        else:
+            text = "❌ <b>Ничего не опубликовано</b>\n\n" + text
+        _render(token, chat_id, msg_id, text, markup)
     elif cmd == "errors":
         text, markup = _errors_view(data)
         _render(token, chat_id, msg_id, text, markup)

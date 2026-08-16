@@ -57,6 +57,7 @@ def make_data():
         ],
         "meta": {"last_run": 100, "last_posts": 1, "last_queries": ["a"], "total_posts": 10, "today_posts": 2, "today": "x"},
         "admin_ui": {"pending": None},
+        "queue": [],
     }
 
 
@@ -84,7 +85,7 @@ def main():
     t, m = admin._menu_view(make_data(), {})
     assert "Панель управления" in t and "📦 Всего публикаций" in t
     btns = [b["text"] for row in m for b in row]
-    assert "📊 Статус" in btns and "❓ Помощь" in btns and "🏠 Меню" not in btns
+    assert "📊 Статус" in btns and "❓ Помощь" in btns and "📤 Опубликовать" in btns
     print("1. menu OK")
 
     t, m = admin._status_view(make_data(), {})
@@ -271,6 +272,25 @@ def main():
     assert "сломалась X" in t and "Журнал" in t
     changed, d, s = run("errors")
     print("17. errors view OK")
+
+    # --- 18. очередь: просмотр и мгновенная публикация кнопкой ---
+    admin.config.TG_CHAT_ID = "CH"
+    d = make_data()
+    d["queue"] = [{
+        "id": 777, "title": "Чайник", "product": 99, "basic": 198,
+        "discount": 50, "rating": 4.5, "feedbacks": 9,
+        "category": "Кухня", "queued_ts": int(time.time()),
+    }]
+    t, m = admin._queue_view(d)
+    encoded = _json.dumps(m, ensure_ascii=False)
+    assert "Найденные товары" in t and "queue:bulk:1" in encoded
+    assert "queue:post:777" in encoded and "preview:post:777" in encoded
+    FakeTG.calls.clear()
+    changed = admin._admin_callback("tok", d, {}, cb("queue:bulk:1"))
+    assert changed is True and d["queue"] == [] and d["posted"].get(777)
+    assert [c for c in FakeTG.calls if c[0] == "photo"]
+    assert [c for c in FakeTG.calls if c[0] == "edit"]
+    print("18. queue quick publish OK")
 
 
 if __name__ == "__main__":

@@ -3,7 +3,8 @@ name: Poller
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"
+    # Overlapping schedules keep one pending session ready, minimizing gaps.
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: write
@@ -15,7 +16,7 @@ concurrency:
 jobs:
   poller:
     runs-on: ubuntu-latest
-    timeout-minutes: 29
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 

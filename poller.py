@@ -15,9 +15,9 @@ import tg
 
 logger = logging.getLogger("wb.poller")
 
-LIFETIME = 28 * 60
-CYCLE = 15
-COMMIT_EVERY = 300
+LIFETIME = 9 * 60
+CYCLE = 2
+COMMIT_EVERY = 120
 
 
 def _pull():
@@ -80,7 +80,7 @@ def main():
     tg.set_commands(config.TG_BOT_TOKEN)
     last_commit = 0.0
     start = time.time()
-    while time.time() - start < LIFETIME - 180:
+    while time.time() - start < LIFETIME - 60:
         _maybe_daily_digest(config.TG_BOT_TOKEN, data)
         _maybe_week_digest(config.TG_BOT_TOKEN, data, settings)
         now = time.time()
@@ -106,6 +106,12 @@ def main():
             if changed:
                 config.save_settings(settings)
                 commit_settings(config.SETTINGS_FILE, settings)
+                data["queue"] = deal_queue.save(
+                    config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}
+                )
+                bot.commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
+                state.save(config.STATE_FILE, data)
+                commit_state(config.STATE_FILE, data)
         if settings.get("post_now_ts") and not settings.get("post_lock"):
             settings["post_lock"] = 1
             config.save_settings(settings)

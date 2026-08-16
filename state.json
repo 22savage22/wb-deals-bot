@@ -35,7 +35,8 @@
   "361917699": 1786913810,
   "460659363": 1786916952,
   "535440587": 1786918159,
-  "693971589": 1786919816
+  "693971589": 1786919816,
+  "911529068": 1786921054
  },
  "feedback": {
   "855179327": {
@@ -136,11 +137,11 @@
    "ts": 1786913025.8518205
   },
   "телефон": {
-   "posts": 9.924380400139677,
+   "posts": 11.908983398364606,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1786919837.7456496
+   "ts": 1786921110.972308
   }
  },
  "tg": {
@@ -413,10 +414,23 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
+  },
+  {
+   "pid": 911529068,
+   "title": "Игровой смартфон Gt30 Pro 16ГБ+1024ГБ 120Гц 2SIM",
+   "discount": 71,
+   "price": 9466,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/911529068/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1786921054,
+   "drop": 0,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1786919816,
+  "last_run": 1786921054,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -454,11 +468,15 @@
    {
     "ts": 1786899509,
     "msg": "Пост 1181876719 отправлен, но кнопки не добавились: HTTP 400: Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message"
+   },
+   {
+    "ts": 1786921077,
+    "msg": "Очередь: нет фото 506610895"
    }
   ],
   "today": "2026-08-16",
-  "today_posts": 13,
-  "total_posts": 13,
+  "today_posts": 14,
+  "total_posts": 14,
   "last_scan": 1786919372,
   "last_scan_queries": [
    "телефон",
@@ -472,7 +490,7 @@
    "Пылевыбивалки",
    "Готовые строения и срубы"
   ],
-  "queue_size": 51,
+  "queue_size": 49,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1,
@@ -483,9 +501,10 @@
    "reserve": 0
   },
   "last_queue": {
-   "queue_before": 52,
+   "queue_before": 51,
    "selected": 1,
-   "queue_after": 51
+   "no_photo": 1,
+   "queue_after": 49
   }
  },
  "admin_ui": {
@@ -504,7 +523,8 @@
   "наушникибеспроводныеигровыесмикрофономдляандроид": 1786913810,
   "смартфонsansungs26ultraтелефон121tb6000мач": 1786916952,
   "наушникипроводныеtypec": 1786918159,
-  "телефонкнопочныймобильныйv182800mah": 1786919816
+  "телефонкнопочныймобильныйv182800mah": 1786919816,
+  "игровойсмартфонgt30pro16гб1024гб120гц2sim": 1786921054
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -519,7 +539,8 @@
   "80c3335191d3c4b9": 1786913810,
   "e8e0f0e0e8e0c1d4": 1786916952,
   "1767a9ae8ecefdee": 1786918159,
-  "e3bebebabab8b070": 1786919816
+  "e3bebebabab8b070": 1786919816,
+  "4b43302101832365": 1786921054
  },
  "learned": {},
  "prices": {
@@ -587,6 +608,11 @@
    "price": 2500,
    "basic": 8999,
    "ts": 1786919816.512933
+  },
+  "911529068": {
+   "price": 9466,
+   "basic": 32757,
+   "ts": 1786921054.504307
   }
  },
  "cats": {
@@ -630,22 +656,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "наушники",
-   "queued_ts": 1786908413
-  },
-  {
-   "id": 911529068,
-   "title": "Игровой смартфон Gt30 Pro 16ГБ+1024ГБ 120Гц 2SIM",
-   "brand": "Bobarry",
-   "product": 9466,
-   "basic": 32757,
-   "discount": 71,
-   "benefit": 23291,
-   "rating": 4.8,
-   "feedbacks": 5,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1786908413
   },
   {

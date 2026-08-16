@@ -44,6 +44,15 @@ class FakeWB:
     photo_map = {}
     cat_menu = []
     search_subject_only = False
+    health = {"calls": 1, "ok": 1}
+
+    @staticmethod
+    def reset_health():
+        FakeWB.health = {"calls": 1, "ok": 1}
+
+    @staticmethod
+    def health_snapshot():
+        return dict(FakeWB.health)
 
     @staticmethod
     def search(query, page, subject=None):
@@ -71,7 +80,7 @@ class FakeWB:
             return 2**32
 
     @staticmethod
-    def deal_from_search(item):
+    def deal_from_search(item, min_discount=None, min_rating=None, min_feedbacks=0):
         sizes = item.get("sizes") or []
         price = sizes[0]["price"] if sizes else {}
         product = price.get("product", 0) // 100
@@ -80,7 +89,7 @@ class FakeWB:
             discount = round(100 - product * 100 / basic)
         else:
             discount = 0
-        return {
+        deal = {
             "id": item["id"],
             "title": item["name"],
             "brand": item.get("brand", ""),
@@ -92,6 +101,20 @@ class FakeWB:
             "feedbacks": item.get("feedbacks", 0),
             "category": item.get("subjectName", "другое"),
         }
+        min_discount = config.MIN_DISCOUNT if min_discount is None else min_discount
+        min_rating = config.MIN_RATING if min_rating is None else min_rating
+        if discount < min_discount or (min_rating and deal["rating"] < min_rating):
+            return None
+        if min_feedbacks and deal["feedbacks"] < min_feedbacks:
+            return None
+        return deal
+
+    @staticmethod
+    def evaluate(item, min_discount=None, min_rating=None, min_feedbacks=0):
+        deal = FakeWB.deal_from_search(item, min_discount, min_rating, min_feedbacks)
+        if deal:
+            return deal, "ok"
+        return None, "discount"
 
     @staticmethod
     def photo(nm):
@@ -209,7 +232,26 @@ def main():
     bot.run_posting(data, {"queries": None}, notify=True)
     empty_msgs = [m for m in FakeTG.sent if m[0] == "msg" and "ничего не нашёл" in m[2]]
     assert len(empty_msgs) == 1
+    assert data["meta"]["last_run"] > 0
+    assert data["meta"]["last_funnel"]["found"] == 0
     print("4. empty feed OK")
+
+    # --- 4b. умный резерв ослабляет скидку, но сохраняет качество ---
+    config.MIN_DISCOUNT = 50
+    config.MIN_RATING = 4.5
+    config.FALLBACK_MIN_DISCOUNT = 40
+    config.FALLBACK_MIN_RATING = 4.3
+    config.FALLBACK_MIN_FEEDBACKS = 20
+    candidate = make_items(1, 9000)[9000]
+    candidate["sizes"][0]["price"] = {"product": 1100 * 100, "basic": 2000 * 100}
+    candidate["feedbacks"] = 100
+    funnel = {}
+    found = bot._find_deals([candidate], 1, funnel)
+    assert len(found) == 1 and found[0]["selection_mode"] == "smart_fallback"
+    assert funnel["strict"] == 0 and funnel["fallback"] == 1
+    config.MIN_DISCOUNT = 20
+    config.MIN_RATING = 0
+    print("4b. smart fallback OK")
 
     # --- 5. pick_deals интегрирован: категория-изгой не постится ---
     FakeWB.items = make_items(12)

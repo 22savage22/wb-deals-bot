@@ -38,7 +38,10 @@ def commit(path, merge_fn, msg):
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(merged, f, ensure_ascii=False, indent=1)
         _run("git", "add", path)
-        _run("git", "commit", "-m", msg)
+        res = _run("git", "commit", "-m", msg)
+        if res.returncode != 0:
+            print(f"{path} не изменился — коммит пропущен")
+            return True
         if _run("git", "push").returncode == 0:
             print(f"{path} закоммичен")
             return True

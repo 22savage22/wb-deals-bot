@@ -189,15 +189,16 @@ def handle_events(token, admin_id, data, settings, events):
                 _admin_message(token, chat_id, data, settings, ev.get("text", ""))
                 or changed
             )
-        elif not admin_id:
-            _reply(
-                token,
-                chat_id,
-                "Это админ-бот канала @WBmarket22.",
-                f"Доступ только для владельца. Ваш ID: <code>{user_id}</code>",
-            )
-        else:
-            _reply(token, chat_id, "У вас нет доступа к этому боту.")
+        elif ev.get("chat", {}).get("type") == "private":
+            if not admin_id:
+                _reply(
+                    token,
+                    chat_id,
+                    "Это админ-бот канала @WBmarket22.",
+                    f"Доступ только для владельца. Ваш ID: <code>{user_id}</code>",
+                )
+            else:
+                _reply(token, chat_id, "У вас нет доступа к этому боту.")
     return changed
 
 
@@ -205,6 +206,14 @@ def handle_events(token, admin_id, data, settings, events):
 
 def _btn(text, data):
     return {"text": text, "callback_data": data}
+
+
+def _link(pid):
+    """Безопасная ссылка: кривой шаблон не должен уронить бота."""
+    try:
+        return config.LINK_TEMPLATE.format(nm=pid)
+    except (KeyError, IndexError, ValueError):
+        return f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
 
 
 def _home_row():
@@ -333,12 +342,32 @@ def _status_view(data, settings):
     else:
         rows.append("▶️ <b>Работает</b> — постинг по расписанию")
     if meta.get("last_run"):
+        age = now - int(meta["last_run"])
         rows.append(
             f"🕘 Последний запуск: {_ft(meta['last_run'])} · постов <b>{meta.get('last_posts', 0)}</b>"
         )
+        if age > 8 * 3600:
+            rows.append(f"🔴 Автопостинг молчит уже <b>{_left(age)}</b> — проверь Actions")
         queries = meta.get("last_queries")
         if queries:
             rows.append("🔍 Запросы: " + ", ".join(str(q) for q in queries))
+        funnel = meta.get("last_funnel") or {}
+        if funnel:
+            rows.append(
+                "🧪 Воронка: "
+                f"найдено <b>{int(funnel.get('found', 0))}</b> · "
+                f"строго <b>{int(funnel.get('strict', 0))}</b> · "
+                f"резерв <b>{int(funnel.get('fallback', 0))}</b> · "
+                f"отобрано <b>{int(funnel.get('selected', 0))}</b>"
+            )
+        http = meta.get("wb_http") or {}
+        if http:
+            rows.append(
+                "🌐 WB API: "
+                f"успешно <b>{int(http.get('ok', 0))}</b> · "
+                f"лимит <b>{int(http.get('rate_limited', 0))}</b> · "
+                f"HTTP/сеть <b>{int(http.get('http_error', 0)) + int(http.get('network_error', 0))}</b>"
+            )
     else:
         rows.append("🕘 Запусков ещё не было")
     total = meta.get("total_posts", 0)
@@ -356,7 +385,8 @@ def _status_view(data, settings):
         )
     n_cats = len(data.get("cats") or {})
     rows.append(f"🗂 Категорий WB в ротации: <b>{tg.fmt(n_cats)}</b>")
-    rows.append(f"🆔 Чат: <code>{config.TG_CHAT_ID}</code> · Админ: <code>{config.TG_ADMIN_ID or 'не задан'}</code>")
+    chat = config.TG_CHAT_ID or "не задан"
+    rows.append(f"🆔 Чат: <code>{chat}</code> · Админ: <code>{config.TG_ADMIN_ID or 'не задан'}</code>")
     text = "\n".join(rows)
     markup = [
         [
@@ -628,6 +658,8 @@ def _adv_markup():
 
 def _queries_view(data, settings):
     queries = _current(settings, "queries")
+    if isinstance(queries, str):
+        queries = [q.strip() for q in queries.split(",") if q.strip()]
     rows = ["🔍 <b>Запросы поиска</b>", "", f"В списке: <b>{len(queries)}</b>"]
     for i, q in enumerate(queries, 1):
         rows.append(f"{i}. {html.escape(str(q))}")
@@ -749,6 +781,8 @@ def _help_view():
 
 def _preview_deals(data, settings, limit=10):
     pool = settings.get("queries") or config.QUERIES or config.DEFAULT_QUERIES
+    if isinstance(pool, str):
+        pool = [q.strip() for q in pool.split(",") if q.strip()]
     queries = smart.pick_queries(
         pool, data["query_stats"], min(config.QUERIES_PER_RUN, len(pool))
     )
@@ -790,7 +824,7 @@ def _preview_view(data, settings, limit=10):
         title = html.escape(d["title"])
         if len(title) > 50:
             title = title[:47] + "..."
-        link = config.LINK_TEMPLATE.format(nm=d["id"])
+        link = _link(d["id"])
         rows.append(
             f"{i}. 🔥 <b>{d['discount']}%</b> · {tg.fmt(d['product'])} ₽ <s>{tg.fmt(d['basic'])}</s>"
             f" · ⭐ {d['rating']} · <i>{html.escape(str(d['category']))}</i>"
@@ -839,6 +873,10 @@ def _apply_setting(settings, key, value):
         elif kind == "template":
             if "{nm}" not in value:
                 return False, "Шаблон должен содержать {nm}"
+            try:
+                value.format(nm=1)
+            except (KeyError, IndexError, ValueError):
+                return False, "Шаблон содержит недопустимые фигурные скобки"
             settings[key] = value
     except (ValueError, TypeError):
         return False, f"Некорректное значение для <b>{NAMES[key]}</b>"
@@ -919,7 +957,7 @@ def _do_publish(token, data, chat_id, cb_id, pid):
         state.record_error(data, f"Не удалось подготовить пост {pid}")
         tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
         return False
-    link = config.LINK_TEMPLATE.format(nm=pid)
+    link = _link(pid)
     caption = tg.caption(deal, pid)
     if len(images) > 1:
         ok = tg.send_album(token, config.TG_CHAT_ID, images, caption, link, pid)

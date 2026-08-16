@@ -230,6 +230,18 @@ def main():
         wb._get = orig_get
     print("13. search endpoint OK")
 
+    # 14. диагностическая причина отсева и управляемые пороги
+    config.MIN_DISCOUNT = 50
+    config.MIN_RATING = 4.5
+    low = card(product=12000, basic=20000)
+    low["reviewRating"] = 4.8
+    assert wb.evaluate(low)[1] == "discount"
+    accepted, reason = wb.evaluate(low, min_discount=40, min_rating=4.3)
+    assert reason == "ok" and accepted["discount"] == 40
+    low["feedbacks"] = 3
+    assert wb.evaluate(low, min_discount=40, min_rating=4.3, min_feedbacks=20)[1] == "feedbacks"
+    print("14. evaluate diagnostics OK")
+
 
 if __name__ == "__main__":
     main()

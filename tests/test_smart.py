@@ -9,8 +9,15 @@ sys.path.insert(0, ROOT)
 import smart
 
 
-def deal(pid, cat, disc, benefit=10):
-    return {"id": pid, "category": cat, "discount": disc, "benefit": benefit}
+def deal(pid, cat, disc, benefit=10, rating=4.5, feedbacks=10):
+    return {
+        "id": pid,
+        "category": cat,
+        "discount": disc,
+        "benefit": benefit,
+        "rating": rating,
+        "feedbacks": feedbacks,
+    }
 
 
 def make_data(recent=None, cat_stats=None, feedback=None, meta=None):
@@ -282,6 +289,14 @@ def main():
     smart.tally_cats(data, [], {})
     assert data["cats"]["A"]["runs"] == 2  # пустой список не трогает
     print("24. tally_cats OK")
+
+    # 25. качественный рейтинг учитывает доверие, отзывы и реальную выгоду
+    weak = deal(1, "a", 70, benefit=100, rating=3.5, feedbacks=0)
+    trusted = deal(2, "a", 60, benefit=5000, rating=4.9, feedbacks=900)
+    assert smart.deal_score(trusted) > smart.deal_score(weak)
+    fallback = dict(trusted, selection_mode="smart_fallback")
+    assert smart.deal_score(fallback) < smart.deal_score(trusted)
+    print("25. deal_score OK")
 
 
 if __name__ == "__main__":

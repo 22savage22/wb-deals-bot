@@ -34,7 +34,7 @@ def main():
     c = tg.caption(_deal(12345), 12345)
     assert "12 990" in c and "19 990" in c
     assert "-35%" in c
-    assert c.startswith("🔥") or c.startswith("⚡") or c.startswith("🚨") or "!" in c
+    assert any(c.startswith(emoji) for emoji, _ in tg.OPENERS)
     assert "<script>" not in c  # экранировано
     assert "&lt;script&gt;" in c
     assert "#вайлдберриз" in c and "#скидки" in c

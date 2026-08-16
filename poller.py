@@ -13,7 +13,7 @@ import tg
 
 logger = logging.getLogger("wb.poller")
 
-LIFETIME = 6 * 3600
+LIFETIME = 28 * 60
 CYCLE = 15
 COMMIT_EVERY = 300
 
@@ -68,6 +68,9 @@ def _maybe_week_digest(token, data, settings):
 
 def main():
     log.setup()
+    if not config.TG_BOT_TOKEN or not config.TG_ADMIN_ID:
+        print("Задайте TG_BOT_TOKEN и TG_ADMIN_ID")
+        sys.exit(1)
     settings = config.load_settings()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
@@ -77,11 +80,26 @@ def main():
     while time.time() - start < LIFETIME - 180:
         _maybe_daily_digest(config.TG_BOT_TOKEN, data)
         _maybe_week_digest(config.TG_BOT_TOKEN, data, settings)
+        now = time.time()
+        if (
+            settings.get("post_lock")
+            and settings.get("post_now_ts")
+            and now - float(settings["post_now_ts"]) > 3600
+        ):
+            settings.pop("post_now_ts", None)
+            settings.pop("post_lock", None)
+            config.save_settings(settings)
+            commit_settings(config.SETTINGS_FILE, settings)
         events = admin.poll(config.TG_BOT_TOKEN, data)
         if events:
-            changed = admin.handle_events(
-                config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
-            )
+            try:
+                changed = admin.handle_events(
+                    config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
+                )
+            except Exception as exc:
+                state.record_error(data, f"Обработка команд упала: {exc}")
+                logger.error("Обработка команд упала: %s", exc)
+                changed = False
             if changed:
                 config.save_settings(settings)
                 commit_settings(config.SETTINGS_FILE, settings)
@@ -117,7 +135,7 @@ def main():
     _pull()
     state.save(config.STATE_FILE, data)
     commit_state(config.STATE_FILE, data)
-    print("Poller session finished, respawn step will start new one")
+    print("Poller session finished; the next scheduled run will continue polling")
 
 
 if __name__ == "__main__":

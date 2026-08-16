@@ -28,25 +28,55 @@ MENU_FALLBACKS = [
 
 _HOSTS = {}
 FORMAT_FAILS = 0
+HTTP_STATS = {}
 
 
-def _get(url, params=None, tries=5):
-    sleeps = (10, 20, 30, 45, 60)
+def reset_health():
+    global FORMAT_FAILS, HTTP_STATS
+    FORMAT_FAILS = 0
+    HTTP_STATS = {
+        "calls": 0,
+        "ok": 0,
+        "rate_limited": 0,
+        "http_error": 0,
+        "network_error": 0,
+        "json_error": 0,
+    }
+
+
+def health_snapshot():
+    return dict(HTTP_STATS)
+
+
+reset_health()
+
+
+def _get(url, params=None, tries=3):
+    sleeps = (5, 15, 30)
     for attempt in range(tries):
+        HTTP_STATS["calls"] += 1
         try:
             resp = SESSION.get(url, params=params, timeout=25)
             if resp.status_code == 200:
-                return resp.json()
+                try:
+                    data = resp.json()
+                    HTTP_STATS["ok"] += 1
+                    return data
+                except ValueError:
+                    HTTP_STATS["json_error"] += 1
+                    return None
             if resp.status_code == 429:
+                HTTP_STATS["rate_limited"] += 1
                 wait = sleeps[min(attempt, len(sleeps) - 1)]
                 retry_after = resp.headers.get("Retry-After")
                 if retry_after and str(retry_after).isdigit():
-                    wait = max(wait, int(retry_after))
+                    wait = min(60, max(wait, int(retry_after)))
                 time.sleep(wait + random.uniform(0, 4))
                 continue
+            HTTP_STATS["http_error"] += 1
             return None
         except requests.RequestException:
-            pass
+            HTTP_STATS["network_error"] += 1
         time.sleep(3 + attempt * 3)
     return None
 
@@ -185,7 +215,6 @@ def cards(ids):
     for i in range(0, len(ids), 20):
         chunk = ids[i : i + 20]
         prods = _cards_chunk(chunk, config.DEST)
-        result.extend(prods)
         missing = [p for p in prods if not _has_price(p)]
         if missing:
             for d2 in config.FALLBACK_DESTS:
@@ -198,6 +227,7 @@ def cards(ids):
                     if rep is not None and _has_price(rep):
                         prods[j] = rep
                 missing = [p for p in prods if not _has_price(p)]
+        result.extend(prods)
         time.sleep(random.uniform(0.3, 0.8))
     return result
 
@@ -261,28 +291,37 @@ def raw_deal(card):
     }
 
 
-def deal(card):
+def evaluate(card, min_discount=None, min_rating=None, min_feedbacks=0):
+    """Return ``(deal, reason)`` so an empty run can be explained."""
     d = raw_deal(card)
     if (
         not d["id"]
         or d["product"] <= 0
         or d["basic"] <= d["product"]
     ):
-        return None
+        return None, "bad_price"
     if _out_of_stock(card):
-        return None
+        return None, "out_of_stock"
     if _blacklisted(d):
-        return None
-    if d["discount"] < config.MIN_DISCOUNT:
-        return None
+        return None, "blacklist"
+    min_discount = config.MIN_DISCOUNT if min_discount is None else min_discount
+    min_rating = config.MIN_RATING if min_rating is None else min_rating
+    if d["discount"] < min_discount:
+        return None, "discount"
     if config.MAX_PRICE and d["product"] > config.MAX_PRICE:
-        return None
-    if config.MIN_RATING and d["rating"] < config.MIN_RATING:
-        return None
-    return d
+        return None, "max_price"
+    if min_rating and d["rating"] < min_rating:
+        return None, "rating"
+    if min_feedbacks and d["feedbacks"] < min_feedbacks:
+        return None, "feedbacks"
+    return d, "ok"
 
 
-def deal_from_search(item):
+def deal(card, min_discount=None, min_rating=None, min_feedbacks=0):
+    return evaluate(card, min_discount, min_rating, min_feedbacks)[0]
+
+
+def deal_from_search(item, min_discount=None, min_rating=None, min_feedbacks=0):
     return deal(
         {
             "id": item.get("id"),
@@ -293,13 +332,17 @@ def deal_from_search(item):
             "feedbacks": item.get("feedbacks") or item.get("nmFeedbacks") or 0,
             "subjectName": item.get("subjectName"),
             "subject": item.get("subject"),
-        }
+        },
+        min_discount=min_discount,
+        min_rating=min_rating,
+        min_feedbacks=min_feedbacks,
     )
 
 
 def _http_ok(url):
     try:
-        return SESSION.get(url, timeout=8, stream=True).status_code == 200
+        with SESSION.get(url, timeout=8, stream=True) as resp:
+            return resp.status_code == 200
     except requests.RequestException:
         return False
 

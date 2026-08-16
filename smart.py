@@ -266,7 +266,7 @@ def pick_deals(deals, data, n):
         by_cat.setdefault(d["category"], []).append(d)
     for cat in by_cat:
         by_cat[cat].sort(
-            key=lambda d: (d["discount"] + cat_boost(cat, cat_stats), d["benefit"]),
+            key=lambda d: (deal_score(d) + cat_boost(cat, cat_stats), d["benefit"]),
             reverse=True,
         )
     cats = [c for c in by_cat if not _rejected(cat_stats, c)]
@@ -288,6 +288,19 @@ def pick_deals(deals, data, n):
         if not progressed:
             break
     return selected
+
+
+def deal_score(deal):
+    """Balance the visible discount with trust, usefulness and real savings."""
+    rating = float(deal.get("rating", 0) or 0)
+    feedbacks = max(0, int(deal.get("feedbacks", 0) or 0))
+    benefit = max(0, int(deal.get("benefit", 0) or 0))
+    trust = min(12.0, feedbacks ** 0.5 / 2.0)
+    rating_bonus = max(-10.0, (rating - 4.0) * 12.0) if rating else -8.0
+    savings = min(10.0, benefit / 1000.0)
+    drop_bonus = 15.0 if deal.get("price_drop") else 0.0
+    fallback_penalty = 4.0 if deal.get("selection_mode") == "smart_fallback" else 0.0
+    return float(deal.get("discount", 0) or 0) + trust + rating_bonus + savings + drop_bonus - fallback_penalty
 
 
 def refresh_categories(data, menu):
@@ -468,7 +481,7 @@ def summary(query_stats, cat_stats, n=5):
         rows.append(f"<b>{name}:</b>")
         for key, s in items:
             rows.append(
-                f"  {key}: постов {s['posts']:.0f}, 👍 {s['likes']:.0f}, "
+                f"  {html.escape(str(key))}: постов {s['posts']:.0f}, 👍 {s['likes']:.0f}, "
                 f"👎 {s['dislikes']:.0f}, 🛒 {s['bought']:.0f}, рейтинг {score(s):.2f}"
             )
         if not items:

@@ -26,6 +26,14 @@ def _run(*args):
     return res
 
 
+def _link(pid):
+    """Безопасная ссылка на товар: не даём кривому шаблону уронить бота."""
+    try:
+        return config.LINK_TEMPLATE.format(nm=pid)
+    except (KeyError, IndexError, ValueError):
+        return f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
+
+
 def commit_state(path, data):
     def merge_fn(remote):
         return state.merge(data, remote)
@@ -60,22 +68,86 @@ def _post_images(token, chat_id, images, caption, link, pid):
     return tg.send_photo(token, chat_id, images[0], caption, link, pid)
 
 
+def _candidate_cards(cards, seen):
+    """Prefer detailed cards, but keep search results missing from cards API."""
+    by_id = {c.get("id"): c for c in cards if c.get("id")}
+    for pid, item in seen.items():
+        by_id.setdefault(pid, item)
+    return list(by_id.values())
+
+
+def _find_deals(candidates, limit, funnel):
+    strict = []
+    rejected = []
+    for card in candidates:
+        deal, reason = wb.evaluate(card)
+        funnel[reason] = funnel.get(reason, 0) + 1
+        if deal:
+            strict.append(deal)
+        else:
+            rejected.append(card)
+
+    fallback = []
+    if config.SMART_FALLBACK and len(strict) < limit:
+        for card in rejected:
+            deal, _ = wb.evaluate(
+                card,
+                min_discount=min(config.MIN_DISCOUNT, config.FALLBACK_MIN_DISCOUNT),
+                min_rating=min(config.MIN_RATING, config.FALLBACK_MIN_RATING),
+                min_feedbacks=config.FALLBACK_MIN_FEEDBACKS,
+            )
+            if deal:
+                deal["selection_mode"] = "smart_fallback"
+                fallback.append(deal)
+    funnel["strict"] = len(strict)
+    funnel["fallback"] = len(fallback)
+    return strict + fallback
+
+
+def _funnel_text(funnel):
+    labels = (
+        ("found", "WB нашёл"),
+        ("cards", "карточек"),
+        ("strict", "прошли строго"),
+        ("fallback", "умный резерв"),
+        ("repost", "недавний повтор"),
+        ("title_duplicate", "похожее название"),
+        ("photo_duplicate", "похожее фото"),
+        ("no_photo", "без фото"),
+        ("selected", "отобрано"),
+    )
+    return " · ".join(f"{label}: {int(funnel.get(key, 0))}" for key, label in labels)
+
+
 def run_posting(data, settings, notify=True):
+    wb.reset_health()
     posted = data["posted"]
     pool = settings.get("queries") or config.QUERIES or config.DEFAULT_QUERIES
+    if isinstance(pool, str):
+        pool = [q.strip() for q in pool.split(",") if q.strip()]
     queries = smart.pick_queries(
         pool, data["query_stats"], config.QUERIES_PER_RUN, data
     )
 
     meta = data.setdefault("meta", {})
     now = time.time()
+    meta["last_run"] = int(now)
+    meta["last_posts"] = 0
+    meta["last_queries"] = list(queries)
+    funnel = {"found": 0, "cards": 0}
     if not data.get("cats") or now - float(meta.get("cats_ts", 0) or 0) > 24 * 3600:
         try:
-            smart.refresh_categories(data, wb.menu())
-        except Exception:
-            pass
-        meta["cats_ts"] = now
+            menu = wb.menu()
+            if menu:
+                smart.refresh_categories(data, menu)
+                meta["cats_ts"] = now
+                meta["cats_count"] = len(data.get("cats") or {})
+            else:
+                state.record_error(data, "Каталог категорий WB вернул пустой ответ")
+        except Exception as exc:
+            state.record_error(data, f"Не удалось обновить каталог категорий WB: {exc}")
     cat_names = smart.pick_categories(data, config.CATS_PER_RUN)
+    meta["last_cats"] = list(cat_names)
 
     seen = {}
     pid_query = {}
@@ -118,27 +190,21 @@ def run_posting(data, settings, notify=True):
                 "ничего не находить. Проверь wb.py, пока данные не потерялись.",
             )
 
-    meta["last_cats"] = list(cat_names)
+    funnel["found"] = len(seen)
 
     if not seen:
+        meta["wb_http"] = wb.health_snapshot()
+        meta["last_funnel"] = funnel
+        smart.tally_run(data, pool, queries, {})
         smart.tally_cats(data, cat_names, {})
         print("Поиск не дал результатов")
         _notify_run(data, settings, queries, cat_names, 0, [], notify)
         return 0
 
     cards = wb.cards(list(seen.keys()))
-
-    deals = []
-    for card in cards:
-        d = wb.deal(card)
-        if d:
-            deals.append(d)
-
-    if not deals:
-        for item in seen.values():
-            d = wb.deal_from_search(item)
-            if d:
-                deals.append(d)
+    candidates = _candidate_cards(cards, seen)
+    funnel["cards"] = len(candidates)
+    deals = _find_deals(candidates, config.MAX_POSTS, funnel)
 
     repost_secs = config.REPOST_DAYS * 86400
     prices = data.setdefault("prices", {})
@@ -149,6 +215,8 @@ def run_posting(data, settings, notify=True):
         if last and now - last < repost_secs:
             if smart.price_drop(d, prices, config.PRICE_DROP_MIN):
                 allowed.append(d)
+            else:
+                funnel["repost"] = funnel.get("repost", 0) + 1
             continue
         allowed.append(d)
     deals = allowed
@@ -164,8 +232,10 @@ def run_posting(data, settings, notify=True):
             unique.append(d)
             continue
         if key in seen_titles:
+            funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
             continue
         if titles.get(key) and now - titles[key] < repost_secs:
+            funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
             continue
         seen_titles.add(key)
         unique.append(d)
@@ -174,6 +244,7 @@ def run_posting(data, settings, notify=True):
         if d.get("category", "другое") == "другое" and pid_query.get(d["id"]):
             d["category"] = pid_query[d["id"]]
     deals = smart.pick_deals(deals, data, config.MAX_POSTS)
+    funnel["selected"] = len(deals)
 
     published = 0
     posted_deals = []
@@ -184,15 +255,19 @@ def run_posting(data, settings, notify=True):
         pid = deal["id"]
         images = wb.photos(pid)
         if not images:
+            funnel["no_photo"] = funnel.get("no_photo", 0) + 1
             state.record_error(data, f"Нет фото: {pid}")
             print("Нет фото:", pid)
             continue
         h = wb.image_hash(images[0])
         if h and not deal.get("price_drop") and _img_dup(img_hash, h, now, repost_secs):
+            funnel["photo_duplicate"] = funnel.get("photo_duplicate", 0) + 1
+            # Remember the rejected article so the same catalogue duplicate is
+            # not downloaded and reconsidered on every scheduled run.
             posted[pid] = int(now)
             print("Повтор по фото:", pid)
             continue
-        link = config.LINK_TEMPLATE.format(nm=pid)
+        link = _link(pid)
         try:
             ok = _post_images(
                 config.TG_BOT_TOKEN,
@@ -206,6 +281,8 @@ def run_posting(data, settings, notify=True):
             state.record_error(data, f"Ошибка публикации {pid}: {exc}")
             print("Ошибка публикации:", pid, exc)
             ok = False
+        if not ok:
+            funnel["send_failed"] = funnel.get("send_failed", 0) + 1
         if ok:
             posted[pid] = int(now)
             if h and not deal.get("price_drop"):
@@ -238,9 +315,10 @@ def run_posting(data, settings, notify=True):
             print("Опубликовано:", pid, f"{deal['discount']}%", deal["title"][:50])
         time.sleep(1.5)
 
-    data["meta"]["last_run"] = int(now)
     data["meta"]["last_posts"] = published
-    data["meta"]["last_queries"] = list(queries)
+    funnel["published"] = published
+    data["meta"]["last_funnel"] = funnel
+    data["meta"]["wb_http"] = wb.health_snapshot()
     if published:
         state.bump_meta(data, published)
     posts_by_query = {}
@@ -295,9 +373,11 @@ def _notify_run(data, settings, queries, cat_names, published, posted_deals, not
             lines.append("Запросы: " + ", ".join(str(q) for q in queries))
         if cat_names:
             lines.append("Категории: " + ", ".join(str(c) for c in cat_names))
+        funnel = data.get("meta", {}).get("last_funnel") or {}
+        lines.append("Воронка: " + _funnel_text(funnel))
         lines += [
             "",
-            "Бот сам ротирует категории каталога WB — пустые уходят на паузу.",
+            "Пустые категории временно снижаются в ротации; хорошие возвращаются чаще.",
         ]
         tg.send_message(token, admin, "\n".join(lines))
 
@@ -306,9 +386,13 @@ def process_updates(data, settings):
     events = admin.poll(config.TG_BOT_TOKEN, data)
     if not events:
         return
-    changed = admin.handle_events(
-        config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
-    )
+    try:
+        changed = admin.handle_events(
+            config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
+        )
+    except Exception as exc:
+        state.record_error(data, f"Обработка команд упала: {exc}")
+        changed = False
     if changed:
         config.save_settings(settings)
 

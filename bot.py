@@ -22,7 +22,7 @@ logger = logging.getLogger("wb.bot")
 
 
 def active_posting_time(now=None):
-    """Scheduled posts are allowed 06:00..22:59 Moscow time."""
+    """Return whether scheduled posting is enabled for the current hour."""
     current = now or datetime.now(ZoneInfo("Europe/Moscow"))
     return config.ACTIVE_HOUR_START <= current.hour <= config.ACTIVE_HOUR_END
 
@@ -560,7 +560,10 @@ def main():
     manual = bool(settings.get("post_now_ts"))
     forced = manual or bool(config.FORCE_POST)
     if not active_posting_time() and not forced:
-        print("Тихие часы: автопостинг разрешён с 06:00 до 22:59 по Москве")
+        print(
+            "Постинг вне настроенного окна:",
+            f"{config.ACTIVE_HOUR_START:02d}:00–{config.ACTIVE_HOUR_END:02d}:59",
+        )
     elif paused_until > time.time() and not forced:
         print(
             "Постинг на паузе до",

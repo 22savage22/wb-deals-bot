@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Run full test suite
+        run: python tests/run_all.py
+
       - name: Run poller
         run: python poller.py
         env:

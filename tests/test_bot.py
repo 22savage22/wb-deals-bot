@@ -165,9 +165,17 @@ def main():
     config.TG_BOT_TOKEN = "tok"
 
     # --- 0. расписание и публикация из заранее наполненной очереди ---
+    old_start, old_end = config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END
+    config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = 0, 23
+    assert bot.active_posting_time(datetime(2026, 1, 1, 0, 0))
+    assert bot.active_posting_time(datetime(2026, 1, 1, 5, 59))
     assert bot.active_posting_time(datetime(2026, 1, 1, 6, 0))
-    assert bot.active_posting_time(datetime(2026, 1, 1, 22, 40))
+    assert bot.active_posting_time(datetime(2026, 1, 1, 22, 59))
+    assert bot.active_posting_time(datetime(2026, 1, 1, 23, 59))
+    config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = 6, 22
+    assert not bot.active_posting_time(datetime(2026, 1, 1, 5, 59))
     assert not bot.active_posting_time(datetime(2026, 1, 1, 23, 0))
+    config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = old_start, old_end
     queued = empty_data()
     queued["queue"] = [
         {"id": 999, "title": "Товар из очереди", "brand": "Бр",

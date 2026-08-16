@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Run full test suite
+        run: python tests/run_all.py
+
       - name: Fill vetted deal queue
         run: python scanner.py
         env:
@@ -36,6 +39,6 @@ jobs:
           WB_PAGES: "2"
           WB_QUERIES_PER_RUN: "6"
           WB_CATS_PER_RUN: "4"
-          WB_QUEUE_TARGET: "30"
+          WB_QUEUE_TARGET: "60"
           WB_QUEUE_MAX_AGE_HOURS: "8"
           GITHUB_TOKEN: ${{ github.token }}

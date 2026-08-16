@@ -10,7 +10,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: wb-publisher
+  # Scanner and publisher must never edit the shared queue simultaneously.
+  group: wb-content
   cancel-in-progress: false
 
 jobs:

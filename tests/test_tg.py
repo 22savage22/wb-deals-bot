@@ -95,6 +95,56 @@ def main():
     assert len(c) <= 1024
     print("10. price drop caption OK")
 
+    # 11. клавиатура альбома добавляется отдельным edit-запросом
+    calls = []
+
+    class Response:
+        ok = True
+        status_code = 200
+
+        def __init__(self, result):
+            self.result = result
+
+        def json(self):
+            return {"ok": True, "result": self.result}
+
+    original_post = tg.requests.post
+
+    def fake_post(url, data=None, files=None, timeout=None):
+        calls.append((url, data, files))
+        if url.endswith("/sendMediaGroup"):
+            return Response([{"message_id": 77}])
+        return Response(True)
+
+    tg.requests.post = fake_post
+    try:
+        assert tg.send_album("tok", "@channel", [b"a", b"b"], "caption", "https://x", 42)
+        media = json.loads(calls[0][1]["media"])
+        assert "reply_markup" not in media[0]
+        assert calls[1][0].endswith("/editMessageReplyMarkup")
+        keyboard = json.loads(calls[1][1]["reply_markup"])
+        assert keyboard["inline_keyboard"][0][0]["text"] == "Купить"
+    finally:
+        tg.requests.post = original_post
+    print("11. album keyboard OK")
+
+    # 12. Telegram error is retained without leaking the token
+    class ErrorResponse:
+        ok = False
+        status_code = 400
+
+        def json(self):
+            return {"description": "Bad Request: wrong chat"}
+
+    tg.requests.post = lambda *args, **kwargs: ErrorResponse()
+    try:
+        assert tg.send_message("secret-token", "bad", "x") is False
+        assert "wrong chat" in tg.last_error()
+        assert "secret-token" not in tg.last_error()
+    finally:
+        tg.requests.post = original_post
+    print("12. telegram diagnostics OK")
+
 
 if __name__ == "__main__":
     main()

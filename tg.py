@@ -5,6 +5,26 @@ import re
 import requests
 
 API = "https://api.telegram.org/bot{token}/{method}"
+LAST_ERROR = ""
+
+
+def _remember_error(resp=None, exc=None):
+    global LAST_ERROR
+    if exc is not None:
+        LAST_ERROR = f"network: {exc}"
+        return
+    if resp is None or resp.ok:
+        LAST_ERROR = ""
+        return
+    try:
+        description = resp.json().get("description", "")
+    except (ValueError, AttributeError):
+        description = ""
+    LAST_ERROR = f"HTTP {getattr(resp, 'status_code', '?')}: {description or 'Telegram rejected request'}"[:400]
+
+
+def last_error():
+    return LAST_ERROR
 
 OPENERS = [
     ("🔥", "Горячая скидка!"),
@@ -180,8 +200,10 @@ def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
             files={"photo": ("photo.jpg", photo, "image/jpeg")},
             timeout=90,
         )
+        _remember_error(resp)
         return resp.ok
-    except requests.RequestException:
+    except requests.RequestException as exc:
+        _remember_error(exc=exc)
         return False
 
 
@@ -192,10 +214,6 @@ def send_album(token, chat_id, photos, text, link=None, pid=None, markup=None):
         if i == 0:
             item["caption"] = text
             item["parse_mode"] = "HTML"
-            if markup is not None:
-                item["reply_markup"] = _kb(markup)
-            elif link and pid:
-                item["reply_markup"] = _buttons(link, pid)
         media.append(item)
     payload = {"chat_id": chat_id, "media": json.dumps(media)}
     files = {f"p{i}.jpg": (f"p{i}.jpg", p, "image/jpeg") for i, p in enumerate(photos)}
@@ -206,8 +224,35 @@ def send_album(token, chat_id, photos, text, link=None, pid=None, markup=None):
             files=files,
             timeout=90,
         )
-        return resp.ok
-    except requests.RequestException:
+        _remember_error(resp)
+        if not resp.ok:
+            return False
+        keyboard = _kb(markup) if markup is not None else (_buttons(link, pid) if link and pid else None)
+        if keyboard:
+            try:
+                messages = resp.json().get("result") or []
+                message_id = messages[0].get("message_id") if messages else None
+            except (ValueError, AttributeError, IndexError):
+                message_id = None
+            if message_id:
+                try:
+                    edit = requests.post(
+                        API.format(token=token, method="editMessageReplyMarkup"),
+                        data={
+                            "chat_id": chat_id,
+                            "message_id": message_id,
+                            "reply_markup": json.dumps(keyboard),
+                        },
+                        timeout=20,
+                    )
+                    _remember_error(edit)
+                except requests.RequestException as exc:
+                    # The album is already public; never retry it as a single
+                    # photo just because attaching the keyboard failed.
+                    _remember_error(exc=exc)
+        return True
+    except requests.RequestException as exc:
+        _remember_error(exc=exc)
         return False
 
 
@@ -221,8 +266,10 @@ def send_message(token, chat_id, text, markup=None):
             data=payload,
             timeout=20,
         )
+        _remember_error(resp)
         return resp.ok
-    except requests.RequestException:
+    except requests.RequestException as exc:
+        _remember_error(exc=exc)
         return False
 
 

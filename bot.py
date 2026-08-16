@@ -283,6 +283,10 @@ def run_posting(data, settings, notify=True):
             ok = False
         if not ok:
             funnel["send_failed"] = funnel.get("send_failed", 0) + 1
+            detail = tg.last_error() if hasattr(tg, "last_error") else ""
+            state.record_error(data, f"Telegram не принял {pid}: {detail or 'без описания'}")
+        elif hasattr(tg, "last_error") and tg.last_error():
+            state.record_error(data, f"Пост {pid} отправлен, но кнопки не добавились: {tg.last_error()}")
         if ok:
             posted[pid] = int(now)
             if h and not deal.get("price_drop"):

@@ -349,6 +349,87 @@ def load_remote(path, ref="origin/main"):
         return None
 
 
+def _meta_number(meta, key):
+    try:
+        return float(meta.get(key, 0) or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _merge_meta(local, remote):
+    """Merge concurrent publisher/scanner metadata without rolling it back."""
+    local = _norm_meta(local)
+    remote = _norm_meta(remote)
+    merged = dict(remote)
+    merged.update(local)
+
+    # These counters are monotonic. A workflow dispatched from an older commit
+    # must not overwrite posts recorded by a newer publisher run.
+    merged["total_posts"] = int(
+        max(_meta_number(local, "total_posts"), _meta_number(remote, "total_posts"))
+    )
+    local_day = str(local.get("today") or "")
+    remote_day = str(remote.get("today") or "")
+    newest_day = max(local_day, remote_day)
+    if newest_day:
+        merged["today"] = newest_day
+        if local_day == remote_day:
+            merged["today_posts"] = int(
+                max(
+                    _meta_number(local, "today_posts"),
+                    _meta_number(remote, "today_posts"),
+                )
+            )
+        elif newest_day == local_day:
+            merged["today_posts"] = int(_meta_number(local, "today_posts"))
+        else:
+            merged["today_posts"] = int(_meta_number(remote, "today_posts"))
+
+    # Keep each group from the workflow that actually ran most recently.
+    groups = (
+        (
+            "last_run",
+            ("last_posts", "last_queries", "last_cats", "last_funnel", "last_queue"),
+        ),
+        (
+            "last_scan",
+            (
+                "last_scan_queries",
+                "last_scan_cats",
+                "last_scan_added",
+                "last_scan_funnel",
+                "queue_size",
+            ),
+        ),
+    )
+    for clock, fields in groups:
+        source = local if _meta_number(local, clock) >= _meta_number(remote, clock) else remote
+        if clock in source:
+            merged[clock] = source[clock]
+        for field in fields:
+            if field in source:
+                merged[field] = source[field]
+
+    # Notice/digest timestamps are also monotonic and protect the admin chat
+    # from duplicate notifications.
+    for key in set(local) | set(remote):
+        if key.endswith("_ts"):
+            merged[key] = max(_meta_number(local, key), _meta_number(remote, key))
+    if local.get("digest_date") or remote.get("digest_date"):
+        merged["digest_date"] = max(
+            str(local.get("digest_date") or ""), str(remote.get("digest_date") or "")
+        )
+
+    errors = {}
+    for item in list(remote.get("errors") or []) + list(local.get("errors") or []):
+        if isinstance(item, dict):
+            key = (int(item.get("ts", 0) or 0), str(item.get("msg") or ""))
+            errors[key] = {"ts": key[0], "msg": key[1][:400]}
+    if errors:
+        merged["errors"] = [errors[key] for key in sorted(errors)][-20:]
+    return merged
+
+
 def merge(local, remote):
     base = _from_dict(remote) if remote is not None else _empty()
     m = {
@@ -396,7 +477,7 @@ def merge(local, remote):
             if found is not None:
                 m["recent"].remove(found)
             m["recent"].append(r)
-    m["meta"].update(local["meta"])
+    m["meta"] = _merge_meta(local["meta"], base["meta"])
     for title, ts in (local.get("titles") or {}).items():
         if title not in m["titles"] or ts > m["titles"][title]:
             m["titles"][title] = ts

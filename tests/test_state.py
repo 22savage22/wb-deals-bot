@@ -256,6 +256,30 @@ def main():
     assert merged["queue"] == []
     print("18. queue OK")
 
+    # 19. stale scanner metadata must not roll back publisher counters/state
+    remote = state._empty()
+    remote["meta"] = {
+        "today": "2026-08-16", "today_posts": 4, "total_posts": 14,
+        "last_run": 400, "last_posts": 1, "last_funnel": {"published": 1},
+        "last_scan": 100, "last_scan_added": 10, "queue_size": 27,
+        "empty_notice_ts": 500, "errors": [{"ts": 100, "msg": "remote"}],
+    }
+    stale = state._empty()
+    stale["meta"] = {
+        "today": "2026-08-16", "today_posts": 2, "total_posts": 12,
+        "last_run": 200, "last_posts": 0, "last_funnel": {"published": 0},
+        "last_scan": 300, "last_scan_added": 3, "queue_size": 30,
+        "empty_notice_ts": 300, "errors": [{"ts": 200, "msg": "local"}],
+    }
+    merged = state.merge(stale, remote)["meta"]
+    assert merged["today_posts"] == 4 and merged["total_posts"] == 14
+    assert merged["last_run"] == 400 and merged["last_posts"] == 1
+    assert merged["last_funnel"] == {"published": 1}
+    assert merged["last_scan"] == 300 and merged["last_scan_added"] == 3
+    assert merged["queue_size"] == 30 and merged["empty_notice_ts"] == 500
+    assert [e["msg"] for e in merged["errors"]] == ["remote", "local"]
+    print("19. concurrent meta merge OK")
+
 
 if __name__ == "__main__":
     main()

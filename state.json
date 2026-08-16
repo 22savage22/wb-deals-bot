@@ -397,10 +397,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 11,
-   "rate_limited": 14,
-   "http_error": 9,
+   "calls": 23,
+   "ok": 3,
+   "rate_limited": 15,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -417,7 +417,7 @@
   "today": "2026-08-16",
   "today_posts": 10,
   "total_posts": 10,
-  "last_scan": 1786905841,
+  "last_scan": 1786915639,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -425,25 +425,20 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Готовые строения и срубы",
+   "Пылевыбивалки",
    "Репринтные издания 1860 - 1869 годов",
    "Средства для мытья посуды и продуктов",
-   "Пылевыбивалки"
+   "Готовые строения и срубы"
   ],
   "queue_size": 54,
-  "last_scan_added": 30,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 99,
-   "cards": 99,
-   "bad_price": 40,
-   "ok": 54,
-   "discount": 3,
-   "rating": 2,
-   "strict": 54,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 6
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 55,
@@ -534,27 +529,27 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1786908629.3009133,
-   "runs": 57,
-   "empty": 2
+   "ts": 1786915886.8171716,
+   "runs": 58,
+   "empty": 3
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1786908629.3009133,
-   "runs": 52,
-   "empty": 2
+   "ts": 1786915886.8171716,
+   "runs": 53,
+   "empty": 3
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1786908629.3009133,
-   "runs": 17,
-   "empty": 2
+   "ts": 1786915886.8171716,
+   "runs": 18,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1786908629.3009133,
-   "runs": 17,
-   "empty": 2
+   "ts": 1786915886.8171716,
+   "runs": 18,
+   "empty": 3
   }
  },
  "queue": [

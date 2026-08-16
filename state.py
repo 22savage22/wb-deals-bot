@@ -2,6 +2,8 @@ import json
 import os
 import subprocess
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 WEEK = 7 * 24 * 3600
 PRUNE_AFTER = 14 * 24 * 3600
@@ -430,6 +432,31 @@ def _merge_meta(local, remote):
     return merged
 
 
+def _moscow_day(ts):
+    try:
+        return datetime.fromtimestamp(float(ts), ZoneInfo("Europe/Moscow")).strftime(
+            "%Y-%m-%d"
+        )
+    except (TypeError, ValueError, OSError):
+        return ""
+
+
+def _reconcile_post_counters(meta, recent):
+    """Recover counters from the durable recent-post journal after old races."""
+    today = str(meta.get("today") or _moscow_day(time.time()))
+    recent_today = {
+        item.get("pid")
+        for item in (recent or [])
+        if isinstance(item, dict)
+        and item.get("pid") is not None
+        and _moscow_day(item.get("ts")) == today
+    }
+    count = max(int(_meta_number(meta, "today_posts")), len(recent_today))
+    meta["today"] = today
+    meta["today_posts"] = count
+    meta["total_posts"] = max(int(_meta_number(meta, "total_posts")), count)
+
+
 def merge(local, remote):
     base = _from_dict(remote) if remote is not None else _empty()
     m = {
@@ -478,6 +505,7 @@ def merge(local, remote):
                 m["recent"].remove(found)
             m["recent"].append(r)
     m["meta"] = _merge_meta(local["meta"], base["meta"])
+    _reconcile_post_counters(m["meta"], m["recent"])
     for title, ts in (local.get("titles") or {}).items():
         if title not in m["titles"] or ts > m["titles"][title]:
             m["titles"][title] = ts

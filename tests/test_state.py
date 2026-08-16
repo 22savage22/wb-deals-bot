@@ -271,6 +271,15 @@ def main():
         "last_scan": 300, "last_scan_added": 3, "queue_size": 30,
         "empty_notice_ts": 300, "errors": [{"ts": 200, "msg": "local"}],
     }
+    remote["recent"] = [
+        {"pid": 9001, "title": "A", "ts": now},
+        {"pid": 9002, "title": "B", "ts": now},
+        {"pid": 9003, "title": "C", "ts": now},
+        {"pid": 9004, "title": "D", "ts": now},
+    ]
+    remote["meta"]["today"] = state._moscow_day(now)
+    stale["meta"]["today"] = state._moscow_day(now)
+    remote["meta"]["today_posts"] = 2
     merged = state.merge(stale, remote)["meta"]
     assert merged["today_posts"] == 4 and merged["total_posts"] == 14
     assert merged["last_run"] == 400 and merged["last_posts"] == 1

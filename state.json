@@ -121,6 +121,19 @@
  },
  "recent": [
   {
+   "pid": 867080317,
+   "title": "Наушники проводные Type-C совместимы с iPhone android",
+   "discount": 84,
+   "price": 334,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/867080317/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786911442,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1024083178,
    "title": "Смартфон Phone (3a) 12ГБ+256ГБ NFC Синий JP",
    "discount": 80,
@@ -308,19 +321,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 867080317,
-   "title": "Наушники проводные Type-C совместимы с iPhone android",
-   "discount": 84,
-   "price": 334,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/867080317/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786911442,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

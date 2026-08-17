@@ -1007,9 +1007,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
+   "calls": 35,
    "ok": 11,
-   "rate_limited": 17,
+   "rate_limited": 15,
    "http_error": 9,
    "network_error": 0,
    "json_error": 0

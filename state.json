@@ -186,7 +186,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1786993749.9374793,
+   "ts": 1786993749,
    "query": "наушники",
    "cat": "наушники",
    "voters": {
@@ -197,7 +197,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1786993784.7405193,
+   "ts": 1786993784,
    "query": "наушники",
    "cat": "наушники",
    "voters": {
@@ -208,7 +208,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1786993788.0441732,
+   "ts": 1786993788,
    "query": null,
    "cat": null,
    "voters": {
@@ -923,9 +923,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 123,
-   "ok": 77,
-   "rate_limited": 7,
+   "calls": 127,
+   "ok": 78,
+   "rate_limited": 10,
    "http_error": 39,
    "network_error": 0,
    "json_error": 0
@@ -979,7 +979,7 @@
   "today": "2026-08-17",
   "today_posts": 30,
   "total_posts": 40,
-  "last_scan": 1786992634,
+  "last_scan": 1786995231,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -987,25 +987,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смазки и масла для инструмента",
    "Готовые строения и срубы",
-   "Пылевыбивалки",
-   "Репринтные издания 1860 - 1869 годов"
+   "Смазки и масла для инструмента",
+   "Репринтные издания 1860 - 1869 годов",
+   "Пылевыбивалки"
   ],
   "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 699,
-   "cards": 699,
-   "bad_price": 240,
-   "rating": 36,
+   "found": 700,
+   "cards": 700,
+   "bad_price": 238,
+   "rating": 37,
    "discount": 202,
-   "ok": 221,
-   "strict": 221,
+   "ok": 223,
+   "strict": 223,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 73,
-   "title_duplicate": 39
+   "duplicate": 75,
+   "title_duplicate": 37
   },
   "last_queue": {
    "queue_before": 98,
@@ -1307,15 +1307,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1786992781.4931996,
-   "runs": 69,
-   "empty": 4
+   "ts": 1786995384.8039916,
+   "runs": 70,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1786992781.4931996,
-   "runs": 64,
-   "empty": 4
+   "ts": 1786995384.8039916,
+   "runs": 65,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1325,9 +1325,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1786992781.4931996,
-   "runs": 29,
-   "empty": 4
+   "ts": 1786995384.8039916,
+   "runs": 30,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1349,12 +1349,44 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1786992781.4931996,
-   "runs": 9,
-   "empty": 4
+   "ts": 1786995384.8039916,
+   "runs": 10,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 396242354,
+   "title": "Телевизор смарт 32 дюйма с wi-fi и интернетом безрамочный",
+   "brand": "",
+   "product": 9635,
+   "basic": 24300,
+   "discount": 60,
+   "benefit": 14665,
+   "rating": 4.7,
+   "feedbacks": 1255,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1786995231
+  },
+  {
+   "id": 844259447,
+   "title": "Кроссовки летние текстильные дышащие",
+   "brand": "RAFFELLI",
+   "product": 733,
+   "basic": 6550,
+   "discount": 89,
+   "benefit": 5817,
+   "rating": 4.7,
+   "feedbacks": 1037,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786995231
+  },
   {
    "id": 440536422,
    "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",

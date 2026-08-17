@@ -246,6 +246,19 @@
  },
  "recent": [
   {
+   "pid": 773083840,
+   "title": "Наушники беспроводные A.Pods 2",
+   "discount": 69,
+   "price": 951,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/773083840/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786988947,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 74484829,
    "title": "Проводные наушники для iphone",
    "discount": 86,
@@ -823,19 +836,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 773083840,
-   "title": "Наушники беспроводные A.Pods 2",
-   "discount": 69,
-   "price": 951,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/773083840/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786988947,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

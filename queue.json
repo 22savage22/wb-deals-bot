@@ -1,5 +1,37 @@
 [
  {
+  "id": 214148802,
+  "title": "Кроссовки детские для мальчика",
+  "brand": "AOKA",
+  "product": 1197,
+  "basic": 13609,
+  "discount": 91,
+  "benefit": 12412,
+  "rating": 4.9,
+  "feedbacks": 94,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1786992634
+ },
+ {
+  "id": 440536422,
+  "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",
+  "brand": "STIMAXON",
+  "product": 315,
+  "basic": 900,
+  "discount": 65,
+  "benefit": 585,
+  "rating": 4.6,
+  "feedbacks": 3092,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1786992634
+ },
+ {
   "id": 977893100,
   "title": "Наушники беспроводные для айфон A.Pods Pro",
   "brand": "",
@@ -941,22 +973,6 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "наушники",
-  "queued_ts": 1786956777
- },
- {
-  "id": 214148802,
-  "title": "Кроссовки детские для мальчика",
-  "brand": "AOKA",
-  "product": 1197,
-  "basic": 13609,
-  "discount": 91,
-  "benefit": 12412,
-  "rating": 4.9,
-  "feedbacks": 94,
-  "category": "кроссовки",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "кроссовки",
   "queued_ts": 1786956777
  },
  {

@@ -287,6 +287,19 @@
  },
  "recent": [
   {
+   "pid": 837930039,
+   "title": "Кроссовки АСИКС Gel-Kahana 8 летние дышащие",
+   "discount": 80,
+   "price": 1730,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/837930039/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787004416,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 391569836,
    "title": "Дышащие текстильные кроссовки для фитнеса и зала",
    "discount": 65,
@@ -968,19 +981,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 837930039,
-   "title": "Кроссовки АСИКС Gel-Kahana 8 летние дышащие",
-   "discount": 80,
-   "price": 1730,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/837930039/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787004416,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1076,7 +1076,7 @@
    "Пледы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 13,
   "last_scan_funnel": {
    "found": 99,

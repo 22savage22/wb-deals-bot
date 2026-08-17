@@ -247,6 +247,19 @@
  },
  "recent": [
   {
+   "pid": 11755171,
+   "title": "Наушники проводные с разъемом Jack 3,5 с микрофоном",
+   "discount": 78,
+   "price": 255,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/11755171/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786990831,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 773083840,
    "title": "Наушники беспроводные A.Pods 2",
    "discount": 69,
@@ -837,19 +850,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 11755171,
-   "title": "Наушники проводные с разъемом Jack 3,5 с микрофоном",
-   "discount": 78,
-   "price": 255,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/11755171/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786990831,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -945,7 +945,7 @@
    "Пылевыбивалки",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 97,
+  "queue_size": 98,
   "last_scan_added": 11,
   "last_scan_funnel": {
    "found": 200,

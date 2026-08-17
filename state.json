@@ -290,6 +290,19 @@
  },
  "recent": [
   {
+   "pid": 900571260,
+   "title": "Кроссовки спортивные в сетку дышащие летние",
+   "discount": 76,
+   "price": 792,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/900571260/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787010981,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 266168493,
    "title": "Телевизор 40 дюймов смарт 40F685TS Салют",
    "discount": 42,
@@ -1010,19 +1023,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 900571260,
-   "title": "Кроссовки спортивные в сетку дышащие летние",
-   "discount": 76,
-   "price": 792,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/900571260/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787010981,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1118,7 +1118,7 @@
    "Пледы",
    "Краски автомобильные"
   ],
-  "queue_size": 99,
+  "queue_size": 47,
   "last_scan_added": 19,
   "last_scan_funnel": {
    "found": 199,

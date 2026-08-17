@@ -1,5 +1,37 @@
 [
  {
+  "id": 506610895,
+  "title": "Наушники беспроводные для iPhone и Android с шумоподавлением",
+  "brand": "",
+  "product": 674,
+  "basic": 4300,
+  "discount": 84,
+  "benefit": 3626,
+  "rating": 4.6,
+  "feedbacks": 449,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1786977326
+ },
+ {
+  "id": 328027669,
+  "title": "Кроссовки летние",
+  "brand": "АЛЕХИКО",
+  "product": 927,
+  "basic": 10300,
+  "discount": 91,
+  "benefit": 9373,
+  "rating": 4.8,
+  "feedbacks": 1474,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1786977326
+ },
+ {
   "id": 218295861,
   "title": "Наушники беспроводные AiPods 4 ANC для iPhone и Android",
   "brand": "Apple",
@@ -926,22 +958,6 @@
   "quality": "A",
   "query": "телевизор",
   "queued_ts": 1786950546
- },
- {
-  "id": 506610895,
-  "title": "Наушники беспроводные для iPhone и Android с шумоподавлением",
-  "brand": "",
-  "product": 674,
-  "basic": 4300,
-  "discount": 84,
-  "benefit": 3626,
-  "rating": 4.6,
-  "feedbacks": 449,
-  "category": "наушники",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "наушники",
-  "queued_ts": 1786945236
  },
  {
   "id": 773083840,

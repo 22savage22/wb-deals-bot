@@ -1,5 +1,37 @@
 [
  {
+  "id": 396242354,
+  "title": "Телевизор смарт 32 дюйма с wi-fi и интернетом безрамочный",
+  "brand": "",
+  "product": 9635,
+  "basic": 24300,
+  "discount": 60,
+  "benefit": 14665,
+  "rating": 4.7,
+  "feedbacks": 1255,
+  "category": "телевизор",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "телевизор",
+  "queued_ts": 1786995231
+ },
+ {
+  "id": 844259447,
+  "title": "Кроссовки летние текстильные дышащие",
+  "brand": "RAFFELLI",
+  "product": 733,
+  "basic": 6550,
+  "discount": 89,
+  "benefit": 5817,
+  "rating": 4.7,
+  "feedbacks": 1037,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1786995231
+ },
+ {
   "id": 440536422,
   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",
   "brand": "STIMAXON",

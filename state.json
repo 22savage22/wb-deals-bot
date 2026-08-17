@@ -286,6 +286,19 @@
  },
  "recent": [
   {
+   "pid": 391569836,
+   "title": "Дышащие текстильные кроссовки для фитнеса и зала",
+   "discount": 65,
+   "price": 1384,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/391569836/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787003096,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 848456330,
    "title": "Кроссовки мужские Air Max из натуральных компонентов",
    "discount": 74,
@@ -954,19 +967,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 391569836,
-   "title": "Дышащие текстильные кроссовки для фитнеса и зала",
-   "discount": 65,
-   "price": 1384,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391569836/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787003096,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1062,7 +1062,7 @@
    "Пледы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 13,
   "last_scan_funnel": {
    "found": 99,

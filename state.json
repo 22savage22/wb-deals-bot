@@ -162,6 +162,19 @@
  },
  "recent": [
   {
+   "pid": 966877048,
+   "title": "Умный телевизор SDX-43F3000DBA",
+   "discount": 64,
+   "price": 17346,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/966877048/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1786943421,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 248780748,
    "title": "Кроссовки демисезонные на осень",
    "discount": 65,
@@ -505,19 +518,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 966877048,
-   "title": "Умный телевизор SDX-43F3000DBA",
-   "discount": 64,
-   "price": 17346,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/966877048/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1786943421,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -581,7 +581,7 @@
    "Готовые строения и срубы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 65,
+  "queue_size": 16,
   "last_scan_added": 11,
   "last_scan_funnel": {
    "found": 100,

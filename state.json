@@ -288,6 +288,19 @@
  },
  "recent": [
   {
+   "pid": 949426008,
+   "title": "Телевизор смарт 43 дюйма D43US01BF Салют ТВ Ultra HD",
+   "discount": 49,
+   "price": 12558,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/949426008/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787006399,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 837930039,
    "title": "Кроссовки АСИКС Gel-Kahana 8 летние дышащие",
    "discount": 80,
@@ -982,19 +995,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 949426008,
-   "title": "Телевизор смарт 43 дюйма D43US01BF Салют ТВ Ultra HD",
-   "discount": 49,
-   "price": 12558,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/949426008/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787006399,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

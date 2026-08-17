@@ -283,6 +283,19 @@
  },
  "recent": [
   {
+   "pid": 844259447,
+   "title": "Кроссовки летние текстильные дышащие",
+   "discount": 89,
+   "price": 733,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/844259447/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1786997396,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 396242354,
    "title": "Телевизор смарт 32 дюйма с wi-fi и интернетом безрамочный",
    "discount": 60,
@@ -912,19 +925,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 844259447,
-   "title": "Кроссовки летние текстильные дышащие",
-   "discount": 89,
-   "price": 733,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/844259447/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786997396,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -951,10 +951,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 127,
-   "ok": 78,
-   "rate_limited": 10,
-   "http_error": 39,
+   "calls": 133,
+   "ok": 88,
+   "rate_limited": 1,
+   "http_error": 44,
    "network_error": 0,
    "json_error": 0
   },
@@ -1007,7 +1007,7 @@
   "today": "2026-08-17",
   "today_posts": 32,
   "total_posts": 42,
-  "last_scan": 1786995231,
+  "last_scan": 1786998888,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1015,25 +1015,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Готовые строения и срубы",
-   "Смазки и масла для инструмента",
-   "Репринтные издания 1860 - 1869 годов",
-   "Пылевыбивалки"
+   "Средства для мытья посуды и продуктов",
+   "Пледы",
+   "Расчески парикмахерские",
+   "Краски автомобильные"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 700,
-   "cards": 700,
-   "bad_price": 238,
-   "rating": 37,
-   "discount": 202,
-   "ok": 223,
-   "strict": 223,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 266,
+   "rating": 40,
+   "discount": 228,
+   "ok": 265,
+   "strict": 265,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 75,
-   "title_duplicate": 37
+   "duplicate": 102,
+   "title_duplicate": 51
   },
   "last_queue": {
    "queue_before": 98,
@@ -1361,9 +1361,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1786971600.877039,
-   "runs": 25,
-   "empty": 5
+   "ts": 1786998969.344041,
+   "runs": 26,
+   "empty": 1
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -1373,21 +1373,21 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1786971600.877039,
-   "runs": 5,
-   "empty": 5
+   "ts": 1786998969.344041,
+   "runs": 6,
+   "empty": 1
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1786971600.877039,
-   "runs": 5,
-   "empty": 5
+   "ts": 1786998969.344041,
+   "runs": 6,
+   "empty": 1
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1786971600.877039,
-   "runs": 5,
-   "empty": 5
+   "ts": 1786998969.344041,
+   "runs": 6,
+   "empty": 1
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -1397,6 +1397,38 @@
   }
  },
  "queue": [
+  {
+   "id": 168894170,
+   "title": "Кроссовки высокие на липучке",
+   "brand": "SHALUN",
+   "product": 722,
+   "basic": 3800,
+   "discount": 81,
+   "benefit": 3078,
+   "rating": 4.8,
+   "feedbacks": 236,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786998888
+  },
+  {
+   "id": 848456330,
+   "title": "Кроссовки мужские Air Max из натуральных компонентов",
+   "brand": "",
+   "product": 2337,
+   "basic": 9000,
+   "discount": 74,
+   "benefit": 6663,
+   "rating": 4.8,
+   "feedbacks": 259,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786998888
+  },
   {
    "id": 440536422,
    "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",

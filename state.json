@@ -619,10 +619,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 100,
-   "ok": 56,
-   "rate_limited": 16,
-   "http_error": 28,
+   "calls": 130,
+   "ok": 87,
+   "rate_limited": 0,
+   "http_error": 43,
    "network_error": 0,
    "json_error": 0
   },
@@ -651,7 +651,7 @@
   "today": "2026-08-17",
   "today_posts": 13,
   "total_posts": 23,
-  "last_scan": 1786950546,
+  "last_scan": 1786956777,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -659,25 +659,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Расчески парикмахерские",
-   "Краски автомобильные",
    "Пледы",
+   "Расчески парикмахерские",
+   "Готовые строения и срубы",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 83,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 6,
   "last_scan_funnel": {
-   "found": 499,
-   "cards": 499,
-   "bad_price": 168,
-   "rating": 35,
-   "ok": 161,
-   "discount": 135,
-   "strict": 161,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 245,
+   "rating": 44,
+   "discount": 229,
+   "ok": 281,
+   "strict": 281,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 65,
-   "title_duplicate": 23
+   "duplicate": 74,
+   "title_duplicate": 52
   },
   "last_queue": {
    "queue_before": 84,
@@ -866,9 +866,9 @@
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1786945462.592838,
-   "runs": 59,
-   "empty": 4
+   "ts": 1786956841.7487516,
+   "runs": 60,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -884,15 +884,15 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1786950861.9413083,
-   "runs": 1,
-   "empty": 1
+   "ts": 1786956841.7487516,
+   "runs": 2,
+   "empty": 2
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1786950861.9413083,
-   "runs": 1,
-   "empty": 1
+   "ts": 1786956841.7487516,
+   "runs": 2,
+   "empty": 2
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -902,12 +902,108 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1786950861.9413083,
-   "runs": 1,
-   "empty": 1
+   "ts": 1786956841.7487516,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 451424465,
+   "title": "Наушники беспроводные для Андроид и Айфон",
+   "brand": "HOCO",
+   "product": 754,
+   "basic": 5550,
+   "discount": 86,
+   "benefit": 4796,
+   "rating": 4.8,
+   "feedbacks": 6316,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1786956777
+  },
+  {
+   "id": 616310172,
+   "title": "Кроссовки высокие",
+   "brand": "Shoes S",
+   "product": 818,
+   "basic": 8999,
+   "discount": 91,
+   "benefit": 8181,
+   "rating": 4.8,
+   "feedbacks": 555,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786956777
+  },
+  {
+   "id": 197770943,
+   "title": "Наушники вакуумные проводные с микрофоном для iPhone",
+   "brand": "GQbox",
+   "product": 404,
+   "basic": 1684,
+   "discount": 76,
+   "benefit": 1280,
+   "rating": 4.6,
+   "feedbacks": 42685,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1786956777
+  },
+  {
+   "id": 214148802,
+   "title": "Кроссовки детские для мальчика",
+   "brand": "AOKA",
+   "product": 1197,
+   "basic": 13609,
+   "discount": 91,
+   "benefit": 12412,
+   "rating": 4.9,
+   "feedbacks": 94,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786956777
+  },
+  {
+   "id": 11755170,
+   "title": "Наушники проводные с микрофоном",
+   "brand": "GQbox",
+   "product": 290,
+   "basic": 1009,
+   "discount": 71,
+   "benefit": 719,
+   "rating": 4.7,
+   "feedbacks": 9308,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1786956777
+  },
+  {
+   "id": 844259444,
+   "title": "Кроссовки летние текстильные дышащие",
+   "brand": "RAFFELLI",
+   "product": 733,
+   "basic": 6550,
+   "discount": 89,
+   "benefit": 5817,
+   "rating": 4.7,
+   "feedbacks": 1035,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786956777
+  },
   {
    "id": 396242355,
    "title": "Телевизор смарт 24 дюйма с wi-fi и интернетом безрамочный",

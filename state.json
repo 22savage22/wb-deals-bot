@@ -214,6 +214,19 @@
  },
  "recent": [
   {
+   "pid": 907896721,
+   "title": "Наушники беспроводные с шумоподавлением A.Pods 4",
+   "discount": 71,
+   "price": 1938,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/907896721/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786966239,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 240978729,
    "title": "Кроссовки женские круглогодичный белый",
    "discount": 87,
@@ -661,19 +674,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 907896721,
-   "title": "Наушники беспроводные с шумоподавлением A.Pods 4",
-   "discount": 71,
-   "price": 1938,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/907896721/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786966239,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -700,10 +700,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 65,
+   "calls": 67,
    "ok": 33,
-   "rate_limited": 13,
-   "http_error": 19,
+   "rate_limited": 17,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -732,7 +732,7 @@
   "today": "2026-08-17",
   "today_posts": 18,
   "total_posts": 28,
-  "last_scan": 1786963149,
+  "last_scan": 1786966370,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -740,25 +740,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пылевыбивалки",
-   "Репринтные издания 1860 - 1869 годов",
+   "Смазки и масла для инструмента",
+   "Расчески парикмахерские",
    "Краски автомобильные",
-   "Смазки и масла для инструмента"
+   "Пледы"
   ],
-  "queue_size": 85,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 299,
    "cards": 299,
-   "discount": 131,
-   "bad_price": 98,
-   "ok": 68,
-   "rating": 2,
-   "strict": 68,
+   "bad_price": 124,
+   "rating": 30,
+   "discount": 47,
+   "ok": 98,
+   "strict": 98,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 36,
-   "title_duplicate": 11
+   "duplicate": 35,
+   "title_duplicate": 12
   },
   "last_queue": {
    "queue_before": 86,
@@ -1000,30 +1000,62 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1786960624.179865,
-   "runs": 3,
-   "empty": 3
+   "ts": 1786966702.346246,
+   "runs": 4,
+   "empty": 4
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1786960624.179865,
-   "runs": 3,
-   "empty": 3
+   "ts": 1786966702.346246,
+   "runs": 4,
+   "empty": 4
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1786963391.4253383,
-   "runs": 3,
-   "empty": 3
+   "ts": 1786966702.346246,
+   "runs": 4,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1786963391.4253383,
-   "runs": 4,
-   "empty": 4
+   "ts": 1786966702.346246,
+   "runs": 5,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 398389462,
+   "title": "Зимние кроссовки теплые с мехом",
+   "brand": "X-Plode",
+   "product": 2391,
+   "basic": 6912,
+   "discount": 65,
+   "benefit": 4521,
+   "rating": 4.9,
+   "feedbacks": 393,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786966370
+  },
+  {
+   "id": 391569836,
+   "title": "Дышащие текстильные кроссовки для фитнеса и зала",
+   "brand": "X-Plode",
+   "product": 1384,
+   "basic": 4002,
+   "discount": 65,
+   "benefit": 2618,
+   "rating": 4.9,
+   "feedbacks": 1258,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786966370
+  },
   {
    "id": 197770943,
    "title": "Наушники вакуумные проводные с микрофоном для iPhone",
@@ -2250,22 +2282,6 @@
    "benefit": 2050,
    "rating": 4.9,
    "feedbacks": 1089,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1786905841
-  },
-  {
-   "id": 398389462,
-   "title": "Зимние кроссовки теплые с мехом",
-   "brand": "X-Plode",
-   "product": 2391,
-   "basic": 6912,
-   "discount": 65,
-   "benefit": 4521,
-   "rating": 4.9,
-   "feedbacks": 388,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

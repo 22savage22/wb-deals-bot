@@ -742,10 +742,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 136,
-   "ok": 88,
-   "rate_limited": 4,
-   "http_error": 44,
+   "calls": 103,
+   "ok": 67,
+   "rate_limited": 3,
+   "http_error": 33,
    "network_error": 0,
    "json_error": 0
   },

@@ -1,5 +1,37 @@
 [
  {
+  "id": 932846434,
+  "title": "Наушники беспроводные для iphone андроид с шумоподавлением",
+  "brand": "HOCO",
+  "product": 792,
+  "basic": 2477,
+  "discount": 68,
+  "benefit": 1685,
+  "rating": 4.8,
+  "feedbacks": 4095,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1786960262
+ },
+ {
+  "id": 907896721,
+  "title": "Наушники беспроводные с шумоподавлением A.Pods 4",
+  "brand": "ТЕРРИТОРИЯ ЗВУКА",
+  "product": 1938,
+  "basic": 6770,
+  "discount": 71,
+  "benefit": 4832,
+  "rating": 4.7,
+  "feedbacks": 139,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1786960262
+ },
+ {
   "id": 197770943,
   "title": "Наушники вакуумные проводные с микрофоном для iPhone",
   "brand": "GQbox",
@@ -1120,22 +1152,6 @@
   "queued_ts": 1786908413
  },
  {
-  "id": 932846434,
-  "title": "Наушники беспроводные для iphone андроид с шумоподавлением",
-  "brand": "HOCO",
-  "product": 792,
-  "basic": 2477,
-  "discount": 68,
-  "benefit": 1685,
-  "rating": 4.8,
-  "feedbacks": 4089,
-  "category": "наушники",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "наушники",
-  "queued_ts": 1786908413
- },
- {
   "id": 1144592934,
   "title": "Смартфон Redmi Note 15 Pro 4G, 8 256ГБ, global",
   "brand": "Xiaomi",
@@ -1149,22 +1165,6 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "телефон",
-  "queued_ts": 1786908413
- },
- {
-  "id": 907896721,
-  "title": "Наушники беспроводные с шумоподавлением A.Pods 4",
-  "brand": "ТЕРРИТОРИЯ ЗВУКА",
-  "product": 1938,
-  "basic": 6770,
-  "discount": 71,
-  "benefit": 4832,
-  "rating": 4.7,
-  "feedbacks": 139,
-  "category": "наушники",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "наушники",
   "queued_ts": 1786908413
  },
  {

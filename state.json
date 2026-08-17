@@ -154,6 +154,19 @@
  },
  "recent": [
   {
+   "pid": 248780748,
+   "title": "Кроссовки демисезонные на осень",
+   "discount": 65,
+   "price": 840,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/248780748/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1786940708,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 648464686,
    "title": "Кроссовки Air Force 1 форсы белые",
    "discount": 61,
@@ -484,19 +497,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 248780748,
-   "title": "Кроссовки демисезонные на осень",
-   "discount": 65,
-   "price": 840,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/248780748/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786940708,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -560,7 +560,7 @@
    "Готовые строения и срубы",
    "Пылевыбивалки"
   ],
-  "queue_size": 55,
+  "queue_size": 30,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

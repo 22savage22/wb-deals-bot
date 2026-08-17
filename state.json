@@ -289,6 +289,19 @@
  },
  "recent": [
   {
+   "pid": 266168493,
+   "title": "Телевизор 40 дюймов смарт 40F685TS Салют",
+   "discount": 42,
+   "price": 18729,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/266168493/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787007669,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 949426008,
    "title": "Телевизор смарт 43 дюйма D43US01BF Салют ТВ Ultra HD",
    "discount": 49,
@@ -996,19 +1009,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 266168493,
-   "title": "Телевизор 40 дюймов смарт 40F685TS Салют",
-   "discount": 42,
-   "price": 18729,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/266168493/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787007669,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1104,7 +1104,7 @@
    "Краски автомобильные",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 97,
+  "queue_size": 98,
   "last_scan_added": 9,
   "last_scan_funnel": {
    "found": 100,

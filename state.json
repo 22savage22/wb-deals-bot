@@ -212,6 +212,19 @@
  },
  "recent": [
   {
+   "pid": 932846434,
+   "title": "Наушники беспроводные для iphone андроид с шумоподавлением",
+   "discount": 68,
+   "price": 792,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/932846434/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1786961884,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 616310172,
    "title": "Кроссовки высокие",
    "discount": 91,
@@ -633,19 +646,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 932846434,
-   "title": "Наушники беспроводные для iphone андроид с шумоподавлением",
-   "discount": 68,
-   "price": 792,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/932846434/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786961884,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -672,10 +672,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 22,
-   "rate_limited": 20,
-   "http_error": 13,
+   "calls": 65,
+   "ok": 33,
+   "rate_limited": 13,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0
   },
@@ -704,7 +704,7 @@
   "today": "2026-08-17",
   "today_posts": 16,
   "total_posts": 26,
-  "last_scan": 1786960262,
+  "last_scan": 1786963149,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -712,25 +712,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пледы",
-   "Расчески парикмахерские",
-   "Смазки и масла для инструмента",
-   "Краски автомобильные"
+   "Пылевыбивалки",
+   "Репринтные издания 1860 - 1869 годов",
+   "Краски автомобильные",
+   "Смазки и масла для инструмента"
   ],
-  "queue_size": 86,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 83,
-   "bad_price": 51,
-   "ok": 60,
-   "rating": 6,
-   "strict": 60,
+   "found": 299,
+   "cards": 299,
+   "discount": 131,
+   "bad_price": 98,
+   "ok": 68,
+   "rating": 2,
+   "strict": 68,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 24,
-   "title_duplicate": 13
+   "duplicate": 36,
+   "title_duplicate": 11
   },
   "last_queue": {
    "queue_before": 87,
@@ -934,9 +934,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1786945462.592838,
-   "runs": 64,
-   "empty": 4
+   "ts": 1786963391.4253383,
+   "runs": 65,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -952,9 +952,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1786945462.592838,
-   "runs": 24,
-   "empty": 4
+   "ts": 1786963391.4253383,
+   "runs": 25,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -970,18 +970,34 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1786960624.179865,
-   "runs": 2,
-   "empty": 2
+   "ts": 1786963391.4253383,
+   "runs": 3,
+   "empty": 3
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1786960624.179865,
-   "runs": 3,
-   "empty": 3
+   "ts": 1786963391.4253383,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [
+  {
+   "id": 240978729,
+   "title": "Кроссовки женские круглогодичный белый",
+   "brand": "O'ZHET",
+   "product": 576,
+   "basic": 4500,
+   "discount": 87,
+   "benefit": 3924,
+   "rating": 4.7,
+   "feedbacks": 305,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1786963149
+  },
   {
    "id": 907896721,
    "title": "Наушники беспроводные с шумоподавлением A.Pods 4",

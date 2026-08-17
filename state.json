@@ -213,6 +213,19 @@
  },
  "recent": [
   {
+   "pid": 240978729,
+   "title": "Кроссовки женские круглогодичный белый",
+   "discount": 87,
+   "price": 576,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/240978729/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1786963947,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 932846434,
    "title": "Наушники беспроводные для iphone андроид с шумоподавлением",
    "discount": 68,
@@ -647,19 +660,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 240978729,
-   "title": "Кроссовки женские круглогодичный белый",
-   "discount": 87,
-   "price": 576,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/240978729/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786963947,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

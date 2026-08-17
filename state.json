@@ -243,6 +243,19 @@
  },
  "recent": [
   {
+   "pid": 430420628,
+   "title": "Кроссовки летние сетка",
+   "discount": 79,
+   "price": 861,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/430420628/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1786982985,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 905248304,
    "title": "Наушники беспроводные копия AirPods 4 с шумоподавление",
    "discount": 83,
@@ -781,19 +794,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 430420628,
-   "title": "Кроссовки летние сетка",
-   "discount": 79,
-   "price": 861,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/430420628/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786982985,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

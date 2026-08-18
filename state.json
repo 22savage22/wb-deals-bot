@@ -310,6 +310,19 @@
  },
  "recent": [
   {
+   "pid": 539647115,
+   "title": "Наушники проводные Type-C совместимы с iPhone и android",
+   "discount": 71,
+   "price": 408,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/539647115/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787071010,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 977893100,
    "title": "Наушники беспроводные для айфон A.Pods Pro",
    "discount": 75,
@@ -1075,32 +1088,6 @@
    "ts": 1786913810,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1126036764,
-   "title": "Смартфон iPhonc 17 PRO MAX 16 1024 ГБ",
-   "discount": 81,
-   "price": 6125,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1126036764/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786912220,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 539647115,
-   "title": "Наушники проводные Type-C совместимы с iPhone и android",
-   "discount": 71,
-   "price": 408,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/539647115/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787071010,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1127,10 +1114,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 22,
-   "rate_limited": 14,
-   "http_error": 14,
+   "calls": 37,
+   "ok": 11,
+   "rate_limited": 18,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1183,7 +1170,7 @@
   "today": "2026-08-18",
   "today_posts": 26,
   "total_posts": 69,
-  "last_scan": 1787067525,
+  "last_scan": 1787071188,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1191,25 +1178,23 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства для мытья посуды и продуктов",
    "Пледы",
+   "Краски автомобильные",
    "Расчески парикмахерские",
-   "Краски автомобильные"
+   "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 98,
-  "last_scan_added": 24,
+  "queue_size": 48,
+  "last_scan_added": 6,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "ok": 105,
-   "discount": 57,
-   "rating": 11,
-   "bad_price": 27,
-   "strict": 105,
-   "fallback": 0,
-   "reserve": 0,
-   "duplicate": 21,
-   "title_duplicate": 29
+   "found": 100,
+   "cards": 100,
+   "discount": 54,
+   "bad_price": 41,
+   "ok": 5,
+   "strict": 5,
+   "fallback": 6,
+   "reserve": 2,
+   "duplicate": 7
   },
   "last_queue": {
    "queue_before": 99,
@@ -1726,9 +1711,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787067773.0632064,
-   "runs": 31,
-   "empty": 1
+   "ts": 1787071505.469555,
+   "runs": 32,
+   "empty": 2
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -1738,21 +1723,21 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787067773.0632064,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787071505.469555,
+   "runs": 12,
+   "empty": 2
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787067773.0632064,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787071505.469555,
+   "runs": 12,
+   "empty": 2
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787067773.0632064,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787071505.469555,
+   "runs": 12,
+   "empty": 2
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -1786,6 +1771,102 @@
   }
  },
  "queue": [
+  {
+   "id": 153783696,
+   "title": "Телевизор 32 дюйма без смарт 32YT5900, DVB-T2, HD",
+   "brand": "Skyline",
+   "product": 9869,
+   "basic": 18700,
+   "discount": 47,
+   "benefit": 8831,
+   "rating": 4.8,
+   "feedbacks": 1459,
+   "category": "телевизор",
+   "selection_mode": "smart_fallback",
+   "quality": "B",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
+  {
+   "id": 883556292,
+   "title": "Телевизор 32 дюйма HC32HSS26F HD Smart ОС Салют WiFi",
+   "brand": "RAZZ",
+   "product": 7955,
+   "basic": 14490,
+   "discount": 45,
+   "benefit": 6535,
+   "rating": 4.7,
+   "feedbacks": 1359,
+   "category": "телевизор",
+   "selection_mode": "smart_fallback",
+   "quality": "B",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
+  {
+   "id": 883556306,
+   "title": "Телевизор 43 дюйма HC43FSS26F Full HD Smart ОС Салют WiFi",
+   "brand": "RAZZ",
+   "product": 12090,
+   "basic": 20990,
+   "discount": 42,
+   "benefit": 8900,
+   "rating": 4.7,
+   "feedbacks": 1293,
+   "category": "телевизор",
+   "selection_mode": "smart_fallback",
+   "quality": "B",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
+  {
+   "id": 1052329623,
+   "title": "Телевизор 55 дюймов W55USY26F 4K UHD Smart с Алисой WiFi",
+   "brand": "RAZZ",
+   "product": 18321,
+   "basic": 32313,
+   "discount": 43,
+   "benefit": 13992,
+   "rating": 4.8,
+   "feedbacks": 145,
+   "category": "телевизор",
+   "selection_mode": "smart_fallback",
+   "quality": "B",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
+  {
+   "id": 601161615,
+   "title": "Телевизор 32 дюйма CA32H25F",
+   "brand": "RAZZ",
+   "product": 6703,
+   "basic": 10490,
+   "discount": 36,
+   "benefit": 3787,
+   "rating": 4.7,
+   "feedbacks": 1448,
+   "category": "телевизор",
+   "selection_mode": "quality_reserve",
+   "quality": "C",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
+  {
+   "id": 599401652,
+   "title": "Телевизор 24 дюйма CA24H25F 24\" HD",
+   "brand": "RAZZ",
+   "product": 5380,
+   "basic": 8190,
+   "discount": 34,
+   "benefit": 2810,
+   "rating": 4.8,
+   "feedbacks": 2544,
+   "category": "телевизор",
+   "selection_mode": "quality_reserve",
+   "quality": "C",
+   "query": "телевизор",
+   "queued_ts": 1787071188
+  },
   {
    "id": 932851980,
    "title": "Наушники беспроводные для iphone Siri сенсорные",
@@ -3284,70 +3365,6 @@
    "benefit": 4719,
    "rating": 4.9,
    "feedbacks": 155,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787009350
-  },
-  {
-   "id": 548967492,
-   "title": "Кроссовки балетки с замшевыми вставками легкие",
-   "brand": "X-Plode",
-   "product": 2076,
-   "basic": 6000,
-   "discount": 65,
-   "benefit": 3924,
-   "rating": 4.8,
-   "feedbacks": 88,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787009350
-  },
-  {
-   "id": 549183609,
-   "title": "Спортивные кроссовки тканевые дышащие",
-   "brand": "X-Plode",
-   "product": 2491,
-   "basic": 7200,
-   "discount": 65,
-   "benefit": 4709,
-   "rating": 4.8,
-   "feedbacks": 265,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787009350
-  },
-  {
-   "id": 548967199,
-   "title": "Фитнес кроссовки спортивные, легкие",
-   "brand": "X-Plode",
-   "product": 1660,
-   "basic": 4800,
-   "discount": 65,
-   "benefit": 3140,
-   "rating": 4.9,
-   "feedbacks": 276,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787009350
-  },
-  {
-   "id": 549183871,
-   "title": "Спортивные кроссовки летние дышащие",
-   "brand": "X-Plode",
-   "product": 1384,
-   "basic": 4001,
-   "discount": 65,
-   "benefit": 2617,
-   "rating": 4.8,
-   "feedbacks": 373,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

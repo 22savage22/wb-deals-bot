@@ -311,6 +311,19 @@
  },
  "recent": [
   {
+   "pid": 153783696,
+   "title": "Телевизор 32 дюйма без смарт 32YT5900, DVB-T2, HD",
+   "discount": 47,
+   "price": 9869,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/153783696/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787072598,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 539647115,
    "title": "Наушники проводные Type-C совместимы с iPhone и android",
    "discount": 71,
@@ -1076,32 +1089,6 @@
    "ts": 1786916952,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 361917699,
-   "title": "Наушники беспроводные игровые с микрофоном для андроид",
-   "discount": 81,
-   "price": 768,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/361917699/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786913810,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 153783696,
-   "title": "Телевизор 32 дюйма без смарт 32YT5900, DVB-T2, HD",
-   "discount": 47,
-   "price": 9869,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/153783696/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787072598,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

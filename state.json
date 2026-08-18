@@ -327,6 +327,19 @@
  },
  "recent": [
   {
+   "pid": 1248663911,
+   "title": "Телевизор LED UE85M80HAUXPY (2026)",
+   "discount": 51,
+   "price": 152530,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1248663911/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787082938,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 775995360,
    "title": "кроссовки женские",
    "discount": 79,
@@ -1090,32 +1103,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786930660,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 917274910,
-   "title": "Кроссовки в сетку дышащие спортивные летние",
-   "discount": 74,
-   "price": 739,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/917274910/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786924215,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1248663911,
-   "title": "Телевизор LED UE85M80HAUXPY (2026)",
-   "discount": 51,
-   "price": 152530,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1248663911/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787082938,
    "drop": 0,
    "quality": "A"
   }

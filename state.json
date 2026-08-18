@@ -305,6 +305,19 @@
  },
  "recent": [
   {
+   "pid": 1159999302,
+   "title": "Кроссовки повседневные, люксовые, дышащие, для тенниса",
+   "discount": 74,
+   "price": 2406,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/1159999302/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787058365,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 391569839,
    "title": "Дышащие кроссовки текстильные для фитнеса и зала",
    "discount": 65,
@@ -1068,32 +1081,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1786908736,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 707425943,
-   "title": "Кроссовки Nike Air Force 1 форсы белый",
-   "discount": 80,
-   "price": 2011,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/707425943/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786907754,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1159999302,
-   "title": "Кроссовки повседневные, люксовые, дышащие, для тенниса",
-   "discount": 74,
-   "price": 2406,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1159999302/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787058365,
    "drop": 0,
    "quality": "A"
   }

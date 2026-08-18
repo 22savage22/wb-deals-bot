@@ -298,6 +298,19 @@
  },
  "recent": [
   {
+   "pid": 605519890,
+   "title": "кроссовки",
+   "discount": 76,
+   "price": 1425,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/605519890/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787042551,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 859326344,
    "title": "Кроссовки для малышей на липучках в садик",
    "discount": 80,
@@ -1056,30 +1069,6 @@
    "query": "наушники",
    "cat": "другое",
    "ts": 1786640427
-  },
-  {
-   "pid": 866527177,
-   "title": "Наушники беспроводные для iPhone и Android",
-   "discount": 90,
-   "price": 245,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/866527177/detail.aspx",
-   "query": "наушники",
-   "cat": "другое",
-   "ts": 1786621547
-  },
-  {
-   "pid": 605519890,
-   "title": "кроссовки",
-   "discount": 76,
-   "price": 1425,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/605519890/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787042551,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1106,10 +1095,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 56,
-   "rate_limited": 9,
-   "http_error": 29,
+   "calls": 47,
+   "ok": 23,
+   "rate_limited": 10,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1162,7 +1151,7 @@
   "today": "2026-08-18",
   "today_posts": 14,
   "total_posts": 57,
-  "last_scan": 1787039127,
+  "last_scan": 1787042791,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1170,25 +1159,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Гроубоксы",
-   "Мыши",
    "Серия Galaxy A",
-   "Матрасы-топперы"
+   "Мыши",
+   "Матрасы-топперы",
+   "Гроубоксы"
   ],
-  "queue_size": 98,
-  "last_scan_added": 19,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 499,
-   "cards": 499,
-   "discount": 160,
-   "bad_price": 139,
-   "ok": 189,
-   "rating": 11,
-   "strict": 189,
+   "found": 200,
+   "cards": 200,
+   "bad_price": 75,
+   "rating": 15,
+   "discount": 29,
+   "ok": 81,
+   "strict": 81,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 66,
-   "title_duplicate": 37
+   "duplicate": 43,
+   "title_duplicate": 16
   },
   "last_queue": {
    "queue_before": 99,
@@ -1657,30 +1646,62 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787039315.7470536,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787042997.1687121,
+   "runs": 2,
+   "empty": 2
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787039315.7470536,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787042997.1687121,
+   "runs": 2,
+   "empty": 2
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787039315.7470536,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787042997.1687121,
+   "runs": 2,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787039315.7470536,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787042997.1687121,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 391537818,
+   "title": "ЗАМША кроссовки кеды на тонкой подошве полуботинки балетки",
+   "brand": "X-Plode",
+   "product": 2352,
+   "basic": 6800,
+   "discount": 65,
+   "benefit": 4448,
+   "rating": 4.8,
+   "feedbacks": 957,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787042791
+  },
+  {
+   "id": 739416813,
+   "title": "Кроссовки женские белые демисезонные унисекс спортивные",
+   "brand": "foouri",
+   "product": 701,
+   "basic": 2599,
+   "discount": 73,
+   "benefit": 1898,
+   "rating": 4.7,
+   "feedbacks": 1574,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787042791
+  },
   {
    "id": 204926454,
    "title": "Кроссовки детские на толстой подошве",
@@ -2992,22 +3013,6 @@
    "quality": "B",
    "query": "телевизор",
    "queued_ts": 1787005913
-  },
-  {
-   "id": 391537818,
-   "title": "ЗАМША кроссовки кеды на тонкой подошве полуботинки балетки",
-   "brand": "X-Plode",
-   "product": 2352,
-   "basic": 6800,
-   "discount": 65,
-   "benefit": 4448,
-   "rating": 4.8,
-   "feedbacks": 957,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787002332
   },
   {
    "id": 261082832,

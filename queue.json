@@ -1,5 +1,37 @@
 [
  {
+  "id": 1005759646,
+  "title": "Кроссовки Air Force 1 кеды серые",
+  "brand": "Nike",
+  "product": 2653,
+  "basic": 6999,
+  "discount": 62,
+  "benefit": 4346,
+  "rating": 4.8,
+  "feedbacks": 1555,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1787064038
+ },
+ {
+  "id": 863540624,
+  "title": "Кроссовки Air Force кеды черные",
+  "brand": "Nike",
+  "product": 2604,
+  "basic": 6999,
+  "discount": 63,
+  "benefit": 4395,
+  "rating": 4.7,
+  "feedbacks": 2182,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1787064038
+ },
+ {
   "id": 921384930,
   "title": "Кроссовки летние на платформе",
   "brand": "UKNIKI.",

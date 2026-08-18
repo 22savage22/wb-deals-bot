@@ -296,6 +296,19 @@
  },
  "recent": [
   {
+   "pid": 316216715,
+   "title": "Кроссовки летние текстильные легкие",
+   "discount": 73,
+   "price": 1052,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/316216715/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787036498,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1126172206,
    "title": "Смартфон Sunsamg Galaxy A17 12 512ГБ",
    "discount": 64,
@@ -1061,19 +1074,6 @@
    "query": "наушники",
    "cat": "другое",
    "ts": 1786621547
-  },
-  {
-   "pid": 316216715,
-   "title": "Кроссовки летние текстильные легкие",
-   "discount": 73,
-   "price": 1052,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/316216715/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787036498,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1169,7 +1169,7 @@
    "Готовые строения и срубы",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 24,
   "last_scan_funnel": {
    "found": 699,

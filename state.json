@@ -330,6 +330,19 @@
  },
  "recent": [
   {
+   "pid": 831391155,
+   "title": "Кроссовки спортивные летние дышащие",
+   "discount": 74,
+   "price": 1418,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/831391155/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787090164,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 782460045,
    "title": "Кроссовки gel kahana 8",
    "discount": 79,
@@ -1108,19 +1121,6 @@
    "ts": 1786937800,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 831391155,
-   "title": "Кроссовки спортивные летние дышащие",
-   "discount": 74,
-   "price": 1418,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/831391155/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787090164,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1216,7 +1216,7 @@
    "Краски автомобильные",
    "Пледы"
   ],
-  "queue_size": 94,
+  "queue_size": 96,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 799,

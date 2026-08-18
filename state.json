@@ -331,6 +331,19 @@
  },
  "recent": [
   {
+   "pid": 733089161,
+   "title": "Кроссовки sb dunk low данки кеды серые для школы",
+   "discount": 71,
+   "price": 2948,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/733089161/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787093913,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 831391155,
    "title": "Кроссовки спортивные летние дышащие",
    "discount": 74,
@@ -1109,19 +1122,6 @@
    "ts": 1786940708,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 733089161,
-   "title": "Кроссовки sb dunk low данки кеды серые для школы",
-   "discount": 71,
-   "price": 2948,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/733089161/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787093913,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1217,7 +1217,7 @@
    "Краски автомобильные",
    "Пледы"
   ],
-  "queue_size": 93,
+  "queue_size": 96,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 799,

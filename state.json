@@ -295,6 +295,19 @@
  },
  "recent": [
   {
+   "pid": 1126172206,
+   "title": "Смартфон Sunsamg Galaxy A17 12 512ГБ",
+   "discount": 64,
+   "price": 8300,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/1126172206/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787032925,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1244468205,
    "title": "Смартфон MI17 Ultra, 1024 ГБ, планшет Android",
    "discount": 60,
@@ -1058,19 +1071,6 @@
    "query": "наушники",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1126172206,
-   "title": "Смартфон Sunsamg Galaxy A17 12 512ГБ",
-   "discount": 64,
-   "price": 8300,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1126172206/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787032925,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1166,7 +1166,7 @@
    "Готовые строения и срубы",
    "Пылевыбивалки"
   ],
-  "queue_size": 95,
+  "queue_size": 56,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

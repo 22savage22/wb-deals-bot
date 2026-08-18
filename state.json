@@ -1108,10 +1108,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 118,
-   "ok": 78,
-   "rate_limited": 1,
-   "http_error": 39,
+   "calls": 125,
+   "ok": 79,
+   "rate_limited": 9,
+   "http_error": 37,
    "network_error": 0,
    "json_error": 0
   },
@@ -1164,7 +1164,7 @@
   "today": "2026-08-18",
   "today_posts": 20,
   "total_posts": 63,
-  "last_scan": 1787052730,
+  "last_scan": 1787057957,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1172,25 +1172,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Гроубоксы",
    "Мыши",
-   "Матрасы-топперы",
-   "Серия Galaxy A",
-   "Репринтные издания 1860 - 1869 годов"
+   "Смазки и масла для инструмента",
+   "Готовые строения и срубы"
   ],
-  "queue_size": 98,
-  "last_scan_added": 8,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 700,
-   "cards": 700,
-   "bad_price": 204,
-   "rating": 31,
-   "discount": 206,
-   "ok": 259,
-   "strict": 259,
+   "found": 701,
+   "cards": 701,
+   "bad_price": 218,
+   "rating": 41,
+   "discount": 225,
+   "ok": 217,
+   "strict": 217,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 109,
-   "title_duplicate": 55
+   "duplicate": 93,
+   "title_duplicate": 42
   },
   "last_queue": {
    "queue_before": 99,
@@ -1659,9 +1659,9 @@
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787036306.3598382,
-   "runs": 69,
-   "empty": 4
+   "ts": 1787058162.4979503,
+   "runs": 70,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1695,9 +1695,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787036306.3598382,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787058162.4979503,
+   "runs": 15,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -1713,18 +1713,50 @@
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787052800.0195427,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787058162.4979503,
+   "runs": 5,
+   "empty": 5
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787042997.1687121,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787058162.4979503,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 1159999302,
+   "title": "Кроссовки повседневные, люксовые, дышащие, для тенниса",
+   "brand": "lexsan",
+   "product": 2406,
+   "basic": 9255,
+   "discount": 74,
+   "benefit": 6849,
+   "rating": 4.5,
+   "feedbacks": 8,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787057957
+  },
+  {
+   "id": 282221220,
+   "title": "Кроссовки демисезонные дышащие на платформе",
+   "brand": "ND Premium",
+   "product": 1439,
+   "basic": 4000,
+   "discount": 64,
+   "benefit": 2561,
+   "rating": 4.8,
+   "feedbacks": 3869,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787057957
+  },
   {
    "id": 921384930,
    "title": "Кроссовки летние на платформе",

@@ -293,6 +293,19 @@
  },
  "recent": [
   {
+   "pid": 1144640300,
+   "title": "Смартфон GT 7T, 12 512ГБ, russia",
+   "discount": 66,
+   "price": 29733,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1144640300/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787026748,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1242006238,
    "title": "Смартфон Blade A76 4 ГБ 128 ГБ золотистый",
    "discount": 68,
@@ -1052,19 +1065,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1144640300,
-   "title": "Смартфон GT 7T, 12 512ГБ, russia",
-   "discount": 66,
-   "price": 29733,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1144640300/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787026748,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1160,7 +1160,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Готовые строения и срубы"
   ],
-  "queue_size": 97,
+  "queue_size": 57,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

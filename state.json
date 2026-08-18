@@ -328,6 +328,19 @@
  },
  "recent": [
   {
+   "pid": 624663873,
+   "title": "Кроссовки детские спортивные",
+   "discount": 74,
+   "price": 1367,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/624663873/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787085056,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1248663911,
    "title": "Телевизор LED UE85M80HAUXPY (2026)",
    "discount": 51,
@@ -1091,32 +1104,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786934772,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 548967185,
-   "title": "Дышащие спортивные кроссовки текстильные для фитнеса и бега",
-   "discount": 65,
-   "price": 1384,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/548967185/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786930660,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 624663873,
-   "title": "Кроссовки детские спортивные",
-   "discount": 74,
-   "price": 1367,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/624663873/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787085056,
    "drop": 0,
    "quality": "A"
   }

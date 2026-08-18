@@ -306,6 +306,19 @@
  },
  "recent": [
   {
+   "pid": 833788098,
+   "title": "Кроссовки женские 530",
+   "discount": 65,
+   "price": 1949,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/833788098/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787061335,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1159999302,
    "title": "Кроссовки повседневные, люксовые, дышащие, для тенниса",
    "discount": 74,
@@ -1069,32 +1082,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786909144,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 488708630,
-   "title": "Смартфон Phone(3a) Pro 12ГБ+256ГБ Серый NFC eSIM",
-   "discount": 80,
-   "price": 27987,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/488708630/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786908736,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 833788098,
-   "title": "Кроссовки женские 530",
-   "discount": 65,
-   "price": 1949,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/833788098/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787061335,
    "drop": 0,
    "quality": "A"
   }

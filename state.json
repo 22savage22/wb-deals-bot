@@ -312,6 +312,19 @@
  },
  "recent": [
   {
+   "pid": 460230618,
+   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,2м",
+   "discount": 65,
+   "price": 350,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/460230618/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787074798,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 153783696,
    "title": "Телевизор 32 дюйма без смарт 32YT5900, DVB-T2, HD",
    "discount": 47,
@@ -1075,32 +1088,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786918159,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 460659363,
-   "title": "Смартфон SANSUNG S26 Ultra,Телефон 12+1TB,6000мАч",
-   "discount": 78,
-   "price": 5791,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/460659363/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786916952,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 460230618,
-   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,2м",
-   "discount": 65,
-   "price": 350,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460230618/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787074798,
    "drop": 0,
    "quality": "A"
   }

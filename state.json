@@ -308,6 +308,19 @@
  },
  "recent": [
   {
+   "pid": 1005759646,
+   "title": "Кроссовки Air Force 1 кеды серые",
+   "discount": 62,
+   "price": 2653,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1005759646/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787065997,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 282221220,
    "title": "Кроссовки демисезонные дышащие на платформе",
    "discount": 64,
@@ -1071,32 +1084,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786911442,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1024083178,
-   "title": "Смартфон Phone (3a) 12ГБ+256ГБ NFC Синий JP",
-   "discount": 80,
-   "price": 25576,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1024083178/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786910152,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1005759646,
-   "title": "Кроссовки Air Force 1 кеды серые",
-   "discount": 62,
-   "price": 2653,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1005759646/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787065997,
    "drop": 0,
    "quality": "A"
   }

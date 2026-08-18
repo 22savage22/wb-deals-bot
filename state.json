@@ -309,6 +309,19 @@
  },
  "recent": [
   {
+   "pid": 977893100,
+   "title": "Наушники беспроводные для айфон A.Pods Pro",
+   "discount": 75,
+   "price": 481,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/977893100/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787068281,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1005759646,
    "title": "Кроссовки Air Force 1 кеды серые",
    "discount": 62,
@@ -1072,32 +1085,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1786912220,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 867080317,
-   "title": "Наушники проводные Type-C совместимы с iPhone android",
-   "discount": 84,
-   "price": 334,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/867080317/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786911442,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 977893100,
-   "title": "Наушники беспроводные для айфон A.Pods Pro",
-   "discount": 75,
-   "price": 481,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/977893100/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787068281,
    "drop": 0,
    "quality": "A"
   }

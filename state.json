@@ -292,6 +292,19 @@
  },
  "recent": [
   {
+   "pid": 1242006238,
+   "title": "Смартфон Blade A76 4 ГБ 128 ГБ золотистый",
+   "discount": 68,
+   "price": 16142,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1242006238/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787023933,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1150670732,
    "title": "Смартфон F6, 12 512ГБ, global",
    "discount": 69,
@@ -1038,19 +1051,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1242006238,
-   "title": "Смартфон Blade A76 4 ГБ 128 ГБ золотистый",
-   "discount": 68,
-   "price": 16142,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1242006238/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787023933,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1146,7 +1146,7 @@
    "Пылевыбивалки",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 98,
+  "queue_size": 58,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 101,

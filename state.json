@@ -303,6 +303,19 @@
  },
  "recent": [
   {
+   "pid": 1094330725,
+   "title": "Телевизор 50 H5, 4K Smart TV",
+   "discount": 51,
+   "price": 26554,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1094330725/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787053045,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1252678654,
    "title": "Смартфон Redmi Note 15 4G, 8 256ГБ, global",
    "discount": 60,
@@ -1066,32 +1079,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786907700,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 321789200,
-   "title": "Кроссовки спортивные легкие на тонкой подошве низкие",
-   "discount": 89,
-   "price": 672,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/321789200/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786906178,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1094330725,
-   "title": "Телевизор 50 H5, 4K Smart TV",
-   "discount": 51,
-   "price": 26554,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1094330725/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787053045,
    "drop": 0,
    "quality": "A"
   }

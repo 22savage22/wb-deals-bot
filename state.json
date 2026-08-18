@@ -291,6 +291,19 @@
  },
  "recent": [
   {
+   "pid": 1150670732,
+   "title": "Смартфон F6, 12 512ГБ, global",
+   "discount": 69,
+   "price": 19539,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1150670732/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787021041,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 900571260,
    "title": "Кроссовки спортивные в сетку дышащие летние",
    "discount": 76,
@@ -1024,19 +1037,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1150670732,
-   "title": "Смартфон F6, 12 512ГБ, global",
-   "discount": 69,
-   "price": 19539,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1150670732/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787021041,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1132,7 +1132,7 @@
    "Пледы",
    "Расчески парикмахерские"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 23,
   "last_scan_funnel": {
    "found": 400,

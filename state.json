@@ -326,6 +326,19 @@
  },
  "recent": [
   {
+   "pid": 775995360,
+   "title": "кроссовки женские",
+   "discount": 79,
+   "price": 2105,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/775995360/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787081467,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 884641189,
    "title": "Кроссовки мужские",
    "discount": 82,
@@ -1091,32 +1104,6 @@
    "ts": 1786924215,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 911529068,
-   "title": "Игровой смартфон Gt30 Pro 16ГБ+1024ГБ 120Гц 2SIM",
-   "discount": 71,
-   "price": 9466,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/911529068/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1786921054,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 775995360,
-   "title": "кроссовки женские",
-   "discount": 79,
-   "price": 2105,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/775995360/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787081467,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1143,10 +1130,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 44,
-   "rate_limited": 15,
-   "http_error": 23,
+   "calls": 136,
+   "ok": 88,
+   "rate_limited": 4,
+   "http_error": 44,
    "network_error": 0,
    "json_error": 0
   },
@@ -1199,7 +1186,7 @@
   "today": "2026-08-18",
   "today_posts": 31,
   "total_posts": 74,
-  "last_scan": 1787078957,
+  "last_scan": 1787081586,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1207,25 +1194,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пледы",
-   "Краски автомобильные",
    "Средства для мытья посуды и продуктов",
-   "Расчески парикмахерские"
+   "Расчески парикмахерские",
+   "Краски автомобильные",
+   "Пледы"
   ],
-  "queue_size": 98,
-  "last_scan_added": 15,
+  "queue_size": 60,
+  "last_scan_added": 8,
   "last_scan_funnel": {
-   "found": 399,
-   "cards": 399,
-   "discount": 123,
-   "bad_price": 145,
-   "ok": 126,
-   "rating": 5,
-   "strict": 126,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 264,
+   "rating": 42,
+   "discount": 220,
+   "ok": 273,
+   "strict": 273,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 43,
-   "title_duplicate": 23
+   "duplicate": 120,
+   "title_duplicate": 57
   },
   "last_queue": {
    "queue_before": 99,
@@ -1777,9 +1764,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787079236.9501295,
-   "runs": 34,
-   "empty": 4
+   "ts": 1787081685.9870644,
+   "runs": 35,
+   "empty": 5
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -1789,21 +1776,21 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787079236.9501295,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787081685.9870644,
+   "runs": 15,
+   "empty": 5
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787079236.9501295,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787081685.9870644,
+   "runs": 15,
+   "empty": 5
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787079236.9501295,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787081685.9870644,
+   "runs": 15,
+   "empty": 5
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -1837,6 +1824,134 @@
   }
  },
  "queue": [
+  {
+   "id": 1248663911,
+   "title": "Телевизор LED UE85M80HAUXPY (2026)",
+   "brand": "Samsung",
+   "product": 152530,
+   "basic": 313075,
+   "discount": 51,
+   "benefit": 160545,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 624663873,
+   "title": "Кроссовки детские спортивные",
+   "brand": "GIMME-U",
+   "product": 1367,
+   "basic": 5300,
+   "discount": 74,
+   "benefit": 3933,
+   "rating": 4.9,
+   "feedbacks": 434,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 782460045,
+   "title": "Кроссовки gel kahana 8",
+   "brand": "Nike",
+   "product": 2527,
+   "basic": 12000,
+   "discount": 79,
+   "benefit": 9473,
+   "rating": 4.8,
+   "feedbacks": 12,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 831391155,
+   "title": "Кроссовки спортивные летние дышащие",
+   "brand": "MAVCONSEC",
+   "product": 1418,
+   "basic": 5498,
+   "discount": 74,
+   "benefit": 4080,
+   "rating": 4.8,
+   "feedbacks": 609,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 733089161,
+   "title": "Кроссовки sb dunk low данки кеды серые для школы",
+   "brand": "Nike",
+   "product": 2948,
+   "basic": 9999,
+   "discount": 71,
+   "benefit": 7051,
+   "rating": 4.8,
+   "feedbacks": 547,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 760472599,
+   "title": "Кроссовки белые спортивные на платформе",
+   "brand": "GIMME-U",
+   "product": 1393,
+   "basic": 5400,
+   "discount": 74,
+   "benefit": 4007,
+   "rating": 4.8,
+   "feedbacks": 9199,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 485666715,
+   "title": "Кроссовки sb dunk low dragon данки кеды для школы",
+   "brand": "Nike",
+   "product": 3015,
+   "basic": 9990,
+   "discount": 70,
+   "benefit": 6975,
+   "rating": 4.8,
+   "feedbacks": 1556,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
+  {
+   "id": 888723292,
+   "title": "Кроссовки женские спортивные бежевые",
+   "brand": "Munavar",
+   "product": 2046,
+   "basic": 9857,
+   "discount": 79,
+   "benefit": 7811,
+   "rating": 4.8,
+   "feedbacks": 16,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787081586
+  },
   {
    "id": 885014128,
    "title": "Кроссовки sb dunk low pro данки серые",
@@ -2686,22 +2801,6 @@
    "queued_ts": 1787052730
   },
   {
-   "id": 1248663911,
-   "title": "Телевизор LED UE85M80HAUXPY (2026)",
-   "brand": "Samsung",
-   "product": 152530,
-   "basic": 313075,
-   "discount": 51,
-   "benefit": 160545,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "телевизор",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телевизор",
-   "queued_ts": 1787052730
-  },
-  {
    "id": 170795108,
    "title": "Кроссовки школьные на физкультуру с белой подошвой эва",
    "brand": "GSD",
@@ -3198,70 +3297,6 @@
    "queued_ts": 1787039127
   },
   {
-   "id": 624663873,
-   "title": "Кроссовки детские спортивные",
-   "brand": "GIMME-U",
-   "product": 1284,
-   "basic": 5300,
-   "discount": 76,
-   "benefit": 4016,
-   "rating": 4.9,
-   "feedbacks": 432,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
-   "id": 782460045,
-   "title": "Кроссовки gel kahana 8",
-   "brand": "Nike",
-   "product": 2527,
-   "basic": 12000,
-   "discount": 79,
-   "benefit": 9473,
-   "rating": 4.8,
-   "feedbacks": 12,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
-   "id": 831391155,
-   "title": "Кроссовки спортивные летние дышащие",
-   "brand": "MAVCONSEC",
-   "product": 1418,
-   "basic": 5498,
-   "discount": 74,
-   "benefit": 4080,
-   "rating": 4.8,
-   "feedbacks": 604,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
-   "id": 733089161,
-   "title": "Кроссовки sb dunk low данки кеды серые для школы",
-   "brand": "Nike",
-   "product": 2948,
-   "basic": 9999,
-   "discount": 71,
-   "benefit": 7051,
-   "rating": 4.8,
-   "feedbacks": 543,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
    "id": 140198759,
    "title": "Телевизор 32 дюйма смарт wi fi TDHTV32GHD_BK",
    "brand": "Topdevice",
@@ -3294,22 +3329,6 @@
    "queued_ts": 1787036171
   },
   {
-   "id": 760472599,
-   "title": "Кроссовки белые спортивные на платформе",
-   "brand": "GIMME-U",
-   "product": 1309,
-   "basic": 5400,
-   "discount": 76,
-   "benefit": 4091,
-   "rating": 4.8,
-   "feedbacks": 9170,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
    "id": 157302761,
    "title": "Кроссовки в сетку спортивные дышащие летние",
    "brand": "ЛЕОПАРД",
@@ -3319,38 +3338,6 @@
    "benefit": 1916,
    "rating": 4.9,
    "feedbacks": 1097,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
-   "id": 485666715,
-   "title": "Кроссовки sb dunk low dragon данки кеды для школы",
-   "brand": "Nike",
-   "product": 3015,
-   "basic": 9990,
-   "discount": 70,
-   "benefit": 6975,
-   "rating": 4.8,
-   "feedbacks": 1550,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787036171
-  },
-  {
-   "id": 888723292,
-   "title": "Кроссовки женские спортивные бежевые",
-   "brand": "Munavar",
-   "product": 2046,
-   "basic": 9857,
-   "discount": 79,
-   "benefit": 7811,
-   "rating": 4.8,
-   "feedbacks": 16,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

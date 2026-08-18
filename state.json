@@ -294,6 +294,19 @@
  },
  "recent": [
   {
+   "pid": 1244468205,
+   "title": "Смартфон MI17 Ultra, 1024 ГБ, планшет Android",
+   "discount": 60,
+   "price": 11520,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1244468205/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787029172,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1144640300,
    "title": "Смартфон GT 7T, 12 512ГБ, russia",
    "discount": 66,
@@ -1055,19 +1068,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 1244468205,
-   "title": "Смартфон MI17 Ultra, 1024 ГБ, планшет Android",
-   "discount": 60,
-   "price": 11520,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1244468205/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787029172,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1163,7 +1163,7 @@
    "Готовые строения и срубы",
    "Пылевыбивалки"
   ],
-  "queue_size": 96,
+  "queue_size": 56,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

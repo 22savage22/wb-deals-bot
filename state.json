@@ -1109,10 +1109,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 125,
-   "ok": 79,
-   "rate_limited": 9,
-   "http_error": 37,
+   "calls": 131,
+   "ok": 88,
+   "rate_limited": 0,
+   "http_error": 43,
    "network_error": 0,
    "json_error": 0
   },
@@ -1165,7 +1165,7 @@
   "today": "2026-08-18",
   "today_posts": 21,
   "total_posts": 64,
-  "last_scan": 1787057957,
+  "last_scan": 1787060936,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1174,24 +1174,23 @@
   ],
   "last_scan_cats": [
    "Гроубоксы",
-   "Мыши",
-   "Смазки и масла для инструмента",
-   "Готовые строения и срубы"
+   "Матрасы-топперы",
+   "Серия Galaxy A"
   ],
-  "queue_size": 99,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 701,
-   "cards": 701,
-   "bad_price": 218,
-   "rating": 41,
-   "discount": 225,
-   "ok": 217,
-   "strict": 217,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 248,
+   "rating": 46,
+   "discount": 226,
+   "ok": 279,
+   "strict": 279,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 93,
-   "title_duplicate": 42
+   "duplicate": 124,
+   "title_duplicate": 60
   },
   "last_queue": {
    "queue_before": 100,
@@ -1709,15 +1708,15 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787052800.0195427,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787061003.2607274,
+   "runs": 5,
+   "empty": 5
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787052800.0195427,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787061003.2607274,
+   "runs": 5,
+   "empty": 5
   },
   "Мыши": {
    "shard": "electronic45",
@@ -1727,12 +1726,28 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787058162.4979503,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787061003.2607274,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [
+  {
+   "id": 833788098,
+   "title": "Кроссовки женские 530",
+   "brand": "",
+   "product": 1949,
+   "basic": 5555,
+   "discount": 65,
+   "benefit": 3606,
+   "rating": 4.7,
+   "feedbacks": 1001,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787060936
+  },
   {
    "id": 282221220,
    "title": "Кроссовки демисезонные дышащие на платформе",
@@ -3167,22 +3182,6 @@
    "benefit": 2927,
    "rating": 4.7,
    "feedbacks": 267,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787002332
-  },
-  {
-   "id": 833788098,
-   "title": "Кроссовки женские 530",
-   "brand": "",
-   "product": 1949,
-   "basic": 5555,
-   "discount": 65,
-   "benefit": 3606,
-   "rating": 4.7,
-   "feedbacks": 991,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

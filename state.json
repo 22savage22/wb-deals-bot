@@ -1054,17 +1054,6 @@
    "query": "кроссовки",
    "cat": "другое",
    "ts": 1786561582
-  },
-  {
-   "pid": 855179327,
-   "title": "Кроссовки летние",
-   "discount": 85,
-   "price": 749,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/855179327/detail.aspx",
-   "query": "кроссовки",
-   "cat": "другое",
-   "ts": 1786561582
   }
  ],
  "meta": {
@@ -1091,10 +1080,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 0,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 34,
+   "ok": 11,
+   "rate_limited": 15,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1147,7 +1136,7 @@
   "today": "2026-08-18",
   "today_posts": 9,
   "total_posts": 52,
-  "last_scan": 1787025067,
+  "last_scan": 1787028194,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1156,18 +1145,22 @@
   ],
   "last_scan_cats": [
    "Смазки и масла для инструмента",
-   "Пылевыбивалки",
    "Репринтные издания 1860 - 1869 годов",
-   "Готовые строения и срубы"
+   "Готовые строения и срубы",
+   "Пылевыбивалки"
   ],
-  "queue_size": 57,
+  "queue_size": 56,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
+   "found": 100,
+   "cards": 100,
+   "discount": 61,
+   "bad_price": 35,
+   "ok": 4,
+   "strict": 4,
    "fallback": 0,
-   "reserve": 0
+   "reserve": 0,
+   "duplicate": 4
   },
   "last_queue": {
    "queue_before": 98,
@@ -1553,15 +1546,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787025307.2921627,
-   "runs": 72,
-   "empty": 2
+   "ts": 1787028488.6146672,
+   "runs": 73,
+   "empty": 3
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787025307.2921627,
-   "runs": 67,
-   "empty": 2
+   "ts": 1787028488.6146672,
+   "runs": 68,
+   "empty": 3
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1571,9 +1564,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787025307.2921627,
-   "runs": 32,
-   "empty": 2
+   "ts": 1787028488.6146672,
+   "runs": 33,
+   "empty": 3
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1595,9 +1588,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787025307.2921627,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787028488.6146672,
+   "runs": 13,
+   "empty": 3
   }
  },
  "queue": [

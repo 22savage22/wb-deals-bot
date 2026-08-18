@@ -1077,10 +1077,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 14,
-   "rate_limited": 15,
-   "http_error": 10,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1133,7 +1133,7 @@
   "today": "2026-08-18",
   "today_posts": 8,
   "total_posts": 51,
-  "last_scan": 1787022188,
+  "last_scan": 1787025067,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1141,23 +1141,19 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1860 - 1869 годов",
-   "Готовые строения и срубы",
+   "Смазки и масла для инструмента",
    "Пылевыбивалки",
-   "Смазки и масла для инструмента"
+   "Репринтные издания 1860 - 1869 годов",
+   "Готовые строения и срубы"
   ],
-  "queue_size": 58,
+  "queue_size": 57,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "discount": 61,
-   "bad_price": 36,
-   "ok": 4,
-   "strict": 4,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 4
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 99,
@@ -1536,15 +1532,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787022459.0056758,
-   "runs": 71,
-   "empty": 1
+   "ts": 1787025307.2921627,
+   "runs": 72,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787022459.0056758,
-   "runs": 66,
-   "empty": 1
+   "ts": 1787025307.2921627,
+   "runs": 67,
+   "empty": 2
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1554,9 +1550,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787022459.0056758,
-   "runs": 31,
-   "empty": 1
+   "ts": 1787025307.2921627,
+   "runs": 32,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1578,9 +1574,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787022459.0056758,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787025307.2921627,
+   "runs": 12,
+   "empty": 2
   }
  },
  "queue": [

@@ -340,6 +340,19 @@
  },
  "recent": [
   {
+   "pid": 575822551,
+   "title": "Наушники беспроводные Air Pro для iPhone и Android блютуз",
+   "discount": 60,
+   "price": 639,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/575822551/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787120295,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 227170289,
    "title": "Air Pro 3 беспроводные наушники с шумоподавлением",
    "discount": 55,
@@ -1105,32 +1118,6 @@
    "ts": 1786966239,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 240978729,
-   "title": "Кроссовки женские круглогодичный белый",
-   "discount": 87,
-   "price": 576,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/240978729/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786963947,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 575822551,
-   "title": "Наушники беспроводные Air Pro для iPhone и Android блютуз",
-   "discount": 60,
-   "price": 639,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/575822551/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787120295,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1157,10 +1144,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 22,
-   "rate_limited": 16,
-   "http_error": 14,
+   "calls": 97,
+   "ok": 55,
+   "rate_limited": 13,
+   "http_error": 29,
    "network_error": 0,
    "json_error": 0
   },
@@ -1213,7 +1200,7 @@
   "today": "2026-08-19",
   "today_posts": 10,
   "total_posts": 87,
-  "last_scan": 1787114662,
+  "last_scan": 1787122612,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1222,24 +1209,24 @@
   ],
   "last_scan_cats": [
    "Готовые строения и срубы",
+   "Смазки и масла для инструмента",
    "Репринтные издания 1860 - 1869 годов",
-   "Пылевыбивалки",
-   "Смазки и масла для инструмента"
+   "Пылевыбивалки"
   ],
-  "queue_size": 95,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 6,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 81,
-   "bad_price": 57,
-   "ok": 56,
-   "rating": 6,
-   "strict": 56,
+   "found": 499,
+   "cards": 499,
+   "bad_price": 185,
+   "rating": 33,
+   "discount": 103,
+   "ok": 178,
+   "strict": 178,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 43,
-   "title_duplicate": 12
+   "duplicate": 72,
+   "title_duplicate": 27
   },
   "last_queue": {
    "queue_before": 96,
@@ -1870,15 +1857,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787114940.1236727,
-   "runs": 79,
-   "empty": 4
+   "ts": 1787122842.6339543,
+   "runs": 80,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787114940.1236727,
-   "runs": 74,
-   "empty": 4
+   "ts": 1787122842.6339543,
+   "runs": 75,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1888,9 +1875,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787114940.1236727,
-   "runs": 39,
-   "empty": 4
+   "ts": 1787122842.6339543,
+   "runs": 40,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1912,9 +1899,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787114940.1236727,
-   "runs": 19,
-   "empty": 4
+   "ts": 1787122842.6339543,
+   "runs": 20,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -1942,6 +1929,102 @@
   }
  },
  "queue": [
+  {
+   "id": 885014128,
+   "title": "Кроссовки sb dunk low pro данки серые",
+   "brand": "Nike",
+   "product": 1977,
+   "basic": 10990,
+   "discount": 82,
+   "benefit": 9013,
+   "rating": 4.7,
+   "feedbacks": 345,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
+  {
+   "id": 523622171,
+   "title": "Кроссовки мужские Air Force 1",
+   "brand": "Nike",
+   "product": 3121,
+   "basic": 16452,
+   "discount": 81,
+   "benefit": 13331,
+   "rating": 4.8,
+   "feedbacks": 419,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
+  {
+   "id": 813392858,
+   "title": "Спортивные кроссовки для бега и спортзала",
+   "brand": "SavDem",
+   "product": 3124,
+   "basic": 22200,
+   "discount": 86,
+   "benefit": 19076,
+   "rating": 4.7,
+   "feedbacks": 127,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
+  {
+   "id": 817218142,
+   "title": "Кроссовки мужские летние",
+   "brand": "",
+   "product": 1755,
+   "basic": 10000,
+   "discount": 82,
+   "benefit": 8245,
+   "rating": 4.7,
+   "feedbacks": 3292,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
+  {
+   "id": 794880436,
+   "title": "Кроссовки мужские Adidas ClimaCool летние",
+   "brand": "",
+   "product": 1579,
+   "basic": 9000,
+   "discount": 82,
+   "benefit": 7421,
+   "rating": 4.7,
+   "feedbacks": 763,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
+  {
+   "id": 807342842,
+   "title": "кроссовки осенние дышащие спортивные для фитнеса демисезон",
+   "brand": "Eberron",
+   "product": 836,
+   "basic": 4980,
+   "discount": 83,
+   "benefit": 4144,
+   "rating": 4.8,
+   "feedbacks": 7728,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787122612
+  },
   {
    "id": 404101892,
    "title": "Наушники Air Pro 2 беспроводные с микрофоном Android Apple",
@@ -2823,22 +2906,6 @@
    "queued_ts": 1787081586
   },
   {
-   "id": 885014128,
-   "title": "Кроссовки sb dunk low pro данки серые",
-   "brand": "Nike",
-   "product": 1977,
-   "basic": 10990,
-   "discount": 82,
-   "benefit": 9013,
-   "rating": 4.7,
-   "feedbacks": 342,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787078957
-  },
-  {
    "id": 431035062,
    "title": "Кроссовки женские коричневые летние SAMBA",
    "brand": "adidas",
@@ -2944,38 +3011,6 @@
    "benefit": 7421,
    "rating": 4.8,
    "feedbacks": 692,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787078957
-  },
-  {
-   "id": 523622171,
-   "title": "Кроссовки мужские Air Force 1",
-   "brand": "Nike",
-   "product": 3121,
-   "basic": 16452,
-   "discount": 81,
-   "benefit": 13331,
-   "rating": 4.8,
-   "feedbacks": 419,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787078957
-  },
-  {
-   "id": 813392858,
-   "title": "Спортивные кроссовки для бега и спортзала",
-   "brand": "SavDem",
-   "product": 3124,
-   "basic": 22200,
-   "discount": 86,
-   "benefit": 19076,
-   "rating": 4.7,
-   "feedbacks": 127,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

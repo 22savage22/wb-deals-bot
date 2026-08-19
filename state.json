@@ -1146,10 +1146,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 37,
-   "rate_limited": 13,
-   "http_error": 19,
+   "calls": 119,
+   "ok": 76,
+   "rate_limited": 5,
+   "http_error": 38,
    "network_error": 0,
    "json_error": 0
   },
@@ -1202,7 +1202,7 @@
   "today": "2026-08-19",
   "today_posts": 12,
   "total_posts": 89,
-  "last_scan": 1787125564,
+  "last_scan": 1787129255,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1210,25 +1210,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Манежи детские",
-   "Обогреватели и вентиляторы",
    "Защитные стекла для телефонов Xiaomi",
-   "Средства индивидуальной защиты и экипировка"
+   "Средства индивидуальной защиты и экипировка",
+   "Манежи детские",
+   "Обогреватели и вентиляторы"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 302,
-   "cards": 302,
-   "ok": 60,
-   "discount": 143,
-   "bad_price": 92,
-   "rating": 7,
-   "strict": 60,
+   "found": 699,
+   "cards": 699,
+   "discount": 202,
+   "rating": 33,
+   "bad_price": 202,
+   "ok": 262,
+   "strict": 262,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 45,
-   "title_duplicate": 12
+   "duplicate": 143,
+   "title_duplicate": 56
   },
   "last_queue": {
    "queue_before": 98,
@@ -1945,30 +1945,46 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1787125779.575574,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787129383.9045691,
+   "runs": 2,
+   "empty": 2
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1787125779.575574,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787129383.9045691,
+   "runs": 2,
+   "empty": 2
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787125779.575574,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787129383.9045691,
+   "runs": 2,
+   "empty": 2
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787125779.575574,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787129383.9045691,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 391186500,
+   "title": "Кроссовки sb dunk кеды",
+   "brand": "Nike",
+   "product": 2281,
+   "basic": 12999,
+   "discount": 82,
+   "benefit": 10718,
+   "rating": 4.7,
+   "feedbacks": 249,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787129255
+  },
   {
    "id": 523622171,
    "title": "Кроссовки мужские Air Force 1",

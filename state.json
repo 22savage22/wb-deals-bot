@@ -335,6 +335,19 @@
  },
  "recent": [
   {
+   "pid": 140910104,
+   "title": "Наушники беспроводные вакуумные блютуз вкладыши",
+   "discount": 60,
+   "price": 560,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/140910104/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787110406,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 453150162,
    "title": "Наушники проводные с разъемом Jack 3.5 mm",
    "discount": 60,
@@ -1113,19 +1126,6 @@
    "ts": 1786953518,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 140910104,
-   "title": "Наушники беспроводные вакуумные блютуз вкладыши",
-   "discount": 60,
-   "price": 560,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/140910104/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787110406,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1221,7 +1221,7 @@
    "Готовые строения и срубы",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 29,
   "last_scan_funnel": {
    "found": 200,

@@ -348,6 +348,19 @@
  },
  "recent": [
   {
+   "pid": 592995563,
+   "title": "Кроссовки на платформе",
+   "discount": 71,
+   "price": 1387,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/592995563/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787147789,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 888723292,
    "title": "Кроссовки женские спортивные бежевые",
    "discount": 79,
@@ -1111,32 +1124,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786985201,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 430420628,
-   "title": "Кроссовки летние сетка",
-   "discount": 79,
-   "price": 861,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/430420628/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786982985,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 592995563,
-   "title": "Кроссовки на платформе",
-   "discount": 71,
-   "price": 1387,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/592995563/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787147789,
    "drop": 0,
    "quality": "A"
   }

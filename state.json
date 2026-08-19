@@ -338,6 +338,19 @@
  },
  "recent": [
   {
+   "pid": 179764853,
+   "title": "Наушники беспроводные спортивные на шею с микрофоном",
+   "discount": 58,
+   "price": 512,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/179764853/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787115831,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 12904048,
    "title": "Наушники проводные для телефона aux с микрофоном",
    "discount": 60,
@@ -1116,19 +1129,6 @@
    "ts": 1786960090,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 179764853,
-   "title": "Наушники беспроводные спортивные на шею с микрофоном",
-   "discount": 58,
-   "price": 512,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/179764853/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787115831,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1224,7 +1224,7 @@
    "Пылевыбивалки",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 97,
+  "queue_size": 57,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

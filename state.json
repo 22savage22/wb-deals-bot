@@ -370,6 +370,19 @@
  },
  "recent": [
   {
+   "pid": 627898229,
+   "title": "Наушники беспроводные TWS",
+   "discount": 64,
+   "price": 702,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/627898229/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787173960,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 932851980,
    "title": "Наушники беспроводные для iphone Siri сенсорные",
    "discount": 70,
@@ -1135,32 +1148,6 @@
    "ts": 1787006399,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 837930039,
-   "title": "Кроссовки АСИКС Gel-Kahana 8 летние дышащие",
-   "discount": 80,
-   "price": 1730,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/837930039/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787004416,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 627898229,
-   "title": "Наушники беспроводные TWS",
-   "discount": 64,
-   "price": 702,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/627898229/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787173960,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1187,10 +1174,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 23,
-   "rate_limited": 12,
-   "http_error": 13,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1243,7 +1230,7 @@
   "today": "2026-08-19",
   "today_posts": 29,
   "total_posts": 106,
-  "last_scan": 1787165121,
+  "last_scan": 1787175146,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1251,25 +1238,19 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства для мытья посуды и продуктов",
    "Пледы",
    "Расчески парикмахерские",
-   "Краски автомобильные"
+   "Краски автомобильные",
+   "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 95,
-  "last_scan_added": 20,
+  "queue_size": 21,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "bad_price": 65,
-   "discount": 44,
-   "rating": 19,
-   "ok": 73,
-   "strict": 73,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 29,
-   "title_duplicate": 13
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 96,
@@ -2045,9 +2026,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787165335.7726674,
-   "runs": 36,
-   "empty": 1
+   "ts": 1787175385.828665,
+   "runs": 37,
+   "empty": 2
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -2057,21 +2038,21 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787165335.7726674,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787175385.828665,
+   "runs": 17,
+   "empty": 2
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787165335.7726674,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787175385.828665,
+   "runs": 17,
+   "empty": 2
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787165335.7726674,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787175385.828665,
+   "runs": 17,
+   "empty": 2
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",

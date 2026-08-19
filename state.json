@@ -1113,19 +1113,6 @@
    "ts": 1786956898,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 819785336,
-   "title": "Кроссовки для малышей в садик",
-   "discount": 75,
-   "price": 1029,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/819785336/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786953518,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1152,10 +1139,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 22,
+   "calls": 34,
+   "ok": 11,
    "rate_limited": 14,
-   "http_error": 14,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -1208,7 +1195,7 @@
   "today": "2026-08-19",
   "today_posts": 6,
   "total_posts": 83,
-  "last_scan": 1787108695,
+  "last_scan": 1787111606,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1216,25 +1203,23 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Готовые строения и срубы",
    "Пылевыбивалки",
    "Смазки и масла для инструмента",
-   "Готовые строения и срубы",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 60,
-  "last_scan_added": 29,
+  "queue_size": 58,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "ok": 101,
-   "discount": 57,
-   "rating": 12,
-   "bad_price": 30,
-   "strict": 101,
+   "found": 100,
+   "cards": 100,
+   "discount": 54,
+   "bad_price": 41,
+   "ok": 5,
+   "strict": 5,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 44,
-   "title_duplicate": 27
+   "duplicate": 5
   },
   "last_queue": {
    "queue_before": 100,
@@ -1837,15 +1822,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787108938.5761492,
-   "runs": 77,
-   "empty": 2
+   "ts": 1787111874.910757,
+   "runs": 78,
+   "empty": 3
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787108938.5761492,
-   "runs": 72,
-   "empty": 2
+   "ts": 1787111874.910757,
+   "runs": 73,
+   "empty": 3
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1855,9 +1840,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787108938.5761492,
-   "runs": 37,
-   "empty": 2
+   "ts": 1787111874.910757,
+   "runs": 38,
+   "empty": 3
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1879,9 +1864,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787108938.5761492,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787111874.910757,
+   "runs": 18,
+   "empty": 3
   },
   "Матрасы-топперы": {
    "shard": "bedding4",

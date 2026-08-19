@@ -137,7 +137,10 @@
   "1052329623": 1787179381,
   "949426009": 1787180984,
   "81704031": 1787180984,
-  "505662591": 1787182707
+  "505662591": 1787182707,
+  "295740608": 1787183942,
+  "9130597": 1787183942,
+  "642463578": 1787183942
  },
  "feedback": {
   "855179327": {
@@ -366,11 +369,11 @@
    "ts": 1787050889.7984
   },
   "телевизор": {
-   "posts": 23.240060505022228,
+   "posts": 25.204419242701704,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1787182727.4464557
+   "ts": 1787183986.0383027
   }
  },
  "tg": {
@@ -1156,10 +1159,23 @@
    "ts": 1787026748,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 642463578,
+   "title": "Телевизор 50 дюймов. Смарт 4k 50Q880TS webOS",
+   "discount": 47,
+   "price": 32293,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/642463578/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787183942,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1787182707,
+  "last_run": 1787183942,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -1244,8 +1260,8 @@
    }
   ],
   "today": "2026-08-19",
-  "today_posts": 34,
-  "total_posts": 111,
+  "today_posts": 35,
+  "total_posts": 112,
   "last_scan": 1787178733,
   "last_scan_queries": [
    "телефон",
@@ -1259,7 +1275,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 96,
+  "queue_size": 92,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,
@@ -1273,9 +1289,10 @@
    "duplicate": 11
   },
   "last_queue": {
-   "queue_before": 96,
+   "queue_before": 95,
    "selected": 1,
-   "queue_after": 95
+   "photo_duplicate": 2,
+   "queue_after": 92
   },
   "cats_count": 2305
  },
@@ -1393,7 +1410,8 @@
   "наушникипроводныесовместимысiphoneсмикрофоном": 1787177367,
   "телевизор55дюймовw55usy26f4kuhdsmartсалисойwifi": 1787179381,
   "телевизорсмарт43f670ts43дюймасwifi": 1787180984,
-  "телевизорсмарт32дюймаfullhds2proandroidtv": 1787182707
+  "телевизорсмарт32дюймаfullhds2proandroidtv": 1787182707,
+  "телевизор50дюймовсмарт4k50q880tswebos": 1787183942
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -1506,7 +1524,8 @@
   "f8f4eea6b190bc68": 1787177367,
   "7171157e66e36371": 1787179381,
   "68008a9698960444": 1787180984,
-  "cc7c1c1e2e333307": 1787182707
+  "cc7c1c1e2e333307": 1787182707,
+  "68488c92980e4c44": 1787183942
  },
  "learned": {},
  "prices": {
@@ -2064,6 +2083,11 @@
    "price": 15112,
    "basic": 28990,
    "ts": 1787182707.5515404
+  },
+  "642463578": {
+   "price": 32293,
+   "basic": 61185,
+   "ts": 1787183942.8678215
   }
  },
  "cats": {
@@ -2165,54 +2189,6 @@
   }
  },
  "queue": [
-  {
-   "id": 295740608,
-   "title": "Телевизор смарт 43 дюйма с wi-fi 43LST5971",
-   "brand": "Skyline",
-   "product": 18047,
-   "basic": 33675,
-   "discount": 46,
-   "benefit": 15628,
-   "rating": 4.8,
-   "feedbacks": 647,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787178733
-  },
-  {
-   "id": 9130597,
-   "title": "Телевизор смарт 43F660TS, 43 дюйма с wi-fi",
-   "brand": "Harper",
-   "product": 19278,
-   "basic": 34915,
-   "discount": 45,
-   "benefit": 15637,
-   "rating": 4.8,
-   "feedbacks": 557,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787178733
-  },
-  {
-   "id": 642463578,
-   "title": "Телевизор 50 дюймов. Смарт 4k 50Q880TS webOS",
-   "brand": "Harper",
-   "product": 32293,
-   "basic": 61185,
-   "discount": 47,
-   "benefit": 28892,
-   "rating": 4.9,
-   "feedbacks": 226,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787178733
-  },
   {
    "id": 561017561,
    "title": "Телевизор TV A 50 2026",

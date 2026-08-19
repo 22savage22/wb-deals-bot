@@ -365,6 +365,19 @@
  },
  "recent": [
   {
+   "pid": 1093422667,
+   "title": "Наушники беспроводные для айфона и андроид с микрофоном",
+   "discount": 75,
+   "price": 998,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1093422667/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787162341,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 404101892,
    "title": "Наушники Air Pro 2 беспроводные с микрофоном Android Apple",
    "discount": 97,
@@ -1128,32 +1141,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786997396,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 396242354,
-   "title": "Телевизор смарт 32 дюйма с wi-fi и интернетом безрамочный",
-   "discount": 60,
-   "price": 9635,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/396242354/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1786995744,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1093422667,
-   "title": "Наушники беспроводные для айфона и андроид с микрофоном",
-   "discount": 75,
-   "price": 998,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1093422667/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787162341,
    "drop": 0,
    "quality": "A"
   }

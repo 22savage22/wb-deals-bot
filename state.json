@@ -1152,10 +1152,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 135,
+   "calls": 132,
    "ok": 88,
-   "rate_limited": 4,
-   "http_error": 43,
+   "rate_limited": 0,
+   "http_error": 44,
    "network_error": 0,
    "json_error": 0
   },
@@ -1208,7 +1208,7 @@
   "today": "2026-08-19",
   "today_posts": 18,
   "total_posts": 95,
-  "last_scan": 1787147400,
+  "last_scan": 1787150488,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1216,25 +1216,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Серия Galaxy A",
-   "Гроубоксы",
    "Мыши",
-   "Матрасы-топперы"
+   "Матрасы-топперы",
+   "Гроубоксы",
+   "Серия Galaxy A"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 799,
    "cards": 799,
-   "bad_price": 253,
+   "bad_price": 249,
    "rating": 46,
-   "discount": 220,
-   "ok": 280,
-   "strict": 280,
+   "discount": 217,
+   "ok": 287,
+   "strict": 287,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 149,
-   "title_duplicate": 54
+   "duplicate": 151,
+   "title_duplicate": 56
   },
   "last_queue": {
    "queue_before": 100,
@@ -1969,27 +1969,27 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787147526.0502963,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787150560.6292698,
+   "runs": 8,
+   "empty": 3
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787147526.0502963,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787150560.6292698,
+   "runs": 8,
+   "empty": 3
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787147526.0502963,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787150560.6292698,
+   "runs": 8,
+   "empty": 3
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787147526.0502963,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787150560.6292698,
+   "runs": 8,
+   "empty": 3
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -2017,6 +2017,22 @@
   }
  },
  "queue": [
+  {
+   "id": 297456775,
+   "title": "Кроссовки женские осень KUROMI",
+   "brand": "OLD ORDER",
+   "product": 999,
+   "basic": 9999,
+   "discount": 90,
+   "benefit": 9000,
+   "rating": 5.0,
+   "feedbacks": 20,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787150488
+  },
   {
    "id": 431035062,
    "title": "Кроссовки женские коричневые летние SAMBA",

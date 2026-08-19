@@ -345,6 +345,19 @@
  },
  "recent": [
   {
+   "pid": 337352644,
+   "title": "Наушники проводные для iPhone с микрофоном",
+   "discount": 60,
+   "price": 472,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/337352644/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787137369,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 243690882,
    "title": "Вакуумные наушники Jack 3,5",
    "discount": 52,
@@ -1108,32 +1121,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786979637,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 328027669,
-   "title": "Кроссовки летние",
-   "discount": 91,
-   "price": 927,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/328027669/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786978138,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 337352644,
-   "title": "Наушники проводные для iPhone с микрофоном",
-   "discount": 60,
-   "price": 472,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/337352644/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787137369,
    "drop": 0,
    "quality": "A"
   }

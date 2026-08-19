@@ -1115,19 +1115,6 @@
    "ts": 1786960090,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 451424465,
-   "title": "Наушники беспроводные для Андроид и Айфон",
-   "discount": 86,
-   "price": 754,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/451424465/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786956898,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1154,10 +1141,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 11,
-   "rate_limited": 14,
-   "http_error": 9,
+   "calls": 52,
+   "ok": 22,
+   "rate_limited": 16,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1210,7 +1197,7 @@
   "today": "2026-08-19",
   "today_posts": 7,
   "total_posts": 84,
-  "last_scan": 1787111606,
+  "last_scan": 1787114662,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1219,22 +1206,24 @@
   ],
   "last_scan_cats": [
    "Готовые строения и срубы",
+   "Репринтные издания 1860 - 1869 годов",
    "Пылевыбивалки",
-   "Смазки и масла для инструмента",
-   "Репринтные издания 1860 - 1869 годов"
+   "Смазки и масла для инструмента"
   ],
-  "queue_size": 58,
-  "last_scan_added": 0,
+  "queue_size": 57,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "discount": 54,
-   "bad_price": 41,
-   "ok": 5,
-   "strict": 5,
+   "found": 200,
+   "cards": 200,
+   "discount": 81,
+   "bad_price": 57,
+   "ok": 56,
+   "rating": 6,
+   "strict": 56,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 5
+   "duplicate": 43,
+   "title_duplicate": 12
   },
   "last_queue": {
    "queue_before": 99,
@@ -1845,15 +1834,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787111874.910757,
-   "runs": 78,
-   "empty": 3
+   "ts": 1787114940.1236727,
+   "runs": 79,
+   "empty": 4
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787111874.910757,
-   "runs": 73,
-   "empty": 3
+   "ts": 1787114940.1236727,
+   "runs": 74,
+   "empty": 4
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -1863,9 +1852,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787111874.910757,
-   "runs": 38,
-   "empty": 3
+   "ts": 1787114940.1236727,
+   "runs": 39,
+   "empty": 4
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -1887,9 +1876,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787111874.910757,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787114940.1236727,
+   "runs": 19,
+   "empty": 4
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -1917,6 +1906,22 @@
   }
  },
  "queue": [
+  {
+   "id": 179764853,
+   "title": "Наушники беспроводные спортивные на шею с микрофоном",
+   "brand": "4 ЗВУКА",
+   "product": 512,
+   "basic": 1232,
+   "discount": 58,
+   "benefit": 720,
+   "rating": 4.8,
+   "feedbacks": 12004,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787114662
+  },
   {
    "id": 227170289,
    "title": "Air Pro 3 беспроводные наушники с шумоподавлением",

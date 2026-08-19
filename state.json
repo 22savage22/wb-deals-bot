@@ -1151,10 +1151,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 109,
-   "ok": 66,
-   "rate_limited": 9,
-   "http_error": 34,
+   "calls": 135,
+   "ok": 88,
+   "rate_limited": 4,
+   "http_error": 43,
    "network_error": 0,
    "json_error": 0
   },
@@ -1207,7 +1207,7 @@
   "today": "2026-08-19",
   "today_posts": 17,
   "total_posts": 94,
-  "last_scan": 1787144461,
+  "last_scan": 1787147400,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1215,25 +1215,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Мыши",
-   "Матрасы-топперы",
    "Серия Galaxy A",
-   "Гроубоксы"
+   "Гроубоксы",
+   "Мыши",
+   "Матрасы-топперы"
   ],
-  "queue_size": 99,
-  "last_scan_added": 32,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 599,
-   "cards": 599,
-   "bad_price": 231,
-   "rating": 32,
-   "discount": 160,
-   "ok": 176,
-   "strict": 176,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 253,
+   "rating": 46,
+   "discount": 220,
+   "ok": 280,
+   "strict": 280,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 69,
-   "title_duplicate": 26
+   "duplicate": 149,
+   "title_duplicate": 54
   },
   "last_queue": {
    "queue_before": 100,
@@ -1961,27 +1961,27 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787144642.193923,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787147526.0502963,
+   "runs": 7,
+   "empty": 2
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787144642.193923,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787147526.0502963,
+   "runs": 7,
+   "empty": 2
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787144642.193923,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787147526.0502963,
+   "runs": 7,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787144642.193923,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787147526.0502963,
+   "runs": 7,
+   "empty": 2
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -2009,6 +2009,22 @@
   }
  },
  "queue": [
+  {
+   "id": 592995563,
+   "title": "Кроссовки на платформе",
+   "brand": "JOYCITY",
+   "product": 1387,
+   "basic": 4774,
+   "discount": 71,
+   "benefit": 3387,
+   "rating": 4.7,
+   "feedbacks": 593,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787147400
+  },
   {
    "id": 431035062,
    "title": "Кроссовки женские коричневые летние SAMBA",

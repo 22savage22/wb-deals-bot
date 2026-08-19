@@ -350,6 +350,19 @@
  },
  "recent": [
   {
+   "pid": 431035062,
+   "title": "Кроссовки женские коричневые летние SAMBA",
+   "discount": 78,
+   "price": 2021,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/431035062/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787154678,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 297456775,
    "title": "Кроссовки женские осень KUROMI",
    "discount": 90,
@@ -1113,32 +1126,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1786988947,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 74484829,
-   "title": "Проводные наушники для iphone",
-   "discount": 86,
-   "price": 504,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/74484829/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786986846,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 431035062,
-   "title": "Кроссовки женские коричневые летние SAMBA",
-   "discount": 78,
-   "price": 2021,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/431035062/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787154678,
    "drop": 0,
    "quality": "A"
   }

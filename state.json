@@ -375,6 +375,19 @@
  },
  "recent": [
   {
+   "pid": 1052329623,
+   "title": "Телевизор 55 дюймов W55USY26F 4K UHD Smart с Алисой WiFi",
+   "discount": 43,
+   "price": 18321,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1052329623/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787179381,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 439542148,
    "title": "Наушники проводные совместимы с iPhone с микрофоном",
    "discount": 65,
@@ -1153,19 +1166,6 @@
    "ts": 1787010981,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1052329623,
-   "title": "Телевизор 55 дюймов W55USY26F 4K UHD Smart с Алисой WiFi",
-   "discount": 43,
-   "price": 18321,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1052329623/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787179381,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1269,7 +1269,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 98,
+  "queue_size": 36,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,

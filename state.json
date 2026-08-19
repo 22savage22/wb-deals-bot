@@ -342,6 +342,19 @@
  },
  "recent": [
   {
+   "pid": 1094330949,
+   "title": "Телевизор 32 HQLED H6, Full HD Smart TV",
+   "discount": 57,
+   "price": 15062,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1094330949/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787126247,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 885014128,
    "title": "Кроссовки sb dunk low pro данки серые",
    "discount": 82,
@@ -1120,19 +1133,6 @@
    "ts": 1786967869,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1094330949,
-   "title": "Телевизор 32 HQLED H6, Full HD Smart TV",
-   "discount": 57,
-   "price": 15062,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1094330949/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787126247,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1228,7 +1228,7 @@
    "Защитные стекла для телефонов Xiaomi",
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 302,

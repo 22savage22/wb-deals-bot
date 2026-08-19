@@ -364,6 +364,19 @@
  },
  "recent": [
   {
+   "pid": 404101892,
+   "title": "Наушники Air Pro 2 беспроводные с микрофоном Android Apple",
+   "discount": 97,
+   "price": 388,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/404101892/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787161063,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1152926221,
    "title": "Телевизор LED 55\" UE55U8000FUXCE 4K Ultra HD Smart TV",
    "discount": 55,
@@ -1127,32 +1140,6 @@
    "query": "телевизор",
    "cat": "телевизор",
    "ts": 1786995744,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 214148802,
-   "title": "Кроссовки детские для мальчика",
-   "discount": 91,
-   "price": 1197,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/214148802/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786993711,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 404101892,
-   "title": "Наушники Air Pro 2 беспроводные с микрофоном Android Apple",
-   "discount": 97,
-   "price": 388,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/404101892/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787161063,
    "drop": 0,
    "quality": "A"
   }

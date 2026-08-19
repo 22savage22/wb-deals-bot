@@ -377,6 +377,19 @@
  },
  "recent": [
   {
+   "pid": 81704031,
+   "title": "Телевизор смарт 43F670TS, 43 дюйма с wi-fi",
+   "discount": 48,
+   "price": 17528,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/81704031/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787180984,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1052329623,
    "title": "Телевизор 55 дюймов W55USY26F 4K UHD Smart с Алисой WiFi",
    "discount": 43,
@@ -1142,32 +1155,6 @@
    "ts": 1787023933,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1150670732,
-   "title": "Смартфон F6, 12 512ГБ, global",
-   "discount": 69,
-   "price": 19539,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1150670732/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787021041,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 81704031,
-   "title": "Телевизор смарт 43F670TS, 43 дюйма с wi-fi",
-   "discount": 48,
-   "price": 17528,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/81704031/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787180984,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

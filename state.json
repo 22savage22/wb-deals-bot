@@ -341,6 +341,19 @@
  },
  "recent": [
   {
+   "pid": 885014128,
+   "title": "Кроссовки sb dunk low pro данки серые",
+   "discount": 82,
+   "price": 1977,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/885014128/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787123490,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 575822551,
    "title": "Наушники беспроводные Air Pro для iPhone и Android блютуз",
    "discount": 60,
@@ -1106,32 +1119,6 @@
    "ts": 1786967869,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 907896721,
-   "title": "Наушники беспроводные с шумоподавлением A.Pods 4",
-   "discount": 71,
-   "price": 1938,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/907896721/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786966239,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 885014128,
-   "title": "Кроссовки sb dunk low pro данки серые",
-   "discount": 82,
-   "price": 1977,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/885014128/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787123490,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1145,7 +1132,7 @@
   ],
   "learn_ts": 1786878372.200771,
   "empty_notice_ts": 1786881867.0,
-  "cats_ts": 1787039127.0193892,
+  "cats_ts": 1787125564.506598,
   "last_cats": [
    "Репринтные издания 1860 - 1869 годов",
    "Пылевыбивалки",
@@ -1158,10 +1145,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 55,
+   "calls": 69,
+   "ok": 37,
    "rate_limited": 13,
-   "http_error": 29,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0
   },
@@ -1214,7 +1201,7 @@
   "today": "2026-08-19",
   "today_posts": 11,
   "total_posts": 88,
-  "last_scan": 1787122612,
+  "last_scan": 1787125564,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1222,25 +1209,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Готовые строения и срубы",
-   "Смазки и масла для инструмента",
-   "Репринтные издания 1860 - 1869 годов",
-   "Пылевыбивалки"
+   "Манежи детские",
+   "Обогреватели и вентиляторы",
+   "Защитные стекла для телефонов Xiaomi",
+   "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 97,
-  "last_scan_added": 6,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 499,
-   "cards": 499,
-   "bad_price": 185,
-   "rating": 33,
-   "discount": 103,
-   "ok": 178,
-   "strict": 178,
+   "found": 302,
+   "cards": 302,
+   "ok": 60,
+   "discount": 143,
+   "bad_price": 92,
+   "rating": 7,
+   "strict": 60,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 72,
-   "title_duplicate": 27
+   "duplicate": 45,
+   "title_duplicate": 12
   },
   "last_queue": {
    "queue_before": 98,
@@ -1947,9 +1934,49 @@
    "ts": 1787064106.8202555,
    "runs": 5,
    "empty": 5
+  },
+  "Манежи детские": {
+   "shard": "babies_room1",
+   "ts": 1787125779.575574,
+   "runs": 1,
+   "empty": 1
+  },
+  "Защитные стекла для телефонов Xiaomi": {
+   "shard": "electronic85",
+   "ts": 1787125779.575574,
+   "runs": 1,
+   "empty": 1
+  },
+  "Обогреватели и вентиляторы": {
+   "shard": "appliances18",
+   "ts": 1787125779.575574,
+   "runs": 1,
+   "empty": 1
+  },
+  "Средства индивидуальной защиты и экипировка": {
+   "shard": "repair26",
+   "ts": 1787125779.575574,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 1094330949,
+   "title": "Телевизор 32 HQLED H6, Full HD Smart TV",
+   "brand": "Haier",
+   "product": 15062,
+   "basic": 34999,
+   "discount": 57,
+   "benefit": 19937,
+   "rating": 4.7,
+   "feedbacks": 55,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787125564
+  },
   {
    "id": 523622171,
    "title": "Кроссовки мужские Air Force 1",

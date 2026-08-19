@@ -351,6 +351,19 @@
  },
  "recent": [
   {
+   "pid": 1022339733,
+   "title": "Кроссовки Air Force 1 мужские белые",
+   "discount": 74,
+   "price": 2597,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1022339733/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787157386,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 431035062,
    "title": "Кроссовки женские коричневые летние SAMBA",
    "discount": 78,
@@ -1116,32 +1129,6 @@
    "ts": 1786990831,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 773083840,
-   "title": "Наушники беспроводные A.Pods 2",
-   "discount": 69,
-   "price": 951,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/773083840/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786988947,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1022339733,
-   "title": "Кроссовки Air Force 1 мужские белые",
-   "discount": 74,
-   "price": 2597,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1022339733/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787157386,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1168,10 +1155,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 132,
-   "ok": 88,
-   "rate_limited": 0,
-   "http_error": 44,
+   "calls": 46,
+   "ok": 22,
+   "rate_limited": 10,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1224,7 +1211,7 @@
   "today": "2026-08-19",
   "today_posts": 21,
   "total_posts": 98,
-  "last_scan": 1787150488,
+  "last_scan": 1787157553,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1232,25 +1219,23 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Мыши",
    "Матрасы-топперы",
    "Гроубоксы",
+   "Мыши",
    "Серия Galaxy A"
   ],
-  "queue_size": 97,
+  "queue_size": 53,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 799,
-   "cards": 799,
-   "bad_price": 249,
-   "rating": 46,
-   "discount": 217,
-   "ok": 287,
-   "strict": 287,
+   "found": 200,
+   "cards": 200,
+   "discount": 110,
+   "ok": 8,
+   "bad_price": 82,
+   "strict": 8,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 151,
-   "title_duplicate": 56
+   "duplicate": 7
   },
   "last_queue": {
    "queue_before": 98,
@@ -2006,27 +1991,27 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787150560.6292698,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787157748.4788723,
+   "runs": 9,
+   "empty": 4
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787150560.6292698,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787157748.4788723,
+   "runs": 9,
+   "empty": 4
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787150560.6292698,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787157748.4788723,
+   "runs": 9,
+   "empty": 4
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787150560.6292698,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787157748.4788723,
+   "runs": 9,
+   "empty": 4
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -2054,6 +2039,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1152926221,
+   "title": "Телевизор LED 55\" UE55U8000FUXCE 4K Ultra HD Smart TV",
+   "brand": "Samsung",
+   "product": 33502,
+   "basic": 74450,
+   "discount": 55,
+   "benefit": 40948,
+   "rating": 4.8,
+   "feedbacks": 28,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787157553
+  },
   {
    "id": 783437254,
    "title": "ПРЕМИУМ Кроссовки демисезонные кожаные",

@@ -352,6 +352,19 @@
  },
  "recent": [
   {
+   "pid": 1152926221,
+   "title": "Телевизор LED 55\" UE55U8000FUXCE 4K Ultra HD Smart TV",
+   "discount": 55,
+   "price": 33502,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1152926221/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787158919,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1022339733,
    "title": "Кроссовки Air Force 1 мужские белые",
    "discount": 74,
@@ -1115,32 +1128,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786993711,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 11755171,
-   "title": "Наушники проводные с разъемом Jack 3,5 с микрофоном",
-   "discount": 78,
-   "price": 255,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/11755171/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786990831,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1152926221,
-   "title": "Телевизор LED 55\" UE55U8000FUXCE 4K Ultra HD Smart TV",
-   "discount": 55,
-   "price": 33502,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1152926221/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787158919,
    "drop": 0,
    "quality": "A"
   }

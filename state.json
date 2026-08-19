@@ -347,6 +347,19 @@
  },
  "recent": [
   {
+   "pid": 888723292,
+   "title": "Кроссовки женские спортивные бежевые",
+   "discount": 79,
+   "price": 2046,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/888723292/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787144804,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 883556292,
    "title": "Телевизор 32 дюйма HC32HSS26F HD Smart ОС Салют WiFi",
    "discount": 45,
@@ -1110,32 +1123,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1786982985,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 905248304,
-   "title": "Наушники беспроводные копия AirPods 4 с шумоподавление",
-   "discount": 83,
-   "price": 1685,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/905248304/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786981488,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 888723292,
-   "title": "Кроссовки женские спортивные бежевые",
-   "discount": 79,
-   "price": 2046,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/888723292/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787144804,
    "drop": 0,
    "quality": "A"
   }

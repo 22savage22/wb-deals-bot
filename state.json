@@ -367,6 +367,19 @@
  },
  "recent": [
   {
+   "pid": 440534945,
+   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",
+   "discount": 60,
+   "price": 360,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/440534945/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787168692,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 337336928,
    "title": "Наушники вакуумные проводные Type-C с микрофоном",
    "discount": 60,
@@ -1130,32 +1143,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787001122,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 168894170,
-   "title": "Кроссовки высокие на липучке",
-   "discount": 81,
-   "price": 722,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/168894170/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786999498,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 440534945,
-   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,5м",
-   "discount": 60,
-   "price": 360,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/440534945/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787168692,
    "drop": 0,
    "quality": "A"
   }

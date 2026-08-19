@@ -343,6 +343,19 @@
  },
  "recent": [
   {
+   "pid": 391186500,
+   "title": "Кроссовки sb dunk кеды",
+   "discount": 82,
+   "price": 2281,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/391186500/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787131289,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1094330949,
    "title": "Телевизор 32 HQLED H6, Full HD Smart TV",
    "discount": 57,
@@ -1108,32 +1121,6 @@
    "ts": 1786976097,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 909466269,
-   "title": "ПРЕМИУМ Кроссовки летние дышащие легкие",
-   "discount": 77,
-   "price": 1490,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/909466269/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1786974518,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 391186500,
-   "title": "Кроссовки sb dunk кеды",
-   "discount": 82,
-   "price": 2281,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/391186500/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787131289,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1160,10 +1147,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 119,
-   "ok": 76,
-   "rate_limited": 5,
-   "http_error": 38,
+   "calls": 94,
+   "ok": 55,
+   "rate_limited": 10,
+   "http_error": 29,
    "network_error": 0,
    "json_error": 0
   },
@@ -1216,7 +1203,7 @@
   "today": "2026-08-19",
   "today_posts": 13,
   "total_posts": 90,
-  "last_scan": 1787129255,
+  "last_scan": 1787132458,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1224,25 +1211,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Обогреватели и вентиляторы",
    "Защитные стекла для телефонов Xiaomi",
-   "Средства индивидуальной защиты и экипировка",
    "Манежи детские",
-   "Обогреватели и вентиляторы"
+   "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 699,
-   "cards": 699,
-   "discount": 202,
-   "rating": 33,
-   "bad_price": 202,
-   "ok": 262,
-   "strict": 262,
+   "found": 500,
+   "cards": 500,
+   "bad_price": 156,
+   "rating": 28,
+   "discount": 190,
+   "ok": 126,
+   "strict": 126,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 143,
-   "title_duplicate": 56
+   "duplicate": 95,
+   "title_duplicate": 29
   },
   "last_queue": {
    "queue_before": 98,
@@ -1966,30 +1953,46 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1787129383.9045691,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787132653.4723427,
+   "runs": 3,
+   "empty": 3
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1787129383.9045691,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787132653.4723427,
+   "runs": 3,
+   "empty": 3
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787129383.9045691,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787132653.4723427,
+   "runs": 3,
+   "empty": 3
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787129383.9045691,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787132653.4723427,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 243690882,
+   "title": "Вакуумные наушники Jack 3,5",
+   "brand": "GQbox",
+   "product": 335,
+   "basic": 699,
+   "discount": 52,
+   "benefit": 364,
+   "rating": 4.8,
+   "feedbacks": 135421,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787132458
+  },
   {
    "id": 523622171,
    "title": "Кроссовки мужские Air Force 1",

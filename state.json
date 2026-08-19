@@ -346,6 +346,19 @@
  },
  "recent": [
   {
+   "pid": 883556292,
+   "title": "Телевизор 32 дюйма HC32HSS26F HD Smart ОС Салют WiFi",
+   "discount": 45,
+   "price": 7955,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/883556292/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787140823,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 337352644,
    "title": "Наушники проводные для iPhone с микрофоном",
    "discount": 60,
@@ -1111,32 +1124,6 @@
    "ts": 1786981488,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 218295861,
-   "title": "Наушники беспроводные AiPods 4 ANC для iPhone и Android",
-   "discount": 87,
-   "price": 1803,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/218295861/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1786979637,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 883556292,
-   "title": "Телевизор 32 дюйма HC32HSS26F HD Smart ОС Салют WiFi",
-   "discount": 45,
-   "price": 7955,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/883556292/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787140823,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

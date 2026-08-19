@@ -378,6 +378,19 @@
  },
  "recent": [
   {
+   "pid": 505662591,
+   "title": "Телевизор смарт 32 дюйма Full HD S2 Pro Android TV",
+   "discount": 48,
+   "price": 15112,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/505662591/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787182707,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 81704031,
    "title": "Телевизор смарт 43F670TS, 43 дюйма с wi-fi",
    "discount": 48,
@@ -1156,19 +1169,6 @@
    "ts": 1787023933,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 505662591,
-   "title": "Телевизор смарт 32 дюйма Full HD S2 Pro Android TV",
-   "discount": 48,
-   "price": 15112,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/505662591/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787182707,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1272,7 +1272,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 95,
+  "queue_size": 96,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,

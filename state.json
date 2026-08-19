@@ -337,6 +337,19 @@
  },
  "recent": [
   {
+   "pid": 12904048,
+   "title": "Наушники проводные для телефона aux с микрофоном",
+   "discount": 60,
+   "price": 382,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/12904048/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787113242,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 140910104,
    "title": "Наушники беспроводные вакуумные блютуз вкладыши",
    "discount": 60,
@@ -1115,19 +1128,6 @@
    "ts": 1786956898,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 12904048,
-   "title": "Наушники проводные для телефона aux с микрофоном",
-   "discount": 60,
-   "price": 382,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/12904048/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787113242,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1223,7 +1223,7 @@
    "Смазки и масла для инструмента",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 97,
+  "queue_size": 58,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

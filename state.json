@@ -372,6 +372,19 @@
  },
  "recent": [
   {
+   "pid": 1055995801,
+   "title": "Наушники беспроводные для андроид",
+   "discount": 60,
+   "price": 560,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1055995801/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787175911,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 627898229,
    "title": "Наушники беспроводные TWS",
    "discount": 64,
@@ -1137,32 +1150,6 @@
    "ts": 1787007669,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 949426008,
-   "title": "Телевизор смарт 43 дюйма D43US01BF Салют ТВ Ultra HD",
-   "discount": 49,
-   "price": 12558,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/949426008/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787006399,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 1055995801,
-   "title": "Наушники беспроводные для андроид",
-   "discount": 60,
-   "price": 560,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1055995801/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787175911,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

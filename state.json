@@ -1203,10 +1203,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 8,
+   "calls": 27,
+   "ok": 7,
    "rate_limited": 15,
-   "http_error": 6,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -1267,7 +1267,7 @@
   "today": "2026-08-20",
   "today_posts": 22,
   "total_posts": 127,
-  "last_scan": 1787225632,
+  "last_scan": 1787231012,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1275,23 +1275,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Зеркала",
-   "Пылевыбивалки",
+   "Подвески",
+   "Бандажи",
    "Смазки и масла для инструмента",
-   "Подвески"
+   "Готовые строения и срубы"
   ],
-  "queue_size": 97,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "discount": 92,
-   "ok": 5,
+   "found": 95,
+   "cards": 95,
+   "discount": 42,
+   "ok": 29,
+   "rating": 21,
    "bad_price": 3,
-   "strict": 5,
+   "strict": 29,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 5
+   "duplicate": 1,
+   "title_duplicate": 3
   },
   "last_queue": {
    "queue_before": 98,
@@ -2208,9 +2210,9 @@
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787222490.1348114,
-   "runs": 79,
-   "empty": 4
+   "ts": 1787231273.258959,
+   "runs": 80,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2244,9 +2246,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787225895.9108746,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787231273.258959,
+   "runs": 25,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2298,9 +2300,9 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787222490.1348114,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787231273.258959,
+   "runs": 5,
+   "empty": 5
   },
   "Зеркала": {
    "shard": "bedroom6",
@@ -2310,9 +2312,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787225895.9108746,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787231273.258959,
+   "runs": 4,
+   "empty": 4
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -2322,6 +2324,54 @@
   }
  },
  "queue": [
+  {
+   "id": 1054199586,
+   "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
+   "brand": "",
+   "product": 6199,
+   "basic": 33154,
+   "discount": 81,
+   "benefit": 26955,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787231012
+  },
+  {
+   "id": 1271207450,
+   "title": "Смартфон S26 Ultra 16 1024ГБ 72MP камера 6000мAч",
+   "brand": "YFQTXLW",
+   "product": 6199,
+   "basic": 29176,
+   "discount": 79,
+   "benefit": 22977,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787231012
+  },
+  {
+   "id": 1145125508,
+   "title": "Смартфон Reno15, 12 512ГБ, russia",
+   "brand": "oppo",
+   "product": 31972,
+   "basic": 122127,
+   "discount": 74,
+   "benefit": 90155,
+   "rating": 4.9,
+   "feedbacks": 39,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787231012
+  },
   {
    "id": 988681460,
    "title": "Кроссовки SB Dunk Low",

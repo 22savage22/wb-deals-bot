@@ -395,6 +395,19 @@
  },
  "recent": [
   {
+   "pid": 881869182,
+   "title": "Кроссовки летние легкие дышащие на платформе",
+   "discount": 88,
+   "price": 1623,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/881869182/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787218760,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1241414627,
    "title": "Телевизор Mini-LED S Pro Mini 65 (L65MB-SRU) 2026",
    "discount": 63,
@@ -1173,19 +1186,6 @@
    "ts": 1787054424,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 881869182,
-   "title": "Кроссовки летние легкие дышащие на платформе",
-   "discount": 88,
-   "price": 1623,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/881869182/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787218760,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1289,7 +1289,7 @@
    "Подвески",
    "Смарт-часы и браслеты"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 202,

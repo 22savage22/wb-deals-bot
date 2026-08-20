@@ -1174,19 +1174,6 @@
    "ts": 1787061335,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1159999302,
-   "title": "Кроссовки повседневные, люксовые, дышащие, для тенниса",
-   "discount": 74,
-   "price": 2406,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1159999302/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787058365,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1213,10 +1200,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 26,
-   "rate_limited": 15,
-   "http_error": 12,
+   "calls": 62,
+   "ok": 34,
+   "rate_limited": 14,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1277,7 +1264,7 @@
   "today": "2026-08-20",
   "today_posts": 19,
   "total_posts": 124,
-  "last_scan": 1787218914,
+  "last_scan": 1787222275,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1285,25 +1272,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смарт-часы и браслеты",
    "Бандажи",
-   "Репринтные издания 1860 - 1869 годов",
-   "Пылевыбивалки"
+   "Готовые строения и срубы",
+   "Зеркала",
+   "Репринтные издания 1860 - 1869 годов"
   ],
   "queue_size": 60,
-  "last_scan_added": 2,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "discount": 174,
-   "bad_price": 17,
-   "ok": 87,
-   "rating": 22,
-   "strict": 87,
+   "found": 400,
+   "cards": 400,
+   "discount": 243,
+   "ok": 128,
+   "bad_price": 20,
+   "rating": 9,
+   "strict": 128,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 12,
-   "duplicate": 11
+   "duplicate": 18,
+   "title_duplicate": 21
   },
   "last_queue": {
    "queue_before": 100,
@@ -2193,15 +2180,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787219193.121389,
-   "runs": 84,
-   "empty": 4
+   "ts": 1787222490.1348114,
+   "runs": 85,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787209350.4938357,
-   "runs": 78,
-   "empty": 3
+   "ts": 1787222490.1348114,
+   "runs": 79,
+   "empty": 4
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2289,15 +2276,15 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787219193.121389,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787222490.1348114,
+   "runs": 4,
+   "empty": 4
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787215894.1073642,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787222490.1348114,
+   "runs": 3,
+   "empty": 3
   },
   "Подвески": {
    "shard": "bijouterie4",
@@ -2313,6 +2300,22 @@
   }
  },
  "queue": [
+  {
+   "id": 693156297,
+   "title": "Телевизор 4К QE75Q7FAAUXRU 75\", HDR, 60 Гц",
+   "brand": "Samsung",
+   "product": 115566,
+   "basic": 237205,
+   "discount": 51,
+   "benefit": 121639,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787222275
+  },
   {
    "id": 1175062158,
    "title": "Наушники беспроводные с микрофоном для андроид и iphone",

@@ -1,37 +1,5 @@
 [
  {
-  "id": 822574600,
-  "title": "Телевизор 40 дюймов D40FS01BF Smart Салют Full HD",
-  "brand": "Витязь",
-  "product": 11109,
-  "basic": 18990,
-  "discount": 42,
-  "benefit": 7881,
-  "rating": 4.7,
-  "feedbacks": 1593,
-  "category": "телевизор",
-  "selection_mode": "smart_fallback",
-  "quality": "B",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
-  "id": 372872405,
-  "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
-  "brand": "LEFF",
-  "product": 13387,
-  "basic": 20609,
-  "discount": 35,
-  "benefit": 7222,
-  "rating": 4.8,
-  "feedbacks": 668,
-  "category": "телевизор",
-  "selection_mode": "quality_reserve",
-  "quality": "C",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
   "id": 932674832,
   "title": "Телевизор 55 дюймов HC55USY26FC UHD 4K, Smart ОС YaOS WiFi",
   "brand": "RAZZ",

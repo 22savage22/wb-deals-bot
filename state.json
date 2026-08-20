@@ -1204,9 +1204,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 25,
-   "rate_limited": 16,
+   "calls": 49,
+   "ok": 27,
+   "rate_limited": 12,
    "http_error": 10,
    "network_error": 0,
    "json_error": 0
@@ -1268,7 +1268,7 @@
   "today": "2026-08-20",
   "today_posts": 23,
   "total_posts": 128,
-  "last_scan": 1787233964,
+  "last_scan": 1787237001,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1276,24 +1276,22 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смарт-часы и браслеты",
-   "Зеркала",
-   "Подвески"
+   "Смарт-часы и браслеты"
   ],
-  "queue_size": 99,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,
    "cards": 300,
-   "discount": 201,
-   "bad_price": 28,
-   "rating": 15,
-   "ok": 56,
-   "strict": 56,
+   "rating": 18,
+   "ok": 189,
+   "discount": 72,
+   "bad_price": 21,
+   "strict": 189,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 9,
-   "title_duplicate": 7
+   "duplicate": 74,
+   "title_duplicate": 26
   },
   "last_queue": {
    "queue_before": 100,
@@ -2325,12 +2323,28 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787234246.7651978,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787237237.6783445,
+   "runs": 5,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 549183857,
+   "title": "Массивные кроссовки на платформе дышащие",
+   "brand": "X-Plode",
+   "product": 3044,
+   "basic": 10116,
+   "discount": 70,
+   "benefit": 7072,
+   "rating": 4.9,
+   "feedbacks": 202,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787237001
+  },
   {
    "id": 875032803,
    "title": "Наушники беспроводные с микрофоном More choice Pro 2",

@@ -1216,10 +1216,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 19,
-   "rate_limited": 17,
-   "http_error": 10,
+   "calls": 28,
+   "ok": 9,
+   "rate_limited": 12,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1280,7 +1280,7 @@
   "today": "2026-08-20",
   "today_posts": 35,
   "total_posts": 140,
-  "last_scan": 1787265309,
+  "last_scan": 1787268772,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1288,24 +1288,24 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства индивидуальной защиты и экипировка",
-   "Матрасы-топперы",
    "Серия Galaxy A",
-   "Мыши"
+   "Мыши",
+   "Матрасы-топперы",
+   "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 102,
-   "bad_price": 28,
-   "rating": 9,
-   "ok": 61,
-   "strict": 61,
+   "found": 100,
+   "cards": 100,
+   "ok": 60,
+   "discount": 23,
+   "bad_price": 12,
+   "rating": 5,
+   "strict": 60,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 43,
+   "duplicate": 44,
    "title_duplicate": 6
   },
   "last_queue": {
@@ -2356,21 +2356,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787265634.5914752,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787269008.7250888,
+   "runs": 12,
+   "empty": 2
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787265634.5914752,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787269008.7250888,
+   "runs": 12,
+   "empty": 2
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787265634.5914752,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787269008.7250888,
+   "runs": 12,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2398,9 +2398,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787265634.5914752,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787269008.7250888,
+   "runs": 7,
+   "empty": 2
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2428,6 +2428,38 @@
   }
  },
  "queue": [
+  {
+   "id": 385656222,
+   "title": "Наушники беспроводные для iPhone и Android с микрофоном",
+   "brand": "HOCO",
+   "product": 1030,
+   "basic": 2060,
+   "discount": 50,
+   "benefit": 1030,
+   "rating": 4.8,
+   "feedbacks": 3224,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787268772
+  },
+  {
+   "id": 678871401,
+   "title": "Наушники беспроводные большие с микрофоном",
+   "brand": "DEFENDER",
+   "product": 1138,
+   "basic": 2846,
+   "discount": 60,
+   "benefit": 1708,
+   "rating": 4.5,
+   "feedbacks": 46,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787268772
+  },
   {
    "id": 773048109,
    "title": "Наушники беспроводные A.Pods 4",

@@ -387,6 +387,19 @@
  },
  "recent": [
   {
+   "pid": 372872405,
+   "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
+   "discount": 35,
+   "price": 13387,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/372872405/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787199621,
+   "drop": 0,
+   "quality": "C"
+  },
+  {
    "pid": 574812068,
    "title": "Телевизор 50 LED S2 Smart TV 4K UHD",
    "discount": 42,
@@ -1165,19 +1178,6 @@
    "ts": 1787039464,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 372872405,
-   "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
-   "discount": 35,
-   "price": 13387,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/372872405/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787199621,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1281,7 +1281,7 @@
    "Расчески парикмахерские",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 86,
+  "queue_size": 6,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

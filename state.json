@@ -1173,19 +1173,6 @@
    "ts": 1787058365,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 391569839,
-   "title": "Дышащие кроссовки текстильные для фитнеса и зала",
-   "discount": 65,
-   "price": 1660,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/391569839/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787054424,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1212,10 +1199,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 19,
-   "rate_limited": 7,
-   "http_error": 8,
+   "calls": 53,
+   "ok": 26,
+   "rate_limited": 15,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -1276,7 +1263,7 @@
   "today": "2026-08-20",
   "today_posts": 18,
   "total_posts": 123,
-  "last_scan": 1787215750,
+  "last_scan": 1787218914,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1284,25 +1271,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Смарт-часы и браслеты",
    "Бандажи",
-   "Зеркала",
-   "Подвески",
-   "Смарт-часы и браслеты"
+   "Репринтные издания 1860 - 1869 годов",
+   "Пылевыбивалки"
   ],
   "queue_size": 60,
-  "last_scan_added": 1,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 202,
-   "cards": 202,
-   "discount": 129,
-   "ok": 55,
-   "rating": 6,
-   "bad_price": 12,
-   "strict": 55,
+   "found": 300,
+   "cards": 300,
+   "discount": 174,
+   "bad_price": 17,
+   "ok": 87,
+   "rating": 22,
+   "strict": 87,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 8,
-   "duplicate": 6
+   "title_duplicate": 12,
+   "duplicate": 11
   },
   "last_queue": {
    "queue_before": 99,
@@ -2185,9 +2172,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787209350.4938357,
-   "runs": 83,
-   "empty": 3
+   "ts": 1787219193.121389,
+   "runs": 84,
+   "empty": 4
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -2203,9 +2190,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787209350.4938357,
-   "runs": 43,
-   "empty": 3
+   "ts": 1787219193.121389,
+   "runs": 44,
+   "empty": 4
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2281,9 +2268,9 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787215894.1073642,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787219193.121389,
+   "runs": 3,
+   "empty": 3
   },
   "Зеркала": {
    "shard": "bedroom6",
@@ -2299,12 +2286,44 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787215894.1073642,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787219193.121389,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 1136482643,
+   "title": "Смартфон C40 PRO 5G Ростест (EAC) 12 512 ГБ",
+   "brand": "",
+   "product": 5072,
+   "basic": 59677,
+   "discount": 92,
+   "benefit": 54605,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787218914
+  },
+  {
+   "id": 1175062158,
+   "title": "Наушники беспроводные с микрофоном для андроид и iphone",
+   "brand": "HearHere",
+   "product": 1684,
+   "basic": 36140,
+   "discount": 95,
+   "benefit": 34456,
+   "rating": 4.9,
+   "feedbacks": 912,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787218914
+  },
   {
    "id": 378384026,
    "title": "Nike Кроссовки",

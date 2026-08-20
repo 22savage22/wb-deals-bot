@@ -398,6 +398,19 @@
  },
  "recent": [
   {
+   "pid": 1175062158,
+   "title": "Наушники беспроводные с микрофоном для андроид и iphone",
+   "discount": 95,
+   "price": 1684,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1175062158/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787225482,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 693156297,
    "title": "Телевизор 4К QE75Q7FAAUXRU 75\", HDR, 60 Гц",
    "discount": 51,
@@ -1163,32 +1176,6 @@
    "ts": 1787065997,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 282221220,
-   "title": "Кроссовки демисезонные дышащие на платформе",
-   "discount": 64,
-   "price": 1439,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/282221220/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787063955,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1175062158,
-   "title": "Наушники беспроводные с микрофоном для андроид и iphone",
-   "discount": 95,
-   "price": 1684,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1175062158/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787225482,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1215,10 +1202,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 62,
-   "ok": 34,
-   "rate_limited": 14,
-   "http_error": 14,
+   "calls": 29,
+   "ok": 8,
+   "rate_limited": 15,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -1279,7 +1266,7 @@
   "today": "2026-08-20",
   "today_posts": 21,
   "total_posts": 126,
-  "last_scan": 1787222275,
+  "last_scan": 1787225632,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1287,25 +1274,23 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Бандажи",
-   "Готовые строения и срубы",
    "Зеркала",
-   "Репринтные издания 1860 - 1869 годов"
+   "Пылевыбивалки",
+   "Смазки и масла для инструмента",
+   "Подвески"
   ],
-  "queue_size": 98,
-  "last_scan_added": 1,
+  "queue_size": 58,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "discount": 243,
-   "ok": 128,
-   "bad_price": 20,
-   "rating": 9,
-   "strict": 128,
+   "found": 100,
+   "cards": 100,
+   "discount": 92,
+   "ok": 5,
+   "bad_price": 3,
+   "strict": 5,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 18,
-   "title_duplicate": 21
+   "duplicate": 5
   },
   "last_queue": {
    "queue_before": 99,
@@ -2227,9 +2212,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787219193.121389,
-   "runs": 44,
-   "empty": 4
+   "ts": 1787225895.9108746,
+   "runs": 45,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2251,9 +2236,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787209350.4938357,
-   "runs": 23,
-   "empty": 3
+   "ts": 1787225895.9108746,
+   "runs": 24,
+   "empty": 4
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2311,15 +2296,15 @@
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787222490.1348114,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787225895.9108746,
+   "runs": 4,
+   "empty": 4
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787215894.1073642,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787225895.9108746,
+   "runs": 3,
+   "empty": 3
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",

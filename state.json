@@ -1167,19 +1167,6 @@
    "ts": 1787044638,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 605519890,
-   "title": "кроссовки",
-   "discount": 76,
-   "price": 1425,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/605519890/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787042551,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1206,10 +1193,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 16,
-   "ok": 0,
-   "rate_limited": 12,
-   "http_error": 4,
+   "calls": 39,
+   "ok": 15,
+   "rate_limited": 17,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1270,7 +1257,7 @@
   "today": "2026-08-20",
   "today_posts": 12,
   "total_posts": 117,
-  "last_scan": 1787201120,
+  "last_scan": 1787204254,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1278,19 +1265,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1860 - 1869 годов",
-   "Готовые строения и срубы",
    "Пылевыбивалки",
-   "Смазки и масла для инструмента"
+   "Готовые строения и срубы",
+   "Смазки и масла для инструмента",
+   "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 4,
-  "last_scan_added": 0,
+  "queue_size": 7,
+  "last_scan_added": 5,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
-   "fallback": 0,
-   "reserve": 0
+   "found": 200,
+   "cards": 200,
+   "discount": 148,
+   "ok": 31,
+   "rating": 18,
+   "bad_price": 3,
+   "strict": 31,
+   "fallback": 6,
+   "reserve": 2,
+   "title_duplicate": 4,
+   "duplicate": 4
   },
   "last_queue": {
    "queue_before": 86,
@@ -2132,15 +2125,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787201347.0978012,
-   "runs": 81,
-   "empty": 1
+   "ts": 1787204535.070972,
+   "runs": 82,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787201347.0978012,
-   "runs": 76,
-   "empty": 1
+   "ts": 1787204535.070972,
+   "runs": 77,
+   "empty": 2
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2150,9 +2143,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787201347.0978012,
-   "runs": 41,
-   "empty": 1
+   "ts": 1787204535.070972,
+   "runs": 42,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2174,9 +2167,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787201347.0978012,
-   "runs": 21,
-   "empty": 1
+   "ts": 1787204535.070972,
+   "runs": 22,
+   "empty": 2
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2228,6 +2221,86 @@
   }
  },
  "queue": [
+  {
+   "id": 943381627,
+   "title": "Телевизор цифровой EP-160TD DVB-T2 C с аккумулятором",
+   "brand": "Eplutus",
+   "product": 8305,
+   "basic": 23000,
+   "discount": 64,
+   "benefit": 14695,
+   "rating": 4.6,
+   "feedbacks": 19,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787204254
+  },
+  {
+   "id": 1136967687,
+   "title": "Телевизор 55 QLED S85, 4K UHD",
+   "brand": "Haier",
+   "product": 32399,
+   "basic": 79999,
+   "discount": 60,
+   "benefit": 47600,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787204254
+  },
+  {
+   "id": 585984191,
+   "title": "Телевизор 65 Mini LED M4, 65\" 4K UHD, 2 32 ГБ, 60 Гц, Wi-Fi",
+   "brand": "Haier",
+   "product": 57347,
+   "basic": 119999,
+   "discount": 52,
+   "benefit": 62652,
+   "rating": 4.9,
+   "feedbacks": 29,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787204254
+  },
+  {
+   "id": 693156050,
+   "title": "Телевизор QE65QN900FUXRU 65\", Мини LED, 8K, 120 Гц",
+   "brand": "Samsung",
+   "product": 319074,
+   "basic": 654915,
+   "discount": 51,
+   "benefit": 335841,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787204254
+  },
+  {
+   "id": 693155982,
+   "title": "Телевизор 4К QE83S85FAEXRU 83\", OLED HDR, 120 Гц",
+   "brand": "Samsung",
+   "product": 316661,
+   "basic": 649962,
+   "discount": 51,
+   "benefit": 333301,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787204254
+  },
   {
    "id": 601161615,
    "title": "Телевизор 32 дюйма CA32H25F",

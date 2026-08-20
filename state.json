@@ -402,6 +402,19 @@
  },
  "recent": [
   {
+   "pid": 875032803,
+   "title": "Наушники беспроводные с микрофоном More choice Pro 2",
+   "discount": 85,
+   "price": 1039,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/875032803/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787241361,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 549183857,
    "title": "Массивные кроссовки на платформе дышащие",
    "discount": 70,
@@ -1165,32 +1178,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787074798,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 153783696,
-   "title": "Телевизор 32 дюйма без смарт 32YT5900, DVB-T2, HD",
-   "discount": 47,
-   "price": 9869,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/153783696/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787072598,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 875032803,
-   "title": "Наушники беспроводные с микрофоном More choice Pro 2",
-   "discount": 85,
-   "price": 1039,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/875032803/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787241361,
    "drop": 0,
    "quality": "A"
   }

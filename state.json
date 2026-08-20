@@ -392,6 +392,19 @@
  },
  "recent": [
   {
+   "pid": 585984191,
+   "title": "Телевизор 65 Mini LED M4, 65\" 4K UHD, 2 32 ГБ, 60 Гц, Wi-Fi",
+   "discount": 52,
+   "price": 57347,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/585984191/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787210060,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1136967687,
    "title": "Телевизор 55 QLED S85, 4K UHD",
    "discount": 60,
@@ -1170,19 +1183,6 @@
    "ts": 1787049212,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 585984191,
-   "title": "Телевизор 65 Mini LED M4, 65\" 4K UHD, 2 32 ГБ, 60 Гц, Wi-Fi",
-   "discount": 52,
-   "price": 57347,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/585984191/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787210060,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1286,7 +1286,7 @@
    "Смазки и масла для инструмента",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 86,
+  "queue_size": 3,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

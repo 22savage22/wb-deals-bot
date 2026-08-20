@@ -389,6 +389,19 @@
  },
  "recent": [
   {
+   "pid": 732479195,
+   "title": "Телевизор смарт 24 дюйма 24LEX-7219 TS2C, 720p HD с Алисой",
+   "discount": 39,
+   "price": 7454,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/732479195/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787202303,
+   "drop": 0,
+   "quality": "C"
+  },
+  {
    "pid": 372872405,
    "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
    "discount": 35,
@@ -1167,19 +1180,6 @@
    "ts": 1787042551,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 732479195,
-   "title": "Телевизор смарт 24 дюйма 24LEX-7219 TS2C, 720p HD с Алисой",
-   "discount": 39,
-   "price": 7454,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/732479195/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787202303,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1283,7 +1283,7 @@
    "Пылевыбивалки",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 84,
+  "queue_size": 4,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

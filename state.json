@@ -411,6 +411,19 @@
  },
  "recent": [
   {
+   "pid": 773066872,
+   "title": "Наушники беспроводные A.Pods Pro 3 с шумоподавлением",
+   "discount": 82,
+   "price": 653,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/773066872/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787263888,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 772903638,
    "title": "Наушники беспроводные A.Pods Pro 2 с шумоподавлением",
    "discount": 82,
@@ -1173,32 +1186,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787093913,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 831391155,
-   "title": "Кроссовки спортивные летние дышащие",
-   "discount": 74,
-   "price": 1418,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/831391155/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787090164,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 773066872,
-   "title": "Наушники беспроводные A.Pods Pro 3 с шумоподавлением",
-   "discount": 82,
-   "price": 653,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/773066872/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787263888,
    "drop": 0,
    "quality": "A"
   }

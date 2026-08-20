@@ -391,6 +391,19 @@
  },
  "recent": [
   {
+   "pid": 1136967687,
+   "title": "Телевизор 55 QLED S85, 4K UHD",
+   "discount": 60,
+   "price": 32399,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1136967687/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787206776,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 943381627,
    "title": "Телевизор цифровой EP-160TD DVB-T2 C с аккумулятором",
    "discount": 64,
@@ -1169,19 +1182,6 @@
    "ts": 1787046830,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1136967687,
-   "title": "Телевизор 55 QLED S85, 4K UHD",
-   "discount": 60,
-   "price": 32399,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1136967687/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787206776,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1285,7 +1285,7 @@
    "Смазки и масла для инструмента",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 87,
+  "queue_size": 7,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 200,

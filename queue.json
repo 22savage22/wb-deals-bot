@@ -1,37 +1,5 @@
 [
  {
-  "id": 822402376,
-  "title": "Телевизор 55 дюймов HC55USS26F UHD 4К Smart ОС Салют WiFi",
-  "brand": "RAZZ",
-  "product": 18129,
-  "basic": 30990,
-  "discount": 42,
-  "benefit": 12861,
-  "rating": 4.8,
-  "feedbacks": 711,
-  "category": "телевизор",
-  "selection_mode": "smart_fallback",
-  "quality": "B",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
-  "id": 574432944,
-  "title": "Телевизор TV A Pro 55 2026",
-  "brand": "Xiaomi",
-  "product": 36041,
-  "basic": 58393,
-  "discount": 38,
-  "benefit": 22352,
-  "rating": 4.8,
-  "feedbacks": 415,
-  "category": "телевизор",
-  "selection_mode": "quality_reserve",
-  "quality": "C",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
   "id": 574812068,
   "title": "Телевизор 50 LED S2 Smart TV 4K UHD",
   "brand": "Haier",

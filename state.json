@@ -144,7 +144,9 @@
   "561017561": 1787190440,
   "822402376": 1787193905,
   "574432944": 1787193905,
-  "574812068": 1787196835
+  "574812068": 1787196835,
+  "822574600": 1787199621,
+  "372872405": 1787199621
  },
  "feedback": {
   "855179327": {
@@ -373,11 +375,11 @@
    "ts": 1787050889.7984
   },
   "телевизор": {
-   "posts": 30.78926324017356,
+   "posts": 32.68418333375584,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1787196858.4249244
+   "ts": 1787199661.910912
   }
  },
  "tg": {
@@ -1163,10 +1165,23 @@
    "ts": 1787039464,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 372872405,
+   "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
+   "discount": 35,
+   "price": 13387,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/372872405/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787199621,
+   "drop": 0,
+   "quality": "C"
   }
  ],
  "meta": {
-  "last_run": 1787196835,
+  "last_run": 1787199621,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -1251,8 +1266,8 @@
    }
   ],
   "today": "2026-08-20",
-  "today_posts": 10,
-  "total_posts": 115,
+  "today_posts": 11,
+  "total_posts": 116,
   "last_scan": 1787198021,
   "last_scan_queries": [
    "телефон",
@@ -1266,7 +1281,7 @@
    "Расчески парикмахерские",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 6,
+  "queue_size": 86,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -1276,9 +1291,10 @@
    "reserve": 0
   },
   "last_queue": {
-   "queue_before": 89,
+   "queue_before": 88,
    "selected": 1,
-   "queue_after": 88
+   "photo_duplicate": 1,
+   "queue_after": 86
   },
   "cats_count": 2305
  },
@@ -1400,7 +1416,8 @@
   "телевизор50дюймовсмарт4k50q880tswebos": 1787183942,
   "телевизорtva502026": 1787190440,
   "телевизорtvapro552026": 1787193905,
-  "телевизор50leds2smarttv4kuhd": 1787196835
+  "телевизор50leds2smarttv4kuhd": 1787196835,
+  "безрамочныйledтелевизор32h680t32smarttv": 1787199621
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -1517,7 +1534,8 @@
   "68488c92980e4c44": 1787183942,
   "1e47c336888288e1": 1787190440,
   "1941c1717874f0e1": 1787193905,
-  "0e1e1e2ea2323e3d": 1787196835
+  "0e1e1e2ea2323e3d": 1787196835,
+  "7509636365510b0f": 1787199621
  },
  "learned": {},
  "prices": {
@@ -2095,6 +2113,11 @@
    "price": 29529,
    "basic": 50990,
    "ts": 1787196835.482862
+  },
+  "372872405": {
+   "price": 13387,
+   "basic": 20609,
+   "ts": 1787199621.4142315
   }
  },
  "cats": {
@@ -2196,38 +2219,6 @@
   }
  },
  "queue": [
-  {
-   "id": 822574600,
-   "title": "Телевизор 40 дюймов D40FS01BF Smart Салют Full HD",
-   "brand": "Витязь",
-   "product": 11109,
-   "basic": 18990,
-   "discount": 42,
-   "benefit": 7881,
-   "rating": 4.7,
-   "feedbacks": 1593,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787178733
-  },
-  {
-   "id": 372872405,
-   "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
-   "brand": "LEFF",
-   "product": 13387,
-   "basic": 20609,
-   "discount": 35,
-   "benefit": 7222,
-   "rating": 4.8,
-   "feedbacks": 668,
-   "category": "телевизор",
-   "selection_mode": "quality_reserve",
-   "quality": "C",
-   "query": "телевизор",
-   "queued_ts": 1787178733
-  },
   {
    "id": 932674832,
    "title": "Телевизор 55 дюймов HC55USY26FC UHD 4K, Smart ОС YaOS WiFi",

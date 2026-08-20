@@ -1162,19 +1162,6 @@
    "ts": 1787036498,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1126172206,
-   "title": "Смартфон Sunsamg Galaxy A17 12 512ГБ",
-   "discount": 64,
-   "price": 8300,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1126172206/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787032925,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1201,10 +1188,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 45,
-   "ok": 22,
-   "rate_limited": 9,
-   "http_error": 14,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1265,7 +1252,7 @@
   "today": "2026-08-20",
   "today_posts": 9,
   "total_posts": 114,
-  "last_scan": 1787178733,
+  "last_scan": 1787195053,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1273,23 +1260,19 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства для мытья посуды и продуктов",
    "Пледы",
    "Краски автомобильные",
+   "Средства для мытья посуды и продуктов",
    "Расчески парикмахерские"
   ],
-  "queue_size": 96,
-  "last_scan_added": 18,
+  "queue_size": 7,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 116,
-   "bad_price": 78,
-   "ok": 6,
-   "strict": 6,
-   "fallback": 17,
-   "reserve": 6,
-   "duplicate": 11
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 91,
@@ -2122,9 +2105,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787178919.6309931,
-   "runs": 38,
-   "empty": 3
+   "ts": 1787195286.9973683,
+   "runs": 39,
+   "empty": 4
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -2134,21 +2117,21 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787178919.6309931,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787195286.9973683,
+   "runs": 19,
+   "empty": 4
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787178919.6309931,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787195286.9973683,
+   "runs": 19,
+   "empty": 4
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787178919.6309931,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787195286.9973683,
+   "runs": 19,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",

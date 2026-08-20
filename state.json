@@ -404,6 +404,19 @@
  },
  "recent": [
   {
+   "pid": 1271207450,
+   "title": "Смартфон S26 Ultra 16 1024ГБ 72MP камера 6000мAч",
+   "discount": 79,
+   "price": 6199,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1271207450/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787246087,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1054199586,
    "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
    "discount": 81,
@@ -1167,32 +1180,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787079259,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 48848979,
-   "title": "Наушники проводные для телефона детские для девочки",
-   "discount": 70,
-   "price": 174,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/48848979/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787076218,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1271207450,
-   "title": "Смартфон S26 Ultra 16 1024ГБ 72MP камера 6000мAч",
-   "discount": 79,
-   "price": 6199,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1271207450/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787246087,
    "drop": 0,
    "quality": "A"
   }

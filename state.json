@@ -390,6 +390,19 @@
  },
  "recent": [
   {
+   "pid": 943381627,
+   "title": "Телевизор цифровой EP-160TD DVB-T2 C с аккумулятором",
+   "discount": 64,
+   "price": 8305,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/943381627/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787204696,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 732479195,
    "title": "Телевизор смарт 24 дюйма 24LEX-7219 TS2C, 720p HD с Алисой",
    "discount": 39,
@@ -1168,19 +1181,6 @@
    "ts": 1787044638,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 943381627,
-   "title": "Телевизор цифровой EP-160TD DVB-T2 C с аккумулятором",
-   "discount": 64,
-   "price": 8305,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/943381627/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787204696,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1284,7 +1284,7 @@
    "Смазки и масла для инструмента",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 88,
+  "queue_size": 7,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 200,

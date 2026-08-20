@@ -381,6 +381,19 @@
  },
  "recent": [
   {
+   "pid": 642463578,
+   "title": "Телевизор 50 дюймов. Смарт 4k 50Q880TS webOS",
+   "discount": 47,
+   "price": 32293,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/642463578/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787183942,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 505662591,
    "title": "Телевизор смарт 32 дюйма Full HD S2 Pro Android TV",
    "discount": 48,
@@ -1159,19 +1172,6 @@
    "ts": 1787026748,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 642463578,
-   "title": "Телевизор 50 дюймов. Смарт 4k 50Q880TS webOS",
-   "discount": 47,
-   "price": 32293,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/642463578/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787183942,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1191,7 +1191,7 @@
    "Пылевыбивалки",
    "Средства для мытья посуды и продуктов"
   ],
-  "digest_date": "2026-08-19",
+  "digest_date": "2026-08-20",
   "week_digest_ts": 1786897023.0,
   "last_funnel": {
    "published": 1,
@@ -1275,7 +1275,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 92,
+  "queue_size": 96,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,

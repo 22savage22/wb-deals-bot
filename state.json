@@ -407,6 +407,19 @@
  },
  "recent": [
   {
+   "pid": 1144835723,
+   "title": "Смартфон 15 5G, 12 256ГБ",
+   "discount": 67,
+   "price": 18838,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1144835723/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787255797,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1331978863,
    "title": "Смартфон iPhone i17 Pro Max 16 1024 ГБ 6.78'' 5G NFC 144 Гц",
    "discount": 92,
@@ -1169,32 +1182,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787085056,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1248663911,
-   "title": "Телевизор LED UE85M80HAUXPY (2026)",
-   "discount": 51,
-   "price": 152530,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1248663911/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787082938,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1144835723,
-   "title": "Смартфон 15 5G, 12 256ГБ",
-   "discount": 67,
-   "price": 18838,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1144835723/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787255797,
    "drop": 0,
    "quality": "A"
   }

@@ -382,6 +382,19 @@
  },
  "recent": [
   {
+   "pid": 561017561,
+   "title": "Телевизор TV A 50 2026",
+   "discount": 39,
+   "price": 27849,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/561017561/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787190440,
+   "drop": 0,
+   "quality": "C"
+  },
+  {
    "pid": 642463578,
    "title": "Телевизор 50 дюймов. Смарт 4k 50Q880TS webOS",
    "discount": 47,
@@ -1160,19 +1173,6 @@
    "ts": 1787029172,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 561017561,
-   "title": "Телевизор TV A 50 2026",
-   "discount": 39,
-   "price": 27849,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/561017561/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787190440,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1276,7 +1276,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 91,
+  "queue_size": 96,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,

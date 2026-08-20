@@ -1210,10 +1210,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 0,
-   "rate_limited": 14,
-   "http_error": 3,
+   "calls": 27,
+   "ok": 8,
+   "rate_limited": 15,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1274,7 +1274,7 @@
   "today": "2026-08-20",
   "today_posts": 30,
   "total_posts": 135,
-  "last_scan": 1787254648,
+  "last_scan": 1787258217,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1286,20 +1286,20 @@
    "Манежи детские",
    "Обогреватели и вентиляторы"
   ],
-  "queue_size": 99,
-  "last_scan_added": 28,
+  "queue_size": 27,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 399,
-   "cards": 399,
-   "discount": 177,
-   "ok": 154,
-   "rating": 31,
-   "bad_price": 37,
-   "strict": 154,
+   "found": 99,
+   "cards": 99,
+   "discount": 42,
+   "ok": 38,
+   "rating": 17,
+   "bad_price": 2,
+   "strict": 38,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 17,
-   "title_duplicate": 22
+   "duplicate": 33,
+   "title_duplicate": 5
   },
   "last_queue": {
    "queue_before": 100,
@@ -2338,21 +2338,21 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1787254898.2791111,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787258509.4891171,
+   "runs": 9,
+   "empty": 4
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1787254898.2791111,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787258509.4891171,
+   "runs": 9,
+   "empty": 4
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787254898.2791111,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787258509.4891171,
+   "runs": 9,
+   "empty": 4
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",

@@ -384,6 +384,19 @@
  },
  "recent": [
   {
+   "pid": 574432944,
+   "title": "Телевизор TV A Pro 55 2026",
+   "discount": 38,
+   "price": 36041,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/574432944/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787193905,
+   "drop": 0,
+   "quality": "C"
+  },
+  {
    "pid": 561017561,
    "title": "Телевизор TV A 50 2026",
    "discount": 39,
@@ -1162,19 +1175,6 @@
    "ts": 1787032925,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 574432944,
-   "title": "Телевизор TV A Pro 55 2026",
-   "discount": 38,
-   "price": 36041,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/574432944/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787193905,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1278,7 +1278,7 @@
    "Краски автомобильные",
    "Расчески парикмахерские"
   ],
-  "queue_size": 89,
+  "queue_size": 96,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 200,

@@ -1,37 +1,5 @@
 [
  {
-  "id": 932674832,
-  "title": "Телевизор 55 дюймов HC55USY26FC UHD 4K, Smart ОС YaOS WiFi",
-  "brand": "RAZZ",
-  "product": 19468,
-  "basic": 33280,
-  "discount": 42,
-  "benefit": 13812,
-  "rating": 4.9,
-  "feedbacks": 54,
-  "category": "телевизор",
-  "selection_mode": "smart_fallback",
-  "quality": "B",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
-  "id": 732479195,
-  "title": "Телевизор смарт 24 дюйма 24LEX-7219 TS2C, 720p HD с Алисой",
-  "brand": "BBK",
-  "product": 7454,
-  "basic": 12180,
-  "discount": 39,
-  "benefit": 4726,
-  "rating": 4.7,
-  "feedbacks": 304,
-  "category": "телевизор",
-  "selection_mode": "quality_reserve",
-  "quality": "C",
-  "query": "телевизор",
-  "queued_ts": 1787178733
- },
- {
   "id": 601161615,
   "title": "Телевизор 32 дюйма CA32H25F",
   "brand": "RAZZ",

@@ -393,6 +393,19 @@
  },
  "recent": [
   {
+   "pid": 482874153,
+   "title": "Кроссовки Air Force 1 форсы",
+   "discount": 85,
+   "price": 2177,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/482874153/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787212838,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 585984191,
    "title": "Телевизор 65 Mini LED M4, 65\" 4K UHD, 2 32 ГБ, 60 Гц, Wi-Fi",
    "discount": 52,
@@ -1171,19 +1184,6 @@
    "ts": 1787050861,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 482874153,
-   "title": "Кроссовки Air Force 1 форсы",
-   "discount": 85,
-   "price": 2177,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/482874153/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787212838,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1287,7 +1287,7 @@
    "Бандажи",
    "Смарт-часы и браслеты"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 58,
   "last_scan_funnel": {
    "found": 100,

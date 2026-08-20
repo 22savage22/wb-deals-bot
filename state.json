@@ -1203,10 +1203,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 7,
-   "rate_limited": 15,
-   "http_error": 5,
+   "calls": 51,
+   "ok": 25,
+   "rate_limited": 16,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -1267,7 +1267,7 @@
   "today": "2026-08-20",
   "today_posts": 22,
   "total_posts": 127,
-  "last_scan": 1787231012,
+  "last_scan": 1787233964,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1275,25 +1275,24 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Подвески",
-   "Бандажи",
-   "Смазки и масла для инструмента",
-   "Готовые строения и срубы"
+   "Смарт-часы и браслеты",
+   "Зеркала",
+   "Подвески"
   ],
   "queue_size": 60,
-  "last_scan_added": 3,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 95,
-   "cards": 95,
-   "discount": 42,
-   "ok": 29,
-   "rating": 21,
-   "bad_price": 3,
-   "strict": 29,
+   "found": 300,
+   "cards": 300,
+   "discount": 201,
+   "bad_price": 28,
+   "rating": 15,
+   "ok": 56,
+   "strict": 56,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 1,
-   "title_duplicate": 3
+   "duplicate": 9,
+   "title_duplicate": 7
   },
   "last_queue": {
    "queue_before": 98,
@@ -2306,24 +2305,56 @@
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787225895.9108746,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787234246.7651978,
+   "runs": 5,
+   "empty": 5
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787231273.258959,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787234246.7651978,
+   "runs": 5,
+   "empty": 5
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787219193.121389,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787234246.7651978,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [
+  {
+   "id": 218295138,
+   "title": "Наушники беспроводные AiPods Pro 2 для iPhone и Android",
+   "brand": "Apple",
+   "product": 1783,
+   "basic": 11770,
+   "discount": 85,
+   "benefit": 9987,
+   "rating": 4.8,
+   "feedbacks": 15052,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787233964
+  },
+  {
+   "id": 875032803,
+   "title": "Наушники беспроводные с микрофоном More choice Pro 2",
+   "brand": "",
+   "product": 1039,
+   "basic": 6930,
+   "discount": 85,
+   "benefit": 5891,
+   "rating": 4.7,
+   "feedbacks": 6781,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787233964
+  },
   {
    "id": 1054199586,
    "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
@@ -3886,38 +3917,6 @@
    "benefit": 3387,
    "rating": 4.8,
    "feedbacks": 385,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787144461
-  },
-  {
-   "id": 157302761,
-   "title": "Кроссовки в сетку спортивные дышащие летние",
-   "brand": "ЛЕОПАРД",
-   "product": 672,
-   "basic": 2588,
-   "discount": 74,
-   "benefit": 1916,
-   "rating": 4.9,
-   "feedbacks": 1101,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787144461
-  },
-  {
-   "id": 831391185,
-   "title": "Кроссовки спортивные летние дышащие легкие толстая подошва",
-   "brand": "MAVCONSEC",
-   "product": 1340,
-   "basic": 4898,
-   "discount": 73,
-   "benefit": 3558,
-   "rating": 4.8,
-   "feedbacks": 617,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

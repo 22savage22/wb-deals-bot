@@ -409,6 +409,19 @@
  },
  "recent": [
   {
+   "pid": 1252696895,
+   "title": "Смартфон GT7, 12 256ГБ, russia",
+   "discount": 67,
+   "price": 29913,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1252696895/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787259855,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1144835723,
    "title": "Смартфон 15 5G, 12 256ГБ",
    "discount": 67,
@@ -1171,32 +1184,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787086714,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 624663873,
-   "title": "Кроссовки детские спортивные",
-   "discount": 74,
-   "price": 1367,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/624663873/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787085056,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252696895,
-   "title": "Смартфон GT7, 12 256ГБ, russia",
-   "discount": 67,
-   "price": 29913,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252696895/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787259855,
    "drop": 0,
    "quality": "A"
   }

@@ -399,6 +399,19 @@
  },
  "recent": [
   {
+   "pid": 378384026,
+   "title": "Nike Кроссовки",
+   "discount": 85,
+   "price": 2211,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/378384026/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787227182,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1175062158,
    "title": "Наушники беспроводные с микрофоном для андроид и iphone",
    "discount": 95,
@@ -1162,32 +1175,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787068281,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1005759646,
-   "title": "Кроссовки Air Force 1 кеды серые",
-   "discount": 62,
-   "price": 2653,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1005759646/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787065997,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 378384026,
-   "title": "Nike Кроссовки",
-   "discount": 85,
-   "price": 2211,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/378384026/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787227182,
    "drop": 0,
    "quality": "A"
   }

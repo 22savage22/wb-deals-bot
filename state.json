@@ -403,6 +403,19 @@
  },
  "recent": [
   {
+   "pid": 1054199586,
+   "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
+   "discount": 81,
+   "price": 6199,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1054199586/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787244100,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 875032803,
    "title": "Наушники беспроводные с микрофоном More choice Pro 2",
    "discount": 85,
@@ -1166,32 +1179,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787076218,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 460230618,
-   "title": "Наушники проводные совместимы с iPhone с микрофоном 1,2м",
-   "discount": 65,
-   "price": 350,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460230618/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787074798,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1054199586,
-   "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
-   "discount": 81,
-   "price": 6199,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1054199586/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787244100,
    "drop": 0,
    "quality": "A"
   }

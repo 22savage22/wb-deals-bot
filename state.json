@@ -1171,19 +1171,6 @@
    "ts": 1787053045,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1252678654,
-   "title": "Смартфон Redmi Note 15 4G, 8 256ГБ, global",
-   "discount": 60,
-   "price": 13953,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252678654/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787050861,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1210,10 +1197,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 30,
-   "ok": 9,
-   "rate_limited": 15,
-   "http_error": 6,
+   "calls": 34,
+   "ok": 19,
+   "rate_limited": 7,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1274,7 +1261,7 @@
   "today": "2026-08-20",
   "today_posts": 16,
   "total_posts": 121,
-  "last_scan": 1787212121,
+  "last_scan": 1787215750,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1282,25 +1269,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Подвески",
-   "Зеркала",
    "Бандажи",
+   "Зеркала",
+   "Подвески",
    "Смарт-часы и браслеты"
   ],
   "queue_size": 60,
-  "last_scan_added": 58,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
+   "found": 202,
+   "cards": 202,
+   "discount": 129,
+   "ok": 55,
    "rating": 6,
-   "ok": 84,
-   "discount": 8,
-   "bad_price": 2,
-   "strict": 84,
+   "bad_price": 12,
+   "strict": 55,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 10,
-   "duplicate": 1
+   "title_duplicate": 8,
+   "duplicate": 6
   },
   "last_queue": {
    "queue_before": 100,
@@ -2265,30 +2252,46 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787212398.5082455,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787215894.1073642,
+   "runs": 2,
+   "empty": 2
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787212398.5082455,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787215894.1073642,
+   "runs": 2,
+   "empty": 2
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787212398.5082455,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787215894.1073642,
+   "runs": 2,
+   "empty": 2
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787212398.5082455,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787215894.1073642,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 1241414627,
+   "title": "Телевизор Mini-LED S Pro Mini 65 (L65MB-SRU) 2026",
+   "brand": "Xiaomi",
+   "product": 114077,
+   "basic": 305411,
+   "discount": 63,
+   "benefit": 191334,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787215750
+  },
   {
    "id": 881869182,
    "title": "Кроссовки летние легкие дышащие на платформе",

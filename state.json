@@ -385,6 +385,19 @@
  },
  "recent": [
   {
+   "pid": 574812068,
+   "title": "Телевизор 50 LED S2 Smart TV 4K UHD",
+   "discount": 42,
+   "price": 29529,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/574812068/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787196835,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 574432944,
    "title": "Телевизор TV A Pro 55 2026",
    "discount": 38,
@@ -1163,19 +1176,6 @@
    "ts": 1787036498,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 574812068,
-   "title": "Телевизор 50 LED S2 Smart TV 4K UHD",
-   "discount": 42,
-   "price": 29529,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/574812068/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787196835,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1279,7 +1279,7 @@
    "Средства для мытья посуды и продуктов",
    "Расчески парикмахерские"
   ],
-  "queue_size": 88,
+  "queue_size": 7,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

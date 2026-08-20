@@ -412,6 +412,19 @@
  },
  "recent": [
   {
+   "pid": 1093895126,
+   "title": "Наушники беспроводные большие с микрофоном айфона и андроид",
+   "discount": 50,
+   "price": 1490,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1093895126/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787266136,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 773066872,
    "title": "Наушники беспроводные A.Pods Pro 3 с шумоподавлением",
    "discount": 82,
@@ -1189,19 +1202,6 @@
    "ts": 1787093913,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1093895126,
-   "title": "Наушники беспроводные большие с микрофоном айфона и андроид",
-   "discount": 50,
-   "price": 1490,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1093895126/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787266136,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1305,7 +1305,7 @@
    "Серия Galaxy A",
    "Мыши"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,

@@ -414,6 +414,19 @@
  },
  "recent": [
   {
+   "pid": 385656222,
+   "title": "Наушники беспроводные для iPhone и Android с микрофоном",
+   "discount": 50,
+   "price": 1030,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/385656222/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787269503,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 521732290,
    "title": "Наушники беспроводные большие накладные c микрофоном",
    "discount": 50,
@@ -1191,19 +1204,6 @@
    "ts": 1787097375,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 385656222,
-   "title": "Наушники беспроводные для iPhone и Android с микрофоном",
-   "discount": 50,
-   "price": 1030,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/385656222/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787269503,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1307,7 +1307,7 @@
    "Матрасы-топперы",
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 100,

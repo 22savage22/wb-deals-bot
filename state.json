@@ -426,6 +426,19 @@
  },
  "recent": [
   {
+   "pid": 331374435,
+   "title": "Кроссовки летние 530",
+   "discount": 86,
+   "price": 2309,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/331374435/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787306533,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 447370986,
    "title": "Кроссовки серые air force 1 форсы кеды для школы",
    "discount": 90,
@@ -1203,19 +1216,6 @@
    "ts": 1787140823,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 331374435,
-   "title": "Кроссовки летние 530",
-   "discount": 86,
-   "price": 2309,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/331374435/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787306533,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1319,7 +1319,7 @@
    "Гроубоксы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

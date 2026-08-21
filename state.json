@@ -1250,10 +1250,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 3,
-   "rate_limited": 16,
-   "http_error": 4,
+   "calls": 94,
+   "ok": 68,
+   "rate_limited": 2,
+   "http_error": 24,
    "network_error": 0,
    "json_error": 0
   },

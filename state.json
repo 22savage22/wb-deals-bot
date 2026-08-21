@@ -1193,19 +1193,6 @@
    "ts": 1787113242,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 140910104,
-   "title": "Наушники беспроводные вакуумные блютуз вкладыши",
-   "discount": 60,
-   "price": 560,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/140910104/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787110406,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1232,10 +1219,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 0,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 67,
+   "ok": 42,
+   "rate_limited": 9,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -1296,7 +1283,7 @@
   "today": "2026-08-21",
   "today_posts": 8,
   "total_posts": 143,
-  "last_scan": 1787276873,
+  "last_scan": 1787281816,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1304,19 +1291,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Серия Galaxy A",
    "Средства индивидуальной защиты и экипировка",
    "Матрасы-топперы",
-   "Мыши"
+   "Мыши",
+   "Серия Galaxy A"
   ],
-  "queue_size": 58,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
+   "found": 500,
+   "cards": 500,
+   "discount": 119,
+   "ok": 331,
+   "bad_price": 28,
+   "rating": 22,
+   "strict": 331,
    "fallback": 0,
-   "reserve": 0
+   "reserve": 0,
+   "duplicate": 67,
+   "title_duplicate": 58
   },
   "last_queue": {
    "queue_before": 98,
@@ -2387,21 +2380,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787277125.1309228,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787282001.775776,
+   "runs": 14,
+   "empty": 4
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787277125.1309228,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787282001.775776,
+   "runs": 14,
+   "empty": 4
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787277125.1309228,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787282001.775776,
+   "runs": 14,
+   "empty": 4
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2429,9 +2422,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787277125.1309228,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787282001.775776,
+   "runs": 9,
+   "empty": 4
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2459,6 +2452,54 @@
   }
  },
  "queue": [
+  {
+   "id": 1100795156,
+   "title": "ПРЕМИУМ Кроссовки демисезонные экозамша",
+   "brand": "Eberron",
+   "product": 2590,
+   "basic": 12479,
+   "discount": 79,
+   "benefit": 9889,
+   "rating": 4.8,
+   "feedbacks": 534,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787281816
+  },
+  {
+   "id": 458142163,
+   "title": "Смартфон бронированный водонепроницаемый Т7С 128ГБ",
+   "brand": "HOTWAV",
+   "product": 12310,
+   "basic": 45000,
+   "discount": 73,
+   "benefit": 32690,
+   "rating": 4.7,
+   "feedbacks": 107,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787281816
+  },
+  {
+   "id": 1100798970,
+   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные",
+   "brand": "Eberron",
+   "product": 2590,
+   "basic": 12479,
+   "discount": 79,
+   "benefit": 9889,
+   "rating": 4.8,
+   "feedbacks": 534,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787281816
+  },
   {
    "id": 998998138,
    "title": "Наушники беспроводные для Phone и Android Arpods Pro 2 Prm",

@@ -432,6 +432,19 @@
  },
  "recent": [
   {
+   "pid": 1288368656,
+   "title": "Смартфон infinix Smart 10 12 512ГБ",
+   "discount": 64,
+   "price": 8300,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1288368656/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787320988,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 242413810,
    "title": "Кроссовки женские Forum 84 Low Orbit Grey",
    "discount": 80,
@@ -1194,32 +1207,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787161063,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1152926221,
-   "title": "Телевизор LED 55\" UE55U8000FUXCE 4K Ultra HD Smart TV",
-   "discount": 55,
-   "price": 33502,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1152926221/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787158919,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1288368656,
-   "title": "Смартфон infinix Smart 10 12 512ГБ",
-   "discount": 64,
-   "price": 8300,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1288368656/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787320988,
    "drop": 0,
    "quality": "A"
   }

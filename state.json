@@ -425,6 +425,19 @@
  },
  "recent": [
   {
+   "pid": 447370986,
+   "title": "Кроссовки серые air force 1 форсы кеды для школы",
+   "discount": 90,
+   "price": 1027,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/447370986/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787304117,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1237642459,
    "title": "Смартфон H0N0R X6c 8 256ГБ",
    "discount": 64,
@@ -1202,19 +1215,6 @@
    "ts": 1787137369,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 447370986,
-   "title": "Кроссовки серые air force 1 форсы кеды для школы",
-   "discount": 90,
-   "price": 1027,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/447370986/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787304117,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1318,7 +1318,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Пледы"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

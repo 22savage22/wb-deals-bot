@@ -1205,19 +1205,6 @@
    "ts": 1787152561,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 592995563,
-   "title": "Кроссовки на платформе",
-   "discount": 71,
-   "price": 1387,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/592995563/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787147789,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1244,10 +1231,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 17,
-   "rate_limited": 23,
-   "http_error": 7,
+   "calls": 106,
+   "ok": 72,
+   "rate_limited": 6,
+   "http_error": 28,
    "network_error": 0,
    "json_error": 0
   },
@@ -1308,7 +1295,7 @@
   "today": "2026-08-21",
   "today_posts": 20,
   "total_posts": 155,
-  "last_scan": 1787305468,
+  "last_scan": 1787311967,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1316,25 +1303,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Тормозные барабаны",
    "Туризм и страноведение",
-   "Гроубоксы",
-   "Средства для мытья посуды и продуктов"
+   "Расчески парикмахерские",
+   "Тормозные барабаны",
+   "Репринтные издания 1890 - 1899 годов"
   ],
   "queue_size": 60,
-  "last_scan_added": 1,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 95,
-   "ok": 89,
-   "bad_price": 11,
-   "rating": 5,
-   "strict": 89,
+   "found": 800,
+   "cards": 800,
+   "discount": 358,
+   "ok": 350,
+   "bad_price": 49,
+   "rating": 43,
+   "strict": 350,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 7,
-   "title_duplicate": 11
+   "duplicate": 61,
+   "title_duplicate": 61
   },
   "last_queue": {
    "queue_before": 98,
@@ -2471,9 +2458,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787295709.5906522,
-   "runs": 22,
-   "empty": 2
+   "ts": 1787312086.7130427,
+   "runs": 23,
+   "empty": 3
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -2567,24 +2554,88 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787305871.9272456,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787312086.7130427,
+   "runs": 4,
+   "empty": 4
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1787305871.9272456,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787312086.7130427,
+   "runs": 3,
+   "empty": 3
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787302534.7977645,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787312086.7130427,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 843325933,
+   "title": "Кроссовки женские adidas Forum low спортивные белые",
+   "brand": "",
+   "product": 2100,
+   "basic": 13600,
+   "discount": 85,
+   "benefit": 11500,
+   "rating": 4.9,
+   "feedbacks": 183,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787311967
+  },
+  {
+   "id": 788468129,
+   "title": "2026 Hовые Большой экран телефон A56 5G",
+   "brand": "Bobarry",
+   "product": 12418,
+   "basic": 40750,
+   "discount": 70,
+   "benefit": 28332,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787311967
+  },
+  {
+   "id": 959355297,
+   "title": "кроссовки Nike Air Force 1 форсы",
+   "brand": "BURJ",
+   "product": 2316,
+   "basic": 16500,
+   "discount": 86,
+   "benefit": 14184,
+   "rating": 4.7,
+   "feedbacks": 94,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787311967
+  },
+  {
+   "id": 1246126297,
+   "title": "Смартфон 16 Pro+ 5G, 12 512ГБ",
+   "brand": "Realme",
+   "product": 33044,
+   "basic": 114007,
+   "discount": 71,
+   "benefit": 80963,
+   "rating": 4.7,
+   "feedbacks": 22,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787311967
+  },
   {
    "id": 1288368656,
    "title": "Смартфон infinix Smart 10 12 512ГБ",
@@ -4115,22 +4166,6 @@
    "benefit": 8389,
    "rating": 5.0,
    "feedbacks": 1,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
-   "queued_ts": 1787254648
-  },
-  {
-   "id": 1343650056,
-   "title": "Смартфон HQNOR PURA 80 Pro 12 512ГБ，Серебряный",
-   "brand": "",
-   "product": 9142,
-   "basic": 20000,
-   "discount": 54,
-   "benefit": 10858,
-   "rating": 5.0,
-   "feedbacks": 20,
    "category": "телефон",
    "selection_mode": "strict",
    "quality": "A",

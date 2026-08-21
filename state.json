@@ -436,6 +436,19 @@
  },
  "recent": [
   {
+   "pid": 1276307153,
+   "title": "Смартфон X9d, 12 256ГБ, global",
+   "discount": 61,
+   "price": 22862,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1276307153/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787330976,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1045817284,
    "title": "Смартфон Galaxy Mi17 Ultra 16ГБ+1024ГБ,6,9дюйма,5G LTE",
    "discount": 62,
@@ -1213,19 +1226,6 @@
    "ts": 1787168692,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1276307153,
-   "title": "Смартфон X9d, 12 256ГБ, global",
-   "discount": 61,
-   "price": 22862,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1276307153/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787330976,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1329,7 +1329,7 @@
    "Восточные сладости",
    "Расчески парикмахерские"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

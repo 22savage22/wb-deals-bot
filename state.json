@@ -1212,19 +1212,6 @@
    "ts": 1787168692,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 337336928,
-   "title": "Наушники вакуумные проводные Type-C с микрофоном",
-   "discount": 60,
-   "price": 469,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/337336928/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787166949,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1251,10 +1238,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 96,
-   "ok": 69,
-   "rate_limited": 2,
-   "http_error": 25,
+   "calls": 63,
+   "ok": 35,
+   "rate_limited": 13,
+   "http_error": 15,
    "network_error": 0,
    "json_error": 0
   },
@@ -1315,7 +1302,7 @@
   "today": "2026-08-21",
   "today_posts": 27,
   "total_posts": 162,
-  "last_scan": 1787323349,
+  "last_scan": 1787330541,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1323,25 +1310,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Туризм и страноведение",
-   "Репринтные издания 1890 - 1899 годов",
+   "Гроубоксы",
+   "Пледы",
    "Восточные сладости",
-   "Средства для мытья посуды и продуктов"
+   "Расчески парикмахерские"
   ],
   "queue_size": 60,
-  "last_scan_added": 1,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 343,
-   "bad_price": 75,
-   "ok": 334,
-   "rating": 48,
-   "strict": 334,
+   "found": 400,
+   "cards": 400,
+   "discount": 246,
+   "bad_price": 39,
+   "ok": 71,
+   "rating": 44,
+   "strict": 71,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 93,
-   "title_duplicate": 56
+   "duplicate": 44,
+   "title_duplicate": 14
   },
   "last_queue": {
    "queue_before": 98,
@@ -2521,15 +2508,15 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787320317.9990742,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787330764.4057245,
+   "runs": 25,
+   "empty": 5
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787317572.3944976,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787330764.4057245,
+   "runs": 25,
+   "empty": 5
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -2563,9 +2550,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787320317.9990742,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787330764.4057245,
+   "runs": 15,
+   "empty": 5
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -2617,9 +2604,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787323428.766449,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787330764.4057245,
+   "runs": 5,
+   "empty": 5
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -2641,6 +2628,54 @@
   }
  },
  "queue": [
+  {
+   "id": 1276307153,
+   "title": "Смартфон X9d, 12 256ГБ, global",
+   "brand": "HONOR",
+   "product": 22862,
+   "basic": 58218,
+   "discount": 61,
+   "benefit": 35356,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787330541
+  },
+  {
+   "id": 481206652,
+   "title": "игровой телефон для игр мощный 15Pro 16+1024ГБ 5500 мАч",
+   "brand": "",
+   "product": 13097,
+   "basic": 32662,
+   "discount": 60,
+   "benefit": 19565,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787330541
+  },
+  {
+   "id": 1252691121,
+   "title": "Смартфон F8 Ultra, 12 256ГБ, global",
+   "brand": "POCO",
+   "product": 45355,
+   "basic": 110246,
+   "discount": 59,
+   "benefit": 64891,
+   "rating": 5.0,
+   "feedbacks": 6,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787330541
+  },
   {
    "id": 1246174137,
    "title": "Смартфон 16 Pro 5G, 8 256ГБ",
@@ -3759,22 +3794,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787290744
-  },
-  {
-   "id": 1276307153,
-   "title": "Смартфон X9d, 12 256ГБ, global",
-   "brand": "HONOR",
-   "product": 22535,
-   "basic": 58785,
-   "discount": 62,
-   "benefit": 36250,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787290744
   },
   {

@@ -440,6 +440,19 @@
  },
  "recent": [
   {
+   "pid": 658634589,
+   "title": "Кроссовки летние дышащие сетка без шнурков",
+   "discount": 83,
+   "price": 2031,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/658634589/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787339771,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 924286080,
    "title": "Наушники беспроводные для iphone A.Pods Pro 2",
    "discount": 83,
@@ -1217,19 +1230,6 @@
    "ts": 1787175911,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 658634589,
-   "title": "Кроссовки летние дышащие сетка без шнурков",
-   "discount": 83,
-   "price": 2031,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/658634589/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787339771,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1333,7 +1333,7 @@
    "Краски автомобильные",
    "Готовые строения и срубы"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 501,

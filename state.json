@@ -421,6 +421,19 @@
  },
  "recent": [
   {
+   "pid": 1187343751,
+   "title": "Смартфон C100x, 4 256ГБ",
+   "discount": 66,
+   "price": 11043,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1187343751/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787292225,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 873270187,
    "title": "Кроссовки весенние модные белые",
    "discount": 87,
@@ -1198,19 +1211,6 @@
    "ts": 1787123490,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1187343751,
-   "title": "Смартфон C100x, 4 256ГБ",
-   "discount": 66,
-   "price": 11043,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1187343751/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787292225,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1314,7 +1314,7 @@
    "Пледы",
    "Расчески парикмахерские"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 34,
   "last_scan_funnel": {
    "found": 300,

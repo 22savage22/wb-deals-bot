@@ -1214,19 +1214,6 @@
    "ts": 1787172391,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 473443852,
-   "title": "Наушники ретро проводные с разъемом Jack 3.5 mm",
-   "discount": 60,
-   "price": 312,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/473443852/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787170174,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1253,10 +1240,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 63,
-   "ok": 35,
-   "rate_limited": 13,
-   "http_error": 15,
+   "calls": 30,
+   "ok": 8,
+   "rate_limited": 17,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -1317,7 +1304,7 @@
   "today": "2026-08-21",
   "today_posts": 29,
   "total_posts": 164,
-  "last_scan": 1787330541,
+  "last_scan": 1787333762,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1325,25 +1312,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Гроубоксы",
-   "Пледы",
-   "Восточные сладости",
-   "Расчески парикмахерские"
+   "Краски автомобильные",
+   "Репринтные издания 1860 - 1869 годов",
+   "Пылевыбивалки",
+   "Готовые строения и срубы"
   ],
   "queue_size": 60,
-  "last_scan_added": 3,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "discount": 246,
-   "bad_price": 39,
-   "ok": 71,
-   "rating": 44,
-   "strict": 71,
+   "found": 100,
+   "cards": 100,
+   "ok": 50,
+   "discount": 36,
+   "bad_price": 11,
+   "rating": 3,
+   "strict": 50,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 44,
-   "title_duplicate": 14
+   "duplicate": 9,
+   "title_duplicate": 7
   },
   "last_queue": {
    "queue_before": 98,
@@ -2513,15 +2500,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787222490.1348114,
-   "runs": 85,
-   "empty": 5
+   "ts": 1787334069.2286446,
+   "runs": 86,
+   "empty": 1
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787231273.258959,
-   "runs": 80,
-   "empty": 5
+   "ts": 1787334069.2286446,
+   "runs": 81,
+   "empty": 1
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2531,9 +2518,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787225895.9108746,
-   "runs": 45,
-   "empty": 5
+   "ts": 1787334069.2286446,
+   "runs": 46,
+   "empty": 1
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2549,9 +2536,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787198267.4881356,
-   "runs": 20,
-   "empty": 5
+   "ts": 1787334069.2286446,
+   "runs": 21,
+   "empty": 1
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -2657,6 +2644,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1227465538,
+   "title": "Наушники беспроводные для андроид с микрофоном для телефона",
+   "brand": "Sonado",
+   "product": 1000,
+   "basic": 25000,
+   "discount": 96,
+   "benefit": 24000,
+   "rating": 4.6,
+   "feedbacks": 44,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787333762
+  },
+  {
+   "id": 924286080,
+   "title": "Наушники беспроводные для iphone A.Pods Pro 2",
+   "brand": "",
+   "product": 487,
+   "basic": 2900,
+   "discount": 83,
+   "benefit": 2413,
+   "rating": 4.8,
+   "feedbacks": 14858,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787333762
+  },
   {
    "id": 1252691121,
    "title": "Смартфон F8 Ultra, 12 256ГБ, global",

@@ -435,6 +435,19 @@
  },
  "recent": [
   {
+   "pid": 1045817284,
+   "title": "Смартфон Galaxy Mi17 Ultra 16ГБ+1024ГБ,6,9дюйма,5G LTE",
+   "discount": 62,
+   "price": 9865,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1045817284/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787328284,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 971785495,
    "title": "Смартфон TecnoPOVA7 Pro5G NFC 16ГБ+1ТБ 8000 мАч",
    "discount": 63,
@@ -1212,19 +1225,6 @@
    "ts": 1787166949,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1045817284,
-   "title": "Смартфон Galaxy Mi17 Ultra 16ГБ+1024ГБ,6,9дюйма,5G LTE",
-   "discount": 62,
-   "price": 9865,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1045817284/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787328284,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1328,7 +1328,7 @@
    "Восточные сладости",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

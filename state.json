@@ -1219,19 +1219,6 @@
    "ts": 1787180984,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1052329623,
-   "title": "Телевизор 55 дюймов W55USY26F 4K UHD Smart с Алисой WiFi",
-   "discount": 43,
-   "price": 18321,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1052329623/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787179381,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1258,10 +1245,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 67,
-   "rate_limited": 6,
-   "http_error": 22,
+   "calls": 94,
+   "ok": 68,
+   "rate_limited": 2,
+   "http_error": 24,
    "network_error": 0,
    "json_error": 0
   },
@@ -1322,7 +1309,7 @@
   "today": "2026-08-21",
   "today_posts": 34,
   "total_posts": 169,
-  "last_scan": 1787340664,
+  "last_scan": 1787344396,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1330,25 +1317,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Пылевыбивалки",
    "Репринтные издания 1860 - 1869 годов",
    "Краски автомобильные",
-   "Готовые строения и срубы",
-   "Пылевыбивалки"
+   "Готовые строения и срубы"
   ],
   "queue_size": 60,
-  "last_scan_added": 1,
+  "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
    "discount": 341,
-   "bad_price": 59,
-   "ok": 348,
+   "bad_price": 61,
+   "ok": 346,
    "rating": 52,
-   "strict": 348,
+   "strict": 346,
    "fallback": 0,
    "reserve": 0,
    "duplicate": 71,
-   "title_duplicate": 70
+   "title_duplicate": 71
   },
   "last_queue": {
    "queue_before": 98,
@@ -2553,15 +2540,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787340803.4742298,
-   "runs": 88,
-   "empty": 3
+   "ts": 1787344479.649993,
+   "runs": 89,
+   "empty": 4
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787340803.4742298,
-   "runs": 83,
-   "empty": 3
+   "ts": 1787344479.649993,
+   "runs": 84,
+   "empty": 4
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2571,9 +2558,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787340803.4742298,
-   "runs": 48,
-   "empty": 3
+   "ts": 1787344479.649993,
+   "runs": 49,
+   "empty": 4
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2589,9 +2576,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787340803.4742298,
-   "runs": 23,
-   "empty": 3
+   "ts": 1787344479.649993,
+   "runs": 24,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -2697,6 +2684,70 @@
   }
  },
  "queue": [
+  {
+   "id": 1246126297,
+   "title": "Смартфон 16 Pro+ 5G, 12 512ГБ",
+   "brand": "Realme",
+   "product": 32726,
+   "basic": 112907,
+   "discount": 71,
+   "benefit": 80181,
+   "rating": 4.7,
+   "feedbacks": 22,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787344396
+  },
+  {
+   "id": 309552044,
+   "title": "Кроссовки sb dunk розовые кеды данки",
+   "brand": "Nike",
+   "product": 2097,
+   "basic": 11950,
+   "discount": 82,
+   "benefit": 9853,
+   "rating": 4.7,
+   "feedbacks": 507,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787344396
+  },
+  {
+   "id": 1159067788,
+   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные черные",
+   "brand": "Eberron",
+   "product": 2661,
+   "basic": 12818,
+   "discount": 79,
+   "benefit": 10157,
+   "rating": 4.9,
+   "feedbacks": 325,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787344396
+  },
+  {
+   "id": 1104759130,
+   "title": "Смартфон Honor 400 Pro 12+512 ГБ Комфортная игра вИгры",
+   "brand": "TECHAURA",
+   "product": 6643,
+   "basic": 15631,
+   "discount": 58,
+   "benefit": 8988,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787344396
+  },
   {
    "id": 1252691121,
    "title": "Смартфон F8 Ultra, 12 256ГБ, global",
@@ -3607,22 +3658,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787311967
-  },
-  {
-   "id": 1246126297,
-   "title": "Смартфон 16 Pro+ 5G, 12 512ГБ",
-   "brand": "Realme",
-   "product": 33044,
-   "basic": 114007,
-   "discount": 71,
-   "benefit": 80963,
-   "rating": 4.7,
-   "feedbacks": 22,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787311967
   },
   {

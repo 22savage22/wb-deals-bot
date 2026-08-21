@@ -441,6 +441,19 @@
  },
  "recent": [
   {
+   "pid": 504141828,
+   "title": "Смартфон i16 Pro Max 12ГБ+512ГБ,6000 мАч",
+   "discount": 63,
+   "price": 4761,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/504141828/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787341393,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 658634589,
    "title": "Кроссовки летние дышащие сетка без шнурков",
    "discount": 83,
@@ -1218,19 +1231,6 @@
    "ts": 1787177367,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 504141828,
-   "title": "Смартфон i16 Pro Max 12ГБ+512ГБ,6000 мАч",
-   "discount": 63,
-   "price": 4761,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/504141828/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787341393,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1334,7 +1334,7 @@
    "Готовые строения и срубы",
    "Пылевыбивалки"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

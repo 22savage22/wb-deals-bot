@@ -429,6 +429,19 @@
  },
  "recent": [
   {
+   "pid": 843325933,
+   "title": "Кроссовки женские adidas Forum low спортивные белые",
+   "discount": 85,
+   "price": 2100,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/843325933/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787312820,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1214947626,
    "title": "Смартфон Xiaomi POCO C85 8 GB RAM 256 GB ROM",
    "discount": 63,
@@ -1206,19 +1219,6 @@
    "ts": 1787152561,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 843325933,
-   "title": "Кроссовки женские adidas Forum low спортивные белые",
-   "discount": 85,
-   "price": 2100,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/843325933/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787312820,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1322,7 +1322,7 @@
    "Тормозные барабаны",
    "Репринтные издания 1890 - 1899 годов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 800,

@@ -424,6 +424,19 @@
  },
  "recent": [
   {
+   "pid": 1237642459,
+   "title": "Смартфон H0N0R X6c 8 256ГБ",
+   "discount": 64,
+   "price": 8300,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1237642459/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787302027,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 693155982,
    "title": "Телевизор 4К QE83S85FAEXRU 83\", OLED HDR, 120 Гц",
    "discount": 51,
@@ -1188,32 +1201,6 @@
    "ts": 1787137369,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 243690882,
-   "title": "Вакуумные наушники Jack 3,5",
-   "discount": 52,
-   "price": 335,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/243690882/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787133575,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1237642459,
-   "title": "Смартфон H0N0R X6c 8 256ГБ",
-   "discount": 64,
-   "price": 8300,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1237642459/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787302027,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1240,10 +1227,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 60,
-   "ok": 34,
-   "rate_limited": 9,
-   "http_error": 17,
+   "calls": 70,
+   "ok": 37,
+   "rate_limited": 17,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -1304,7 +1291,7 @@
   "today": "2026-08-21",
   "today_posts": 16,
   "total_posts": 151,
-  "last_scan": 1787298574,
+  "last_scan": 1787302245,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1312,25 +1299,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Туризм и страноведение",
    "Тормозные барабаны",
+   "Средства для мытья посуды и продуктов",
    "Репринтные издания 1890 - 1899 годов",
-   "Восточные сладости"
+   "Пледы"
   ],
-  "queue_size": 98,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 301,
-   "cards": 301,
-   "discount": 186,
-   "ok": 69,
-   "bad_price": 22,
-   "rating": 24,
-   "strict": 69,
+   "found": 400,
+   "cards": 400,
+   "discount": 194,
+   "ok": 174,
+   "bad_price": 23,
+   "rating": 9,
+   "strict": 174,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 28,
-   "title_duplicate": 15
+   "duplicate": 15,
+   "title_duplicate": 32
   },
   "last_queue": {
    "queue_before": 99,
@@ -2421,9 +2408,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787295709.5906522,
-   "runs": 42,
-   "empty": 2
+   "ts": 1787302534.7977645,
+   "runs": 43,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -2433,9 +2420,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787295709.5906522,
-   "runs": 22,
-   "empty": 2
+   "ts": 1787302534.7977645,
+   "runs": 23,
+   "empty": 3
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -2535,9 +2522,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787298741.0974257,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787302534.7977645,
+   "runs": 2,
+   "empty": 2
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -2547,12 +2534,44 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787298741.0974257,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787302534.7977645,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 447370986,
+   "title": "Кроссовки серые air force 1 форсы кеды для школы",
+   "brand": "Nike",
+   "product": 1027,
+   "basic": 9790,
+   "discount": 90,
+   "benefit": 8763,
+   "rating": 4.7,
+   "feedbacks": 661,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787302245
+  },
+  {
+   "id": 197533403,
+   "title": "Кроссовки женские летние 530",
+   "brand": "",
+   "product": 2106,
+   "basic": 15000,
+   "discount": 86,
+   "benefit": 12894,
+   "rating": 4.7,
+   "feedbacks": 2629,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787302245
+  },
   {
    "id": 1214947626,
    "title": "Смартфон Xiaomi POCO C85 8 GB RAM 256 GB ROM",

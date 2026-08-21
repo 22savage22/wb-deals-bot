@@ -1250,10 +1250,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 68,
-   "rate_limited": 2,
-   "http_error": 24,
+   "calls": 23,
+   "ok": 3,
+   "rate_limited": 16,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1314,7 +1314,7 @@
   "today": "2026-08-21",
   "today_posts": 39,
   "total_posts": 174,
-  "last_scan": 1787344396,
+  "last_scan": 1787355035,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1322,25 +1322,20 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пылевыбивалки",
-   "Репринтные издания 1860 - 1869 годов",
+   "Готовые строения и срубы",
    "Краски автомобильные",
-   "Готовые строения и срубы"
+   "Пылевыбивалки",
+   "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 60,
-  "last_scan_added": 4,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 341,
-   "bad_price": 61,
-   "ok": 346,
-   "rating": 52,
-   "strict": 346,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 71,
-   "title_duplicate": 71
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 96,
@@ -2580,15 +2575,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787344479.649993,
-   "runs": 89,
-   "empty": 4
+   "ts": 1787355331.2040024,
+   "runs": 90,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787344479.649993,
-   "runs": 84,
-   "empty": 4
+   "ts": 1787355331.2040024,
+   "runs": 85,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2598,9 +2593,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787344479.649993,
-   "runs": 49,
-   "empty": 4
+   "ts": 1787355331.2040024,
+   "runs": 50,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2616,9 +2611,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787344479.649993,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787355331.2040024,
+   "runs": 25,
+   "empty": 5
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",

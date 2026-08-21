@@ -1235,9 +1235,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
+   "calls": 96,
    "ok": 69,
-   "rate_limited": 0,
+   "rate_limited": 2,
    "http_error": 25,
    "network_error": 0,
    "json_error": 0
@@ -1299,7 +1299,7 @@
   "today": "2026-08-21",
   "today_posts": 24,
   "total_posts": 159,
-  "last_scan": 1787320254,
+  "last_scan": 1787323349,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1307,25 +1307,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пледы",
    "Туризм и страноведение",
+   "Репринтные издания 1890 - 1899 годов",
    "Восточные сладости",
-   "Гроубоксы"
+   "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 99,
-  "last_scan_added": 32,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
-   "discount": 342,
-   "bad_price": 71,
-   "ok": 339,
+   "discount": 343,
+   "bad_price": 75,
+   "ok": 334,
    "rating": 48,
-   "strict": 339,
+   "strict": 334,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 62,
-   "title_duplicate": 57
+   "duplicate": 93,
+   "title_duplicate": 56
   },
   "last_queue": {
    "queue_before": 100,
@@ -2472,9 +2472,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787305871.9272456,
-   "runs": 44,
-   "empty": 4
+   "ts": 1787323428.766449,
+   "runs": 45,
+   "empty": 5
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -2580,9 +2580,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787320317.9990742,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787323428.766449,
+   "runs": 4,
+   "empty": 4
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -2592,18 +2592,34 @@
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1787320317.9990742,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787323428.766449,
+   "runs": 5,
+   "empty": 5
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787317572.3944976,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787323428.766449,
+   "runs": 5,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 1177193415,
+   "title": "Кроссовки летние дышащие спортивные",
+   "brand": "MAVCONSEC",
+   "product": 1735,
+   "basic": 6598,
+   "discount": 74,
+   "benefit": 4863,
+   "rating": 4.8,
+   "feedbacks": 8128,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787323349
+  },
   {
    "id": 971785495,
    "title": "Смартфон TecnoPOVA7 Pro5G NFC 16ГБ+1ТБ 8000 мАч",

@@ -1217,19 +1217,6 @@
    "ts": 1787177367,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1055995801,
-   "title": "Наушники беспроводные для андроид",
-   "discount": 60,
-   "price": 560,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1055995801/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787175911,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1256,10 +1243,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 46,
-   "rate_limited": 17,
-   "http_error": 17,
+   "calls": 95,
+   "ok": 67,
+   "rate_limited": 6,
+   "http_error": 22,
    "network_error": 0,
    "json_error": 0
   },
@@ -1320,7 +1307,7 @@
   "today": "2026-08-21",
   "today_posts": 32,
   "total_posts": 167,
-  "last_scan": 1787338088,
+  "last_scan": 1787340664,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1329,24 +1316,24 @@
   ],
   "last_scan_cats": [
    "Репринтные издания 1860 - 1869 годов",
-   "Пылевыбивалки",
    "Краски автомобильные",
-   "Готовые строения и срубы"
+   "Готовые строения и срубы",
+   "Пылевыбивалки"
   ],
   "queue_size": 60,
-  "last_scan_added": 2,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 501,
-   "cards": 501,
-   "discount": 259,
-   "bad_price": 43,
-   "ok": 155,
-   "rating": 44,
-   "strict": 155,
+   "found": 800,
+   "cards": 800,
+   "discount": 341,
+   "bad_price": 59,
+   "ok": 348,
+   "rating": 52,
+   "strict": 348,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 50,
-   "title_duplicate": 29
+   "duplicate": 71,
+   "title_duplicate": 70
   },
   "last_queue": {
    "queue_before": 99,
@@ -2537,15 +2524,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787338359.6075342,
-   "runs": 87,
-   "empty": 2
+   "ts": 1787340803.4742298,
+   "runs": 88,
+   "empty": 3
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787338359.6075342,
-   "runs": 82,
-   "empty": 2
+   "ts": 1787340803.4742298,
+   "runs": 83,
+   "empty": 3
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2555,9 +2542,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787338359.6075342,
-   "runs": 47,
-   "empty": 2
+   "ts": 1787340803.4742298,
+   "runs": 48,
+   "empty": 3
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2573,9 +2560,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787338359.6075342,
-   "runs": 22,
-   "empty": 2
+   "ts": 1787340803.4742298,
+   "runs": 23,
+   "empty": 3
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -2681,6 +2668,22 @@
   }
  },
  "queue": [
+  {
+   "id": 504141828,
+   "title": "Смартфон i16 Pro Max 12ГБ+512ГБ,6000 мАч",
+   "brand": "C M X",
+   "product": 4761,
+   "basic": 13026,
+   "discount": 63,
+   "benefit": 8265,
+   "rating": 4.6,
+   "feedbacks": 24,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787340664
+  },
   {
    "id": 1150671825,
    "title": "Смартфон Redmi Note 15 Pro 4G, 8 256ГБ, global",

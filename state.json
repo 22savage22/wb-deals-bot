@@ -423,6 +423,19 @@
  },
  "recent": [
   {
+   "pid": 693155982,
+   "title": "Телевизор 4К QE83S85FAEXRU 83\", OLED HDR, 120 Гц",
+   "discount": 51,
+   "price": 368674,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/693155982/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787298891,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1141419347,
    "title": "Смартфон S26 Ultra 16 ГБ + 1024ГБ, 8000 мАч Android12",
    "discount": 92,
@@ -1200,19 +1213,6 @@
    "ts": 1787131289,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 693155982,
-   "title": "Телевизор 4К QE83S85FAEXRU 83\", OLED HDR, 120 Гц",
-   "discount": 51,
-   "price": 368674,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/693155982/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787298891,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1316,7 +1316,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Восточные сладости"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

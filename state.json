@@ -420,6 +420,19 @@
  },
  "recent": [
   {
+   "pid": 873270187,
+   "title": "Кроссовки весенние модные белые",
+   "discount": 87,
+   "price": 1747,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/873270187/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787290602,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 988681460,
    "title": "Кроссовки SB Dunk Low",
    "discount": 79,
@@ -1197,19 +1210,6 @@
    "ts": 1787120295,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 873270187,
-   "title": "Кроссовки весенние модные белые",
-   "discount": 87,
-   "price": 1747,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/873270187/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787290602,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1313,7 +1313,7 @@
    "Мыши",
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 98,
+  "queue_size": 99,
   "last_scan_added": 27,
   "last_scan_funnel": {
    "found": 200,

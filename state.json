@@ -1216,19 +1216,6 @@
    "ts": 1787175911,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 627898229,
-   "title": "Наушники беспроводные TWS",
-   "discount": 64,
-   "price": 702,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/627898229/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787173960,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1255,10 +1242,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 30,
-   "ok": 8,
+   "calls": 80,
+   "ok": 46,
    "rate_limited": 17,
-   "http_error": 5,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -1319,7 +1306,7 @@
   "today": "2026-08-21",
   "today_posts": 31,
   "total_posts": 166,
-  "last_scan": 1787333762,
+  "last_scan": 1787338088,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1327,25 +1314,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Краски автомобильные",
    "Репринтные издания 1860 - 1869 годов",
    "Пылевыбивалки",
+   "Краски автомобильные",
    "Готовые строения и срубы"
   ],
   "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 50,
-   "discount": 36,
-   "bad_price": 11,
-   "rating": 3,
-   "strict": 50,
+   "found": 501,
+   "cards": 501,
+   "discount": 259,
+   "bad_price": 43,
+   "ok": 155,
+   "rating": 44,
+   "strict": 155,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 9,
-   "title_duplicate": 7
+   "duplicate": 50,
+   "title_duplicate": 29
   },
   "last_queue": {
    "queue_before": 98,
@@ -2529,15 +2516,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787334069.2286446,
-   "runs": 86,
-   "empty": 1
+   "ts": 1787338359.6075342,
+   "runs": 87,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787334069.2286446,
-   "runs": 81,
-   "empty": 1
+   "ts": 1787338359.6075342,
+   "runs": 82,
+   "empty": 2
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -2547,9 +2534,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787334069.2286446,
-   "runs": 46,
-   "empty": 1
+   "ts": 1787338359.6075342,
+   "runs": 47,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -2565,9 +2552,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787334069.2286446,
-   "runs": 21,
-   "empty": 1
+   "ts": 1787338359.6075342,
+   "runs": 22,
+   "empty": 2
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -2673,6 +2660,38 @@
   }
  },
  "queue": [
+  {
+   "id": 658634589,
+   "title": "Кроссовки летние дышащие сетка без шнурков",
+   "brand": "BAASPLOA",
+   "product": 2031,
+   "basic": 12055,
+   "discount": 83,
+   "benefit": 10024,
+   "rating": 4.9,
+   "feedbacks": 345,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787338088
+  },
+  {
+   "id": 1150671825,
+   "title": "Смартфон Redmi Note 15 Pro 4G, 8 256ГБ, global",
+   "brand": "Xiaomi",
+   "product": 17039,
+   "basic": 38775,
+   "discount": 56,
+   "benefit": 21736,
+   "rating": 5.0,
+   "feedbacks": 51,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787338088
+  },
   {
    "id": 1252691121,
    "title": "Смартфон F8 Ultra, 12 256ГБ, global",

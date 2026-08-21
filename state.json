@@ -427,6 +427,19 @@
  },
  "recent": [
   {
+   "pid": 197533403,
+   "title": "Кроссовки женские летние 530",
+   "discount": 86,
+   "price": 2106,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/197533403/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787309090,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 331374435,
    "title": "Кроссовки летние 530",
    "discount": 86,
@@ -1204,19 +1217,6 @@
    "ts": 1787144804,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 197533403,
-   "title": "Кроссовки женские летние 530",
-   "discount": 86,
-   "price": 2106,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/197533403/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787309090,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1320,7 +1320,7 @@
    "Гроубоксы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

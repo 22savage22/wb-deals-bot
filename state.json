@@ -417,6 +417,19 @@
  },
  "recent": [
   {
+   "pid": 1100795156,
+   "title": "ПРЕМИУМ Кроссовки демисезонные экозамша",
+   "discount": 79,
+   "price": 2590,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1100795156/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787282194,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 773048109,
    "title": "Наушники беспроводные A.Pods 4",
    "discount": 81,
@@ -1179,32 +1192,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787115831,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 12904048,
-   "title": "Наушники проводные для телефона aux с микрофоном",
-   "discount": 60,
-   "price": 382,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/12904048/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787113242,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1100795156,
-   "title": "ПРЕМИУМ Кроссовки демисезонные экозамша",
-   "discount": 79,
-   "price": 2590,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1100795156/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787282194,
    "drop": 0,
    "quality": "A"
   }

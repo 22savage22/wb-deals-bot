@@ -445,6 +445,19 @@
  },
  "recent": [
   {
+   "pid": 1159067788,
+   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные черные",
+   "discount": 79,
+   "price": 2661,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1159067788/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787348222,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 309552044,
    "title": "Кроссовки sb dunk розовые кеды данки",
    "discount": 82,
@@ -1222,19 +1235,6 @@
    "ts": 1787183942,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1159067788,
-   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные черные",
-   "discount": 79,
-   "price": 2661,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1159067788/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787348222,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1338,7 +1338,7 @@
    "Краски автомобильные",
    "Готовые строения и срубы"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 800,

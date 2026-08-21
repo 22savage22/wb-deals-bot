@@ -439,6 +439,19 @@
  },
  "recent": [
   {
+   "pid": 924286080,
+   "title": "Наушники беспроводные для iphone A.Pods Pro 2",
+   "discount": 83,
+   "price": 487,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/924286080/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787337745,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1227465538,
    "title": "Наушники беспроводные для андроид с микрофоном для телефона",
    "discount": 96,
@@ -1216,19 +1229,6 @@
    "ts": 1787173960,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 924286080,
-   "title": "Наушники беспроводные для iphone A.Pods Pro 2",
-   "discount": 83,
-   "price": 487,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/924286080/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787337745,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1332,7 +1332,7 @@
    "Пылевыбивалки",
    "Готовые строения и срубы"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 100,

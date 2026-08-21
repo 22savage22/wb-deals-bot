@@ -442,6 +442,19 @@
  },
  "recent": [
   {
+   "pid": 1150671825,
+   "title": "Смартфон Redmi Note 15 Pro 4G, 8 256ГБ, global",
+   "discount": 56,
+   "price": 17039,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1150671825/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787342553,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 504141828,
    "title": "Смартфон i16 Pro Max 12ГБ+512ГБ,6000 мАч",
    "discount": 63,
@@ -1219,19 +1232,6 @@
    "ts": 1787179381,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1150671825,
-   "title": "Смартфон Redmi Note 15 Pro 4G, 8 256ГБ, global",
-   "discount": 56,
-   "price": 17039,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1150671825/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787342553,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1335,7 +1335,7 @@
    "Готовые строения и срубы",
    "Пылевыбивалки"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

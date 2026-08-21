@@ -437,6 +437,19 @@
  },
  "recent": [
   {
+   "pid": 481206652,
+   "title": "игровой телефон для игр мощный 15Pro 16+1024ГБ 5500 мАч",
+   "discount": 60,
+   "price": 13097,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/481206652/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787332761,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1276307153,
    "title": "Смартфон X9d, 12 256ГБ, global",
    "discount": 61,
@@ -1214,19 +1227,6 @@
    "ts": 1787170174,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 481206652,
-   "title": "игровой телефон для игр мощный 15Pro 16+1024ГБ 5500 мАч",
-   "discount": 60,
-   "price": 13097,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/481206652/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787332761,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1330,7 +1330,7 @@
    "Восточные сладости",
    "Расчески парикмахерские"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

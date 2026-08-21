@@ -1199,19 +1199,6 @@
    "ts": 1787131289,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1094330949,
-   "title": "Телевизор 32 HQLED H6, Full HD Smart TV",
-   "discount": 57,
-   "price": 15062,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1094330949/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787126247,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1225,7 +1212,7 @@
   ],
   "learn_ts": 1787251952.7183092,
   "empty_notice_ts": 1787253941.0,
-  "cats_ts": 1787212121.1985438,
+  "cats_ts": 1787298574.3930213,
   "last_cats": [
    "Манежи детские",
    "Защитные стекла для телефонов Xiaomi",
@@ -1238,10 +1225,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 27,
-   "rate_limited": 8,
-   "http_error": 11,
+   "calls": 60,
+   "ok": 34,
+   "rate_limited": 9,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -1302,7 +1289,7 @@
   "today": "2026-08-21",
   "today_posts": 14,
   "total_posts": 149,
-  "last_scan": 1787295535,
+  "last_scan": 1787298574,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1310,25 +1297,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Гроубоксы",
-   "Средства для мытья посуды и продуктов",
-   "Расчески парикмахерские",
-   "Пледы"
+   "Туризм и страноведение",
+   "Тормозные барабаны",
+   "Репринтные издания 1890 - 1899 годов",
+   "Восточные сладости"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,
    "cards": 301,
-   "discount": 115,
-   "ok": 140,
-   "rating": 23,
-   "bad_price": 23,
-   "strict": 140,
+   "discount": 186,
+   "ok": 69,
+   "bad_price": 22,
+   "rating": 24,
+   "strict": 69,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 21,
-   "title_duplicate": 21
+   "duplicate": 28,
+   "title_duplicate": 15
   },
   "last_queue": {
    "queue_before": 100,
@@ -2510,9 +2497,49 @@
    "ts": 1787237237.6783445,
    "runs": 5,
    "empty": 5
+  },
+  "Восточные сладости": {
+   "shard": "product1",
+   "ts": 1787298741.0974257,
+   "runs": 1,
+   "empty": 1
+  },
+  "Тормозные барабаны": {
+   "shard": "autoproduct48",
+   "ts": 1787298741.0974257,
+   "runs": 1,
+   "empty": 1
+  },
+  "Туризм и страноведение": {
+   "shard": "books9",
+   "ts": 1787298741.0974257,
+   "runs": 1,
+   "empty": 1
+  },
+  "Репринтные издания 1890 - 1899 годов": {
+   "shard": "books_reprint_189x",
+   "ts": 1787298741.0974257,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 693155982,
+   "title": "Телевизор 4К QE83S85FAEXRU 83\", OLED HDR, 120 Гц",
+   "brand": "Samsung",
+   "product": 368674,
+   "basic": 756722,
+   "discount": 51,
+   "benefit": 388048,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787298574
+  },
   {
    "id": 1237642459,
    "title": "Смартфон H0N0R X6c 8 256ГБ",

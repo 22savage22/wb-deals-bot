@@ -416,6 +416,19 @@
  },
  "recent": [
   {
+   "pid": 773048109,
+   "title": "Наушники беспроводные A.Pods 4",
+   "discount": 81,
+   "price": 652,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/773048109/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787278147,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 678871401,
    "title": "Наушники беспроводные большие с микрофоном",
    "discount": 60,
@@ -1193,19 +1206,6 @@
    "ts": 1787110406,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 773048109,
-   "title": "Наушники беспроводные A.Pods 4",
-   "discount": 81,
-   "price": 652,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/773048109/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787278147,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1225,7 +1225,7 @@
    "Защитные стекла для телефонов Xiaomi",
    "Обогреватели и вентиляторы"
   ],
-  "digest_date": "2026-08-20",
+  "digest_date": "2026-08-21",
   "week_digest_ts": 1786897023.0,
   "last_funnel": {
    "published": 1,
@@ -1309,7 +1309,7 @@
    "Матрасы-топперы",
    "Мыши"
   ],
-  "queue_size": 97,
+  "queue_size": 58,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

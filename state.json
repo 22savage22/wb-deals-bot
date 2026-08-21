@@ -415,6 +415,19 @@
  },
  "recent": [
   {
+   "pid": 678871401,
+   "title": "Наушники беспроводные большие с микрофоном",
+   "discount": 60,
+   "price": 1138,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/678871401/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787271936,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 385656222,
    "title": "Наушники беспроводные для iPhone и Android с микрофоном",
    "discount": 50,
@@ -1179,32 +1192,6 @@
    "ts": 1787110406,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 453150162,
-   "title": "Наушники проводные с разъемом Jack 3.5 mm",
-   "discount": 60,
-   "price": 560,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/453150162/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787107506,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 678871401,
-   "title": "Наушники беспроводные большие с микрофоном",
-   "discount": 60,
-   "price": 1138,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/678871401/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787271936,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1231,10 +1218,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 9,
-   "rate_limited": 12,
-   "http_error": 7,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1295,7 +1282,7 @@
   "today": "2026-08-21",
   "today_posts": 7,
   "total_posts": 142,
-  "last_scan": 1787268772,
+  "last_scan": 1787276873,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1304,24 +1291,18 @@
   ],
   "last_scan_cats": [
    "Серия Galaxy A",
-   "Мыши",
+   "Средства индивидуальной защиты и экипировка",
    "Матрасы-топперы",
-   "Средства индивидуальной защиты и экипировка"
+   "Мыши"
   ],
-  "queue_size": 98,
-  "last_scan_added": 2,
+  "queue_size": 58,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 60,
-   "discount": 23,
-   "bad_price": 12,
-   "rating": 5,
-   "strict": 60,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 44,
-   "title_duplicate": 6
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 99,
@@ -2385,21 +2366,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787269008.7250888,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787277125.1309228,
+   "runs": 13,
+   "empty": 3
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787269008.7250888,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787277125.1309228,
+   "runs": 13,
+   "empty": 3
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787269008.7250888,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787277125.1309228,
+   "runs": 13,
+   "empty": 3
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2427,9 +2408,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787269008.7250888,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787277125.1309228,
+   "runs": 8,
+   "empty": 3
   },
   "Бандажи": {
    "shard": "women_underwear2",

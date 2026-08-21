@@ -418,6 +418,19 @@
  },
  "recent": [
   {
+   "pid": 458142163,
+   "title": "Смартфон бронированный водонепроницаемый Т7С 128ГБ",
+   "discount": 73,
+   "price": 12310,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/458142163/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787285158,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1100795156,
    "title": "ПРЕМИУМ Кроссовки демисезонные экозамша",
    "discount": 79,
@@ -1195,19 +1208,6 @@
    "ts": 1787115831,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 458142163,
-   "title": "Смартфон бронированный водонепроницаемый Т7С 128ГБ",
-   "discount": 73,
-   "price": 12310,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/458142163/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787285158,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1311,7 +1311,7 @@
    "Мыши",
    "Серия Galaxy A"
   ],
-  "queue_size": 98,
+  "queue_size": 99,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,

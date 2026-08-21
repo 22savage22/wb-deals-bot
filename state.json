@@ -428,6 +428,19 @@
  },
  "recent": [
   {
+   "pid": 1214947626,
+   "title": "Смартфон Xiaomi POCO C85 8 GB RAM 256 GB ROM",
+   "discount": 63,
+   "price": 11201,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1214947626/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787310739,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 197533403,
    "title": "Кроссовки женские летние 530",
    "discount": 86,
@@ -1205,19 +1218,6 @@
    "ts": 1787147789,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1214947626,
-   "title": "Смартфон Xiaomi POCO C85 8 GB RAM 256 GB ROM",
-   "discount": 63,
-   "price": 11201,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1214947626/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787310739,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1321,7 +1321,7 @@
    "Гроубоксы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

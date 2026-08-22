@@ -466,6 +466,19 @@
  },
  "recent": [
   {
+   "pid": 391271511,
+   "title": "Спортивные кроссовки для бега",
+   "discount": 69,
+   "price": 5605,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/391271511/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787413728,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 253127138,
    "title": "Кроссовки зимние Gel-Kahana 8 ТЕРМО",
    "discount": 72,
@@ -1221,32 +1234,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787259855,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1144835723,
-   "title": "Смартфон 15 5G, 12 256ГБ",
-   "discount": 67,
-   "price": 18838,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1144835723/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787255797,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 391271511,
-   "title": "Спортивные кроссовки для бега",
-   "discount": 69,
-   "price": 5605,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391271511/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787413728,
    "drop": 0,
    "quality": "A"
   }

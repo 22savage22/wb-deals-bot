@@ -453,6 +453,19 @@
  },
  "recent": [
   {
+   "pid": 1145334048,
+   "title": "Смартфон 16, 8 256ГБ",
+   "discount": 72,
+   "price": 19672,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1145334048/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787378367,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 764414349,
    "title": "Кроссовкие женские летние Унисекс 530",
    "discount": 81,
@@ -1230,19 +1243,6 @@
    "ts": 1787210060,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1145334048,
-   "title": "Смартфон 16, 8 256ГБ",
-   "discount": 72,
-   "price": 19672,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1145334048/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787378367,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1346,7 +1346,7 @@
    "Зеркала",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 201,

@@ -456,6 +456,19 @@
  },
  "recent": [
   {
+   "pid": 999709642,
+   "title": "Кроссовки на платформе демисезонные спортивные",
+   "discount": 83,
+   "price": 1522,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/999709642/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787389964,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 976565543,
    "title": "Наушники беспроводные A pods Pro 3",
    "discount": 79,
@@ -1218,32 +1231,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787220694,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 881869182,
-   "title": "Кроссовки летние легкие дышащие на платформе",
-   "discount": 88,
-   "price": 1623,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/881869182/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787218760,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 999709642,
-   "title": "Кроссовки на платформе демисезонные спортивные",
-   "discount": 83,
-   "price": 1522,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/999709642/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787389964,
    "drop": 0,
    "quality": "A"
   }

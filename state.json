@@ -1225,19 +1225,6 @@
    "ts": 1787199621,
    "drop": 0,
    "quality": "C"
-  },
-  {
-   "pid": 574812068,
-   "title": "Телевизор 50 LED S2 Smart TV 4K UHD",
-   "discount": 42,
-   "price": 29529,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/574812068/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787196835,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1264,10 +1251,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 68,
-   "rate_limited": 2,
-   "http_error": 24,
+   "calls": 44,
+   "ok": 27,
+   "rate_limited": 11,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -1328,7 +1315,7 @@
   "today": "2026-08-22",
   "today_posts": 5,
   "total_posts": 175,
-  "last_scan": 1787362878,
+  "last_scan": 1787367672,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1336,25 +1323,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смазки и масла для инструмента",
    "Бандажи",
+   "Смазки и масла для инструмента",
    "Зеркала",
    "Подвески"
   ],
   "queue_size": 60,
-  "last_scan_added": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 501,
-   "cards": 501,
-   "discount": 179,
-   "ok": 288,
-   "bad_price": 16,
-   "rating": 18,
-   "strict": 288,
+   "found": 400,
+   "cards": 400,
+   "discount": 204,
+   "ok": 180,
+   "bad_price": 5,
+   "rating": 11,
+   "strict": 180,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 29,
-   "title_duplicate": 57
+   "duplicate": 73,
+   "title_duplicate": 41
   },
   "last_queue": {
    "queue_before": 100,
@@ -2643,9 +2630,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787363064.1409554,
-   "runs": 26,
-   "empty": 1
+   "ts": 1787367888.8097782,
+   "runs": 27,
+   "empty": 2
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2697,21 +2684,21 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787363064.1409554,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787367888.8097782,
+   "runs": 7,
+   "empty": 2
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787363064.1409554,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787367888.8097782,
+   "runs": 7,
+   "empty": 2
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787363064.1409554,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787367888.8097782,
+   "runs": 7,
+   "empty": 2
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -2745,6 +2732,22 @@
   }
  },
  "queue": [
+  {
+   "id": 856522280,
+   "title": "Кроссовки спортивные повседневные непромокаемые",
+   "brand": "adidas",
+   "product": 3243,
+   "basic": 10000,
+   "discount": 68,
+   "benefit": 6757,
+   "rating": 4.9,
+   "feedbacks": 36,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787367672
+  },
   {
    "id": 764414349,
    "title": "Кроссовкие женские летние Унисекс 530",

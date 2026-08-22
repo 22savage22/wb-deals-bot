@@ -1227,19 +1227,6 @@
    "ts": 1787204696,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 732479195,
-   "title": "Телевизор смарт 24 дюйма 24LEX-7219 TS2C, 720p HD с Алисой",
-   "discount": 39,
-   "price": 7454,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/732479195/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787202303,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1266,10 +1253,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 16,
-   "rate_limited": 16,
-   "http_error": 8,
+   "calls": 37,
+   "ok": 14,
+   "rate_limited": 17,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -1330,7 +1317,7 @@
   "today": "2026-08-22",
   "today_posts": 7,
   "total_posts": 177,
-  "last_scan": 1787370493,
+  "last_scan": 1787373628,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1338,25 +1325,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Бандажи",
    "Зеркала",
+   "Смазки и масла для инструмента",
    "Подвески",
-   "Смазки и масла для инструмента"
+   "Бандажи"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,
    "cards": 200,
-   "discount": 92,
-   "ok": 82,
+   "discount": 62,
+   "ok": 121,
    "rating": 15,
-   "bad_price": 11,
-   "strict": 82,
+   "bad_price": 2,
+   "strict": 121,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 19,
-   "title_duplicate": 13
+   "duplicate": 21,
+   "title_duplicate": 27
   },
   "last_queue": {
    "queue_before": 99,
@@ -2659,9 +2646,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787370773.3741002,
-   "runs": 28,
-   "empty": 3
+   "ts": 1787373926.2737603,
+   "runs": 29,
+   "empty": 4
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2713,21 +2700,21 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787370773.3741002,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787373926.2737603,
+   "runs": 9,
+   "empty": 4
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787370773.3741002,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787373926.2737603,
+   "runs": 9,
+   "empty": 4
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787370773.3741002,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787373926.2737603,
+   "runs": 9,
+   "empty": 4
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -2761,6 +2748,22 @@
   }
  },
  "queue": [
+  {
+   "id": 432772286,
+   "title": "кроссовки Air Force 1 форсы белые кеды",
+   "brand": "Nike",
+   "product": 2260,
+   "basic": 11500,
+   "discount": 80,
+   "benefit": 9240,
+   "rating": 4.5,
+   "feedbacks": 732,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787373628
+  },
   {
    "id": 764414349,
    "title": "Кроссовкие женские летние Унисекс 530",

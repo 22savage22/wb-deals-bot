@@ -479,6 +479,19 @@
  },
  "recent": [
   {
+   "pid": 959461343,
+   "title": "Кроссовки женские Коричневые SAMBA",
+   "discount": 78,
+   "price": 1958,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/959461343/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787435743,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 239204747,
    "title": "Кроссовки повседневные дышащие легкие для спорта и фитнеса",
    "discount": 78,
@@ -1249,19 +1262,6 @@
    "ts": 1787292225,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 959461343,
-   "title": "Кроссовки женские Коричневые SAMBA",
-   "discount": 78,
-   "price": 1958,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/959461343/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787435743,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1365,7 +1365,7 @@
    "Серия Galaxy A",
    "Мыши"
   ],
-  "queue_size": 94,
+  "queue_size": 97,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 799,

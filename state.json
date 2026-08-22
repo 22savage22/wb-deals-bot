@@ -477,6 +477,19 @@
  },
  "recent": [
   {
+   "pid": 398389216,
+   "title": "Кроссовки мужские Classic Leather 30th Anniversary",
+   "discount": 79,
+   "price": 3121,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/398389216/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787432353,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1263897681,
    "title": "Кроссовки Air Force 1форсы Nocta Certified Lover Boy",
    "discount": 78,
@@ -1247,19 +1260,6 @@
    "ts": 1787287954,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 398389216,
-   "title": "Кроссовки мужские Classic Leather 30th Anniversary",
-   "discount": 79,
-   "price": 3121,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/398389216/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787432353,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1363,7 +1363,7 @@
    "Серия Galaxy A",
    "Мыши"
   ],
-  "queue_size": 96,
+  "queue_size": 97,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 799,

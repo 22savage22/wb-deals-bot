@@ -461,6 +461,18 @@
  },
  "recent": [
   {
+   "pid": 460877720,
+   "title": "Кроссовки кеды мужские reedok спортивные",
+   "discount": 80,
+   "price": 2035,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/460877720/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787399757,
+   "drop": 0
+  },
+  {
    "pid": 742454349,
    "title": "Смартфон HAUWE P70 PRO 12+512GB（EAC）",
    "discount": 91,
@@ -1234,18 +1246,6 @@
    "ts": 1787239185,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 460877720,
-   "title": "Кроссовки кеды мужские reedok спортивные",
-   "discount": 80,
-   "price": 2035,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460877720/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787399757,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1283,10 +1283,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 50,
-   "rate_limited": 4,
-   "http_error": 15,
+   "calls": 49,
+   "ok": 35,
+   "rate_limited": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },

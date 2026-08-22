@@ -474,6 +474,19 @@
  },
  "recent": [
   {
+   "pid": 658634006,
+   "title": "Кроссовки летние классические",
+   "discount": 82,
+   "price": 3051,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/658634006/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787427665,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 658633705,
    "title": "Кроссовки летние дышащие сетка для бега и зала",
    "discount": 74,
@@ -1244,19 +1257,6 @@
    "ts": 1787278147,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 658634006,
-   "title": "Кроссовки летние классические",
-   "discount": 82,
-   "price": 3051,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/658634006/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787427665,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1360,7 +1360,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Серия Galaxy A"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 799,

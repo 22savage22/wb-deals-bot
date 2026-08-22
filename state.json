@@ -462,6 +462,18 @@
  },
  "recent": [
   {
+   "pid": 1343943432,
+   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
+   "discount": 92,
+   "price": 5493,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1343943432/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787405726,
+   "drop": 0
+  },
+  {
    "pid": 1241414627,
    "title": "Телевизор Mini-LED S Pro Mini 65 (L65MB-SRU) 2026",
    "discount": 68,
@@ -1220,31 +1232,6 @@
    "ts": 1787246087,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1054199586,
-   "title": "Смартфон i17 Pro Max 16ГБ 1024ГБ Ростест (EAC)",
-   "discount": 81,
-   "price": 6199,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1054199586/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787244100,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1343943432,
-   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
-   "discount": 92,
-   "price": 5493,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1343943432/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787405726,
-   "drop": 0
   }
  ],
  "meta": {

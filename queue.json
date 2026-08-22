@@ -1,5 +1,37 @@
 [
  {
+  "id": 786634753,
+  "title": "Наушники беспроводные",
+  "brand": "A.Pods Pro 2",
+  "product": 808,
+  "basic": 10100,
+  "discount": 92,
+  "benefit": 9292,
+  "rating": 4.8,
+  "feedbacks": 408,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1787419638
+ },
+ {
+  "id": 403733889,
+  "title": "Наушники беспроводные AirPods 4 для iPhone и Android",
+  "brand": "Apple",
+  "product": 1694,
+  "basic": 14371,
+  "discount": 88,
+  "benefit": 12677,
+  "rating": 4.7,
+  "feedbacks": 7066,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1787419638
+ },
+ {
   "id": 613875495,
   "title": "Волейбольный кроссовки Gel-Rocket 10 асикс",
   "brand": "ASICS",

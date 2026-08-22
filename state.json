@@ -1271,10 +1271,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 99,
-   "ok": 69,
-   "rate_limited": 6,
-   "http_error": 24,
+   "calls": 96,
+   "ok": 68,
+   "rate_limited": 5,
+   "http_error": 23,
    "network_error": 0,
    "json_error": 0
   },

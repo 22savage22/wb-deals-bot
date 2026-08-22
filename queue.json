@@ -1,5 +1,37 @@
 [
  {
+  "id": 1145334048,
+  "title": "Смартфон 16, 8 256ГБ",
+  "brand": "Realme",
+  "product": 19672,
+  "basic": 70133,
+  "discount": 72,
+  "benefit": 50461,
+  "rating": 5.0,
+  "feedbacks": 23,
+  "category": "телефон",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "телефон",
+  "queued_ts": 1787376860
+ },
+ {
+  "id": 1388313704,
+  "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
+  "brand": "",
+  "product": 5493,
+  "basic": 64626,
+  "discount": 92,
+  "benefit": 59133,
+  "rating": 5.0,
+  "feedbacks": 18,
+  "category": "телефон",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "телефон",
+  "queued_ts": 1787376860
+ },
+ {
   "id": 337917838,
   "title": "Кроссовки Air Max Tn Plus трендовые унисекс",
   "brand": "Nike",
@@ -1101,22 +1133,6 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "кроссовки",
-  "queued_ts": 1787320254
- },
- {
-  "id": 1145334048,
-  "title": "Смартфон 16, 8 256ГБ",
-  "brand": "Realme",
-  "product": 19672,
-  "basic": 70133,
-  "discount": 72,
-  "benefit": 50461,
-  "rating": 5.0,
-  "feedbacks": 23,
-  "category": "телефон",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "телефон",
   "queued_ts": 1787320254
  },
  {

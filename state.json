@@ -458,6 +458,18 @@
  },
  "recent": [
   {
+   "pid": 913230751,
+   "title": "Телевизор TV S Mini LED 98 2026 98\" Смарт",
+   "discount": 66,
+   "price": 268827,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/913230751/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787393334,
+   "drop": 0
+  },
+  {
    "pid": 1388313704,
    "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
    "discount": 92,
@@ -1222,31 +1234,6 @@
    "ts": 1787225482,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 693156297,
-   "title": "Телевизор 4К QE75Q7FAAUXRU 75\", HDR, 60 Гц",
-   "discount": 51,
-   "price": 115566,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/693156297/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787223113,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 913230751,
-   "title": "Телевизор TV S Mini LED 98 2026 98\" Смарт",
-   "discount": 66,
-   "price": 268827,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/913230751/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787393334,
-   "drop": 0
   }
  ],
  "meta": {

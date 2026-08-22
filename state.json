@@ -1245,7 +1245,7 @@
   ],
   "learn_ts": 1787251952.7183092,
   "empty_notice_ts": 1787253941.0,
-  "cats_ts": 1787298574.3930213,
+  "cats_ts": 1787388241.8143651,
   "last_cats": [
    "Манежи детские",
    "Защитные стекла для телефонов Xiaomi",
@@ -1258,10 +1258,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 45,
-   "ok": 24,
-   "rate_limited": 11,
-   "http_error": 10,
+   "calls": 61,
+   "ok": 45,
+   "rate_limited": 3,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1322,7 +1322,7 @@
   "today": "2026-08-22",
   "today_posts": 12,
   "total_posts": 182,
-  "last_scan": 1787384262,
+  "last_scan": 1787388241,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1330,25 +1330,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Обогреватели и вентиляторы",
-   "Защитные стекла для телефонов Xiaomi",
-   "Манежи детские",
-   "Смарт-часы и браслеты"
+   "Коляски",
+   "Костюмы и комбинезоны",
+   "Тросики",
+   "Травяные сборы"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "discount": 223,
-   "ok": 56,
-   "bad_price": 14,
-   "rating": 7,
-   "strict": 56,
+   "found": 503,
+   "cards": 503,
+   "bad_price": 25,
+   "discount": 260,
+   "ok": 202,
+   "rating": 16,
+   "strict": 202,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 18,
-   "title_duplicate": 5
+   "duplicate": 39,
+   "title_duplicate": 35
   },
   "last_queue": {
    "queue_before": 98,
@@ -2785,9 +2785,49 @@
    "ts": 1787323428.766449,
    "runs": 5,
    "empty": 5
+  },
+  "Костюмы и комбинезоны": {
+   "shard": "school3",
+   "ts": 1787388339.8841972,
+   "runs": 1,
+   "empty": 1
+  },
+  "Коляски": {
+   "shard": "children_things2",
+   "ts": 1787388339.8841972,
+   "runs": 1,
+   "empty": 1
+  },
+  "Травяные сборы": {
+   "shard": "product1",
+   "ts": 1787388339.8841972,
+   "runs": 1,
+   "empty": 1
+  },
+  "Тросики": {
+   "shard": "autoproduct56",
+   "ts": 1787388339.8841972,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 999709642,
+   "title": "Кроссовки на платформе демисезонные спортивные",
+   "brand": "CASA PASSO",
+   "product": 1522,
+   "basic": 8800,
+   "discount": 83,
+   "benefit": 7278,
+   "rating": 4.8,
+   "feedbacks": 118,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787388241
+  },
   {
    "id": 1388313704,
    "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",

@@ -478,6 +478,19 @@
  },
  "recent": [
   {
+   "pid": 239204747,
+   "title": "Кроссовки повседневные дышащие легкие для спорта и фитнеса",
+   "discount": 78,
+   "price": 3111,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/239204747/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787434399,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 398389216,
    "title": "Кроссовки мужские Classic Leather 30th Anniversary",
    "discount": 79,
@@ -1248,19 +1261,6 @@
    "ts": 1787290602,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 239204747,
-   "title": "Кроссовки повседневные дышащие легкие для спорта и фитнеса",
-   "discount": 78,
-   "price": 3111,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/239204747/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787434399,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1364,7 +1364,7 @@
    "Серия Galaxy A",
    "Мыши"
   ],
-  "queue_size": 95,
+  "queue_size": 97,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 799,

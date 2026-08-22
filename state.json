@@ -1263,10 +1263,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 86,
-   "ok": 64,
-   "rate_limited": 3,
-   "http_error": 19,
+   "calls": 49,
+   "ok": 25,
+   "rate_limited": 13,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -1327,7 +1327,7 @@
   "today": "2026-08-22",
   "today_posts": 26,
   "total_posts": 196,
-  "last_scan": 1787412499,
+  "last_scan": 1787416384,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1335,24 +1335,24 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Матрасы-топперы",
    "Серия Galaxy A",
    "Мыши",
-   "Средства индивидуальной защиты и экипировка"
+   "Средства индивидуальной защиты и экипировка",
+   "Матрасы-топперы"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 499,
-   "cards": 499,
-   "discount": 285,
-   "ok": 150,
-   "bad_price": 34,
-   "rating": 30,
-   "strict": 150,
+   "found": 299,
+   "cards": 299,
+   "discount": 115,
+   "ok": 146,
+   "bad_price": 15,
+   "rating": 23,
+   "strict": 146,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 54,
+   "duplicate": 51,
    "title_duplicate": 38
   },
   "last_queue": {
@@ -2781,21 +2781,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787412717.5750575,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787416609.6565092,
+   "runs": 17,
+   "empty": 2
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787412717.5750575,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787416609.6565092,
+   "runs": 17,
+   "empty": 2
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787412717.5750575,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787416609.6565092,
+   "runs": 17,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2823,9 +2823,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787412717.5750575,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787416609.6565092,
+   "runs": 12,
+   "empty": 2
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2901,6 +2901,38 @@
   }
  },
  "queue": [
+  {
+   "id": 658634243,
+   "title": "Кроссовки летние спортивные дышащие для бега из кожи белые",
+   "brand": "BAASPLOA",
+   "product": 4581,
+   "basic": 13863,
+   "discount": 67,
+   "benefit": 9282,
+   "rating": 4.9,
+   "feedbacks": 2624,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787416384
+  },
+  {
+   "id": 1014860282,
+   "title": "Смартфон i17 Pro Max 16+1024 ГБ Лучший подарок для семьи",
+   "brand": "",
+   "product": 4843,
+   "basic": 12951,
+   "discount": 63,
+   "benefit": 8108,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787416384
+  },
   {
    "id": 613875495,
    "title": "Волейбольный кроссовки Gel-Rocket 10 асикс",
@@ -4031,22 +4063,6 @@
    "benefit": 11879,
    "rating": 4.6,
    "feedbacks": 123,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787362878
-  },
-  {
-   "id": 658634243,
-   "title": "Кроссовки летние спортивные дышащие для бега из кожи белые",
-   "brand": "BAASPLOA",
-   "product": 4581,
-   "basic": 13863,
-   "discount": 67,
-   "benefit": 9282,
-   "rating": 4.9,
-   "feedbacks": 2618,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

@@ -1265,10 +1265,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 25,
-   "rate_limited": 13,
-   "http_error": 11,
+   "calls": 35,
+   "ok": 14,
+   "rate_limited": 16,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -1329,7 +1329,7 @@
   "today": "2026-08-22",
   "today_posts": 28,
   "total_posts": 198,
-  "last_scan": 1787416384,
+  "last_scan": 1787419638,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1337,25 +1337,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Серия Galaxy A",
    "Мыши",
+   "Серия Galaxy A",
    "Средства индивидуальной защиты и экипировка",
    "Матрасы-топперы"
   ],
-  "queue_size": 96,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 299,
-   "cards": 299,
-   "discount": 115,
-   "ok": 146,
-   "bad_price": 15,
-   "rating": 23,
-   "strict": 146,
+   "found": 200,
+   "cards": 200,
+   "ok": 112,
+   "discount": 65,
+   "rating": 15,
+   "bad_price": 8,
+   "strict": 112,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 51,
-   "title_duplicate": 38
+   "title_duplicate": 21,
+   "duplicate": 15
   },
   "last_queue": {
    "queue_before": 97,
@@ -2797,21 +2797,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787416609.6565092,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787419929.49878,
+   "runs": 18,
+   "empty": 3
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787416609.6565092,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787419929.49878,
+   "runs": 18,
+   "empty": 3
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787416609.6565092,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787419929.49878,
+   "runs": 18,
+   "empty": 3
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2839,9 +2839,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787416609.6565092,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787419929.49878,
+   "runs": 13,
+   "empty": 3
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2917,6 +2917,38 @@
   }
  },
  "queue": [
+  {
+   "id": 786634753,
+   "title": "Наушники беспроводные",
+   "brand": "A.Pods Pro 2",
+   "product": 808,
+   "basic": 10100,
+   "discount": 92,
+   "benefit": 9292,
+   "rating": 4.8,
+   "feedbacks": 408,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787419638
+  },
+  {
+   "id": 403733889,
+   "title": "Наушники беспроводные AirPods 4 для iPhone и Android",
+   "brand": "Apple",
+   "product": 1694,
+   "basic": 14371,
+   "discount": 88,
+   "benefit": 12677,
+   "rating": 4.7,
+   "feedbacks": 7066,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787419638
+  },
   {
    "id": 613875495,
    "title": "Волейбольный кроссовки Gel-Rocket 10 асикс",

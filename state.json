@@ -1243,19 +1243,6 @@
    "ts": 1787278147,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 678871401,
-   "title": "Наушники беспроводные большие с микрофоном",
-   "discount": 60,
-   "price": 1138,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/678871401/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787271936,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1282,10 +1269,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 35,
-   "ok": 14,
-   "rate_limited": 16,
-   "http_error": 5,
+   "calls": 96,
+   "ok": 68,
+   "rate_limited": 5,
+   "http_error": 23,
    "network_error": 0,
    "json_error": 0
   },
@@ -1346,7 +1333,7 @@
   "today": "2026-08-22",
   "today_posts": 32,
   "total_posts": 202,
-  "last_scan": 1787419638,
+  "last_scan": 1787426876,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1355,24 +1342,24 @@
   ],
   "last_scan_cats": [
    "Мыши",
-   "Серия Galaxy A",
+   "Матрасы-топперы",
    "Средства индивидуальной защиты и экипировка",
-   "Матрасы-топперы"
+   "Серия Galaxy A"
   ],
-  "queue_size": 95,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "ok": 112,
-   "discount": 65,
-   "rating": 15,
-   "bad_price": 8,
-   "strict": 112,
+   "found": 799,
+   "cards": 799,
+   "discount": 355,
+   "ok": 349,
+   "bad_price": 49,
+   "rating": 46,
+   "strict": 349,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 21,
-   "duplicate": 15
+   "title_duplicate": 77,
+   "duplicate": 79
   },
   "last_queue": {
    "queue_before": 95,
@@ -2842,21 +2829,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787419929.49878,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787427010.30442,
+   "runs": 19,
+   "empty": 4
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787419929.49878,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787427010.30442,
+   "runs": 19,
+   "empty": 4
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787419929.49878,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787427010.30442,
+   "runs": 19,
+   "empty": 4
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2884,9 +2871,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787419929.49878,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787427010.30442,
+   "runs": 14,
+   "empty": 4
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2962,6 +2949,70 @@
   }
  },
  "queue": [
+  {
+   "id": 658634006,
+   "title": "Кроссовки летние классические",
+   "brand": "BAASPLOA",
+   "product": 3051,
+   "basic": 17388,
+   "discount": 82,
+   "benefit": 14337,
+   "rating": 4.9,
+   "feedbacks": 2625,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787426876
+  },
+  {
+   "id": 431036821,
+   "title": "Кроссовки женские samba спортивные кеды",
+   "brand": "adidas",
+   "product": 1496,
+   "basic": 8999,
+   "discount": 83,
+   "benefit": 7503,
+   "rating": 4.9,
+   "feedbacks": 4581,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787426876
+  },
+  {
+   "id": 239204747,
+   "title": "Кроссовки повседневные дышащие легкие для спорта и фитнеса",
+   "brand": "JeVaDi",
+   "product": 3111,
+   "basic": 14300,
+   "discount": 78,
+   "benefit": 11189,
+   "rating": 4.7,
+   "feedbacks": 1029,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787426876
+  },
+  {
+   "id": 959461343,
+   "title": "Кроссовки женские Коричневые SAMBA",
+   "brand": "adidas",
+   "product": 1958,
+   "basic": 8999,
+   "discount": 78,
+   "benefit": 7041,
+   "rating": 4.9,
+   "feedbacks": 4581,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787426876
+  },
   {
    "id": 482446478,
    "title": "Кроссовки женские SAMBA",

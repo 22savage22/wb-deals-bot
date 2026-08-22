@@ -450,6 +450,19 @@
  },
  "recent": [
   {
+   "pid": 1344164882,
+   "title": "Смартфон TECN0 Camom 40 Pro Max 12 1024 ГБ",
+   "discount": 92,
+   "price": 4953,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1344164882/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787371756,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 856522280,
    "title": "Кроссовки спортивные повседневные непромокаемые",
    "discount": 68,
@@ -1227,19 +1240,6 @@
    "ts": 1787202303,
    "drop": 0,
    "quality": "C"
-  },
-  {
-   "pid": 1344164882,
-   "title": "Смартфон TECN0 Camom 40 Pro Max 12 1024 ГБ",
-   "discount": 92,
-   "price": 4953,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1344164882/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787371756,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1343,7 +1343,7 @@
    "Подвески",
    "Смазки и масла для инструмента"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

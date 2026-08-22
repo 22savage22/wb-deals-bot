@@ -470,6 +470,19 @@
  },
  "recent": [
   {
+   "pid": 786634753,
+   "title": "Наушники беспроводные",
+   "discount": 92,
+   "price": 808,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/786634753/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787420048,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1014860282,
    "title": "Смартфон i17 Pro Max 16+1024 ГБ Лучший подарок для семьи",
    "discount": 63,
@@ -1225,32 +1238,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787267666,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1093895126,
-   "title": "Наушники беспроводные большие с микрофоном айфона и андроид",
-   "discount": 50,
-   "price": 1490,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1093895126/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787266136,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 786634753,
-   "title": "Наушники беспроводные",
-   "discount": 92,
-   "price": 808,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/786634753/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787420048,
    "drop": 0,
    "quality": "A"
   }

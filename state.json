@@ -1226,19 +1226,6 @@
    "ts": 1787202303,
    "drop": 0,
    "quality": "C"
-  },
-  {
-   "pid": 372872405,
-   "title": "Безрамочный LED телевизор 32H680T 32\", Smart TV",
-   "discount": 35,
-   "price": 13387,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/372872405/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787199621,
-   "drop": 0,
-   "quality": "C"
   }
  ],
  "meta": {
@@ -1265,10 +1252,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 44,
-   "ok": 27,
-   "rate_limited": 11,
-   "http_error": 6,
+   "calls": 40,
+   "ok": 16,
+   "rate_limited": 16,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1329,7 +1316,7 @@
   "today": "2026-08-22",
   "today_posts": 6,
   "total_posts": 176,
-  "last_scan": 1787367672,
+  "last_scan": 1787370493,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1338,24 +1325,24 @@
   ],
   "last_scan_cats": [
    "Бандажи",
-   "Смазки и масла для инструмента",
    "Зеркала",
-   "Подвески"
+   "Подвески",
+   "Смазки и масла для инструмента"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "discount": 204,
-   "ok": 180,
-   "bad_price": 5,
-   "rating": 11,
-   "strict": 180,
+   "found": 200,
+   "cards": 200,
+   "discount": 92,
+   "ok": 82,
+   "rating": 15,
+   "bad_price": 11,
+   "strict": 82,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 73,
-   "title_duplicate": 41
+   "duplicate": 19,
+   "title_duplicate": 13
   },
   "last_queue": {
    "queue_before": 100,
@@ -2651,9 +2638,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787367888.8097782,
-   "runs": 27,
-   "empty": 2
+   "ts": 1787370773.3741002,
+   "runs": 28,
+   "empty": 3
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2705,21 +2692,21 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787367888.8097782,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787370773.3741002,
+   "runs": 8,
+   "empty": 3
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787367888.8097782,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787370773.3741002,
+   "runs": 8,
+   "empty": 3
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787367888.8097782,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787370773.3741002,
+   "runs": 8,
+   "empty": 3
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -2753,6 +2740,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1344164882,
+   "title": "Смартфон TECN0 Camom 40 Pro Max 12 1024 ГБ",
+   "brand": "",
+   "product": 4953,
+   "basic": 58280,
+   "discount": 92,
+   "benefit": 53327,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787370493
+  },
   {
    "id": 764414349,
    "title": "Кроссовкие женские летние Унисекс 530",
@@ -4175,22 +4178,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787317315
-  },
-  {
-   "id": 1344164882,
-   "title": "Смартфон TECN0 Camom 40 Pro Max 12 1024 ГБ",
-   "brand": "",
-   "product": 4982,
-   "basic": 58617,
-   "discount": 92,
-   "benefit": 53635,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787317315
   },
   {

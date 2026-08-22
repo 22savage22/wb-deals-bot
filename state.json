@@ -457,6 +457,19 @@
  },
  "recent": [
   {
+   "pid": 1388313704,
+   "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
+   "discount": 92,
+   "price": 5493,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1388313704/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787392009,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 999709642,
    "title": "Кроссовки на платформе демисезонные спортивные",
    "discount": 83,
@@ -1219,32 +1232,6 @@
    "query": "телевизор",
    "cat": "телевизор",
    "ts": 1787223113,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1136482643,
-   "title": "Смартфон C40 PRO 5G Ростест (EAC) 12 512 ГБ",
-   "discount": 92,
-   "price": 5072,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1136482643/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787220694,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1388313704,
-   "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
-   "discount": 92,
-   "price": 5493,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1388313704/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787392009,
    "drop": 0,
    "quality": "A"
   }

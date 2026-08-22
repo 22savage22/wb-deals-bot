@@ -455,6 +455,19 @@
  },
  "recent": [
   {
+   "pid": 976565543,
+   "title": "Наушники беспроводные A pods Pro 3",
+   "discount": 79,
+   "price": 1658,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/976565543/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787385574,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 962432175,
    "title": "Беспроводные наушники EQ2 plus",
    "discount": 92,
@@ -1217,32 +1230,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787218760,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1241414627,
-   "title": "Телевизор Mini-LED S Pro Mini 65 (L65MB-SRU) 2026",
-   "discount": 63,
-   "price": 114077,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1241414627/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787216033,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 976565543,
-   "title": "Наушники беспроводные A pods Pro 3",
-   "discount": 79,
-   "price": 1658,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/976565543/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787385574,
    "drop": 0,
    "quality": "A"
   }

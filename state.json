@@ -1261,10 +1261,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 41,
-   "rate_limited": 11,
-   "http_error": 14,
+   "calls": 86,
+   "ok": 64,
+   "rate_limited": 3,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0
   },

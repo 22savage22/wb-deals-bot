@@ -459,6 +459,18 @@
  },
  "recent": [
   {
+   "pid": 943438461,
+   "title": "Кроссовки спортивные Air Jordan low 1",
+   "discount": 85,
+   "price": 2316,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/943438461/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787396618,
+   "drop": 0
+  },
+  {
    "pid": 773083840,
    "title": "Наушники беспроводные A.Pods 2",
    "discount": 80,
@@ -1221,31 +1233,6 @@
    "ts": 1787234287,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 378384026,
-   "title": "Nike Кроссовки",
-   "discount": 85,
-   "price": 2211,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/378384026/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787227182,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 943438461,
-   "title": "Кроссовки спортивные Air Jordan low 1",
-   "discount": 85,
-   "price": 2316,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/943438461/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787396618,
-   "drop": 0
   }
  ],
  "meta": {

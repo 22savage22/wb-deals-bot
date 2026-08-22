@@ -448,6 +448,19 @@
  },
  "recent": [
   {
+   "pid": 743235886,
+   "title": "Кроссовки женские спортивные замшевые",
+   "discount": 76,
+   "price": 2456,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/743235886/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787366548,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1252691121,
    "title": "Смартфон F8 Ultra, 12 256ГБ, global",
    "discount": 59,
@@ -1225,19 +1238,6 @@
    "ts": 1787196835,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 743235886,
-   "title": "Кроссовки женские спортивные замшевые",
-   "discount": 76,
-   "price": 2456,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/743235886/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787366548,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1341,7 +1341,7 @@
    "Зеркала",
    "Подвески"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 60,
   "last_scan_funnel": {
    "found": 501,

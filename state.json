@@ -460,6 +460,18 @@
  },
  "recent": [
   {
+   "pid": 742454349,
+   "title": "Смартфон HAUWE P70 PRO 12+512GB（EAC）",
+   "discount": 91,
+   "price": 6054,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/742454349/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787398381,
+   "drop": 0
+  },
+  {
    "pid": 943438461,
    "title": "Кроссовки спортивные Air Jordan low 1",
    "discount": 85,
@@ -1234,18 +1246,6 @@
    "ts": 1787234287,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 742454349,
-   "title": "Смартфон HAUWE P70 PRO 12+512GB（EAC）",
-   "discount": 91,
-   "price": 6054,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/742454349/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787398381,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1283,10 +1283,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 49,
-   "rate_limited": 6,
-   "http_error": 12,
+   "calls": 49,
+   "ok": 35,
+   "rate_limited": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },

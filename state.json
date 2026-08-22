@@ -463,6 +463,18 @@
  },
  "recent": [
   {
+   "pid": 460877715,
+   "title": "Кеды",
+   "discount": 79,
+   "price": 2106,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/460877715/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787407032,
+   "drop": 0
+  },
+  {
    "pid": 1343943432,
    "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
    "discount": 92,
@@ -1220,31 +1232,6 @@
    "ts": 1787248238,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1271207450,
-   "title": "Смартфон S26 Ultra 16 1024ГБ 72MP камера 6000мAч",
-   "discount": 79,
-   "price": 6199,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1271207450/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787246087,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 460877715,
-   "title": "Кеды",
-   "discount": 79,
-   "price": 2106,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460877715/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787407032,
-   "drop": 0
   }
  ],
  "meta": {

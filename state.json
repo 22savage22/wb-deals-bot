@@ -467,6 +467,19 @@
  },
  "recent": [
   {
+   "pid": 585873604,
+   "title": "Кроссовки демисезонные",
+   "discount": 93,
+   "price": 2035,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/585873604/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787414971,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 391271511,
    "title": "Спортивные кроссовки для бега",
    "discount": 69,
@@ -1222,32 +1235,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787262057,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252696895,
-   "title": "Смартфон GT7, 12 256ГБ, russia",
-   "discount": 67,
-   "price": 29913,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252696895/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787259855,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 585873604,
-   "title": "Кроссовки демисезонные",
-   "discount": 93,
-   "price": 2035,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/585873604/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787414971,
    "drop": 0,
    "quality": "A"
   }

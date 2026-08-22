@@ -471,6 +471,19 @@
  },
  "recent": [
   {
+   "pid": 403733889,
+   "title": "Наушники беспроводные AirPods 4 для iPhone и Android",
+   "discount": 88,
+   "price": 1694,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/403733889/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787421365,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 786634753,
    "title": "Наушники беспроводные",
    "discount": 92,
@@ -1226,32 +1239,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787269503,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 521732290,
-   "title": "Наушники беспроводные большие накладные c микрофоном",
-   "discount": 50,
-   "price": 1490,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/521732290/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787267666,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 403733889,
-   "title": "Наушники беспроводные AirPods 4 для iPhone и Android",
-   "discount": 88,
-   "price": 1694,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/403733889/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787421365,
    "drop": 0,
    "quality": "A"
   }

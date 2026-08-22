@@ -465,6 +465,19 @@
  },
  "recent": [
   {
+   "pid": 253127138,
+   "title": "Кроссовки зимние Gel-Kahana 8 ТЕРМО",
+   "discount": 72,
+   "price": 2527,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/253127138/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787412368,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 479464545,
    "title": "Кроссовки демисезонные кожаные",
    "discount": 75,
@@ -1222,31 +1235,6 @@
    "ts": 1787255797,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1331978863,
-   "title": "Смартфон iPhone i17 Pro Max 16 1024 ГБ 6.78'' 5G NFC 144 Гц",
-   "discount": 92,
-   "price": 10483,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1331978863/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787251610,
-   "drop": 0
-  },
-  {
-   "pid": 253127138,
-   "title": "Кроссовки зимние Gel-Kahana 8 ТЕРМО",
-   "discount": 72,
-   "price": 2527,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/253127138/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787412368,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1273,10 +1261,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 86,
-   "ok": 64,
-   "rate_limited": 3,
-   "http_error": 19,
+   "calls": 66,
+   "ok": 41,
+   "rate_limited": 11,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1337,7 +1325,7 @@
   "today": "2026-08-22",
   "today_posts": 24,
   "total_posts": 194,
-  "last_scan": 1787408937,
+  "last_scan": 1787412499,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1345,25 +1333,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Тросики",
-   "Защитные стекла для телефонов Xiaomi",
-   "Манежи детские",
-   "Коляски"
+   "Матрасы-топперы",
+   "Серия Galaxy A",
+   "Мыши",
+   "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 98,
-  "last_scan_added": 60,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 798,
-   "cards": 798,
-   "discount": 347,
-   "ok": 362,
-   "bad_price": 41,
-   "rating": 48,
-   "strict": 362,
+   "found": 499,
+   "cards": 499,
+   "discount": 285,
+   "ok": 150,
+   "bad_price": 34,
+   "rating": 30,
+   "strict": 150,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 81,
-   "duplicate": 41
+   "duplicate": 54,
+   "title_duplicate": 38
   },
   "last_queue": {
    "queue_before": 99,
@@ -2777,21 +2765,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787287827.9486244,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787412717.5750575,
+   "runs": 16,
+   "empty": 1
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787287827.9486244,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787412717.5750575,
+   "runs": 16,
+   "empty": 1
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787287827.9486244,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787412717.5750575,
+   "runs": 16,
+   "empty": 1
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -2819,9 +2807,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787287827.9486244,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787412717.5750575,
+   "runs": 11,
+   "empty": 1
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -2897,6 +2885,38 @@
   }
  },
  "queue": [
+  {
+   "id": 391271511,
+   "title": "Спортивные кроссовки для бега",
+   "brand": "IERDI",
+   "product": 5605,
+   "basic": 18320,
+   "discount": 69,
+   "benefit": 12715,
+   "rating": 4.9,
+   "feedbacks": 2198,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787412499
+  },
+  {
+   "id": 585873604,
+   "title": "Кроссовки демисезонные",
+   "brand": "",
+   "product": 2035,
+   "basic": 29000,
+   "discount": 93,
+   "benefit": 26965,
+   "rating": 4.5,
+   "feedbacks": 65,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787412499
+  },
   {
    "id": 613875495,
    "title": "Волейбольный кроссовки Gel-Rocket 10 асикс",
@@ -3883,22 +3903,6 @@
    "benefit": 6992,
    "rating": 5.0,
    "feedbacks": 29,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787362878
-  },
-  {
-   "id": 391271511,
-   "title": "Спортивные кроссовки для бега",
-   "brand": "IERDI",
-   "product": 5605,
-   "basic": 18320,
-   "discount": 69,
-   "benefit": 12715,
-   "rating": 4.9,
-   "feedbacks": 2196,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

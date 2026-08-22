@@ -449,6 +449,19 @@
  },
  "recent": [
   {
+   "pid": 856522280,
+   "title": "Кроссовки спортивные повседневные непромокаемые",
+   "discount": 68,
+   "price": 3243,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/856522280/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787369338,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 743235886,
    "title": "Кроссовки женские спортивные замшевые",
    "discount": 76,
@@ -1226,19 +1239,6 @@
    "ts": 1787199621,
    "drop": 0,
    "quality": "C"
-  },
-  {
-   "pid": 856522280,
-   "title": "Кроссовки спортивные повседневные непромокаемые",
-   "discount": 68,
-   "price": 3243,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/856522280/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787369338,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1342,7 +1342,7 @@
    "Зеркала",
    "Подвески"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

@@ -452,6 +452,19 @@
  },
  "recent": [
   {
+   "pid": 764414349,
+   "title": "Кроссовкие женские летние Унисекс 530",
+   "discount": 81,
+   "price": 2084,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/764414349/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787376702,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 432772286,
    "title": "кроссовки Air Force 1 форсы белые кеды",
    "discount": 80,
@@ -1216,32 +1229,6 @@
    "ts": 1787210060,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1136967687,
-   "title": "Телевизор 55 QLED S85, 4K UHD",
-   "discount": 60,
-   "price": 32399,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1136967687/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787206776,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 764414349,
-   "title": "Кроссовкие женские летние Унисекс 530",
-   "discount": 81,
-   "price": 2084,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/764414349/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787376702,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1268,10 +1255,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 14,
-   "rate_limited": 17,
-   "http_error": 6,
+   "calls": 41,
+   "ok": 19,
+   "rate_limited": 13,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -1332,7 +1319,7 @@
   "today": "2026-08-22",
   "today_posts": 9,
   "total_posts": 179,
-  "last_scan": 1787373628,
+  "last_scan": 1787376860,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1340,25 +1327,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Зеркала",
-   "Смазки и масла для инструмента",
    "Подвески",
-   "Бандажи"
+   "Бандажи",
+   "Зеркала",
+   "Смазки и масла для инструмента"
   ],
-  "queue_size": 97,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 62,
-   "ok": 121,
-   "rating": 15,
-   "bad_price": 2,
-   "strict": 121,
+   "found": 201,
+   "cards": 201,
+   "ok": 42,
+   "bad_price": 8,
+   "discount": 133,
+   "rating": 18,
+   "strict": 42,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 21,
-   "title_duplicate": 27
+   "title_duplicate": 10,
+   "duplicate": 10
   },
   "last_queue": {
    "queue_before": 98,
@@ -2675,9 +2662,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787373926.2737603,
-   "runs": 29,
-   "empty": 4
+   "ts": 1787377089.1656363,
+   "runs": 30,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -2729,21 +2716,21 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787373926.2737603,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787377089.1656363,
+   "runs": 10,
+   "empty": 5
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787373926.2737603,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787377089.1656363,
+   "runs": 10,
+   "empty": 5
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787373926.2737603,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787377089.1656363,
+   "runs": 10,
+   "empty": 5
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -2777,6 +2764,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1145334048,
+   "title": "Смартфон 16, 8 256ГБ",
+   "brand": "Realme",
+   "product": 19672,
+   "basic": 70133,
+   "discount": 72,
+   "benefit": 50461,
+   "rating": 5.0,
+   "feedbacks": 23,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787376860
+  },
+  {
+   "id": 1388313704,
+   "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
+   "brand": "",
+   "product": 5493,
+   "basic": 64626,
+   "discount": 92,
+   "benefit": 59133,
+   "rating": 5.0,
+   "feedbacks": 18,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787376860
+  },
   {
    "id": 337917838,
    "title": "Кроссовки Air Max Tn Plus трендовые унисекс",
@@ -3879,22 +3898,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787320254
-  },
-  {
-   "id": 1145334048,
-   "title": "Смартфон 16, 8 256ГБ",
-   "brand": "Realme",
-   "product": 19672,
-   "basic": 70133,
-   "discount": 72,
-   "benefit": 50461,
-   "rating": 5.0,
-   "feedbacks": 23,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787320254
   },
   {

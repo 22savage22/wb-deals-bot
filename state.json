@@ -1284,10 +1284,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 60,
-   "rate_limited": 2,
-   "http_error": 20,
+   "calls": 71,
+   "ok": 42,
+   "rate_limited": 13,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

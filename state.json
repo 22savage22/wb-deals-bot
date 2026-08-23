@@ -508,6 +508,19 @@
  },
  "recent": [
   {
+   "pid": 333725488,
+   "title": "Спортивные кроссовки ZX 750",
+   "discount": 82,
+   "price": 2808,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/333725488/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787507507,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 825716681,
    "title": "Наушники беспроводные с микрофоном",
    "discount": 76,
@@ -1258,32 +1271,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787371756,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 856522280,
-   "title": "Кроссовки спортивные повседневные непромокаемые",
-   "discount": 68,
-   "price": 3243,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/856522280/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787369338,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 333725488,
-   "title": "Спортивные кроссовки ZX 750",
-   "discount": 82,
-   "price": 2808,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/333725488/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787507507,
    "drop": 0,
    "quality": "A"
   }

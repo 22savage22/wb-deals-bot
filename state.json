@@ -490,6 +490,19 @@
  },
  "recent": [
   {
+   "pid": 1150671827,
+   "title": "Смартфон Redmi Note 15 Pro 4G, 12 512ГБ, global",
+   "discount": 55,
+   "price": 20704,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1150671827/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787463292,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1013085774,
    "title": "Игровой смартфон ROG Phone 8 Pro 16 512 ГБ 165 Гц",
    "discount": 64,
@@ -1242,32 +1255,6 @@
    "ts": 1787320988,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 242413810,
-   "title": "Кроссовки женские Forum 84 Low Orbit Grey",
-   "discount": 80,
-   "price": 1965,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/242413810/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787318295,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1150671827,
-   "title": "Смартфон Redmi Note 15 Pro 4G, 12 512ГБ, global",
-   "discount": 55,
-   "price": 20704,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1150671827/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787463292,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1294,10 +1281,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 20,
-   "rate_limited": 21,
-   "http_error": 5,
+   "calls": 42,
+   "ok": 24,
+   "rate_limited": 10,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1358,7 +1345,7 @@
   "today": "2026-08-23",
   "today_posts": 12,
   "total_posts": 218,
-  "last_scan": 1787454611,
+  "last_scan": 1787463361,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1366,25 +1353,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1890 - 1899 годов",
-   "Пледы",
    "Расчески парикмахерские",
-   "Гроубоксы"
+   "Гроубоксы",
+   "Репринтные издания 1890 - 1899 годов",
+   "Пледы"
   ],
-  "queue_size": 96,
-  "last_scan_added": 60,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "discount": 148,
-   "ok": 126,
-   "bad_price": 6,
-   "rating": 20,
-   "strict": 126,
+   "found": 301,
+   "cards": 301,
+   "discount": 181,
+   "ok": 77,
+   "bad_price": 10,
+   "rating": 33,
+   "strict": 77,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 19,
-   "title_duplicate": 27
+   "duplicate": 35,
+   "title_duplicate": 26
   },
   "last_queue": {
    "queue_before": 97,
@@ -2942,15 +2929,15 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787454974.515105,
-   "runs": 26,
-   "empty": 1
+   "ts": 1787463540.477515,
+   "runs": 27,
+   "empty": 2
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787454974.515105,
-   "runs": 26,
-   "empty": 1
+   "ts": 1787463540.477515,
+   "runs": 27,
+   "empty": 2
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -2984,9 +2971,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787454974.515105,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787463540.477515,
+   "runs": 17,
+   "empty": 2
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -3056,9 +3043,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787454974.515105,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787463540.477515,
+   "runs": 7,
+   "empty": 2
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -3086,6 +3073,70 @@
   }
  },
  "queue": [
+  {
+   "id": 1150658825,
+   "title": "Смартфон C85 Pro, 8 128ГБ",
+   "brand": "Realme",
+   "product": 12187,
+   "basic": 48277,
+   "discount": 75,
+   "benefit": 36090,
+   "rating": 4.7,
+   "feedbacks": 3,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787463361
+  },
+  {
+   "id": 1144841614,
+   "title": "Смартфон Phone (3), 16 512ГБ, global",
+   "brand": "Nothing",
+   "product": 34328,
+   "basic": 91788,
+   "discount": 63,
+   "benefit": 57460,
+   "rating": 5.0,
+   "feedbacks": 5,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787463361
+  },
+  {
+   "id": 1307944324,
+   "title": "Смартфон Poco X7 16ГБ+1ТБ Ростест (EAC) флагманский",
+   "brand": "",
+   "product": 7886,
+   "basic": 20618,
+   "discount": 62,
+   "benefit": 12732,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787463361
+  },
+  {
+   "id": 1226591800,
+   "title": "Смартфон Redmi Note 15 Pro+ 5G, 12 512ГБ, global",
+   "brand": "Xiaomi",
+   "product": 27887,
+   "basic": 69363,
+   "discount": 60,
+   "benefit": 41476,
+   "rating": 5.0,
+   "feedbacks": 4,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787463361
+  },
   {
    "id": 1093386666,
    "title": "Смартфон Z10 Lite Ростест (EAC) 16+1TB",
@@ -4044,22 +4095,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787408937
-  },
-  {
-   "id": 1150658825,
-   "title": "Смартфон C85 Pro, 8 128ГБ",
-   "brand": "Realme",
-   "product": 12187,
-   "basic": 48277,
-   "discount": 75,
-   "benefit": 36090,
-   "rating": 4.7,
-   "feedbacks": 3,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787408937
   },
   {

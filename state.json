@@ -505,6 +505,19 @@
  },
  "recent": [
   {
+   "pid": 886978503,
+   "title": "Наушники беспроводные для андроид iphone блютуз с микрофоном",
+   "discount": 94,
+   "price": 756,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/886978503/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787500235,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1142738794,
    "title": "Смартфон Povo5(EAC) 16ГБ+1ТБ OLEDЭкран 7.3\" андроид15",
    "discount": 54,
@@ -1270,19 +1283,6 @@
    "ts": 1787349533,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 886978503,
-   "title": "Наушники беспроводные для андроид iphone блютуз с микрофоном",
-   "discount": 94,
-   "price": 756,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/886978503/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787500235,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1386,7 +1386,7 @@
    "Гроубоксы",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 100,

@@ -518,6 +518,19 @@
  },
  "recent": [
   {
+   "pid": 206595740,
+   "title": "Кроссовки Gel NYC",
+   "discount": 76,
+   "price": 2863,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/206595740/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787524704,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 788894807,
    "title": "Кроссовки Nike initiator спортивные",
    "discount": 73,
@@ -1272,31 +1285,6 @@
    "cat": "кроссовки",
    "ts": 1787396618,
    "drop": 0
-  },
-  {
-   "pid": 773083840,
-   "title": "Наушники беспроводные A.Pods 2",
-   "discount": 80,
-   "price": 609,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/773083840/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787395279,
-   "drop": 1
-  },
-  {
-   "pid": 206595740,
-   "title": "Кроссовки Gel NYC",
-   "discount": 76,
-   "price": 2863,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/206595740/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787524704,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

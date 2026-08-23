@@ -504,6 +504,19 @@
  },
  "recent": [
   {
+   "pid": 1142738794,
+   "title": "Смартфон Povo5(EAC) 16ГБ+1ТБ OLEDЭкран 7.3\" андроид15",
+   "discount": 54,
+   "price": 9052,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/1142738794/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787498843,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 725395161,
    "title": "Смартфон M8 Pro 5G 12+512 Green РОСТЕСТ",
    "discount": 50,
@@ -1256,32 +1269,6 @@
    "ts": 1787349533,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1159067788,
-   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные черные",
-   "discount": 79,
-   "price": 2661,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1159067788/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787348222,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1142738794,
-   "title": "Смартфон Povo5(EAC) 16ГБ+1ТБ OLEDЭкран 7.3\" андроид15",
-   "discount": 54,
-   "price": 9052,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/1142738794/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787498843,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1308,10 +1295,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 67,
-   "rate_limited": 6,
-   "http_error": 22,
+   "calls": 26,
+   "ok": 7,
+   "rate_limited": 14,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -1372,7 +1359,7 @@
   "today": "2026-08-23",
   "today_posts": 26,
   "total_posts": 232,
-  "last_scan": 1787492276,
+  "last_scan": 1787498973,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1380,25 +1367,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Солнечные электростанции и комплектующие",
    "Кофе и цикорий",
    "Пробники",
-   "Расчески парикмахерские"
+   "Гроубоксы",
+   "Сделано в Республике Бурятия"
   ],
-  "queue_size": 96,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 382,
-   "ok": 313,
-   "rating": 57,
-   "bad_price": 48,
-   "strict": 313,
+   "found": 100,
+   "cards": 100,
+   "discount": 44,
+   "ok": 50,
+   "bad_price": 3,
+   "rating": 3,
+   "strict": 50,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 74,
-   "title_duplicate": 64
+   "duplicate": 7,
+   "title_duplicate": 6
   },
   "last_queue": {
    "queue_before": 97,
@@ -3096,9 +3083,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787474444.5536408,
-   "runs": 19,
-   "empty": 4
+   "ts": 1787499231.2272623,
+   "runs": 20,
+   "empty": 5
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -3198,9 +3185,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787492420.0932233,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787499231.2272623,
+   "runs": 4,
+   "empty": 4
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -3210,18 +3197,82 @@
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1787492420.0932233,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787499231.2272623,
+   "runs": 4,
+   "empty": 4
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
-   "ts": 1787489759.7682903,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787499231.2272623,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [
+  {
+   "id": 886978503,
+   "title": "Наушники беспроводные для андроид iphone блютуз с микрофоном",
+   "brand": "",
+   "product": 756,
+   "basic": 13500,
+   "discount": 94,
+   "benefit": 12744,
+   "rating": 4.8,
+   "feedbacks": 221,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787498973
+  },
+  {
+   "id": 961747165,
+   "title": "Наушники беспроводные с микрофоном для айфона и андроид",
+   "brand": "",
+   "product": 760,
+   "basic": 7920,
+   "discount": 90,
+   "benefit": 7160,
+   "rating": 4.7,
+   "feedbacks": 934,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787498973
+  },
+  {
+   "id": 825716681,
+   "title": "Наушники беспроводные с микрофоном",
+   "brand": "",
+   "product": 1134,
+   "basic": 4725,
+   "discount": 76,
+   "benefit": 3591,
+   "rating": 4.9,
+   "feedbacks": 1467,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787498973
+  },
+  {
+   "id": 582126766,
+   "title": "Наушники беспроводные вакуумные bluetooth сенсорные",
+   "brand": "7-electronics",
+   "product": 525,
+   "basic": 2500,
+   "discount": 79,
+   "benefit": 1975,
+   "rating": 4.7,
+   "feedbacks": 1186,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787498973
+  },
   {
    "id": 1073878518,
    "title": "Кроссовки спортивные женские летние",

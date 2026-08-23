@@ -489,6 +489,19 @@
  },
  "recent": [
   {
+   "pid": 1013085774,
+   "title": "Игровой смартфон ROG Phone 8 Pro 16 512 ГБ 165 Гц",
+   "discount": 64,
+   "price": 86639,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1013085774/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787460937,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1093710064,
    "title": "Демисезонные кроссовки на платформе",
    "discount": 70,
@@ -1239,32 +1252,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787318295,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 788468129,
-   "title": "2026 Hовые Большой экран телефон A56 5G",
-   "discount": 70,
-   "price": 12418,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/788468129/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787314641,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1013085774,
-   "title": "Игровой смартфон ROG Phone 8 Pro 16 512 ГБ 165 Гц",
-   "discount": 64,
-   "price": 86639,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1013085774/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787460937,
    "drop": 0,
    "quality": "A"
   }

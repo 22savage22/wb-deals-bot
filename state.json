@@ -1298,10 +1298,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 7,
-   "rate_limited": 14,
-   "http_error": 5,
+   "calls": 61,
+   "ok": 30,
+   "rate_limited": 15,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -1362,7 +1362,7 @@
   "today": "2026-08-23",
   "today_posts": 29,
   "total_posts": 235,
-  "last_scan": 1787498973,
+  "last_scan": 1787505990,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1370,25 +1370,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Кофе и цикорий",
    "Пробники",
-   "Гроубоксы",
+   "Солнечные электростанции и комплектующие",
+   "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 97,
-  "last_scan_added": 4,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "discount": 44,
-   "ok": 50,
-   "bad_price": 3,
-   "rating": 3,
-   "strict": 50,
+   "found": 300,
+   "cards": 300,
+   "discount": 105,
+   "ok": 156,
+   "bad_price": 27,
+   "rating": 12,
+   "strict": 156,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 7,
-   "title_duplicate": 6
+   "duplicate": 22,
+   "title_duplicate": 42
   },
   "last_queue": {
    "queue_before": 98,
@@ -3209,30 +3209,78 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787499231.2272623,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787506247.1512947,
+   "runs": 5,
+   "empty": 5
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
-   "ts": 1787492420.0932233,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787506247.1512947,
+   "runs": 5,
+   "empty": 5
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1787499231.2272623,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787506247.1512947,
+   "runs": 5,
+   "empty": 5
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
-   "ts": 1787499231.2272623,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787506247.1512947,
+   "runs": 5,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 333725488,
+   "title": "Спортивные кроссовки ZX 750",
+   "brand": "adidas",
+   "product": 2808,
+   "basic": 16000,
+   "discount": 82,
+   "benefit": 13192,
+   "rating": 4.7,
+   "feedbacks": 2337,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787505990
+  },
+  {
+   "id": 1000369622,
+   "title": "Кроссовки кеды Летние сеточные спортивные в зал",
+   "brand": "swane",
+   "product": 1743,
+   "basic": 11999,
+   "discount": 85,
+   "benefit": 10256,
+   "rating": 4.9,
+   "feedbacks": 11,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787505990
+  },
+  {
+   "id": 329392605,
+   "title": "Спортивные кроссовки чулки с натуральной кожей",
+   "brand": "NIKABERRY",
+   "product": 3053,
+   "basic": 15000,
+   "discount": 80,
+   "benefit": 11947,
+   "rating": 4.9,
+   "feedbacks": 158,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787505990
+  },
   {
    "id": 582126766,
    "title": "Наушники беспроводные вакуумные bluetooth сенсорные",

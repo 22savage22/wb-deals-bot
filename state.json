@@ -506,6 +506,19 @@
  },
  "recent": [
   {
+   "pid": 961747165,
+   "title": "Наушники беспроводные с микрофоном для айфона и андроид",
+   "discount": 90,
+   "price": 760,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/961747165/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787502698,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 886978503,
    "title": "Наушники беспроводные для андроид iphone блютуз с микрофоном",
    "discount": 94,
@@ -1258,32 +1271,6 @@
    "ts": 1787366548,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1252691121,
-   "title": "Смартфон F8 Ultra, 12 256ГБ, global",
-   "discount": 59,
-   "price": 45355,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252691121/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787351749,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 961747165,
-   "title": "Наушники беспроводные с микрофоном для айфона и андроид",
-   "discount": 90,
-   "price": 760,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/961747165/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787502698,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1304,7 +1291,7 @@
    "Тормозные барабаны"
   ],
   "digest_date": "2026-08-23",
-  "week_digest_ts": 1786897023.0,
+  "week_digest_ts": 1787503127.0,
   "last_funnel": {
    "published": 1,
    "selected": 1

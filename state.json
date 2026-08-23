@@ -517,6 +517,19 @@
  },
  "recent": [
   {
+   "pid": 788894807,
+   "title": "Кроссовки Nike initiator спортивные",
+   "discount": 73,
+   "price": 2737,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/788894807/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787522938,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1025847684,
    "title": "Кроссовки кеды летние Dunk спортивные",
    "discount": 73,
@@ -1270,31 +1283,6 @@
    "cat": "наушники",
    "ts": 1787395279,
    "drop": 1
-  },
-  {
-   "pid": 913230751,
-   "title": "Телевизор TV S Mini LED 98 2026 98\" Смарт",
-   "discount": 66,
-   "price": 268827,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/913230751/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787393334,
-   "drop": 0
-  },
-  {
-   "pid": 788894807,
-   "title": "Кроссовки Nike initiator спортивные",
-   "discount": 73,
-   "price": 2737,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/788894807/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787522938,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

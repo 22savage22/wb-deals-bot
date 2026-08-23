@@ -511,6 +511,19 @@
  },
  "recent": [
   {
+   "pid": 491674677,
+   "title": "Кроссовки легкие и удобные",
+   "discount": 84,
+   "price": 896,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/491674677/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787513520,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 993576226,
    "title": "Смартфон P70 Ultra 5G 16 ГБ+1024 ГБ 8000 мАч 144 Гц",
    "discount": 92,
@@ -1276,19 +1289,6 @@
    "ts": 1787376702,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 491674677,
-   "title": "Кроссовки легкие и удобные",
-   "discount": 84,
-   "price": 896,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/491674677/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787513520,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1392,7 +1392,7 @@
    "Восточные сладости",
    "Пылевыбивалки"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

@@ -1275,19 +1275,6 @@
    "ts": 1787376702,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 432772286,
-   "title": "кроссовки Air Force 1 форсы белые кеды",
-   "discount": 80,
-   "price": 2260,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/432772286/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787374238,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1314,10 +1301,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 62,
-   "rate_limited": 6,
-   "http_error": 17,
+   "calls": 84,
+   "ok": 63,
+   "rate_limited": 2,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0
   },
@@ -1378,7 +1365,7 @@
   "today": "2026-08-23",
   "today_posts": 32,
   "total_posts": 238,
-  "last_scan": 1787510367,
+  "last_scan": 1787513247,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1386,24 +1373,24 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Восточные сладости",
-   "Репринтные издания 1860 - 1869 годов",
    "Готовые строения и срубы",
+   "Репринтные издания 1860 - 1869 годов",
+   "Восточные сладости",
    "Пылевыбивалки"
   ],
   "queue_size": 60,
-  "last_scan_added": 4,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
-   "discount": 408,
-   "ok": 307,
-   "rating": 44,
+   "discount": 407,
+   "ok": 309,
+   "rating": 43,
    "bad_price": 41,
-   "strict": 307,
+   "strict": 309,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 63,
+   "duplicate": 68,
    "title_duplicate": 62
   },
   "last_queue": {
@@ -3078,15 +3065,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787510518.6154952,
-   "runs": 91,
-   "empty": 1
+   "ts": 1787513327.2764084,
+   "runs": 92,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787510518.6154952,
-   "runs": 86,
-   "empty": 1
+   "ts": 1787513327.2764084,
+   "runs": 87,
+   "empty": 2
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -3096,9 +3083,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787510518.6154952,
-   "runs": 51,
-   "empty": 1
+   "ts": 1787513327.2764084,
+   "runs": 52,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -3198,9 +3185,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787510518.6154952,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787513327.2764084,
+   "runs": 7,
+   "empty": 2
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -3270,6 +3257,22 @@
   }
  },
  "queue": [
+  {
+   "id": 491674677,
+   "title": "Кроссовки легкие и удобные",
+   "brand": "",
+   "product": 896,
+   "basic": 5600,
+   "discount": 84,
+   "benefit": 4704,
+   "rating": 5.0,
+   "feedbacks": 8,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787513247
+  },
   {
    "id": 377492848,
    "title": "Кроссовки кеды летние dunk sb pro jordan спортивные",

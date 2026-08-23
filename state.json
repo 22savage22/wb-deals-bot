@@ -1265,19 +1265,6 @@
    "ts": 1787342553,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 504141828,
-   "title": "Смартфон i16 Pro Max 12ГБ+512ГБ,6000 мАч",
-   "discount": 63,
-   "price": 4761,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/504141828/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787341393,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1304,10 +1291,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 59,
-   "rate_limited": 3,
-   "http_error": 18,
+   "calls": 95,
+   "ok": 67,
+   "rate_limited": 6,
+   "http_error": 22,
    "network_error": 0,
    "json_error": 0
   },
@@ -1368,7 +1355,7 @@
   "today": "2026-08-23",
   "today_posts": 22,
   "total_posts": 228,
-  "last_scan": 1787489647,
+  "last_scan": 1787492276,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1376,25 +1363,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Сделано в Республике Бурятия",
-   "Репринтные издания 1890 - 1899 годов",
-   "Пледы",
-   "Солнечные электростанции и комплектующие"
+   "Солнечные электростанции и комплектующие",
+   "Кофе и цикорий",
+   "Пробники",
+   "Расчески парикмахерские"
   ],
   "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 701,
-   "cards": 701,
-   "discount": 376,
-   "ok": 233,
-   "rating": 53,
-   "bad_price": 39,
-   "strict": 233,
+   "found": 800,
+   "cards": 800,
+   "discount": 382,
+   "ok": 313,
+   "rating": 57,
+   "bad_price": 48,
+   "strict": 313,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 64,
-   "title_duplicate": 49
+   "duplicate": 74,
+   "title_duplicate": 64
   },
   "last_queue": {
    "queue_before": 100,
@@ -3028,9 +3015,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787474444.5536408,
-   "runs": 29,
-   "empty": 4
+   "ts": 1787492420.0932233,
+   "runs": 30,
+   "empty": 5
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -3166,21 +3153,21 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787484591.0048048,
-   "runs": 2,
-   "empty": 2
-  },
-  "Солнечные электростанции и комплектующие": {
-   "shard": "electronic59",
-   "ts": 1787489759.7682903,
+   "ts": 1787492420.0932233,
    "runs": 3,
    "empty": 3
   },
+  "Солнечные электростанции и комплектующие": {
+   "shard": "electronic59",
+   "ts": 1787492420.0932233,
+   "runs": 4,
+   "empty": 4
+  },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1787484591.0048048,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787492420.0932233,
+   "runs": 3,
+   "empty": 3
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
@@ -3190,6 +3177,38 @@
   }
  },
  "queue": [
+  {
+   "id": 881908847,
+   "title": "Смартфон WP19 Pro, 8+256 Gb, 22000 mAh, ночная съемка",
+   "brand": "Oukitel",
+   "product": 24944,
+   "basic": 49600,
+   "discount": 50,
+   "benefit": 24656,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787492276
+  },
+  {
+   "id": 885048393,
+   "title": "Кроссовки Asics Gel-Kahana 8 мужские белые демисезонные",
+   "brand": "LEGANCE",
+   "product": 1977,
+   "basic": 10990,
+   "discount": 82,
+   "benefit": 9013,
+   "rating": 4.8,
+   "feedbacks": 629,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787492276
+  },
   {
    "id": 725395161,
    "title": "Смартфон M8 Pro 5G 12+512 Green РОСТЕСТ",
@@ -4752,22 +4771,6 @@
    "benefit": 6503,
    "rating": 4.9,
    "feedbacks": 12,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787454611
-  },
-  {
-   "id": 847108106,
-   "title": "Кроссовки женские синие замшевые",
-   "brand": "KRAUS Collection",
-   "product": 2491,
-   "basic": 8000,
-   "discount": 69,
-   "benefit": 5509,
-   "rating": 4.8,
-   "feedbacks": 30,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

@@ -492,6 +492,19 @@
  },
  "recent": [
   {
+   "pid": 869782339,
+   "title": "кроссовки женские летние",
+   "discount": 80,
+   "price": 2035,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/869782339/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787470822,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1150658825,
    "title": "Смартфон C85 Pro, 8 128ГБ",
    "discount": 75,
@@ -1242,32 +1255,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787326699,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1177193415,
-   "title": "Кроссовки летние дышащие спортивные",
-   "discount": 74,
-   "price": 1735,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1177193415/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787323924,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 869782339,
-   "title": "кроссовки женские летние",
-   "discount": 80,
-   "price": 2035,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/869782339/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787470822,
    "drop": 0,
    "quality": "A"
   }

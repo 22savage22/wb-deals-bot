@@ -1284,10 +1284,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 42,
-   "rate_limited": 13,
-   "http_error": 16,
+   "calls": 82,
+   "ok": 60,
+   "rate_limited": 2,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -1348,7 +1348,7 @@
   "today": "2026-08-23",
   "today_posts": 15,
   "total_posts": 221,
-  "last_scan": 1787467990,
+  "last_scan": 1787474372,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1357,24 +1357,24 @@
   ],
   "last_scan_cats": [
    "Репринтные издания 1890 - 1899 годов",
+   "Расчески парикмахерские",
    "Пледы",
-   "Гроубоксы",
-   "Расчески парикмахерские"
+   "Гроубоксы"
   ],
-  "queue_size": 97,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 500,
-   "cards": 500,
-   "discount": 180,
-   "ok": 270,
-   "bad_price": 36,
-   "rating": 14,
-   "strict": 270,
+   "found": 701,
+   "cards": 701,
+   "bad_price": 38,
+   "ok": 310,
+   "discount": 319,
+   "rating": 34,
+   "strict": 310,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 29,
-   "title_duplicate": 72
+   "duplicate": 45,
+   "title_duplicate": 81
   },
   "last_queue": {
    "queue_before": 98,
@@ -2953,15 +2953,15 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787468212.1573412,
-   "runs": 28,
-   "empty": 3
+   "ts": 1787474444.5536408,
+   "runs": 29,
+   "empty": 4
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787468212.1573412,
-   "runs": 28,
-   "empty": 3
+   "ts": 1787474444.5536408,
+   "runs": 29,
+   "empty": 4
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -2995,9 +2995,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787468212.1573412,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787474444.5536408,
+   "runs": 19,
+   "empty": 4
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -3067,9 +3067,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787468212.1573412,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787474444.5536408,
+   "runs": 9,
+   "empty": 4
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -3097,6 +3097,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1126353298,
+   "title": "Смартфон S24 Ultra 16ГБ+1ТБ Ростест (EAC) флагманский",
+   "brand": "ZUNYI",
+   "product": 10855,
+   "basic": 28799,
+   "discount": 62,
+   "benefit": 17944,
+   "rating": 4.7,
+   "feedbacks": 3,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787474372
+  },
+  {
+   "id": 760237293,
+   "title": "Кроссовки Nike Air Force 1 форсы черный",
+   "brand": "",
+   "product": 1969,
+   "basic": 12199,
+   "discount": 84,
+   "benefit": 10230,
+   "rating": 4.7,
+   "feedbacks": 2641,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787474372
+  },
   {
    "id": 1307944324,
    "title": "Смартфон Poco X7 16ГБ+1ТБ Ростест (EAC) флагманский",
@@ -4311,22 +4343,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787408937
-  },
-  {
-   "id": 1126353298,
-   "title": "Смартфон S24 Ultra 16ГБ+1ТБ Ростест (EAC) флагманский",
-   "brand": "ZUNYI",
-   "product": 10855,
-   "basic": 28799,
-   "discount": 62,
-   "benefit": 17944,
-   "rating": 4.7,
-   "feedbacks": 3,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787408937
   },
   {

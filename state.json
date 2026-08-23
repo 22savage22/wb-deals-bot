@@ -501,6 +501,19 @@
  },
  "recent": [
   {
+   "pid": 881908847,
+   "title": "Смартфон WP19 Pro, 8+256 Gb, 22000 mAh, ночная съемка",
+   "discount": 50,
+   "price": 24944,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/881908847/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787493336,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 492868161,
    "title": "Кроссовки зимние Air Jordan x Travis Scott \"Hoonigan\"",
    "discount": 88,
@@ -1266,19 +1279,6 @@
    "ts": 1787342553,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 881908847,
-   "title": "Смартфон WP19 Pro, 8+256 Gb, 22000 mAh, ночная съемка",
-   "discount": 50,
-   "price": 24944,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/881908847/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787493336,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1382,7 +1382,7 @@
    "Пробники",
    "Расчески парикмахерские"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 800,

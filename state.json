@@ -516,6 +516,19 @@
  },
  "recent": [
   {
+   "pid": 1025847684,
+   "title": "Кроссовки кеды летние Dunk спортивные",
+   "discount": 73,
+   "price": 2694,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1025847684/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787521737,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 785242604,
    "title": "Cмартфон i17 Pro Max 16GB 512GB",
    "discount": 86,
@@ -1268,32 +1281,6 @@
    "cat": "телевизор",
    "ts": 1787393334,
    "drop": 0
-  },
-  {
-   "pid": 1388313704,
-   "title": "Новый смартфон Power6 с объемом памяти 1024 ГБ Android 12",
-   "discount": 92,
-   "price": 5493,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1388313704/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787392009,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1025847684,
-   "title": "Кроссовки кеды летние Dunk спортивные",
-   "discount": 73,
-   "price": 2694,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1025847684/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787521737,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

@@ -1274,19 +1274,6 @@
    "ts": 1787374238,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1344164882,
-   "title": "Смартфон TECN0 Camom 40 Pro Max 12 1024 ГБ",
-   "discount": 92,
-   "price": 4953,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1344164882/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787371756,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1313,10 +1300,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 30,
-   "rate_limited": 15,
-   "http_error": 16,
+   "calls": 85,
+   "ok": 62,
+   "rate_limited": 6,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -1377,7 +1364,7 @@
   "today": "2026-08-23",
   "today_posts": 31,
   "total_posts": 237,
-  "last_scan": 1787505990,
+  "last_scan": 1787510367,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1385,25 +1372,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пробники",
-   "Солнечные электростанции и комплектующие",
-   "Кофе и цикорий",
-   "Сделано в Республике Бурятия"
+   "Восточные сладости",
+   "Репринтные издания 1860 - 1869 годов",
+   "Готовые строения и срубы",
+   "Пылевыбивалки"
   ],
-  "queue_size": 99,
-  "last_scan_added": 3,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "discount": 105,
-   "ok": 156,
-   "bad_price": 27,
-   "rating": 12,
-   "strict": 156,
+   "found": 800,
+   "cards": 800,
+   "discount": 408,
+   "ok": 307,
+   "rating": 44,
+   "bad_price": 41,
+   "strict": 307,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 22,
-   "title_duplicate": 42
+   "duplicate": 63,
+   "title_duplicate": 62
   },
   "last_queue": {
    "queue_before": 99,
@@ -3070,15 +3057,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787355331.2040024,
-   "runs": 90,
-   "empty": 5
+   "ts": 1787510518.6154952,
+   "runs": 91,
+   "empty": 1
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787355331.2040024,
-   "runs": 85,
-   "empty": 5
+   "ts": 1787510518.6154952,
+   "runs": 86,
+   "empty": 1
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -3088,9 +3075,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787355331.2040024,
-   "runs": 50,
-   "empty": 5
+   "ts": 1787510518.6154952,
+   "runs": 51,
+   "empty": 1
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -3190,9 +3177,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787330764.4057245,
-   "runs": 5,
-   "empty": 5
+   "ts": 1787510518.6154952,
+   "runs": 6,
+   "empty": 1
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -3262,6 +3249,70 @@
   }
  },
  "queue": [
+  {
+   "id": 993576226,
+   "title": "Смартфон P70 Ultra 5G 16 ГБ+1024 ГБ 8000 мАч 144 Гц",
+   "brand": "",
+   "product": 9136,
+   "basic": 107493,
+   "discount": 92,
+   "benefit": 98357,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787510367
+  },
+  {
+   "id": 377492848,
+   "title": "Кроссовки кеды летние dunk sb pro jordan спортивные",
+   "brand": "Nike Dunk",
+   "product": 2386,
+   "basic": 9999,
+   "discount": 76,
+   "benefit": 7613,
+   "rating": 4.8,
+   "feedbacks": 754,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787510367
+  },
+  {
+   "id": 1255556782,
+   "title": "Смартфон Pova 8 Pro Ростест (EAC) 16+1TB",
+   "brand": "",
+   "product": 10592,
+   "basic": 33019,
+   "discount": 68,
+   "benefit": 22427,
+   "rating": 5.0,
+   "feedbacks": 4,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787510367
+  },
+  {
+   "id": 836883243,
+   "title": "Осенние мужские кроссовки ZX750",
+   "brand": "adidas",
+   "product": 2200,
+   "basic": 12000,
+   "discount": 82,
+   "benefit": 9800,
+   "rating": 4.7,
+   "feedbacks": 52,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787510367
+  },
   {
    "id": 329392605,
    "title": "Спортивные кроссовки чулки с натуральной кожей",
@@ -4159,22 +4210,6 @@
    "queued_ts": 1787484462
   },
   {
-   "id": 993576226,
-   "title": "Смартфон P70 Ultra 5G 16 ГБ+1024 ГБ 8000 мАч 144 Гц",
-   "brand": "",
-   "product": 9136,
-   "basic": 107493,
-   "discount": 92,
-   "benefit": 98357,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
-   "queued_ts": 1787481090
-  },
-  {
    "id": 1344253247,
    "title": "Смартфон iphonc i16PRO.12+512 Гбит 5300 мАч",
    "brand": "",
@@ -4808,22 +4843,6 @@
    "benefit": 6254,
    "rating": 4.9,
    "feedbacks": 1977,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787454611
-  },
-  {
-   "id": 1080492368,
-   "title": "Кроссовки женские зимние на платформе",
-   "brand": "YOURBOX",
-   "product": 3131,
-   "basic": 9634,
-   "discount": 68,
-   "benefit": 6503,
-   "rating": 4.9,
-   "feedbacks": 12,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

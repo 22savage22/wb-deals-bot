@@ -515,6 +515,19 @@
  },
  "recent": [
   {
+   "pid": 785242604,
+   "title": "Cмартфон i17 Pro Max 16GB 512GB",
+   "discount": 86,
+   "price": 6768,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/785242604/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787520356,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 782726637,
    "title": "Кроссовки Air Force",
    "discount": 76,
@@ -1267,32 +1280,6 @@
    "ts": 1787392009,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 999709642,
-   "title": "Кроссовки на платформе демисезонные спортивные",
-   "discount": 83,
-   "price": 1522,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/999709642/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787389964,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 785242604,
-   "title": "Cмартфон i17 Pro Max 16GB 512GB",
-   "discount": 86,
-   "price": 6768,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/785242604/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787520356,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1319,10 +1306,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 62,
-   "rate_limited": 3,
-   "http_error": 17,
+   "calls": 32,
+   "ok": 11,
+   "rate_limited": 12,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -1383,7 +1370,7 @@
   "today": "2026-08-23",
   "today_posts": 37,
   "total_posts": 243,
-  "last_scan": 1787517086,
+  "last_scan": 1787520510,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1392,24 +1379,24 @@
   ],
   "last_scan_cats": [
    "Готовые строения и срубы",
-   "Репринтные издания 1860 - 1869 годов",
+   "Восточные сладости",
    "Пылевыбивалки",
-   "Восточные сладости"
+   "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 98,
-  "last_scan_added": 57,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 405,
-   "ok": 308,
-   "rating": 43,
-   "bad_price": 44,
-   "strict": 308,
+   "found": 100,
+   "cards": 100,
+   "ok": 75,
+   "discount": 9,
+   "bad_price": 11,
+   "rating": 5,
+   "strict": 75,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 46,
-   "title_duplicate": 60
+   "duplicate": 20,
+   "title_duplicate": 27
   },
   "last_queue": {
    "queue_before": 99,
@@ -3118,15 +3105,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787517199.6476266,
-   "runs": 93,
-   "empty": 3
+   "ts": 1787520751.0364084,
+   "runs": 94,
+   "empty": 4
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787517199.6476266,
-   "runs": 88,
-   "empty": 3
+   "ts": 1787520751.0364084,
+   "runs": 89,
+   "empty": 4
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -3136,9 +3123,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787517199.6476266,
-   "runs": 53,
-   "empty": 3
+   "ts": 1787520751.0364084,
+   "runs": 54,
+   "empty": 4
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -3238,9 +3225,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787517199.6476266,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787520751.0364084,
+   "runs": 9,
+   "empty": 4
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -3310,6 +3297,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1025847684,
+   "title": "Кроссовки кеды летние Dunk спортивные",
+   "brand": "Nike",
+   "product": 2694,
+   "basic": 10099,
+   "discount": 73,
+   "benefit": 7405,
+   "rating": 4.7,
+   "feedbacks": 1397,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787520510
+  },
+  {
+   "id": 788894807,
+   "title": "Кроссовки Nike initiator спортивные",
+   "brand": "vip-shoes",
+   "product": 2737,
+   "basic": 10000,
+   "discount": 73,
+   "benefit": 7263,
+   "rating": 4.6,
+   "feedbacks": 1210,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787520510
+  },
   {
    "id": 206595740,
    "title": "Кроссовки Gel NYC",
@@ -4463,22 +4482,6 @@
    "queued_ts": 1787484462
   },
   {
-   "id": 1025847684,
-   "title": "Кроссовки кеды летние Dunk спортивные",
-   "brand": "Nike",
-   "product": 2694,
-   "basic": 10099,
-   "discount": 73,
-   "benefit": 7405,
-   "rating": 4.7,
-   "feedbacks": 1382,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787484462
-  },
-  {
    "id": 739753565,
    "title": "Смартфон i16 Pro Max 16+512ГБ, 6.8 дюйма",
    "brand": "",
@@ -4520,22 +4523,6 @@
    "benefit": 8684,
    "rating": 4.9,
    "feedbacks": 8,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787484462
-  },
-  {
-   "id": 788894807,
-   "title": "Кроссовки Nike initiator спортивные",
-   "brand": "vip-shoes",
-   "product": 2737,
-   "basic": 10000,
-   "discount": 73,
-   "benefit": 7263,
-   "rating": 4.6,
-   "feedbacks": 1203,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

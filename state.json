@@ -507,6 +507,19 @@
  },
  "recent": [
   {
+   "pid": 825716681,
+   "title": "Наушники беспроводные с микрофоном",
+   "discount": 76,
+   "price": 1134,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/825716681/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787504355,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 961747165,
    "title": "Наушники беспроводные с микрофоном для айфона и андроид",
    "discount": 90,
@@ -1257,32 +1270,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787369338,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 743235886,
-   "title": "Кроссовки женские спортивные замшевые",
-   "discount": 76,
-   "price": 2456,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/743235886/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787366548,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 825716681,
-   "title": "Наушники беспроводные с микрофоном",
-   "discount": 76,
-   "price": 1134,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/825716681/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787504355,
    "drop": 0,
    "quality": "A"
   }

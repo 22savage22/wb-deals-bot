@@ -500,6 +500,19 @@
  },
  "recent": [
   {
+   "pid": 492868161,
+   "title": "Кроссовки зимние Air Jordan x Travis Scott \"Hoonigan\"",
+   "discount": 88,
+   "price": 1306,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/492868161/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787491440,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1244094364,
    "title": "Смартфон A56 Ultra 12+512Г Б телефон",
    "discount": 58,
@@ -1265,19 +1278,6 @@
    "ts": 1787341393,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 492868161,
-   "title": "Кроссовки зимние Air Jordan x Travis Scott \"Hoonigan\"",
-   "discount": 88,
-   "price": 1306,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/492868161/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787491440,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1381,7 +1381,7 @@
    "Пледы",
    "Солнечные электростанции и комплектующие"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 701,

@@ -503,6 +503,19 @@
  },
  "recent": [
   {
+   "pid": 725395161,
+   "title": "Смартфон M8 Pro 5G 12+512 Green РОСТЕСТ",
+   "discount": 50,
+   "price": 32332,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/725395161/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787496843,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 885048393,
    "title": "Кроссовки Asics Gel-Kahana 8 мужские белые демисезонные",
    "discount": 82,
@@ -1268,19 +1281,6 @@
    "ts": 1787346030,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 725395161,
-   "title": "Смартфон M8 Pro 5G 12+512 Green РОСТЕСТ",
-   "discount": 50,
-   "price": 32332,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/725395161/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787496843,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1384,7 +1384,7 @@
    "Пробники",
    "Расчески парикмахерские"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 800,

@@ -488,6 +488,19 @@
  },
  "recent": [
   {
+   "pid": 1093710064,
+   "title": "Демисезонные кроссовки на платформе",
+   "discount": 70,
+   "price": 4695,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1093710064/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787458251,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 549184447,
    "title": "Массивные кроссовки на высокой платформе",
    "discount": 70,
@@ -1238,32 +1251,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787314641,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 843325933,
-   "title": "Кроссовки женские adidas Forum low спортивные белые",
-   "discount": 85,
-   "price": 2100,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/843325933/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787312820,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1093710064,
-   "title": "Демисезонные кроссовки на платформе",
-   "discount": 70,
-   "price": 4695,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1093710064/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787458251,
    "drop": 0,
    "quality": "A"
   }

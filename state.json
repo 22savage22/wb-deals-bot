@@ -1313,10 +1313,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 11,
-   "rate_limited": 12,
-   "http_error": 9,
+   "calls": 29,
+   "ok": 8,
+   "rate_limited": 16,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -1377,7 +1377,7 @@
   "today": "2026-08-23",
   "today_posts": 41,
   "total_posts": 247,
-  "last_scan": 1787520510,
+  "last_scan": 1787527668,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1386,24 +1386,24 @@
   ],
   "last_scan_cats": [
    "Готовые строения и срубы",
-   "Восточные сладости",
    "Пылевыбивалки",
+   "Восточные сладости",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 95,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 100,
    "cards": 100,
-   "ok": 75,
-   "discount": 9,
-   "bad_price": 11,
-   "rating": 5,
-   "strict": 75,
+   "ok": 49,
+   "discount": 40,
+   "bad_price": 10,
+   "rating": 1,
+   "strict": 49,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 20,
-   "title_duplicate": 27
+   "duplicate": 11,
+   "title_duplicate": 9
   },
   "last_queue": {
    "queue_before": 95,
@@ -3140,15 +3140,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787520751.0364084,
-   "runs": 94,
-   "empty": 4
+   "ts": 1787527974.2171938,
+   "runs": 95,
+   "empty": 5
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787520751.0364084,
-   "runs": 89,
-   "empty": 4
+   "ts": 1787527974.2171938,
+   "runs": 90,
+   "empty": 5
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -3158,9 +3158,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787520751.0364084,
-   "runs": 54,
-   "empty": 4
+   "ts": 1787527974.2171938,
+   "runs": 55,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -3260,9 +3260,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787520751.0364084,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787527974.2171938,
+   "runs": 10,
+   "empty": 5
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -3332,6 +3332,70 @@
   }
  },
  "queue": [
+  {
+   "id": 177265907,
+   "title": "Наушники беспроводные клипсы для iPhone и Android",
+   "brand": "DMS",
+   "product": 2059,
+   "basic": 8152,
+   "discount": 75,
+   "benefit": 6093,
+   "rating": 5.0,
+   "feedbacks": 3313,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787527668
+  },
+  {
+   "id": 370860016,
+   "title": "Наушники беспроводные с микрофоном E-315B, стерео",
+   "brand": "Sven",
+   "product": 1579,
+   "basic": 6780,
+   "discount": 77,
+   "benefit": 5201,
+   "rating": 4.8,
+   "feedbacks": 1037,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787527668
+  },
+  {
+   "id": 317569899,
+   "title": "Наушники беспроводные сенсорные для телефона",
+   "brand": "FaizFull",
+   "product": 792,
+   "basic": 3300,
+   "discount": 76,
+   "benefit": 2508,
+   "rating": 4.9,
+   "feedbacks": 58552,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787527668
+  },
+  {
+   "id": 937491761,
+   "title": "Наушники беспроводные для iphone и android",
+   "brand": "",
+   "product": 1440,
+   "basic": 6000,
+   "discount": 76,
+   "benefit": 4560,
+   "rating": 4.7,
+   "feedbacks": 549,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787527668
+  },
   {
    "id": 1133410786,
    "title": "Кроссовки Travis Scott X Air Jordan 1 Low Hoonigan",

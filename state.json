@@ -499,6 +499,19 @@
  },
  "recent": [
   {
+   "pid": 1244094364,
+   "title": "Смартфон A56 Ultra 12+512Г Б телефон",
+   "discount": 58,
+   "price": 5394,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1244094364/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787489357,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 837733320,
    "title": "Кроссовки мужские dunk Low",
    "discount": 75,
@@ -1251,32 +1264,6 @@
    "ts": 1787341393,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 658634589,
-   "title": "Кроссовки летние дышащие сетка без шнурков",
-   "discount": 83,
-   "price": 2031,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/658634589/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787339771,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1244094364,
-   "title": "Смартфон A56 Ultra 12+512Г Б телефон",
-   "discount": 58,
-   "price": 5394,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1244094364/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787489357,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1303,10 +1290,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 93,
-   "ok": 65,
-   "rate_limited": 7,
-   "http_error": 21,
+   "calls": 80,
+   "ok": 59,
+   "rate_limited": 3,
+   "http_error": 18,
    "network_error": 0,
    "json_error": 0
   },
@@ -1367,7 +1354,7 @@
   "today": "2026-08-23",
   "today_posts": 21,
   "total_posts": 227,
-  "last_scan": 1787484462,
+  "last_scan": 1787489647,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1375,25 +1362,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Кофе и цикорий",
-   "Солнечные электростанции и комплектующие",
-   "Пробники",
-   "Сделано в Республике Бурятия"
+   "Сделано в Республике Бурятия",
+   "Репринтные издания 1890 - 1899 годов",
+   "Пледы",
+   "Солнечные электростанции и комплектующие"
   ],
-  "queue_size": 98,
-  "last_scan_added": 57,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 382,
-   "ok": 314,
+   "found": 701,
+   "cards": 701,
+   "discount": 376,
+   "ok": 233,
    "rating": 53,
-   "bad_price": 51,
-   "strict": 314,
+   "bad_price": 39,
+   "strict": 233,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 33,
-   "title_duplicate": 62
+   "duplicate": 64,
+   "title_duplicate": 49
   },
   "last_queue": {
    "queue_before": 99,
@@ -3014,9 +3001,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787474444.5536408,
-   "runs": 29,
-   "empty": 4
+   "ts": 1787489759.7682903,
+   "runs": 30,
+   "empty": 5
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -3128,9 +3115,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787474444.5536408,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787489759.7682903,
+   "runs": 10,
+   "empty": 5
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -3164,9 +3151,9 @@
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
-   "ts": 1787484591.0048048,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787489759.7682903,
+   "runs": 3,
+   "empty": 3
   },
   "Кофе и цикорий": {
    "shard": "product1",
@@ -3176,12 +3163,44 @@
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
-   "ts": 1787484591.0048048,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787489759.7682903,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 492868161,
+   "title": "Кроссовки зимние Air Jordan x Travis Scott \"Hoonigan\"",
+   "brand": "Nike",
+   "product": 1306,
+   "basic": 11000,
+   "discount": 88,
+   "benefit": 9694,
+   "rating": 4.7,
+   "feedbacks": 1461,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787489647
+  },
+  {
+   "id": 725395161,
+   "title": "Смартфон M8 Pro 5G 12+512 Green РОСТЕСТ",
+   "brand": "POCO",
+   "product": 32332,
+   "basic": 64173,
+   "discount": 50,
+   "benefit": 31841,
+   "rating": 5.0,
+   "feedbacks": 10,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787489647
+  },
   {
    "id": 1142738794,
    "title": "Смартфон Povo5(EAC) 16ГБ+1ТБ OLEDЭкран 7.3\" андроид15",

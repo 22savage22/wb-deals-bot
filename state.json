@@ -509,6 +509,19 @@
  },
  "recent": [
   {
+   "pid": 1000369622,
+   "title": "Кроссовки кеды Летние сеточные спортивные в зал",
+   "discount": 85,
+   "price": 1743,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1000369622/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787510159,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 333725488,
    "title": "Спортивные кроссовки ZX 750",
    "discount": 82,
@@ -1274,19 +1287,6 @@
    "ts": 1787371756,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1000369622,
-   "title": "Кроссовки кеды Летние сеточные спортивные в зал",
-   "discount": 85,
-   "price": 1743,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1000369622/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787510159,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1390,7 +1390,7 @@
    "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 98,
+  "queue_size": 99,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 300,

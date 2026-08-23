@@ -512,6 +512,19 @@
  },
  "recent": [
   {
+   "pid": 377492848,
+   "title": "Кроссовки кеды летние dunk sb pro jordan спортивные",
+   "discount": 76,
+   "price": 2386,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/377492848/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787514848,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 491674677,
    "title": "Кроссовки легкие и удобные",
    "discount": 84,
@@ -1277,19 +1290,6 @@
    "ts": 1787378367,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 377492848,
-   "title": "Кроссовки кеды летние dunk sb pro jordan спортивные",
-   "discount": 76,
-   "price": 2386,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/377492848/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787514848,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1393,7 +1393,7 @@
    "Восточные сладости",
    "Пылевыбивалки"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

@@ -1274,7 +1274,7 @@
   ],
   "learn_ts": 1787393673.484667,
   "empty_notice_ts": 1787253941.0,
-  "cats_ts": 1787388241.8143651,
+  "cats_ts": 1787481090.9669404,
   "last_cats": [
    "Туризм и страноведение",
    "Средства для мытья посуды и продуктов",
@@ -1287,10 +1287,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 42,
-   "rate_limited": 13,
-   "http_error": 16,
+   "calls": 44,
+   "ok": 21,
+   "rate_limited": 17,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -1351,7 +1351,7 @@
   "today": "2026-08-23",
   "today_posts": 18,
   "total_posts": 224,
-  "last_scan": 1787474372,
+  "last_scan": 1787481090,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1359,25 +1359,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1890 - 1899 годов",
-   "Расчески парикмахерские",
-   "Пледы",
-   "Гроубоксы"
+   "Пробники",
+   "Сделано в Республике Бурятия",
+   "Кофе и цикорий",
+   "Солнечные электростанции и комплектующие"
   ],
-  "queue_size": 95,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 701,
-   "cards": 701,
-   "bad_price": 38,
-   "ok": 310,
-   "discount": 319,
-   "rating": 34,
-   "strict": 310,
+   "found": 300,
+   "cards": 300,
+   "discount": 192,
+   "ok": 78,
+   "rating": 20,
+   "bad_price": 10,
+   "strict": 78,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 45,
-   "title_duplicate": 81
+   "duplicate": 15,
+   "title_duplicate": 6
   },
   "last_queue": {
    "queue_before": 96,
@@ -3118,9 +3118,81 @@
    "ts": 1787409049.9592118,
    "runs": 5,
    "empty": 5
+  },
+  "Пробники": {
+   "shard": "beauty47",
+   "ts": 1787481391.7712195,
+   "runs": 1,
+   "empty": 1
+  },
+  "Солнечные электростанции и комплектующие": {
+   "shard": "electronic59",
+   "ts": 1787481391.7712195,
+   "runs": 1,
+   "empty": 1
+  },
+  "Кофе и цикорий": {
+   "shard": "product1",
+   "ts": 1787481391.7712195,
+   "runs": 1,
+   "empty": 1
+  },
+  "Сделано в Республике Бурятия": {
+   "shard": "promo/bucket_28",
+   "ts": 1787481391.7712195,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 1343137311,
+   "title": "Смартфон S26 Ultra, 16 + 1024 ГБ, с подарком в комплекте",
+   "brand": "",
+   "product": 5493,
+   "basic": 64626,
+   "discount": 92,
+   "benefit": 59133,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787481090
+  },
+  {
+   "id": 993576226,
+   "title": "Смартфон P70 Ultra 5G 16 ГБ+1024 ГБ 8000 мАч 144 Гц",
+   "brand": "",
+   "product": 9136,
+   "basic": 107493,
+   "discount": 92,
+   "benefit": 98357,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787481090
+  },
+  {
+   "id": 1344253247,
+   "title": "Смартфон iphonc i16PRO.12+512 Гбит 5300 мАч",
+   "brand": "",
+   "product": 4953,
+   "basic": 58280,
+   "discount": 92,
+   "benefit": 53327,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787481090
+  },
   {
    "id": 1226591800,
    "title": "Смартфон Redmi Note 15 Pro+ 5G, 12 512ГБ, global",

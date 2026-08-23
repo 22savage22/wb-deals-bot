@@ -520,6 +520,19 @@
  },
  "recent": [
   {
+   "pid": 177265907,
+   "title": "Наушники беспроводные клипсы для iPhone и Android",
+   "discount": 75,
+   "price": 2059,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/177265907/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787529137,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 318729247,
    "title": "Смартфон Oscal Pilot 1, 6+256 Gb",
    "discount": 64,
@@ -1288,19 +1301,6 @@
    "cat": "телефон",
    "ts": 1787398381,
    "drop": 0
-  },
-  {
-   "pid": 177265907,
-   "title": "Наушники беспроводные клипсы для iPhone и Android",
-   "discount": 75,
-   "price": 2059,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/177265907/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787529137,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1404,7 +1404,7 @@
    "Восточные сладости",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 100,

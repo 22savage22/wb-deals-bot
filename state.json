@@ -514,6 +514,19 @@
  },
  "recent": [
   {
+   "pid": 782726637,
+   "title": "Кроссовки Air Force",
+   "discount": 76,
+   "price": 2386,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/782726637/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787518382,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1255556782,
    "title": "Смартфон Pova 8 Pro Ростест (EAC) 16+1TB",
    "discount": 68,
@@ -1264,32 +1277,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787389964,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 976565543,
-   "title": "Наушники беспроводные A pods Pro 3",
-   "discount": 79,
-   "price": 1658,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/976565543/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787385574,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 782726637,
-   "title": "Кроссовки Air Force",
-   "discount": 76,
-   "price": 2386,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/782726637/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787518382,
    "drop": 0,
    "quality": "A"
   }

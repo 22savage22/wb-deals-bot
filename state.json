@@ -491,6 +491,19 @@
  },
  "recent": [
   {
+   "pid": 1150658825,
+   "title": "Смартфон C85 Pro, 8 128ГБ",
+   "discount": 75,
+   "price": 12187,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1150658825/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787464806,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1150671827,
    "title": "Смартфон Redmi Note 15 Pro 4G, 12 512ГБ, global",
    "discount": 55,
@@ -1241,32 +1254,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787323924,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1288368656,
-   "title": "Смартфон infinix Smart 10 12 512ГБ",
-   "discount": 64,
-   "price": 8300,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1288368656/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787320988,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1150658825,
-   "title": "Смартфон C85 Pro, 8 128ГБ",
-   "discount": 75,
-   "price": 12187,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1150658825/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787464806,
    "drop": 0,
    "quality": "A"
   }

@@ -298,7 +298,8 @@
   "870506253": 1787589792,
   "717484390": 1787591925,
   "578559181": 1787594010,
-  "1337803328": 1787597273
+  "1337803328": 1787597273,
+  "934615564": 1787599160
  },
  "feedback": {
   "855179327": {
@@ -513,11 +514,11 @@
    "ts": 1787580450.1282332
   },
   "кроссовки": {
-   "posts": 153.0714812819576,
-   "likes": 5.716787422966491,
-   "dislikes": 1.9450798970353054,
+   "posts": 153.72986370053007,
+   "likes": 5.666681796159411,
+   "dislikes": 1.9280319573062061,
    "bought": 0.0,
-   "ts": 1787591965.777979
+   "ts": 1787599184.8357613
   },
   "телефон": {
    "posts": 92.05437134666468,
@@ -1312,10 +1313,23 @@
    "ts": 1787435743,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 934615564,
+   "title": "Кроссовки Initiator Slip Resistant Abrasion",
+   "discount": 74,
+   "price": 4210,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/934615564/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787599160,
+   "drop": 0,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1787597273,
+  "last_run": 1787599160,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -1400,8 +1414,8 @@
    }
   ],
   "today": "2026-08-24",
-  "today_posts": 25,
-  "total_posts": 267,
+  "today_posts": 26,
+  "total_posts": 268,
   "last_scan": 1787597475,
   "last_scan_queries": [
    "телефон",
@@ -1415,7 +1429,7 @@
    "Корм и лакомства",
    "Игрушки"
   ],
-  "queue_size": 60,
+  "queue_size": 98,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 800,
@@ -1431,9 +1445,9 @@
    "title_duplicate": 55
   },
   "last_queue": {
-   "queue_before": 97,
+   "queue_before": 99,
    "selected": 1,
-   "queue_after": 96
+   "queue_after": 98
   },
   "cats_count": 2305
  },
@@ -1704,7 +1718,8 @@
   "кроссовкиairforce1женские": 1787589792,
   "кроссовкиairforce1кедыбежевыедляшколы": 1787591925,
   "смартфонc6316гб1тб": 1787594010,
-  "смартфонsamsungs26ultra1024гб": 1787597273
+  "смартфонsamsungs26ultra1024гб": 1787597273,
+  "кроссовкиinitiatorslipresistantabrasion": 1787599160
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -1971,7 +1986,8 @@
   "8ecfcb9f9bc79fbf": 1787589792,
   "69697b372d4e98fc": 1787591925,
   "00169e1e1e1c3e1f": 1787594010,
-  "98187870f0e0c44c": 1787597273
+  "98187870f0e0c44c": 1787597273,
+  "dfe3e1e4d8b8f0e0": 1787599160
  },
  "learned": {},
  "prices": {
@@ -3299,6 +3315,11 @@
    "price": 5702,
    "basic": 12000,
    "ts": 1787597273.230767
+  },
+  "934615564": {
+   "price": 4210,
+   "basic": 16000,
+   "ts": 1787599160.6544454
   }
  },
  "cats": {
@@ -3520,22 +3541,6 @@
   }
  },
  "queue": [
-  {
-   "id": 934615564,
-   "title": "Кроссовки Initiator Slip Resistant Abrasion",
-   "brand": "Nike",
-   "product": 4210,
-   "basic": 16000,
-   "discount": 74,
-   "benefit": 11790,
-   "rating": 4.9,
-   "feedbacks": 8,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787597475
-  },
   {
    "id": 861060646,
    "title": "Кроссовки forum low",

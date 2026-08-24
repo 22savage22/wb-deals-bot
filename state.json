@@ -536,6 +536,19 @@
  },
  "recent": [
   {
+   "pid": 870506253,
+   "title": "Кроссовки Air Force 1 женские",
+   "discount": 81,
+   "price": 1895,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/870506253/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787589792,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 731714676,
    "title": "Кроссовки Air Force 1 форсы белые",
    "discount": 78,
@@ -1296,32 +1309,6 @@
    "ts": 1787431022,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 431036821,
-   "title": "Кроссовки женские samba спортивные кеды",
-   "discount": 83,
-   "price": 1496,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/431036821/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787428860,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 870506253,
-   "title": "Кроссовки Air Force 1 женские",
-   "discount": 81,
-   "price": 1895,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/870506253/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787589792,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1348,10 +1335,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 96,
-   "ok": 69,
-   "rate_limited": 2,
-   "http_error": 25,
+   "calls": 66,
+   "ok": 36,
+   "rate_limited": 15,
+   "http_error": 15,
    "network_error": 0,
    "json_error": 0
   },
@@ -1412,7 +1399,7 @@
   "today": "2026-08-24",
   "today_posts": 22,
   "total_posts": 264,
-  "last_scan": 1787583029,
+  "last_scan": 1787590044,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1420,25 +1407,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "ММА",
-   "Напитки",
+   "Игрушки",
+   "Костюмы и комбинезоны",
    "Обогреватели и вентиляторы",
-   "Игрушки"
+   "Травяные сборы"
   ],
-  "queue_size": 97,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 391,
-   "ok": 309,
-   "rating": 53,
-   "bad_price": 47,
-   "strict": 309,
+   "found": 400,
+   "cards": 400,
+   "discount": 250,
+   "ok": 105,
+   "bad_price": 22,
+   "rating": 23,
+   "strict": 105,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 107,
-   "title_duplicate": 71
+   "duplicate": 37,
+   "title_duplicate": 24
   },
   "last_queue": {
    "queue_before": 98,
@@ -3377,9 +3364,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787583100.3092864,
-   "runs": 19,
-   "empty": 4
+   "ts": 1787590340.374866,
+   "runs": 20,
+   "empty": 5
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -3437,9 +3424,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1787576893.0941944,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787590340.374866,
+   "runs": 10,
+   "empty": 5
   },
   "Коляски": {
    "shard": "children_things2",
@@ -3449,9 +3436,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1787576893.0941944,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787590340.374866,
+   "runs": 10,
+   "empty": 5
   },
   "Тросики": {
    "shard": "autoproduct56",
@@ -3485,9 +3472,9 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1787583100.3092864,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787590340.374866,
+   "runs": 4,
+   "empty": 4
   },
   "Напитки": {
    "shard": "ready_meals2",
@@ -3509,6 +3496,54 @@
   }
  },
  "queue": [
+  {
+   "id": 717484390,
+   "title": "Кроссовки air force 1 кеды бежевые для школы",
+   "brand": "Nike",
+   "product": 2749,
+   "basic": 9790,
+   "discount": 72,
+   "benefit": 7041,
+   "rating": 4.8,
+   "feedbacks": 238,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787590044
+  },
+  {
+   "id": 578559181,
+   "title": "Смартфон C63 16ГБ 1ТБ",
+   "brand": "",
+   "product": 8826,
+   "basic": 20011,
+   "discount": 56,
+   "benefit": 11185,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787590044
+  },
+  {
+   "id": 1337803328,
+   "title": "Смартфон Samsung S26 Ultra + 1024 ГБ",
+   "brand": "",
+   "product": 5702,
+   "basic": 12000,
+   "discount": 52,
+   "benefit": 6298,
+   "rating": 4.7,
+   "feedbacks": 68,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787590044
+  },
   {
    "id": 783529414,
    "title": "Смартфон S25 Ultra 16ГБ 1ТБ флагманский",
@@ -4463,22 +4498,6 @@
    "benefit": 7122,
    "rating": 4.6,
    "feedbacks": 1189,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787547229
-  },
-  {
-   "id": 717484390,
-   "title": "Кроссовки air force 1 кеды бежевые для школы",
-   "brand": "Nike",
-   "product": 2749,
-   "basic": 9790,
-   "discount": 72,
-   "benefit": 7041,
-   "rating": 4.8,
-   "feedbacks": 238,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

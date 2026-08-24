@@ -1326,10 +1326,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 0,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 86,
+   "ok": 64,
+   "rate_limited": 2,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -1390,7 +1390,7 @@
   "today": "2026-08-24",
   "today_posts": 13,
   "total_posts": 255,
-  "last_scan": 1787555554,
+  "last_scan": 1787561838,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1398,19 +1398,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Зеркала",
-   "Смазки и масла для инструмента",
-   "Краски автомобильные",
-   "Бандажи"
+   "Подвески",
+   "Костюмы и комбинезоны",
+   "Травяные сборы",
+   "Обогреватели и вентиляторы"
   ],
-  "queue_size": 96,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
+   "found": 800,
+   "cards": 800,
+   "discount": 393,
+   "ok": 320,
+   "rating": 53,
+   "bad_price": 34,
+   "strict": 320,
    "fallback": 0,
-   "reserve": 0
+   "reserve": 0,
+   "duplicate": 100,
+   "title_duplicate": 79
   },
   "last_queue": {
    "queue_before": 97,
@@ -3287,9 +3293,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787407160.1450934,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787561916.0411015,
+   "runs": 16,
+   "empty": 1
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -3311,9 +3317,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787377089.1656363,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787561916.0411015,
+   "runs": 11,
+   "empty": 1
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -3347,9 +3353,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1787399906.3766139,
-   "runs": 5,
-   "empty": 5
+   "ts": 1787561916.0411015,
+   "runs": 6,
+   "empty": 1
   },
   "Коляски": {
    "shard": "children_things2",
@@ -3359,9 +3365,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1787405866.7159526,
-   "runs": 5,
-   "empty": 5
+   "ts": 1787561916.0411015,
+   "runs": 6,
+   "empty": 1
   },
   "Тросики": {
    "shard": "autoproduct56",
@@ -3395,6 +3401,54 @@
   }
  },
  "queue": [
+  {
+   "id": 766097861,
+   "title": "Смартфон 5G i17 Pro Max NFC 16+1024GB игровые телефоны 5G",
+   "brand": "Bobarry",
+   "product": 9136,
+   "basic": 107493,
+   "discount": 92,
+   "benefit": 98357,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787561838
+  },
+  {
+   "id": 236806623,
+   "title": "Кроссовки Найк Air Max TN Plus летние дышащие",
+   "brand": "Nike",
+   "product": 2491,
+   "basic": 16900,
+   "discount": 85,
+   "benefit": 14409,
+   "rating": 4.5,
+   "feedbacks": 792,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787561838
+  },
+  {
+   "id": 982781692,
+   "title": "Смартфон IPhonё 17 Pro Max 12+512ГБ 0,5-кратный зум",
+   "brand": "YFQTXLW",
+   "product": 6329,
+   "basic": 32378,
+   "discount": 80,
+   "benefit": 26049,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787561838
+  },
   {
    "id": 549184026,
    "title": "Демисезонные кроссовки повседневные",

@@ -1305,19 +1305,6 @@
    "ts": 1787424011,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 403733889,
-   "title": "Наушники беспроводные AirPods 4 для iPhone и Android",
-   "discount": 88,
-   "price": 1694,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/403733889/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787421365,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1344,10 +1331,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 102,
-   "ok": 69,
-   "rate_limited": 10,
-   "http_error": 23,
+   "calls": 78,
+   "ok": 51,
+   "rate_limited": 9,
+   "http_error": 18,
    "network_error": 0,
    "json_error": 0
   },
@@ -1408,7 +1395,7 @@
   "today": "2026-08-24",
   "today_posts": 18,
   "total_posts": 260,
-  "last_scan": 1787576672,
+  "last_scan": 1787579825,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1417,24 +1404,24 @@
   ],
   "last_scan_cats": [
    "Корм и лакомства",
-   "Травяные сборы",
+   "ММА",
    "Напитки",
-   "Костюмы и комбинезоны"
+   "Подвески"
   ],
   "queue_size": 60,
-  "last_scan_added": 58,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 390,
-   "ok": 309,
-   "rating": 53,
-   "bad_price": 48,
-   "strict": 309,
+   "found": 600,
+   "cards": 600,
+   "discount": 269,
+   "ok": 275,
+   "bad_price": 35,
+   "rating": 21,
+   "strict": 275,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 48,
-   "title_duplicate": 72
+   "duplicate": 73,
+   "title_duplicate": 69
   },
   "last_queue": {
    "queue_before": 100,
@@ -3370,9 +3357,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787565560.0739694,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787580009.6986709,
+   "runs": 13,
+   "empty": 3
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -3460,24 +3447,40 @@
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1787576893.0941944,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787580009.6986709,
+   "runs": 3,
+   "empty": 3
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1787576893.0941944,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787580009.6986709,
+   "runs": 3,
+   "empty": 3
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1787568433.1742961,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787580009.6986709,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 920747737,
+   "title": "Наушники беспроводные большие с ушками",
+   "brand": "7-electronics",
+   "product": 920,
+   "basic": 4000,
+   "discount": 77,
+   "benefit": 3080,
+   "rating": 4.8,
+   "feedbacks": 50,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787579825
+  },
   {
    "id": 731714676,
    "title": "Кроссовки Air Force 1 форсы белые",

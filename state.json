@@ -532,6 +532,19 @@
  },
  "recent": [
   {
+   "pid": 845077125,
+   "title": "Кроссовки мужские весенние непромокаемые",
+   "discount": 76,
+   "price": 1902,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/845077125/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787577049,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1128325455,
    "title": "Смартфон Sunsamg Galaxy A56 12 512ГБ",
    "discount": 68,
@@ -1305,19 +1318,6 @@
    "ts": 1787421365,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 845077125,
-   "title": "Кроссовки мужские весенние непромокаемые",
-   "discount": 76,
-   "price": 1902,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/845077125/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787577049,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1421,7 +1421,7 @@
    "Напитки",
    "Костюмы и комбинезоны"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 58,
   "last_scan_funnel": {
    "found": 800,

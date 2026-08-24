@@ -537,6 +537,19 @@
  },
  "recent": [
   {
+   "pid": 717484390,
+   "title": "Кроссовки air force 1 кеды бежевые для школы",
+   "discount": 72,
+   "price": 2749,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/717484390/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787591925,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 870506253,
    "title": "Кроссовки Air Force 1 женские",
    "discount": 81,
@@ -1297,32 +1310,6 @@
    "ts": 1787432353,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1263897681,
-   "title": "Кроссовки Air Force 1форсы Nocta Certified Lover Boy",
-   "discount": 78,
-   "price": 2246,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1263897681/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787431022,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 717484390,
-   "title": "Кроссовки air force 1 кеды бежевые для школы",
-   "discount": 72,
-   "price": 2749,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/717484390/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787591925,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1349,10 +1336,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 36,
-   "rate_limited": 15,
-   "http_error": 15,
+   "calls": 19,
+   "ok": 0,
+   "rate_limited": 16,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -1413,7 +1400,7 @@
   "today": "2026-08-24",
   "today_posts": 23,
   "total_posts": 265,
-  "last_scan": 1787590044,
+  "last_scan": 1787593021,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1421,25 +1408,19 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Игрушки",
-   "Костюмы и комбинезоны",
-   "Обогреватели и вентиляторы",
-   "Травяные сборы"
+   "ММА",
+   "Корм и лакомства",
+   "Подвески",
+   "Напитки"
   ],
-  "queue_size": 98,
-  "last_scan_added": 3,
+  "queue_size": 58,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "discount": 250,
-   "ok": 105,
-   "bad_price": 22,
-   "rating": 23,
-   "strict": 105,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 37,
-   "title_duplicate": 24
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 99,
@@ -3409,9 +3390,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787580009.6986709,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787593320.8343325,
+   "runs": 14,
+   "empty": 4
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -3499,21 +3480,21 @@
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1787583100.3092864,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787593320.8343325,
+   "runs": 5,
+   "empty": 5
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1787580009.6986709,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787593320.8343325,
+   "runs": 4,
+   "empty": 4
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1787583100.3092864,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787593320.8343325,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [

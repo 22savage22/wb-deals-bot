@@ -521,6 +521,19 @@
  },
  "recent": [
   {
+   "pid": 370860016,
+   "title": "Наушники беспроводные с микрофоном E-315B, стерео",
+   "discount": 77,
+   "price": 1579,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/370860016/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787535578,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 177265907,
    "title": "Наушники беспроводные клипсы для iPhone и Android",
    "discount": 75,
@@ -1278,31 +1291,6 @@
    "cat": "телевизор",
    "ts": 1787403129,
    "drop": 1
-  },
-  {
-   "pid": 460877720,
-   "title": "Кроссовки кеды мужские reedok спортивные",
-   "discount": 80,
-   "price": 2035,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460877720/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787399757,
-   "drop": 0
-  },
-  {
-   "pid": 370860016,
-   "title": "Наушники беспроводные с микрофоном E-315B, стерео",
-   "discount": 77,
-   "price": 1579,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/370860016/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787535578,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1329,9 +1317,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 8,
-   "rate_limited": 16,
+   "calls": 23,
+   "ok": 6,
+   "rate_limited": 12,
    "http_error": 5,
    "network_error": 0,
    "json_error": 0
@@ -1393,7 +1381,7 @@
   "today": "2026-08-24",
   "today_posts": 7,
   "total_posts": 249,
-  "last_scan": 1787527668,
+  "last_scan": 1787536122,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1401,25 +1389,20 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Готовые строения и срубы",
-   "Пылевыбивалки",
-   "Восточные сладости",
-   "Репринтные издания 1860 - 1869 годов"
+   "Краски автомобильные",
+   "Смазки и масла для инструмента",
+   "Бандажи",
+   "Зеркала"
   ],
-  "queue_size": 96,
-  "last_scan_added": 4,
+  "queue_size": 56,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 49,
-   "discount": 40,
-   "bad_price": 10,
-   "rating": 1,
-   "strict": 49,
+   "found": 2,
+   "cards": 2,
+   "bad_price": 2,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 11,
-   "title_duplicate": 9
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 97,
@@ -3206,15 +3189,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787355331.2040024,
-   "runs": 25,
-   "empty": 5
+   "ts": 1787536336.285538,
+   "runs": 26,
+   "empty": 1
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787377089.1656363,
-   "runs": 30,
-   "empty": 5
+   "ts": 1787536336.285538,
+   "runs": 31,
+   "empty": 1
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -3266,15 +3249,15 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787377089.1656363,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787536336.285538,
+   "runs": 11,
+   "empty": 1
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787377089.1656363,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787536336.285538,
+   "runs": 11,
+   "empty": 1
   },
   "Подвески": {
    "shard": "bijouterie4",

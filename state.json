@@ -522,6 +522,19 @@
  },
  "recent": [
   {
+   "pid": 317569899,
+   "title": "Наушники беспроводные сенсорные для телефона",
+   "discount": 76,
+   "price": 792,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/317569899/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787539829,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 370860016,
    "title": "Наушники беспроводные с микрофоном E-315B, стерео",
    "discount": 77,
@@ -1280,31 +1293,6 @@
    "cat": "телефон",
    "ts": 1787405726,
    "drop": 0
-  },
-  {
-   "pid": 1241414627,
-   "title": "Телевизор Mini-LED S Pro Mini 65 (L65MB-SRU) 2026",
-   "discount": 68,
-   "price": 96772,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1241414627/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787403129,
-   "drop": 1
-  },
-  {
-   "pid": 317569899,
-   "title": "Наушники беспроводные сенсорные для телефона",
-   "discount": 76,
-   "price": 792,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/317569899/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787539829,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1331,10 +1319,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 6,
-   "rate_limited": 12,
-   "http_error": 5,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1395,7 +1383,7 @@
   "today": "2026-08-24",
   "today_posts": 8,
   "total_posts": 250,
-  "last_scan": 1787536122,
+  "last_scan": 1787541090,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1403,17 +1391,16 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Краски автомобильные",
-   "Смазки и масла для инструмента",
    "Бандажи",
-   "Зеркала"
+   "Краски автомобильные",
+   "Зеркала",
+   "Смазки и масла для инструмента"
   ],
-  "queue_size": 95,
+  "queue_size": 54,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 2,
-   "cards": 2,
-   "bad_price": 2,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -3210,15 +3197,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787536336.285538,
-   "runs": 26,
-   "empty": 1
+   "ts": 1787541322.1035209,
+   "runs": 27,
+   "empty": 2
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787536336.285538,
-   "runs": 31,
-   "empty": 1
+   "ts": 1787541322.1035209,
+   "runs": 32,
+   "empty": 2
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -3270,15 +3257,15 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787536336.285538,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787541322.1035209,
+   "runs": 12,
+   "empty": 2
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787536336.285538,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787541322.1035209,
+   "runs": 12,
+   "empty": 2
   },
   "Подвески": {
    "shard": "bijouterie4",

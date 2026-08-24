@@ -525,6 +525,19 @@
  },
  "recent": [
   {
+   "pid": 1054855598,
+   "title": "Смартфон SANSUNG S26 ULTRA，16+1024ГБ Хорошая фотография",
+   "discount": 67,
+   "price": 6439,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1054855598/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787552803,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 760027198,
    "title": "Кроссовки спортивные classic",
    "discount": 78,
@@ -1283,32 +1296,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787412368,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 479464545,
-   "title": "Кроссовки демисезонные кожаные",
-   "discount": 75,
-   "price": 2316,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/479464545/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787410420,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1054855598,
-   "title": "Смартфон SANSUNG S26 ULTRA，16+1024ГБ Хорошая фотография",
-   "discount": 67,
-   "price": 6439,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1054855598/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787552803,
    "drop": 0,
    "quality": "A"
   }

@@ -524,6 +524,19 @@
  },
  "recent": [
   {
+   "pid": 760027198,
+   "title": "Кроссовки спортивные classic",
+   "discount": 78,
+   "price": 2471,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/760027198/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787550118,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 937491761,
    "title": "Наушники беспроводные для iphone и android",
    "discount": 76,
@@ -1284,31 +1297,6 @@
    "ts": 1787410420,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 460877715,
-   "title": "Кеды",
-   "discount": 79,
-   "price": 2106,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/460877715/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787407032,
-   "drop": 0
-  },
-  {
-   "pid": 760027198,
-   "title": "Кроссовки спортивные classic",
-   "discount": 78,
-   "price": 2471,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/760027198/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787550118,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1335,10 +1323,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 7,
-   "rate_limited": 14,
-   "http_error": 5,
+   "calls": 56,
+   "ok": 35,
+   "rate_limited": 8,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1399,7 +1387,7 @@
   "today": "2026-08-24",
   "today_posts": 10,
   "total_posts": 252,
-  "last_scan": 1787547229,
+  "last_scan": 1787550288,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1407,25 +1395,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смазки и масла для инструмента",
-   "Бандажи",
    "Зеркала",
-   "Краски автомобильные"
+   "Бандажи",
+   "Краски автомобильные",
+   "Смазки и масла для инструмента"
   ],
-  "queue_size": 99,
-  "last_scan_added": 60,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "rating": 5,
-   "ok": 86,
-   "discount": 8,
-   "bad_price": 1,
-   "strict": 86,
+   "found": 401,
+   "cards": 401,
+   "discount": 169,
+   "ok": 172,
+   "bad_price": 26,
+   "rating": 34,
+   "strict": 172,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 20
+   "duplicate": 89,
+   "title_duplicate": 29
   },
   "last_queue": {
    "queue_before": 100,
@@ -3233,15 +3221,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787547480.4037554,
-   "runs": 28,
-   "empty": 3
+   "ts": 1787550453.6877184,
+   "runs": 29,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787547480.4037554,
-   "runs": 33,
-   "empty": 3
+   "ts": 1787550453.6877184,
+   "runs": 34,
+   "empty": 4
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -3293,15 +3281,15 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787547480.4037554,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787550453.6877184,
+   "runs": 14,
+   "empty": 4
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787547480.4037554,
-   "runs": 13,
-   "empty": 3
+   "ts": 1787550453.6877184,
+   "runs": 14,
+   "empty": 4
   },
   "Подвески": {
    "shard": "bijouterie4",
@@ -3389,6 +3377,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1054855598,
+   "title": "Смартфон SANSUNG S26 ULTRA，16+1024ГБ Хорошая фотография",
+   "brand": "",
+   "product": 6439,
+   "basic": 19427,
+   "discount": 67,
+   "benefit": 12988,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787550288
+  },
   {
    "id": 754751694,
    "title": "Кроссовки Air Force кеды черные",
@@ -4523,22 +4527,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787517086
-  },
-  {
-   "id": 1054855598,
-   "title": "Смартфон SANSUNG S26 ULTRA，16+1024ГБ Хорошая фотография",
-   "brand": "",
-   "product": 6439,
-   "basic": 19427,
-   "discount": 67,
-   "benefit": 12988,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787517086
   },
   {

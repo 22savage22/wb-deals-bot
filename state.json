@@ -1329,10 +1329,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 24,
-   "rate_limited": 13,
-   "http_error": 9,
+   "calls": 77,
+   "ok": 49,
+   "rate_limited": 11,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -1393,7 +1393,7 @@
   "today": "2026-08-24",
   "today_posts": 16,
   "total_posts": 258,
-  "last_scan": 1787568201,
+  "last_scan": 1787571376,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1401,24 +1401,24 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Травяные сборы",
+   "Обогреватели и вентиляторы",
    "Игрушки",
-   "Напитки",
-   "Корм и лакомства",
-   "ММА"
+   "Костюмы и комбинезоны"
   ],
-  "queue_size": 98,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "discount": 160,
-   "ok": 111,
-   "bad_price": 17,
-   "rating": 12,
-   "strict": 111,
+   "found": 600,
+   "cards": 600,
+   "discount": 374,
+   "ok": 147,
+   "rating": 45,
+   "bad_price": 34,
+   "strict": 147,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 20,
+   "duplicate": 37,
    "title_duplicate": 25
   },
   "last_queue": {
@@ -3317,9 +3317,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787565560.0739694,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787571547.9778361,
+   "runs": 18,
+   "empty": 3
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -3377,9 +3377,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1787565560.0739694,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787571547.9778361,
+   "runs": 8,
+   "empty": 3
   },
   "Коляски": {
    "shard": "children_things2",
@@ -3389,9 +3389,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1787565560.0739694,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787571547.9778361,
+   "runs": 8,
+   "empty": 3
   },
   "Тросики": {
    "shard": "autoproduct56",
@@ -3425,9 +3425,9 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1787568433.1742961,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787571547.9778361,
+   "runs": 2,
+   "empty": 2
   },
   "Напитки": {
    "shard": "ready_meals2",
@@ -3449,6 +3449,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1128325455,
+   "title": "Смартфон Sunsamg Galaxy A56 12 512ГБ",
+   "brand": "",
+   "product": 9303,
+   "basic": 29000,
+   "discount": 68,
+   "benefit": 19697,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787571376
+  },
   {
    "id": 1063312943,
    "title": "Беспроводные наушники Дропс с Алисой AI, IP54, белый",
@@ -4647,22 +4663,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787517086
-  },
-  {
-   "id": 1128325455,
-   "title": "Смартфон Sunsamg Galaxy A56 12 512ГБ",
-   "brand": "",
-   "product": 8300,
-   "basic": 23000,
-   "discount": 64,
-   "benefit": 14700,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787517086
   },
   {

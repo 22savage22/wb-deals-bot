@@ -545,6 +545,19 @@
  },
  "recent": [
   {
+   "pid": 492215788,
+   "title": "Наушники беспроводные A.Pods3 вкладыши, премиум",
+   "discount": 87,
+   "price": 791,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/492215788/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787609413,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1041570314,
    "title": "Наушники беспроводные для андроид и iphone с шумоподавлением",
    "discount": 85,
@@ -1309,31 +1322,6 @@
    "cat": "телефон",
    "ts": 1787451053,
    "drop": 0
-  },
-  {
-   "pid": 767453140,
-   "title": "A.PODS 4",
-   "discount": 92,
-   "price": 808,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/767453140/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787444883,
-   "drop": 0
-  },
-  {
-   "pid": 492215788,
-   "title": "Наушники беспроводные A.Pods3 вкладыши, премиум",
-   "discount": 87,
-   "price": 791,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/492215788/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787609413,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

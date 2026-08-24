@@ -541,6 +541,19 @@
  },
  "recent": [
   {
+   "pid": 439778028,
+   "title": "Наушники беспроводные шумоподавляющие с сенсорным экраном",
+   "discount": 82,
+   "price": 1048,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/439778028/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787601076,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 934615564,
    "title": "Кроссовки Initiator Slip Resistant Abrasion",
    "discount": 74,
@@ -1314,19 +1327,6 @@
    "ts": 1787437698,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 439778028,
-   "title": "Наушники беспроводные шумоподавляющие с сенсорным экраном",
-   "discount": 82,
-   "price": 1048,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/439778028/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787601076,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1430,7 +1430,7 @@
    "Защитные стекла для телефонов Xiaomi",
    "Коляски"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

@@ -1327,10 +1327,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 86,
-   "ok": 64,
-   "rate_limited": 2,
-   "http_error": 20,
+   "calls": 32,
+   "ok": 15,
+   "rate_limited": 10,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1391,7 +1391,7 @@
   "today": "2026-08-24",
   "today_posts": 14,
   "total_posts": 256,
-  "last_scan": 1787561838,
+  "last_scan": 1787565369,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1400,24 +1400,23 @@
   ],
   "last_scan_cats": [
    "Подвески",
-   "Костюмы и комбинезоны",
    "Травяные сборы",
+   "Костюмы и комбинезоны",
    "Обогреватели и вентиляторы"
   ],
-  "queue_size": 98,
-  "last_scan_added": 3,
+  "queue_size": 59,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 800,
-   "cards": 800,
-   "discount": 393,
-   "ok": 320,
-   "rating": 53,
-   "bad_price": 34,
-   "strict": 320,
+   "found": 200,
+   "cards": 200,
+   "discount": 189,
+   "ok": 3,
+   "bad_price": 6,
+   "rating": 2,
+   "strict": 3,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 100,
-   "title_duplicate": 79
+   "duplicate": 3
   },
   "last_queue": {
    "queue_before": 99,
@@ -3301,9 +3300,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787561916.0411015,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787565560.0739694,
+   "runs": 17,
+   "empty": 2
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -3325,9 +3324,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787561916.0411015,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787565560.0739694,
+   "runs": 12,
+   "empty": 2
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -3361,9 +3360,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1787561916.0411015,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787565560.0739694,
+   "runs": 7,
+   "empty": 2
   },
   "Коляски": {
    "shard": "children_things2",
@@ -3373,9 +3372,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1787561916.0411015,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787565560.0739694,
+   "runs": 7,
+   "empty": 2
   },
   "Тросики": {
    "shard": "autoproduct56",

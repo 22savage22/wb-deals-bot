@@ -540,6 +540,19 @@
  },
  "recent": [
   {
+   "pid": 934615564,
+   "title": "Кроссовки Initiator Slip Resistant Abrasion",
+   "discount": 74,
+   "price": 4210,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/934615564/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787599160,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1337803328,
    "title": "Смартфон Samsung S26 Ultra + 1024 ГБ",
    "discount": 52,
@@ -1300,32 +1313,6 @@
    "ts": 1787437698,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 959461343,
-   "title": "Кроссовки женские Коричневые SAMBA",
-   "discount": 78,
-   "price": 1958,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/959461343/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787435743,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 934615564,
-   "title": "Кроссовки Initiator Slip Resistant Abrasion",
-   "discount": 74,
-   "price": 4210,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/934615564/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787599160,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1352,10 +1339,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 99,
-   "ok": 70,
-   "rate_limited": 4,
-   "http_error": 25,
+   "calls": 92,
+   "ok": 68,
+   "rate_limited": 0,
+   "http_error": 24,
    "network_error": 0,
    "json_error": 0
   },
@@ -1416,7 +1403,7 @@
   "today": "2026-08-24",
   "today_posts": 26,
   "total_posts": 268,
-  "last_scan": 1787597475,
+  "last_scan": 1787600132,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1424,25 +1411,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "ММА",
-   "Подвески",
-   "Корм и лакомства",
-   "Игрушки"
+   "Смарт-часы и браслеты",
+   "Манежи детские",
+   "Защитные стекла для телефонов Xiaomi",
+   "Коляски"
   ],
-  "queue_size": 98,
-  "last_scan_added": 5,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
    "discount": 407,
-   "ok": 293,
-   "bad_price": 42,
-   "rating": 58,
-   "strict": 293,
+   "ok": 289,
+   "bad_price": 45,
+   "rating": 59,
+   "strict": 289,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 81,
-   "title_duplicate": 55
+   "duplicate": 83,
+   "title_duplicate": 54
   },
   "last_queue": {
    "queue_before": 99,
@@ -3397,15 +3384,15 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1787409049.9592118,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787600191.6879637,
+   "runs": 16,
+   "empty": 1
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1787409049.9592118,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787600191.6879637,
+   "runs": 16,
+   "empty": 1
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
@@ -3439,9 +3426,9 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787407160.1450934,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787600191.6879637,
+   "runs": 11,
+   "empty": 1
   },
   "Восточные сладости": {
    "shard": "product1",
@@ -3475,9 +3462,9 @@
   },
   "Коляски": {
    "shard": "children_things2",
-   "ts": 1787409049.9592118,
-   "runs": 5,
-   "empty": 5
+   "ts": 1787600191.6879637,
+   "runs": 6,
+   "empty": 1
   },
   "Травяные сборы": {
    "shard": "product1",
@@ -3541,6 +3528,22 @@
   }
  },
  "queue": [
+  {
+   "id": 439778028,
+   "title": "Наушники беспроводные шумоподавляющие с сенсорным экраном",
+   "brand": "KABIX",
+   "product": 1048,
+   "basic": 5760,
+   "discount": 82,
+   "benefit": 4712,
+   "rating": 4.9,
+   "feedbacks": 8558,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787600132
+  },
   {
    "id": 861060646,
    "title": "Кроссовки forum low",

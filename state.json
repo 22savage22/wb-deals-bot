@@ -527,6 +527,19 @@
  },
  "recent": [
   {
+   "pid": 754723975,
+   "title": "Кроссовки Air Force кеды",
+   "discount": 68,
+   "price": 2843,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/754723975/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787560274,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 754751694,
    "title": "Кроссовки Air Force кеды черные",
    "discount": 68,
@@ -1285,32 +1298,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787414971,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 391271511,
-   "title": "Спортивные кроссовки для бега",
-   "discount": 69,
-   "price": 5605,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391271511/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787413728,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 754723975,
-   "title": "Кроссовки Air Force кеды",
-   "discount": 68,
-   "price": 2843,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/754723975/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787560274,
    "drop": 0,
    "quality": "A"
   }

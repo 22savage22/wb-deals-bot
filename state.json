@@ -531,6 +531,19 @@
  },
  "recent": [
   {
+   "pid": 1128325455,
+   "title": "Смартфон Sunsamg Galaxy A56 12 512ГБ",
+   "discount": 68,
+   "price": 9303,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1128325455/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787572914,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 870205735,
    "title": "Airpods Pro 3 наушники беспроводные для iPhone и Android",
    "discount": 85,
@@ -1304,19 +1317,6 @@
    "ts": 1787420048,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1128325455,
-   "title": "Смартфон Sunsamg Galaxy A56 12 512ГБ",
-   "discount": 68,
-   "price": 9303,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1128325455/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787572914,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1420,7 +1420,7 @@
    "Игрушки",
    "Костюмы и комбинезоны"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 600,

@@ -523,6 +523,19 @@
  },
  "recent": [
   {
+   "pid": 937491761,
+   "title": "Наушники беспроводные для iphone и android",
+   "discount": 76,
+   "price": 1440,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/937491761/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787543873,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 317569899,
    "title": "Наушники беспроводные сенсорные для телефона",
    "discount": 76,
@@ -1282,31 +1295,6 @@
    "cat": "кроссовки",
    "ts": 1787407032,
    "drop": 0
-  },
-  {
-   "pid": 1343943432,
-   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
-   "discount": 92,
-   "price": 5493,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1343943432/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787405726,
-   "drop": 0
-  },
-  {
-   "pid": 937491761,
-   "title": "Наушники беспроводные для iphone и android",
-   "discount": 76,
-   "price": 1440,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/937491761/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787543873,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

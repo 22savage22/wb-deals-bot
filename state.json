@@ -539,6 +539,19 @@
  },
  "recent": [
   {
+   "pid": 1337803328,
+   "title": "Смартфон Samsung S26 Ultra + 1024 ГБ",
+   "discount": 52,
+   "price": 5702,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1337803328/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787597273,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 578559181,
    "title": "Смартфон C63 16ГБ 1ТБ",
    "discount": 56,
@@ -1299,32 +1312,6 @@
    "ts": 1787435743,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 239204747,
-   "title": "Кроссовки повседневные дышащие легкие для спорта и фитнеса",
-   "discount": 78,
-   "price": 3111,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/239204747/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787434399,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1337803328,
-   "title": "Смартфон Samsung S26 Ultra + 1024 ГБ",
-   "discount": 52,
-   "price": 5702,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1337803328/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787597273,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1351,10 +1338,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 19,
-   "ok": 0,
-   "rate_limited": 16,
-   "http_error": 3,
+   "calls": 99,
+   "ok": 70,
+   "rate_limited": 4,
+   "http_error": 25,
    "network_error": 0,
    "json_error": 0
   },
@@ -1415,7 +1402,7 @@
   "today": "2026-08-24",
   "today_posts": 25,
   "total_posts": 267,
-  "last_scan": 1787593021,
+  "last_scan": 1787597475,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1424,18 +1411,24 @@
   ],
   "last_scan_cats": [
    "ММА",
-   "Корм и лакомства",
    "Подвески",
-   "Напитки"
+   "Корм и лакомства",
+   "Игрушки"
   ],
-  "queue_size": 96,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 5,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
+   "found": 800,
+   "cards": 800,
+   "discount": 407,
+   "ok": 293,
+   "bad_price": 42,
+   "rating": 58,
+   "strict": 293,
    "fallback": 0,
-   "reserve": 0
+   "reserve": 0,
+   "duplicate": 81,
+   "title_duplicate": 55
   },
   "last_queue": {
    "queue_before": 97,
@@ -3419,9 +3412,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1787593320.8343325,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787597605.2981505,
+   "runs": 15,
+   "empty": 5
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -3503,9 +3496,9 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1787590340.374866,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787597605.2981505,
+   "runs": 5,
+   "empty": 5
   },
   "Напитки": {
    "shard": "ready_meals2",
@@ -3515,18 +3508,98 @@
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1787593320.8343325,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787597605.2981505,
+   "runs": 5,
+   "empty": 5
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1787593320.8343325,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787597605.2981505,
+   "runs": 5,
+   "empty": 5
   }
  },
  "queue": [
+  {
+   "id": 934615564,
+   "title": "Кроссовки Initiator Slip Resistant Abrasion",
+   "brand": "Nike",
+   "product": 4210,
+   "basic": 16000,
+   "discount": 74,
+   "benefit": 11790,
+   "rating": 4.9,
+   "feedbacks": 8,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787597475
+  },
+  {
+   "id": 861060646,
+   "title": "Кроссовки forum low",
+   "brand": "adidas",
+   "product": 1965,
+   "basic": 7000,
+   "discount": 72,
+   "benefit": 5035,
+   "rating": 4.7,
+   "feedbacks": 662,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787597475
+  },
+  {
+   "id": 492215788,
+   "title": "Наушники беспроводные A.Pods3 вкладыши, премиум",
+   "brand": "TECHNOROOM",
+   "product": 791,
+   "basic": 6180,
+   "discount": 87,
+   "benefit": 5389,
+   "rating": 4.9,
+   "feedbacks": 5231,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787597475
+  },
+  {
+   "id": 1128393133,
+   "title": "Новый смартфон Iphomei16 в различных цветах",
+   "brand": "",
+   "product": 4953,
+   "basic": 58280,
+   "discount": 92,
+   "benefit": 53327,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787597475
+  },
+  {
+   "id": 1005513121,
+   "title": "Наушники беспроводные airpods pro 2 копия для iphone андроид",
+   "brand": "Apple",
+   "product": 1040,
+   "basic": 10000,
+   "discount": 90,
+   "benefit": 8960,
+   "rating": 4.5,
+   "feedbacks": 120,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787597475
+  },
   {
    "id": 783529414,
    "title": "Смартфон S25 Ultra 16ГБ 1ТБ флагманский",
@@ -4488,22 +4561,6 @@
    "queued_ts": 1787547229
   },
   {
-   "id": 934615564,
-   "title": "Кроссовки Initiator Slip Resistant Abrasion",
-   "brand": "Nike",
-   "product": 4210,
-   "basic": 16000,
-   "discount": 74,
-   "benefit": 11790,
-   "rating": 4.9,
-   "feedbacks": 8,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787547229
-  },
-  {
    "id": 309379676,
    "title": "Кроссовки сетка летние",
    "brand": "Nike",
@@ -4609,22 +4666,6 @@
    "benefit": 7051,
    "rating": 4.8,
    "feedbacks": 1463,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
-   "queued_ts": 1787547229
-  },
-  {
-   "id": 861060646,
-   "title": "Кроссовки forum low",
-   "brand": "adidas",
-   "product": 1965,
-   "basic": 7000,
-   "discount": 72,
-   "benefit": 5035,
-   "rating": 4.7,
-   "feedbacks": 647,
    "category": "кроссовки",
    "selection_mode": "strict",
    "quality": "A",

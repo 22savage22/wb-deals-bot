@@ -538,6 +538,19 @@
  },
  "recent": [
   {
+   "pid": 578559181,
+   "title": "Смартфон C63 16ГБ 1ТБ",
+   "discount": 56,
+   "price": 8826,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/578559181/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787594010,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 717484390,
    "title": "Кроссовки air force 1 кеды бежевые для школы",
    "discount": 72,
@@ -1311,19 +1324,6 @@
    "ts": 1787432353,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 578559181,
-   "title": "Смартфон C63 16ГБ 1ТБ",
-   "discount": 56,
-   "price": 8826,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/578559181/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787594010,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1427,7 +1427,7 @@
    "Подвески",
    "Напитки"
   ],
-  "queue_size": 97,
+  "queue_size": 58,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

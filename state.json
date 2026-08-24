@@ -535,6 +535,19 @@
  },
  "recent": [
   {
+   "pid": 731714676,
+   "title": "Кроссовки Air Force 1 форсы белые",
+   "discount": 78,
+   "price": 2246,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/731714676/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787586731,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 463632699,
    "title": "Кроссовки Кеды Женские летние дышащие",
    "discount": 73,
@@ -1308,19 +1321,6 @@
    "ts": 1787427665,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 731714676,
-   "title": "Кроссовки Air Force 1 форсы белые",
-   "discount": 78,
-   "price": 2246,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/731714676/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787586731,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1424,7 +1424,7 @@
    "Обогреватели и вентиляторы",
    "Игрушки"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

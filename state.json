@@ -542,6 +542,19 @@
  },
  "recent": [
   {
+   "pid": 861060646,
+   "title": "Кроссовки forum low",
+   "discount": 72,
+   "price": 1965,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/861060646/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787603737,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 439778028,
    "title": "Наушники беспроводные шумоподавляющие с сенсорным экраном",
    "discount": 82,
@@ -1303,31 +1316,6 @@
    "cat": "телевизор",
    "ts": 1787441117,
    "drop": 0
-  },
-  {
-   "pid": 1185847489,
-   "title": "телефон кнопочный T08,3,0 дюйма,10 000 мАч,черное",
-   "discount": 77,
-   "price": 2727,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/1185847489/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787439144,
-   "drop": 0
-  },
-  {
-   "pid": 861060646,
-   "title": "Кроссовки forum low",
-   "discount": 72,
-   "price": 1965,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/861060646/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787603737,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1354,10 +1342,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 92,
-   "ok": 68,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 99,
+   "ok": 70,
+   "rate_limited": 3,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0
   },
@@ -1418,7 +1406,7 @@
   "today": "2026-08-24",
   "today_posts": 28,
   "total_posts": 270,
-  "last_scan": 1787600132,
+  "last_scan": 1787603958,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1426,25 +1414,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смарт-часы и браслеты",
    "Манежи детские",
+   "Коляски",
    "Защитные стекла для телефонов Xiaomi",
-   "Коляски"
+   "Смарт-часы и браслеты"
   ],
-  "queue_size": 97,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
-   "discount": 407,
-   "ok": 289,
-   "bad_price": 45,
+   "discount": 408,
+   "ok": 287,
+   "bad_price": 46,
    "rating": 59,
-   "strict": 289,
+   "strict": 287,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 83,
-   "title_duplicate": 54
+   "duplicate": 82,
+   "title_duplicate": 55
   },
   "last_queue": {
    "queue_before": 98,
@@ -3413,15 +3401,15 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1787600191.6879637,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787604048.9388025,
+   "runs": 17,
+   "empty": 2
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1787600191.6879637,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787604048.9388025,
+   "runs": 17,
+   "empty": 2
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
@@ -3455,9 +3443,9 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1787600191.6879637,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787604048.9388025,
+   "runs": 12,
+   "empty": 2
   },
   "Восточные сладости": {
    "shard": "product1",
@@ -3491,9 +3479,9 @@
   },
   "Коляски": {
    "shard": "children_things2",
-   "ts": 1787600191.6879637,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787604048.9388025,
+   "runs": 7,
+   "empty": 2
   },
   "Травяные сборы": {
    "shard": "product1",
@@ -3557,6 +3545,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1035706400,
+   "title": "Новый мобильный Cмартфон i17 Pro Max игровые телефон 5G",
+   "brand": "",
+   "product": 12418,
+   "basic": 40750,
+   "discount": 70,
+   "benefit": 28332,
+   "rating": 5.0,
+   "feedbacks": 5,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787603958
+  },
+  {
+   "id": 1041570314,
+   "title": "Наушники беспроводные для андроид и iphone с шумоподавлением",
+   "brand": "MILDSTORE",
+   "product": 880,
+   "basic": 5790,
+   "discount": 85,
+   "benefit": 4910,
+   "rating": 4.9,
+   "feedbacks": 7,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787603958
+  },
   {
    "id": 492215788,
    "title": "Наушники беспроводные A.Pods3 вкладыши, премиум",

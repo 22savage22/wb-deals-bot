@@ -533,6 +533,19 @@
  },
  "recent": [
   {
+   "pid": 920747737,
+   "title": "Наушники беспроводные большие с ушками",
+   "discount": 77,
+   "price": 920,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/920747737/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787580423,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 845077125,
    "title": "Кроссовки мужские весенние непромокаемые",
    "discount": 76,
@@ -1306,19 +1319,6 @@
    "ts": 1787424011,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 920747737,
-   "title": "Наушники беспроводные большие с ушками",
-   "discount": 77,
-   "price": 920,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/920747737/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787580423,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1422,7 +1422,7 @@
    "Напитки",
    "Подвески"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 600,

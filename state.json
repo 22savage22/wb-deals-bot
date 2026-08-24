@@ -544,6 +544,19 @@
  },
  "recent": [
   {
+   "pid": 1041570314,
+   "title": "Наушники беспроводные для андроид и iphone с шумоподавлением",
+   "discount": 85,
+   "price": 880,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1041570314/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787607740,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1035706400,
    "title": "Новый мобильный Cмартфон i17 Pro Max игровые телефон 5G",
    "discount": 70,
@@ -1307,31 +1320,6 @@
    "cat": "наушники",
    "ts": 1787444883,
    "drop": 0
-  },
-  {
-   "pid": 1100581935,
-   "title": "ПРЕМИУМ Кроссовки демисезонные кожаные",
-   "discount": 79,
-   "price": 2389,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1100581935/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787442501,
-   "drop": 0
-  },
-  {
-   "pid": 1041570314,
-   "title": "Наушники беспроводные для андроид и iphone с шумоподавлением",
-   "discount": 85,
-   "price": 880,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1041570314/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787607740,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {

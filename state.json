@@ -1324,10 +1324,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 56,
-   "ok": 35,
-   "rate_limited": 8,
-   "http_error": 13,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1388,7 +1388,7 @@
   "today": "2026-08-24",
   "today_posts": 11,
   "total_posts": 253,
-  "last_scan": 1787550288,
+  "last_scan": 1787555554,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1397,24 +1397,18 @@
   ],
   "last_scan_cats": [
    "Зеркала",
-   "Бандажи",
+   "Смазки и масла для инструмента",
    "Краски автомобильные",
-   "Смазки и масла для инструмента"
+   "Бандажи"
   ],
-  "queue_size": 98,
-  "last_scan_added": 1,
+  "queue_size": 59,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 401,
-   "cards": 401,
-   "discount": 169,
-   "ok": 172,
-   "bad_price": 26,
-   "rating": 34,
-   "strict": 172,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 89,
-   "title_duplicate": 29
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 99,
@@ -3229,15 +3223,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1787550453.6877184,
-   "runs": 29,
-   "empty": 4
+   "ts": 1787555801.7660596,
+   "runs": 30,
+   "empty": 5
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1787550453.6877184,
-   "runs": 34,
-   "empty": 4
+   "ts": 1787555801.7660596,
+   "runs": 35,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -3289,15 +3283,15 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1787550453.6877184,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787555801.7660596,
+   "runs": 15,
+   "empty": 5
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787550453.6877184,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787555801.7660596,
+   "runs": 15,
+   "empty": 5
   },
   "Подвески": {
    "shard": "bijouterie4",

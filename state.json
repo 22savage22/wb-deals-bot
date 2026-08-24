@@ -1315,7 +1315,7 @@
   ],
   "learn_ts": 1787393673.484667,
   "empty_notice_ts": 1787253941.0,
-  "cats_ts": 1787481090.9669404,
+  "cats_ts": 1787568201.2298124,
   "last_cats": [
    "Туризм и страноведение",
    "Средства для мытья посуды и продуктов",
@@ -1328,10 +1328,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 15,
-   "rate_limited": 10,
-   "http_error": 7,
+   "calls": 46,
+   "ok": 24,
+   "rate_limited": 13,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -1392,7 +1392,7 @@
   "today": "2026-08-24",
   "today_posts": 15,
   "total_posts": 257,
-  "last_scan": 1787565369,
+  "last_scan": 1787568201,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1400,24 +1400,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Подвески",
-   "Травяные сборы",
-   "Костюмы и комбинезоны",
-   "Обогреватели и вентиляторы"
+   "Игрушки",
+   "Напитки",
+   "Корм и лакомства",
+   "ММА"
   ],
-  "queue_size": 97,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "discount": 189,
-   "ok": 3,
-   "bad_price": 6,
-   "rating": 2,
-   "strict": 3,
+   "found": 300,
+   "cards": 300,
+   "discount": 160,
+   "ok": 111,
+   "bad_price": 17,
+   "rating": 12,
+   "strict": 111,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 3
+   "duplicate": 20,
+   "title_duplicate": 25
   },
   "last_queue": {
    "queue_before": 98,
@@ -3413,9 +3414,65 @@
    "ts": 1787506247.1512947,
    "runs": 5,
    "empty": 5
+  },
+  "Игрушки": {
+   "shard": "gift14",
+   "ts": 1787568433.1742961,
+   "runs": 1,
+   "empty": 1
+  },
+  "Напитки": {
+   "shard": "ready_meals2",
+   "ts": 1787568433.1742961,
+   "runs": 1,
+   "empty": 1
+  },
+  "Корм и лакомства": {
+   "shard": "zoo9",
+   "ts": 1787568433.1742961,
+   "runs": 1,
+   "empty": 1
+  },
+  "ММА": {
+   "shard": "sport32",
+   "ts": 1787568433.1742961,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 870205735,
+   "title": "Airpods Pro 3 наушники беспроводные для iPhone и Android",
+   "brand": "Apple",
+   "product": 1971,
+   "basic": 13005,
+   "discount": 85,
+   "benefit": 11034,
+   "rating": 4.9,
+   "feedbacks": 395,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787568201
+  },
+  {
+   "id": 1063312943,
+   "title": "Беспроводные наушники Дропс с Алисой AI, IP54, белый",
+   "brand": "Яндекс",
+   "product": 6704,
+   "basic": 38766,
+   "discount": 83,
+   "benefit": 32062,
+   "rating": 4.7,
+   "feedbacks": 302,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787568201
+  },
   {
    "id": 982781692,
    "title": "Смартфон IPhonё 17 Pro Max 12+512ГБ 0,5-кратный зум",

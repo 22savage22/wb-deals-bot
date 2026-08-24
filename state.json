@@ -534,6 +534,19 @@
  },
  "recent": [
   {
+   "pid": 463632699,
+   "title": "Кроссовки Кеды Женские летние дышащие",
+   "discount": 73,
+   "price": 2000,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/463632699/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787583552,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 920747737,
    "title": "Наушники беспроводные большие с ушками",
    "discount": 77,
@@ -1307,19 +1320,6 @@
    "ts": 1787425861,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 463632699,
-   "title": "Кроссовки Кеды Женские летние дышащие",
-   "discount": 73,
-   "price": 2000,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/463632699/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787583552,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1423,7 +1423,7 @@
    "Обогреватели и вентиляторы",
    "Игрушки"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

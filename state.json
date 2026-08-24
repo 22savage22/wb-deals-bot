@@ -1306,19 +1306,6 @@
    "ts": 1787425861,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 613875495,
-   "title": "Волейбольный кроссовки Gel-Rocket 10 асикс",
-   "discount": 72,
-   "price": 3369,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/613875495/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787424011,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1345,10 +1332,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 51,
-   "rate_limited": 9,
-   "http_error": 18,
+   "calls": 96,
+   "ok": 69,
+   "rate_limited": 2,
+   "http_error": 25,
    "network_error": 0,
    "json_error": 0
   },
@@ -1409,7 +1396,7 @@
   "today": "2026-08-24",
   "today_posts": 19,
   "total_posts": 261,
-  "last_scan": 1787579825,
+  "last_scan": 1787583029,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1417,25 +1404,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Корм и лакомства",
    "ММА",
    "Напитки",
-   "Подвески"
+   "Обогреватели и вентиляторы",
+   "Игрушки"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 600,
-   "cards": 600,
-   "discount": 269,
-   "ok": 275,
-   "bad_price": 35,
-   "rating": 21,
-   "strict": 275,
+   "found": 800,
+   "cards": 800,
+   "discount": 391,
+   "ok": 309,
+   "rating": 53,
+   "bad_price": 47,
+   "strict": 309,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 73,
-   "title_duplicate": 69
+   "duplicate": 107,
+   "title_duplicate": 71
   },
   "last_queue": {
    "queue_before": 100,
@@ -3354,9 +3341,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787571547.9778361,
-   "runs": 18,
-   "empty": 3
+   "ts": 1787583100.3092864,
+   "runs": 19,
+   "empty": 4
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -3462,15 +3449,15 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1787571547.9778361,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787583100.3092864,
+   "runs": 3,
+   "empty": 3
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1787580009.6986709,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787583100.3092864,
+   "runs": 4,
+   "empty": 4
   },
   "Корм и лакомства": {
    "shard": "zoo9",
@@ -3480,12 +3467,28 @@
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1787580009.6986709,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787583100.3092864,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 463632699,
+   "title": "Кроссовки Кеды Женские летние дышащие",
+   "brand": "LIFESTYLE SHOES",
+   "product": 2000,
+   "basic": 7500,
+   "discount": 73,
+   "benefit": 5500,
+   "rating": 4.8,
+   "feedbacks": 279,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787583029
+  },
   {
    "id": 731714676,
    "title": "Кроссовки Air Force 1 форсы белые",

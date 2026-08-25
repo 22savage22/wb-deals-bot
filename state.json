@@ -575,6 +575,19 @@
  },
  "recent": [
   {
+   "pid": 331675646,
+   "title": "Беспроводные наушники T520BT",
+   "discount": 69,
+   "price": 2201,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/331675646/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787701433,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 850923892,
    "title": "TWS наушники с экраном ANC Bluetooth 5.4",
    "discount": 80,
@@ -1337,32 +1350,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787521737,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 785242604,
-   "title": "Cмартфон i17 Pro Max 16GB 512GB",
-   "discount": 86,
-   "price": 6768,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/785242604/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787520356,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 331675646,
-   "title": "Беспроводные наушники T520BT",
-   "discount": 69,
-   "price": 2201,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/331675646/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787701433,
    "drop": 0,
    "quality": "A"
   }

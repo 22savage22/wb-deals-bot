@@ -570,6 +570,19 @@
  },
  "recent": [
   {
+   "pid": 1174003708,
+   "title": "Смартфон i17 pro max 5G 12+512 ГБ",
+   "discount": 58,
+   "price": 5624,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1174003708/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787692357,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1201086095,
    "title": "Наушники-клипсы Zombi Cat B3 Stella Orbis Красный, Red",
    "discount": 74,
@@ -1332,32 +1345,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787513520,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 993576226,
-   "title": "Смартфон P70 Ultra 5G 16 ГБ+1024 ГБ 8000 мАч 144 Гц",
-   "discount": 92,
-   "price": 9136,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/993576226/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787511756,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1174003708,
-   "title": "Смартфон i17 pro max 5G 12+512 ГБ",
-   "discount": 58,
-   "price": 5624,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1174003708/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787692357,
    "drop": 0,
    "quality": "A"
   }

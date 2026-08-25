@@ -548,6 +548,19 @@
  },
  "recent": [
   {
+   "pid": 549184026,
+   "title": "Демисезонные кроссовки повседневные",
+   "discount": 70,
+   "price": 3189,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/549184026/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787623435,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1005513121,
    "title": "Наушники беспроводные airpods pro 2 копия для iphone андроид",
    "discount": 93,
@@ -1310,32 +1323,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787460937,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1093710064,
-   "title": "Демисезонные кроссовки на платформе",
-   "discount": 70,
-   "price": 4695,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1093710064/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787458251,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 549184026,
-   "title": "Демисезонные кроссовки повседневные",
-   "discount": 70,
-   "price": 3189,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/549184026/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787623435,
    "drop": 0,
    "quality": "A"
   }

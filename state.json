@@ -1351,10 +1351,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 16,
-   "rate_limited": 13,
-   "http_error": 4,
+   "calls": 38,
+   "ok": 18,
+   "rate_limited": 12,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1415,7 +1415,7 @@
   "today": "2026-08-25",
   "today_posts": 6,
   "total_posts": 277,
-  "last_scan": 1787622176,
+  "last_scan": 1787627185,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1423,23 +1423,24 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Смарт-часы и браслеты",
-   "Коляски"
+   "Тросики",
+   "Матрасы-топперы",
+   "Серия Galaxy A",
+   "Мыши"
   ],
-  "queue_size": 99,
-  "last_scan_added": 57,
+  "queue_size": 56,
+  "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 201,
    "cards": 201,
-   "discount": 111,
-   "rating": 10,
-   "ok": 76,
+   "discount": 191,
+   "rating": 4,
+   "ok": 2,
    "bad_price": 4,
-   "strict": 76,
+   "strict": 2,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 16,
-   "duplicate": 3
+   "duplicate": 2
   },
   "last_queue": {
    "queue_before": 100,
@@ -3426,21 +3427,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787430819.4218187,
-   "runs": 20,
-   "empty": 5
+   "ts": 1787627394.7004426,
+   "runs": 21,
+   "empty": 1
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787430819.4218187,
-   "runs": 20,
-   "empty": 5
+   "ts": 1787627394.7004426,
+   "runs": 21,
+   "empty": 1
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787430819.4218187,
-   "runs": 20,
-   "empty": 5
+   "ts": 1787627394.7004426,
+   "runs": 21,
+   "empty": 1
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -3540,9 +3541,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1787409049.9592118,
-   "runs": 5,
-   "empty": 5
+   "ts": 1787627394.7004426,
+   "runs": 6,
+   "empty": 1
   },
   "Пробники": {
    "shard": "beauty47",

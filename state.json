@@ -552,6 +552,19 @@
  },
  "recent": [
   {
+   "pid": 1125330265,
+   "title": "Беспроводные наушники Pro 2",
+   "discount": 72,
+   "price": 1380,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1125330265/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787637785,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1163761752,
    "title": "Кроссовки 180",
    "discount": 80,
@@ -1314,32 +1327,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787472775,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 869782339,
-   "title": "кроссовки женские летние",
-   "discount": 80,
-   "price": 2035,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/869782339/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787470822,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1125330265,
-   "title": "Беспроводные наушники Pro 2",
-   "discount": 72,
-   "price": 1380,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1125330265/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787637785,
    "drop": 0,
    "quality": "A"
   }

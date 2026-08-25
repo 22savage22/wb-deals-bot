@@ -560,6 +560,19 @@
  },
  "recent": [
   {
+   "pid": 1244468831,
+   "title": "Наушники беспроводные A.Pods PRO 2 для iPhone и Android",
+   "discount": 93,
+   "price": 658,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/1244468831/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787663356,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1135004833,
    "title": "Кроссовки Asics GEL-PICKAX",
    "discount": 71,
@@ -1337,19 +1350,6 @@
    "ts": 1787491440,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1244468831,
-   "title": "Наушники беспроводные A.Pods PRO 2 для iPhone и Android",
-   "discount": 93,
-   "price": 658,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1244468831/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787663356,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1453,7 +1453,7 @@
    "Кронштейны",
    "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 793,

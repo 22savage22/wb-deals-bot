@@ -561,6 +561,19 @@
  },
  "recent": [
   {
+   "pid": 1185348975,
+   "title": "Смартфон GT 7T, 12 256ГБ, russia",
+   "discount": 67,
+   "price": 25762,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1185348975/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787666707,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1244468831,
    "title": "Наушники беспроводные A.Pods PRO 2 для iPhone и Android",
    "discount": 93,
@@ -1338,19 +1351,6 @@
    "ts": 1787493336,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1185348975,
-   "title": "Смартфон GT 7T, 12 256ГБ, russia",
-   "discount": 67,
-   "price": 25762,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1185348975/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787666707,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1454,7 +1454,7 @@
    "Кронштейны",
    "Пули для пневматики"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 793,

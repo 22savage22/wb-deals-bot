@@ -1355,10 +1355,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 26,
-   "rate_limited": 13,
-   "http_error": 12,
+   "calls": 72,
+   "ok": 44,
+   "rate_limited": 10,
+   "http_error": 18,
    "network_error": 0,
    "json_error": 0
   },
@@ -1419,7 +1419,7 @@
   "today": "2026-08-25",
   "today_posts": 10,
   "total_posts": 281,
-  "last_scan": 1787636298,
+  "last_scan": 1787641159,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1428,24 +1428,24 @@
   ],
   "last_scan_cats": [
    "Тросики",
-   "Мыши",
+   "Матрасы-топперы",
    "Серия Galaxy A",
-   "Матрасы-топперы"
+   "Мыши"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 299,
-   "cards": 299,
-   "ok": 191,
-   "rating": 19,
-   "discount": 71,
-   "bad_price": 18,
-   "strict": 191,
+   "found": 500,
+   "cards": 500,
+   "bad_price": 37,
+   "discount": 306,
+   "ok": 119,
+   "rating": 38,
+   "strict": 119,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 78,
-   "title_duplicate": 53
+   "duplicate": 33,
+   "title_duplicate": 23
   },
   "last_queue": {
    "queue_before": 100,
@@ -3460,21 +3460,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787636526.7131712,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787641341.507501,
+   "runs": 25,
+   "empty": 5
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787636526.7131712,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787641341.507501,
+   "runs": 25,
+   "empty": 5
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787636526.7131712,
-   "runs": 24,
-   "empty": 4
+   "ts": 1787641341.507501,
+   "runs": 25,
+   "empty": 5
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -3574,9 +3574,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1787636526.7131712,
-   "runs": 9,
-   "empty": 4
+   "ts": 1787641341.507501,
+   "runs": 10,
+   "empty": 5
   },
   "Пробники": {
    "shard": "beauty47",
@@ -3628,6 +3628,22 @@
   }
  },
  "queue": [
+  {
+   "id": 585319848,
+   "title": "Портативный телевизор со встроенным аккумулятором и тюнером",
+   "brand": "LEDSTAR",
+   "product": 10870,
+   "basic": 27850,
+   "discount": 61,
+   "benefit": 16980,
+   "rating": 4.8,
+   "feedbacks": 62,
+   "category": "телевизор",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телевизор",
+   "queued_ts": 1787641159
+  },
   {
    "id": 796764015,
    "title": "Наушники спортивные беспроводные на шею",

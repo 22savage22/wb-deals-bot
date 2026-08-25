@@ -558,6 +558,19 @@
  },
  "recent": [
   {
+   "pid": 681937151,
+   "title": "Спортивные кроссовки ZX 750 Великан",
+   "discount": 82,
+   "price": 3194,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/681937151/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787657594,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 989175126,
    "title": "Кроссовки OLD ORDER (ОКАИ) трендовый дизайн р-р 41-46",
    "discount": 81,
@@ -1320,32 +1333,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787489357,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 837733320,
-   "title": "Кроссовки мужские dunk Low",
-   "discount": 75,
-   "price": 2445,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/837733320/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787485887,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 681937151,
-   "title": "Спортивные кроссовки ZX 750 Великан",
-   "discount": 82,
-   "price": 3194,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/681937151/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787657594,
    "drop": 0,
    "quality": "A"
   }

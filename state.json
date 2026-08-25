@@ -568,6 +568,19 @@
  },
  "recent": [
   {
+   "pid": 972818156,
+   "title": "Кроссовки женские",
+   "discount": 79,
+   "price": 1895,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/972818156/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787688014,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 973818580,
    "title": "aндpoит тeлeфoн POVA 5 Pro 16 ГБ+ 1024 ГБ 120 Гц 5G GPS",
    "discount": 58,
@@ -1330,32 +1343,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787510159,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 333725488,
-   "title": "Спортивные кроссовки ZX 750",
-   "discount": 82,
-   "price": 2808,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/333725488/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787507507,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 972818156,
-   "title": "Кроссовки женские",
-   "discount": 79,
-   "price": 1895,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/972818156/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787688014,
    "drop": 0,
    "quality": "A"
   }

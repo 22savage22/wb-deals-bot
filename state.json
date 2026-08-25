@@ -1356,10 +1356,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 72,
-   "ok": 44,
-   "rate_limited": 10,
-   "http_error": 18,
+   "calls": 99,
+   "ok": 70,
+   "rate_limited": 3,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0
   },
@@ -1420,7 +1420,7 @@
   "today": "2026-08-25",
   "today_posts": 11,
   "total_posts": 282,
-  "last_scan": 1787641159,
+  "last_scan": 1787644219,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1428,25 +1428,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Тросики",
-   "Матрасы-топперы",
-   "Серия Galaxy A",
-   "Мыши"
+   "Средства индивидуальной защиты и экипировка",
+   "Средства для мытья посуды и продуктов",
+   "Тормозные барабаны",
+   "Туризм и страноведение"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 500,
-   "cards": 500,
-   "bad_price": 37,
-   "discount": 306,
-   "ok": 119,
-   "rating": 38,
-   "strict": 119,
+   "found": 799,
+   "cards": 799,
+   "bad_price": 54,
+   "discount": 361,
+   "ok": 328,
+   "rating": 56,
+   "strict": 328,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 33,
-   "title_duplicate": 23
+   "duplicate": 107,
+   "title_duplicate": 82
   },
   "last_queue": {
    "queue_before": 100,
@@ -3432,9 +3432,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787451403.6250849,
-   "runs": 50,
-   "empty": 5
+   "ts": 1787644305.3076954,
+   "runs": 51,
+   "empty": 1
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -3510,9 +3510,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787430819.4218187,
-   "runs": 15,
-   "empty": 5
+   "ts": 1787644305.3076954,
+   "runs": 16,
+   "empty": 1
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -3546,15 +3546,15 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787451403.6250849,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787644305.3076954,
+   "runs": 11,
+   "empty": 1
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1787451403.6250849,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787644305.3076954,
+   "runs": 11,
+   "empty": 1
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
@@ -3636,6 +3636,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1344714777,
+   "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
+   "brand": "oppo",
+   "product": 15677,
+   "basic": 67070,
+   "discount": 77,
+   "benefit": 51393,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787644219
+  },
   {
    "id": 796764015,
    "title": "Наушники спортивные беспроводные на шею",

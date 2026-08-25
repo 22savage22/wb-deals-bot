@@ -565,6 +565,19 @@
  },
  "recent": [
   {
+   "pid": 466000475,
+   "title": "Наушники беспроводные с микрофоном PRO 2",
+   "discount": 77,
+   "price": 1603,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/466000475/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787678419,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1073878518,
    "title": "Кроссовки спортивные женские летние",
    "discount": 84,
@@ -1342,19 +1355,6 @@
    "ts": 1787500235,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 466000475,
-   "title": "Наушники беспроводные с микрофоном PRO 2",
-   "discount": 77,
-   "price": 1603,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/466000475/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787678419,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1458,7 +1458,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Пули для пневматики"
   ],
-  "queue_size": 96,
+  "queue_size": 59,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

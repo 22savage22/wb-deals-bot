@@ -1338,19 +1338,6 @@
    "ts": 1787495333,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 881908847,
-   "title": "Смартфон WP19 Pro, 8+256 Gb, 22000 mAh, ночная съемка",
-   "discount": 50,
-   "price": 24944,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/881908847/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787493336,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1377,10 +1364,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 100,
-   "ok": 70,
-   "rate_limited": 4,
-   "http_error": 26,
+   "calls": 104,
+   "ok": 73,
+   "rate_limited": 2,
+   "http_error": 29,
    "network_error": 0,
    "json_error": 0
   },
@@ -1441,7 +1428,7 @@
   "today": "2026-08-25",
   "today_posts": 19,
   "total_posts": 290,
-  "last_scan": 1787666127,
+  "last_scan": 1787669601,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1449,25 +1436,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Пули для пневматики",
+   "Тормозные барабаны",
    "Репринтные издания 1840 - 1849 годов",
-   "Биотуалеты и аксессуары",
-   "Кронштейны",
-   "Пули для пневматики"
+   "Биотуалеты и аксессуары"
   ],
   "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 793,
    "cards": 793,
-   "ok": 313,
-   "rating": 71,
-   "discount": 321,
-   "bad_price": 88,
-   "strict": 313,
+   "ok": 320,
+   "rating": 70,
+   "discount": 319,
+   "bad_price": 84,
+   "strict": 320,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 96,
-   "title_duplicate": 76
+   "duplicate": 98,
+   "title_duplicate": 78
   },
   "last_queue": {
    "queue_before": 100,
@@ -3621,9 +3608,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787654573.7278414,
-   "runs": 14,
-   "empty": 4
+   "ts": 1787669681.155509,
+   "runs": 15,
+   "empty": 5
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -3717,24 +3704,40 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1787666222.2466426,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787669681.155509,
+   "runs": 3,
+   "empty": 3
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1787666222.2466426,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787669681.155509,
+   "runs": 3,
+   "empty": 3
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
-   "ts": 1787666222.2466426,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787669681.155509,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [
+  {
+   "id": 951307360,
+   "title": "Кроссовки мужские текстильные кеды на белой подошве",
+   "brand": "SKULL LOFT",
+   "product": 3970,
+   "basic": 12976,
+   "discount": 69,
+   "benefit": 9006,
+   "rating": 5.0,
+   "feedbacks": 192,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787669601
+  },
   {
    "id": 1215543609,
    "title": "Смартфон Reno16, 12 256ГБ",

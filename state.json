@@ -571,6 +571,19 @@
  },
  "recent": [
   {
+   "pid": 672244330,
+   "title": "Телефон кнопочный для пожилых",
+   "discount": 60,
+   "price": 960,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/672244330/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787694489,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1174003708,
    "title": "Смартфон i17 pro max 5G 12+512 ГБ",
    "discount": 58,
@@ -1333,32 +1346,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787514848,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 491674677,
-   "title": "Кроссовки легкие и удобные",
-   "discount": 84,
-   "price": 896,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/491674677/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787513520,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 672244330,
-   "title": "Телефон кнопочный для пожилых",
-   "discount": 60,
-   "price": 960,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/672244330/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787694489,
    "drop": 0,
    "quality": "A"
   }

@@ -1342,19 +1342,6 @@
    "ts": 1787502698,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 886978503,
-   "title": "Наушники беспроводные для андроид iphone блютуз с микрофоном",
-   "discount": 94,
-   "price": 756,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/886978503/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787500235,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1381,10 +1368,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 0,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 109,
+   "ok": 74,
+   "rate_limited": 6,
+   "http_error": 29,
    "network_error": 0,
    "json_error": 0
   },
@@ -1445,7 +1432,7 @@
   "today": "2026-08-25",
   "today_posts": 23,
   "total_posts": 294,
-  "last_scan": 1787673069,
+  "last_scan": 1787679442,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1453,19 +1440,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства индивидуальной защиты и экипировка",
-   "Средства для мытья посуды и продуктов",
-   "Репринтные издания 1840 - 1849 годов",
-   "Пули для пневматики"
+   "Кронштейны",
+   "Биотуалеты и аксессуары",
+   "Пули для пневматики",
+   "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 59,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "strict": 0,
+   "found": 792,
+   "cards": 792,
+   "ok": 310,
+   "rating": 68,
+   "discount": 328,
+   "bad_price": 86,
+   "strict": 310,
    "fallback": 0,
-   "reserve": 0
+   "reserve": 0,
+   "duplicate": 90,
+   "title_duplicate": 72
   },
   "last_queue": {
    "queue_before": 97,
@@ -3737,30 +3730,94 @@
   },
   "Кронштейны": {
    "shard": "housecraft6",
-   "ts": 1787666222.2466426,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787679589.7045827,
+   "runs": 3,
+   "empty": 3
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1787673314.0220408,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787679589.7045827,
+   "runs": 5,
+   "empty": 5
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1787673314.0220408,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787679589.7045827,
+   "runs": 5,
+   "empty": 5
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
-   "ts": 1787669681.155509,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787679589.7045827,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [
+  {
+   "id": 1187029458,
+   "title": "Смартфон V70, 8 256ГБ, russia",
+   "brand": "VIVO",
+   "product": 26825,
+   "basic": 95635,
+   "discount": 72,
+   "benefit": 68810,
+   "rating": 4.6,
+   "feedbacks": 9,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787679442
+  },
+  {
+   "id": 173192675,
+   "title": "Кроссовки Adidas South Park x Campus 80 Towelie",
+   "brand": "House Sneakers",
+   "product": 1457,
+   "basic": 8650,
+   "discount": 83,
+   "benefit": 7193,
+   "rating": 4.6,
+   "feedbacks": 1089,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787679442
+  },
+  {
+   "id": 994118135,
+   "title": "Наушники беспроводные для айфон A.Pods Pro",
+   "brand": "",
+   "product": 629,
+   "basic": 2916,
+   "discount": 78,
+   "benefit": 2287,
+   "rating": 4.9,
+   "feedbacks": 4269,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787679442
+  },
+  {
+   "id": 1090873748,
+   "title": "Note 60, 7.2\" 120 Гц, 16 ГБ, 128 ГБ, Серый",
+   "brand": "Cubot",
+   "product": 7757,
+   "basic": 21833,
+   "discount": 64,
+   "benefit": 14076,
+   "rating": 5.0,
+   "feedbacks": 27,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787679442
+  },
   {
    "id": 1067280819,
    "title": "Смартфон Reaine Note 70X 12 512ГБ",

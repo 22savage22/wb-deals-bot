@@ -1357,10 +1357,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 99,
+   "calls": 103,
    "ok": 70,
    "rate_limited": 3,
-   "http_error": 26,
+   "http_error": 30,
    "network_error": 0,
    "json_error": 0
   },
@@ -1421,7 +1421,7 @@
   "today": "2026-08-25",
   "today_posts": 12,
   "total_posts": 283,
-  "last_scan": 1787644219,
+  "last_scan": 1787647922,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1429,25 +1429,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства индивидуальной защиты и экипировка",
    "Средства для мытья посуды и продуктов",
+   "Средства индивидуальной защиты и экипировка",
    "Тормозные барабаны",
    "Туризм и страноведение"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 799,
-   "cards": 799,
-   "bad_price": 54,
-   "discount": 361,
-   "ok": 328,
-   "rating": 56,
-   "strict": 328,
+   "found": 701,
+   "cards": 701,
+   "bad_price": 62,
+   "discount": 345,
+   "ok": 247,
+   "rating": 47,
+   "strict": 247,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 107,
-   "title_duplicate": 82
+   "duplicate": 97,
+   "title_duplicate": 47
   },
   "last_queue": {
    "queue_before": 100,
@@ -3440,9 +3440,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787644305.3076954,
-   "runs": 51,
-   "empty": 1
+   "ts": 1787648015.6707573,
+   "runs": 52,
+   "empty": 2
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -3518,9 +3518,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787644305.3076954,
-   "runs": 16,
-   "empty": 1
+   "ts": 1787648015.6707573,
+   "runs": 17,
+   "empty": 2
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -3554,15 +3554,15 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787644305.3076954,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787648015.6707573,
+   "runs": 12,
+   "empty": 2
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1787644305.3076954,
-   "runs": 11,
-   "empty": 1
+   "ts": 1787648015.6707573,
+   "runs": 12,
+   "empty": 2
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
@@ -3644,6 +3644,22 @@
   }
  },
  "queue": [
+  {
+   "id": 411234490,
+   "title": "Кроссовки",
+   "brand": "CITY STORE",
+   "product": 2106,
+   "basic": 10000,
+   "discount": 79,
+   "benefit": 7894,
+   "rating": 4.7,
+   "feedbacks": 719,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787647922
+  },
   {
    "id": 796764015,
    "title": "Наушники спортивные беспроводные на шею",

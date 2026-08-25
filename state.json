@@ -1337,19 +1337,6 @@
    "ts": 1787493336,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 492868161,
-   "title": "Кроссовки зимние Air Jordan x Travis Scott \"Hoonigan\"",
-   "discount": 88,
-   "price": 1306,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/492868161/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787491440,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1376,10 +1363,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 68,
+   "calls": 100,
+   "ok": 70,
    "rate_limited": 4,
-   "http_error": 22,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0
   },
@@ -1440,7 +1427,7 @@
   "today": "2026-08-25",
   "today_posts": 18,
   "total_posts": 289,
-  "last_scan": 1787662882,
+  "last_scan": 1787666127,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1448,25 +1435,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пули для пневматики",
+   "Репринтные издания 1840 - 1849 годов",
    "Биотуалеты и аксессуары",
    "Кронштейны",
-   "Репринтные издания 1840 - 1849 годов"
+   "Пули для пневматики"
   ],
   "queue_size": 60,
-  "last_scan_added": 7,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 793,
    "cards": 793,
-   "ok": 324,
+   "ok": 313,
    "rating": 71,
-   "discount": 328,
-   "bad_price": 70,
-   "strict": 324,
+   "discount": 321,
+   "bad_price": 88,
+   "strict": 313,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 92,
-   "title_duplicate": 79
+   "duplicate": 96,
+   "title_duplicate": 76
   },
   "last_queue": {
    "queue_before": 100,
@@ -3703,30 +3690,46 @@
   },
   "Кронштейны": {
    "shard": "housecraft6",
-   "ts": 1787663010.8577378,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787666222.2466426,
+   "runs": 2,
+   "empty": 2
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1787663010.8577378,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787666222.2466426,
+   "runs": 2,
+   "empty": 2
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1787663010.8577378,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787666222.2466426,
+   "runs": 2,
+   "empty": 2
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
-   "ts": 1787663010.8577378,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787666222.2466426,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [
+  {
+   "id": 1185348975,
+   "title": "Смартфон GT 7T, 12 256ГБ, russia",
+   "brand": "Realme",
+   "product": 25762,
+   "basic": 78725,
+   "discount": 67,
+   "benefit": 52963,
+   "rating": 5.0,
+   "feedbacks": 29,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787666127
+  },
   {
    "id": 1215543609,
    "title": "Смартфон Reno16, 12 256ГБ",

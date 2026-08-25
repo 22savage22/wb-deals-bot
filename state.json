@@ -572,6 +572,19 @@
  },
  "recent": [
   {
+   "pid": 823075295,
+   "title": "Наушники беспроводные для iphone",
+   "discount": 77,
+   "price": 575,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/823075295/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787695906,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 672244330,
    "title": "Телефон кнопочный для пожилых",
    "discount": 60,
@@ -1334,32 +1347,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787516909,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 377492848,
-   "title": "Кроссовки кеды летние dunk sb pro jordan спортивные",
-   "discount": 76,
-   "price": 2386,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/377492848/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787514848,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 823075295,
-   "title": "Наушники беспроводные для iphone",
-   "discount": 77,
-   "price": 575,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/823075295/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787695906,
    "drop": 0,
    "quality": "A"
   }

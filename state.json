@@ -553,6 +553,19 @@
  },
  "recent": [
   {
+   "pid": 585319848,
+   "title": "Портативный телевизор со встроенным аккумулятором и тюнером",
+   "discount": 61,
+   "price": 10870,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/585319848/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787641567,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1125330265,
    "title": "Беспроводные наушники Pro 2",
    "discount": 72,
@@ -1315,32 +1328,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787475186,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1144841614,
-   "title": "Смартфон Phone (3), 16 512ГБ, global",
-   "discount": 63,
-   "price": 34328,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1144841614/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787472775,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 585319848,
-   "title": "Портативный телевизор со встроенным аккумулятором и тюнером",
-   "discount": 61,
-   "price": 10870,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/585319848/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787641567,
    "drop": 0,
    "quality": "A"
   }

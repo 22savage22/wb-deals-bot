@@ -573,6 +573,19 @@
  },
  "recent": [
   {
+   "pid": 710540547,
+   "title": "Наушники беспроводные большие AP-B325MV с Bluetooth и ANC",
+   "discount": 76,
+   "price": 907,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/710540547/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787698156,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 823075295,
    "title": "Наушники беспроводные для iphone",
    "discount": 77,
@@ -1335,32 +1348,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787518382,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1255556782,
-   "title": "Смартфон Pova 8 Pro Ростест (EAC) 16+1TB",
-   "discount": 68,
-   "price": 10592,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1255556782/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787516909,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 710540547,
-   "title": "Наушники беспроводные большие AP-B325MV с Bluetooth и ANC",
-   "discount": 76,
-   "price": 907,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/710540547/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787698156,
    "drop": 0,
    "quality": "A"
   }

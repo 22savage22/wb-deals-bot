@@ -551,6 +551,19 @@
  },
  "recent": [
   {
+   "pid": 1163761752,
+   "title": "Кроссовки 180",
+   "discount": 80,
+   "price": 2749,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1163761752/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787636148,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 582126766,
    "title": "Наушники беспроводные вакуумные bluetooth сенсорные",
    "discount": 79,
@@ -1315,32 +1328,6 @@
    "ts": 1787470822,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1150658825,
-   "title": "Смартфон C85 Pro, 8 128ГБ",
-   "discount": 75,
-   "price": 12187,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1150658825/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787464806,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1163761752,
-   "title": "Кроссовки 180",
-   "discount": 80,
-   "price": 2749,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1163761752/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787636148,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1367,10 +1354,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 22,
-   "rate_limited": 19,
-   "http_error": 8,
+   "calls": 51,
+   "ok": 26,
+   "rate_limited": 13,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -1431,7 +1418,7 @@
   "today": "2026-08-25",
   "today_posts": 9,
   "total_posts": 280,
-  "last_scan": 1787633210,
+  "last_scan": 1787636298,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1439,25 +1426,25 @@
    "наушники"
   ],
   "last_scan_cats": [
+   "Тросики",
    "Мыши",
    "Серия Galaxy A",
-   "Матрасы-топперы",
-   "Тросики"
+   "Матрасы-топперы"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 299,
    "cards": 299,
-   "discount": 152,
-   "rating": 13,
-   "ok": 122,
-   "bad_price": 12,
-   "strict": 122,
+   "ok": 191,
+   "rating": 19,
+   "discount": 71,
+   "bad_price": 18,
+   "strict": 191,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 24,
-   "title_duplicate": 37
+   "duplicate": 78,
+   "title_duplicate": 53
   },
   "last_queue": {
    "queue_before": 100,
@@ -3465,21 +3452,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787633550.4418857,
-   "runs": 23,
-   "empty": 3
+   "ts": 1787636526.7131712,
+   "runs": 24,
+   "empty": 4
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787633550.4418857,
-   "runs": 23,
-   "empty": 3
+   "ts": 1787636526.7131712,
+   "runs": 24,
+   "empty": 4
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787633550.4418857,
-   "runs": 23,
-   "empty": 3
+   "ts": 1787636526.7131712,
+   "runs": 24,
+   "empty": 4
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -3579,9 +3566,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1787633550.4418857,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787636526.7131712,
+   "runs": 9,
+   "empty": 4
   },
   "Пробники": {
    "shard": "beauty47",
@@ -3633,6 +3620,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1125330265,
+   "title": "Беспроводные наушники Pro 2",
+   "brand": "",
+   "product": 1380,
+   "basic": 4930,
+   "discount": 72,
+   "benefit": 3550,
+   "rating": 4.8,
+   "feedbacks": 3751,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787636298
+  },
   {
    "id": 796764015,
    "title": "Наушники спортивные беспроводные на шею",

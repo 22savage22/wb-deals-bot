@@ -1339,19 +1339,6 @@
    "ts": 1787496843,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 885048393,
-   "title": "Кроссовки Asics Gel-Kahana 8 мужские белые демисезонные",
-   "discount": 82,
-   "price": 1977,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/885048393/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787495333,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1378,10 +1365,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 104,
-   "ok": 73,
-   "rate_limited": 2,
-   "http_error": 29,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1442,7 +1429,7 @@
   "today": "2026-08-25",
   "today_posts": 20,
   "total_posts": 291,
-  "last_scan": 1787669601,
+  "last_scan": 1787673069,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1450,25 +1437,19 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пули для пневматики",
-   "Тормозные барабаны",
+   "Средства индивидуальной защиты и экипировка",
+   "Средства для мытья посуды и продуктов",
    "Репринтные издания 1840 - 1849 годов",
-   "Биотуалеты и аксессуары"
+   "Пули для пневматики"
   ],
-  "queue_size": 60,
-  "last_scan_added": 1,
+  "queue_size": 59,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 793,
-   "cards": 793,
-   "ok": 320,
-   "rating": 70,
-   "discount": 319,
-   "bad_price": 84,
-   "strict": 320,
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
    "fallback": 0,
-   "reserve": 0,
-   "duplicate": 98,
-   "title_duplicate": 78
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 100,
@@ -3515,9 +3496,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787654573.7278414,
-   "runs": 54,
-   "empty": 4
+   "ts": 1787673314.0220408,
+   "runs": 55,
+   "empty": 5
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -3593,9 +3574,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787654573.7278414,
-   "runs": 19,
-   "empty": 4
+   "ts": 1787673314.0220408,
+   "runs": 20,
+   "empty": 5
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -3725,15 +3706,15 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1787669681.155509,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787673314.0220408,
+   "runs": 4,
+   "empty": 4
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1787669681.155509,
-   "runs": 3,
-   "empty": 3
+   "ts": 1787673314.0220408,
+   "runs": 4,
+   "empty": 4
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",

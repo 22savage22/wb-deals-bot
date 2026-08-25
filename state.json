@@ -549,6 +549,19 @@
  },
  "recent": [
   {
+   "pid": 749555517,
+   "title": "Кроссовки SB Dunk LOW Pro",
+   "discount": 73,
+   "price": 2612,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/749555517/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787627453,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 549184026,
    "title": "Демисезонные кроссовки повседневные",
    "discount": 70,
@@ -1311,32 +1324,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787463292,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1013085774,
-   "title": "Игровой смартфон ROG Phone 8 Pro 16 512 ГБ 165 Гц",
-   "discount": 64,
-   "price": 86639,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1013085774/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787460937,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 749555517,
-   "title": "Кроссовки SB Dunk LOW Pro",
-   "discount": 73,
-   "price": 2612,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/749555517/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787627453,
    "drop": 0,
    "quality": "A"
   }

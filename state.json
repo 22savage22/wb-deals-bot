@@ -562,6 +562,19 @@
  },
  "recent": [
   {
+   "pid": 951307360,
+   "title": "Кроссовки мужские текстильные кеды на белой подошве",
+   "discount": 69,
+   "price": 3970,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/951307360/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787670122,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1185348975,
    "title": "Смартфон GT 7T, 12 256ГБ, russia",
    "discount": 67,
@@ -1339,19 +1352,6 @@
    "ts": 1787495333,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 951307360,
-   "title": "Кроссовки мужские текстильные кеды на белой подошве",
-   "discount": 69,
-   "price": 3970,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/951307360/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787670122,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1455,7 +1455,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Биотуалеты и аксессуары"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 793,

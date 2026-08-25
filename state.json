@@ -567,6 +567,19 @@
  },
  "recent": [
   {
+   "pid": 973818580,
+   "title": "aндpoит тeлeфoн POVA 5 Pro 16 ГБ+ 1024 ГБ 120 Гц 5G GPS",
+   "discount": 58,
+   "price": 6422,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/973818580/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787686547,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1187029458,
    "title": "Смартфон V70, 8 256ГБ, russia",
    "discount": 72,
@@ -1331,32 +1344,6 @@
    "ts": 1787507507,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 825716681,
-   "title": "Наушники беспроводные с микрофоном",
-   "discount": 76,
-   "price": 1134,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/825716681/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787504355,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 973818580,
-   "title": "aндpoит тeлeфoн POVA 5 Pro 16 ГБ+ 1024 ГБ 120 Гц 5G GPS",
-   "discount": 58,
-   "price": 6422,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/973818580/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787686547,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1383,8 +1370,8 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 108,
-   "ok": 75,
+   "calls": 109,
+   "ok": 76,
    "rate_limited": 4,
    "http_error": 29,
    "network_error": 0,
@@ -1447,7 +1434,7 @@
   "today": "2026-08-25",
   "today_posts": 25,
   "total_posts": 296,
-  "last_scan": 1787683783,
+  "last_scan": 1787686673,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1455,24 +1442,22 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Туризм и страноведение",
-   "Кронштейны",
-   "Биотуалеты и аксессуары"
+   "Кронштейны"
   ],
-  "queue_size": 99,
-  "last_scan_added": 54,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 792,
    "cards": 792,
-   "ok": 305,
+   "ok": 309,
    "rating": 67,
-   "discount": 332,
-   "bad_price": 88,
-   "strict": 305,
+   "discount": 329,
+   "bad_price": 87,
+   "strict": 309,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 62,
-   "title_duplicate": 66
+   "duplicate": 115,
+   "title_duplicate": 63
   },
   "last_queue": {
    "queue_before": 100,
@@ -3758,9 +3743,9 @@
   },
   "Кронштейны": {
    "shard": "housecraft6",
-   "ts": 1787683909.9725251,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787686770.5045753,
+   "runs": 5,
+   "empty": 5
   },
   "Пули для пневматики": {
    "shard": "sport32",
@@ -3782,6 +3767,22 @@
   }
  },
  "queue": [
+  {
+   "id": 972818156,
+   "title": "Кроссовки женские",
+   "brand": "АЛЕХИКО",
+   "product": 1895,
+   "basic": 8999,
+   "discount": 79,
+   "benefit": 7104,
+   "rating": 4.8,
+   "feedbacks": 1426,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787686673
+  },
   {
    "id": 1174003708,
    "title": "Смартфон i17 pro max 5G 12+512 ГБ",

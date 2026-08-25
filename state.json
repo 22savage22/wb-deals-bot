@@ -555,6 +555,19 @@
  },
  "recent": [
   {
+   "pid": 411234490,
+   "title": "Кроссовки",
+   "discount": 79,
+   "price": 2106,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/411234490/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787650823,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1344714777,
    "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
    "discount": 77,
@@ -1319,32 +1332,6 @@
    "ts": 1787479066,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 760237293,
-   "title": "Кроссовки Nike Air Force 1 форсы черный",
-   "discount": 84,
-   "price": 1969,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/760237293/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787477553,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 411234490,
-   "title": "Кроссовки",
-   "discount": 79,
-   "price": 2106,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/411234490/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787650823,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1371,10 +1358,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 103,
-   "ok": 70,
-   "rate_limited": 3,
-   "http_error": 30,
+   "calls": 44,
+   "ok": 18,
+   "rate_limited": 16,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -1435,7 +1422,7 @@
   "today": "2026-08-25",
   "today_posts": 13,
   "total_posts": 284,
-  "last_scan": 1787647922,
+  "last_scan": 1787650958,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1443,25 +1430,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Средства для мытья посуды и продуктов",
-   "Средства индивидуальной защиты и экипировка",
    "Тормозные барабаны",
-   "Туризм и страноведение"
+   "Туризм и страноведение",
+   "Средства для мытья посуды и продуктов",
+   "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 701,
-   "cards": 701,
-   "bad_price": 62,
-   "discount": 345,
-   "ok": 247,
-   "rating": 47,
-   "strict": 247,
+   "found": 199,
+   "cards": 199,
+   "bad_price": 14,
+   "discount": 54,
+   "ok": 115,
+   "rating": 16,
+   "strict": 115,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 97,
-   "title_duplicate": 47
+   "duplicate": 25,
+   "title_duplicate": 30
   },
   "last_queue": {
    "queue_before": 100,
@@ -3460,9 +3447,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1787648015.6707573,
-   "runs": 52,
-   "empty": 2
+   "ts": 1787651229.1682026,
+   "runs": 53,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -3538,9 +3525,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1787648015.6707573,
-   "runs": 17,
-   "empty": 2
+   "ts": 1787651229.1682026,
+   "runs": 18,
+   "empty": 3
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -3574,15 +3561,15 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787648015.6707573,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787651229.1682026,
+   "runs": 13,
+   "empty": 3
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1787648015.6707573,
-   "runs": 12,
-   "empty": 2
+   "ts": 1787651229.1682026,
+   "runs": 13,
+   "empty": 3
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
@@ -3664,6 +3651,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1252698387,
+   "title": "Смартфон C85 Pro, 8 256ГБ",
+   "brand": "Realme",
+   "product": 15659,
+   "basic": 57752,
+   "discount": 73,
+   "benefit": 42093,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787650958
+  },
   {
    "id": 796764015,
    "title": "Наушники спортивные беспроводные на шею",

@@ -1352,10 +1352,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 18,
-   "rate_limited": 12,
-   "http_error": 8,
+   "calls": 67,
+   "ok": 40,
+   "rate_limited": 13,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1416,7 +1416,7 @@
   "today": "2026-08-25",
   "today_posts": 7,
   "total_posts": 278,
-  "last_scan": 1787627185,
+  "last_scan": 1787630119,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1424,24 +1424,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Тросики",
+   "Мыши",
    "Матрасы-топперы",
-   "Серия Galaxy A",
-   "Мыши"
+   "Тросики",
+   "Серия Galaxy A"
   ],
-  "queue_size": 98,
-  "last_scan_added": 0,
+  "queue_size": 60,
+  "last_scan_added": 5,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "discount": 191,
-   "rating": 4,
-   "ok": 2,
-   "bad_price": 4,
-   "strict": 2,
+   "found": 499,
+   "cards": 499,
+   "discount": 263,
+   "rating": 23,
+   "ok": 193,
+   "bad_price": 20,
+   "strict": 193,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 2
+   "duplicate": 74,
+   "title_duplicate": 53
   },
   "last_queue": {
    "queue_before": 99,
@@ -3435,21 +3436,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787627394.7004426,
-   "runs": 21,
-   "empty": 1
+   "ts": 1787630355.638563,
+   "runs": 22,
+   "empty": 2
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787627394.7004426,
-   "runs": 21,
-   "empty": 1
+   "ts": 1787630355.638563,
+   "runs": 22,
+   "empty": 2
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787627394.7004426,
-   "runs": 21,
-   "empty": 1
+   "ts": 1787630355.638563,
+   "runs": 22,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -3549,9 +3550,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1787627394.7004426,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787630355.638563,
+   "runs": 7,
+   "empty": 2
   },
   "Пробники": {
    "shard": "beauty47",
@@ -3603,6 +3604,86 @@
   }
  },
  "queue": [
+  {
+   "id": 582126766,
+   "title": "Наушники беспроводные вакуумные bluetooth сенсорные",
+   "brand": "7-electronics",
+   "product": 525,
+   "basic": 2500,
+   "discount": 79,
+   "benefit": 1975,
+   "rating": 4.7,
+   "feedbacks": 1187,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787630119
+  },
+  {
+   "id": 796764015,
+   "title": "Наушники спортивные беспроводные на шею",
+   "brand": "4-Electronics",
+   "product": 500,
+   "basic": 2000,
+   "discount": 75,
+   "benefit": 1500,
+   "rating": 4.8,
+   "feedbacks": 596,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787630119
+  },
+  {
+   "id": 1018863037,
+   "title": "Кроссовки спортивные женские летние",
+   "brand": "CITY STORE",
+   "product": 2146,
+   "basic": 13900,
+   "discount": 85,
+   "benefit": 11754,
+   "rating": 4.8,
+   "feedbacks": 127,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787630119
+  },
+  {
+   "id": 484266982,
+   "title": "Наушники беспроводные A.Pods PRO 2 для iPhone и Android",
+   "brand": "",
+   "product": 916,
+   "basic": 3986,
+   "discount": 77,
+   "benefit": 3070,
+   "rating": 4.6,
+   "feedbacks": 976,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787630119
+  },
+  {
+   "id": 762853310,
+   "title": "Кроссовки samba og адидас кеды самба adidas",
+   "brand": "Nike",
+   "product": 2061,
+   "basic": 9790,
+   "discount": 79,
+   "benefit": 7729,
+   "rating": 4.8,
+   "feedbacks": 2591,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787630119
+  },
   {
    "id": 1279888701,
    "title": "Кроссовки M2K Tekno Grey",
@@ -4900,22 +4981,6 @@
    "queued_ts": 1787576672
   },
   {
-   "id": 582126766,
-   "title": "Наушники беспроводные вакуумные bluetooth сенсорные",
-   "brand": "7-electronics",
-   "product": 525,
-   "basic": 2500,
-   "discount": 79,
-   "benefit": 1975,
-   "rating": 4.7,
-   "feedbacks": 1186,
-   "category": "наушники",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "наушники",
-   "queued_ts": 1787576672
-  },
-  {
    "id": 333731744,
    "title": "Кроссовки спортивные Gel-Kahana 8",
    "brand": "ASICS",
@@ -4941,22 +5006,6 @@
    "benefit": 2541,
    "rating": 4.6,
    "feedbacks": 740,
-   "category": "наушники",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "наушники",
-   "queued_ts": 1787576672
-  },
-  {
-   "id": 796764015,
-   "title": "Наушники спортивные беспроводные на шею",
-   "brand": "4-Electronics",
-   "product": 500,
-   "basic": 2000,
-   "discount": 75,
-   "benefit": 1500,
-   "rating": 4.8,
-   "feedbacks": 593,
    "category": "наушники",
    "selection_mode": "strict",
    "quality": "A",
@@ -5153,22 +5202,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "телефон",
-   "queued_ts": 1787576672
-  },
-  {
-   "id": 302435145,
-   "title": "Кроссовки летние спортивные из кожи для бега дышащие черные",
-   "brand": "BAASPLOA",
-   "product": 4061,
-   "basic": 12291,
-   "discount": 67,
-   "benefit": 8230,
-   "rating": 4.9,
-   "feedbacks": 2641,
-   "category": "кроссовки",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки",
    "queued_ts": 1787576672
   }
  ]

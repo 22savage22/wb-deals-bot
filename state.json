@@ -1371,10 +1371,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 109,
+   "calls": 113,
    "ok": 76,
-   "rate_limited": 4,
-   "http_error": 29,
+   "rate_limited": 5,
+   "http_error": 32,
    "network_error": 0,
    "json_error": 0
   },
@@ -1435,7 +1435,7 @@
   "today": "2026-08-25",
   "today_posts": 26,
   "total_posts": 297,
-  "last_scan": 1787686673,
+  "last_scan": 1787690250,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1443,22 +1443,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Кронштейны"
+   "Пледы",
+   "Репринтные издания 1890 - 1899 годов",
+   "Расчески парикмахерские",
+   "Гроубоксы"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 792,
    "cards": 792,
-   "ok": 309,
+   "ok": 311,
    "rating": 67,
    "discount": 329,
-   "bad_price": 87,
-   "strict": 309,
+   "bad_price": 85,
+   "strict": 311,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 115,
-   "title_duplicate": 63
+   "duplicate": 117,
+   "title_duplicate": 64
   },
   "last_queue": {
    "queue_before": 100,
@@ -3558,15 +3561,15 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787489759.7682903,
-   "runs": 30,
-   "empty": 5
+   "ts": 1787690371.4157035,
+   "runs": 31,
+   "empty": 1
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1787492420.0932233,
-   "runs": 30,
-   "empty": 5
+   "ts": 1787690371.4157035,
+   "runs": 31,
+   "empty": 1
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -3600,9 +3603,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1787499231.2272623,
-   "runs": 20,
-   "empty": 5
+   "ts": 1787690371.4157035,
+   "runs": 21,
+   "empty": 1
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -3672,9 +3675,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1787489759.7682903,
-   "runs": 10,
-   "empty": 5
+   "ts": 1787690371.4157035,
+   "runs": 11,
+   "empty": 1
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -3774,6 +3777,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1201086095,
+   "title": "Наушники-клипсы Zombi Cat B3 Stella Orbis Красный, Red",
+   "brand": "ZOMBIES CAT",
+   "product": 1068,
+   "basic": 4081,
+   "discount": 74,
+   "benefit": 3013,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787690250
+  },
   {
    "id": 1174003708,
    "title": "Смартфон i17 pro max 5G 12+512 ГБ",

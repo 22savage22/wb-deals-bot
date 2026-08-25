@@ -563,6 +563,19 @@
  },
  "recent": [
   {
+   "pid": 1215543609,
+   "title": "Смартфон Reno16, 12 256ГБ",
+   "discount": 73,
+   "price": 32183,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1215543609/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787673454,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 951307360,
    "title": "Кроссовки мужские текстильные кеды на белой подошве",
    "discount": 69,
@@ -1340,19 +1353,6 @@
    "ts": 1787496843,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1215543609,
-   "title": "Смартфон Reno16, 12 256ГБ",
-   "discount": 73,
-   "price": 32183,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1215543609/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787673454,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1456,7 +1456,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Пули для пневматики"
   ],
-  "queue_size": 98,
+  "queue_size": 59,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

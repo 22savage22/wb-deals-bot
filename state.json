@@ -554,6 +554,19 @@
  },
  "recent": [
   {
+   "pid": 1344714777,
+   "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
+   "discount": 77,
+   "price": 15677,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1344714777/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787644609,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 585319848,
    "title": "Портативный телевизор со встроенным аккумулятором и тюнером",
    "discount": 61,
@@ -1316,32 +1329,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787477553,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1126353298,
-   "title": "Смартфон S24 Ultra 16ГБ+1ТБ Ростест (EAC) флагманский",
-   "discount": 62,
-   "price": 10855,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1126353298/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787475186,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1344714777,
-   "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
-   "discount": 77,
-   "price": 15677,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1344714777/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787644609,
    "drop": 0,
    "quality": "A"
   }

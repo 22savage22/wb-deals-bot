@@ -581,6 +581,19 @@
  },
  "recent": [
   {
+   "pid": 425534137,
+   "title": "Телевизор Mini LED 86'' 86QNED82A6B 4K UHD Smart TV",
+   "discount": 51,
+   "price": 121009,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/425534137/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787717295,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 157307340,
    "title": "Телевизор 24 дюйма без смарт на кухню маленький 24YT5900",
    "discount": 50,
@@ -1343,32 +1356,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787529137,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 318729247,
-   "title": "Смартфон Oscal Pilot 1, 6+256 Gb",
-   "discount": 64,
-   "price": 17761,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/318729247/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787525921,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 425534137,
-   "title": "Телевизор Mini LED 86'' 86QNED82A6B 4K UHD Smart TV",
-   "discount": 51,
-   "price": 121009,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/425534137/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787717295,
    "drop": 0,
    "quality": "A"
   }

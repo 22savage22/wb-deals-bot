@@ -578,6 +578,19 @@
  },
  "recent": [
   {
+   "pid": 157307340,
+   "title": "Телевизор 24 дюйма без смарт на кухню маленький 24YT5900",
+   "discount": 50,
+   "price": 8406,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/157307340/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787714371,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 436754379,
    "title": "Кроссовки Zx 750",
    "discount": 83,
@@ -1340,32 +1353,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787525921,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 206595740,
-   "title": "Кроссовки Gel NYC",
-   "discount": 76,
-   "price": 2863,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/206595740/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787524704,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 157307340,
-   "title": "Телевизор 24 дюйма без смарт на кухню маленький 24YT5900",
-   "discount": 50,
-   "price": 8406,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/157307340/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787714371,
    "drop": 0,
    "quality": "A"
   }

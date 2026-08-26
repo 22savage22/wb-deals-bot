@@ -587,6 +587,19 @@
  },
  "recent": [
   {
+   "pid": 1018144355,
+   "title": "Кроссовки sb dunk low данки кеды белые для школы",
+   "discount": 71,
+   "price": 2817,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1018144355/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787731457,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1150685570,
    "title": "Смартфон M7, 6 128ГБ, global",
    "discount": 62,
@@ -1362,19 +1375,6 @@
    "ts": 1787550118,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1018144355,
-   "title": "Кроссовки sb dunk low данки кеды белые для школы",
-   "discount": 71,
-   "price": 2817,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1018144355/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787731457,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1475,7 +1475,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

@@ -586,6 +586,19 @@
  },
  "recent": [
   {
+   "pid": 1150685570,
+   "title": "Смартфон M7, 6 128ГБ, global",
+   "discount": 62,
+   "price": 10699,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1150685570/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787728536,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 962432175,
    "title": "Беспроводные наушники EQ2 plus",
    "discount": 94,
@@ -1348,32 +1361,6 @@
    "ts": 1787550118,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 937491761,
-   "title": "Наушники беспроводные для iphone и android",
-   "discount": 76,
-   "price": 1440,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/937491761/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787543873,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1150685570,
-   "title": "Смартфон M7, 6 128ГБ, global",
-   "discount": 62,
-   "price": 10699,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1150685570/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787728536,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1400,10 +1387,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 53,
-   "rate_limited": 4,
-   "http_error": 21,
+   "calls": 102,
+   "ok": 74,
+   "rate_limited": 1,
+   "http_error": 27,
    "network_error": 0,
    "json_error": 0
   },
@@ -1464,7 +1451,7 @@
   "today": "2026-08-26",
   "today_posts": 14,
   "total_posts": 312,
-  "last_scan": 1787727636,
+  "last_scan": 1787730741,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1472,25 +1459,22 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Гроубоксы",
-   "Расчески парикмахерские",
-   "Пледы",
-   "Репринтные издания 1890 - 1899 годов"
+   "Пледы"
   ],
-  "queue_size": 99,
-  "last_scan_added": 60,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 600,
-   "cards": 600,
-   "ok": 228,
-   "rating": 34,
-   "discount": 294,
-   "bad_price": 44,
-   "strict": 228,
+   "found": 800,
+   "cards": 800,
+   "ok": 337,
+   "rating": 46,
+   "discount": 358,
+   "bad_price": 59,
+   "strict": 337,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 40,
-   "title_duplicate": 52
+   "duplicate": 124,
+   "title_duplicate": 69
   },
   "last_queue": {
    "queue_before": 100,
@@ -3688,9 +3672,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787727745.3692932,
-   "runs": 33,
-   "empty": 3
+   "ts": 1787730812.5805717,
+   "runs": 34,
+   "empty": 4
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -3904,6 +3888,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1018144355,
+   "title": "Кроссовки sb dunk low данки кеды белые для школы",
+   "brand": "Nike",
+   "product": 2817,
+   "basic": 9790,
+   "discount": 71,
+   "benefit": 6973,
+   "rating": 4.8,
+   "feedbacks": 175,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787730741
+  },
   {
    "id": 485610229,
    "title": "Кроссовки кеды SAMBA спортивные школьные",

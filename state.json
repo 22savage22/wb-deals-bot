@@ -595,6 +595,19 @@
  },
  "recent": [
   {
+   "pid": 1284507262,
+   "title": "Кроссовки Puma Suede XL",
+   "discount": 80,
+   "price": 3125,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1284507262/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787762022,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 324557918,
    "title": "Кроссовки спортивные на высокой подошве",
    "discount": 69,
@@ -1355,32 +1368,6 @@
    "query": "наушники",
    "cat": "наушники",
    "ts": 1787580423,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 845077125,
-   "title": "Кроссовки мужские весенние непромокаемые",
-   "discount": 76,
-   "price": 1902,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/845077125/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787577049,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1284507262,
-   "title": "Кроссовки Puma Suede XL",
-   "discount": 80,
-   "price": 3125,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1284507262/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787762022,
    "drop": 0,
    "quality": "A"
   }

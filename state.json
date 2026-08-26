@@ -588,6 +588,19 @@
  },
  "recent": [
   {
+   "pid": 1252820859,
+   "title": "Наушники беспроводные для андроид，iphone",
+   "discount": 96,
+   "price": 1684,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1252820859/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787734805,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1018144355,
    "title": "Кроссовки sb dunk low данки кеды белые для школы",
    "discount": 71,
@@ -1363,19 +1376,6 @@
    "ts": 1787552803,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1252820859,
-   "title": "Наушники беспроводные для андроид，iphone",
-   "discount": 96,
-   "price": 1684,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252820859/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787734805,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1476,7 +1476,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 99,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

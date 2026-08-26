@@ -589,6 +589,19 @@
  },
  "recent": [
   {
+   "pid": 485610229,
+   "title": "Кроссовки кеды SAMBA спортивные школьные",
+   "discount": 79,
+   "price": 2274,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/485610229/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787738099,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1252820859,
    "title": "Наушники беспроводные для андроид，iphone",
    "discount": 96,
@@ -1364,19 +1377,6 @@
    "ts": 1787557227,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 485610229,
-   "title": "Кроссовки кеды SAMBA спортивные школьные",
-   "discount": 79,
-   "price": 2274,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/485610229/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787738099,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1477,7 +1477,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 800,

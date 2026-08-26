@@ -1,37 +1,5 @@
 [
  {
-  "id": 9130603,
-  "title": "Телевизор смарт 40 дюймов с wi-fi 40F660TS",
-  "brand": "Harper",
-  "product": 18115,
-  "basic": 33803,
-  "discount": 46,
-  "benefit": 15688,
-  "rating": 4.8,
-  "feedbacks": 266,
-  "category": "телевизор",
-  "selection_mode": "smart_fallback",
-  "quality": "B",
-  "query": "телевизор",
-  "queued_ts": 1787713979
- },
- {
-  "id": 601161615,
-  "title": "Телевизор 32 дюйма CA32H25F",
-  "brand": "RAZZ",
-  "product": 6136,
-  "basic": 10490,
-  "discount": 42,
-  "benefit": 4354,
-  "rating": 4.7,
-  "feedbacks": 1639,
-  "category": "телевизор",
-  "selection_mode": "smart_fallback",
-  "quality": "B",
-  "query": "телевизор",
-  "queued_ts": 1787713979
- },
- {
   "id": 599401652,
   "title": "Телевизор 24 дюйма CA24H25F 24\" HD",
   "brand": "RAZZ",

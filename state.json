@@ -591,6 +591,19 @@
  },
  "recent": [
   {
+   "pid": 341927281,
+   "title": "Наушники беспроводные большие w56",
+   "discount": 82,
+   "price": 1770,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/341927281/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787742761,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1123866134,
    "title": "Кроссовки демисезонные утепленные",
    "discount": 78,
@@ -1353,32 +1366,6 @@
    "ts": 1787566774,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 766097861,
-   "title": "Смартфон 5G i17 Pro Max NFC 16+1024GB игровые телефоны 5G",
-   "discount": 92,
-   "price": 9136,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/766097861/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787563725,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 341927281,
-   "title": "Наушники беспроводные большие w56",
-   "discount": 82,
-   "price": 1770,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/341927281/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787742761,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1405,10 +1392,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 61,
-   "rate_limited": 4,
-   "http_error": 23,
+   "calls": 105,
+   "ok": 74,
+   "rate_limited": 1,
+   "http_error": 30,
    "network_error": 0,
    "json_error": 0
   },
@@ -1469,7 +1456,7 @@
   "today": "2026-08-26",
   "today_posts": 19,
   "total_posts": 317,
-  "last_scan": 1787740919,
+  "last_scan": 1787744204,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1478,24 +1465,24 @@
   ],
   "last_scan_cats": [
    "Пробники",
-   "Солнечные электростанции и комплектующие",
    "Кофе и цикорий",
+   "Солнечные электростанции и комплектующие",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 98,
-  "last_scan_added": 3,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 700,
-   "cards": 700,
-   "discount": 306,
-   "rating": 42,
-   "ok": 285,
-   "bad_price": 67,
-   "strict": 285,
+   "found": 797,
+   "cards": 797,
+   "discount": 343,
+   "rating": 55,
+   "ok": 319,
+   "bad_price": 80,
+   "strict": 319,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 90,
-   "title_duplicate": 62
+   "duplicate": 113,
+   "title_duplicate": 67
   },
   "last_queue": {
    "queue_before": 99,
@@ -3872,27 +3859,27 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787741036.8330467,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787744271.6035268,
+   "runs": 7,
+   "empty": 2
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
-   "ts": 1787741036.8330467,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787744271.6035268,
+   "runs": 7,
+   "empty": 2
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1787741036.8330467,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787744271.6035268,
+   "runs": 7,
+   "empty": 2
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
-   "ts": 1787741036.8330467,
-   "runs": 6,
-   "empty": 1
+   "ts": 1787744271.6035268,
+   "runs": 7,
+   "empty": 2
   },
   "Игрушки": {
    "shard": "gift14",
@@ -3944,6 +3931,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1144906911,
+   "title": "Смартфон 15 5G, 12 512ГБ",
+   "brand": "Realme",
+   "product": 20572,
+   "basic": 62864,
+   "discount": 67,
+   "benefit": 42292,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1787744204
+  },
   {
    "id": 1415157663,
    "title": "iPhonx 17 Pro Max 1024Gb Телефон новый Смартфон",

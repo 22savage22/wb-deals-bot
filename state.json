@@ -1362,19 +1362,6 @@
    "ts": 1787552803,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 760027198,
-   "title": "Кроссовки спортивные classic",
-   "discount": 78,
-   "price": 2471,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/760027198/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787550118,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1401,9 +1388,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 102,
+   "calls": 101,
    "ok": 74,
-   "rate_limited": 1,
+   "rate_limited": 0,
    "http_error": 27,
    "network_error": 0,
    "json_error": 0
@@ -1465,7 +1452,7 @@
   "today": "2026-08-26",
   "today_posts": 15,
   "total_posts": 313,
-  "last_scan": 1787730741,
+  "last_scan": 1787734409,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1480,15 +1467,15 @@
   "last_scan_funnel": {
    "found": 800,
    "cards": 800,
-   "ok": 337,
+   "ok": 340,
    "rating": 46,
-   "discount": 358,
-   "bad_price": 59,
-   "strict": 337,
+   "discount": 360,
+   "bad_price": 54,
+   "strict": 340,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 124,
-   "title_duplicate": 69
+   "duplicate": 121,
+   "title_duplicate": 71
   },
   "last_queue": {
    "queue_before": 100,
@@ -3693,9 +3680,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1787730812.5805717,
-   "runs": 34,
-   "empty": 4
+   "ts": 1787734473.2246768,
+   "runs": 35,
+   "empty": 5
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -3909,6 +3896,22 @@
   }
  },
  "queue": [
+  {
+   "id": 1252820859,
+   "title": "Наушники беспроводные для андроид，iphone",
+   "brand": "",
+   "product": 1684,
+   "basic": 40000,
+   "discount": 96,
+   "benefit": 38316,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787734409
+  },
   {
    "id": 485610229,
    "title": "Кроссовки кеды SAMBA спортивные школьные",

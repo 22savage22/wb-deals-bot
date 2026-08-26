@@ -577,6 +577,19 @@
  },
  "recent": [
   {
+   "pid": 436754379,
+   "title": "Кроссовки Zx 750",
+   "discount": 83,
+   "price": 2527,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/436754379/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787710204,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 214233080,
    "title": "Наушники беспроводные Air Pro2 для iphone и Android",
    "discount": 74,
@@ -1339,32 +1352,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787524704,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 788894807,
-   "title": "Кроссовки Nike initiator спортивные",
-   "discount": 73,
-   "price": 2737,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/788894807/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787522938,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 436754379,
-   "title": "Кроссовки Zx 750",
-   "discount": 83,
-   "price": 2527,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/436754379/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787710204,
    "drop": 0,
    "quality": "A"
   }

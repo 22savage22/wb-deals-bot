@@ -1,21 +1,5 @@
 [
  {
-  "id": 599401652,
-  "title": "Телевизор 24 дюйма CA24H25F 24\" HD",
-  "brand": "RAZZ",
-  "product": 5085,
-  "basic": 8190,
-  "discount": 38,
-  "benefit": 3105,
-  "rating": 4.8,
-  "feedbacks": 2656,
-  "category": "телевизор",
-  "selection_mode": "quality_reserve",
-  "quality": "C",
-  "query": "телевизор",
-  "queued_ts": 1787713979
- },
- {
   "id": 1304525760,
   "title": "Смартфон Redni 15 12 512ГБ",
   "brand": "",
@@ -782,22 +766,6 @@
   "quality": "A",
   "query": "телефон",
   "queued_ts": 1787679442
- },
- {
-  "id": 1067280819,
-  "title": "Смартфон Reaine Note 70X 12 512ГБ",
-  "brand": "",
-  "product": 9070,
-  "basic": 29000,
-  "discount": 69,
-  "benefit": 19930,
-  "rating": 5.0,
-  "feedbacks": 23,
-  "category": "телефон",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "телефон",
-  "queued_ts": 1787662882
  },
  {
   "id": 597103558,

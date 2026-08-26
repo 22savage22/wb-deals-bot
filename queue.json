@@ -1,5 +1,37 @@
 [
  {
+  "id": 324557918,
+  "title": "Кроссовки спортивные на высокой подошве",
+  "brand": "DABRO.M.A",
+  "product": 1884,
+  "basic": 6100,
+  "discount": 69,
+  "benefit": 4216,
+  "rating": 4.7,
+  "feedbacks": 1320,
+  "category": "кроссовки",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки",
+  "queued_ts": 1787749574
+ },
+ {
+  "id": 342054655,
+  "title": "Игровые наушники беспроводные с микрофоном для пк",
+  "brand": "TAURRUS",
+  "product": 2240,
+  "basic": 14780,
+  "discount": 85,
+  "benefit": 12540,
+  "rating": 4.7,
+  "feedbacks": 96,
+  "category": "наушники",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "наушники",
+  "queued_ts": 1787749574
+ },
+ {
   "id": 222815052,
   "title": "Кроссовки женские New Balance 530",
   "brand": "",

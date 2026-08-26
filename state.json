@@ -583,6 +583,19 @@
  },
  "recent": [
   {
+   "pid": 601161615,
+   "title": "Телевизор 32 дюйма CA32H25F",
+   "discount": 42,
+   "price": 6136,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/601161615/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787720154,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 425534137,
    "title": "Телевизор Mini LED 86'' 86QNED82A6B 4K UHD Smart TV",
    "discount": 51,
@@ -1360,19 +1373,6 @@
    "ts": 1787529137,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 601161615,
-   "title": "Телевизор 32 дюйма CA32H25F",
-   "discount": 42,
-   "price": 6136,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/601161615/detail.aspx",
-   "query": "телевизор",
-   "cat": "телевизор",
-   "ts": 1787720154,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -1476,7 +1476,7 @@
    "Расчески парикмахерские",
    "Гроубоксы"
   ],
-  "queue_size": 92,
+  "queue_size": 94,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 100,

@@ -1398,10 +1398,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 11,
-   "rate_limited": 20,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 28,
+   "rate_limited": 13,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -1462,7 +1462,7 @@
   "today": "2026-08-26",
   "today_posts": 25,
   "total_posts": 323,
-  "last_scan": 1787771502,
+  "last_scan": 1787786245,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1470,25 +1470,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Сделано в Республике Бурятия",
-   "Источники бесперебойного питания",
    "Пробники",
-   "Кофе и цикорий"
+   "Медиаконвертеры",
+   "Источники бесперебойного питания",
+   "Серия Reno"
   ],
-  "queue_size": 99,
-  "last_scan_added": 16,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 795,
-   "cards": 795,
-   "discount": 337,
-   "rating": 59,
-   "ok": 316,
-   "bad_price": 83,
-   "strict": 316,
+   "found": 299,
+   "cards": 299,
+   "ok": 178,
+   "bad_price": 27,
+   "discount": 84,
+   "rating": 10,
+   "strict": 178,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 105,
-   "title_duplicate": 64
+   "duplicate": 65,
+   "title_duplicate": 39
   },
   "last_queue": {
    "queue_before": 100,
@@ -3907,9 +3907,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787771636.0481026,
-   "runs": 8,
-   "empty": 3
+   "ts": 1787786482.2178295,
+   "runs": 9,
+   "empty": 4
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -3979,21 +3979,21 @@
   },
   "Серия Reno": {
    "shard": "electronic88",
-   "ts": 1787755971.9398618,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787786482.2178295,
+   "runs": 3,
+   "empty": 3
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
-   "ts": 1787771636.0481026,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787786482.2178295,
+   "runs": 5,
+   "empty": 5
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
-   "ts": 1787761785.822444,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787786482.2178295,
+   "runs": 3,
+   "empty": 3
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",
@@ -4003,6 +4003,54 @@
   }
  },
  "queue": [
+  {
+   "id": 888298248,
+   "title": "Наушники шумоподавляющие Противошумные 1шт",
+   "brand": "",
+   "product": 850,
+   "basic": 8000,
+   "discount": 89,
+   "benefit": 7150,
+   "rating": 4.9,
+   "feedbacks": 20,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787786245
+  },
+  {
+   "id": 826849102,
+   "title": "Кроссовки спортивные легкие",
+   "brand": "adidas",
+   "product": 2239,
+   "basic": 10999,
+   "discount": 80,
+   "benefit": 8760,
+   "rating": 4.6,
+   "feedbacks": 2352,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787786245
+  },
+  {
+   "id": 1060148348,
+   "title": "Buds Air8, Master Purple — наушники",
+   "brand": "Realme",
+   "product": 3303,
+   "basic": 12619,
+   "discount": 74,
+   "benefit": 9316,
+   "rating": 4.8,
+   "feedbacks": 67,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787786245
+  },
   {
    "id": 1304266991,
    "title": "Смартфон H0N0R X9d 12 512ГБ",
@@ -5553,38 +5601,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "кроссовки",
-   "queued_ts": 1787727636
-  },
-  {
-   "id": 783529414,
-   "title": "Смартфон S25 Ultra 16ГБ 1ТБ флагманский",
-   "brand": "",
-   "product": 10986,
-   "basic": 25368,
-   "discount": 57,
-   "benefit": 14382,
-   "rating": 5.0,
-   "feedbacks": 2,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
-   "queued_ts": 1787727636
-  },
-  {
-   "id": 788379445,
-   "title": "смартфон телефон HOT 50 Pro 12+512ГБ",
-   "brand": "",
-   "product": 6729,
-   "basic": 15833,
-   "discount": 58,
-   "benefit": 9104,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "телефон",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телефон",
    "queued_ts": 1787727636
   }
  ]

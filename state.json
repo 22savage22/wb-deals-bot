@@ -340,7 +340,9 @@
   "157307340": 1787714371,
   "585984190": 1787717295,
   "266363193": 1787717295,
-  "425534137": 1787717295
+  "425534137": 1787717295,
+  "9130603": 1787720154,
+  "601161615": 1787720154
  },
  "feedback": {
   "855179327": {
@@ -569,11 +571,11 @@
    "ts": 1787694524.721489
   },
   "телевизор": {
-   "posts": 35.01003303850558,
+   "posts": 36.88952005621899,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1787717347.275514
+   "ts": 1787720174.9259377
   }
  },
  "tg": {
@@ -1358,10 +1360,23 @@
    "ts": 1787529137,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 601161615,
+   "title": "Телевизор 32 дюйма CA32H25F",
+   "discount": 42,
+   "price": 6136,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/601161615/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787720154,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1787717295,
+  "last_run": 1787720154,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -1446,8 +1461,8 @@
    }
   ],
   "today": "2026-08-26",
-  "today_posts": 10,
-  "total_posts": 308,
+  "today_posts": 11,
+  "total_posts": 309,
   "last_scan": 1787713979,
   "last_scan_queries": [
    "телефон",
@@ -1461,7 +1476,7 @@
    "Расчески парикмахерские",
    "Гроубоксы"
   ],
-  "queue_size": 94,
+  "queue_size": 92,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 100,
@@ -1475,10 +1490,10 @@
    "duplicate": 6
   },
   "last_queue": {
-   "queue_before": 97,
+   "queue_before": 94,
    "selected": 1,
-   "photo_duplicate": 2,
-   "queue_after": 94
+   "photo_duplicate": 1,
+   "queue_after": 92
   },
   "cats_count": 2305
  },
@@ -1786,7 +1801,8 @@
   "наушникибеспроводныеairpro2дляiphoneиandroid": 1787703924,
   "кроссовкиzx750": 1787710204,
   "телевизор24дюймабезсмартнакухнюмаленький24yt5900": 1787714371,
-  "телевизорminiled8686qned82a6b4kuhdsmarttv": 1787717295
+  "телевизорminiled8686qned82a6b4kuhdsmarttv": 1787717295,
+  "телевизор32дюймаca32h25f": 1787720154
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -2093,7 +2109,8 @@
   "ff79194b4707070f": 1787703924,
   "6fe3e1d1f0787c3e": 1787710204,
   "f879703435f89686": 1787714371,
-  "713186e6e2700171": 1787717295
+  "713186e6e2700171": 1787717295,
+  "713369a080fe2f3f": 1787720154
  },
  "learned": {},
  "prices": {
@@ -3621,6 +3638,11 @@
    "price": 121009,
    "basic": 248990,
    "ts": 1787717295.9782696
+  },
+  "601161615": {
+   "price": 6136,
+   "basic": 10490,
+   "ts": 1787720154.2454352
   }
  },
  "cats": {
@@ -3866,38 +3888,6 @@
   }
  },
  "queue": [
-  {
-   "id": 9130603,
-   "title": "Телевизор смарт 40 дюймов с wi-fi 40F660TS",
-   "brand": "Harper",
-   "product": 18115,
-   "basic": 33803,
-   "discount": 46,
-   "benefit": 15688,
-   "rating": 4.8,
-   "feedbacks": 266,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787713979
-  },
-  {
-   "id": 601161615,
-   "title": "Телевизор 32 дюйма CA32H25F",
-   "brand": "RAZZ",
-   "product": 6136,
-   "basic": 10490,
-   "discount": 42,
-   "benefit": 4354,
-   "rating": 4.7,
-   "feedbacks": 1639,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787713979
-  },
   {
    "id": 599401652,
    "title": "Телевизор 24 дюйма CA24H25F 24\" HD",

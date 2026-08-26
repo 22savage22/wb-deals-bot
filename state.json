@@ -337,7 +337,10 @@
   "331675646": 1787701433,
   "214233080": 1787703924,
   "436754379": 1787710204,
-  "157307340": 1787714371
+  "157307340": 1787714371,
+  "585984190": 1787717295,
+  "266363193": 1787717295,
+  "425534137": 1787717295
  },
  "feedback": {
   "855179327": {
@@ -566,11 +569,11 @@
    "ts": 1787694524.721489
   },
   "телевизор": {
-   "posts": 33.12961664334742,
+   "posts": 35.01003303850558,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1787714381.9247217
+   "ts": 1787717347.275514
   }
  },
  "tg": {
@@ -1355,10 +1358,23 @@
    "ts": 1787525921,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 425534137,
+   "title": "Телевизор Mini LED 86'' 86QNED82A6B 4K UHD Smart TV",
+   "discount": 51,
+   "price": 121009,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/425534137/detail.aspx",
+   "query": "телевизор",
+   "cat": "телевизор",
+   "ts": 1787717295,
+   "drop": 0,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1787714371,
+  "last_run": 1787717295,
   "last_posts": 1,
   "last_queries": [
    "телефон",
@@ -1443,8 +1459,8 @@
    }
   ],
   "today": "2026-08-26",
-  "today_posts": 9,
-  "total_posts": 307,
+  "today_posts": 10,
+  "total_posts": 308,
   "last_scan": 1787713979,
   "last_scan_queries": [
    "телефон",
@@ -1458,7 +1474,7 @@
    "Расчески парикмахерские",
    "Гроубоксы"
   ],
-  "queue_size": 97,
+  "queue_size": 94,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 100,
@@ -1472,9 +1488,10 @@
    "duplicate": 6
   },
   "last_queue": {
-   "queue_before": 98,
+   "queue_before": 97,
    "selected": 1,
-   "queue_after": 97
+   "photo_duplicate": 2,
+   "queue_after": 94
   },
   "cats_count": 2305
  },
@@ -1781,7 +1798,8 @@
   "беспроводныенаушникиt520bt": 1787701433,
   "наушникибеспроводныеairpro2дляiphoneиandroid": 1787703924,
   "кроссовкиzx750": 1787710204,
-  "телевизор24дюймабезсмартнакухнюмаленький24yt5900": 1787714371
+  "телевизор24дюймабезсмартнакухнюмаленький24yt5900": 1787714371,
+  "телевизорminiled8686qned82a6b4kuhdsmarttv": 1787717295
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -2087,7 +2105,8 @@
   "494949430d414183": 1787701433,
   "ff79194b4707070f": 1787703924,
   "6fe3e1d1f0787c3e": 1787710204,
-  "f879703435f89686": 1787714371
+  "f879703435f89686": 1787714371,
+  "713186e6e2700171": 1787717295
  },
  "learned": {},
  "prices": {
@@ -3610,6 +3629,11 @@
    "price": 8406,
    "basic": 16699,
    "ts": 1787714371.1592927
+  },
+  "425534137": {
+   "price": 121009,
+   "basic": 248990,
+   "ts": 1787717295.9782696
   }
  },
  "cats": {
@@ -3855,54 +3879,6 @@
   }
  },
  "queue": [
-  {
-   "id": 585984190,
-   "title": "Телевизор 55 Mini LED M4, 55\" 4K UHD, 2 32 ГБ, 60 Гц, Wi-Fi",
-   "brand": "Haier",
-   "product": 41957,
-   "basic": 99615,
-   "discount": 58,
-   "benefit": 57658,
-   "rating": 4.8,
-   "feedbacks": 4,
-   "category": "телевизор",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телевизор",
-   "queued_ts": 1787713979
-  },
-  {
-   "id": 266363193,
-   "title": "Телевизор 43 дюйма 43LST6385, смарт Салют",
-   "brand": "Skyline",
-   "product": 19308,
-   "basic": 36583,
-   "discount": 47,
-   "benefit": 17275,
-   "rating": 4.8,
-   "feedbacks": 683,
-   "category": "телевизор",
-   "selection_mode": "smart_fallback",
-   "quality": "B",
-   "query": "телевизор",
-   "queued_ts": 1787713979
-  },
-  {
-   "id": 425534137,
-   "title": "Телевизор Mini LED 86'' 86QNED82A6B 4K UHD Smart TV",
-   "brand": "LG",
-   "product": 121009,
-   "basic": 248990,
-   "discount": 51,
-   "benefit": 127981,
-   "rating": 5.0,
-   "feedbacks": 2,
-   "category": "телевизор",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "телевизор",
-   "queued_ts": 1787713979
-  },
   {
    "id": 9130603,
    "title": "Телевизор смарт 40 дюймов с wi-fi 40F660TS",

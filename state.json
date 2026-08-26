@@ -593,6 +593,19 @@
  },
  "recent": [
   {
+   "pid": 1415157663,
+   "title": "iPhonx 17 Pro Max 1024Gb Телефон новый Смартфон",
+   "discount": 74,
+   "price": 6729,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1415157663/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787749297,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1144906911,
    "title": "Смартфон 15 5G, 12 512ГБ",
    "discount": 67,
@@ -1355,32 +1368,6 @@
    "ts": 1787572914,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 870205735,
-   "title": "Airpods Pro 3 наушники беспроводные для iPhone и Android",
-   "discount": 85,
-   "price": 1971,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/870205735/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787569185,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1415157663,
-   "title": "iPhonx 17 Pro Max 1024Gb Телефон новый Смартфон",
-   "discount": 74,
-   "price": 6729,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1415157663/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787749297,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1394,7 +1381,7 @@
   ],
   "learn_ts": 1787723172.3446515,
   "empty_notice_ts": 1787615111.0,
-  "cats_ts": 1787662882.3176095,
+  "cats_ts": 1787749574.4449048,
   "last_cats": [
    "Расчески парикмахерские",
    "Репринтные издания 1890 - 1899 годов",
@@ -1407,10 +1394,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 105,
-   "ok": 74,
-   "rate_limited": 1,
-   "http_error": 30,
+   "calls": 101,
+   "ok": 71,
+   "rate_limited": 5,
+   "http_error": 25,
    "network_error": 0,
    "json_error": 0
   },
@@ -1471,7 +1458,7 @@
   "today": "2026-08-26",
   "today_posts": 21,
   "total_posts": 319,
-  "last_scan": 1787744204,
+  "last_scan": 1787749574,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1479,25 +1466,25 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Пробники",
-   "Кофе и цикорий",
-   "Солнечные электростанции и комплектующие",
-   "Сделано в Республике Бурятия"
+   "Источники бесперебойного питания",
+   "Медиаконвертеры",
+   "Грунты, дренаж, мульча",
+   "Серия Reno"
   ],
-  "queue_size": 97,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 797,
-   "cards": 797,
-   "discount": 343,
-   "rating": 55,
-   "ok": 319,
-   "bad_price": 80,
-   "strict": 319,
+   "found": 796,
+   "cards": 796,
+   "discount": 346,
+   "rating": 59,
+   "ok": 323,
+   "bad_price": 68,
+   "strict": 323,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 113,
-   "title_duplicate": 67
+   "duplicate": 112,
+   "title_duplicate": 61
   },
   "last_queue": {
    "queue_before": 98,
@@ -3957,9 +3944,65 @@
    "ts": 1787683909.9725251,
    "runs": 5,
    "empty": 5
+  },
+  "Серия Reno": {
+   "shard": "electronic88",
+   "ts": 1787749707.36741,
+   "runs": 1,
+   "empty": 1
+  },
+  "Источники бесперебойного питания": {
+   "shard": "electronic43",
+   "ts": 1787749707.36741,
+   "runs": 1,
+   "empty": 1
+  },
+  "Медиаконвертеры": {
+   "shard": "electronic78",
+   "ts": 1787749707.36741,
+   "runs": 1,
+   "empty": 1
+  },
+  "Грунты, дренаж, мульча": {
+   "shard": "garden11",
+   "ts": 1787749707.36741,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [
+  {
+   "id": 324557918,
+   "title": "Кроссовки спортивные на высокой подошве",
+   "brand": "DABRO.M.A",
+   "product": 1884,
+   "basic": 6100,
+   "discount": 69,
+   "benefit": 4216,
+   "rating": 4.7,
+   "feedbacks": 1320,
+   "category": "кроссовки",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки",
+   "queued_ts": 1787749574
+  },
+  {
+   "id": 342054655,
+   "title": "Игровые наушники беспроводные с микрофоном для пк",
+   "brand": "TAURRUS",
+   "product": 2240,
+   "basic": 14780,
+   "discount": 85,
+   "benefit": 12540,
+   "rating": 4.7,
+   "feedbacks": 96,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787749574
+  },
   {
    "id": 222815052,
    "title": "Кроссовки женские New Balance 530",

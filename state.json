@@ -1395,10 +1395,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 101,
+   "calls": 99,
    "ok": 71,
-   "rate_limited": 5,
-   "http_error": 25,
+   "rate_limited": 1,
+   "http_error": 27,
    "network_error": 0,
    "json_error": 0
   },
@@ -1459,7 +1459,7 @@
   "today": "2026-08-26",
   "today_posts": 22,
   "total_posts": 320,
-  "last_scan": 1787749574,
+  "last_scan": 1787755902,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1468,24 +1468,24 @@
   ],
   "last_scan_cats": [
    "Источники бесперебойного питания",
-   "Медиаконвертеры",
-   "Грунты, дренаж, мульча",
-   "Серия Reno"
+   "Сделано в Республике Бурятия",
+   "Серия Reno",
+   "Кофе и цикорий"
   ],
-  "queue_size": 98,
-  "last_scan_added": 2,
+  "queue_size": 60,
+  "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 796,
    "cards": 796,
-   "discount": 346,
-   "rating": 59,
-   "ok": 323,
-   "bad_price": 68,
-   "strict": 323,
+   "discount": 343,
+   "rating": 58,
+   "ok": 326,
+   "bad_price": 69,
+   "strict": 326,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 112,
-   "title_duplicate": 61
+   "duplicate": 116,
+   "title_duplicate": 64
   },
   "last_queue": {
    "queue_before": 99,
@@ -3895,15 +3895,15 @@
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1787744271.6035268,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787755971.9398618,
+   "runs": 8,
+   "empty": 3
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
-   "ts": 1787744271.6035268,
-   "runs": 7,
-   "empty": 2
+   "ts": 1787755971.9398618,
+   "runs": 8,
+   "empty": 3
   },
   "Игрушки": {
    "shard": "gift14",
@@ -3955,15 +3955,15 @@
   },
   "Серия Reno": {
    "shard": "electronic88",
-   "ts": 1787749707.36741,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787755971.9398618,
+   "runs": 2,
+   "empty": 2
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
-   "ts": 1787749707.36741,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787755971.9398618,
+   "runs": 2,
+   "empty": 2
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
@@ -3979,6 +3979,22 @@
   }
  },
  "queue": [
+  {
+   "id": 290692214,
+   "title": "Наушники беспроводные для телефона",
+   "brand": "TIGERRA",
+   "product": 370,
+   "basic": 2317,
+   "discount": 84,
+   "benefit": 1947,
+   "rating": 4.7,
+   "feedbacks": 2103,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1787755902
+  },
   {
    "id": 342054655,
    "title": "Игровые наушники беспроводные с микрофоном для пк",
@@ -4997,22 +5013,6 @@
    "benefit": 1854,
    "rating": 4.7,
    "feedbacks": 1014,
-   "category": "наушники",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "наушники",
-   "queued_ts": 1787683783
-  },
-  {
-   "id": 290692214,
-   "title": "Наушники беспроводные для телефона",
-   "brand": "TIGERRA",
-   "product": 463,
-   "basic": 2317,
-   "discount": 80,
-   "benefit": 1854,
-   "rating": 4.7,
-   "feedbacks": 2095,
    "category": "наушники",
    "selection_mode": "strict",
    "quality": "A",

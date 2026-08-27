@@ -599,6 +599,19 @@
  },
  "recent": [
   {
+   "pid": 1060148348,
+   "title": "Buds Air8, Master Purple — наушники",
+   "discount": 74,
+   "price": 3303,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1060148348/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787824814,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 888298248,
    "title": "Наушники шумоподавляющие Противошумные 1шт",
    "discount": 89,
@@ -1359,32 +1372,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787591925,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 870506253,
-   "title": "Кроссовки Air Force 1 женские",
-   "discount": 81,
-   "price": 1895,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/870506253/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787589792,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1060148348,
-   "title": "Buds Air8, Master Purple — наушники",
-   "discount": 74,
-   "price": 3303,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1060148348/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787824814,
    "drop": 0,
    "quality": "A"
   }

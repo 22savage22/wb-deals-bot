@@ -600,6 +600,19 @@
  },
  "recent": [
   {
+   "pid": 1252681280,
+   "title": "Смартфон F6, 12 512ГБ, global",
+   "discount": 67,
+   "price": 20712,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1252681280/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787862477,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1060148348,
    "title": "Buds Air8, Master Purple — наушники",
    "discount": 74,
@@ -1360,32 +1373,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787594010,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 717484390,
-   "title": "Кроссовки air force 1 кеды бежевые для школы",
-   "discount": 72,
-   "price": 2749,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/717484390/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787591925,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252681280,
-   "title": "Смартфон F6, 12 512ГБ, global",
-   "discount": 67,
-   "price": 20712,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252681280/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787862477,
    "drop": 0,
    "quality": "A"
   }

@@ -601,6 +601,19 @@
  },
  "recent": [
   {
+   "pid": 1252682074,
+   "title": "Смартфон 17 Ultra, 16 512ГБ, global",
+   "discount": 64,
+   "price": 84596,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1252682074/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787891185,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1252681280,
    "title": "Смартфон F6, 12 512ГБ, global",
    "discount": 67,
@@ -1361,32 +1374,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787597273,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 578559181,
-   "title": "Смартфон C63 16ГБ 1ТБ",
-   "discount": 56,
-   "price": 8826,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/578559181/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787594010,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252682074,
-   "title": "Смартфон 17 Ultra, 16 512ГБ, global",
-   "discount": 64,
-   "price": 84596,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252682074/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787891185,
    "drop": 0,
    "quality": "A"
   }

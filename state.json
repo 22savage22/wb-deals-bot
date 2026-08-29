@@ -655,6 +655,19 @@
  },
  "recent": [
   {
+   "pid": 223048418,
+   "title": "Худи мужской без начеса",
+   "discount": 93,
+   "price": 980,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/223048418/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1788038859,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 453461304,
    "title": "Джинсы широкие багги оверсайз на резинке",
    "discount": 83,
@@ -1426,19 +1439,6 @@
    "ts": 1787609413,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 223048418,
-   "title": "Худи мужской без начеса",
-   "discount": 93,
-   "price": 980,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/223048418/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1788038859,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1545,7 +1545,7 @@
    "Аксессуары для водителя",
    "Археология"
   ],
-  "queue_size": 59,
+  "queue_size": 60,
   "last_scan_added": 60,
   "last_scan_funnel": {
    "found": 899,

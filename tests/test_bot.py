@@ -179,6 +179,9 @@ def main():
     assert not bot.active_posting_time(datetime(2026, 1, 1, 5, 59))
     assert not bot.active_posting_time(datetime(2026, 1, 1, 23, 0))
     config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = old_start, old_end
+    interval_data = {"recent": [{"ts": 1000}]}
+    assert not bot.post_interval_elapsed(interval_data, now=1599)
+    assert bot.post_interval_elapsed(interval_data, now=1600)
     queued = empty_data()
     queued_deal = {"id": 999, "title": "Товар из очереди", "brand": "Бр",
                    "product": 500, "basic": 1000, "discount": 50, "benefit": 500,

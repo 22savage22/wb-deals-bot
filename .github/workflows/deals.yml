@@ -5,6 +5,11 @@ on:
     # Every 10 minutes, shifted off GitHub's overloaded round minutes.
     - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: Post even if the previous post was less than 10 minutes ago
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -47,5 +52,5 @@ jobs:
           WB_QUEUE_MAX_AGE_HOURS: "8"
           WB_ACTIVE_HOUR_START: "0"
           WB_ACTIVE_HOUR_END: "23"
-          WB_FORCE_POST: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          WB_FORCE_POST: ${{ inputs.force && '1' || '0' }}
           GITHUB_TOKEN: ${{ github.token }}

@@ -86,6 +86,11 @@ def active_posting_time(now=None):
     return config.ACTIVE_HOUR_START <= current.hour <= config.ACTIVE_HOUR_END
 
 
+def post_interval_elapsed(data, now=None, interval=10 * 60):
+    last = max((int(r.get("ts", 0) or 0) for r in data.get("recent") or []), default=0)
+    return (time.time() if now is None else now) - last >= interval
+
+
 def _run(*args):
     res = subprocess.run(args, capture_output=True, text=True)
     if res.returncode != 0:
@@ -644,6 +649,8 @@ def main():
             "Постинг на паузе до",
             time.strftime("%Y-%m-%d %H:%M", time.localtime(paused_until)),
         )
+    elif not forced and not post_interval_elapsed(data):
+        print("10 минут с последнего поста ещё не прошло")
     else:
         try:
             run_posting(data, settings)

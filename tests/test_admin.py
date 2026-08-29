@@ -129,6 +129,7 @@ def main():
 
     # --- router ---
     changed, d, s = run("menu")
+    assert FakeTG.calls[0][0] == "answer"
     changed, d, s = run("status")
     changed, d, s = run("last:0")
     changed, d, s = run("stats:q:0")

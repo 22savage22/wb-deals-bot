@@ -365,6 +365,8 @@ def get_updates(token, offset, timeout=3):
 
 
 def answer_callback(token, callback_id, text=""):
+    if not callback_id:
+        return
     try:
         requests.post(
             API.format(token=token, method="answerCallbackQuery"),

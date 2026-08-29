@@ -16,7 +16,7 @@ import tg
 logger = logging.getLogger("wb.poller")
 
 LIFETIME = 9 * 60
-CYCLE = 2
+CYCLE = 0
 COMMIT_EVERY = 120
 
 

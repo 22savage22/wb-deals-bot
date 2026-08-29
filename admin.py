@@ -1121,6 +1121,8 @@ def _admin_callback(token, data, settings, cb):
     if not chat_id:
         return False
     cb_id = cb.get("id", "")
+    tg.answer_callback(token, cb_id)
+    cb_id = ""
     changed = False
 
     if cmd in ("menu", "start"):

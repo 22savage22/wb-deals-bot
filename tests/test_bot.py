@@ -180,18 +180,20 @@ def main():
     assert not bot.active_posting_time(datetime(2026, 1, 1, 23, 0))
     config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = old_start, old_end
     queued = empty_data()
-    queued["queue"] = [
-        {"id": 999, "title": "Товар из очереди", "brand": "Бр",
-         "product": 500, "basic": 1000, "discount": 50, "benefit": 500,
-         "rating": 4.8, "feedbacks": 300, "category": "Дом",
-         "selection_mode": "strict", "quality": "A", "query": "дом",
-         "queued_ts": int(time.time())}
-    ]
+    queued_deal = {"id": 999, "title": "Товар из очереди", "brand": "Бр",
+                   "product": 500, "basic": 1000, "discount": 50, "benefit": 500,
+                   "rating": 4.8, "feedbacks": 300, "category": "Дом",
+                   "selection_mode": "strict", "quality": "A", "query": "дом",
+                   "queued_ts": int(time.time())}
+    queued["queue"] = [queued_deal]
     config.MAX_POSTS = 1
     FakeTG.sent = []
     assert bot.run_posting(queued, {"queries": None}, notify=False) == 1
     assert queued["queue"] == [] and queued["posted"].get(999)
     assert [x for x in FakeTG.sent if x[0] == "photo" and x[2] == 999]
+    queued["posted"][999] = int(time.time()) - 1000 * 86400
+    queued["queue"] = [queued_deal]
+    assert bot._publish_queued(queued, 1)[0] == 0
     print("0. schedule + queue publish OK")
 
     # --- 1. обычный запуск: посты из разных категорий, отчёт админу ---

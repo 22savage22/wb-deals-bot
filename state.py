@@ -53,8 +53,7 @@ def _norm_posted(raw):
             pid, ts = int(pid), int(ts or 0)
         except (TypeError, ValueError):
             continue
-        if now - ts < PRUNE_AFTER:
-            out[pid] = max(out.get(pid, 0), ts)
+        out[pid] = max(out.get(pid, 0), ts)
     return out
 
 
@@ -558,13 +557,7 @@ def bump_meta(data, n=1):
 
 def save(path, data):
     now = time.time()
-    data["posted"] = {
-        pid: ts
-        for pid, ts in data["posted"].items()
-        if now - ts < PRUNE_AFTER
-    }
-    keep = sorted(data["posted"].items(), key=lambda kv: kv[1])[-MAX_KEPT:]
-    data["posted"] = dict(keep)
+    data["posted"] = _norm_posted(data["posted"])
     data["titles"] = {
         title: ts
         for title, ts in data.get("titles", {}).items()

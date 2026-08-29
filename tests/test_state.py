@@ -23,7 +23,7 @@ def main():
     assert state.load("C:/nope/state.json")["posted"] == {}
     print("2. load missing OK")
 
-    # 3. нормализация posted: legacy список, инты, строки, старая запись режется
+    # 3. память posted постоянная: legacy список, инты и строки
     now = int(time.time())
     raw = [
         {"id": "111", "ts": now - 100},
@@ -33,12 +33,12 @@ def main():
         {"id": "bad", "ts": "x"},
     ]
     out = state._norm_posted(raw)
-    assert out == {111: now - 100, 222: now, 333: now}, out
+    assert out == {111: now - 100, 222: now, 333: now, 444: now - 1000 * 86400}, out
     print("3. norm posted OK")
 
     # 3b. dict-формат (как пишет save) — timestamps не теряются
     out = state._norm_posted({111: now - 500, 555: now - 1000 * 86400})
-    assert out == {111: now - 500}, out
+    assert out == {111: now - 500, 555: now - 1000 * 86400}, out
     print("3b. norm posted dict OK")
 
     # 4. нормализация feedback
@@ -65,7 +65,7 @@ def main():
 
     # 6. roundtrip save/load
     data = state._empty()
-    data["posted"] = {1: now, 2: now}
+    data["posted"] = {1: now, 2: now - 1000 * 86400}
     data["feedback"] = {"1": {"likes": 1, "dislikes": 0, "bought": 0, "ts": now, "query": None, "cat": None}}
     data["recent"] = [{"pid": 1, "title": "Т", "ts": now, "cat": "c", "query": "q", "link": "l", "discount": 50, "price": 100, "rating": 4.5}]
     data["meta"] = {"last_run": now, "total_posts": 3, "today_posts": 1, "today": time.strftime("%Y-%m-%d")}

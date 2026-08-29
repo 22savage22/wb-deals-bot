@@ -238,7 +238,7 @@ def _publish_queued(data, limit):
         if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
             funnel["expired"] = funnel.get("expired", 0) + 1
             continue
-        if posted.get(pid) and now - posted[pid] < repost_secs:
+        if pid in posted:
             funnel["repost"] = funnel.get("repost", 0) + 1
             continue
         key = smart.norm_title(deal.get("title", ""))
@@ -420,8 +420,7 @@ def run_posting(data, settings, notify=True):
     allowed = []
     for d in deals:
         pid = d["id"]
-        last = posted.get(pid)
-        if last and now - last < repost_secs:
+        if pid in posted:
             if smart.price_drop(d, prices, config.PRICE_DROP_MIN):
                 allowed.append(d)
             else:

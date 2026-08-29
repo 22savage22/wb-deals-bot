@@ -139,17 +139,20 @@ def _lookup(data, pid):
 def _feedback(token, data, cb):
     raw = str(cb.get("data", ""))
     if len(raw) < 2 or raw[0] not in ACTIONS:
+        tg.answer_callback(token, cb.get("id", ""))
         return
     action = ACTIONS[raw[0]]
     try:
         pid = int(raw[1:])
     except ValueError:
+        tg.answer_callback(token, cb.get("id", ""))
         return
     now = time.time()
     user_id = str(cb.get("from", {}).get("id"))
     fb = data["feedback"].get(pid)
     voters = (fb or {}).get("voters", {})
     if user_id and now - voters.get(user_id, 0) < MIN_GAP:
+        tg.answer_callback(token, cb.get("id", ""), "Уже учитывали 👌")
         return
     query, cat = _lookup(data, pid)
     if fb is None:

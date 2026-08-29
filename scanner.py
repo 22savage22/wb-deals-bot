@@ -124,6 +124,9 @@ def fill_queue(data, settings, target=None):
         ):
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
             continue
+        if bot._is_electronics(deal.get("title", "")):
+            funnel["electronics"] = funnel.get("electronics", 0) + 1
+            continue
         run_titles.add(title_key)
         if deal.get("category", "другое") == "другое" and pid_query.get(pid):
             deal["category"] = pid_query[pid]

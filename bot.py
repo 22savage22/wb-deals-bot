@@ -20,6 +20,30 @@ import wb
 
 logger = logging.getLogger("wb.bot")
 
+_ELECTRONICS_KEYWORDS = [
+    "смартфон", "телефон", "iphone", "samsung", "xiaomi", "redmi", "realme",
+    "наушники", "headphones", "airpods",
+    "ноутбук", "laptop", "планшет", "tablet", "ipad",
+    "монитор", "monitor", "телевизор", "tv",
+    "колонка", "колонки", "speaker", "bluetooth", "сабвуфер",
+    "зарядка", "charger", "кабель", "cable", "powerbank", "повербанк",
+    "часы", "watch", "smartwatch", "умные часы",
+    "чехол", "case", "стекло", "glass", "protect",
+    "клавиатура", "keyboard", "мышь", "mouse", "webcam", "веб-камера",
+    "флешка", "flash", "ssd", "hdd", "диск", "memory", "карта памяти",
+    "роутер", "router", "модем", "modem", "wi-fi",
+    "принтер", "print", "сканер",
+    "пылесос", "vacuum", "робот-пылесос",
+    "кондиционер", "обогреватель", "вентилятор",
+    "стиральн", "сушилк", "посудомоечн",
+    "холодильник", "морозил", "микроволнов",
+]
+
+
+def _is_electronics(title):
+    low = str(title or "").lower()
+    return any(kw in low for kw in _ELECTRONICS_KEYWORDS)
+
 
 def active_posting_time(now=None):
     """Return whether scheduled posting is enabled for the current hour."""
@@ -185,6 +209,9 @@ def _publish_queued(data, limit):
         key = smart.norm_title(deal.get("title", ""))
         if key and titles.get(key) and now - titles[key] < repost_secs:
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
+            continue
+        if _is_electronics(deal.get("title", "")):
+            funnel["electronics"] = funnel.get("electronics", 0) + 1
             continue
         images = wb.photos(pid)
         if len(images) < 2:
@@ -378,6 +405,9 @@ def run_posting(data, settings, notify=True):
             continue
         if titles.get(key) and now - titles[key] < repost_secs:
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
+            continue
+        if _is_electronics(d.get("title", "")):
+            funnel["electronics"] = funnel.get("electronics", 0) + 1
             continue
         seen_titles.add(key)
         unique.append(d)

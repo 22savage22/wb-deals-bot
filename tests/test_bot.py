@@ -309,7 +309,7 @@ def main():
         pid = 2000 + i
         items[pid] = {
             "id": pid,
-            "name": "Кроссовки летние" if i < 3 else "Наушники беспроводные",
+            "name": "Кроссовки летние" if i < 3 else "Сумка женская",
             "brand": "Бр",
             "sizes": [{"price": {"product": (1500 - i) * 100, "basic": 2000 * 100}}],
             "reviewRating": 4.6,

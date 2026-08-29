@@ -68,7 +68,8 @@ BLACKLIST = [
 CATEGORY_BLOCKLIST = [
     x.strip().lower()
     for x in os.getenv(
-        "WB_CATEGORY_BLOCKLIST", "18+;эротические товары;табак;вейпы"
+        "WB_CATEGORY_BLOCKLIST",
+        "18+;эротические товары;табак;вейпы;смартфон;телефон;наушники;ноутбук;планшет;монитор;телевизор;колонка;часы;зарядка;кабель;чехол для телефона;чехол для смартфона;стекло защитное;чехол для планшета;smartphone;phone;headphones;laptop;tablet;monitor;tv;speaker;charger;cable",
     ).split(";")
     if x.strip()
 ]

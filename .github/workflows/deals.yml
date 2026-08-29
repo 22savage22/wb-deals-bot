@@ -2,8 +2,8 @@ name: WB Deals Bot
 
 on:
   schedule:
-    # One post every 10 minutes, around the clock: target 6 posts/hour.
-    - cron: "*/10 * * * *"
+    # Every 10 minutes, shifted off GitHub's overloaded round minutes.
+    - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
 
 permissions:

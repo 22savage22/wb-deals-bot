@@ -584,6 +584,19 @@
  },
  "recent": [
   {
+   "pid": 1343943434,
+   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
+   "discount": 92,
+   "price": 5670,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1343943434/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1788020674,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 777977827,
    "title": "Кроссовки кеды GEL NYC асикс спортивные волейбольные",
    "discount": 75,
@@ -1343,62 +1356,38 @@
    "ts": 1787607740,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1035706400,
-   "title": "Новый мобильный Cмартфон i17 Pro Max игровые телефон 5G",
-   "discount": 70,
-   "price": 12418,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1035706400/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787605460,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1343943434,
-   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
-   "discount": 92,
-   "price": 5670,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1343943434/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1788020674,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1788020674,
-  "last_posts": 1,
+  "last_run": 1788021913,
+  "last_posts": 0,
   "last_queries": [
-   "телефон",
-   "телевизор",
-   "кроссовки",
-   "наушники"
+   "куртка мужская",
+   "джинсы мужские",
+   "худи мужское",
+   "кроссовки мужские",
+   "платье женское",
+   "часы мужские"
   ],
   "learn_ts": 1787936186.69652,
-  "empty_notice_ts": 1787615111.0,
+  "empty_notice_ts": 1788022315.0,
   "cats_ts": 1787964836.0045094,
   "last_cats": [
+   "Пробники",
    "Археология",
-   "Солнечные электростанции и комплектующие",
-   "Основные части двигателя"
+   "Зажимы и закладки"
   ],
   "digest_date": "2026-08-29",
   "week_digest_ts": 1787503127.0,
   "last_funnel": {
-   "published": 1,
-   "selected": 1
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 41,
-   "rate_limited": 10,
-   "http_error": 16,
+   "calls": 23,
+   "ok": 0,
+   "rate_limited": 20,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -2151,7 +2140,14 @@
   "f9c3d3d1f1d8fcf0": 1788009822,
   "f83cb0764e4f6c68": 1788020674
  },
- "learned": {},
+ "learned": {
+  "часы мужские": {
+   "ts": 1788022315.574986,
+   "attempts": 1,
+   "posts": 0,
+   "status": "trial"
+  }
+ },
  "prices": {
   "1181876719": {
    "price": 332,
@@ -3965,9 +3961,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1787786482.2178295,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788022315.5749998,
+   "runs": 10,
+   "empty": 5
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -4061,9 +4057,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1788013548.0483208,
-   "runs": 4,
-   "empty": 4
+   "ts": 1788022315.5749998,
+   "runs": 5,
+   "empty": 5
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -4097,9 +4093,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1787993935.9790885,
-   "runs": 3,
-   "empty": 3
+   "ts": 1788022315.5749998,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": [

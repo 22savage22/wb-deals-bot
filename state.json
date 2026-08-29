@@ -684,9 +684,22 @@
   }
  },
  "tg": {
-  "offset": 810944728
+  "offset": 810944737
  },
  "recent": [
+  {
+   "pid": 345331596,
+   "title": "Облегающее платье на лето с драпировкой и разрезом",
+   "discount": 89,
+   "price": 1008,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/345331596/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788042398,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 404047934,
    "title": "Куртка мембрана демисезонная с капюшоном",
@@ -1445,32 +1458,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787627453,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 549184026,
-   "title": "Демисезонные кроссовки повседневные",
-   "discount": 70,
-   "price": 3189,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/549184026/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787623435,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 345331596,
-   "title": "Облегающее платье на лето с драпировкой и разрезом",
-   "discount": 89,
-   "price": 1008,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/345331596/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788042398,
    "drop": 0,
    "quality": "A"
   }

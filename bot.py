@@ -630,6 +630,8 @@ def main():
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
 
+    process_updates(data, settings)
+
     paused_until = settings.get("pause_until", 0) or 0
     manual = bool(settings.get("post_now_ts"))
     forced = manual or bool(config.FORCE_POST)
@@ -666,8 +668,6 @@ def main():
         settings.pop("post_now_ts", None)
         settings.pop("post_lock", None)
         config.save_settings(settings)
-
-    process_updates(data, settings)
 
     data["queue"] = deal_queue.save(
         config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}

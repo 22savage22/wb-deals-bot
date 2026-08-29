@@ -184,16 +184,16 @@ def main():
 
     # 18. tally_run: пост -> active, пустота -> попытка, 5 попыток -> retired
     data = make_data()
-    smart.tally_run(data, ["база"], ["телефоны"], {"телефоны": 2})
-    assert data["learned"]["телефоны"]["status"] == "active"
-    assert data["learned"]["телефоны"]["posts"] == 2
-    smart.tally_run(data, ["база"], ["телефоны"], {})
-    assert data["learned"]["телефоны"]["status"] == "active"  # посты не теряются
-    smart.tally_run(data, ["база"], ["сумка"], {})
-    assert data["learned"]["сумка"]["attempts"] == 1
+    smart.tally_run(data, ["база"], ["куртка мужская"], {"куртка мужская": 2})
+    assert data["learned"]["куртка мужская"]["status"] == "active"
+    assert data["learned"]["куртка мужская"]["posts"] == 2
+    smart.tally_run(data, ["база"], ["куртка мужская"], {})
+    assert data["learned"]["куртка мужская"]["status"] == "active"  # посты не теряются
+    smart.tally_run(data, ["база"], ["джинсы мужские"], {})
+    assert data["learned"]["джинсы мужские"]["attempts"] == 1
     for _ in range(4):
-        smart.tally_run(data, ["база"], ["сумка"], {})
-    assert data["learned"]["сумка"]["status"] == "retired"
+        smart.tally_run(data, ["база"], ["джинсы мужские"], {})
+    assert data["learned"]["джинсы мужские"]["status"] == "retired"
     # админские запросы не трогаем
     smart.tally_run(data, ["база"], ["база"], {})
     assert "база" not in data["learned"]

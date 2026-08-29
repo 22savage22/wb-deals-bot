@@ -187,9 +187,10 @@ def _publish_queued(data, limit):
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
             continue
         images = wb.photos(pid)
-        if not images:
+        if len(images) < 2:
             funnel["no_photo"] = funnel.get("no_photo", 0) + 1
-            state.record_error(data, f"Очередь: нет фото {pid}")
+            state.record_error(data, f"Мало фото ({len(images)}): {pid}")
+            print("Мало фото:", pid, len(images))
             continue
         h = wb.image_hash(images[0])
         if h and _img_dup(img_hash, h, now, repost_secs):
@@ -398,10 +399,10 @@ def run_posting(data, settings, notify=True):
             break
         pid = deal["id"]
         images = wb.photos(pid)
-        if not images:
+        if len(images) < 2:
             funnel["no_photo"] = funnel.get("no_photo", 0) + 1
-            state.record_error(data, f"Нет фото: {pid}")
-            print("Нет фото:", pid)
+            state.record_error(data, f"Мало фото ({len(images)}): {pid}")
+            print("Мало фото:", pid, len(images))
             continue
         h = wb.image_hash(images[0])
         if h and not deal.get("price_drop") and _img_dup(img_hash, h, now, repost_secs):

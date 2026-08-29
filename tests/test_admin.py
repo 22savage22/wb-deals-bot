@@ -6,6 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 import admin
+import config
 
 
 class FakeTG:
@@ -110,7 +111,7 @@ def main():
     print("5. editor OK")
 
     t, m = admin._queries_view(make_data(), {})
-    assert "телефон" in t
+    assert "куртка" in t or "джинсы" in t or "худи" in t or "платье" in t
     print("6. queries view OK")
 
     t, m = admin._pause_view(make_data(), {})
@@ -142,11 +143,14 @@ def main():
     changed, d, s = run("addq")
     assert d["admin_ui"]["pending"] == "add_query"
     changed, d, s = run("q:mv:2:up")
-    assert s.get("queries") == ["телефон", "телевизор", "наушники", "кроссовки"], s
+    expected = list(config.DEFAULT_QUERIES)
+    expected[1], expected[2] = expected[2], expected[1]
+    assert s.get("queries") == expected, s
     changed, d, s = run("q:ed:0")
     assert d["admin_ui"]["pending"] == "edit_query:0"
     changed, d, s = run("delq:0")
-    assert "телефон" not in (s.get("queries") or [])
+    first_q = config.DEFAULT_QUERIES[0]
+    assert first_q not in (s.get("queries") or [])
     changed, d, s = run("pause:2")
     assert s.get("pause_until", 0) > 0
     changed, d, s = run("resume")

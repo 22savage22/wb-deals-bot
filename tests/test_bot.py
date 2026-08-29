@@ -123,7 +123,7 @@ class FakeWB:
 
     @staticmethod
     def photos(nm, limit=3):
-        return [FakeWB.photo(nm)]
+        return [FakeWB.photo(nm), FakeWB.photo(nm + 100000), FakeWB.photo(nm + 200000)]
 
     @staticmethod
     def image_hash(buf):
@@ -159,6 +159,9 @@ def main():
     bot.tg = FakeTG
     bot.wb = FakeWB
     bot.time.sleep = lambda s: None
+    import wb as wbmod
+    wbmod.photos = FakeWB.photos
+    wbmod.image_hash = FakeWB.image_hash
 
     cfg = config
     config.TG_ADMIN_ID = "42"

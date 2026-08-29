@@ -113,7 +113,6 @@ def poll(token, data):
     if not updates:
         return []
     new_offset = max(u["update_id"] for u in updates) + 1
-    tg.get_updates(token, new_offset, timeout=0)
     data["tg"]["offset"] = new_offset
     events = []
     for u in updates:
@@ -147,12 +146,13 @@ def _feedback(token, data, cb):
     except ValueError:
         tg.answer_callback(token, cb.get("id", ""))
         return
+    cb_id = cb.get("id", "")
+    tg.answer_callback(token, cb_id, "✓")
     now = time.time()
     user_id = str(cb.get("from", {}).get("id"))
     fb = data["feedback"].get(pid)
     voters = (fb or {}).get("voters", {})
     if user_id and now - voters.get(user_id, 0) < MIN_GAP:
-        tg.answer_callback(token, cb.get("id", ""), "Уже учитывали 👌")
         return
     query, cat = _lookup(data, pid)
     if fb is None:
@@ -164,8 +164,6 @@ def _feedback(token, data, cb):
         fb["voters"][user_id] = now
     data["feedback"][pid] = fb
     smart.record_feedback(data, query, cat, action)
-    text = {"likes": "Учтено 👍", "dislikes": "Поняли 👎", "bought": "Круто! 🛒"}[action]
-    tg.answer_callback(token, cb.get("id", ""), text)
 
 
 def _reply(token, chat_id, *lines):

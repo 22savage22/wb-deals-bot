@@ -38,7 +38,7 @@ jobs:
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
           WB_MIN_DISCOUNT: "50"
-          WB_MIN_RATING: "4.5"
+          WB_MIN_RATING: "4.3"
           WB_MAX_POSTS: "1"
           WB_PAGES: "2"
           WB_QUERIES_PER_RUN: "6"

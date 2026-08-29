@@ -295,6 +295,26 @@ def send_message(token, chat_id, text, markup=None):
         return False
 
 
+def send_poll(token, chat_id, question, options, is_anonymous=True):
+    payload = {
+        "chat_id": chat_id,
+        "question": question,
+        "options": json.dumps(options),
+        "is_anonymous": is_anonymous,
+    }
+    try:
+        resp = requests.post(
+            API.format(token=token, method="sendPoll"),
+            data=payload,
+            timeout=20,
+        )
+        _remember_error(resp)
+        return resp.ok
+    except requests.RequestException as exc:
+        _remember_error(exc=exc)
+        return False
+
+
 def edit_message_text(token, chat_id, message_id, text, markup=None):
     payload = {
         "chat_id": chat_id,

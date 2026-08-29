@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 import admin
 import config
 import deal_queue
+import engagement
 import gitutil
 import log
 import smart
@@ -43,6 +44,40 @@ _ELECTRONICS_KEYWORDS = [
 def _is_electronics(title):
     low = str(title or "").lower()
     return any(kw in low for kw in _ELECTRONICS_KEYWORDS)
+
+
+PROMO_MESSAGES = [
+    "🔥 <b>Горячие скидки на Wildberries!</b>\n\n"
+    "Не упусти шанс сэкономить — скидки до 70% на одежду, обувь и товары для дома.\n"
+    "Заходи в каталог и выбирай лучшее!\n\n"
+    "🛒 <a href=\"https://www.wildberries.ru\">Перейти в каталог</a>",
+
+    "💡 <b>Лучшие находки дня</b>\n\n"
+    "Каждый день мы ищем для тебя товары с максимальными скидками.\n"
+    "Следи за каналом — не пропусти свой идеальный товар!\n\n"
+    "🛒 <a href=\"https://www.wildberries.ru\">Wildberries</a>",
+
+    "🏷️ <b>Скидки обновлены!</b>\n\n"
+    "Новые товары со скидками 50%+ уже в каталоге.\n"
+    "Проверяй — то, что ты искал, может быть уже здесь.\n\n"
+    "🛒 <a href=\"https://www.wildberries.ru\">Смотреть все</a>",
+
+    "🛍️ <b>Распродажа продолжается!</b>\n\n"
+    "Одежда, обувь, аксессуары и товары для дома по лучшим ценам.\n"
+    "Не откладывай покупки — скидки не вечны!\n\n"
+    "🛒 <a href=\"https://www.wildberries.ru\">Перейти</a>",
+
+    "⭐ <b>Топ товаров недели</b>\n\n"
+    "Мы собрали лучшие предложения с максимальными скидками.\n"
+    "Следи за каналом — каждый день новые находки!\n\n"
+    "🛒 <a href=\"https://www.wildberries.ru\">Wildberries</a>",
+]
+
+
+def _send_promo(token, chat_id):
+    import random as _rand
+    msg = _rand.choice(PROMO_MESSAGES)
+    return tg.send_message(token, chat_id, msg)
 
 
 def active_posting_time(now=None):
@@ -366,7 +401,12 @@ def run_posting(data, settings, notify=True):
         meta["last_funnel"] = funnel
         smart.tally_run(data, pool, queries, {})
         smart.tally_cats(data, cat_names, {})
-        print("Поиск не дал результатов")
+        if engagement.should_post_engagement(data):
+            print("WB пуст, отправляю engagement-пост")
+            engagement.post_engagement(data)
+        else:
+            print("WB пуст, отправляю промо")
+            _send_promo(config.TG_BOT_TOKEN, config.TG_CHAT_ID)
         _notify_run(data, settings, queries, cat_names, 0, [], notify)
         return 0
 
@@ -519,6 +559,9 @@ def run_posting(data, settings, notify=True):
     if cat_names:
         parts.append("Категории: " + ", ".join(cat_names))
     print(" · ".join(parts))
+    if published and engagement.should_post_engagement(data, interval_hours=4):
+        if random.random() < 0.35:
+            engagement.post_engagement(data)
     _notify_run(data, settings, queries, cat_names, published, posted_deals, notify)
     return published
 

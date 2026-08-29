@@ -580,6 +580,18 @@
  },
  "recent": [
   {
+   "pid": 563826074,
+   "title": "Смартфон CONAM C40 Pro 12+512GB",
+   "discount": 83,
+   "price": 8382,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/563826074/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787964836,
+   "drop": 0
+  },
+  {
    "pid": 945024006,
    "title": "Кроссовки Нью Баланс 530 Тренажерный зал",
    "discount": 89,
@@ -1341,31 +1353,6 @@
    "ts": 1787601076,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 934615564,
-   "title": "Кроссовки Initiator Slip Resistant Abrasion",
-   "discount": 74,
-   "price": 4210,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/934615564/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787599160,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 563826074,
-   "title": "Смартфон CONAM C40 Pro 12+512GB",
-   "discount": 83,
-   "price": 8382,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/563826074/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787964836,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1403,10 +1390,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 10,
-   "rate_limited": 17,
-   "http_error": 6,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -1467,7 +1454,7 @@
   "today": "2026-08-29",
   "today_posts": 1,
   "total_posts": 329,
-  "last_scan": 1787937510,
+  "last_scan": 1787967727,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1475,10 +1462,10 @@
    "наушники"
   ],
   "last_scan_cats": [
-   "Кофе и цикорий",
-   "Одежда и чешки",
-   "Основные части двигателя",
-   "Серия Reno"
+   "Грунты, дренаж, мульча",
+   "Аксессуары для водителя",
+   "Зажимы и закладки",
+   "Посуда"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -4038,15 +4025,15 @@
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",
-   "ts": 1787890491.428687,
-   "runs": 4,
-   "empty": 4
+   "ts": 1787967961.942668,
+   "runs": 5,
+   "empty": 5
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1787936186.6965098,
-   "runs": 2,
-   "empty": 2
+   "ts": 1787967961.942668,
+   "runs": 3,
+   "empty": 3
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -4068,15 +4055,15 @@
   },
   "Посуда": {
    "shard": "gift23",
-   "ts": 1787965176.5660946,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787967961.942668,
+   "runs": 2,
+   "empty": 2
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
-   "ts": 1787965176.5660946,
-   "runs": 1,
-   "empty": 1
+   "ts": 1787967961.942668,
+   "runs": 2,
+   "empty": 2
   },
   "Археология": {
    "shard": "books_archeology",

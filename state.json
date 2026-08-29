@@ -592,6 +592,18 @@
  },
  "recent": [
   {
+   "pid": 453461304,
+   "title": "Джинсы широкие багги оверсайз на резинке",
+   "discount": 83,
+   "price": 2527,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/453461304/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788023510,
+   "drop": 0
+  },
+  {
    "pid": 1343943434,
    "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
    "discount": 92,
@@ -1351,31 +1363,6 @@
    "ts": 1787609413,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1041570314,
-   "title": "Наушники беспроводные для андроид и iphone с шумоподавлением",
-   "discount": 85,
-   "price": 880,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1041570314/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787607740,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 453461304,
-   "title": "Джинсы широкие багги оверсайз на резинке",
-   "discount": 83,
-   "price": 2527,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/453461304/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788023510,
-   "drop": 0
   }
  ],
  "meta": {

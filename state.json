@@ -583,6 +583,19 @@
  },
  "recent": [
   {
+   "pid": 777977827,
+   "title": "Кроссовки кеды GEL NYC асикс спортивные волейбольные",
+   "discount": 75,
+   "price": 2439,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/777977827/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1788009822,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 911766096,
    "title": "Кроссовки кеды Летние Gel-Kahana 8 асикс волейбольные",
    "discount": 86,
@@ -1342,32 +1355,6 @@
    "ts": 1787605460,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 861060646,
-   "title": "Кроссовки forum low",
-   "discount": 72,
-   "price": 1965,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/861060646/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787603737,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 777977827,
-   "title": "Кроссовки кеды GEL NYC асикс спортивные волейбольные",
-   "discount": 75,
-   "price": 2439,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/777977827/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1788009822,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1394,10 +1381,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 50,
-   "rate_limited": 12,
-   "http_error": 18,
+   "calls": 67,
+   "ok": 41,
+   "rate_limited": 10,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -1458,7 +1445,7 @@
   "today": "2026-08-29",
   "today_posts": 3,
   "total_posts": 331,
-  "last_scan": 1787993746,
+  "last_scan": 1788013353,
   "last_scan_queries": [
    "телефон",
    "телевизор",
@@ -1467,24 +1454,24 @@
   ],
   "last_scan_cats": [
    "Одежда и чешки",
-   "Археология",
-   "Медиаконвертеры",
-   "Изготовление кукол и игрушек"
+   "Посуда",
+   "Зажимы и закладки",
+   "Аксессуары для водителя"
   ],
-  "queue_size": 98,
-  "last_scan_added": 60,
+  "queue_size": 60,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 600,
-   "cards": 600,
-   "bad_price": 32,
-   "discount": 273,
-   "rating": 30,
-   "ok": 265,
-   "strict": 265,
+   "found": 480,
+   "cards": 480,
+   "ok": 233,
+   "discount": 174,
+   "bad_price": 38,
+   "rating": 35,
+   "strict": 233,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 28,
-   "title_duplicate": 49
+   "duplicate": 79,
+   "title_duplicate": 39
   },
   "last_queue": {
    "queue_before": 100,
@@ -4055,9 +4042,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1787967961.942668,
-   "runs": 3,
-   "empty": 3
+   "ts": 1788013548.0483208,
+   "runs": 4,
+   "empty": 4
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -4067,9 +4054,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1787993935.9790885,
-   "runs": 4,
-   "empty": 4
+   "ts": 1788013548.0483208,
+   "runs": 5,
+   "empty": 5
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",
@@ -4079,15 +4066,15 @@
   },
   "Посуда": {
    "shard": "gift23",
-   "ts": 1787967961.942668,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788013548.0483208,
+   "runs": 3,
+   "empty": 3
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
-   "ts": 1787967961.942668,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788013548.0483208,
+   "runs": 3,
+   "empty": 3
   },
   "Археология": {
    "shard": "books_archeology",
@@ -4097,6 +4084,38 @@
   }
  },
  "queue": [
+  {
+   "id": 1343943434,
+   "title": "Смартфон S25Ultra 16 ГБ + 1024ГБ, 8000 мАч Android14",
+   "brand": "",
+   "product": 5670,
+   "basic": 66717,
+   "discount": 92,
+   "benefit": 61047,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "телефон",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "телефон",
+   "queued_ts": 1788013353
+  },
+  {
+   "id": 1162323969,
+   "title": "Retro Bluetooth наушники черные",
+   "brand": "Нет бренда",
+   "product": 1209,
+   "basic": 3919,
+   "discount": 69,
+   "benefit": 2710,
+   "rating": 5.0,
+   "feedbacks": 4,
+   "category": "наушники",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "наушники",
+   "queued_ts": 1788013353
+  },
   {
    "id": 778497448,
    "title": "Кроссовки Air Force 1 форсы",

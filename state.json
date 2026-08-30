@@ -914,6 +914,18 @@
  },
  "recent": [
   {
+   "pid": 955256948,
+   "title": "сумка плетеная клатч",
+   "discount": 93,
+   "price": 2176,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/955256948/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788117222,
+   "drop": 0
+  },
+  {
    "pid": 1293920011,
    "title": "Толстовка на молнии с капюшоном",
    "discount": 94,
@@ -1925,18 +1937,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 955256948,
-   "title": "сумка плетеная клатч",
-   "discount": 93,
-   "price": 2176,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/955256948/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788117222,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1983,10 +1983,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 109,
-   "ok": 63,
-   "rate_limited": 29,
-   "http_error": 17,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

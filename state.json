@@ -658,7 +658,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788088448.466749,
+   "ts": 1788088448,
    "query": null,
    "cat": null,
    "voters": {
@@ -669,7 +669,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788090116.6013486,
+   "ts": 1788090116,
    "query": null,
    "cat": null,
    "voters": {
@@ -1563,58 +1563,6 @@
    "ts": 1787663356,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1135004833,
-   "title": "Кроссовки Asics GEL-PICKAX",
-   "discount": 71,
-   "price": 2878,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1135004833/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787659280,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 681937151,
-   "title": "Спортивные кроссовки ZX 750 Великан",
-   "discount": 82,
-   "price": 3194,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/681937151/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787657594,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 989175126,
-   "title": "Кроссовки OLD ORDER (ОКАИ) трендовый дизайн р-р 41-46",
-   "discount": 81,
-   "price": 6531,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/989175126/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787655318,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252698387,
-   "title": "Смартфон C85 Pro, 8 256ГБ",
-   "discount": 73,
-   "price": 15659,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252698387/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787652983,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1643,10 +1591,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 26,
+   "ok": 10,
+   "rate_limited": 13,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -1707,31 +1655,31 @@
   "today": "2026-08-30",
   "today_posts": 15,
   "total_posts": 348,
-  "last_scan": 1788087349,
+  "last_scan": 1788090325,
   "last_scan_queries": [
-   "постельное белье",
    "платье женское",
    "джинсы женские",
+   "футболка женская",
    "футболка мужская"
   ],
   "last_scan_cats": [
-   "Лотки, пеленки",
-   "Восточные сладости"
+   "Подгузники",
+   "Пылевыбивалки"
   ],
   "queue_size": 30,
-  "last_scan_added": 15,
+  "last_scan_added": 4,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "discount": 45,
-   "ok": 41,
-   "rating": 3,
-   "bad_price": 11,
-   "strict": 41,
+   "found": 101,
+   "cards": 101,
+   "bad_price": 3,
+   "ok": 65,
+   "rating": 14,
+   "discount": 19,
+   "strict": 65,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 4,
-   "title_duplicate": 2
+   "duplicate": 3,
+   "title_duplicate": 18
   },
   "last_queue": {
    "queue_before": 27,
@@ -4192,9 +4140,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1788048532.0872786,
-   "runs": 56,
-   "empty": 1
+   "ts": 1788090552.725968,
+   "runs": 57,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -4480,9 +4428,9 @@
   },
   "Подгузники": {
    "shard": "children_things2",
-   "ts": 1788067217.3072772,
-   "runs": 1,
-   "empty": 1
+   "ts": 1788090552.725968,
+   "runs": 2,
+   "empty": 2
   },
   "Для песочницы": {
    "shard": "toys12",
@@ -4504,6 +4452,70 @@
   }
  },
  "queue": [
+  {
+   "id": 589518002,
+   "title": "Футболка прямая хлопок базовая повседневная",
+   "brand": "Фосфор",
+   "product": 700,
+   "basic": 3850,
+   "discount": 82,
+   "benefit": 3150,
+   "rating": 4.9,
+   "feedbacks": 6921,
+   "category": "футболка женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка женская",
+   "queued_ts": 1788090325
+  },
+  {
+   "id": 898842588,
+   "title": "Футболка спортивная оверсайз для фитнеса удлиненная",
+   "brand": "Vinselion",
+   "product": 1967,
+   "basic": 12742,
+   "discount": 85,
+   "benefit": 10775,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "футболка женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка женская",
+   "queued_ts": 1788090325
+  },
+  {
+   "id": 923802265,
+   "title": "Нарядная футболка с принтом Мороженое хлопок",
+   "brand": "YELLOW PRICE",
+   "product": 399,
+   "basic": 2939,
+   "discount": 86,
+   "benefit": 2540,
+   "rating": 4.9,
+   "feedbacks": 254,
+   "category": "футболка женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка женская",
+   "queued_ts": 1788090325
+  },
+  {
+   "id": 1067463616,
+   "title": "Футболка оверсайз женская",
+   "brand": "smite",
+   "product": 241,
+   "basic": 2520,
+   "discount": 90,
+   "benefit": 2279,
+   "rating": 4.8,
+   "feedbacks": 5709,
+   "category": "футболка женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка женская",
+   "queued_ts": 1788090325
+  },
   {
    "id": 1195368985,
    "title": "Летнее платье больших размеров с кулиской",
@@ -4857,22 +4869,6 @@
    "queued_ts": 1788086562
   },
   {
-   "id": 589518002,
-   "title": "Футболка прямая хлопок базовая повседневная",
-   "brand": "Фосфор",
-   "product": 700,
-   "basic": 3850,
-   "discount": 82,
-   "benefit": 3150,
-   "rating": 4.9,
-   "feedbacks": 6921,
-   "category": "футболка женская",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "футболка женская",
-   "queued_ts": 1788086562
-  },
-  {
    "id": 646126650,
    "title": "Джинсы трубы с высокой посадкой широкие Dioves",
    "brand": "AKvaqueros",
@@ -4902,22 +4898,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "постельное белье",
-   "queued_ts": 1788086562
-  },
-  {
-   "id": 898842588,
-   "title": "Футболка спортивная оверсайз для фитнеса удлиненная",
-   "brand": "Vinselion",
-   "product": 1967,
-   "basic": 12742,
-   "discount": 85,
-   "benefit": 10775,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "футболка женская",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "футболка женская",
    "queued_ts": 1788086562
   },
   {
@@ -5014,22 +4994,6 @@
    "selection_mode": "strict",
    "quality": "A",
    "query": "постельное белье",
-   "queued_ts": 1788086562
-  },
-  {
-   "id": 923802265,
-   "title": "Нарядная футболка с принтом Мороженое хлопок",
-   "brand": "YELLOW PRICE",
-   "product": 499,
-   "basic": 2939,
-   "discount": 83,
-   "benefit": 2440,
-   "rating": 4.9,
-   "feedbacks": 254,
-   "category": "футболка женская",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "футболка женская",
    "queued_ts": 1788086562
   },
   {

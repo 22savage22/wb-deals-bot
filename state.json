@@ -1982,10 +1982,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 18,
-   "rate_limited": 11,
-   "http_error": 7,
+   "calls": 97,
+   "ok": 62,
+   "rate_limited": 10,
+   "http_error": 25,
    "network_error": 0,
    "json_error": 0
   },
@@ -2046,31 +2046,41 @@
   "today": "2026-08-30",
   "today_posts": 46,
   "total_posts": 379,
-  "last_scan": 1788107609,
+  "last_scan": 1788118971,
   "last_scan_queries": [
    "платье женское",
+   "сумка женская",
+   "футболка мужская",
+   "джинсы женские",
+   "футболка женская",
    "постельное белье",
-   "украшения женские",
-   "джинсы женские"
+   "ремень женский",
+   "блузка женская",
+   "джинсы мужские",
+   "кофта женская"
   ],
   "last_scan_cats": [
-   "Подгузники",
-   "Пылевыбивалки"
+   "Травяные сборы",
+   "Корм и лакомства",
+   "Напитки",
+   "Игрушки",
+   "Подвески"
   ],
-  "queue_size": 19,
-  "last_scan_added": 1,
+  "queue_size": 5,
+  "last_scan_added": 2,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 156,
-   "rating": 36,
-   "discount": 97,
-   "bad_price": 11,
-   "strict": 156,
+   "found": 700,
+   "cards": 700,
+   "discount": 210,
+   "rating": 87,
+   "ok": 365,
+   "bad_price": 38,
+   "strict": 365,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 8,
-   "title_duplicate": 18
+   "duplicate": 12,
+   "electronics": 2,
+   "title_duplicate": 70
   },
   "last_queue": {
    "queue_before": 19,
@@ -4810,9 +4820,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1788118616.1931932,
-   "runs": 19,
-   "empty": 4
+   "ts": 1788119201.401752,
+   "runs": 20,
+   "empty": 5
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -4858,9 +4868,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1788118616.1931932,
-   "runs": 14,
-   "empty": 4
+   "ts": 1788119201.401752,
+   "runs": 15,
+   "empty": 5
   },
   "Тросики": {
    "shard": "autoproduct56",
@@ -4894,21 +4904,21 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1788118616.1931932,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788119201.401752,
+   "runs": 10,
+   "empty": 5
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1788118616.1931932,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788119201.401752,
+   "runs": 10,
+   "empty": 5
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1788118616.1931932,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788119201.401752,
+   "runs": 10,
+   "empty": 5
   },
   "ММА": {
    "shard": "sport32",
@@ -5032,6 +5042,38 @@
   }
  },
  "queue": [
+  {
+   "id": 858418454,
+   "title": "Лонгслив удлиненный оверсайз с длинным рукавом",
+   "brand": "JASMIN COLLECTION",
+   "product": 945,
+   "basic": 13500,
+   "discount": 93,
+   "benefit": 12555,
+   "rating": 4.5,
+   "feedbacks": 6,
+   "category": "кофта женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кофта женская",
+   "queued_ts": 1788118971
+  },
+  {
+   "id": 315075259,
+   "title": "Лонгслив оверсайз с длинным рукавом свободный",
+   "brand": "Main code",
+   "product": 720,
+   "basic": 6000,
+   "discount": 88,
+   "benefit": 5280,
+   "rating": 5.0,
+   "feedbacks": 13,
+   "category": "кофта женская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кофта женская",
+   "queued_ts": 1788118971
+  },
   {
    "id": 608376530,
    "title": "Футболка хлопковая базовая однотонная",

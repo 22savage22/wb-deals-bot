@@ -843,6 +843,19 @@
  },
  "recent": [
   {
+   "pid": 1174087333,
+   "title": "Постельное белье евро сатин комплект 200х220 кпб 4 наволочки",
+   "discount": 86,
+   "price": 4750,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1174087333/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788103113,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 560724894,
    "title": "Ремень женский кожаный тонкий черный для платья и джинс",
    "discount": 96,
@@ -1706,19 +1719,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1174087333,
-   "title": "Постельное белье евро сатин комплект 200х220 кпб 4 наволочки",
-   "discount": 86,
-   "price": 4750,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1174087333/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788103113,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1822,7 +1822,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 22,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

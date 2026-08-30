@@ -1854,47 +1854,42 @@
   }
  ],
  "meta": {
-  "last_run": 1788112163,
+  "last_run": 1788112697,
   "last_posts": 0,
   "last_queries": [
    "постельное белье",
    "украшения женские",
    "платье женское",
-   "футболка мужская",
-   "джинсы женские",
-   "футболка женская"
+   "футболка мужская"
   ],
   "learn_ts": 1788110753.771259,
   "empty_notice_ts": 1788108240.0,
   "cats_ts": 1788066764.0932784,
   "last_cats": [
-   "Бандажи",
-   "Смазки и масла для инструмента",
-   "Краски автомобильные"
+   "Зеркала",
+   "Обогреватели и вентиляторы"
   ],
   "digest_date": "2026-08-30",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 201,
-   "cards": 201,
-   "ok": 127,
-   "bad_price": 4,
-   "discount": 63,
-   "rating": 7,
-   "strict": 127,
+   "found": 200,
+   "cards": 200,
+   "ok": 125,
+   "discount": 65,
+   "bad_price": 10,
+   "strict": 125,
    "fallback": 0,
    "reserve": 0,
-   "repost": 5,
-   "title_duplicate": 5,
-   "electronics": 1,
-   "selected": 5,
+   "repost": 3,
+   "title_duplicate": 21,
+   "selected": 25,
    "published": 0
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1966,7 +1961,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 18,
+  "queue_size": 19,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,
@@ -4687,9 +4682,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1787590340.374866,
-   "runs": 20,
-   "empty": 5
+   "ts": 1788112933.9503634,
+   "runs": 21,
+   "empty": 1
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -4705,9 +4700,9 @@
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1787555801.7660596,
-   "runs": 15,
-   "empty": 5
+   "ts": 1788112933.9503634,
+   "runs": 16,
+   "empty": 1
   },
   "Подвески": {
    "shard": "bijouterie4",

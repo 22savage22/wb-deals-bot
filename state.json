@@ -1982,10 +1982,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 62,
-   "rate_limited": 10,
-   "http_error": 25,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

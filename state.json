@@ -628,7 +628,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788084681,
+   "ts": 1788084681.9370313,
    "query": null,
    "cat": null,
    "voters": {
@@ -735,6 +735,19 @@
   "offset": 810944743
  },
  "recent": [
+  {
+   "pid": 1085267230,
+   "title": "Куртка ветровка весенняя",
+   "discount": 85,
+   "price": 3060,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1085267230/detail.aspx",
+   "query": "куртка мужская",
+   "cat": "куртка мужская",
+   "ts": 1788085237,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 663471634,
    "title": "Ветровка куртка демисезонная с капюшоном",
@@ -1510,15 +1523,15 @@
    "quality": "A"
   },
   {
-   "pid": 1085267230,
-   "title": "Куртка ветровка весенняя",
-   "discount": 85,
-   "price": 3060,
+   "pid": 1163761752,
+   "title": "Кроссовки 180",
+   "discount": 80,
+   "price": 2749,
    "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1085267230/detail.aspx",
-   "query": "куртка мужская",
-   "cat": "куртка мужская",
-   "ts": 1788085237,
+   "link": "https://www.wildberries.ru/catalog/1163761752/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787636148,
    "drop": 0,
    "quality": "A"
   }
@@ -1628,7 +1641,7 @@
    "Фигурки",
    "Для песочницы"
   ],
-  "queue_size": 96,
+  "queue_size": 60,
   "last_scan_added": 57,
   "last_scan_funnel": {
    "found": 399,

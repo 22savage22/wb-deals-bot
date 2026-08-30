@@ -643,7 +643,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788086845,
+   "ts": 1788086845.0729861,
    "query": null,
    "cat": null,
    "voters": {
@@ -1523,6 +1523,32 @@
    "ts": 1787652983,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 411234490,
+   "title": "Кроссовки",
+   "discount": 79,
+   "price": 2106,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/411234490/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787650823,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 1344714777,
+   "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
+   "discount": 77,
+   "price": 15677,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1344714777/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787644609,
+   "drop": 0,
+   "quality": "A"
   }
  ],
  "meta": {
@@ -1551,10 +1577,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 10,
-   "rate_limited": 13,
-   "http_error": 5,
+   "calls": 74,
+   "ok": 36,
+   "rate_limited": 25,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },

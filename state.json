@@ -811,6 +811,19 @@
  },
  "recent": [
   {
+   "pid": 190617167,
+   "title": "Нарядное платье для беременных для праздника и в офис",
+   "discount": 87,
+   "price": 687,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/190617167/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788096234,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 923802265,
    "title": "Нарядная футболка с принтом Мороженое хлопок",
    "discount": 86,
@@ -1585,15 +1598,41 @@
    "quality": "A"
   },
   {
-   "pid": 190617167,
-   "title": "Нарядное платье для беременных для праздника и в офис",
-   "discount": 87,
-   "price": 687,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/190617167/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788096234,
+   "pid": 973818580,
+   "title": "aндpoит тeлeфoн POVA 5 Pro 16 ГБ+ 1024 ГБ 120 Гц 5G GPS",
+   "discount": 58,
+   "price": 6422,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/973818580/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787686547,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 1187029458,
+   "title": "Смартфон V70, 8 256ГБ, russia",
+   "discount": 72,
+   "price": 26825,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/1187029458/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787680661,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 466000475,
+   "title": "Наушники беспроводные с микрофоном PRO 2",
+   "discount": 77,
+   "price": 1603,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/466000475/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787678419,
    "drop": 0,
    "quality": "A"
   }
@@ -1699,7 +1738,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 21,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

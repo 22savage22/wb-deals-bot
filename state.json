@@ -1698,10 +1698,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 40,
+   "ok": 30,
+   "rate_limited": 3,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1762,31 +1762,31 @@
   "today": "2026-08-30",
   "today_posts": 31,
   "total_posts": 364,
-  "last_scan": 1788098799,
+  "last_scan": 1788101238,
   "last_scan_queries": [
-   "футболка мужская",
+   "постельное белье",
+   "ремень женский",
    "платье женское",
-   "джинсы женские",
-   "постельное белье"
+   "футболка мужская"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1860 - 1869 годов",
-   "Для песочницы"
+   "Подгузники",
+   "Фигурки"
   ],
-  "queue_size": 21,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,
    "cards": 400,
-   "ok": 206,
-   "discount": 124,
-   "rating": 53,
-   "bad_price": 17,
-   "strict": 206,
+   "ok": 223,
+   "rating": 62,
+   "discount": 104,
+   "bad_price": 11,
+   "strict": 223,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 4,
-   "title_duplicate": 33
+   "duplicate": 5,
+   "title_duplicate": 47
   },
   "last_queue": {
    "queue_before": 21,
@@ -4653,9 +4653,9 @@
   },
   "Подгузники": {
    "shard": "children_things2",
-   "ts": 1788090552.725968,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788101320.6557305,
+   "runs": 3,
+   "empty": 3
   },
   "Для песочницы": {
    "shard": "toys12",
@@ -4665,9 +4665,9 @@
   },
   "Фигурки": {
    "shard": "toys19",
-   "ts": 1788067217.3072772,
-   "runs": 1,
-   "empty": 1
+   "ts": 1788101320.6557305,
+   "runs": 2,
+   "empty": 2
   },
   "Лотки, пеленки": {
    "shard": "zoo2",
@@ -4677,6 +4677,102 @@
   }
  },
  "queue": [
+  {
+   "id": 1174087333,
+   "title": "Постельное белье евро сатин комплект 200х220 кпб 4 наволочки",
+   "brand": "DeNieva",
+   "product": 4750,
+   "basic": 33913,
+   "discount": 86,
+   "benefit": 29163,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "постельное белье",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "постельное белье",
+   "queued_ts": 1788101238
+  },
+  {
+   "id": 560724894,
+   "title": "Ремень женский кожаный тонкий черный для платья и джинс",
+   "brand": "Ремни женские",
+   "product": 840,
+   "basic": 21000,
+   "discount": 96,
+   "benefit": 20160,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "ремень женский",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "ремень женский",
+   "queued_ts": 1788101238
+  },
+  {
+   "id": 262764494,
+   "title": "Футболка хлопок набор 3 шт",
+   "brand": "Cottonworld",
+   "product": 1418,
+   "basic": 4999,
+   "discount": 72,
+   "benefit": 3581,
+   "rating": 4.9,
+   "feedbacks": 49759,
+   "category": "футболка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка мужская",
+   "queued_ts": 1788101238
+  },
+  {
+   "id": 608376530,
+   "title": "Футболка хлопковая базовая однотонная",
+   "brand": "new GAME",
+   "product": 921,
+   "basic": 4800,
+   "discount": 81,
+   "benefit": 3879,
+   "rating": 5.0,
+   "feedbacks": 9,
+   "category": "футболка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка мужская",
+   "queued_ts": 1788101238
+  },
+  {
+   "id": 1142038111,
+   "title": "Ремень кожаный узкий",
+   "brand": "",
+   "product": 320,
+   "basic": 5000,
+   "discount": 94,
+   "benefit": 4680,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "ремень женский",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "ремень женский",
+   "queued_ts": 1788101238
+  },
+  {
+   "id": 581354350,
+   "title": "Ремень женский из экокожи",
+   "brand": "RGL",
+   "product": 392,
+   "basic": 3500,
+   "discount": 89,
+   "benefit": 3108,
+   "rating": 5.0,
+   "feedbacks": 2,
+   "category": "ремень женский",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "ремень женский",
+   "queued_ts": 1788101238
+  },
   {
    "id": 809186431,
    "title": "Джинсы зауженные с высокой посадкой",

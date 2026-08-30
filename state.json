@@ -873,6 +873,18 @@
  },
  "recent": [
   {
+   "pid": 435746069,
+   "title": "Серьги Пусеты с Муассанитами 4ct Бриллиантами CVD HPHT ALPA",
+   "discount": 97,
+   "price": 6842,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/435746069/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788106128,
+   "drop": 0
+  },
+  {
    "pid": 944401807,
    "title": "Универсальная Бейсболки",
    "discount": 95,
@@ -1800,18 +1812,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 435746069,
-   "title": "Серьги Пусеты с Муассанитами 4ct Бриллиантами CVD HPHT ALPA",
-   "discount": 97,
-   "price": 6842,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/435746069/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788106128,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1852,10 +1852,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 63,
-   "rate_limited": 8,
-   "http_error": 16,
+   "calls": 74,
+   "ok": 36,
+   "rate_limited": 25,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1927,7 +1927,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 19,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

@@ -2039,7 +2039,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788123378,
+  "last_run": 1788123978,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -2057,35 +2057,34 @@
   "empty_notice_ts": 1788108240.0,
   "cats_ts": 1788066764.0932784,
   "last_cats": [
-   "ММА",
-   "Коляски",
-   "Манежи детские",
-   "Смарт-часы и браслеты",
-   "Защитные стекла для телефонов Xiaomi"
+   "Матрасы-топперы",
+   "Серия Galaxy A",
+   "Мыши",
+   "Тросики",
+   "Тормозные барабаны"
   ],
   "digest_date": "2026-08-30",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1800,
-   "cards": 1800,
-   "discount": 559,
-   "ok": 975,
-   "rating": 169,
-   "bad_price": 97,
-   "strict": 975,
+   "found": 600,
+   "cards": 600,
+   "ok": 318,
+   "discount": 198,
+   "rating": 54,
+   "bad_price": 30,
+   "strict": 318,
    "fallback": 0,
    "reserve": 0,
-   "repost": 18,
-   "electronics": 6,
-   "title_duplicate": 231,
+   "repost": 9,
+   "title_duplicate": 64,
    "selected": 5,
    "published": 0
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 18,
-   "rate_limited": 11,
-   "http_error": 7,
+   "calls": 107,
+   "ok": 51,
+   "rate_limited": 37,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0
   },
@@ -2166,7 +2165,7 @@
    "Игрушки",
    "Подвески"
   ],
-  "queue_size": 5,
+  "queue_size": 19,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 700,
@@ -4864,21 +4863,21 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1787641341.507501,
-   "runs": 25,
-   "empty": 5
+   "ts": 1788124754.2708938,
+   "runs": 26,
+   "empty": 1
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1787641341.507501,
-   "runs": 25,
-   "empty": 5
+   "ts": 1788124754.2708938,
+   "runs": 26,
+   "empty": 1
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1787641341.507501,
-   "runs": 25,
-   "empty": 5
+   "ts": 1788124754.2708938,
+   "runs": 26,
+   "empty": 1
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -4942,9 +4941,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1787669681.155509,
-   "runs": 15,
-   "empty": 5
+   "ts": 1788124754.2708938,
+   "runs": 16,
+   "empty": 1
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -4978,9 +4977,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1787641341.507501,
-   "runs": 10,
-   "empty": 5
+   "ts": 1788124754.2708938,
+   "runs": 11,
+   "empty": 1
   },
   "Пробники": {
    "shard": "beauty47",

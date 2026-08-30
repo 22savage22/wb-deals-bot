@@ -622,6 +622,17 @@
    "voters": {
     "976465919": 1788083646.2782938
    }
+  },
+  "663471634": {
+   "likes": 0,
+   "dislikes": 1,
+   "bought": 0,
+   "ts": 1788084681.9370313,
+   "query": null,
+   "cat": null,
+   "voters": {
+    "976465919": 1788084681.9370313
+   }
   }
  },
  "query_stats": {
@@ -720,9 +731,22 @@
   }
  },
  "tg": {
-  "offset": 810944742
+  "offset": 810944743
  },
  "recent": [
+  {
+   "pid": 663471634,
+   "title": "Ветровка куртка демисезонная с капюшоном",
+   "discount": 76,
+   "price": 4575,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/663471634/detail.aspx",
+   "query": "куртка мужская",
+   "cat": "куртка мужская",
+   "ts": 1788084637,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 564516244,
    "title": "Куртка пуховик зимняя короткая дутая, с капюшоном, pinterest",
@@ -1496,19 +1520,6 @@
    "ts": 1787636148,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 663471634,
-   "title": "Ветровка куртка демисезонная с капюшоном",
-   "discount": 76,
-   "price": 4575,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/663471634/detail.aspx",
-   "query": "куртка мужская",
-   "cat": "куртка мужская",
-   "ts": 1788084637,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1616,7 +1627,7 @@
    "Фигурки",
    "Для песочницы"
   ],
-  "queue_size": 97,
+  "queue_size": 60,
   "last_scan_added": 57,
   "last_scan_funnel": {
    "found": 399,

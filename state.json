@@ -2039,7 +2039,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788122764,
+  "last_run": 1788123378,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -2058,34 +2058,34 @@
   "cats_ts": 1788066764.0932784,
   "last_cats": [
    "ММА",
-   "Манежи детские",
-   "Защитные стекла для телефонов Xiaomi",
    "Коляски",
-   "Смарт-часы и браслеты"
+   "Манежи детские",
+   "Смарт-часы и браслеты",
+   "Защитные стекла для телефонов Xiaomi"
   ],
   "digest_date": "2026-08-30",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1600,
-   "cards": 1600,
-   "discount": 507,
-   "ok": 862,
-   "rating": 147,
-   "bad_price": 84,
-   "strict": 862,
+   "found": 1800,
+   "cards": 1800,
+   "discount": 559,
+   "ok": 975,
+   "rating": 169,
+   "bad_price": 97,
+   "strict": 975,
    "fallback": 0,
    "reserve": 0,
-   "repost": 17,
+   "repost": 18,
    "electronics": 6,
-   "title_duplicate": 171,
+   "title_duplicate": 231,
    "selected": 5,
    "published": 0
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 18,
-   "rate_limited": 11,
-   "http_error": 7,
+   "calls": 195,
+   "ok": 149,
+   "rate_limited": 2,
+   "http_error": 44,
    "network_error": 0,
    "json_error": 0
   },
@@ -2166,7 +2166,7 @@
    "Игрушки",
    "Подвески"
   ],
-  "queue_size": 5,
+  "queue_size": 19,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 700,
@@ -4888,15 +4888,15 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1788123100.5065446,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788123627.9070704,
+   "runs": 25,
+   "empty": 5
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1788123100.5065446,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788123627.9070704,
+   "runs": 25,
+   "empty": 5
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
@@ -4930,9 +4930,9 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1788123100.5065446,
-   "runs": 19,
-   "empty": 4
+   "ts": 1788123627.9070704,
+   "runs": 20,
+   "empty": 5
   },
   "Восточные сладости": {
    "shard": "product1",
@@ -4966,9 +4966,9 @@
   },
   "Коляски": {
    "shard": "children_things2",
-   "ts": 1788123100.5065446,
-   "runs": 14,
-   "empty": 4
+   "ts": 1788123627.9070704,
+   "runs": 15,
+   "empty": 5
   },
   "Травяные сборы": {
    "shard": "product1",
@@ -5026,9 +5026,9 @@
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1788123100.5065446,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788123627.9070704,
+   "runs": 10,
+   "empty": 5
   },
   "Кронштейны": {
    "shard": "housecraft6",

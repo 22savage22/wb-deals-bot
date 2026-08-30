@@ -806,6 +806,19 @@
  },
  "recent": [
   {
+   "pid": 929836883,
+   "title": "Мужские джинсы фасона Tapered",
+   "discount": 86,
+   "price": 1007,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/929836883/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788093218,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 589518002,
    "title": "Футболка прямая хлопок базовая повседневная",
    "discount": 82,
@@ -1580,15 +1593,28 @@
    "quality": "A"
   },
   {
-   "pid": 929836883,
-   "title": "Мужские джинсы фасона Tapered",
-   "discount": 86,
-   "price": 1007,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/929836883/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788093218,
+   "pid": 951307360,
+   "title": "Кроссовки мужские текстильные кеды на белой подошве",
+   "discount": 69,
+   "price": 3970,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/951307360/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787670122,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 1185348975,
+   "title": "Смартфон GT 7T, 12 256ГБ, russia",
+   "discount": 67,
+   "price": 25762,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1185348975/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787666707,
    "drop": 0,
    "quality": "A"
   }
@@ -1694,7 +1720,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 26,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

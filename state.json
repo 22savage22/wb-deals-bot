@@ -1891,10 +1891,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 21,
-   "rate_limited": 19,
-   "http_error": 6,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

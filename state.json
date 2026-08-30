@@ -604,7 +604,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788083093.066792,
+   "ts": 1788083093,
    "query": null,
    "cat": null,
    "voters": {
@@ -615,7 +615,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788083646.2782938,
+   "ts": 1788083646,
    "query": null,
    "cat": null,
    "voters": {
@@ -1493,32 +1493,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787636148,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 582126766,
-   "title": "Наушники беспроводные вакуумные bluetooth сенсорные",
-   "discount": 79,
-   "price": 525,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/582126766/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787630661,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 749555517,
-   "title": "Кроссовки SB Dunk LOW Pro",
-   "discount": 73,
-   "price": 2612,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/749555517/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787627453,
    "drop": 0,
    "quality": "A"
   }

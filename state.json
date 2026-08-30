@@ -656,7 +656,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788088448,
+   "ts": 1788088448.466749,
    "query": null,
    "cat": null,
    "voters": {
@@ -770,6 +770,19 @@
   "offset": 810944745
  },
  "recent": [
+  {
+   "pid": 541070320,
+   "title": "Сарафан женский офисный кожаный на бретельках",
+   "discount": 84,
+   "price": 800,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/541070320/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788089003,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 176829504,
    "title": "Постельное белье 1.5 спальное однотонное страйп",
@@ -1545,15 +1558,15 @@
    "quality": "A"
   },
   {
-   "pid": 541070320,
-   "title": "Сарафан женский офисный кожаный на бретельках",
-   "discount": 84,
-   "price": 800,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/541070320/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788089003,
+   "pid": 1252698387,
+   "title": "Смартфон C85 Pro, 8 256ГБ",
+   "discount": 73,
+   "price": 15659,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1252698387/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787652983,
    "drop": 0,
    "quality": "A"
   }
@@ -1659,7 +1672,7 @@
    "Лотки, пеленки",
    "Восточные сладости"
   ],
-  "queue_size": 28,
+  "queue_size": 30,
   "last_scan_added": 15,
   "last_scan_funnel": {
    "found": 100,

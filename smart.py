@@ -33,6 +33,71 @@ DISCOVERY_POOL = [
     "средство для уборки", "сушилка для белья", "гладильная доска",
 ]
 
+AUDIENCE_PATTERN = (
+    "women", "men", "women", "women", "neutral",
+    "women", "women", "men", "women", "women",
+)
+WOMEN_MARKERS = (
+    "женск", "плать", "юбк", "блуз", "сумк", "космет", "макияж",
+    "серьг", "кольц", "туфл", "колгот", "леггин", "бюстг", "купальник",
+)
+
+
+def audience(item):
+    """Classify a deal/query for the 70% women / 20% men / 10% neutral rotation."""
+    if isinstance(item, dict):
+        text = " ".join(
+            str(item.get(key) or "") for key in ("query", "category", "cat", "title")
+        ).lower()
+    else:
+        text = str(item or "").lower()
+    if "женск" in text:
+        return "women"
+    if "мужск" in text:
+        return "men"
+    if any(word in text for word in WOMEN_MARKERS):
+        return "women"
+    return "neutral"
+
+
+def _topic(item):
+    if not isinstance(item, dict):
+        return str(item or "").lower()
+    return str(
+        item.get("query") or item.get("category") or item.get("cat") or ""
+    ).lower()
+
+
+def balance_audience(deals, data, n, offset=0, allow_fallback=True):
+    """Pick deals in a durable 7/2/1 rotation and avoid one topic twice in a row."""
+    remaining = list(deals or [])
+    selected = []
+    recent = max((data or {}).get("recent") or [], key=lambda x: x.get("ts", 0), default={})
+    last_topic = _topic(recent)
+    start = int(((data or {}).get("meta") or {}).get("total_posts", 0) or 0) + offset
+    fallback = {
+        "women": ("women", "neutral", "men"),
+        "men": ("men", "women", "neutral"),
+        "neutral": ("neutral", "women", "men"),
+    }
+    for slot in range(min(max(0, int(n)), len(remaining))):
+        target = AUDIENCE_PATTERN[(start + slot) % len(AUDIENCE_PATTERN)]
+        chosen = None
+        groups = fallback[target] if allow_fallback else (target,)
+        for group in groups:
+            candidates = [item for item in remaining if audience(item) == group]
+            if not candidates:
+                continue
+            different = [item for item in candidates if _topic(item) != last_topic]
+            chosen = (different or candidates)[0]
+            break
+        if chosen is None:
+            continue
+        selected.append(chosen)
+        remaining.remove(chosen)
+        last_topic = _topic(chosen)
+    return selected
+
 
 def norm_title(text):
     return "".join(ch for ch in str(text or "").lower() if ch.isalnum())
@@ -123,6 +188,8 @@ def pick_queries(pool, stats, n, data=None):
         return []
     n = min(n, len(candidates))
     ordered = sorted(candidates, key=lambda q: score(stats.get(q, {})), reverse=True)
+    if any(audience(q) != "neutral" for q in ordered):
+        return balance_audience(ordered, data or {}, n)
     if n == 1:
         return ordered[:1]
     picks = ordered[: n - 1]

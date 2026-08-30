@@ -13,6 +13,15 @@ from test_bot import FakeWB, make_items
 
 
 def main():
+    crowded = [
+        {"id": i, "query": "куртка мужская" if i < 8 else "платье женское"}
+        for i in range(12)
+    ]
+    limited = scanner._limit_topics(crowded)
+    assert len(limited) == 6
+    assert sum(item["query"] == "куртка мужская" for item in limited) == 3
+    print("0. crowded topics limited OK")
+
     old_bot_wb, old_scanner_wb = bot.wb, scanner.wb
     old_sleep = scanner.time.sleep
     try:

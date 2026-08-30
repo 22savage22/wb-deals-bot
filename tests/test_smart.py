@@ -93,6 +93,27 @@ def main():
     assert smart.pick_deals([], make_data(), 5) == []
     print("8. empty OK")
 
+    # 8a. аудитория: 7 женских, 2 мужских, 1 товар для дома; темы чередуются
+    mixed = []
+    for i in range(7):
+        item = deal(100 + i, f"женская-{i}", 50)
+        item["query"] = f"платье женское {i}"
+        mixed.append(item)
+    for i in range(2):
+        item = deal(200 + i, f"мужская-{i}", 50)
+        item["query"] = f"футболка мужская {i}"
+        mixed.append(item)
+    home = deal(300, "дом", 50)
+    home["query"] = "постельное белье"
+    mixed.append(home)
+    balanced = smart.balance_audience(mixed, make_data(meta={"total_posts": 0}), 10)
+    assert [smart.audience(item) for item in balanced] == list(smart.AUDIENCE_PATTERN)
+    assert all(
+        smart._topic(left) != smart._topic(right)
+        for left, right in zip(balanced, balanced[1:])
+    )
+    print("8a. audience rotation OK")
+
     # 9. pick_queries — топ и разведка
     pool = ["q1", "q2", "q3", "q4", "q5"]
     stats = {
@@ -105,6 +126,14 @@ def main():
         assert stats["q1"]["likes"] > stats["q2"]["likes"]
         assert "q1" in picks
     print("9. pick_queries OK")
+
+    audience_queries = [
+        "платье женское", "джинсы женские", "футболка женская",
+        "кроссовки женские", "футболка мужская", "постельное белье",
+    ]
+    picks = smart.pick_queries(audience_queries, {}, 4, make_data(meta={"total_posts": 0}))
+    assert [smart.audience(q) for q in picks] == ["women", "men", "women", "women"]
+    print("9a. audience queries OK")
 
     # 10. score и record
     s = smart.score({})

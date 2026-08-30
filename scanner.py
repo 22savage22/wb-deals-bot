@@ -28,6 +28,18 @@ def _pool(settings):
     return pool
 
 
+def _limit_topics(items, limit=3):
+    counts = {}
+    selected = []
+    for item in items:
+        topic = smart._topic(item)
+        if counts.get(topic, 0) >= limit:
+            continue
+        counts[topic] = counts.get(topic, 0) + 1
+        selected.append(item)
+    return selected
+
+
 def fill_queue(data, settings, target=None):
     """Scan rotating searches/categories and add diverse validated deals."""
     target = max(1, int(target or config.QUEUE_TARGET))
@@ -39,6 +51,9 @@ def fill_queue(data, settings, target=None):
         if item["id"] not in posted
         and now - item.get("queued_ts", 0) < config.QUEUE_MAX_AGE_HOURS * 3600
     ]
+    if len(queue) > target:
+        queue = _limit_topics(queue)
+        queue = smart.balance_audience(queue, data, target, allow_fallback=False)
     data["queue"] = queue
     if len(queue) >= target:
         data.setdefault("meta", {})["queue_size"] = len(queue)
@@ -135,7 +150,8 @@ def fill_queue(data, settings, target=None):
         eligible.append(deal)
 
     # Diversity selection avoids a buffer filled with near-identical products.
-    selected = smart.pick_deals(eligible, data, max(need * 3, need))[:need]
+    ranked = smart.pick_deals(eligible, data, max(need * 3, need))
+    selected = smart.balance_audience(ranked, data, need)
     queue.extend(selected)
     data["queue"] = queue
     meta["queue_size"] = len(queue)

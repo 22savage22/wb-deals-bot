@@ -224,21 +224,21 @@ def _publish_queued(data, limit):
     now = time.time()
     repost_secs = config.REPOST_DAYS * 86400
     queue = list(data.get("queue") or [])
-    data["queue"] = []
     published = 0
     posted_deals = []
-    keep = []
     funnel = {"queue_before": len(queue), "selected": 0}
     posted = data["posted"]
     titles = data.setdefault("titles", {})
     prices = data.setdefault("prices", {})
     img_hash = data.setdefault("img_hash", {})
 
-    for deal in queue:
+    while queue and published < limit:
+        ordered = smart.balance_audience(queue, data, 1, published)
+        if not ordered:
+            break
+        deal = ordered[0]
+        queue.remove(deal)
         pid = deal["id"]
-        if published >= limit:
-            keep.append(deal)
-            continue
         if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
             funnel["expired"] = funnel.get("expired", 0) + 1
             continue
@@ -309,8 +309,8 @@ def _publish_queued(data, limit):
         smart.record_post(data, deal.get("query"), deal["category"])
         print("Опубликовано из очереди:", pid, f"{deal['discount']}%", deal["title"][:50])
 
-    data["queue"] = keep
-    funnel["queue_after"] = len(keep)
+    data["queue"] = queue
+    funnel["queue_after"] = len(queue)
     return published, posted_deals, funnel
 
 
@@ -456,6 +456,7 @@ def run_posting(data, settings, notify=True):
         unique.append(d)
     deals = unique
     for d in deals:
+        d["query"] = pid_query.get(d["id"]) or ""
         if d.get("category", "другое") == "другое" and pid_query.get(d["id"]):
             d["category"] = pid_query[d["id"]]
     # Keep backup candidates: a broken image or one rejected Telegram upload
@@ -467,9 +468,12 @@ def run_posting(data, settings, notify=True):
     published = 0
     posted_deals = []
     img_hash = data.setdefault("img_hash", {})
-    for deal in deals:
-        if published >= config.MAX_POSTS:
+    while deals and published < config.MAX_POSTS:
+        ordered = smart.balance_audience(deals, data, 1, published)
+        if not ordered:
             break
+        deal = ordered[0]
+        deals.remove(deal)
         pid = deal["id"]
         images = wb.photos(pid)
         if len(images) < 2:

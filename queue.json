@@ -1,5 +1,21 @@
 [
  {
+  "id": 37009593,
+  "title": "Чокер на шею из ракушек ожерелье бижутерия для пляжа",
+  "brand": "Soul Sister",
+  "product": 219,
+  "basic": 1371,
+  "discount": 84,
+  "benefit": 1152,
+  "rating": 4.7,
+  "feedbacks": 1527,
+  "category": "украшения женские",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "украшения женские",
+  "queued_ts": 1788107609
+ },
+ {
   "id": 608376530,
   "title": "Футболка хлопковая базовая однотонная",
   "brand": "new GAME",
@@ -270,37 +286,5 @@
   "quality": "A",
   "query": "джинсы женские",
   "queued_ts": 1788086562
- },
- {
-  "id": 198056718,
-  "title": "Джинсы прямые классические штаны весна-лето",
-  "brand": "N.A.Z.",
-  "product": 2110,
-  "basic": 9699,
-  "discount": 78,
-  "benefit": 7589,
-  "rating": 4.7,
-  "feedbacks": 5955,
-  "category": "джинсы мужские",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "джинсы мужские",
-  "queued_ts": 1788066764
- },
- {
-  "id": 311670563,
-  "title": "Куртка Softshell Hurricane спортивная с капюшоном",
-  "brand": "Brandit",
-  "product": 3515,
-  "basic": 35905,
-  "discount": 90,
-  "benefit": 32390,
-  "rating": 4.9,
-  "feedbacks": 15,
-  "category": "куртка мужская",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "куртка мужская",
-  "queued_ts": 1788066764
  }
 ]

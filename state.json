@@ -1879,10 +1879,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 68,
-   "ok": 41,
-   "rate_limited": 19,
-   "http_error": 8,
+   "calls": 74,
+   "ok": 36,
+   "rate_limited": 25,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1954,7 +1954,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 19,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

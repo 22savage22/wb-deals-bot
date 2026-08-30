@@ -1648,10 +1648,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 44,
+   "ok": 32,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -1712,31 +1712,31 @@
   "today": "2026-08-30",
   "today_posts": 28,
   "total_posts": 361,
-  "last_scan": 1788090325,
+  "last_scan": 1788098799,
   "last_scan_queries": [
+   "футболка мужская",
    "платье женское",
    "джинсы женские",
-   "футболка женская",
-   "футболка мужская"
+   "постельное белье"
   ],
   "last_scan_cats": [
-   "Подгузники",
-   "Пылевыбивалки"
+   "Репринтные издания 1860 - 1869 годов",
+   "Для песочницы"
   ],
-  "queue_size": 29,
-  "last_scan_added": 4,
+  "queue_size": 21,
+  "last_scan_added": 6,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "bad_price": 3,
-   "ok": 65,
-   "rating": 14,
-   "discount": 19,
-   "strict": 65,
+   "found": 400,
+   "cards": 400,
+   "ok": 206,
+   "discount": 124,
+   "rating": 53,
+   "bad_price": 17,
+   "strict": 206,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 3,
-   "title_duplicate": 18
+   "duplicate": 4,
+   "title_duplicate": 33
   },
   "last_queue": {
    "queue_before": 18,
@@ -4270,9 +4270,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1788048532.0872786,
-   "runs": 96,
-   "empty": 1
+   "ts": 1788098883.4993331,
+   "runs": 97,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -4582,9 +4582,9 @@
   },
   "Для песочницы": {
    "shard": "toys12",
-   "ts": 1788086703.6488707,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788098883.4993331,
+   "runs": 3,
+   "empty": 3
   },
   "Фигурки": {
    "shard": "toys19",
@@ -4600,6 +4600,102 @@
   }
  },
  "queue": [
+  {
+   "id": 646126650,
+   "title": "Джинсы трубы с высокой посадкой широкие Dioves",
+   "brand": "AKvaqueros",
+   "product": 1933,
+   "basic": 10200,
+   "discount": 81,
+   "benefit": 8267,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "джинсы женские",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "джинсы женские",
+   "queued_ts": 1788098799
+  },
+  {
+   "id": 809186431,
+   "title": "Джинсы зауженные с высокой посадкой",
+   "brand": "Helena Vera",
+   "product": 2525,
+   "basic": 11990,
+   "discount": 79,
+   "benefit": 9465,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "джинсы женские",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "джинсы женские",
+   "queued_ts": 1788098799
+  },
+  {
+   "id": 454542610,
+   "title": "Футболка оверсайз однотонная хлопок",
+   "brand": "Streetline",
+   "product": 790,
+   "basic": 7600,
+   "discount": 90,
+   "benefit": 6810,
+   "rating": 4.8,
+   "feedbacks": 5,
+   "category": "футболка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка мужская",
+   "queued_ts": 1788098799
+  },
+  {
+   "id": 176962979,
+   "title": "Постельное белье евро однотонное страйп",
+   "brand": "ОТКРУС",
+   "product": 1092,
+   "basic": 13650,
+   "discount": 92,
+   "benefit": 12558,
+   "rating": 4.9,
+   "feedbacks": 8009,
+   "category": "постельное белье",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "постельное белье",
+   "queued_ts": 1788098799
+  },
+  {
+   "id": 788395427,
+   "title": "Мужская футболка из хлопка с вышивкой",
+   "brand": "Zolla",
+   "product": 599,
+   "basic": 3999,
+   "discount": 85,
+   "benefit": 3400,
+   "rating": 5.0,
+   "feedbacks": 11,
+   "category": "футболка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка мужская",
+   "queued_ts": 1788098799
+  },
+  {
+   "id": 1055233946,
+   "title": "Футболка оверсайз с принтом",
+   "brand": "сup-сup_SALE",
+   "product": 485,
+   "basic": 3195,
+   "discount": 85,
+   "benefit": 2710,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "футболка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "футболка мужская",
+   "queued_ts": 1788098799
+  },
   {
    "id": 1295752058,
    "title": "Платье шёлковое с кружевом с длинным рукавом нарядное мини",
@@ -4834,38 +4930,6 @@
    "benefit": 8736,
    "rating": 4.8,
    "feedbacks": 54,
-   "category": "джинсы женские",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "джинсы женские",
-   "queued_ts": 1788086562
-  },
-  {
-   "id": 646126650,
-   "title": "Джинсы трубы с высокой посадкой широкие Dioves",
-   "brand": "AKvaqueros",
-   "product": 1933,
-   "basic": 10200,
-   "discount": 81,
-   "benefit": 8267,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "джинсы женские",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "джинсы женские",
-   "queued_ts": 1788086562
-  },
-  {
-   "id": 809186431,
-   "title": "Джинсы зауженные с высокой посадкой",
-   "brand": "Helena Vera",
-   "product": 2525,
-   "basic": 11990,
-   "discount": 79,
-   "benefit": 9465,
-   "rating": 5.0,
-   "feedbacks": 3,
    "category": "джинсы женские",
    "selection_mode": "strict",
    "quality": "A",

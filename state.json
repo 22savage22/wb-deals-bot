@@ -1879,9 +1879,9 @@
   },
   "wb_http": {
    "calls": 74,
-   "ok": 43,
-   "rate_limited": 15,
-   "http_error": 16,
+   "ok": 36,
+   "rate_limited": 25,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1953,7 +1953,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 19,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

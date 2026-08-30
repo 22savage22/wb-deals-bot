@@ -66,7 +66,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Continue publishing
-        if: always()
+        if: success()
         run: gh workflow run deals.yml --ref main
         env:
           GH_TOKEN: ${{ github.token }}

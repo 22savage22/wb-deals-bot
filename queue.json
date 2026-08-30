@@ -1,21 +1,5 @@
 [
  {
-  "id": 454542610,
-  "title": "Футболка оверсайз однотонная хлопок",
-  "brand": "Streetline",
-  "product": 790,
-  "basic": 7600,
-  "discount": 90,
-  "benefit": 6810,
-  "rating": 4.8,
-  "feedbacks": 5,
-  "category": "футболка мужская",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "футболка мужская",
-  "queued_ts": 1788098799
- },
- {
   "id": 809186431,
   "title": "Джинсы зауженные с высокой посадкой",
   "brand": "Helena Vera",
@@ -29,22 +13,6 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "джинсы женские",
-  "queued_ts": 1788098799
- },
- {
-  "id": 176962979,
-  "title": "Постельное белье евро однотонное страйп",
-  "brand": "ОТКРУС",
-  "product": 1092,
-  "basic": 13650,
-  "discount": 92,
-  "benefit": 12558,
-  "rating": 4.9,
-  "feedbacks": 8009,
-  "category": "постельное белье",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "постельное белье",
   "queued_ts": 1788098799
  },
  {

@@ -897,6 +897,18 @@
  },
  "recent": [
   {
+   "pid": 980217973,
+   "title": "Блузка шелковая нарядная размеры",
+   "discount": 93,
+   "price": 560,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/980217973/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788114575,
+   "drop": 0
+  },
+  {
    "pid": 1111372375,
    "title": "Блузка леон",
    "discount": 93,
@@ -1872,18 +1884,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980217973,
-   "title": "Блузка шелковая нарядная размеры",
-   "discount": 93,
-   "price": 560,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/980217973/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788114575,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1927,10 +1927,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 62,
-   "ok": 19,
-   "rate_limited": 33,
-   "http_error": 10,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

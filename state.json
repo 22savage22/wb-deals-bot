@@ -874,6 +874,18 @@
  },
  "recent": [
   {
+   "pid": 1257639452,
+   "title": "Браслет Картье",
+   "discount": 96,
+   "price": 360,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1257639452/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788106728,
+   "drop": 0
+  },
+  {
    "pid": 435746069,
    "title": "Серьги Пусеты с Муассанитами 4ct Бриллиантами CVD HPHT ALPA",
    "discount": 97,
@@ -1813,18 +1825,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1257639452,
-   "title": "Браслет Картье",
-   "discount": 96,
-   "price": 360,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1257639452/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788106728,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1865,10 +1865,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 41,
-   "rate_limited": 16,
-   "http_error": 8,
+   "calls": 74,
+   "ok": 36,
+   "rate_limited": 25,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -1940,7 +1940,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 19,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

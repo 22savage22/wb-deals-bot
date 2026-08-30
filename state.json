@@ -2081,9 +2081,9 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 16,
-   "rate_limited": 34,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
    "http_error": 7,
    "network_error": 0,
    "json_error": 0
@@ -2165,7 +2165,7 @@
    "Игрушки",
    "Подвески"
   ],
-  "queue_size": 19,
+  "queue_size": 5,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 700,

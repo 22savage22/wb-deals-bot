@@ -23,6 +23,7 @@ def main():
     merged = deal_queue.merge([item(1, now)], [item(2, now), item(1, now - 1)])
     assert {x["id"] for x in merged} == {1, 2}
     assert [x["id"] for x in deal_queue.merge(merged, [], {1: now})] == [2]
+    assert [x["id"] for x in deal_queue.merge([item(1, now)], merged, removed={2})] == [1]
     print("1. queue merge + published filter OK")
 
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:

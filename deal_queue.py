@@ -11,15 +11,19 @@ def normalize(raw):
     return state._norm_queue(raw)
 
 
-def merge(local, remote, posted=None):
+def merge(local, remote, posted=None, removed=None):
     posted = posted or {}
+    removed = set(removed or ())
     combined = {item["id"]: item for item in normalize(remote)}
     for item in normalize(local):
         old = combined.get(item["id"])
         if old is None or item["queued_ts"] > old["queued_ts"]:
             combined[item["id"]] = item
     return normalize(
-        [item for pid, item in combined.items() if pid not in posted]
+        [
+            item for pid, item in combined.items()
+            if pid not in posted and pid not in removed
+        ]
     )
 
 

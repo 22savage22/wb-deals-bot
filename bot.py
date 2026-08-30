@@ -124,10 +124,10 @@ def commit_settings(path, settings):
     return gitutil.commit(path, merge_fn, "chore: update settings")
 
 
-def commit_queue(path, queue, posted):
+def commit_queue(path, queue, posted, removed=None):
     return gitutil.commit(
         path,
-        lambda remote: deal_queue.merge(queue, remote, posted),
+        lambda remote: deal_queue.merge(queue, remote, posted, removed),
         "chore: update deal queue",
     )
 

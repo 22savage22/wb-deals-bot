@@ -170,6 +170,7 @@ def main():
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
+    before_ids = {item["id"] for item in data["queue"]}
     try:
         fill_queue(data, settings)
     except Exception as exc:
@@ -178,7 +179,10 @@ def main():
     data["queue"] = deal_queue.save(
         config.QUEUE_FILE, data.get("queue") or [], data.get("posted") or {}
     )
-    bot.commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
+    removed = before_ids - {item["id"] for item in data["queue"]}
+    bot.commit_queue(
+        config.QUEUE_FILE, data["queue"], data.get("posted") or {}, removed
+    )
     state.save(config.STATE_FILE, data)
     bot.commit_state(config.STATE_FILE, data)
 

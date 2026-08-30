@@ -1488,10 +1488,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 36,
-   "rate_limited": 10,
-   "http_error": 15,
+   "calls": 103,
+   "ok": 64,
+   "rate_limited": 15,
+   "http_error": 24,
    "network_error": 0,
    "json_error": 0
   },
@@ -1552,7 +1552,7 @@
   "today": "2026-08-29",
   "today_posts": 9,
   "total_posts": 337,
-  "last_scan": 1788039506,
+  "last_scan": 1788048249,
   "last_scan_queries": [
    "куртка мужская",
    "джинсы мужские",
@@ -1562,22 +1562,25 @@
    "жакет женский"
   ],
   "last_scan_cats": [
-   "Посуда"
+   "Репринтные издания 1860 - 1869 годов",
+   "Готовые строения и срубы",
+   "Пылевыбивалки",
+   "Восточные сладости"
   ],
-  "queue_size": 57,
-  "last_scan_added": 1,
+  "queue_size": 60,
+  "last_scan_added": 3,
   "last_scan_funnel": {
-   "found": 303,
-   "cards": 303,
-   "ok": 183,
-   "rating": 26,
-   "discount": 70,
-   "bad_price": 24,
-   "strict": 183,
+   "found": 693,
+   "cards": 693,
+   "discount": 196,
+   "ok": 407,
+   "rating": 50,
+   "bad_price": 40,
+   "strict": 407,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 25,
-   "title_duplicate": 46
+   "duplicate": 29,
+   "title_duplicate": 108
   },
   "last_queue": {
    "queue_before": 58,
@@ -3937,15 +3940,15 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1787527974.2171938,
-   "runs": 95,
-   "empty": 5
+   "ts": 1788048532.0872786,
+   "runs": 96,
+   "empty": 1
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1787527974.2171938,
-   "runs": 90,
-   "empty": 5
+   "ts": 1788048532.0872786,
+   "runs": 91,
+   "empty": 1
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -3955,9 +3958,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1787527974.2171938,
-   "runs": 55,
-   "empty": 5
+   "ts": 1788048532.0872786,
+   "runs": 56,
+   "empty": 1
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -4057,9 +4060,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1787527974.2171938,
-   "runs": 10,
-   "empty": 5
+   "ts": 1788048532.0872786,
+   "runs": 11,
+   "empty": 1
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -4243,6 +4246,54 @@
   }
  },
  "queue": [
+  {
+   "id": 337647211,
+   "title": "Кроссовки кожаные демисезонные дышащие спортивные",
+   "brand": "JOYCITY",
+   "product": 1242,
+   "basic": 10596,
+   "discount": 88,
+   "benefit": 9354,
+   "rating": 4.9,
+   "feedbacks": 293,
+   "category": "кроссовки мужские",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "кроссовки мужские",
+   "queued_ts": 1788048249
+  },
+  {
+   "id": 1146190522,
+   "title": "жакет без рукавов с баской ципао",
+   "brand": "KLEYFELD",
+   "product": 2431,
+   "basic": 15600,
+   "discount": 84,
+   "benefit": 13169,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "жакет женский",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "жакет женский",
+   "queued_ts": 1788048249
+  },
+  {
+   "id": 195728127,
+   "title": "Куртка тактическая демисезонная софтшел с капюшоном",
+   "brand": "ARMORCITY",
+   "product": 2724,
+   "basic": 10780,
+   "discount": 75,
+   "benefit": 8056,
+   "rating": 4.7,
+   "feedbacks": 689,
+   "category": "куртка мужская",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "куртка мужская",
+   "queued_ts": 1788048249
+  },
   {
    "id": 778497448,
    "title": "Кроссовки Air Force 1 форсы",

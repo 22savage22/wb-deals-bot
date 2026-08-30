@@ -1,4 +1,5 @@
 import os
+import os
 import sys
 import time
 from datetime import datetime
@@ -67,7 +68,7 @@ class FakeWB:
 
     @staticmethod
     def cards(ids):
-        return []
+        return [FakeWB.items[pid] for pid in ids if pid in FakeWB.items]
 
     @staticmethod
     def search_healthy():
@@ -189,6 +190,13 @@ def main():
                    "selection_mode": "strict", "quality": "A", "query": "дом",
                    "queued_ts": int(time.time())}
     queued["queue"] = [queued_deal]
+    FakeWB.items = {
+        999: {
+            "id": 999, "name": "Товар из очереди", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        }
+    }
     config.MAX_POSTS = 1
     FakeTG.sent = []
     assert bot.run_posting(queued, {"queries": None}, notify=False) == 1
@@ -198,6 +206,85 @@ def main():
     queued["queue"] = [queued_deal]
     assert bot._publish_queued(queued, 1)[0] == 0
     print("0. schedule + queue publish OK")
+
+    # --- 0a. перед публикацией очередь заново проверяется по свежей карточке WB ---
+    stale = empty_data()
+    stale["queue"] = [
+        dict(queued_deal, id=901, title="Старая цена", query="дом"),
+        dict(queued_deal, id=902, title="Старая карточка", query="кухня"),
+    ]
+    FakeWB.items = {
+        901: {
+            "id": 901, "name": "Больше не скидка", "brand": "Бр",
+            "sizes": [{"price": {"product": 99000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        },
+        902: {
+            "id": 902, "name": "Свежая карточка", "brand": "Бр",
+            "sizes": [{"price": {"product": 35000, "basic": 100000}}],
+            "reviewRating": 4.9, "feedbacks": 500, "subjectName": "Кухня",
+        },
+    }
+    FakeTG.sent = []
+    published, deals, _ = bot._publish_queued(stale, 1)
+    assert published == 1 and deals[0]["id"] == 902, deals
+    assert stale["recent"][-1]["price"] == 350 and stale["recent"][-1]["rating"] == 4.9
+    assert 901 not in [item["id"] for item in stale["queue"]]
+    print("0a. queued deal live revalidation OK")
+
+    # --- 0b. контроль простоя/очереди/повторных ошибок не спамит ---
+    now = int(time.time())
+    health = empty_data()
+    health["recent"] = [{"pid": 1, "query": "дом", "ts": now - 1900}]
+    health["queue"] = [dict(queued_deal, id=950 + i) for i in range(5)]
+    health["meta"]["errors"] = [
+        {"ts": now - i * 10, "msg": "сетевая ошибка"} for i in range(3)
+    ]
+    config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = 0, 23
+    FakeTG.sent = []
+    assert len(bot._maybe_health_notices(health, {}, now)) == 3
+    assert bot._maybe_health_notices(health, {}, now) == []
+    paused = empty_data()
+    paused["recent"] = [{"pid": 2, "ts": now - 1900}]
+    paused["queue"] = [dict(queued_deal, id=970 + i) for i in range(6)]
+    assert bot._maybe_health_notices(paused, {"pause_until": now + 60}, now) == []
+    empty_history = empty_data()
+    empty_history["queue"] = list(paused["queue"])
+    assert bot._maybe_health_notices(empty_history, {}, now) == []
+    assert "Товарных постов нет" in bot._maybe_health_notices(
+        empty_history, {}, now + 1801
+    )[0]
+    config.ACTIVE_HOUR_START, config.ACTIVE_HOUR_END = old_start, old_end
+    print("0b. health notices OK")
+
+    # --- 0c. live-поиск тоже соблюдает суточный лимит темы ---
+    old_search, old_cats = FakeWB.search, config.CATS_PER_RUN
+    dress = make_items(1, 9800)[9800]
+    dress["name"], dress["subjectName"] = "Платье", "платье женское"
+    jeans = make_items(1, 9900)[9900]
+    jeans["name"], jeans["subjectName"] = "Джинсы", "джинсы женские"
+    for item in (dress, jeans):
+        item["sizes"] = [{"price": {"product": 70000, "basic": 200000}}]
+        item["feedbacks"] = 500
+    FakeWB.items = {9800: dress, 9900: jeans}
+    FakeWB.search = staticmethod(
+        lambda query, page, subject=None: [] if subject else
+        ([dress] if query == "платье женское" else [jeans])
+    )
+    capped = empty_data()
+    capped["recent"] = [
+        {"pid": 800 + i, "query": "платье женское", "ts": now - i * 60}
+        for i in range(3)
+    ]
+    config.MAX_POSTS, config.PAGES, config.QUERIES_PER_RUN, config.CATS_PER_RUN = 1, 1, 2, 0
+    FakeTG.sent = []
+    assert bot.run_posting(
+        capped, {"queries": ["платье женское", "джинсы женские"]}, notify=False
+    ) == 1
+    assert capped["recent"][-1]["pid"] == 9900
+    FakeWB.search = staticmethod(old_search)
+    config.CATS_PER_RUN = old_cats
+    print("0c. live-search topic limit OK")
 
     # --- 1. обычный запуск: посты из разных категорий, отчёт админу ---
     config.MIN_DISCOUNT = 20

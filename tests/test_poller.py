@@ -72,6 +72,7 @@ def main():
     channel, admin_msg = FakeTG.sent[0], FakeTG.sent[1]
     assert channel[0] == "CH" and "Итоги недели" in channel[1]
     assert admin_msg[0] == "42" and "Итоги недели" in admin_msg[1]
+    assert "очередь" in admin_msg[1] and "Чаще всего" in admin_msg[1]
     assert data["meta"]["week_digest_ts"] > 0
     FakeTG.sent = []
     poller._maybe_week_digest("tok", data, settings)

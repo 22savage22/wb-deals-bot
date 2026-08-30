@@ -68,12 +68,22 @@ def _topic(item):
     ).lower()
 
 
-def balance_audience(deals, data, n, offset=0, allow_fallback=True):
-    """Pick deals in a durable 7/2/1 rotation and avoid one topic twice in a row."""
+def balance_audience(
+    deals, data, n, offset=0, allow_fallback=True, topic_limit=0
+):
+    """Pick a 7/2/1 rotation, avoiding repeats and overused daily topics."""
     remaining = list(deals or [])
     selected = []
-    recent = max((data or {}).get("recent") or [], key=lambda x: x.get("ts", 0), default={})
+    recent_items = (data or {}).get("recent") or []
+    recent = max(recent_items, key=lambda x: x.get("ts", 0), default={})
     last_topic = _topic(recent)
+    topic_counts = {}
+    if topic_limit:
+        since = time.time() - 86400
+        for item in recent_items:
+            topic = _topic(item)
+            if topic and item.get("ts", 0) >= since:
+                topic_counts[topic] = topic_counts.get(topic, 0) + 1
     start = int(((data or {}).get("meta") or {}).get("total_posts", 0) or 0) + offset
     fallback = {
         "women": ("women", "neutral", "men"),
@@ -86,6 +96,12 @@ def balance_audience(deals, data, n, offset=0, allow_fallback=True):
         groups = fallback[target] if allow_fallback else (target,)
         for group in groups:
             candidates = [item for item in remaining if audience(item) == group]
+            if topic_limit:
+                candidates = [
+                    item for item in candidates
+                    if not _topic(item)
+                    or topic_counts.get(_topic(item), 0) < topic_limit
+                ]
             if not candidates:
                 continue
             different = [item for item in candidates if _topic(item) != last_topic]
@@ -96,6 +112,8 @@ def balance_audience(deals, data, n, offset=0, allow_fallback=True):
         selected.append(chosen)
         remaining.remove(chosen)
         last_topic = _topic(chosen)
+        if last_topic:
+            topic_counts[last_topic] = topic_counts.get(last_topic, 0) + 1
     return selected
 
 
@@ -544,6 +562,36 @@ def week_digest(data):
         "Спасибо, что выбираете лучшее вместе с нами! 💜",
         "#вайлдберриз #скидки #итоги",
     ]
+    return "\n".join(lines)
+
+
+def admin_week_digest(data):
+    """Operational weekly summary for the owner, not for the public channel."""
+    since = time.time() - 7 * 86400
+    posts = [r for r in data.get("recent", []) if r.get("ts", 0) >= since]
+    likes, dislikes, bought = _votes_since(data, since)
+    audiences = {"women": 0, "men": 0, "neutral": 0}
+    categories = {}
+    for item in posts:
+        audiences[audience(item)] += 1
+        cat = str(item.get("cat") or "другое")
+        categories[cat] = categories.get(cat, 0) + 1
+    top = sorted(categories.items(), key=lambda pair: pair[1], reverse=True)[:5]
+    errors = [
+        e for e in (data.get("meta", {}).get("errors") or [])
+        if e.get("ts", 0) >= since
+    ]
+    lines = [
+        "🧾 <b>Итоги недели — служебный отчёт</b>",
+        "",
+        f"📦 Постов: <b>{len(posts)}</b> · очередь: <b>{len(data.get('queue') or [])}</b>",
+        f"👩 Женские: {audiences['women']} · 👨 мужские: {audiences['men']} · 🏠 другое: {audiences['neutral']}",
+        f"💬 Реакции: 👍 {likes} · 👎 {dislikes} · 🛒 {bought}",
+        f"⚠️ Ошибок в журнале: {len(errors)}",
+    ]
+    if top:
+        lines += ["", "🏷 <b>Чаще всего выходили:</b>"]
+        lines += [f"• {html.escape(cat)} — {count}" for cat, count in top]
     return "\n".join(lines)
 
 

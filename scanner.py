@@ -45,11 +45,13 @@ def fill_queue(data, settings, target=None):
     target = max(1, int(target or config.QUEUE_TARGET))
     now = time.time()
     posted = data["posted"]
+    disabled = bot._disabled_topics(settings)
     queue = [
         item
         for item in data.get("queue", [])
         if item["id"] not in posted
         and now - item.get("queued_ts", 0) < config.QUEUE_MAX_AGE_HOURS * 3600
+        and smart._topic(item) not in disabled
     ]
     if len(queue) > target:
         queue = _limit_topics(queue)
@@ -61,7 +63,7 @@ def fill_queue(data, settings, target=None):
         return 0
 
     wb.reset_health()
-    pool = _pool(settings)
+    pool = [q for q in _pool(settings) if str(q).strip().lower() not in disabled]
     queries = smart.pick_queries(pool, data["query_stats"], config.QUERIES_PER_RUN, data)
     meta = data.setdefault("meta", {})
     meta["last_scan"] = int(now)
@@ -83,7 +85,7 @@ def fill_queue(data, settings, target=None):
 
     cat_names = [
         name for name in smart.pick_categories(data, config.CATS_PER_RUN)
-        if _eligible_category(name)
+        if _eligible_category(name) and str(name).strip().lower() not in disabled
     ]
     meta["last_scan_cats"] = list(cat_names)
     seen = {}
@@ -147,11 +149,13 @@ def fill_queue(data, settings, target=None):
             deal["category"] = pid_query[pid]
         deal["query"] = pid_query.get(pid) or ""
         deal["queued_ts"] = int(now)
+        if smart._topic(deal) in disabled:
+            continue
         eligible.append(deal)
 
     # Diversity selection avoids a buffer filled with near-identical products.
     ranked = smart.pick_deals(eligible, data, max(need * 3, need))
-    selected = smart.balance_audience(ranked, data, need)
+    selected = smart.balance_audience(ranked, data, need, topic_limit=3)
     queue.extend(selected)
     data["queue"] = queue
     meta["queue_size"] = len(queue)

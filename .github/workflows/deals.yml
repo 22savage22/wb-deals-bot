@@ -58,7 +58,7 @@ jobs:
           WB_PAGES: "2"
           WB_QUERIES_PER_RUN: "6"
           WB_CATS_PER_RUN: "3"
-          WB_QUEUE_TARGET: "60"
+          WB_QUEUE_TARGET: "30"
           WB_QUEUE_MAX_AGE_HOURS: "8"
           WB_ACTIVE_HOUR_START: "0"
           WB_ACTIVE_HOUR_END: "23"

@@ -12,7 +12,8 @@ RECENT_KEEP = 14 * 24 * 3600
 IMG_KEEP = 30 * 24 * 3600
 LEARNED_KEEP = 60 * 24 * 3600
 MAX_KEPT = 20000
-RECENT_MAX = 60
+# One post per 10 minutes needs 1008 entries for an accurate weekly report.
+RECENT_MAX = 1200
 QUEUE_MAX = 100
 
 

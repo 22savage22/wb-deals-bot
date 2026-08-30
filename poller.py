@@ -60,7 +60,7 @@ def _maybe_week_digest(token, data, settings):
     if tg.send_message(token, config.TG_CHAT_ID, text):
         meta["week_digest_ts"] = now
         if config.TG_ADMIN_ID:
-            tg.send_message(token, config.TG_ADMIN_ID, "📣 Итоги недели опубликованы в канал")
+            tg.send_message(token, config.TG_ADMIN_ID, smart.admin_week_digest(data))
 
 
 def main():
@@ -133,7 +133,9 @@ def main():
                 tg.send_message(config.TG_BOT_TOKEN, config.TG_ADMIN_ID, msg)
         if time.time() - last_commit > COMMIT_EVERY:
             state.save(config.STATE_FILE, data)
-            commit_state(config.STATE_FILE, data)
+            if commit_state(config.STATE_FILE, data):
+                data = state.load(config.STATE_FILE)
+                data["queue"] = deal_queue.load(config.QUEUE_FILE)
             last_commit = time.time()
             logger.info("poller alive | posted: %d", len(data["posted"]))
         time.sleep(CYCLE)

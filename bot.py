@@ -90,6 +90,14 @@ def post_interval_elapsed(data, now=None, interval=10 * 60):
     return (time.time() if now is None else now) - last >= interval
 
 
+def _disabled_topics(settings):
+    return {
+        str(topic).strip().lower()
+        for topic in (settings.get("disabled_topics") or [])
+        if str(topic).strip()
+    }
+
+
 def _run(*args):
     res = subprocess.run(args, capture_output=True, text=True)
     if res.returncode != 0:
@@ -231,9 +239,21 @@ def _publish_queued(data, limit):
     titles = data.setdefault("titles", {})
     prices = data.setdefault("prices", {})
     img_hash = data.setdefault("img_hash", {})
+    fresh_cards = wb.cards([item["id"] for item in queue])
+    cards_by_id = {card.get("id"): card for card in fresh_cards if card.get("id")}
+    refresh_funnel = {}
+    refreshed = {
+        deal["id"]: deal
+        for deal in _find_deals(fresh_cards, len(queue), refresh_funnel)
+    }
+    for key, value in refresh_funnel.items():
+        funnel["refresh_" + key] = value
+    deferred = []
 
     while queue and published < limit:
-        ordered = smart.balance_audience(queue, data, 1, published)
+        ordered = smart.balance_audience(
+            queue, data, 1, published, topic_limit=3
+        )
         if not ordered:
             break
         deal = ordered[0]
@@ -245,6 +265,19 @@ def _publish_queued(data, limit):
         if pid in posted:
             funnel["repost"] = funnel.get("repost", 0) + 1
             continue
+        fresh = refreshed.get(pid)
+        if fresh is None:
+            if pid not in cards_by_id:
+                deferred.append(deal)
+                funnel["refresh_missing"] = funnel.get("refresh_missing", 0) + 1
+            else:
+                funnel["refresh_rejected"] = funnel.get("refresh_rejected", 0) + 1
+            continue
+        queued_ts = deal.get("queued_ts", 0)
+        query = deal.get("query") or ""
+        deal = dict(fresh, query=query, queued_ts=queued_ts)
+        if deal.get("category") == "другое" and query:
+            deal["category"] = query
         key = smart.norm_title(deal.get("title", ""))
         if key and titles.get(key) and now - titles[key] < repost_secs:
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
@@ -309,8 +342,8 @@ def _publish_queued(data, limit):
         smart.record_post(data, deal.get("query"), deal["category"])
         print("Опубликовано из очереди:", pid, f"{deal['discount']}%", deal["title"][:50])
 
-    data["queue"] = queue
-    funnel["queue_after"] = len(queue)
+    data["queue"] = queue + deferred
+    funnel["queue_after"] = len(data["queue"])
     return published, posted_deals, funnel
 
 
@@ -319,6 +352,12 @@ def run_posting(data, settings, notify=True):
     now = time.time()
     meta["last_run"] = int(now)
     meta["last_posts"] = 0
+    disabled = _disabled_topics(settings)
+    if disabled:
+        data["queue"] = [
+            item for item in (data.get("queue") or [])
+            if smart._topic(item) not in disabled
+        ]
     if data.get("queue"):
         published, queued_deals, queue_funnel = _publish_queued(data, config.MAX_POSTS)
         meta["queue_size"] = len(data.get("queue") or [])
@@ -337,6 +376,7 @@ def run_posting(data, settings, notify=True):
     pool = settings.get("queries") or config.QUERIES or config.DEFAULT_QUERIES
     if isinstance(pool, str):
         pool = [q.strip() for q in pool.split(",") if q.strip()]
+    pool = [q for q in pool if str(q).strip().lower() not in disabled]
     queries = smart.pick_queries(
         pool, data["query_stats"], config.QUERIES_PER_RUN, data
     )
@@ -354,7 +394,10 @@ def run_posting(data, settings, notify=True):
                 state.record_error(data, "Каталог категорий WB вернул пустой ответ")
         except Exception as exc:
             state.record_error(data, f"Не удалось обновить каталог категорий WB: {exc}")
-    cat_names = smart.pick_categories(data, config.CATS_PER_RUN)
+    cat_names = [
+        name for name in smart.pick_categories(data, config.CATS_PER_RUN)
+        if str(name).strip().lower() not in disabled
+    ]
     meta["last_cats"] = list(cat_names)
 
     seen = {}
@@ -468,8 +511,13 @@ def run_posting(data, settings, notify=True):
     published = 0
     posted_deals = []
     img_hash = data.setdefault("img_hash", {})
+    # The workflow publishes one item per run; freeze the prior-day history so
+    # test/manual multi-post runs do not change their own eligibility mid-run.
+    rotation_data = {"recent": list(data.get("recent") or []), "meta": meta}
     while deals and published < config.MAX_POSTS:
-        ordered = smart.balance_audience(deals, data, 1, published)
+        ordered = smart.balance_audience(
+            deals, rotation_data, 1, published, topic_limit=3
+        )
         if not ordered:
             break
         deal = ordered[0]
@@ -611,6 +659,47 @@ def _notify_run(data, settings, queries, cat_names, published, posted_deals, not
         tg.send_message(token, admin, "\n".join(lines))
 
 
+def _maybe_health_notices(data, settings, now=None):
+    """Send quiet, throttled warnings only after a real posting attempt."""
+    if not config.TG_ADMIN_ID:
+        return []
+    now = time.time() if now is None else float(now)
+    meta = data.setdefault("meta", {})
+    notices = []
+    recent = data.get("recent") or []
+    last_post = max((int(item.get("ts", 0) or 0) for item in recent), default=0)
+    if last_post:
+        meta.pop("no_post_since", None)
+    else:
+        last_post = int(meta.setdefault("no_post_since", now))
+    local_now = datetime.fromtimestamp(now, ZoneInfo("Europe/Moscow"))
+    if (
+        last_post
+        and now - last_post > 30 * 60
+        and active_posting_time(local_now)
+        and float(settings.get("pause_until", 0) or 0) <= now
+        and smart.notice_ok(data, "no_post_notice_ts", 6 * 3600)
+    ):
+        notices.append(f"⏱ Товарных постов нет уже {int((now - last_post) // 60)} мин.")
+    queue_size = len(data.get("queue") or [])
+    if queue_size < 6 and smart.notice_ok(data, "queue_low_notice_ts", 12 * 3600):
+        notices.append(f"📥 В очереди осталось {queue_size}; сканер должен её пополнить.")
+    severe = [
+        item for item in (meta.get("errors") or [])
+        if item.get("ts", 0) >= now - 30 * 60
+        and not str(item.get("msg") or "").startswith("Мало фото")
+    ]
+    if len(severe) >= 3 and smart.notice_ok(data, "errors_notice_ts", 6 * 3600):
+        notices.append(f"⚠️ За последние 30 минут повторилось ошибок: {len(severe)}.")
+    if notices:
+        tg.send_message(
+            config.TG_BOT_TOKEN,
+            config.TG_ADMIN_ID,
+            "🚨 <b>Контроль работы бота</b>\n\n" + "\n".join(notices),
+        )
+    return notices
+
+
 def main():
     log.setup()
     if not config.TG_BOT_TOKEN or not config.TG_CHAT_ID:
@@ -640,6 +729,7 @@ def main():
     else:
         try:
             run_posting(data, settings)
+            _maybe_health_notices(data, settings)
         except Exception as exc:
             state.record_error(data, f"Запуск упал: {exc}")
             logger.error("Запуск упал: %s", exc)

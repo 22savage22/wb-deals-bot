@@ -298,9 +298,32 @@ def main():
     encoded = _json.dumps(m, ensure_ascii=False)
     assert "Найденные товары" in t and "queue:bulk:1" in encoded
     assert "queue:post:777" in encoded and "preview:post:777" in encoded
+    assert "queue:replace:777" in encoded and "queue:disable:777" in encoded
+    replacement = make_data()
+    replacement["queue"] = list(d["queue"])
+    changed = admin._admin_callback("tok", replacement, {}, cb("queue:replace:777"))
+    assert changed and replacement["queue"] == [] and replacement["posted"].get(777)
+    disabled = make_data()
+    disabled["queue"] = list(d["queue"])
+    disabled_settings = {}
+    changed = admin._admin_callback("tok", disabled, disabled_settings, cb("queue:disable:777"))
+    assert changed and disabled_settings["disabled_topics"] == ["кухня"]
+    assert "queue:enable:0" in _json.dumps(FakeTG.calls[-1], ensure_ascii=False)
+    old_min_discount = config.MIN_DISCOUNT
+    config.MIN_DISCOUNT = 50
+    invalid = make_data()
+    invalid["queue"] = list(d["queue"])
+    wbmod.cards = lambda ids: [dict(card, sizes=[{"price": {"product": 19500, "basic": 19800}}])]
+    assert admin._admin_callback("tok", invalid, {}, cb("queue:bulk:1")) is False
+    assert invalid["queue"] and not invalid["posted"].get(777)
+    wbmod.cards = lambda ids: [card]
     FakeTG.calls.clear()
     changed = admin._admin_callback("tok", d, {}, cb("queue:bulk:1"))
-    assert changed is True and d["queue"] == [] and d["posted"].get(777)
+    assert changed is True and d["queue"] == [] and d["posted"].get(777), (
+        changed, d["queue"], d["posted"], FakeTG.calls,
+        config.MIN_DISCOUNT, config.MIN_RATING, config.MAX_PRICE,
+    )
+    config.MIN_DISCOUNT = old_min_discount
     assert [c for c in FakeTG.calls if c[0] == "photo"]
     assert [c for c in FakeTG.calls if c[0] == "edit"]
     print("18. queue quick publish OK")

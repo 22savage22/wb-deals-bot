@@ -47,3 +47,15 @@ jobs:
         run: gh workflow run poller.yml --ref main
         env:
           GH_TOKEN: ${{ github.token }}
+
+      - name: Notify admin if callback polling failed
+        if: failure()
+        shell: bash
+        run: |
+          curl --silent --show-error --fail \
+            "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TG_ADMIN_ID}" \
+            --data-urlencode "text=🚨 Обработчик кнопок Telegram остановился. GitHub Actions попробует запустить его снова по расписанию."
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}

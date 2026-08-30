@@ -114,6 +114,26 @@ def main():
     )
     print("8a. audience rotation OK")
 
+    # 8b. одна тема не выходит больше трёх раз за сутки
+    now = int(time.time())
+    recent = [
+        {"pid": 400 + i, "query": "платье женское", "ts": now - i * 60}
+        for i in range(3)
+    ]
+    repeated = deal(410, "женская", 60)
+    repeated["query"] = "платье женское"
+    alternative = deal(411, "женская", 60)
+    alternative["query"] = "джинсы женские"
+    limited = smart.balance_audience(
+        [repeated, alternative], make_data(recent=recent), 1, topic_limit=3
+    )
+    assert limited == [alternative], limited
+    recent[0]["ts"] = recent[1]["ts"] = recent[2]["ts"] = now - 25 * 3600
+    assert smart.balance_audience(
+        [repeated], make_data(recent=recent), 1, topic_limit=3
+    ) == [repeated]
+    print("8b. daily topic limit OK")
+
     # 9. pick_queries — топ и разведка
     pool = ["q1", "q2", "q3", "q4", "q5"]
     stats = {

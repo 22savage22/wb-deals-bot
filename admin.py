@@ -348,26 +348,30 @@ def _menu_view(data, settings):
     return text, rows
 
 
-def _queue_view(data):
+def _queue_view(data, settings=None):
     queue = list(data.get("queue") or [])
+    settings = settings or {}
     if not queue:
-        return (
-            "📥 <b>Найденные товары</b>\n\n"
-            "Очередь пока пуста. Сканер наполнит её автоматически.\n"
+        lines = [
+            "📥 <b>Найденные товары</b>", "",
+            "Очередь пока пуста. Сканер наполнит её автоматически.",
             "Можно запустить поиск вручную кнопкой ниже.",
-            [
-                [_btn("🧠 Найти товары", MENU + "postnow")],
-                [_btn("🔄 Обновить", MENU + "queue")],
-                _home_row()[0],
-            ],
-        )
+        ]
+        markup = [[_btn("🧠 Найти товары", MENU + "postnow")]]
+        disabled = list(settings.get("disabled_topics") or [])
+        if disabled:
+            lines += ["", "🚫 <b>Отключённые темы:</b> " + ", ".join(html.escape(str(x)) for x in disabled)]
+            for i, topic in enumerate(disabled[:5]):
+                markup.append([_btn(f"♻️ Включить: {str(topic)[:24]}", MENU + f"queue:enable:{i}")])
+        markup += [[_btn("🔄 Обновить", MENU + "queue")], _home_row()[0]]
+        return "\n".join(lines), markup
 
-    shown = queue[:5]
+    shown = smart.balance_audience(queue, data, 10, topic_limit=3)
     lines = [
         "📥 <b>Найденные товары</b>",
         "",
         f"Готово к публикации: <b>{len(queue)}</b>",
-        "Умный отбор уже проверил скидку, рейтинг и дубли.",
+        "Показан фактический порядок ротации; перед постом WB проверяется снова.",
         "",
     ]
     markup = [
@@ -395,6 +399,17 @@ def _queue_view(data):
                 _btn(f"📤 Опубликовать №{i}", MENU + f"queue:post:{deal.get('id')}"),
             ]
         )
+        markup.append(
+            [
+                _btn(f"🔄 Заменить №{i}", MENU + f"queue:replace:{deal.get('id')}"),
+                _btn(f"🚫 Тему №{i}", MENU + f"queue:disable:{deal.get('id')}"),
+            ]
+        )
+    disabled = list(settings.get("disabled_topics") or [])
+    if disabled:
+        lines += ["", "🚫 <b>Отключённые темы:</b> " + ", ".join(html.escape(str(x)) for x in disabled)]
+        for i, topic in enumerate(disabled[:5]):
+            markup.append([_btn(f"♻️ Включить: {str(topic)[:24]}", MENU + f"queue:enable:{i}")])
     lines.append("👁 — посмотреть пост перед публикацией.")
     lines.append("Кнопки сверху публикуют товары подряд без подтверждений.")
     markup.append([_btn("🔄 Обновить", MENU + "queue")])
@@ -1024,7 +1039,7 @@ def _start_review(token, chat_id, cb_id, pid):
         tg.send_photo(token, chat_id, images[0], caption, markup=markup)
 
 
-def _do_publish(token, data, chat_id, cb_id, pid, announce=True):
+def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False):
     now = int(time.time())
     if pid in data["posted"] and now - data["posted"][pid] < 1800:
         if cb_id:
@@ -1035,7 +1050,23 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True):
         if cb_id:
             tg.answer_callback(token, cb_id, "❌ Артикул не найден")
         return False
-    deal = wb.raw_deal(cards[0])
+    queued = next((item for item in (data.get("queue") or []) if item.get("id") == pid), {})
+    if validate:
+        mode = queued.get("selection_mode")
+        if mode == "smart_fallback":
+            deal, _ = wb.evaluate(
+                cards[0], min(config.MIN_DISCOUNT, config.FALLBACK_MIN_DISCOUNT),
+                min(config.MIN_RATING, config.FALLBACK_MIN_RATING), config.FALLBACK_MIN_FEEDBACKS,
+            )
+        elif mode == "quality_reserve":
+            deal, _ = wb.evaluate(
+                cards[0], config.RESERVE_MIN_DISCOUNT,
+                config.RESERVE_MIN_RATING, config.RESERVE_MIN_FEEDBACKS,
+            )
+        else:
+            deal, _ = wb.evaluate(cards[0])
+    else:
+        deal = wb.raw_deal(cards[0])
     images = wb.photos(pid)
     if not images or not deal or not deal.get("id"):
         state.record_error(data, f"Не удалось подготовить пост {pid}")
@@ -1077,7 +1108,7 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True):
     )
     data["recent"] = sorted(
         data["recent"], key=lambda r: r["ts"], reverse=True
-    )[:60]
+    )[:state.RECENT_MAX]
     smart.record_post(data, None, deal["category"])
     state.bump_meta(data, 1)
     data["queue"] = [item for item in (data.get("queue") or []) if item.get("id") != pid]
@@ -1110,13 +1141,17 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True):
 
 def _publish_from_queue(token, data, chat_id, count):
     count = max(1, min(int(count), 5))
-    candidates = list(data.get("queue") or [])
+    candidates = smart.balance_audience(
+        data.get("queue") or [], data, len(data.get("queue") or []), topic_limit=3
+    )
     published = []
     for item in candidates:
         if len(published) >= count:
             break
         pid = _clean_pid(item.get("id"))
-        if pid and _do_publish(token, data, chat_id, "", pid, announce=False):
+        if pid and _do_publish(
+            token, data, chat_id, "", pid, announce=False, validate=True
+        ):
             published.append(pid)
     return published
 
@@ -1142,15 +1177,59 @@ def _admin_callback(token, data, settings, cb):
         ok = _render(token, chat_id, msg_id, text, markup)
         tg.answer_callback(token, cb_id, "" if ok is not False else "Актуально")
     elif cmd == "queue":
-        text, markup = _queue_view(data)
+        text, markup = _queue_view(data, settings)
         _render(token, chat_id, msg_id, text, markup)
         tg.answer_callback(token, cb_id)
+    elif cmd.startswith("queue:replace:"):
+        pid = _clean_pid(cmd.split(":", 2)[2])
+        before = len(data.get("queue") or [])
+        data["queue"] = [item for item in (data.get("queue") or []) if item.get("id") != pid]
+        changed = bool(pid and len(data["queue"]) < before)
+        if changed:
+            data["posted"][pid] = int(time.time())
+        text, markup = _queue_view(data, settings)
+        prefix = "🔄 <b>Товар заменён следующим в ротации</b>\n\n" if changed else "⚠️ <b>Товар уже исчез из очереди</b>\n\n"
+        _render(token, chat_id, msg_id, prefix + text, markup)
+    elif cmd.startswith("queue:disable:"):
+        pid = _clean_pid(cmd.split(":", 2)[2])
+        deal = next((item for item in (data.get("queue") or []) if item.get("id") == pid), None)
+        topic = smart._topic(deal)
+        if topic:
+            disabled = list(settings.get("disabled_topics") or [])
+            if topic not in disabled:
+                disabled.append(topic)
+            settings["disabled_topics"] = disabled
+            settings["mtime"] = int(time.time())
+            removed = [item for item in (data.get("queue") or []) if smart._topic(item) == topic]
+            for item in removed:
+                data["posted"][item["id"]] = int(time.time())
+            data["queue"] = [item for item in (data.get("queue") or []) if smart._topic(item) != topic]
+            changed = True
+        text, markup = _queue_view(data, settings)
+        prefix = f"🚫 <b>Тема отключена:</b> {html.escape(topic)}\n\n" if topic else "⚠️ <b>У товара не указана тема</b>\n\n"
+        _render(token, chat_id, msg_id, prefix + text, markup)
+    elif cmd.startswith("queue:enable:"):
+        try:
+            idx = int(cmd.rsplit(":", 1)[1])
+        except (ValueError, IndexError):
+            idx = -1
+        disabled = list(settings.get("disabled_topics") or [])
+        topic = disabled.pop(idx) if 0 <= idx < len(disabled) else ""
+        if topic:
+            settings["disabled_topics"] = disabled
+            settings["mtime"] = int(time.time())
+            changed = True
+        text, markup = _queue_view(data, settings)
+        prefix = f"♻️ <b>Тема снова включена:</b> {html.escape(topic)}\n\n" if topic else "⚠️ <b>Тема уже включена</b>\n\n"
+        _render(token, chat_id, msg_id, prefix + text, markup)
     elif cmd.startswith("queue:post:"):
         pid = _clean_pid(cmd.split(":", 2)[2])
         tg.answer_callback(token, cb_id, "📤 Публикую…")
-        ok = bool(pid and _do_publish(token, data, chat_id, "", pid, announce=False))
+        ok = bool(pid and _do_publish(
+            token, data, chat_id, "", pid, announce=False, validate=True
+        ))
         changed = ok or changed
-        text, markup = _queue_view(data)
+        text, markup = _queue_view(data, settings)
         if ok:
             text = f"✅ <b>Пост опубликован</b> · <code>{pid}</code>\n\n" + text
         else:
@@ -1164,7 +1243,7 @@ def _admin_callback(token, data, settings, cb):
         tg.answer_callback(token, cb_id, f"📤 Публикую до {min(max(count, 1), 5)} постов…")
         published = _publish_from_queue(token, data, chat_id, count)
         changed = bool(published) or changed
-        text, markup = _queue_view(data)
+        text, markup = _queue_view(data, settings)
         if published:
             ids = ", ".join(str(pid) for pid in published)
             text = f"✅ <b>Опубликовано: {len(published)}</b> · <code>{ids}</code>\n\n" + text

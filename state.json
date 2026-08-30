@@ -845,6 +845,19 @@
  },
  "recent": [
   {
+   "pid": 1142038111,
+   "title": "Ремень кожаный узкий",
+   "discount": 94,
+   "price": 320,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1142038111/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788104327,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 262764494,
    "title": "Футболка хлопок набор 3 шт",
    "discount": 72,
@@ -1734,19 +1747,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1142038111,
-   "title": "Ремень кожаный узкий",
-   "discount": 94,
-   "price": 320,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1142038111/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788104327,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1850,7 +1850,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 20,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

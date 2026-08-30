@@ -844,6 +844,19 @@
  },
  "recent": [
   {
+   "pid": 262764494,
+   "title": "Футболка хлопок набор 3 шт",
+   "discount": 72,
+   "price": 1418,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/262764494/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788103713,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1174087333,
    "title": "Постельное белье евро сатин комплект 200х220 кпб 4 наволочки",
    "discount": 86,
@@ -1720,19 +1733,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 262764494,
-   "title": "Футболка хлопок набор 3 шт",
-   "discount": 72,
-   "price": 1418,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/262764494/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788103713,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1836,7 +1836,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 21,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

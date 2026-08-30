@@ -288,22 +288,6 @@
   "queued_ts": 1788086562
  },
  {
-  "id": 429742895,
-  "title": "Джинсы трубы прямые широкие",
-  "brand": "Blue Group",
-  "product": 2424,
-  "basic": 13813,
-  "discount": 82,
-  "benefit": 11389,
-  "rating": 5.0,
-  "feedbacks": 52,
-  "category": "джинсы женские",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "джинсы женские",
-  "queued_ts": 1788086562
- },
- {
   "id": 783876018,
   "title": "Нарядная футболка с принтом Цветы хлопок",
   "brand": "YELLOW PRICE",
@@ -334,5 +318,37 @@
   "quality": "A",
   "query": "джинсы женские",
   "queued_ts": 1788086562
+ },
+ {
+  "id": 198056718,
+  "title": "Джинсы прямые классические штаны весна-лето",
+  "brand": "N.A.Z.",
+  "product": 2110,
+  "basic": 9699,
+  "discount": 78,
+  "benefit": 7589,
+  "rating": 4.7,
+  "feedbacks": 5955,
+  "category": "джинсы мужские",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "джинсы мужские",
+  "queued_ts": 1788066764
+ },
+ {
+  "id": 311670563,
+  "title": "Куртка Softshell Hurricane спортивная с капюшоном",
+  "brand": "Brandit",
+  "product": 3515,
+  "basic": 35905,
+  "discount": 90,
+  "benefit": 32390,
+  "rating": 4.9,
+  "feedbacks": 15,
+  "category": "куртка мужская",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "куртка мужская",
+  "queued_ts": 1788066764
  }
 ]

@@ -805,6 +805,19 @@
  },
  "recent": [
   {
+   "pid": 589518002,
+   "title": "Футболка прямая хлопок базовая повседневная",
+   "discount": 82,
+   "price": 700,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/589518002/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788092019,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1195368985,
    "title": "Летнее платье больших размеров с кулиской",
    "discount": 87,
@@ -1579,15 +1592,15 @@
    "quality": "A"
   },
   {
-   "pid": 589518002,
-   "title": "Футболка прямая хлопок базовая повседневная",
-   "discount": 82,
-   "price": 700,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/589518002/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788092019,
+   "pid": 1185348975,
+   "title": "Смартфон GT 7T, 12 256ГБ, russia",
+   "discount": 67,
+   "price": 25762,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1185348975/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787666707,
    "drop": 0,
    "quality": "A"
   }
@@ -1693,7 +1706,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 27,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

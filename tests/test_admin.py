@@ -198,7 +198,7 @@ def main():
                                        "from": {"id": user}}
     FakeTG.calls.clear()
     admin.handle_events("tok", "42", d, {}, [("callback", feed_cb("l5"))])
-    assert FakeTG.calls == [("answer", "", None)]
+    assert FakeTG.calls == [("answer", "Лайк отправлен 👍", None)]
     assert d["feedback"][5]["likes"] == 4
     FakeTG.calls.clear()
     admin._feedback("tok", d, feed_cb("l5", user="998"))

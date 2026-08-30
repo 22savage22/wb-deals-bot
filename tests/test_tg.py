@@ -161,6 +161,16 @@ def main():
     assert c.count("#наушники") == 1
     print("14. hashtag dedupe OK")
 
+    # 15. callback acknowledgement has a strict one-second network ceiling
+    calls = []
+    tg.requests.post = lambda *args, **kwargs: calls.append(kwargs) or Response(True)
+    try:
+        tg.answer_callback("tok", "callback-id")
+        assert calls[0]["timeout"] == 1
+    finally:
+        tg.requests.post = original_post
+    print("15. fast callback acknowledgement OK")
+
 
 if __name__ == "__main__":
     main()

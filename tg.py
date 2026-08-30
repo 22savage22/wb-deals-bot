@@ -371,7 +371,7 @@ def answer_callback(token, callback_id, text=""):
         requests.post(
             API.format(token=token, method="answerCallbackQuery"),
             data={"callback_query_id": callback_id, "text": text},
-            timeout=2,
+            timeout=1,
         )
     except requests.RequestException:
         pass

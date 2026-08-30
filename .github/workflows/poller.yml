@@ -3,8 +3,8 @@ name: Poller
 on:
   workflow_dispatch:
   schedule:
-    # Overlapping schedules keep one pending session ready, minimizing gaps.
-    - cron: "*/5 * * * *"
+    # Overlapping bounded sessions keep callbacks continuously covered.
+    - cron: "7,37 * * * *"
 
 permissions:
   contents: write
@@ -16,9 +16,12 @@ concurrency:
 jobs:
   poller:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

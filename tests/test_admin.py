@@ -34,6 +34,8 @@ class FakeTG:
 
     @staticmethod
     def answer_callback(t, c, text=""):
+        if not c:
+            return
         FakeTG.calls.append(("answer", text, None))
 
     @staticmethod
@@ -194,16 +196,22 @@ def main():
     feed_cb = lambda cmd, user="999": {"data": cmd, "id": "cid",
                                        "message": {"chat": {"id": 111}, "message_id": 1},
                                        "from": {"id": user}}
-    admin._feedback("tok", d, feed_cb("l5"))
+    FakeTG.calls.clear()
+    admin.handle_events("tok", "42", d, {}, [("callback", feed_cb("l5"))])
+    assert FakeTG.calls == [("answer", "", None)]
     assert d["feedback"][5]["likes"] == 4
-    assert abs(d["query_stats"]["a"]["likes"] - 4) < 0.01
+    FakeTG.calls.clear()
+    admin._feedback("tok", d, feed_cb("l5", user="998"))
+    assert FakeTG.calls[0][0] == "answer"
+    assert d["feedback"][5]["likes"] == 5
+    assert abs(d["query_stats"]["a"]["likes"] - 5) < 0.01
     admin._feedback("tok", d, feed_cb("b5", user="888"))
     assert d["feedback"][5]["bought"] == 2
     admin._feedback("tok", d, feed_cb("b5", user="888"))
     assert d["feedback"][5]["bought"] == 2  # анти-двойной клик по юзеру
     admin._feedback("tok", d, feed_cb("b5", user="777"))
     assert d["feedback"][5]["bought"] == 3  # другой юзер проходит
-    assert d["feedback"][5]["likes"] == 4
+    assert d["feedback"][5]["likes"] == 5
     print("12. feedback OK")
 
     # --- messages ---

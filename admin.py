@@ -176,6 +176,9 @@ def handle_events(token, admin_id, data, settings, events):
     changed = False
     for kind, ev in events:
         if kind == "callback":
+            # Stop Telegram's spinner before routing or doing any other work.
+            tg.answer_callback(token, ev.get("id", ""))
+            ev = dict(ev, id="")
             user_id = ev.get("from", {}).get("id")
             raw = str(ev.get("data", ""))
             if admin_id and str(user_id) == str(admin_id) and raw.startswith(MENU):

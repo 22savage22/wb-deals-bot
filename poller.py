@@ -1,5 +1,4 @@
 import logging
-import subprocess
 import sys
 import time
 
@@ -15,13 +14,9 @@ import tg
 
 logger = logging.getLogger("wb.poller")
 
-LIFETIME = 9 * 60
+LIFETIME = 55 * 60
 CYCLE = 0
 COMMIT_EVERY = 120
-
-
-def _pull():
-    subprocess.run(["git", "pull", "--ff-only", "-q"], capture_output=True)
 
 
 def commit_state(path, data):
@@ -137,13 +132,11 @@ def main():
             if config.TG_ADMIN_ID:
                 tg.send_message(config.TG_BOT_TOKEN, config.TG_ADMIN_ID, msg)
         if time.time() - last_commit > COMMIT_EVERY:
-            _pull()
             state.save(config.STATE_FILE, data)
             commit_state(config.STATE_FILE, data)
             last_commit = time.time()
             logger.info("poller alive | posted: %d", len(data["posted"]))
         time.sleep(CYCLE)
-    _pull()
     state.save(config.STATE_FILE, data)
     commit_state(config.STATE_FILE, data)
     print("Poller session finished; the next scheduled run will continue polling")

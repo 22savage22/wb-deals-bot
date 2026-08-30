@@ -2,7 +2,7 @@ name: WB Deals Bot
 
 on:
   schedule:
-    # Every 10 minutes, shifted off GitHub's overloaded round minutes.
+    # Starts are redundant; one bounded session publishes every 10 minutes.
     - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
     inputs:
@@ -15,16 +15,18 @@ permissions:
   contents: write
 
 concurrency:
-  # Scanner and publisher must never edit the shared queue simultaneously.
-  group: wb-content
+  group: wb-deals
   cancel-in-progress: false
 
 jobs:
   deals:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 58
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -36,8 +38,15 @@ jobs:
       - name: Run full test suite
         run: python tests/run_all.py
 
-      - name: Post deals
-        run: python bot.py
+      - name: Post one deal every 10 minutes
+        shell: bash
+        run: |
+          for round in {1..5}; do
+            started=$SECONDS
+            python bot.py
+            wait_for=$((600 - SECONDS + started))
+            if (( wait_for > 0 )); then sleep "$wait_for"; fi
+          done
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}

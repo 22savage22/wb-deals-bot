@@ -8,7 +8,6 @@ import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-import admin
 import config
 import deal_queue
 import engagement
@@ -608,21 +607,6 @@ def _notify_run(data, settings, queries, cat_names, published, posted_deals, not
         tg.send_message(token, admin, "\n".join(lines))
 
 
-def process_updates(data, settings):
-    events = admin.poll(config.TG_BOT_TOKEN, data)
-    if not events:
-        return
-    try:
-        changed = admin.handle_events(
-            config.TG_BOT_TOKEN, config.TG_ADMIN_ID, data, settings, events
-        )
-    except Exception as exc:
-        state.record_error(data, f"Обработка команд упала: {exc}")
-        changed = False
-    if changed:
-        config.save_settings(settings)
-
-
 def main():
     log.setup()
     if not config.TG_BOT_TOKEN or not config.TG_CHAT_ID:
@@ -633,8 +617,6 @@ def main():
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
-
-    process_updates(data, settings)
 
     paused_until = settings.get("pause_until", 0) or 0
     manual = bool(settings.get("post_now_ts"))

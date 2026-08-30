@@ -3,3 +3,5 @@ __pycache__/
 *.log
 *.zip
 *.json.tmp
+graphify-out/
+.graphify-venv/

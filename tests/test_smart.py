@@ -114,6 +114,27 @@ def main():
     )
     print("8a. audience rotation OK")
 
+    # 8б. аксессуары занимают 20% ленты и делятся поровну на четыре группы
+    names = {
+        "bags": "сумка женская",
+        "belts": "ремень женский",
+        "caps": "кепка женская",
+        "jewelry": "украшения женские",
+        "women": "платье женское",
+        "men": "футболка мужская",
+        "neutral": "постельное белье",
+    }
+    items = []
+    for i, group in enumerate(smart.CONTENT_PATTERN):
+        item = deal(350 + i, group, 50)
+        item["query"] = f"{names[group]} {i}"
+        items.append(item)
+    balanced = smart.balance_audience(items, make_data(meta={"total_posts": 0}), 20)
+    accessories = [smart.accessory_group(item) for item in balanced]
+    assert [smart.audience(item) for item in balanced] == list(smart.AUDIENCE_PATTERN) * 2
+    assert [group for group in accessories if group] == list(smart.ACCESSORY_MARKERS)
+    print("8б. accessory rotation OK")
+
     # 8b. одна тема не выходит больше трёх раз за сутки
     now = int(time.time())
     recent = [

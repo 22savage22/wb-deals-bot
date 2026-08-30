@@ -22,7 +22,8 @@ DISCOVERY_POOL = [
     "жакет женский", "кардиган женский",
     "кроссовки мужские", "кроссовки женские", "туфли мужские", "туфли женские",
     "сапоги женские", "ботинки мужские", "кеды", "сланцы",
-    "сумка женская", "рюкзак", "косметичка", "кошелек",
+    "сумка женская", "ремень женский", "кепка женская", "украшения женские",
+    "рюкзак", "косметичка", "кошелек",
     "часы мужские", "часы женские", "кольцо женское", "серьги женские",
     "постельное белье", "плед", "подушка", "одеяло",
     "полотенце", "скатерть", "салфетки декоративные",
@@ -37,20 +38,37 @@ AUDIENCE_PATTERN = (
     "women", "men", "women", "women", "neutral",
     "women", "women", "men", "women", "women",
 )
+CONTENT_PATTERN = (
+    "bags", "men", "women", "women", "neutral",
+    "belts", "women", "men", "women", "women",
+    "caps", "men", "women", "women", "neutral",
+    "jewelry", "women", "men", "women", "women",
+)
+ACCESSORY_MARKERS = {
+    "bags": ("сумк", "рюкзак", "клатч", "кошел"),
+    "belts": ("ремн", "реме", "пояс"),
+    "caps": ("кепк", "бейсбол", "панам", "шляп"),
+    "jewelry": (
+        "украшен", "серьг", "кольц", "брасл", "цепоч", "ожерел", "кулон", "брош",
+    ),
+}
 WOMEN_MARKERS = (
     "женск", "плать", "юбк", "блуз", "сумк", "космет", "макияж",
     "серьг", "кольц", "туфл", "колгот", "леггин", "бюстг", "купальник",
 )
 
 
-def audience(item):
-    """Classify a deal/query for the 70% women / 20% men / 10% neutral rotation."""
+def _text(item):
     if isinstance(item, dict):
-        text = " ".join(
+        return " ".join(
             str(item.get(key) or "") for key in ("query", "category", "cat", "title")
         ).lower()
-    else:
-        text = str(item or "").lower()
+    return str(item or "").lower()
+
+
+def audience(item):
+    """Classify a deal/query for the 70% women / 20% men / 10% neutral rotation."""
+    text = _text(item)
     if "женск" in text:
         return "women"
     if "мужск" in text:
@@ -58,6 +76,15 @@ def audience(item):
     if any(word in text for word in WOMEN_MARKERS):
         return "women"
     return "neutral"
+
+
+def accessory_group(item):
+    """Classify the four equally rotated accessory groups."""
+    text = _text(item)
+    for group, markers in ACCESSORY_MARKERS.items():
+        if any(marker in text for marker in markers):
+            return group
+    return None
 
 
 def _topic(item):
@@ -71,7 +98,7 @@ def _topic(item):
 def balance_audience(
     deals, data, n, offset=0, allow_fallback=True, topic_limit=0
 ):
-    """Pick a 7/2/1 rotation, avoiding repeats and overused daily topics."""
+    """Pick a 7/2/1 rotation with four equal accessory slots per 20 posts."""
     remaining = list(deals or [])
     selected = []
     recent_items = (data or {}).get("recent") or []
@@ -86,16 +113,28 @@ def balance_audience(
                 topic_counts[topic] = topic_counts.get(topic, 0) + 1
     start = int(((data or {}).get("meta") or {}).get("total_posts", 0) or 0) + offset
     fallback = {
-        "women": ("women", "neutral", "men"),
-        "men": ("men", "women", "neutral"),
-        "neutral": ("neutral", "women", "men"),
+        "women": ("women", "neutral", "men", "any"),
+        "men": ("men", "women", "neutral", "any"),
+        "neutral": ("neutral", "women", "men", "any"),
     }
+    fallback.update(
+        {group: (group, "women", "neutral", "men", "any") for group in ACCESSORY_MARKERS}
+    )
+
+    def matches(item, group):
+        if group == "any":
+            return True
+        accessory = accessory_group(item)
+        if group in ACCESSORY_MARKERS:
+            return accessory == group and audience(item) == "women"
+        return accessory is None and audience(item) == group
+
     for slot in range(min(max(0, int(n)), len(remaining))):
-        target = AUDIENCE_PATTERN[(start + slot) % len(AUDIENCE_PATTERN)]
+        target = CONTENT_PATTERN[(start + slot) % len(CONTENT_PATTERN)]
         chosen = None
         groups = fallback[target] if allow_fallback else (target,)
         for group in groups:
-            candidates = [item for item in remaining if audience(item) == group]
+            candidates = [item for item in remaining if matches(item, group)]
             if topic_limit:
                 candidates = [
                     item for item in candidates

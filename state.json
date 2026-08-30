@@ -1940,7 +1940,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788117886,
+  "last_run": 1788118618,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -1959,33 +1959,34 @@
   "cats_ts": 1788066764.0932784,
   "last_cats": [
    "Корм и лакомства",
-   "Травяные сборы",
+   "Подвески",
    "Напитки",
-   "Игрушки",
-   "Подвески"
+   "Травяные сборы",
+   "Игрушки"
   ],
   "digest_date": "2026-08-30",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 300,
-   "cards": 300,
-   "rating": 35,
-   "ok": 162,
-   "discount": 92,
-   "bad_price": 11,
-   "strict": 162,
+   "found": 998,
+   "cards": 998,
+   "discount": 308,
+   "rating": 95,
+   "ok": 530,
+   "bad_price": 65,
+   "strict": 530,
    "fallback": 0,
    "reserve": 0,
-   "repost": 3,
-   "title_duplicate": 39,
+   "repost": 12,
+   "electronics": 5,
+   "title_duplicate": 107,
    "selected": 5,
    "published": 0
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 18,
-   "rate_limited": 11,
-   "http_error": 7,
+   "calls": 161,
+   "ok": 91,
+   "rate_limited": 35,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -2085,9 +2086,8 @@
   "last_queue": {
    "queue_before": 19,
    "selected": 0,
-   "refresh_ok": 18,
-   "refresh_bad_price": 1,
-   "refresh_strict": 18,
+   "refresh_ok": 19,
+   "refresh_strict": 19,
    "refresh_fallback": 0,
    "refresh_reserve": 0,
    "queue_after": 19
@@ -4820,7 +4820,7 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1788119201.401752,
+   "ts": 1788119348.1222315,
    "runs": 20,
    "empty": 5
   },
@@ -4868,7 +4868,7 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1788119201.401752,
+   "ts": 1788119348.1222315,
    "runs": 15,
    "empty": 5
   },
@@ -4904,19 +4904,19 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1788119201.401752,
+   "ts": 1788119348.1222315,
    "runs": 10,
    "empty": 5
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1788119201.401752,
+   "ts": 1788119348.1222315,
    "runs": 10,
    "empty": 5
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1788119201.401752,
+   "ts": 1788119348.1222315,
    "runs": 10,
    "empty": 5
   },

@@ -833,6 +833,19 @@
  },
  "recent": [
   {
+   "pid": 454542610,
+   "title": "Футболка оверсайз однотонная хлопок",
+   "discount": 90,
+   "price": 790,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/454542610/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788100664,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 646126650,
    "title": "Джинсы трубы с высокой посадкой широкие Dioves",
    "discount": 81,
@@ -1657,19 +1670,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 454542610,
-   "title": "Футболка оверсайз однотонная хлопок",
-   "discount": 90,
-   "price": 790,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/454542610/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788100664,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1773,7 +1773,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Для песочницы"
   ],
-  "queue_size": 19,
+  "queue_size": 21,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

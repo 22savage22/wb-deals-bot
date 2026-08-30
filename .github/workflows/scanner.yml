@@ -38,9 +38,9 @@ jobs:
         env:
           WB_MIN_DISCOUNT: "50"
           WB_MIN_RATING: "4.5"
-          WB_PAGES: "2"
-          WB_QUERIES_PER_RUN: "6"
-          WB_CATS_PER_RUN: "4"
-          WB_QUEUE_TARGET: "60"
+          WB_PAGES: "1"
+          WB_QUERIES_PER_RUN: "4"
+          WB_CATS_PER_RUN: "2"
+          WB_QUEUE_TARGET: "30"
           WB_QUEUE_MAX_AGE_HOURS: "8"
           GITHUB_TOKEN: ${{ github.token }}

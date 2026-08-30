@@ -629,7 +629,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788084681,
+   "ts": 1788084681.9370313,
    "query": null,
    "cat": null,
    "voters": {
@@ -736,6 +736,19 @@
   "offset": 810944743
  },
  "recent": [
+  {
+   "pid": 516971878,
+   "title": "Джинсы прямые классические стрейч летние",
+   "discount": 81,
+   "price": 2369,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/516971878/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788085838,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 1085267230,
    "title": "Куртка ветровка весенняя",
@@ -1511,15 +1524,28 @@
    "quality": "A"
   },
   {
-   "pid": 516971878,
-   "title": "Джинсы прямые классические стрейч летние",
-   "discount": 81,
-   "price": 2369,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/516971878/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788085838,
+   "pid": 1125330265,
+   "title": "Беспроводные наушники Pro 2",
+   "discount": 72,
+   "price": 1380,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1125330265/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787637785,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 1163761752,
+   "title": "Кроссовки 180",
+   "discount": 80,
+   "price": 2749,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1163761752/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787636148,
    "drop": 0,
    "quality": "A"
   }
@@ -1629,7 +1655,7 @@
    "Фигурки",
    "Для песочницы"
   ],
-  "queue_size": 95,
+  "queue_size": 60,
   "last_scan_added": 57,
   "last_scan_funnel": {
    "found": 399,

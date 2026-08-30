@@ -808,6 +808,19 @@
  },
  "recent": [
   {
+   "pid": 444704296,
+   "title": "Платье в горошек длинное.Платье чёрное",
+   "discount": 76,
+   "price": 1411,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/444704296/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788094434,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 898842588,
    "title": "Футболка спортивная оверсайз для фитнеса удлиненная",
    "discount": 85,
@@ -1580,19 +1593,6 @@
    "ts": 1787678419,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 444704296,
-   "title": "Платье в горошек длинное.Платье чёрное",
-   "discount": 76,
-   "price": 1411,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/444704296/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788094434,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1696,7 +1696,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 24,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

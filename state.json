@@ -1865,10 +1865,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 41,
+   "ok": 25,
+   "rate_limited": 8,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -1929,31 +1929,31 @@
   "today": "2026-08-30",
   "today_posts": 40,
   "total_posts": 373,
-  "last_scan": 1788101238,
+  "last_scan": 1788107609,
   "last_scan_queries": [
-   "постельное белье",
-   "ремень женский",
    "платье женское",
-   "футболка мужская"
+   "постельное белье",
+   "украшения женские",
+   "джинсы женские"
   ],
   "last_scan_cats": [
    "Подгузники",
-   "Фигурки"
+   "Пылевыбивалки"
   ],
-  "queue_size": 23,
-  "last_scan_added": 6,
+  "queue_size": 18,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "ok": 223,
-   "rating": 62,
-   "discount": 104,
+   "found": 300,
+   "cards": 300,
+   "ok": 156,
+   "rating": 36,
+   "discount": 97,
    "bad_price": 11,
-   "strict": 223,
+   "strict": 156,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 47
+   "duplicate": 8,
+   "title_duplicate": 18
   },
   "last_queue": {
    "queue_before": 19,
@@ -4594,9 +4594,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1788106383.5935853,
-   "runs": 58,
-   "empty": 3
+   "ts": 1788107766.263153,
+   "runs": 59,
+   "empty": 4
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -4882,9 +4882,9 @@
   },
   "Подгузники": {
    "shard": "children_things2",
-   "ts": 1788101320.6557305,
-   "runs": 3,
-   "empty": 3
+   "ts": 1788107766.263153,
+   "runs": 4,
+   "empty": 4
   },
   "Для песочницы": {
    "shard": "toys12",
@@ -4906,6 +4906,22 @@
   }
  },
  "queue": [
+  {
+   "id": 37009593,
+   "title": "Чокер на шею из ракушек ожерелье бижутерия для пляжа",
+   "brand": "Soul Sister",
+   "product": 219,
+   "basic": 1371,
+   "discount": 84,
+   "benefit": 1152,
+   "rating": 4.7,
+   "feedbacks": 1527,
+   "category": "украшения женские",
+   "selection_mode": "strict",
+   "quality": "A",
+   "query": "украшения женские",
+   "queued_ts": 1788107609
+  },
   {
    "id": 608376530,
    "title": "Футболка хлопковая базовая однотонная",

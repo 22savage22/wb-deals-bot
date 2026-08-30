@@ -846,6 +846,19 @@
  },
  "recent": [
   {
+   "pid": 581354350,
+   "title": "Ремень женский из экокожи",
+   "discount": 89,
+   "price": 392,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/581354350/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788104927,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1142038111,
    "title": "Ремень кожаный узкий",
    "discount": 94,
@@ -1748,19 +1761,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 581354350,
-   "title": "Ремень женский из экокожи",
-   "discount": 89,
-   "price": 392,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/581354350/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788104927,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1864,7 +1864,7 @@
    "Подгузники",
    "Фигурки"
   ],
-  "queue_size": 19,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

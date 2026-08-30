@@ -1962,10 +1962,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 28,
-   "rate_limited": 35,
-   "http_error": 11,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

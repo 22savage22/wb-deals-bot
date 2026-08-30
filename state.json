@@ -810,6 +810,19 @@
  },
  "recent": [
   {
+   "pid": 923802265,
+   "title": "Нарядная футболка с принтом Мороженое хлопок",
+   "discount": 86,
+   "price": 399,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/923802265/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788095634,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 710732775,
    "title": "постельное белье 2 спальное",
    "discount": 95,
@@ -1584,15 +1597,28 @@
    "quality": "A"
   },
   {
-   "pid": 923802265,
-   "title": "Нарядная футболка с принтом Мороженое хлопок",
-   "discount": 86,
-   "price": 399,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/923802265/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788095634,
+   "pid": 1187029458,
+   "title": "Смартфон V70, 8 256ГБ, russia",
+   "discount": 72,
+   "price": 26825,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/1187029458/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787680661,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
+   "pid": 466000475,
+   "title": "Наушники беспроводные с микрофоном PRO 2",
+   "discount": 77,
+   "price": 1603,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/466000475/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787678419,
    "drop": 0,
    "quality": "A"
   }
@@ -1698,7 +1724,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 22,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

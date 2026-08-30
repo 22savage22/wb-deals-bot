@@ -906,6 +906,18 @@
  },
  "recent": [
   {
+   "pid": 1293920011,
+   "title": "Толстовка на молнии с капюшоном",
+   "discount": 94,
+   "price": 1854,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1293920011/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1788115923,
+   "drop": 0
+  },
+  {
    "pid": 1175467810,
    "title": "Блузка рубашка офисная большие размеры шелковая с галстуком",
    "discount": 88,
@@ -1905,18 +1917,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1293920011,
-   "title": "Толстовка на молнии с капюшоном",
-   "discount": 94,
-   "price": 1854,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1293920011/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1788115923,
-   "drop": 0
   }
  ],
  "meta": {
@@ -1963,10 +1963,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 190,
-   "ok": 130,
-   "rate_limited": 17,
-   "http_error": 43,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

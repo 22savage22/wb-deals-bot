@@ -822,6 +822,19 @@
  },
  "recent": [
   {
+   "pid": 434677230,
+   "title": "Летнее платье хлопок простое варенка",
+   "discount": 75,
+   "price": 962,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/434677230/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788098648,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 387689955,
    "title": "Футболка оверсайз хлопок",
    "discount": 94,
@@ -1596,15 +1609,15 @@
    "quality": "A"
   },
   {
-   "pid": 434677230,
-   "title": "Летнее платье хлопок простое варенка",
-   "discount": 75,
-   "price": 962,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/434677230/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788098648,
+   "pid": 672244330,
+   "title": "Телефон кнопочный для пожилых",
+   "discount": 60,
+   "price": 960,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/672244330/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787694489,
    "drop": 0,
    "quality": "A"
   }
@@ -1710,7 +1723,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 17,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

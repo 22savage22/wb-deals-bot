@@ -643,7 +643,7 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788086845,
+   "ts": 1788086845.0729861,
    "query": null,
    "cat": null,
    "voters": {
@@ -750,6 +750,19 @@
   "offset": 810944744
  },
  "recent": [
+  {
+   "pid": 807708735,
+   "title": "Летнее платье лен на запах",
+   "discount": 90,
+   "price": 1152,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/807708735/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788087278,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 839798174,
    "title": "Куртка пилот \"SKYRAIDER\"",
@@ -1525,15 +1538,15 @@
    "quality": "A"
   },
   {
-   "pid": 807708735,
-   "title": "Летнее платье лен на запах",
-   "discount": 90,
-   "price": 1152,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/807708735/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788087278,
+   "pid": 1344714777,
+   "title": "Смартфон A6 Pro 4G, 8 256ГБ, russia",
+   "discount": 77,
+   "price": 15677,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/1344714777/detail.aspx",
+   "query": "телефон",
+   "cat": "телефон",
+   "ts": 1787644609,
    "drop": 0,
    "quality": "A"
   }

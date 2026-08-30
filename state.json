@@ -685,7 +685,7 @@
    "likes": 2,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788111857.466284,
+   "ts": 1788111857,
    "query": null,
    "cat": null,
    "voters": {
@@ -731,7 +731,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788111865.2231064,
+   "ts": 1788111865,
    "query": "платье женское",
    "cat": "платье женское",
    "voters": {
@@ -1854,7 +1854,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788110963,
+  "last_run": 1788111563,
   "last_posts": 0,
   "last_queries": [
    "постельное белье",
@@ -1868,32 +1868,32 @@
   "empty_notice_ts": 1788108240.0,
   "cats_ts": 1788066764.0932784,
   "last_cats": [
+   "Краски автомобильные",
    "Смазки и масла для инструмента",
-   "Бандажи",
-   "Краски автомобильные"
+   "Бандажи"
   ],
   "digest_date": "2026-08-30",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 200,
-   "cards": 200,
-   "rating": 24,
-   "ok": 118,
-   "discount": 55,
-   "bad_price": 3,
-   "strict": 118,
+   "found": 300,
+   "cards": 300,
+   "rating": 26,
+   "ok": 153,
+   "discount": 110,
+   "bad_price": 11,
+   "strict": 153,
    "fallback": 0,
    "reserve": 0,
-   "repost": 1,
-   "title_duplicate": 30,
+   "repost": 4,
+   "title_duplicate": 28,
    "selected": 5,
    "published": 0
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 36,
-   "rate_limited": 25,
-   "http_error": 13,
+   "calls": 51,
+   "ok": 23,
+   "rate_limited": 21,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -1965,7 +1965,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 18,
+  "queue_size": 19,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,
@@ -4638,15 +4638,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1788111363.3196855,
-   "runs": 33,
-   "empty": 3
+   "ts": 1788112004.8436563,
+   "runs": 34,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1788111363.3196855,
-   "runs": 38,
-   "empty": 3
+   "ts": 1788112004.8436563,
+   "runs": 39,
+   "empty": 4
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -4698,9 +4698,9 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1788111363.3196855,
-   "runs": 18,
-   "empty": 3
+   "ts": 1788112004.8436563,
+   "runs": 19,
+   "empty": 4
   },
   "Зеркала": {
    "shard": "bedroom6",

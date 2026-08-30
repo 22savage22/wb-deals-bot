@@ -804,6 +804,19 @@
  },
  "recent": [
   {
+   "pid": 1195368985,
+   "title": "Летнее платье больших размеров с кулиской",
+   "discount": 87,
+   "price": 640,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1195368985/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788091419,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 1067463616,
    "title": "Футболка оверсайз женская",
    "discount": 90,
@@ -1576,19 +1589,6 @@
    "ts": 1787666707,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1195368985,
-   "title": "Летнее платье больших размеров с кулиской",
-   "discount": 87,
-   "price": 640,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1195368985/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788091419,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1692,7 +1692,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 28,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

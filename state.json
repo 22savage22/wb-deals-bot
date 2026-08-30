@@ -821,6 +821,19 @@
  },
  "recent": [
   {
+   "pid": 387689955,
+   "title": "Футболка оверсайз хлопок",
+   "discount": 94,
+   "price": 331,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/387689955/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788098048,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 168863804,
    "title": "Праздничное платье нарядное",
    "discount": 69,
@@ -1593,19 +1606,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 387689955,
-   "title": "Футболка оверсайз хлопок",
-   "discount": 94,
-   "price": 331,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/387689955/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788098048,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1709,7 +1709,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 18,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

@@ -464,22 +464,6 @@
   "queued_ts": 1788086562
  },
  {
-  "id": 813198612,
-  "title": "Куртка бомбер весенняя",
-  "brand": "HypeSpot",
-  "product": 1188,
-  "basic": 10000,
-  "discount": 88,
-  "benefit": 8812,
-  "rating": 4.9,
-  "feedbacks": 228,
-  "category": "куртка мужская",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "куртка мужская",
-  "queued_ts": 1788066764
- },
- {
   "id": 119850474,
   "title": "Прямые джинсы классические",
   "brand": "PIAGIO",
@@ -509,22 +493,6 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "джинсы мужские",
-  "queued_ts": 1788066764
- },
- {
-  "id": 839798174,
-  "title": "Куртка пилот \"SKYRAIDER\"",
-  "brand": "Императорский бутик",
-  "product": 10286,
-  "basic": 110990,
-  "discount": 91,
-  "benefit": 100704,
-  "rating": 5.0,
-  "feedbacks": 1,
-  "category": "куртка мужская",
-  "selection_mode": "strict",
-  "quality": "A",
-  "query": "куртка мужская",
   "queued_ts": 1788066764
  },
  {
@@ -1597,6 +1565,38 @@
   "selection_mode": "strict",
   "quality": "A",
   "query": "платье женское",
+  "queued_ts": 1788027538
+ },
+ {
+  "id": 870506254,
+  "title": "Кроссовки Air Force 1",
+  "brand": "Nike",
+  "product": 1825,
+  "basic": 9999,
+  "discount": 82,
+  "benefit": 8174,
+  "rating": 4.9,
+  "feedbacks": 15,
+  "category": "кроссовки мужские",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "кроссовки мужские",
+  "queued_ts": 1788027538
+ },
+ {
+  "id": 808271890,
+  "title": "Унисекс худи трикотажное с капюшоном легкое для улицы",
+  "brand": "",
+  "product": 1357,
+  "basic": 7501,
+  "discount": 82,
+  "benefit": 6144,
+  "rating": 5.0,
+  "feedbacks": 1,
+  "category": "худи мужское",
+  "selection_mode": "strict",
+  "quality": "A",
+  "query": "худи мужское",
   "queued_ts": 1788027538
  }
 ]

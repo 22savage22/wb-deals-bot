@@ -650,6 +650,17 @@
    "voters": {
     "976465919": 1788086845.0729861
    }
+  },
+  "176829504": {
+   "likes": 1,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1788088448.466749,
+   "query": null,
+   "cat": null,
+   "voters": {
+    "976465919": 1788088448.466749
+   }
   }
  },
  "query_stats": {
@@ -755,9 +766,22 @@
   }
  },
  "tg": {
-  "offset": 810944744
+  "offset": 810944745
  },
  "recent": [
+  {
+   "pid": 176829504,
+   "title": "Постельное белье 1.5 спальное однотонное страйп",
+   "discount": 94,
+   "price": 861,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/176829504/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788088403,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 807708735,
    "title": "Летнее платье лен на запах",
@@ -1531,19 +1555,6 @@
    "ts": 1787652983,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 176829504,
-   "title": "Постельное белье 1.5 спальное однотонное страйп",
-   "discount": 94,
-   "price": 861,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/176829504/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788088403,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -1647,7 +1658,7 @@
    "Лотки, пеленки",
    "Восточные сладости"
   ],
-  "queue_size": 29,
+  "queue_size": 30,
   "last_scan_added": 15,
   "last_scan_funnel": {
    "found": 100,

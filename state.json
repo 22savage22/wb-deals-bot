@@ -739,6 +739,19 @@
  },
  "recent": [
   {
+   "pid": 839798174,
+   "title": "Куртка пилот \"SKYRAIDER\"",
+   "discount": 91,
+   "price": 10286,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/839798174/detail.aspx",
+   "query": "куртка мужская",
+   "cat": "куртка мужская",
+   "ts": 1788086678,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 516971878,
    "title": "Джинсы прямые классические стрейч летние",
    "discount": 81,
@@ -1509,19 +1522,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787644609,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 839798174,
-   "title": "Куртка пилот \"SKYRAIDER\"",
-   "discount": 91,
-   "price": 10286,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/839798174/detail.aspx",
-   "query": "куртка мужская",
-   "cat": "куртка мужская",
-   "ts": 1788086678,
    "drop": 0,
    "quality": "A"
   }

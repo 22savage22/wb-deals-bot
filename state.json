@@ -659,7 +659,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788088448.466749,
+   "ts": 1788088448,
    "query": null,
    "cat": null,
    "voters": {
@@ -670,7 +670,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788090116.6013486,
+   "ts": 1788090116,
    "query": null,
    "cat": null,
    "voters": {
@@ -681,7 +681,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788090915.2800934,
+   "ts": 1788090915,
    "query": null,
    "cat": null,
    "voters": {
@@ -1573,71 +1573,6 @@
    "query": "телефон",
    "cat": "телефон",
    "ts": 1787666707,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1244468831,
-   "title": "Наушники беспроводные A.Pods PRO 2 для iPhone и Android",
-   "discount": 93,
-   "price": 658,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1244468831/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787663356,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1135004833,
-   "title": "Кроссовки Asics GEL-PICKAX",
-   "discount": 71,
-   "price": 2878,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1135004833/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787659280,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 681937151,
-   "title": "Спортивные кроссовки ZX 750 Великан",
-   "discount": 82,
-   "price": 3194,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/681937151/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787657594,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 989175126,
-   "title": "Кроссовки OLD ORDER (ОКАИ) трендовый дизайн р-р 41-46",
-   "discount": 81,
-   "price": 6531,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/989175126/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787655318,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252698387,
-   "title": "Смартфон C85 Pro, 8 256ГБ",
-   "discount": 73,
-   "price": 15659,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252698387/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787652983,
    "drop": 0,
    "quality": "A"
   }

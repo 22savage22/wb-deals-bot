@@ -369,7 +369,8 @@
   "176829504": 1788088403,
   "541070320": 1788089003,
   "1287252088": 1788089604,
-  "119850474": 1788090204
+  "119850474": 1788090204,
+  "1067463616": 1788090818
  },
  "feedback": {
   "855179327": {
@@ -658,7 +659,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788088448.466749,
+   "ts": 1788088448,
    "query": null,
    "cat": null,
    "voters": {
@@ -669,7 +670,7 @@
    "likes": 1,
    "dislikes": 0,
    "bought": 0,
-   "ts": 1788090116.6013486,
+   "ts": 1788090116,
    "query": null,
    "cat": null,
    "voters": {
@@ -779,11 +780,11 @@
    "ts": 1788088422.4228446
   },
   "футболка женская": {
-   "posts": 1.9999999999970925,
+   "posts": 3.997068690403451,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788089642.216425
+   "ts": 1788090844.9959052
   }
  },
  "tg": {
@@ -1565,60 +1566,21 @@
    "quality": "A"
   },
   {
-   "pid": 1135004833,
-   "title": "Кроссовки Asics GEL-PICKAX",
-   "discount": 71,
-   "price": 2878,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1135004833/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787659280,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 681937151,
-   "title": "Спортивные кроссовки ZX 750 Великан",
-   "discount": 82,
-   "price": 3194,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/681937151/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787657594,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 989175126,
-   "title": "Кроссовки OLD ORDER (ОКАИ) трендовый дизайн р-р 41-46",
-   "discount": 81,
-   "price": 6531,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/989175126/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787655318,
-   "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 1252698387,
-   "title": "Смартфон C85 Pro, 8 256ГБ",
-   "discount": 73,
-   "price": 15659,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252698387/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787652983,
+   "pid": 1067463616,
+   "title": "Футболка оверсайз женская",
+   "discount": 90,
+   "price": 241,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1067463616/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788090818,
    "drop": 0,
    "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1788090204,
+  "last_run": 1788090818,
   "last_posts": 1,
   "last_queries": [
    "куртка мужская",
@@ -1705,8 +1667,8 @@
    }
   ],
   "today": "2026-08-30",
-  "today_posts": 15,
-  "total_posts": 348,
+  "today_posts": 16,
+  "total_posts": 349,
   "last_scan": 1788090325,
   "last_scan_queries": [
    "платье женское",
@@ -1718,7 +1680,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 30,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,
@@ -1734,9 +1696,9 @@
    "title_duplicate": 18
   },
   "last_queue": {
-   "queue_before": 27,
+   "queue_before": 30,
    "selected": 1,
-   "queue_after": 26
+   "queue_after": 29
   },
   "cats_count": 2253
  },
@@ -2081,7 +2043,8 @@
   "постельноебелье15спальноеоднотонноестрайп": 1788088403,
   "сарафанженскийофисныйкожаныйнабретельках": 1788089003,
   "футболкаоверсайзcпринтом": 1788089604,
-  "прямыеджинсыклассические": 1788090204
+  "прямыеджинсыклассические": 1788090204,
+  "футболкаоверсайзженская": 1788090818
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -2427,7 +2390,8 @@
   "a6e0602010180c20": 1788088403,
   "73733331707278f8": 1788089003,
   "cc8416d6def27363": 1788089604,
-  "f0f0f8f8f8e8cace": 1788090204
+  "f0f0f8f8f8e8cace": 1788090204,
+  "373773d3cd6d6737": 1788090818
  },
  "learned": {
   "часы мужские": {
@@ -4169,6 +4133,11 @@
    "price": 3121,
    "basic": 15000,
    "ts": 1788090204.0999808
+  },
+  "1067463616": {
+   "price": 241,
+   "basic": 2520,
+   "ts": 1788090818.2320085
   }
  },
  "cats": {
@@ -4546,22 +4515,6 @@
    "benefit": 2540,
    "rating": 4.9,
    "feedbacks": 254,
-   "category": "футболка женская",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "футболка женская",
-   "queued_ts": 1788090325
-  },
-  {
-   "id": 1067463616,
-   "title": "Футболка оверсайз женская",
-   "brand": "smite",
-   "product": 241,
-   "basic": 2520,
-   "discount": 90,
-   "benefit": 2279,
-   "rating": 4.8,
-   "feedbacks": 5709,
    "category": "футболка женская",
    "selection_mode": "strict",
    "quality": "A",

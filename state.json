@@ -809,6 +809,19 @@
  },
  "recent": [
   {
+   "pid": 710732775,
+   "title": "постельное белье 2 спальное",
+   "discount": 95,
+   "price": 1297,
+   "rating": 5.0,
+   "link": "https://www.wildberries.ru/catalog/710732775/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788095034,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 444704296,
    "title": "Платье в горошек длинное.Платье чёрное",
    "discount": 76,
@@ -1583,15 +1596,15 @@
    "quality": "A"
   },
   {
-   "pid": 710732775,
-   "title": "постельное белье 2 спальное",
-   "discount": 95,
-   "price": 1297,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/710732775/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788095034,
+   "pid": 466000475,
+   "title": "Наушники беспроводные с микрофоном PRO 2",
+   "discount": 77,
+   "price": 1603,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/466000475/detail.aspx",
+   "query": "наушники",
+   "cat": "наушники",
+   "ts": 1787678419,
    "drop": 0,
    "quality": "A"
   }
@@ -1697,7 +1710,7 @@
    "Подгузники",
    "Пылевыбивалки"
   ],
-  "queue_size": 23,
+  "queue_size": 29,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 101,

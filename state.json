@@ -604,11 +604,22 @@
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "ts": 1788083093,
+   "ts": 1788083093.066792,
    "query": null,
    "cat": null,
    "voters": {
     "976465919": 1788083093.066792
+   }
+  },
+  "564516244": {
+   "likes": 0,
+   "dislikes": 1,
+   "bought": 0,
+   "ts": 1788083646.2782938,
+   "query": null,
+   "cat": null,
+   "voters": {
+    "976465919": 1788083646.2782938
    }
   }
  },
@@ -708,9 +719,22 @@
   }
  },
  "tg": {
-  "offset": 810944740
+  "offset": 810944742
  },
  "recent": [
+  {
+   "pid": 564516244,
+   "title": "Куртка пуховик зимняя короткая дутая, с капюшоном, pinterest",
+   "discount": 86,
+   "price": 3215,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/564516244/detail.aspx",
+   "query": "куртка мужская",
+   "cat": "куртка мужская",
+   "ts": 1788083557,
+   "drop": 0,
+   "quality": "A"
+  },
   {
    "pid": 244732102,
    "title": "Куртка демисезонная",
@@ -1486,15 +1510,15 @@
    "quality": "A"
   },
   {
-   "pid": 564516244,
-   "title": "Куртка пуховик зимняя короткая дутая, с капюшоном, pinterest",
-   "discount": 86,
-   "price": 3215,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/564516244/detail.aspx",
-   "query": "куртка мужская",
-   "cat": "куртка мужская",
-   "ts": 1788083557,
+   "pid": 749555517,
+   "title": "Кроссовки SB Dunk LOW Pro",
+   "discount": 73,
+   "price": 2612,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/749555517/detail.aspx",
+   "query": "кроссовки",
+   "cat": "кроссовки",
+   "ts": 1787627453,
    "drop": 0,
    "quality": "A"
   }
@@ -1604,7 +1628,7 @@
    "Фигурки",
    "Для песочницы"
   ],
-  "queue_size": 98,
+  "queue_size": 60,
   "last_scan_added": 57,
   "last_scan_funnel": {
    "found": 399,

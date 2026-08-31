@@ -987,6 +987,19 @@
  },
  "recent": [
   {
+   "pid": 169619486,
+   "title": "Постельное белье евро с принтом",
+   "discount": 96,
+   "price": 1163,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/169619486/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788209885,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 848700904,
    "title": "Футболка однотонная оверсайз с принтом Луна",
    "discount": 90,
@@ -2072,19 +2085,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 169619486,
-   "title": "Постельное белье евро с принтом",
-   "discount": 96,
-   "price": 1163,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/169619486/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788209885,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2198,7 +2198,7 @@
   "last_scan_cats": [
    "Трубопроводы"
   ],
-  "queue_size": 17,
+  "queue_size": 18,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 2897,

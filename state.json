@@ -2039,7 +2039,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788135203,
+  "last_run": 1788140117,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -2059,31 +2059,21 @@
   "last_cats": [
    "Гроубоксы",
    "Расчески парикмахерские",
-   "Биотуалеты и аксессуары",
    "Кронштейны",
+   "Биотуалеты и аксессуары",
    "Репринтные издания 1890 - 1899 годов"
   ],
   "digest_date": "2026-08-31",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 100,
-   "cards": 100,
-   "discount": 35,
-   "ok": 55,
-   "rating": 9,
-   "bad_price": 1,
-   "strict": 55,
-   "fallback": 0,
-   "reserve": 0,
-   "title_duplicate": 12,
-   "selected": 5,
-   "published": 0
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 18,
-   "rate_limited": 11,
-   "http_error": 7,
+   "calls": 42,
+   "ok": 0,
+   "rate_limited": 38,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -2190,8 +2180,8 @@
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1788133801.0,
-  "last_engagement_ts": 1788114549.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_ts": 1788140844.0,
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788133801.0
  },
  "admin_ui": {
@@ -4807,9 +4797,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1788139690.166899,
-   "runs": 38,
-   "empty": 3
+   "ts": 1788140844.7238727,
+   "runs": 39,
+   "empty": 4
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -4843,9 +4833,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1788139690.166899,
-   "runs": 28,
-   "empty": 3
+   "ts": 1788140844.7238727,
+   "runs": 29,
+   "empty": 4
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -4915,9 +4905,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1788139690.166899,
-   "runs": 18,
-   "empty": 3
+   "ts": 1788140844.7238727,
+   "runs": 19,
+   "empty": 4
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -4993,9 +4983,9 @@
   },
   "Кронштейны": {
    "shard": "housecraft6",
-   "ts": 1788139690.166899,
-   "runs": 8,
-   "empty": 3
+   "ts": 1788140844.7238727,
+   "runs": 9,
+   "empty": 4
   },
   "Пули для пневматики": {
    "shard": "sport32",
@@ -5011,9 +5001,9 @@
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
-   "ts": 1788139690.166899,
-   "runs": 8,
-   "empty": 3
+   "ts": 1788140844.7238727,
+   "runs": 9,
+   "empty": 4
   },
   "Серия Reno": {
    "shard": "electronic88",

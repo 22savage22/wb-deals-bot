@@ -992,6 +992,19 @@
  },
  "recent": [
   {
+   "pid": 908463381,
+   "title": "Вечернее платье длинное праздничное",
+   "discount": 94,
+   "price": 800,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/908463381/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788212902,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 396292097,
    "title": "Футболка оверсайз укороченная",
    "discount": 83,
@@ -2142,19 +2155,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 908463381,
-   "title": "Вечернее платье длинное праздничное",
-   "discount": 94,
-   "price": 800,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/908463381/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788212902,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2268,7 +2268,7 @@
   "last_scan_cats": [
    "Трубопроводы"
   ],
-  "queue_size": 11,
+  "queue_size": 18,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 2897,

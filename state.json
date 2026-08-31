@@ -1037,6 +1037,19 @@
  },
  "recent": [
   {
+   "pid": 363456158,
+   "title": "Ремень женский для джинс и платья",
+   "discount": 92,
+   "price": 329,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/363456158/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788220125,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 360624811,
    "title": "Ремень кожаный на пояс для джинс и платья",
    "discount": 90,
@@ -2330,19 +2343,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 363456158,
-   "title": "Ремень женский для джинс и платья",
-   "discount": 92,
-   "price": 329,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/363456158/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788220125,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2465,7 +2465,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 3,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

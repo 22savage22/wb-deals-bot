@@ -1033,6 +1033,19 @@
  },
  "recent": [
   {
+   "pid": 140795032,
+   "title": "Бордовое платье Мания",
+   "discount": 96,
+   "price": 630,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/140795032/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788217714,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 831812333,
    "title": "Джинсы женские широкие багги с высокой посадкой",
    "discount": 91,
@@ -2274,19 +2287,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 140795032,
-   "title": "Бордовое платье Мания",
-   "discount": 96,
-   "price": 630,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/140795032/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788217714,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2409,7 +2409,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 7,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

@@ -2039,7 +2039,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788162547,
+  "last_run": 1788163367,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -2057,33 +2057,35 @@
   "empty_notice_ts": 1788162542.0,
   "cats_ts": 1788161810.872229,
   "last_cats": [
-   "Пуфы",
    "Банкетки",
-   "Венки декоративные",
+   "Трубопроводы",
    "Для чая",
-   "Трубопроводы"
+   "Венки декоративные",
+   "Пуфы"
   ],
   "digest_date": "2026-08-31",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 99,
-   "cards": 99,
-   "discount": 31,
-   "rating": 14,
-   "ok": 47,
-   "bad_price": 7,
-   "strict": 47,
+   "found": 200,
+   "cards": 200,
+   "discount": 52,
+   "rating": 20,
+   "ok": 110,
+   "bad_price": 18,
+   "strict": 110,
    "fallback": 0,
    "reserve": 0,
-   "title_duplicate": 3,
+   "repost": 1,
+   "electronics": 5,
+   "title_duplicate": 8,
    "selected": 5,
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 21,
-   "rate_limited": 29,
-   "http_error": 7,
+   "calls": 70,
+   "ok": 20,
+   "rate_limited": 40,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -2188,7 +2190,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788162543.0,
   "last_engagement_ts": 1788140844.0,
   "last_engagement_kind": "fun_fact",
@@ -5066,33 +5068,33 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1788163364.514836,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788164194.565069,
+   "runs": 3,
+   "empty": 3
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1788163364.514836,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788164194.565069,
+   "runs": 3,
+   "empty": 3
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1788163364.514836,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788164194.565069,
+   "runs": 3,
+   "empty": 3
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1788163364.514836,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788164194.565069,
+   "runs": 3,
+   "empty": 3
   },
   "Трубопроводы": {
    "shard": "autoproduct48",
-   "ts": 1788163364.514836,
-   "runs": 2,
-   "empty": 2
+   "ts": 1788164194.565069,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [

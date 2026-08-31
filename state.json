@@ -1032,6 +1032,19 @@
  },
  "recent": [
   {
+   "pid": 831812333,
+   "title": "Джинсы женские широкие багги с высокой посадкой",
+   "discount": 91,
+   "price": 3097,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/831812333/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788217114,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 236560178,
    "title": "Постельное белье бязь 2 сп с Европростыней (наволочки 70*70)",
    "discount": 93,
@@ -2260,19 +2273,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 831812333,
-   "title": "Джинсы женские широкие багги с высокой посадкой",
-   "discount": 91,
-   "price": 3097,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/831812333/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788217114,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2395,7 +2395,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 8,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

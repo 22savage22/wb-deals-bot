@@ -989,6 +989,19 @@
  },
  "recent": [
   {
+   "pid": 1100753168,
+   "title": "Платье лапша повседневное осень",
+   "discount": 94,
+   "price": 945,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1100753168/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788211085,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 483196444,
    "title": "ремень женский",
    "discount": 94,
@@ -2100,19 +2113,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1100753168,
-   "title": "Платье лапша повседневное осень",
-   "discount": 94,
-   "price": 945,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1100753168/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788211085,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2226,7 +2226,7 @@
   "last_scan_cats": [
    "Трубопроводы"
   ],
-  "queue_size": 15,
+  "queue_size": 18,
   "last_scan_added": 18,
   "last_scan_funnel": {
    "found": 2897,

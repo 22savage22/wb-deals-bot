@@ -1034,6 +1034,19 @@
  },
  "recent": [
   {
+   "pid": 105391316,
+   "title": "Футболка мужская Сарказм хлопок 100% черная",
+   "discount": 92,
+   "price": 490,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/105391316/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788218314,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 140795032,
    "title": "Бордовое платье Мания",
    "discount": 96,
@@ -2288,19 +2301,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 105391316,
-   "title": "Футболка мужская Сарказм хлопок 100% черная",
-   "discount": 92,
-   "price": 490,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/105391316/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788218314,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2423,7 +2423,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 6,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

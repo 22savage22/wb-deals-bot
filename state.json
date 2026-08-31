@@ -2081,10 +2081,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 21,
-   "rate_limited": 29,
-   "http_error": 7,
+   "calls": 69,
+   "ok": 32,
+   "rate_limited": 24,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -2145,7 +2145,7 @@
   "today": "2026-08-30",
   "today_posts": 50,
   "total_posts": 383,
-  "last_scan": 1788139191,
+  "last_scan": 1788165195,
   "last_scan_queries": [
    "платье женское",
    "постельное белье",
@@ -2159,26 +2159,26 @@
    "кофта женская"
   ],
   "last_scan_cats": [
+   "Венки декоративные",
    "Репринтные издания 1890 - 1899 годов",
-   "Гроубоксы",
-   "Кронштейны",
-   "Биотуалеты и аксессуары",
-   "Расчески парикмахерские"
+   "Банкетки",
+   "Пуфы",
+   "Для чая"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "discount": 38,
-   "rating": 15,
-   "ok": 42,
-   "bad_price": 6,
-   "strict": 42,
+   "found": 399,
+   "cards": 399,
+   "discount": 133,
+   "rating": 55,
+   "ok": 193,
+   "bad_price": 18,
+   "strict": 193,
    "fallback": 0,
    "reserve": 0,
-   "duplicate": 1,
-   "title_duplicate": 3
+   "title_duplicate": 22,
+   "duplicate": 3
   },
   "last_queue": {
    "queue_before": 1,
@@ -4875,9 +4875,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1788141036.5088763,
-   "runs": 19,
-   "empty": 4
+   "ts": 1788165636.5317094,
+   "runs": 20,
+   "empty": 5
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -5067,27 +5067,27 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1788164971.7457411,
-   "runs": 4,
-   "empty": 4
+   "ts": 1788165636.5317094,
+   "runs": 5,
+   "empty": 5
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1788164194.565069,
-   "runs": 3,
-   "empty": 3
+   "ts": 1788165636.5317094,
+   "runs": 4,
+   "empty": 4
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1788164194.565069,
-   "runs": 3,
-   "empty": 3
+   "ts": 1788165636.5317094,
+   "runs": 4,
+   "empty": 4
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1788164971.7457411,
-   "runs": 4,
-   "empty": 4
+   "ts": 1788165636.5317094,
+   "runs": 5,
+   "empty": 5
   },
   "Трубопроводы": {
    "shard": "autoproduct48",

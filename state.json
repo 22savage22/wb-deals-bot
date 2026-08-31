@@ -2081,10 +2081,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 32,
-   "rate_limited": 24,
-   "http_error": 13,
+   "calls": 57,
+   "ok": 21,
+   "rate_limited": 29,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

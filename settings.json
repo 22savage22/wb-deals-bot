@@ -1,5 +1,6 @@
 {
- "mtime": 1788141036,
+ "mtime": 1788180611,
  "cats_per_run": 5,
- "queries_per_run": 10
+ "queries_per_run": 10,
+ "max_posts": 1
 }

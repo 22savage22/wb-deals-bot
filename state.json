@@ -1036,6 +1036,19 @@
  },
  "recent": [
   {
+   "pid": 360624811,
+   "title": "Ремень кожаный на пояс для джинс и платья",
+   "discount": 90,
+   "price": 380,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/360624811/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788219525,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 100291642,
    "title": "Джинсы черные зауженные с высокой посадкой скинни",
    "discount": 87,
@@ -2316,19 +2329,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 360624811,
-   "title": "Ремень кожаный на пояс для джинс и платья",
-   "discount": 90,
-   "price": 380,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/360624811/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788219525,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2451,7 +2451,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 4,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

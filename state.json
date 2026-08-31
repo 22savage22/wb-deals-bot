@@ -1027,6 +1027,19 @@
  },
  "recent": [
   {
+   "pid": 370937794,
+   "title": "Футболка хлопок с принтом",
+   "discount": 88,
+   "price": 316,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/370937794/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788214701,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 681995513,
    "title": "Бейсболка женская универсальный",
    "discount": 99,
@@ -2203,19 +2216,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 370937794,
-   "title": "Футболка хлопок с принтом",
-   "discount": 88,
-   "price": 316,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/370937794/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788214701,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2338,7 +2338,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 13,
+  "queue_size": 15,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

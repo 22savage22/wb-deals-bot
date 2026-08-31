@@ -2080,10 +2080,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 9,
-   "rate_limited": 39,
-   "http_error": 5,
+   "calls": 57,
+   "ok": 21,
+   "rate_limited": 29,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -2188,7 +2188,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788162543.0,
   "last_engagement_ts": 1788140844.0,
   "last_engagement_kind": "fun_fact",

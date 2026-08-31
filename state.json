@@ -2063,7 +2063,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Средства для мытья посуды и продуктов"
   ],
-  "digest_date": "2026-08-30",
+  "digest_date": "2026-08-31",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
    "found": 200,
@@ -2082,10 +2082,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 15,
-   "rate_limited": 34,
-   "http_error": 8,
+   "calls": 36,
+   "ok": 18,
+   "rate_limited": 11,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },

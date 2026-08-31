@@ -1035,6 +1035,19 @@
  },
  "recent": [
   {
+   "pid": 100291642,
+   "title": "Джинсы черные зауженные с высокой посадкой скинни",
+   "discount": 87,
+   "price": 1667,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/100291642/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788218925,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 105391316,
    "title": "Футболка мужская Сарказм хлопок 100% черная",
    "discount": 92,
@@ -2302,19 +2315,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 100291642,
-   "title": "Джинсы черные зауженные с высокой посадкой скинни",
-   "discount": 87,
-   "price": 1667,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/100291642/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788218925,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2437,7 +2437,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 5,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

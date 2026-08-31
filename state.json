@@ -1031,6 +1031,19 @@
  },
  "recent": [
   {
+   "pid": 236560178,
+   "title": "Постельное белье бязь 2 сп с Европростыней (наволочки 70*70)",
+   "discount": 93,
+   "price": 1465,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/236560178/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788216514,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 685049149,
    "title": "Футболка оверсайз унисекс тренд 2026 Ало",
    "discount": 88,
@@ -2246,19 +2259,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 236560178,
-   "title": "Постельное белье бязь 2 сп с Европростыней (наволочки 70*70)",
-   "discount": 93,
-   "price": 1465,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/236560178/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788216514,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2381,7 +2381,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 9,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

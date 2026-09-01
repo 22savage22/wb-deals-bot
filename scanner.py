@@ -54,7 +54,7 @@ def fill_queue(data, settings, target=None):
         and smart._topic(item) not in disabled
     ]
     if len(queue) > target:
-        queue = _limit_topics(queue)
+        queue = _limit_topics(queue, smart.DAILY_TOPIC_LIMIT)
         queue = smart.balance_audience(queue, data, target, allow_fallback=False)
     data["queue"] = queue
     if len(queue) >= target:
@@ -155,7 +155,9 @@ def fill_queue(data, settings, target=None):
 
     # Diversity selection avoids a buffer filled with near-identical products.
     ranked = smart.pick_deals(eligible, data, max(need * 3, need))
-    selected = smart.balance_audience(ranked, data, need, topic_limit=3)
+    selected = smart.balance_audience(
+        ranked, data, need, topic_limit=smart.DAILY_TOPIC_LIMIT
+    )
     queue.extend(selected)
     data["queue"] = queue
     meta["queue_size"] = len(queue)

@@ -366,7 +366,9 @@ def _queue_view(data, settings=None):
         markup += [[_btn("🔄 Обновить", MENU + "queue")], _home_row()[0]]
         return "\n".join(lines), markup
 
-    shown = smart.balance_audience(queue, data, 10, topic_limit=3)
+    shown = smart.balance_audience(
+        queue, data, 10, topic_limit=smart.DAILY_TOPIC_LIMIT
+    )
     lines = [
         "📥 <b>Найденные товары</b>",
         "",
@@ -1130,7 +1132,8 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
 def _publish_from_queue(token, data, chat_id, count):
     count = max(1, min(int(count), 5))
     candidates = smart.balance_audience(
-        data.get("queue") or [], data, len(data.get("queue") or []), topic_limit=3
+        data.get("queue") or [], data, len(data.get("queue") or []),
+        topic_limit=smart.DAILY_TOPIC_LIMIT,
     )
     published = []
     for item in candidates:

@@ -7,6 +7,7 @@ CAT_COOLDOWN_H = 12
 CATS_RETIRE_EMPTY = 5
 CATS_REACTIVATE_SECS = 14 * 86400
 CATS_WEIGHT_MIN = 0.2
+DAILY_TOPIC_LIMIT = 8
 
 LEARNED_MAX = 30
 TRIAL_ATTEMPTS = 5
@@ -96,7 +97,7 @@ def _topic(item):
     ).lower()
 
 
-def available_topics(items, data, limit=3):
+def available_topics(items, data, limit=DAILY_TOPIC_LIMIT):
     """Discard topics already at the daily cap without trimming backup products."""
     since = time.time() - 86400
     counts = {}

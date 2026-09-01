@@ -221,7 +221,7 @@ def _publish_queued(data, limit):
 
     while queue and published < limit:
         ordered = smart.balance_audience(
-            queue, data, 1, published, topic_limit=3
+            queue, data, 1, published, topic_limit=smart.DAILY_TOPIC_LIMIT
         )
         if not ordered:
             break
@@ -479,7 +479,7 @@ def run_posting(data, settings, notify=True):
     # Keep backup candidates: a broken image or one rejected Telegram upload
     # must not turn the whole scheduled run into zero posts.
     attempt_limit = max(config.MAX_POSTS + 2, config.MAX_POSTS * 5)
-    deals = smart.available_topics(deals, data, 3)
+    deals = smart.available_topics(deals, data)
     deals = smart.pick_deals(deals, data, attempt_limit)
     funnel["selected"] = len(deals)
 
@@ -491,7 +491,7 @@ def run_posting(data, settings, notify=True):
     rotation_data = {"recent": list(data.get("recent") or []), "meta": meta}
     while deals and published < config.MAX_POSTS:
         ordered = smart.balance_audience(
-            deals, rotation_data, 1, published, topic_limit=3
+            deals, rotation_data, 1, published, topic_limit=smart.DAILY_TOPIC_LIMIT
         )
         if not ordered:
             break

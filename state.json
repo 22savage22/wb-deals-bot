@@ -1064,6 +1064,19 @@
  },
  "recent": [
   {
+   "pid": 401385455,
+   "title": "Джинсы зауженные скинни с высокой посадкой",
+   "discount": 0,
+   "price": 1363,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/401385455/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788260926,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 110717704,
    "title": "Кожаный ремень для джинсов и платья",
    "discount": 0,
@@ -2690,19 +2703,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 401385455,
-   "title": "Джинсы зауженные скинни с высокой посадкой",
-   "discount": 0,
-   "price": 1363,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/401385455/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788260926,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2742,10 +2742,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 32,
-   "rate_limited": 1,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2817,7 +2817,7 @@
    "Зажимы и закладки",
    "Пылевыбивалки"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

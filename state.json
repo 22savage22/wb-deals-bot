@@ -1070,6 +1070,19 @@
  },
  "recent": [
   {
+   "pid": 231499209,
+   "title": "Постельное белье 2 спальное 70х70 хлопок бязь космос",
+   "discount": 0,
+   "price": 1673,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/231499209/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788264712,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 4051518,
    "title": "Футболка",
    "discount": 0,
@@ -2774,19 +2787,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 231499209,
-   "title": "Постельное белье 2 спальное 70х70 хлопок бязь космос",
-   "discount": 0,
-   "price": 1673,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/231499209/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788264712,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2826,10 +2826,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 56,
-   "ok": 37,
-   "rate_limited": 4,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2901,7 +2901,7 @@
    "Основные части двигателя",
    "Для песочницы"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

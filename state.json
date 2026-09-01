@@ -2798,10 +2798,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 36,
-   "rate_limited": 3,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2873,7 +2873,7 @@
    "Восточные сладости",
    "Основные части двигателя"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

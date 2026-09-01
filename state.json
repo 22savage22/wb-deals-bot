@@ -1093,6 +1093,19 @@
  },
  "recent": [
   {
+   "pid": 137546097,
+   "title": "Футболка белая однотонная базовая",
+   "discount": 0,
+   "price": 1423,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137546097/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788274910,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1011297419,
    "title": "Футболка с принтом пальм на спине",
    "discount": 0,
@@ -3005,19 +3018,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 137546097,
-   "title": "Футболка белая однотонная базовая",
-   "discount": 0,
-   "price": 1423,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137546097/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788274910,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

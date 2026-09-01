@@ -1111,6 +1111,18 @@
  },
  "recent": [
   {
+   "pid": 922327358,
+   "title": "Джинсы прямые классические летние",
+   "discount": 0,
+   "price": 2948,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/922327358/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788290230,
+   "drop": 0
+  },
+  {
    "pid": 1286274581,
    "title": "Джинсы бананы широкие",
    "discount": 0,
@@ -3246,18 +3258,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 922327358,
-   "title": "Джинсы прямые классические летние",
-   "discount": 0,
-   "price": 2948,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/922327358/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788290230,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3295,10 +3295,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 125,
-   "ok": 97,
-   "rate_limited": 1,
-   "http_error": 27,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

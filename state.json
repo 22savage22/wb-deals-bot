@@ -1082,6 +1082,19 @@
  },
  "recent": [
   {
+   "pid": 180555602,
+   "title": "Постельное белье 1.5 спальное",
+   "discount": 0,
+   "price": 2541,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/180555602/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788267845,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 398289856,
    "title": "Плед 150х200 пушистый на диван",
    "discount": 0,
@@ -2851,19 +2864,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 180555602,
-   "title": "Постельное белье 1.5 спальное",
-   "discount": 0,
-   "price": 2541,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/180555602/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788267845,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2903,10 +2903,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 37,
-   "rate_limited": 6,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2978,7 +2978,7 @@
    "Зажимы и закладки",
    "Сварочное оборудование"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

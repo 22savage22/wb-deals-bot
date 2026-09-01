@@ -6589,54 +6589,6 @@
    "quality": "A",
    "query": "джинсы мужские",
    "queued_ts": 1788066764
-  },
-  {
-   "id": 337647211,
-   "title": "Кроссовки кожаные демисезонные дышащие спортивные",
-   "brand": "JOYCITY",
-   "product": 1242,
-   "basic": 10596,
-   "discount": 88,
-   "benefit": 9354,
-   "rating": 4.9,
-   "feedbacks": 293,
-   "category": "кроссовки мужские",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "кроссовки мужские",
-   "queued_ts": 1788048249
-  },
-  {
-   "id": 1146190522,
-   "title": "жакет без рукавов с баской ципао",
-   "brand": "KLEYFELD",
-   "product": 2431,
-   "basic": 15600,
-   "discount": 84,
-   "benefit": 13169,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "жакет женский",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "жакет женский",
-   "queued_ts": 1788048249
-  },
-  {
-   "id": 195728127,
-   "title": "Куртка тактическая демисезонная софтшел с капюшоном",
-   "brand": "ARMORCITY",
-   "product": 2724,
-   "basic": 10780,
-   "discount": 75,
-   "benefit": 8056,
-   "rating": 4.7,
-   "feedbacks": 689,
-   "category": "куртка мужская",
-   "selection_mode": "strict",
-   "quality": "A",
-   "query": "куртка мужская",
-   "queued_ts": 1788048249
   }
  ]
 }

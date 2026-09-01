@@ -2931,10 +2931,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 37,
-   "rate_limited": 0,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

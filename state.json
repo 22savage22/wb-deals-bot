@@ -1039,6 +1039,18 @@
  },
  "recent": [
   {
+   "pid": 361927553,
+   "title": "Лонгслив джемпер легкий",
+   "discount": 82,
+   "price": 8178,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/361927553/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1788222425,
+   "drop": 0
+  },
+  {
    "pid": 260873660,
    "title": "Лонгслив полупрозрачный облегающий y2k",
    "discount": 89,
@@ -2357,18 +2369,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 361927553,
-   "title": "Лонгслив джемпер легкий",
-   "discount": 82,
-   "price": 8178,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/361927553/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1788222425,
-   "drop": 0
   }
  ],
  "meta": {
@@ -2420,10 +2420,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 108,
-   "ok": 53,
+   "calls": 174,
+   "ok": 103,
    "rate_limited": 37,
-   "http_error": 18,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2509,7 +2509,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 3,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

@@ -1049,6 +1049,19 @@
  },
  "recent": [
   {
+   "pid": 18376263,
+   "title": "Футболка мужская базовая однотонная хлопок",
+   "discount": 0,
+   "price": 713,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/18376263/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788251435,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1139456833,
    "title": "Бейсболка базовая летняя кепка черная классическая",
    "discount": 0,
@@ -2480,19 +2493,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 18376263,
-   "title": "Футболка мужская базовая однотонная хлопок",
-   "discount": 0,
-   "price": 713,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/18376263/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788251435,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2532,10 +2532,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 44,
-   "ok": 32,
-   "rate_limited": 2,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2607,7 +2607,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Зажимы и закладки"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 400,

@@ -1114,6 +1114,18 @@
  },
  "recent": [
   {
+   "pid": 248917722,
+   "title": "Платье праздничное кружевное",
+   "discount": 0,
+   "price": 1970,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/248917722/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788298018,
+   "drop": 0
+  },
+  {
    "pid": 238809915,
    "title": "Постельное белье, 2-спальное на молнии, наволочки 50х70см",
    "discount": 20,
@@ -3285,18 +3297,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 248917722,
-   "title": "Платье праздничное кружевное",
-   "discount": 0,
-   "price": 1970,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/248917722/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788298018,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3335,10 +3335,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 44,
-   "ok": 16,
-   "rate_limited": 21,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3410,7 +3410,7 @@
    "Игрушки",
    "Напитки"
   ],
-  "queue_size": 5,
+  "queue_size": 3,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,

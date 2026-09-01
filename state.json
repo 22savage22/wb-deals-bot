@@ -1051,6 +1051,19 @@
  },
  "recent": [
   {
+   "pid": 169657194,
+   "title": "Платье-футболка черное с разрезом",
+   "discount": 0,
+   "price": 462,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/169657194/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788252697,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 435692089,
    "title": "Джинсы широкие палаццо клеш багги",
    "discount": 0,
@@ -2508,19 +2521,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 169657194,
-   "title": "Платье-футболка черное с разрезом",
-   "discount": 0,
-   "price": 462,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/169657194/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788252697,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2560,10 +2560,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 36,
-   "rate_limited": 3,
-   "http_error": 13,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2635,7 +2635,7 @@
    "Посуда",
    "Для песочницы"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

@@ -43,15 +43,14 @@ jobs:
         shell: bash
         run: |
           for round in {1..4}; do
-            started=$SECONDS
             python bot.py
             if (( round == 1 )); then
               WB_PAGES=1 WB_QUERIES_PER_RUN=4 WB_CATS_PER_RUN=2 \
-                timeout 8m python scanner.py || true
+                timeout 8m python scanner.py || true &
             fi
-            wait_for=$((600 - SECONDS + started))
-            if (( round < 4 && wait_for > 0 )); then sleep "$wait_for"; fi
+            if (( round < 4 )); then sleep 600; fi
           done
+          wait
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}

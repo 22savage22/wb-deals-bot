@@ -2672,10 +2672,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 54,
-   "ok": 36,
-   "rate_limited": 4,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2747,7 +2747,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Пылевыбивалки"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

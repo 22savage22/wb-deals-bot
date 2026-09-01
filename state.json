@@ -1091,6 +1091,19 @@
  },
  "recent": [
   {
+   "pid": 589512657,
+   "title": "Футболка хлопок летняя однотонная базовая удлиненная",
+   "discount": 0,
+   "price": 700,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/589512657/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788273644,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1244919996,
    "title": "Большая сумка шоппер светло-бежевая",
    "discount": 0,
@@ -2977,19 +2990,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 589512657,
-   "title": "Футболка хлопок летняя однотонная базовая удлиненная",
-   "discount": 0,
-   "price": 700,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/589512657/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788273644,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3029,10 +3029,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 35,
-   "rate_limited": 2,
-   "http_error": 13,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3104,7 +3104,7 @@
    "Сварочное оборудование",
    "Изготовление кукол и игрушек"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

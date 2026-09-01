@@ -264,14 +264,12 @@ def raw_deal(card):
         basic_rub = basic // 100
         if basic_rub <= 0:
             continue
-        discount = round(100 - product_rub * 100 / basic_rub)
-        key = (discount, basic_rub - product_rub)
-        if best is None or key > best[0]:
-            best = (key, product_rub, basic_rub)
+        if best is None or product_rub < best[0]:
+            best = (product_rub, basic_rub)
     if best is None:
         product = basic = discount = benefit = 0
     else:
-        _, product, basic = best
+        product, basic = best
         discount = round(100 - product * 100 / basic)
         benefit = basic - product
     rating = card.get("reviewRating") or card.get("rating") or 0

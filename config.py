@@ -131,11 +131,11 @@ def apply(settings):
         globals()["MIN_RATING"] = float(settings["min_rating"])
     if settings.get("max_price") is not None:
         globals()["MAX_PRICE"] = float(settings["max_price"])
-    if settings.get("max_posts") is not None:
+    if settings.get("max_posts") is not None and not os.getenv("WB_MAX_POSTS"):
         globals()["MAX_POSTS"] = int(settings["max_posts"])
-    if settings.get("pages") is not None:
+    if settings.get("pages") is not None and not os.getenv("WB_PAGES"):
         globals()["PAGES"] = int(settings["pages"])
-    if settings.get("queries_per_run") is not None:
+    if settings.get("queries_per_run") is not None and not os.getenv("WB_QUERIES_PER_RUN"):
         globals()["QUERIES_PER_RUN"] = int(settings["queries_per_run"])
     if settings.get("repost_days") is not None:
         globals()["REPOST_DAYS"] = float(settings["repost_days"])
@@ -162,5 +162,5 @@ def apply(settings):
         globals()["FALLBACK_DESTS"] = [int(x) for x in d]
     if settings.get("price_drop_min") is not None:
         globals()["PRICE_DROP_MIN"] = float(settings["price_drop_min"])
-    if settings.get("cats_per_run") is not None:
+    if settings.get("cats_per_run") is not None and not os.getenv("WB_CATS_PER_RUN"):
         globals()["CATS_PER_RUN"] = int(settings["cats_per_run"])

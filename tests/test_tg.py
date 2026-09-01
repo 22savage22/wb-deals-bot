@@ -32,8 +32,8 @@ def main():
 
     # 2. базовые элементы подписи
     c = tg.caption(_deal(12345), 12345)
-    assert "12 990" in c and "19 990" in c
-    assert "-35%" in c
+    assert "12 990" in c and "19 990" not in c
+    assert "-35%" not in c  # цена продавца не выдаётся за проверенную скидку
     assert any(c.startswith(emoji) for emoji, _ in tg.OPENERS)
     assert "<script>" not in c  # экранировано
     assert "&lt;script&gt;" in c

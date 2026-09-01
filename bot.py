@@ -164,51 +164,20 @@ def _candidate_cards(cards, seen):
     return list(by_id.values())
 
 
-def _find_deals(candidates, limit, funnel):
-    strict = []
-    rejected = []
+def _find_deals(candidates, limit, funnel, prices=None):
+    deals = []
     for card in candidates:
-        deal, reason = wb.evaluate(card)
+        deal, reason = wb.evaluate(card, min_discount=0)
         funnel[reason] = funnel.get(reason, 0) + 1
         if deal:
-            deal["quality"] = "A"
-            strict.append(deal)
-        else:
-            rejected.append(card)
-
-    fallback = []
-    if config.SMART_FALLBACK and len(strict) < limit:
-        for card in rejected:
-            deal, _ = wb.evaluate(
-                card,
-                min_discount=min(config.MIN_DISCOUNT, config.FALLBACK_MIN_DISCOUNT),
-                min_rating=min(config.MIN_RATING, config.FALLBACK_MIN_RATING),
-                min_feedbacks=config.FALLBACK_MIN_FEEDBACKS,
-            )
-            if deal:
-                deal["selection_mode"] = "smart_fallback"
-                deal["quality"] = "B"
-                fallback.append(deal)
-    reserve = []
-    if config.SMART_FALLBACK and len(strict) + len(fallback) < limit:
-        fallback_ids = {d["id"] for d in fallback}
-        for card in rejected:
-            if card.get("id") in fallback_ids:
-                continue
-            deal, _ = wb.evaluate(
-                card,
-                min_discount=config.RESERVE_MIN_DISCOUNT,
-                min_rating=config.RESERVE_MIN_RATING,
-                min_feedbacks=config.RESERVE_MIN_FEEDBACKS,
-            )
-            if deal:
-                deal["selection_mode"] = "quality_reserve"
-                deal["quality"] = "C"
-                reserve.append(deal)
-    funnel["strict"] = len(strict)
-    funnel["fallback"] = len(fallback)
-    funnel["reserve"] = len(reserve)
-    return strict + fallback + reserve
+            smart.price_drop(deal, prices, config.PRICE_DROP_MIN)
+            if prices is not None:
+                smart.observe_price(prices, deal)
+            deals.append(deal)
+    funnel["strict"] = sum(bool(d.get("price_drop")) for d in deals)
+    funnel["fallback"] = len(deals) - funnel["strict"]
+    funnel["reserve"] = 0
+    return deals
 
 
 def _funnel_text(funnel):
@@ -244,7 +213,7 @@ def _publish_queued(data, limit):
     refresh_funnel = {}
     refreshed = {
         deal["id"]: deal
-        for deal in _find_deals(fresh_cards, len(queue), refresh_funnel)
+        for deal in _find_deals(fresh_cards, len(queue), refresh_funnel, prices)
     }
     for key, value in refresh_funnel.items():
         funnel["refresh_" + key] = value
@@ -272,6 +241,10 @@ def _publish_queued(data, limit):
                 funnel["refresh_missing"] = funnel.get("refresh_missing", 0) + 1
             else:
                 funnel["refresh_rejected"] = funnel.get("refresh_rejected", 0) + 1
+            continue
+        queued_price = int(deal.get("product", 0) or 0)
+        if queued_price and fresh["product"] > queued_price * 1.1:
+            funnel["price_changed"] = funnel.get("price_changed", 0) + 1
             continue
         queued_ts = deal.get("queued_ts", 0)
         query = deal.get("query") or ""
@@ -315,12 +288,13 @@ def _publish_queued(data, limit):
             state.record_error(data, f"Telegram не принял {pid}: {detail or 'без описания'}")
             continue
 
-        posted[pid] = int(now)
+        posted_at = time.time()
+        posted[pid] = int(posted_at)
         if h:
-            img_hash[h] = int(now)
-        prices[pid] = {"price": deal["product"], "basic": deal["basic"], "ts": now}
+            img_hash[h] = int(posted_at)
+        smart.observe_price(prices, deal, posted_at, posted=True)
         if key:
-            titles[key] = int(now)
+            titles[key] = int(posted_at)
         published += 1
         funnel["selected"] += 1
         posted_deals.append(deal)
@@ -334,7 +308,7 @@ def _publish_queued(data, limit):
                 "link": link,
                 "query": deal.get("query"),
                 "cat": deal["category"],
-                "ts": int(now),
+                "ts": int(posted_at),
                 "drop": int(deal.get("price_drop") or 0),
                 "quality": deal.get("quality", "A"),
             }
@@ -460,15 +434,15 @@ def run_posting(data, settings, notify=True):
     cards = wb.cards(list(seen.keys()))
     candidates = _candidate_cards(cards, seen)
     funnel["cards"] = len(candidates)
-    deals = _find_deals(candidates, config.MAX_POSTS, funnel)
+    prices = data.setdefault("prices", {})
+    deals = _find_deals(candidates, config.MAX_POSTS, funnel, prices)
 
     repost_secs = config.REPOST_DAYS * 86400
-    prices = data.setdefault("prices", {})
     allowed = []
     for d in deals:
         pid = d["id"]
         if pid in posted:
-            if smart.price_drop(d, prices, config.PRICE_DROP_MIN):
+            if smart.price_drop(d, prices, config.PRICE_DROP_MIN, posted=True):
                 allowed.append(d)
             else:
                 funnel["repost"] = funnel.get("repost", 0) + 1
@@ -505,6 +479,7 @@ def run_posting(data, settings, notify=True):
     # Keep backup candidates: a broken image or one rejected Telegram upload
     # must not turn the whole scheduled run into zero posts.
     attempt_limit = max(config.MAX_POSTS + 2, config.MAX_POSTS * 5)
+    deals = smart.available_topics(deals, data, 3)
     deals = smart.pick_deals(deals, data, attempt_limit)
     funnel["selected"] = len(deals)
 
@@ -558,17 +533,14 @@ def run_posting(data, settings, notify=True):
         elif hasattr(tg, "last_error") and tg.last_error():
             state.record_error(data, f"Пост {pid} отправлен, но кнопки не добавились: {tg.last_error()}")
         if ok:
-            posted[pid] = int(now)
+            posted_at = time.time()
+            posted[pid] = int(posted_at)
             if h and not deal.get("price_drop"):
-                img_hash[h] = int(now)
-            prices[pid] = {
-                "price": deal["product"],
-                "basic": deal["basic"],
-                "ts": now,
-            }
+                img_hash[h] = int(posted_at)
+            smart.observe_price(prices, deal, posted_at, posted=True)
             key = smart.norm_title(deal["title"])
             if key:
-                titles[key] = int(now)
+                titles[key] = int(posted_at)
             published += 1
             posted_deals.append(deal)
             data["recent"].append(
@@ -581,7 +553,7 @@ def run_posting(data, settings, notify=True):
                     "link": link,
                     "query": pid_query.get(pid),
                     "cat": deal["category"],
-                    "ts": int(now),
+                    "ts": int(posted_at),
                     "drop": int(deal.get("price_drop") or 0),
                 }
             )

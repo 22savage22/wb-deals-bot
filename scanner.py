@@ -120,7 +120,7 @@ def fill_queue(data, settings, target=None):
     candidates = bot._candidate_cards(cards, seen)
     funnel["cards"] = len(candidates)
     need = target - len(queue)
-    deals = bot._find_deals(candidates, need, funnel)
+    deals = bot._find_deals(candidates, need, funnel, data.setdefault("prices", {}))
 
     queued_ids = {item["id"] for item in queue}
     recent_titles = data.setdefault("titles", {})

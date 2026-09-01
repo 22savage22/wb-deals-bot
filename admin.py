@@ -385,9 +385,12 @@ def _queue_view(data, settings=None):
         title = html.escape(str(deal.get("title") or "Товар"))
         if len(title) > 54:
             title = title[:51] + "..."
+        price_note = (
+            f"📉 <b>{int(deal.get('discount', 0))}%</b>"
+            if deal.get("price_drop") else "💎 текущая цена"
+        )
         lines.append(
-            f"{i}. 🔥 <b>{int(deal.get('discount', 0))}%</b> · "
-            f"<b>{tg.fmt(int(deal.get('product', 0)))} ₽</b> · "
+            f"{i}. {price_note} · <b>{tg.fmt(int(deal.get('product', 0)))} ₽</b> · "
             f"⭐ {deal.get('rating', 0):g}"
         )
         lines.append(f"   {title}")
@@ -890,12 +893,14 @@ def _preview_deals(data, settings, limit=10):
             continue
         ids = [it.get("id") for it in items[:20] if it.get("id")]
         for card in wb.cards(ids):
-            d = wb.deal(card)
+            d = wb.deal(card, min_discount=0)
             if d:
+                smart.price_drop(d, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
+                smart.observe_price(data["prices"], d)
                 deals.append(d)
         if len(deals) >= limit:
             break
-    deals.sort(key=lambda d: (d["discount"], d["benefit"]), reverse=True)
+    deals.sort(key=smart.deal_score, reverse=True)
     return deals[:limit]
 
 
@@ -922,8 +927,9 @@ def _preview_view(data, settings, limit=10):
         if len(title) > 50:
             title = title[:47] + "..."
         link = _link(d["id"])
+        price_note = f"📉 <b>{d['discount']}%</b>" if d.get("price_drop") else "💎"
         rows.append(
-            f"{i}. 🔥 <b>{d['discount']}%</b> · {tg.fmt(d['product'])} ₽ <s>{tg.fmt(d['basic'])}</s>"
+            f"{i}. {price_note} · {tg.fmt(d['product'])} ₽"
             f" · ⭐ {d['rating']} · <i>{html.escape(str(d['category']))}</i>"
         )
         rows.append(f"   {title}")
@@ -1050,23 +1056,9 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
         if cb_id:
             tg.answer_callback(token, cb_id, "❌ Артикул не найден")
         return False
-    queued = next((item for item in (data.get("queue") or []) if item.get("id") == pid), {})
-    if validate:
-        mode = queued.get("selection_mode")
-        if mode == "smart_fallback":
-            deal, _ = wb.evaluate(
-                cards[0], min(config.MIN_DISCOUNT, config.FALLBACK_MIN_DISCOUNT),
-                min(config.MIN_RATING, config.FALLBACK_MIN_RATING), config.FALLBACK_MIN_FEEDBACKS,
-            )
-        elif mode == "quality_reserve":
-            deal, _ = wb.evaluate(
-                cards[0], config.RESERVE_MIN_DISCOUNT,
-                config.RESERVE_MIN_RATING, config.RESERVE_MIN_FEEDBACKS,
-            )
-        else:
-            deal, _ = wb.evaluate(cards[0])
-    else:
-        deal = wb.raw_deal(cards[0])
+    deal = wb.evaluate(cards[0], min_discount=0)[0] if validate else wb.raw_deal(cards[0])
+    if deal:
+        smart.price_drop(deal, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
     images = wb.photos(pid)
     if not images or not deal or not deal.get("id"):
         state.record_error(data, f"Не удалось подготовить пост {pid}")
@@ -1088,11 +1080,7 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
     key = smart.norm_title(deal["title"])
     if key:
         data.setdefault("titles", {})[key] = now
-    data.setdefault("prices", {})[pid] = {
-        "price": deal["product"],
-        "basic": deal["basic"],
-        "ts": now,
-    }
+    smart.observe_price(data.setdefault("prices", {}), deal, now, posted=True)
     data["recent"].append(
         {
             "pid": pid,
@@ -1126,7 +1114,7 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
             [
                 "✅ <b>Опубликовано в канал</b>",
                 "",
-                f"🔥 <b>{deal['discount']}%</b> · {tg.fmt(deal['product'])} ₽ <s>{tg.fmt(deal['basic'])} ₽</s>",
+                f"💎 <b>{tg.fmt(deal['product'])} ₽</b>",
                 f"{title}",
                 "",
                 f"Артикул: <code>{pid}</code>",

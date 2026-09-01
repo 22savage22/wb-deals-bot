@@ -314,8 +314,8 @@ def main():
     invalid = make_data()
     invalid["queue"] = list(d["queue"])
     wbmod.cards = lambda ids: [dict(card, sizes=[{"price": {"product": 19500, "basic": 19800}}])]
-    assert admin._admin_callback("tok", invalid, {}, cb("queue:bulk:1")) is False
-    assert invalid["queue"] and not invalid["posted"].get(777)
+    assert admin._admin_callback("tok", invalid, {}, cb("queue:bulk:1")) is True
+    assert invalid["queue"] == [] and invalid["posted"].get(777)
     wbmod.cards = lambda ids: [card]
     FakeTG.calls.clear()
     changed = admin._admin_callback("tok", d, {}, cb("queue:bulk:1"))

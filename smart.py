@@ -1,5 +1,6 @@
 import html
 import random
+import statistics
 import time
 
 CAT_COOLDOWN_H = 12
@@ -95,6 +96,20 @@ def _topic(item):
     ).lower()
 
 
+def available_topics(items, data, limit=3):
+    """Discard topics already at the daily cap without trimming backup products."""
+    since = time.time() - 86400
+    counts = {}
+    for item in (data or {}).get("recent") or []:
+        topic = _topic(item)
+        if topic and item.get("ts", 0) >= since:
+            counts[topic] = counts.get(topic, 0) + 1
+    return [
+        item for item in (items or [])
+        if not _topic(item) or counts.get(_topic(item), 0) < limit
+    ]
+
+
 def balance_audience(
     deals, data, n, offset=0, allow_fallback=True, topic_limit=0
 ):
@@ -160,27 +175,71 @@ def norm_title(text):
     return "".join(ch for ch in str(text or "").lower() if ch.isalnum())
 
 
-def price_drop(deal, prices, min_drop=0.15):
-    """Цена упала на min_drop (15% по умолчанию) с момента прошлого поста?
-    Если цена выросла — обновляем базовую линию, чтобы ловить будущие падения."""
-    if not prices:
-        return False
-    base = prices.get(deal.get("id"))
-    if not base or not base.get("price"):
-        return False
-    current = deal.get("product") or 0
-    base_price = float(base["price"])
-    if current <= 0 or base_price <= 0:
-        return False
-    if current >= base_price:
-        if current > base_price:
-            base["price"] = current
-        return False
-    if current / base_price > 1.0 - max(0.0, float(min_drop)):
-        return False
-    deal["price_drop"] = True
-    deal["last_price"] = int(base_price)
-    return True
+def price_drop(deal, prices, min_drop=0.15, posted=False):
+    """Mark only a drop confirmed by three spaced observations of the real price."""
+    current = int(deal.get("product", 0) or 0)
+    entry = (prices or {}).get(deal.get("id")) or {}
+    samples = [
+        (float(ts), int(price))
+        for ts, price in (entry.get("samples") or [])
+        if float(ts or 0) > 0 and int(price or 0) > 0
+    ]
+    deal.pop("price_drop", None)
+    deal.pop("last_price", None)
+    deal["seller_basic"] = int(deal.get("seller_basic", deal.get("basic", 0)) or 0)
+    deal["seller_discount"] = int(
+        deal.get("seller_discount", deal.get("discount", 0)) or 0
+    )
+    reference = int(statistics.median(price for _, price in samples)) if len(samples) >= 3 else 0
+    previous = int(entry.get("posted_price", 0) or 0) if posted else reference
+    confirmed = (
+        current > 0
+        and reference > 0
+        and max(ts for ts, _ in samples) - min(ts for ts, _ in samples) >= 3600
+        and current <= reference * (1.0 - max(0.0, float(min_drop)))
+        and (not posted or previous > 0 and current <= previous * (1.0 - max(0.0, float(min_drop))))
+    )
+    if confirmed:
+        deal["price_drop"] = True
+        deal["last_price"] = previous
+        deal["basic"] = previous
+        deal["discount"] = round(100 - current * 100 / previous)
+        deal["benefit"] = previous - current
+        deal["selection_mode"] = "verified_drop"
+        deal["quality"] = "A"
+        return True
+    deal["basic"] = current
+    deal["discount"] = 0
+    deal["benefit"] = 0
+    deal["selection_mode"] = "good_price"
+    deal["quality"] = "B"
+    return False
+
+
+def observe_price(prices, deal, now=None, posted=False):
+    """Keep seven compact, half-hour-spaced observations per article."""
+    pid = int(deal.get("id", 0) or 0)
+    price = int(deal.get("product", 0) or 0)
+    if not pid or not price:
+        return
+    now = float(now or time.time())
+    entry = dict((prices or {}).get(pid) or {})
+    samples = list(entry.get("samples") or [])
+    if not samples or now - float(samples[-1][0]) >= 1800:
+        samples.append([int(now), price])
+    entry.update(
+        price=price,
+        basic=int(deal.get("seller_basic", deal.get("basic", price)) or price),
+        ts=now,
+        samples=samples[-7:],
+    )
+    if posted:
+        entry["posted_price"] = price
+        entry["posted_ts"] = now
+    else:
+        entry.setdefault("posted_price", 0)
+        entry.setdefault("posted_ts", 0)
+    prices[pid] = entry
 
 
 def _decay(stats):
@@ -421,7 +480,7 @@ def pick_deals(deals, data, n):
 
 
 def deal_score(deal):
-    """Balance the visible discount with trust, usefulness and real savings."""
+    """Rank by trust; discount points exist only for verified price drops."""
     rating = float(deal.get("rating", 0) or 0)
     feedbacks = max(0, int(deal.get("feedbacks", 0) or 0))
     benefit = max(0, int(deal.get("benefit", 0) or 0))
@@ -429,7 +488,7 @@ def deal_score(deal):
     rating_bonus = max(-10.0, (rating - 4.0) * 12.0) if rating else -8.0
     savings = min(10.0, benefit / 1000.0)
     drop_bonus = 15.0 if deal.get("price_drop") else 0.0
-    fallback_penalty = 4.0 if deal.get("selection_mode") == "smart_fallback" else 0.0
+    fallback_penalty = 4.0 if deal.get("selection_mode") in ("good_price", "smart_fallback") else 0.0
     return float(deal.get("discount", 0) or 0) + trust + rating_bonus + savings + drop_bonus - fallback_penalty
 
 

@@ -295,20 +295,25 @@ def main():
     assert smart.learned_counts(data) == (1, 1)
     print("20. learned_counts OK")
 
-    # 21. price_drop: падение на 15%+ -> репост, рост -> базовая линия обновляется
-    prices = {1: {"price": 1000, "basic": 2000, "ts": 0}}
+    # 21. price_drop: процент появляется только после трёх разнесённых наблюдений
+    now = int(time.time())
+    prices = {1: {
+        "price": 1000, "basic": 2000, "ts": now,
+        "samples": [[now - 7200, 1000], [now - 3600, 1000], [now - 1800, 1000]],
+        "posted_price": 1000, "posted_ts": now - 7200,
+    }}
     d = deal(1, "a", 50)
     d["product"] = 900
     assert smart.price_drop(d, prices, 0.15) is False  # -10% мало
     d["product"] = 850
-    assert smart.price_drop(d, prices, 0.15) is True
+    assert smart.price_drop(d, prices, 0.15, posted=True) is True
     assert d.get("price_drop") is True and d.get("last_price") == 1000
-    assert prices[1]["price"] == 1000  # базовая линия не сдвинулась вниз
-    d["product"] = 1200
-    assert smart.price_drop(d, prices, 0.15) is False  # рост
-    assert prices[1]["price"] == 1200  # линия поднялась
-    assert smart.price_drop(d, prices, 0.15) is False
+    assert d["discount"] == 15 and d["benefit"] == 150
+    smart.observe_price(prices, d, now, posted=True)
+    assert prices[1]["posted_price"] == 850
+    assert smart.price_drop(d, prices, 0.15, posted=True) is False  # тот же спад не повторяется
     assert smart.price_drop(d, {}, 0.15) is False  # нет истории
+    assert d["discount"] == 0 and d["basic"] == d["product"]
     d2 = deal(9, "a", 50)
     d2["product"] = 1
     assert smart.price_drop(d2, prices, 0.15) is False

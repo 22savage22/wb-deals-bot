@@ -183,6 +183,26 @@ def main():
     interval_data = {"recent": [{"ts": 1000}]}
     assert not bot.post_interval_elapsed(interval_data, now=1599)
     assert bot.post_interval_elapsed(interval_data, now=1600)
+    runtime_keys = {
+        "WB_MAX_POSTS": ("MAX_POSTS", 1),
+        "WB_PAGES": ("PAGES", 2),
+        "WB_QUERIES_PER_RUN": ("QUERIES_PER_RUN", 3),
+        "WB_CATS_PER_RUN": ("CATS_PER_RUN", 4),
+    }
+    old_runtime = {name: getattr(config, name) for name, _ in runtime_keys.values()}
+    try:
+        for env, (name, value) in runtime_keys.items():
+            os.environ[env] = str(value)
+            setattr(config, name, value)
+        config.apply({
+            "max_posts": 9, "pages": 9, "queries_per_run": 9, "cats_per_run": 9,
+        })
+        assert all(getattr(config, name) == value for name, value in runtime_keys.values())
+    finally:
+        for env in runtime_keys:
+            os.environ.pop(env, None)
+        for name, value in old_runtime.items():
+            setattr(config, name, value)
     queued = empty_data()
     queued_deal = {"id": 999, "title": "Товар из очереди", "brand": "Бр",
                    "product": 500, "basic": 1000, "discount": 50, "benefit": 500,
@@ -359,7 +379,7 @@ def main():
     assert data["meta"]["last_funnel"]["found"] == 0
     print("4. empty feed OK")
 
-    # --- 4b. умный резерв ослабляет скидку, но сохраняет качество ---
+    # --- 4b. хорошая карточка проходит без выдуманного процента скидки ---
     config.MIN_DISCOUNT = 50
     config.MIN_RATING = 4.5
     config.FALLBACK_MIN_DISCOUNT = 40
@@ -370,7 +390,8 @@ def main():
     candidate["feedbacks"] = 100
     funnel = {}
     found = bot._find_deals([candidate], 1, funnel)
-    assert len(found) == 1 and found[0]["selection_mode"] == "smart_fallback"
+    assert len(found) == 1 and found[0]["selection_mode"] == "good_price"
+    assert found[0]["discount"] == 0 and found[0]["basic"] == found[0]["product"]
     assert funnel["strict"] == 0 and funnel["fallback"] == 1
     config.MIN_DISCOUNT = 20
     config.MIN_RATING = 0
@@ -479,6 +500,10 @@ def main():
     published = bot.run_posting(data, {"queries": None}, notify=True)
     assert published == 4
     pid = 4000
+    seen_at = int(time.time())
+    data["prices"][pid]["samples"] = [
+        [seen_at - 7200, 1000], [seen_at - 3600, 1000], [seen_at - 1800, 1000]
+    ]
     items[pid]["sizes"][0]["price"]["product"] = 400 * 100  # -60% от базовой
     FakeTG.sent = []
     published2 = bot.run_posting(data, {"queries": None}, notify=True)

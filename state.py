@@ -12,6 +12,8 @@ RECENT_KEEP = 14 * 24 * 3600
 IMG_KEEP = 30 * 24 * 3600
 LEARNED_KEEP = 60 * 24 * 3600
 MAX_KEPT = 20000
+PRICE_MAX = 5000
+PRICE_SAMPLES_MAX = 7
 # One post per 10 minutes needs 1008 entries for an accurate weekly report.
 RECENT_MAX = 1200
 QUEUE_MAX = 100
@@ -235,11 +237,30 @@ def _norm_prices(raw):
             price = int(p.get("price", 0) or 0)
             basic = int(p.get("basic", 0) or 0)
             ts = float(p.get("ts", 0) or 0)
+            legacy = "samples" not in p
+            posted_price = int(p.get("posted_price", price if legacy else 0) or 0)
+            posted_ts = float(p.get("posted_ts", ts if legacy else 0) or 0)
         except (TypeError, ValueError):
             continue
         if not price or now - ts >= PRUNE_AFTER:
             continue
-        out[pid] = {"price": price, "basic": basic, "ts": ts}
+        samples = []
+        for sample in p.get("samples") or [[ts, price]]:
+            try:
+                sample_ts, sample_price = float(sample[0]), int(sample[1])
+            except (IndexError, TypeError, ValueError):
+                continue
+            if sample_price > 0 and now - sample_ts < PRUNE_AFTER:
+                samples.append([int(sample_ts), sample_price])
+        samples = [list(x) for x in sorted({tuple(x) for x in samples})[-PRICE_SAMPLES_MAX:]]
+        out[pid] = {
+            "price": price,
+            "basic": basic,
+            "ts": ts,
+            "samples": samples,
+            "posted_price": posted_price,
+            "posted_ts": posted_ts,
+        }
     return out
 
 
@@ -518,8 +539,23 @@ def merge(local, remote):
         ):
             m["learned"][query] = st
     for pid, p in (local.get("prices") or {}).items():
-        if pid not in m["prices"] or p.get("ts", 0) > m["prices"][pid].get("ts", 0):
-            m["prices"][pid] = p
+        old = m["prices"].get(pid) or {}
+        newest = p if p.get("ts", 0) >= old.get("ts", 0) else old
+        merged_price = dict(newest)
+        old_samples = old.get("samples") or (
+            [[old.get("ts", 0), old.get("price", 0)]] if old.get("price") else []
+        )
+        new_samples = p.get("samples") or (
+            [[p.get("ts", 0), p.get("price", 0)]] if p.get("price") else []
+        )
+        samples = old_samples + new_samples
+        merged_price["samples"] = [
+            list(x) for x in sorted({tuple(x) for x in samples})[-PRICE_SAMPLES_MAX:]
+        ]
+        if old.get("posted_ts", 0) > p.get("posted_ts", 0):
+            merged_price["posted_price"] = old.get("posted_price", 0)
+            merged_price["posted_ts"] = old.get("posted_ts", 0)
+        m["prices"][pid] = merged_price
     for name, st in (local.get("cats") or {}).items():
         if name not in m["cats"] or st.get("ts", 0) > m["cats"][name].get("ts", 0):
             m["cats"][name] = st
@@ -586,7 +622,7 @@ def save(path, data):
     }
     keep_prices = sorted(
         data["prices"].items(), key=lambda kv: kv[1].get("ts", 0)
-    )[-MAX_KEPT:]
+    )[-PRICE_MAX:]
     data["prices"] = dict(keep_prices)
     data["cats"] = {
         name: st

@@ -173,19 +173,25 @@ def main():
     print("14. save prune OK")
 
     # 15. prices: нормализация, merge, обрезка в save
-    out = state._norm_prices({1: {"price": 100, "basic": 200, "ts": now - 100},
+    out = state._norm_prices({1: {"price": 100, "basic": 200, "ts": now - 100,
+                                  "samples": [[now - 300, 120], [now - 100, 100]],
+                                  "posted_price": 120, "posted_ts": now - 300},
                               "2": {"price": 0, "basic": 0, "ts": now},
                               "x": "junk",
                               3: {"price": 50, "basic": 100, "ts": now - 1000 * 86400}})
     assert 1 in out and out[1]["price"] == 100
+    assert out[1]["samples"] == [[now - 300, 120], [now - 100, 100]]
     assert 2 not in out and "x" not in out and 3 not in out
     assert state._norm_prices([]) == {}
     base = state._empty()
-    base["prices"] = {1: {"price": 200, "basic": 300, "ts": now - 500}}
+    base["prices"] = {1: {"price": 200, "basic": 300, "ts": now - 500,
+                           "samples": [[now - 500, 200]], "posted_price": 200,
+                           "posted_ts": now - 500}}
     loc = state._empty()
     loc["prices"] = {1: {"price": 100, "basic": 200, "ts": now}, 2: {"price": 50, "basic": 100, "ts": now}}
     merged = state.merge(loc, base)
     assert merged["prices"][1]["price"] == 100  # свежее побеждает
+    assert merged["prices"][1]["samples"] == [[now - 500, 200], [now, 100]]
     assert merged["prices"][2]["price"] == 50
     d = state._empty()
     d["prices"] = {1: {"price": 100, "basic": 200, "ts": now - 100},

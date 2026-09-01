@@ -42,11 +42,12 @@ jobs:
       - name: Post one deal every 10 minutes
         shell: bash
         run: |
-          for round in {1..5}; do
+          python scanner.py
+          for round in {1..4}; do
             started=$SECONDS
             python bot.py
             wait_for=$((600 - SECONDS + started))
-            if (( wait_for > 0 )); then sleep "$wait_for"; fi
+            if (( round < 4 && wait_for > 0 )); then sleep "$wait_for"; fi
           done
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}

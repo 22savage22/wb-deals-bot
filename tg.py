@@ -106,10 +106,10 @@ def _insight(deal, pid):
     variants = []
     if rating >= 4.7 and feedbacks >= 100:
         variants.append(f"💬 Сильный сигнал: рейтинг {rating:g} при {fmt(feedbacks)} отзывах.")
-    if benefit >= 3000:
+    if deal.get("price_drop") and benefit >= 3000:
         variants.append(f"🧮 Разница с базовой ценой — {fmt(benefit)} руб.")
-    if deal.get("selection_mode") == "smart_fallback":
-        variants.append("🔎 Не рекордная скидка, зато карточка прошла проверку рейтинга и отзывов.")
+    if deal.get("selection_mode") == "good_price":
+        variants.append("🔎 Показываем текущую цену без неподтверждённой зачёркнутой цены.")
     variants += [
         "💡 Сравни цену и комплектацию перед заказом — у размеров и вариантов они отличаются.",
         "👌 Выглядит достойно для короткого списка, а не для бесконечного скролла.",
@@ -162,8 +162,7 @@ def caption(deal, pid=None):
         "",
         f"<b>{title}</b>",
         "",
-        f"{price_word}: <b>{fmt(deal['product'])}</b> руб  <s>{fmt(deal['basic'])} руб</s>",
-        f"🔥 -{deal['discount']}% · выгода {fmt(deal['benefit'])} руб",
+        f"{price_word}: <b>{fmt(deal['product'])}</b> руб",
         f"Рейтинг: {deal['rating']} | Отзывов: {deal['feedbacks']}",
         insight,
     ]

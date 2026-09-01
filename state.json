@@ -1038,6 +1038,18 @@
  },
  "recent": [
   {
+   "pid": 260873660,
+   "title": "Лонгслив полупрозрачный облегающий y2k",
+   "discount": 89,
+   "price": 880,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/260873660/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1788220725,
+   "drop": 0
+  },
+  {
    "pid": 363456158,
    "title": "Ремень женский для джинс и платья",
    "discount": 92,
@@ -2344,18 +2356,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 260873660,
-   "title": "Лонгслив полупрозрачный облегающий y2k",
-   "discount": 89,
-   "price": 880,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/260873660/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1788220725,
-   "drop": 0
   }
  ],
  "meta": {
@@ -2406,10 +2406,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 22,
-   "rate_limited": 46,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2495,7 +2495,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 3,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

@@ -3401,10 +3401,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 91,
-   "ok": 59,
-   "rate_limited": 20,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

@@ -1115,6 +1115,19 @@
  },
  "recent": [
   {
+   "pid": 4336570,
+   "title": "Футболка хлопок с принтом Мотоцикл",
+   "discount": 0,
+   "price": 611,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/4336570/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788298628,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 248917722,
    "title": "Платье праздничное кружевное",
    "discount": 0,
@@ -3298,19 +3311,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 4336570,
-   "title": "Футболка хлопок с принтом Мотоцикл",
-   "discount": 0,
-   "price": 611,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/4336570/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788298628,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3339,10 +3339,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 24,
-   "rate_limited": 7,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3413,7 +3413,7 @@
   "last_scan_cats": [
    "Манежи детские"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

@@ -1042,6 +1042,18 @@
  },
  "recent": [
   {
+   "pid": 903509652,
+   "title": "Блузка женская нарядная",
+   "discount": 95,
+   "price": 750,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/903509652/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788224073,
+   "drop": 0
+  },
+  {
    "pid": 239133185,
    "title": "Бейсболка летняя",
    "discount": 84,
@@ -2384,18 +2396,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 903509652,
-   "title": "Блузка женская нарядная",
-   "discount": 95,
-   "price": 750,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/903509652/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788224073,
-   "drop": 0
   }
  ],
  "meta": {
@@ -2448,10 +2448,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 151,
-   "ok": 81,
-   "rate_limited": 45,
-   "http_error": 25,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2537,7 +2537,7 @@
    "Одежда и чешки",
    "Пробники"
   ],
-  "queue_size": 3,
+  "queue_size": 12,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -2564,7 +2564,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1788162543.0,
   "last_engagement_ts": 1788224069.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788218932.0
  },
  "admin_ui": {

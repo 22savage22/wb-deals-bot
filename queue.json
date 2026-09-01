@@ -1,5 +1,37 @@
 [
  {
+  "id": 807019776,
+  "title": "Футболка базовая белая из хлопка",
+  "brand": "JOYCITY",
+  "product": 408,
+  "basic": 582,
+  "discount": 30,
+  "benefit": 174,
+  "rating": 4.8,
+  "feedbacks": 878,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1788303738
+ },
+ {
+  "id": 1338449222,
+  "title": "Джинсы багги широкие с защипами",
+  "brand": "LUNQO",
+  "product": 2808,
+  "basic": 2808,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 956,
+  "category": "джинсы женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "джинсы женские",
+  "queued_ts": 1788303738
+ },
+ {
   "id": 239121749,
   "title": "Серьги пусеты серебряные 925 пробы с фианитами груша",
   "brand": "Veronika",

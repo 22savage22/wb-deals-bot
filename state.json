@@ -1121,6 +1121,19 @@
  },
  "recent": [
   {
+   "pid": 1338449222,
+   "title": "Джинсы багги широкие с защипами",
+   "discount": 0,
+   "price": 2808,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1338449222/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788305012,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 807019776,
    "title": "Футболка базовая белая из хлопка",
    "discount": 30,
@@ -3378,19 +3391,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1338449222,
-   "title": "Джинсы багги широкие с защипами",
-   "discount": 0,
-   "price": 2808,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1338449222/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788305012,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3419,10 +3419,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 20,
-   "rate_limited": 9,
-   "http_error": 3,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

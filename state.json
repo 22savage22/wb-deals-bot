@@ -3307,10 +3307,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 119,
-   "ok": 95,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -70398,7 +70398,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

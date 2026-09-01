@@ -1103,6 +1103,18 @@
  },
  "recent": [
   {
+   "pid": 176028475,
+   "title": "Футболка женская большого размера 58-64 хлопковая",
+   "discount": 0,
+   "price": 809,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/176028475/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788283541,
+   "drop": 0
+  },
+  {
    "pid": 224597617,
    "title": "Летняя блузка нарядная школьная с коротким рукавом",
    "discount": 0,
@@ -3141,18 +3153,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 176028475,
-   "title": "Футболка женская большого размера 58-64 хлопковая",
-   "discount": 0,
-   "price": 809,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/176028475/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788283541,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3192,10 +3192,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 139,
-   "ok": 94,
-   "rate_limited": 13,
-   "http_error": 32,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -50582,7 +50582,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "194106389": {
    "price": 747,
@@ -50595,7 +50595,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "460451813": {
    "price": 587,
@@ -50608,7 +50608,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -1080,6 +1080,19 @@
  },
  "recent": [
   {
+   "pid": 40394383,
+   "title": "Подвеска серебро 925 позолоченная",
+   "discount": 0,
+   "price": 1005,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/40394383/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788266574,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 58276769,
    "title": "Плед круглый с принтом необычный подарок",
    "discount": 0,
@@ -2823,19 +2836,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 40394383,
-   "title": "Подвеска серебро 925 позолоченная",
-   "discount": 0,
-   "price": 1005,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/40394383/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788266574,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2875,10 +2875,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 34,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2950,7 +2950,7 @@
    "Сварочное оборудование",
    "Археология"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

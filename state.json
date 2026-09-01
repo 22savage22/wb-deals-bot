@@ -1069,6 +1069,19 @@
  },
  "recent": [
   {
+   "pid": 4051518,
+   "title": "Футболка",
+   "discount": 0,
+   "price": 783,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/4051518/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788264090,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 420190072,
    "title": "Бейсболка варёнка джинсовая",
    "discount": 20,
@@ -2760,19 +2773,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 4051518,
-   "title": "Футболка",
-   "discount": 0,
-   "price": 783,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/4051518/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788264090,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2812,10 +2812,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 56,
-   "ok": 37,
-   "rate_limited": 4,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2887,7 +2887,7 @@
    "Основные части двигателя",
    "Для песочницы"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

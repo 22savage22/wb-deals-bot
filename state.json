@@ -1052,6 +1052,19 @@
  },
  "recent": [
   {
+   "pid": 505675046,
+   "title": "Постельное белье 2 спальное 70х70 однотонное",
+   "discount": 0,
+   "price": 684,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/505675046/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788253321,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 169657194,
    "title": "Платье-футболка черное с разрезом",
    "discount": 0,
@@ -2522,19 +2535,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 505675046,
-   "title": "Постельное белье 2 спальное 70х70 однотонное",
-   "discount": 0,
-   "price": 684,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/505675046/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788253321,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2574,10 +2574,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 36,
-   "rate_limited": 3,
-   "http_error": 13,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2649,7 +2649,7 @@
    "Посуда",
    "Для песочницы"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

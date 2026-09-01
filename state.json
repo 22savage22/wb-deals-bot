@@ -3282,10 +3282,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 103,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 18,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3357,7 +3357,7 @@
    "Бандажи",
    "Обогреватели и вентиляторы"
   ],
-  "queue_size": 6,
+  "queue_size": 7,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

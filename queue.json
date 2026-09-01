@@ -1,5 +1,21 @@
 [
  {
+  "id": 4336570,
+  "title": "Футболка хлопок с принтом Мотоцикл",
+  "brand": "Stark Cotton",
+  "product": 611,
+  "basic": 611,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 3264,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1788298024
+ },
+ {
   "id": 239121749,
   "title": "Серьги пусеты серебряные 925 пробы с фианитами груша",
   "brand": "Veronika",
@@ -46,37 +62,5 @@
   "quality": "B",
   "query": "украшения женские",
   "queued_ts": 1788277902
- },
- {
-  "id": 1174998202,
-  "title": "Сумка женская с ремешком, черная, экокожа, 23х13х12 см, 1 шт",
-  "brand": "ТехМаркет",
-  "product": 1431,
-  "basic": 1431,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.7,
-  "feedbacks": 417,
-  "category": "сумка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "сумка женская",
-  "queued_ts": 1788267234
- },
- {
-  "id": 1052284272,
-  "title": "Сумка средняя коричневая замшевая",
-  "brand": "Lethelux",
-  "product": 3800,
-  "basic": 3800,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 144,
-  "category": "сумка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "сумка женская",
-  "queued_ts": 1788267234
  }
 ]

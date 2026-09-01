@@ -1108,6 +1108,19 @@
  },
  "recent": [
   {
+   "pid": 530041064,
+   "title": "Набор ремней для джинс и платья",
+   "discount": 0,
+   "price": 952,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/530041064/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788287691,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 12653099,
    "title": "Ремень из натуральной кожи для брюк и джинсов",
    "discount": 0,
@@ -3206,19 +3219,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 530041064,
-   "title": "Набор ремней для джинс и платья",
-   "discount": 0,
-   "price": 952,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/530041064/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788287691,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3245,10 +3245,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 24,
-   "rate_limited": 1,
-   "http_error": 6,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3320,7 +3320,7 @@
    "Бандажи",
    "Обогреватели и вентиляторы"
   ],
-  "queue_size": 6,
+  "queue_size": 7,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

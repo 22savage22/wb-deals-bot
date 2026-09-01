@@ -1059,6 +1059,19 @@
  },
  "recent": [
   {
+   "pid": 342429695,
+   "title": "Футболка варенка оверсайз",
+   "discount": 0,
+   "price": 1425,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/342429695/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788257755,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 108629102,
    "title": "Сумка натуральная кожа без подклада мягкая",
    "discount": 0,
@@ -2620,19 +2633,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 342429695,
-   "title": "Футболка варенка оверсайз",
-   "discount": 0,
-   "price": 1425,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/342429695/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788257755,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

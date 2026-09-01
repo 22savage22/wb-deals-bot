@@ -1081,6 +1081,19 @@
  },
  "recent": [
   {
+   "pid": 398289856,
+   "title": "Плед 150х200 пушистый на диван",
+   "discount": 0,
+   "price": 720,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/398289856/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1788267205,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 40394383,
    "title": "Подвеска серебро 925 позолоченная",
    "discount": 0,
@@ -2837,19 +2850,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 398289856,
-   "title": "Плед 150х200 пушистый на диван",
-   "discount": 0,
-   "price": 720,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/398289856/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1788267205,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

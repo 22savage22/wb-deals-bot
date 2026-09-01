@@ -1090,6 +1090,19 @@
  },
  "recent": [
   {
+   "pid": 1244919996,
+   "title": "Большая сумка шоппер светло-бежевая",
+   "discount": 0,
+   "price": 3229,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1244919996/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788272988,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1263308272,
    "title": "Сумка замшевая средняя бежевая",
    "discount": 0,
@@ -2963,19 +2976,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1244919996,
-   "title": "Большая сумка шоппер светло-бежевая",
-   "discount": 0,
-   "price": 3229,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1244919996/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788272988,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

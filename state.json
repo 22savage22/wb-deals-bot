@@ -2889,10 +2889,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 34,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2964,7 +2964,7 @@
    "Сварочное оборудование",
    "Археология"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

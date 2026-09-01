@@ -1084,6 +1084,19 @@
  },
  "recent": [
   {
+   "pid": 963753832,
+   "title": "Бейсболка джинсовая с надписью",
+   "discount": 0,
+   "price": 415,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/963753832/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788269101,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 459970845,
    "title": "Сумка натуральная кожа большая тоут А4",
    "discount": 0,
@@ -2879,19 +2892,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 963753832,
-   "title": "Бейсболка джинсовая с надписью",
-   "discount": 0,
-   "price": 415,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/963753832/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788269101,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

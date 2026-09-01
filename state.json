@@ -1123,6 +1123,19 @@
  },
  "recent": [
   {
+   "pid": 709878723,
+   "title": "Джинсы прямые классические с высокой посадкой",
+   "discount": 0,
+   "price": 3672,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/709878723/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788306571,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 325951917,
    "title": "Вечерняя блузка нарядная",
    "discount": 0,
@@ -3405,19 +3418,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 709878723,
-   "title": "Джинсы прямые классические с высокой посадкой",
-   "discount": 0,
-   "price": 3672,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/709878723/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788306571,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3446,10 +3446,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 24,
-   "rate_limited": 8,
-   "http_error": 6,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3520,7 +3520,7 @@
   "last_scan_cats": [
    "Коляски"
   ],
-  "queue_size": 4,
+  "queue_size": 5,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 299,

@@ -1063,6 +1063,19 @@
  },
  "recent": [
   {
+   "pid": 110717704,
+   "title": "Кожаный ремень для джинсов и платья",
+   "discount": 0,
+   "price": 906,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/110717704/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788260300,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 306613795,
    "title": "Постельное белье 1.5 спальное на молнии, наволочка 50х70 1шт",
    "discount": 0,
@@ -2676,19 +2689,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 110717704,
-   "title": "Кожаный ремень для джинсов и платья",
-   "discount": 0,
-   "price": 906,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/110717704/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788260300,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2728,10 +2728,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 32,
-   "rate_limited": 1,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2803,7 +2803,7 @@
    "Зажимы и закладки",
    "Пылевыбивалки"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

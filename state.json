@@ -3335,10 +3335,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 24,
-   "rate_limited": 7,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

@@ -1100,6 +1100,19 @@
  },
  "recent": [
   {
+   "pid": 900632261,
+   "title": "Колье длинное бижутерия",
+   "discount": 0,
+   "price": 487,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/900632261/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788281076,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 556292843,
    "title": "Серьги медицинский сплав",
    "discount": 0,
@@ -3100,19 +3113,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 900632261,
-   "title": "Колье длинное бижутерия",
-   "discount": 0,
-   "price": 487,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/900632261/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788281076,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3141,10 +3141,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 32,
-   "rate_limited": 1,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3216,7 +3216,7 @@
    "Готовые строения и срубы",
    "Подгузники"
   ],
-  "queue_size": 8,
+  "queue_size": 10,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

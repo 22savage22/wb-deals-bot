@@ -1096,6 +1096,19 @@
  },
  "recent": [
   {
+   "pid": 1186472566,
+   "title": "Кольцо женское керамика",
+   "discount": 0,
+   "price": 527,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1186472566/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788278529,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 267857765,
    "title": "Кольцо бижутерия Old money необычное",
    "discount": 0,
@@ -3044,19 +3057,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1186472566,
-   "title": "Кольцо женское керамика",
-   "discount": 0,
-   "price": 527,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1186472566/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788278529,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3085,10 +3085,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 37,
-   "rate_limited": 0,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3160,7 +3160,7 @@
    "Готовые строения и срубы",
    "Подгузники"
   ],
-  "queue_size": 17,
+  "queue_size": 18,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 399,

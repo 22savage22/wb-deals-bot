@@ -1119,6 +1119,18 @@
  },
  "recent": [
   {
+   "pid": 405764159,
+   "title": "Джинсы зауженные скинни с высокой посадкой",
+   "discount": 16,
+   "price": 1412,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/405764159/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788303713,
+   "drop": 1
+  },
+  {
    "pid": 1030824888,
    "title": "Футболка премиум с вышивкой Турция хлопок",
    "discount": 20,
@@ -3351,18 +3363,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 405764159,
-   "title": "Джинсы зауженные скинни с высокой посадкой",
-   "discount": 16,
-   "price": 1412,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/405764159/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788303713,
-   "drop": 1
   }
  ],
  "meta": {
@@ -76313,7 +76313,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "491467918": {
    "price": 1989,
@@ -76326,7 +76326,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

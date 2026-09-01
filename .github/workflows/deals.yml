@@ -42,10 +42,10 @@ jobs:
       - name: Post one deal every 10 minutes
         shell: bash
         run: |
-          python scanner.py
           for round in {1..4}; do
             started=$SECONDS
             python bot.py
+            if (( round == 1 )); then python scanner.py; fi
             wait_for=$((600 - SECONDS + started))
             if (( round < 4 && wait_for > 0 )); then sleep "$wait_for"; fi
           done

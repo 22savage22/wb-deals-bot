@@ -1045,6 +1045,18 @@
  },
  "recent": [
   {
+   "pid": 90469383,
+   "title": "Блузка с коротким рукавом",
+   "discount": 81,
+   "price": 1200,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/90469383/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788241708,
+   "drop": 0
+  },
+  {
    "pid": 1004620634,
    "title": "Кепка",
    "discount": 94,
@@ -2425,18 +2437,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 90469383,
-   "title": "Блузка с коротким рукавом",
-   "discount": 81,
-   "price": 1200,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/90469383/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788241708,
-   "drop": 0
   }
  ],
  "meta": {
@@ -2489,9 +2489,9 @@
   },
   "wb_http": {
    "calls": 174,
-   "ok": 94,
-   "rate_limited": 47,
-   "http_error": 33,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2577,7 +2577,7 @@
    "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 401,

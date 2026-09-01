@@ -1067,6 +1067,19 @@
  },
  "recent": [
   {
+   "pid": 895803309,
+   "title": "Постельное белье Бязь 1.5 спальное",
+   "discount": 0,
+   "price": 2409,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/895803309/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788262832,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 446822274,
    "title": "Платье летнее повседневное лапша",
    "discount": 0,
@@ -2732,19 +2745,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 895803309,
-   "title": "Постельное белье Бязь 1.5 спальное",
-   "discount": 0,
-   "price": 2409,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/895803309/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788262832,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2784,10 +2784,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 36,
-   "rate_limited": 3,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2859,7 +2859,7 @@
    "Восточные сладости",
    "Основные части двигателя"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

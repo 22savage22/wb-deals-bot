@@ -3015,10 +3015,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 37,
-   "rate_limited": 0,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3090,7 +3090,7 @@
    "Изготовление кукол и игрушек",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 16,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

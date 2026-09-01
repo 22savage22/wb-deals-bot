@@ -1054,6 +1054,19 @@
  },
  "recent": [
   {
+   "pid": 550815444,
+   "title": "Плотная футболка футер oversize базовая",
+   "discount": 0,
+   "price": 728,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/550815444/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788254604,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 481094005,
    "title": "Джинсы палаццо широкие черные вареные высокая посадка",
    "discount": 0,
@@ -2550,19 +2563,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 550815444,
-   "title": "Плотная футболка футер oversize базовая",
-   "discount": 0,
-   "price": 728,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/550815444/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788254604,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2602,10 +2602,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 45,
-   "ok": 32,
-   "rate_limited": 4,
-   "http_error": 9,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2677,7 +2677,7 @@
    "Посуда",
    "Перевозка груза"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

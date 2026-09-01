@@ -3443,10 +3443,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 54,
-   "rate_limited": 11,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3518,7 +3518,7 @@
    "Коляски",
    "ММА"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

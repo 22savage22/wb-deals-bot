@@ -3405,10 +3405,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 0,
-   "rate_limited": 15,
-   "http_error": 2,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

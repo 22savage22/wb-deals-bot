@@ -3057,10 +3057,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 16,
+   "ok": 0,
+   "rate_limited": 15,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -3121,30 +3121,25 @@
   "today": "2026-09-01",
   "today_posts": 64,
   "total_posts": 449,
-  "last_scan": 1788273013,
+  "last_scan": 1788274931,
   "last_scan_queries": [
    "платье женское",
+   "кепка женская",
    "футболка мужская",
-   "джинсы женские",
-   "футболка женская"
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Сварочное оборудование",
-   "Изготовление кукол и игрушек"
+   "Археология",
+   "Перевозка груза"
   ],
-  "queue_size": 20,
-  "last_scan_added": 3,
+  "queue_size": 17,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "ok": 343,
-   "rating": 38,
-   "bad_price": 19,
-   "strict": 3,
-   "fallback": 340,
-   "reserve": 0,
-   "title_duplicate": 96,
-   "duplicate": 14
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 18,
@@ -39814,9 +39809,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1788265449.9548142,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788275211.4295135,
+   "runs": 10,
+   "empty": 5
   },
   "Подгузники": {
    "shard": "children_things2",
@@ -39874,9 +39869,9 @@
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",
-   "ts": 1788254062.6325638,
-   "runs": 4,
-   "empty": 4
+   "ts": 1788275211.4295135,
+   "runs": 5,
+   "empty": 5
   },
   "Сварочное оборудование": {
    "shard": "repair24",

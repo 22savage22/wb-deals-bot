@@ -2488,10 +2488,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 150,
-   "ok": 78,
-   "rate_limited": 44,
-   "http_error": 28,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -2577,7 +2577,7 @@
    "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 401,

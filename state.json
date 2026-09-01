@@ -1044,6 +1044,19 @@
  },
  "recent": [
   {
+   "pid": 1004620634,
+   "title": "Кепка",
+   "discount": 94,
+   "price": 750,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1004620634/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788241108,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 498113682,
    "title": "Лонгслив облегающий двойной с длинным рукавом",
    "discount": 87,
@@ -2411,19 +2424,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1004620634,
-   "title": "Кепка",
-   "discount": 94,
-   "price": 750,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1004620634/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788241108,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2552,7 +2552,7 @@
    "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 401,

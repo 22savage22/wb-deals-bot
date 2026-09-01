@@ -1093,6 +1093,18 @@
  },
  "recent": [
   {
+   "pid": 1139456833,
+   "title": "Бейсболка базовая летняя кепка черная классическая",
+   "discount": 30,
+   "price": 468,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1139456833/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788275989,
+   "drop": 1
+  },
+  {
    "pid": 137546097,
    "title": "Футболка белая однотонная базовая",
    "discount": 0,
@@ -3005,18 +3017,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1139456833,
-   "title": "Бейсболка базовая летняя кепка черная классическая",
-   "discount": 30,
-   "price": 468,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1139456833/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788275989,
-   "drop": 1
   }
  ],
  "meta": {
@@ -3055,10 +3055,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 32,
-   "rate_limited": 20,
-   "http_error": 17,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3130,7 +3130,7 @@
    "Археология",
    "Перевозка груза"
   ],
-  "queue_size": 16,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -40077,7 +40077,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "969601503": {
    "price": 959,
@@ -40090,7 +40090,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "555365803": {
    "price": 2278,
@@ -40103,7 +40103,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -1050,6 +1050,19 @@
  },
  "recent": [
   {
+   "pid": 435692089,
+   "title": "Джинсы широкие палаццо клеш багги",
+   "discount": 0,
+   "price": 1390,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/435692089/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788252079,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 18376263,
    "title": "Футболка мужская базовая однотонная хлопок",
    "discount": 0,
@@ -2494,19 +2507,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 435692089,
-   "title": "Джинсы широкие палаццо клеш багги",
-   "discount": 0,
-   "price": 1390,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/435692089/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788252079,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2621,7 +2621,7 @@
    "Археология",
    "Перевозка груза"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -3452,19 +3452,6 @@
    ],
    "posted_price": 609,
    "posted_ts": 1787395279.3131523
-  },
-  "605519890": {
-   "price": 1425,
-   "basic": 6000,
-   "ts": 1787042551.9127536,
-   "samples": [
-    [
-     1787042551,
-     1425
-    ]
-   ],
-   "posted_price": 1425,
-   "posted_ts": 1787042551.9127536
   },
   "391537818": {
    "price": 2352,

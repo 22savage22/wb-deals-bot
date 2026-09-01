@@ -3310,10 +3310,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 0,
-   "rate_limited": 21,
-   "http_error": 0,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3385,7 +3385,7 @@
    "Игрушки",
    "Напитки"
   ],
-  "queue_size": 5,
+  "queue_size": 3,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,

@@ -1043,6 +1043,19 @@
  },
  "recent": [
   {
+   "pid": 498113682,
+   "title": "Лонгслив облегающий двойной с длинным рукавом",
+   "discount": 87,
+   "price": 1027,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/498113682/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1788240508,
+   "drop": 0,
+   "quality": "A"
+  },
+  {
    "pid": 903509652,
    "title": "Блузка женская нарядная",
    "discount": 95,
@@ -2397,19 +2410,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 498113682,
-   "title": "Лонгслив облегающий двойной с длинным рукавом",
-   "discount": 87,
-   "price": 1027,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/498113682/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1788240508,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -2538,7 +2538,7 @@
    "Кофе и цикорий",
    "Сделано в Республике Бурятия"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 401,

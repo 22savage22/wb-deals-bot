@@ -1086,6 +1086,19 @@
  },
  "recent": [
   {
+   "pid": 427647133,
+   "title": "Сумка через плечо повседневная",
+   "discount": 0,
+   "price": 1684,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/427647133/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788270399,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 997804924,
    "title": "Сумка маленькая бежевая замшевая",
    "discount": 0,
@@ -2907,19 +2920,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 427647133,
-   "title": "Сумка через плечо повседневная",
-   "discount": 0,
-   "price": 1684,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/427647133/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788270399,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -2959,10 +2959,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 37,
-   "rate_limited": 0,
-   "http_error": 15,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3034,7 +3034,7 @@
    "Изготовление кукол и игрушек",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 20,
+  "queue_size": 23,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

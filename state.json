@@ -1144,6 +1144,18 @@
  },
  "recent": [
   {
+   "pid": 1139786077,
+   "title": "Джинсы стрейч широкие трубы с высокой посадкой",
+   "discount": 25,
+   "price": 2200,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1139786077/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788344224,
+   "drop": 1
+  },
+  {
    "pid": 37983110,
    "title": "Блузка базовая с коротким рукавом",
    "discount": 40,
@@ -3674,18 +3686,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1139786077,
-   "title": "Джинсы стрейч широкие трубы с высокой посадкой",
-   "discount": 25,
-   "price": 2200,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1139786077/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788344224,
-   "drop": 1
   }
  ],
  "meta": {
@@ -100661,7 +100661,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

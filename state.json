@@ -3605,10 +3605,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 53,
-   "rate_limited": 14,
-   "http_error": 18,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

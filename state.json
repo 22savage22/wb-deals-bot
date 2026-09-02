@@ -1182,6 +1182,19 @@
  },
  "recent": [
   {
+   "pid": 261048115,
+   "title": "Колье из гематита ожерелье на шею под серебро",
+   "discount": 0,
+   "price": 569,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/261048115/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788368774,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 367696032,
    "title": "Колье на леске серебро 925 круг с фианитом",
    "discount": 0,
@@ -4155,19 +4168,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 261048115,
-   "title": "Колье из гематита ожерелье на шею под серебро",
-   "discount": 0,
-   "price": 569,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/261048115/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788368774,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4194,10 +4194,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 32,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4269,7 +4269,7 @@
    "Серия Reno",
    "Источники бесперебойного питания"
   ],
-  "queue_size": 4,
+  "queue_size": 6,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 399,
@@ -4293,10 +4293,10 @@
    "refresh_reserve": 0,
    "queue_after": 4
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {

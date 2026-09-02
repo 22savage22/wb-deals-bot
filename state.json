@@ -1207,6 +1207,19 @@
  },
  "recent": [
   {
+   "pid": 435692087,
+   "title": "Джинсы палаццо с высокой посадкой",
+   "discount": 0,
+   "price": 1460,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/435692087/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788391987,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 857522437,
    "title": "Джинсы прямые",
    "discount": 0,
@@ -4481,19 +4494,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 435692087,
-   "title": "Джинсы палаццо с высокой посадкой",
-   "discount": 0,
-   "price": 1460,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/435692087/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788391987,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4522,10 +4522,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 24,
-   "ok": 8,
-   "rate_limited": 13,
-   "http_error": 3,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4597,7 +4597,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,
@@ -4620,10 +4620,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {

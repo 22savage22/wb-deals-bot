@@ -1184,6 +1184,19 @@
  },
  "recent": [
   {
+   "pid": 1448853685,
+   "title": "Серьги протяжки длинные висячие с золочением",
+   "discount": 0,
+   "price": 504,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1448853685/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788370084,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 315070391,
    "title": "Колье жемчуг на шею с бантиком",
    "discount": 0,
@@ -4183,19 +4196,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1448853685,
-   "title": "Серьги протяжки длинные висячие с золочением",
-   "discount": 0,
-   "price": 504,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1448853685/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788370084,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4222,10 +4222,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 29,
-   "rate_limited": 0,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4297,7 +4297,7 @@
    "Серия Reno",
    "Источники бесперебойного питания"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 399,
@@ -4320,10 +4320,10 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {

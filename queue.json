@@ -1,5 +1,37 @@
 [
  {
+  "id": 420409066,
+  "title": "Ремень кожаный классический",
+  "brand": "MON MUA",
+  "product": 1226,
+  "basic": 1226,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 567,
+  "category": "ремень женский",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "ремень женский",
+  "queued_ts": 1788373943
+ },
+ {
+  "id": 44732392,
+  "title": "Ремень коричневый женский",
+  "brand": "Riccardo Donati",
+  "product": 1658,
+  "basic": 1658,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 331,
+  "category": "ремень женский",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "ремень женский",
+  "queued_ts": 1788373943
+ },
+ {
   "id": 145529981,
   "title": "Кожаный ремень из натуральной кожи для джинс",
   "brand": "CHROME",

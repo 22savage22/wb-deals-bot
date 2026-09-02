@@ -1157,6 +1157,18 @@
  },
  "recent": [
   {
+   "pid": 706048379,
+   "title": "Джинсы широкие зауженные к низу",
+   "discount": 0,
+   "price": 3392,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/706048379/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788352446,
+   "drop": 0
+  },
+  {
    "pid": 879467029,
    "title": "Футболка хлопковая оверсайз",
    "discount": 30,
@@ -3840,18 +3852,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 706048379,
-   "title": "Джинсы широкие зауженные к низу",
-   "discount": 0,
-   "price": 3392,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/706048379/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788352446,
-   "drop": 0
   }
  ],
  "meta": {
@@ -104631,7 +104631,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1066869689": {
    "price": 3092,
@@ -104644,7 +104644,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "820082630": {
    "price": 1138,
@@ -104657,7 +104657,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

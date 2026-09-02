@@ -1166,6 +1166,19 @@
  },
  "recent": [
   {
+   "pid": 1052284272,
+   "title": "Сумка средняя коричневая замшевая",
+   "discount": 0,
+   "price": 3800,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1052284272/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788358013,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1174998202,
    "title": "Сумка женская с ремешком, черная, экокожа, 23х13х12 см, 1 шт",
    "discount": 0,
@@ -3950,19 +3963,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1052284272,
-   "title": "Сумка средняя коричневая замшевая",
-   "discount": 0,
-   "price": 3800,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1052284272/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788358013,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3991,10 +3991,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 35,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4066,7 +4066,7 @@
    "Трубопроводы",
    "Пледы"
   ],
-  "queue_size": 1,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 398,
@@ -4090,10 +4090,10 @@
    "price_changed": 1,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {

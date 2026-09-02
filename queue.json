@@ -1,21 +1,5 @@
 [
  {
-  "id": 232796468,
-  "title": "Постельное белье 1.5-спальное хлопок бязь на молнии,70х70 2ш",
-  "brand": "Letto",
-  "product": 1150,
-  "basic": 1150,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 2654,
-  "category": "постельное белье",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "постельное белье",
-  "queued_ts": 1788358678
- },
- {
   "id": 5833333,
   "title": "Постельное белье 1.5 спальное 50х70 хлопок поплин геометрия",
   "brand": "Ночь Нежна",
@@ -44,22 +28,6 @@
   "category": "сумка женская",
   "selection_mode": "verified_drop",
   "quality": "A",
-  "query": "сумка женская",
-  "queued_ts": 1788358659
- },
- {
-  "id": 1097680930,
-  "title": "Сумка шоппер большая на плечо из экокожи с косметичкой",
-  "brand": "JOYCITY",
-  "product": 1418,
-  "basic": 1418,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 120,
-  "category": "сумка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
   "query": "сумка женская",
   "queued_ts": 1788358659
  },

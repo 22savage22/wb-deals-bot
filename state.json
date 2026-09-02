@@ -1203,6 +1203,18 @@
  },
  "recent": [
   {
+   "pid": 1256069115,
+   "title": "Футболка базовая с принтом",
+   "discount": 20,
+   "price": 412,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1256069115/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788388389,
+   "drop": 1
+  },
+  {
    "pid": 766884177,
    "title": "Платье Skims на бретельках длинное",
    "discount": 0,
@@ -4428,18 +4440,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1256069115,
-   "title": "Футболка базовая с принтом",
-   "discount": 20,
-   "price": 412,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1256069115/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788388389,
-   "drop": 1
   }
  ],
  "meta": {

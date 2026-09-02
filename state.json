@@ -1132,6 +1132,18 @@
  },
  "recent": [
   {
+   "pid": 59481730,
+   "title": "Джинсы мужские классические широкие",
+   "discount": 0,
+   "price": 3914,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/59481730/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788312761,
+   "drop": 0
+  },
+  {
    "pid": 790659970,
    "title": "Кепка мужская черная",
    "discount": 20,
@@ -3516,18 +3528,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 59481730,
-   "title": "Джинсы мужские классические широкие",
-   "discount": 0,
-   "price": 3914,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/59481730/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788312761,
-   "drop": 0
   }
  ],
  "meta": {
@@ -81266,7 +81266,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1274977695": {
    "price": 1399,
@@ -81279,7 +81279,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "861116274": {
    "price": 506,
@@ -81292,7 +81292,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "899789602": {
    "price": 1393,
@@ -81305,7 +81305,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "853255200": {
    "price": 1899,
@@ -81318,7 +81318,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

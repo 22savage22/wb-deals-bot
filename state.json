@@ -1177,6 +1177,18 @@
  },
  "recent": [
   {
+   "pid": 881152841,
+   "title": "Кепка женская джинсовая",
+   "discount": 20,
+   "price": 319,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/881152841/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788365083,
+   "drop": 1
+  },
+  {
    "pid": 297914631,
    "title": "Блузка в горошек базовая с коротким рукавом",
    "discount": 37,
@@ -4089,18 +4101,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 881152841,
-   "title": "Кепка женская джинсовая",
-   "discount": 20,
-   "price": 319,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/881152841/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788365083,
-   "drop": 1
   }
  ],
  "meta": {

@@ -1208,6 +1208,18 @@
  },
  "recent": [
   {
+   "pid": 924437150,
+   "title": "Футболка оверсайз хлопковая больших размеров",
+   "discount": 0,
+   "price": 672,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/924437150/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788393033,
+   "drop": 0
+  },
+  {
    "pid": 435692087,
    "title": "Джинсы палаццо с высокой посадкой",
    "discount": 0,
@@ -4495,18 +4507,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 924437150,
-   "title": "Футболка оверсайз хлопковая больших размеров",
-   "discount": 0,
-   "price": 672,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/924437150/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788393033,
-   "drop": 0
   }
  ],
  "meta": {
@@ -4545,10 +4545,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 35,
-   "rate_limited": 20,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4620,7 +4620,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,
@@ -4643,10 +4643,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {

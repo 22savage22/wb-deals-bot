@@ -1147,6 +1147,19 @@
  },
  "recent": [
   {
+   "pid": 507818726,
+   "title": "Платье с драпировкой без рукавов облегающее макси",
+   "discount": 0,
+   "price": 2456,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/507818726/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788346134,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 237260456,
    "title": "Плотная базовая футболка оверсайз",
    "discount": 0,
@@ -3715,19 +3728,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 507818726,
-   "title": "Платье с драпировкой без рукавов облегающее макси",
-   "discount": 0,
-   "price": 2456,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/507818726/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788346134,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

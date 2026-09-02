@@ -1150,6 +1150,18 @@
  },
  "recent": [
   {
+   "pid": 489572941,
+   "title": "Постельное белье 2 спальное комплект полисатин",
+   "discount": 0,
+   "price": 1134,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/489572941/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788347647,
+   "drop": 0
+  },
+  {
    "pid": 1347487212,
    "title": "Джинсы багги с вышивкой кресты",
    "discount": 0,
@@ -3744,18 +3756,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 489572941,
-   "title": "Постельное белье 2 спальное комплект полисатин",
-   "discount": 0,
-   "price": 1134,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/489572941/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788347647,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3795,10 +3795,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 121,
-   "ok": 92,
-   "rate_limited": 2,
-   "http_error": 27,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3870,7 +3870,7 @@
    "Пуфы",
    "Гроубоксы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 201,
@@ -3893,7 +3893,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",
@@ -101906,7 +101906,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

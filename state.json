@@ -1153,6 +1153,19 @@
  },
  "recent": [
   {
+   "pid": 924430421,
+   "title": "Футболка мужская черная оверсайз хлопковая больших размеров",
+   "discount": 0,
+   "price": 672,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/924430421/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788349727,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 980571088,
    "title": "Платье кружевное летнее короткое мини на выпускной",
    "discount": 0,
@@ -3784,19 +3797,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 924430421,
-   "title": "Футболка мужская черная оверсайз хлопковая больших размеров",
-   "discount": 0,
-   "price": 672,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/924430421/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788349727,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3824,10 +3824,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 30,
-   "rate_limited": 1,
-   "http_error": 8,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3899,7 +3899,7 @@
    "Пуфы",
    "Гроубоксы"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,
@@ -3923,7 +3923,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

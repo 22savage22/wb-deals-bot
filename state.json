@@ -1194,6 +1194,18 @@
  },
  "recent": [
   {
+   "pid": 322245161,
+   "title": "Джинсы слимы зауженные со средней посадкой большие размеры",
+   "discount": 0,
+   "price": 2371,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/322245161/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788377057,
+   "drop": 0
+  },
+  {
    "pid": 1239245867,
    "title": "Футболка с сердечками из натурального хлопка",
    "discount": 0,
@@ -4320,18 +4332,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 322245161,
-   "title": "Джинсы слимы зауженные со средней посадкой большие размеры",
-   "discount": 0,
-   "price": 2371,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/322245161/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788377057,
-   "drop": 0
   }
  ],
  "meta": {
@@ -4369,10 +4369,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 112,
-   "ok": 86,
-   "rate_limited": 1,
-   "http_error": 25,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4467,10 +4467,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {
@@ -118299,7 +118299,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

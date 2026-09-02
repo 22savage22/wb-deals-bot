@@ -1126,6 +1126,18 @@
  },
  "recent": [
   {
+   "pid": 893026063,
+   "title": "Футболка хлопковая с принтом",
+   "discount": 0,
+   "price": 434,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/893026063/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788308290,
+   "drop": 0
+  },
+  {
    "pid": 979912397,
    "title": "Летнее платье повседневное - легкий длинный сарафан модный",
    "discount": 0,
@@ -3434,18 +3446,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 893026063,
-   "title": "Футболка хлопковая с принтом",
-   "discount": 0,
-   "price": 434,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/893026063/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788308290,
-   "drop": 0
   }
  ],
  "meta": {
@@ -78509,7 +78509,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

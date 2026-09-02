@@ -1129,6 +1129,19 @@
  },
  "recent": [
   {
+   "pid": 11642645,
+   "title": "Ремень для джинс и платья кожаный",
+   "discount": 0,
+   "price": 573,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/11642645/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788310174,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 152092561,
    "title": "Кожаный ремень для джинс и платья",
    "discount": 0,
@@ -3475,19 +3488,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 11642645,
-   "title": "Ремень для джинс и платья кожаный",
-   "discount": 0,
-   "price": 573,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/11642645/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788310174,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

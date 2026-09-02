@@ -1172,6 +1172,19 @@
  },
  "recent": [
   {
+   "pid": 307757075,
+   "title": "Постельное белье 1.5 спальное с принтом",
+   "discount": 0,
+   "price": 998,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/307757075/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788361232,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 710508650,
    "title": "Маленькая прямоугольная сумка кросс-боди через плечо",
    "discount": 0,
@@ -4021,19 +4034,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 307757075,
-   "title": "Постельное белье 1.5 спальное с принтом",
-   "discount": 0,
-   "price": 998,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/307757075/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788361232,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4062,10 +4062,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 35,
-   "rate_limited": 4,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4137,7 +4137,7 @@
    "Пледы",
    "Пробники"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -4161,10 +4161,10 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {

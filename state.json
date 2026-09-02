@@ -1163,6 +1163,18 @@
  },
  "recent": [
   {
+   "pid": 1015611444,
+   "title": "Джинсы бананы зауженные",
+   "discount": 0,
+   "price": 3392,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1015611444/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788355844,
+   "drop": 0
+  },
+  {
    "pid": 197806671,
    "title": "Женские клипсы на уши белый цветок на свадьбу",
    "discount": 0,
@@ -3910,18 +3922,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1015611444,
-   "title": "Джинсы бананы зауженные",
-   "discount": 0,
-   "price": 3392,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1015611444/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788355844,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3960,10 +3960,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 148,
-   "ok": 107,
-   "rate_limited": 4,
-   "http_error": 37,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4035,7 +4035,7 @@
    "Венки декоративные",
    "Банкетки"
   ],
-  "queue_size": 0,
+  "queue_size": 3,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,
@@ -4062,10 +4062,10 @@
    "refresh_rejected": 1,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {
@@ -106511,7 +106511,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -4301,10 +4301,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 31,
-   "rate_limited": 1,
-   "http_error": 9,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4399,10 +4399,10 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {
@@ -115571,7 +115571,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "981379090": {
    "price": 1811,
@@ -115584,7 +115584,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1178254906": {
    "price": 3010,
@@ -115597,7 +115597,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1294106107": {
    "price": 2656,
@@ -115610,7 +115610,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1328727303": {
    "price": 1692,
@@ -115623,7 +115623,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "367419329": {
    "price": 703,
@@ -115636,7 +115636,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "62805444": {
    "price": 2933,
@@ -115649,7 +115649,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "866453940": {
    "price": 1667,
@@ -115662,7 +115662,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "961874872": {
    "price": 3178,
@@ -115675,7 +115675,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "918080742": {
    "price": 2285,
@@ -115688,7 +115688,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "314900250": {
    "price": 1941,
@@ -115701,7 +115701,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

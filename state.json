@@ -1205,6 +1205,18 @@
  },
  "recent": [
   {
+   "pid": 770668412,
+   "title": "Джинсы бежевые широкие",
+   "discount": 20,
+   "price": 852,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/770668412/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788390186,
+   "drop": 1
+  },
+  {
    "pid": 542369522,
    "title": "Платье вечернее миди",
    "discount": 0,
@@ -4455,18 +4467,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 770668412,
-   "title": "Джинсы бежевые широкие",
-   "discount": 20,
-   "price": 852,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/770668412/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788390186,
-   "drop": 1
   }
  ],
  "meta": {
@@ -4504,10 +4504,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 51,
-   "rate_limited": 23,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4579,7 +4579,7 @@
    "Восточные сладости",
    "Аксессуары для водителя"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,
@@ -4602,10 +4602,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {

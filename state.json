@@ -1128,6 +1128,19 @@
  },
  "recent": [
   {
+   "pid": 152092561,
+   "title": "Кожаный ремень для джинс и платья",
+   "discount": 0,
+   "price": 1352,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/152092561/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788309559,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 307757060,
    "title": "Комплект постельного 2 спального белья с принтом",
    "discount": 30,
@@ -3461,19 +3474,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 152092561,
-   "title": "Кожаный ремень для джинс и платья",
-   "discount": 0,
-   "price": 1352,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/152092561/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788309559,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3501,10 +3501,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 31,
-   "rate_limited": 4,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3573,7 +3573,7 @@
    "ремень женский"
   ],
   "last_scan_cats": [],
-  "queue_size": 2,
+  "queue_size": 4,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 399,

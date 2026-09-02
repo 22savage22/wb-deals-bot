@@ -3645,10 +3645,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 44,
-   "ok": 33,
-   "rate_limited": 1,
-   "http_error": 10,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3742,7 +3742,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

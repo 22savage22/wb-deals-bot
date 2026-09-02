@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 851431945,
+  "title": "Платье летнее с кружевом в горошек",
+  "brand": "top4u",
+  "product": 1877,
+  "basic": 1877,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 240,
+  "category": "платье женское",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "платье женское",
+  "queued_ts": 1788350375
+ },
+ {
+  "id": 1009251919,
+  "title": "Бейсболка варенка кепка классическая",
+  "brand": "TM LIMITED A",
+  "product": 354,
+  "basic": 506,
+  "discount": 30,
+  "benefit": 152,
+  "rating": 4.7,
+  "feedbacks": 1049,
+  "category": "кепка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "кепка женская",
+  "queued_ts": 1788350375
+ },
+ {
+  "id": 879467029,
+  "title": "Футболка хлопковая оверсайз",
+  "brand": "ТВОЕ",
+  "product": 773,
+  "basic": 1104,
+  "discount": 30,
+  "benefit": 331,
+  "rating": 4.9,
+  "feedbacks": 3539,
+  "category": "футболка мужская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка мужская",
+  "queued_ts": 1788350375
+ }
+]

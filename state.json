@@ -1155,6 +1155,19 @@
  },
  "recent": [
   {
+   "pid": 851431945,
+   "title": "Платье летнее с кружевом в горошек",
+   "discount": 0,
+   "price": 1877,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/851431945/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788351014,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 296257064,
    "title": "Джинсы момы с высокой посадкой",
    "discount": 0,
@@ -3812,19 +3825,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 851431945,
-   "title": "Платье летнее с кружевом в горошек",
-   "discount": 0,
-   "price": 1877,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/851431945/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788351014,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3852,10 +3852,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 32,
-   "rate_limited": 7,
-   "http_error": 8,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3927,7 +3927,7 @@
    "Венки декоративные",
    "Банкетки"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,
@@ -3951,7 +3951,7 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

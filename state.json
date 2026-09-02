@@ -1131,6 +1131,18 @@
  },
  "recent": [
   {
+   "pid": 790659970,
+   "title": "Кепка мужская черная",
+   "discount": 20,
+   "price": 390,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/790659970/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788311806,
+   "drop": 1
+  },
+  {
    "pid": 839225337,
    "title": "Ремень y2k",
    "discount": 0,
@@ -3503,18 +3515,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 790659970,
-   "title": "Кепка мужская черная",
-   "discount": 20,
-   "price": 390,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/790659970/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788311806,
-   "drop": 1
   }
  ],
  "meta": {
@@ -3551,10 +3551,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 52,
-   "rate_limited": 15,
-   "http_error": 14,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3623,7 +3623,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,
@@ -80110,7 +80110,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

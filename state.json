@@ -1130,6 +1130,19 @@
  },
  "recent": [
   {
+   "pid": 839225337,
+   "title": "Ремень y2k",
+   "discount": 0,
+   "price": 1719,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/839225337/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788310819,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 11642645,
    "title": "Ремень для джинс и платья кожаный",
    "discount": 0,
@@ -3489,19 +3502,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 839225337,
-   "title": "Ремень y2k",
-   "discount": 0,
-   "price": 1719,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/839225337/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788310819,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3529,10 +3529,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 29,
-   "rate_limited": 4,
-   "http_error": 5,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3601,7 +3601,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,

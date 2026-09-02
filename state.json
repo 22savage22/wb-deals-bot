@@ -1152,6 +1152,19 @@
  },
  "recent": [
   {
+   "pid": 980571088,
+   "title": "Платье кружевное летнее короткое мини на выпускной",
+   "discount": 0,
+   "price": 783,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/980571088/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788349085,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 703817532,
    "title": "Ремень для джинс платья на талию набор 3шт",
    "discount": 0,
@@ -3770,19 +3783,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980571088,
-   "title": "Платье кружевное летнее короткое мини на выпускной",
-   "discount": 0,
-   "price": 783,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/980571088/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788349085,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3810,10 +3810,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 30,
-   "rate_limited": 1,
-   "http_error": 8,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3885,7 +3885,7 @@
    "Пуфы",
    "Гроубоксы"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,
@@ -3909,7 +3909,7 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

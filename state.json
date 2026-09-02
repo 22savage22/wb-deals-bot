@@ -1164,6 +1164,18 @@
  },
  "recent": [
   {
+   "pid": 880074270,
+   "title": "Прямые джинсы свободного кроя для мужчин",
+   "discount": 0,
+   "price": 2243,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/880074270/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788356718,
+   "drop": 0
+  },
+  {
    "pid": 1015611444,
    "title": "Джинсы бананы зауженные",
    "discount": 0,
@@ -3923,18 +3935,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 880074270,
-   "title": "Прямые джинсы свободного кроя для мужчин",
-   "discount": 0,
-   "price": 2243,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/880074270/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788356718,
-   "drop": 0
   }
  ],
  "meta": {
@@ -106602,7 +106602,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

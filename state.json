@@ -1159,6 +1159,19 @@
  },
  "recent": [
   {
+   "pid": 1284227367,
+   "title": "Постельное белье 2 спальное бязь хлопок",
+   "discount": 0,
+   "price": 2303,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1284227367/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788353734,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 141397325,
    "title": "Постельное белье 1.5 спальное хлопок",
    "discount": 0,
@@ -3867,19 +3880,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1284227367,
-   "title": "Постельное белье 2 спальное бязь хлопок",
-   "discount": 0,
-   "price": 2303,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1284227367/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788353734,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3907,10 +3907,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 38,
-   "rate_limited": 3,
-   "http_error": 16,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3982,7 +3982,7 @@
    "Венки декоративные",
    "Банкетки"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 399,
@@ -4006,7 +4006,7 @@
    "refresh_reserve": 0,
    "queue_after": 3
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

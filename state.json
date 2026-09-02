@@ -1165,6 +1165,19 @@
  },
  "recent": [
   {
+   "pid": 1174998202,
+   "title": "Сумка женская с ремешком, черная, экокожа, 23х13х12 см, 1 шт",
+   "discount": 0,
+   "price": 1431,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1174998202/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788357376,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 880074270,
    "title": "Прямые джинсы свободного кроя для мужчин",
    "discount": 0,
@@ -3936,19 +3949,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1174998202,
-   "title": "Сумка женская с ремешком, черная, экокожа, 23х13х12 см, 1 шт",
-   "discount": 0,
-   "price": 1431,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1174998202/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788357376,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3977,10 +3977,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 35,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4052,7 +4052,7 @@
    "Трубопроводы",
    "Пледы"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 398,
@@ -4076,10 +4076,10 @@
    "refresh_reserve": 0,
    "queue_after": 3
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {
@@ -4092,7 +4092,6 @@
   "смартфонf612512гбglobal": 1787862477,
   "кроссовки": 1787650823,
   "кроссовкиженские": 1787688014,
-  "кроссовкинаплатформе": 1787147789,
   "кроссовкиженскиеосеньkuromi": 1787152561,
   "кроссовкиженскиекоричневыелетниеsamba": 1787154678,
   "кроссовкиairforce1мужскиебелые": 1787157386,
@@ -5042,19 +5041,6 @@
    ],
    "posted_price": 609,
    "posted_ts": 1787395279.3131523
-  },
-  "592995563": {
-   "price": 1387,
-   "basic": 4774,
-   "ts": 1787147789.4292638,
-   "samples": [
-    [
-     1787147789,
-     1387
-    ]
-   ],
-   "posted_price": 1387,
-   "posted_ts": 1787147789.4292638
   },
   "297456775": {
    "price": 999,

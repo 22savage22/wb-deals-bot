@@ -3484,10 +3484,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 31,
-   "rate_limited": 4,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -79000,7 +79000,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1433741354": {
    "price": 753,
@@ -79013,7 +79013,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

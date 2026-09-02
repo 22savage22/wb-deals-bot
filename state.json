@@ -1137,6 +1137,18 @@
  },
  "recent": [
   {
+   "pid": 1194986143,
+   "title": "Футболка прямого кроя базовая из хлопка",
+   "discount": 20,
+   "price": 629,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1194986143/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788338385,
+   "drop": 1
+  },
+  {
    "pid": 1215521589,
    "title": "Платье женское нарядное для праздника на осень",
    "discount": 0,
@@ -3581,18 +3593,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1194986143,
-   "title": "Футболка прямого кроя базовая из хлопка",
-   "discount": 20,
-   "price": 629,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1194986143/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788338385,
-   "drop": 1
   }
  ],
  "meta": {
@@ -3632,10 +3632,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 129,
-   "ok": 99,
-   "rate_limited": 0,
-   "http_error": 30,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3730,7 +3730,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

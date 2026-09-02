@@ -1146,6 +1146,19 @@
  },
  "recent": [
   {
+   "pid": 237260456,
+   "title": "Плотная базовая футболка оверсайз",
+   "discount": 0,
+   "price": 1103,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/237260456/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788345500,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 465502351,
    "title": "Сумка женская А5 в коробке",
    "discount": 0,
@@ -3701,19 +3714,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 237260456,
-   "title": "Плотная базовая футболка оверсайз",
-   "discount": 0,
-   "price": 1103,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/237260456/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788345500,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -3740,10 +3740,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 45,
-   "ok": 33,
-   "rate_limited": 1,
-   "http_error": 11,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3815,7 +3815,7 @@
    "Пуфы",
    "Гроубоксы"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 398,
@@ -3838,7 +3838,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

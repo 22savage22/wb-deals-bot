@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 465502351,
+  "title": "Сумка женская А5 в коробке",
+  "brand": "BAMBAG",
+  "product": 2176,
+  "basic": 2176,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.8,
+  "feedbacks": 1032,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1788344248
+ },
+ {
+  "id": 237260456,
+  "title": "Плотная базовая футболка оверсайз",
+  "brand": "ТВОЕ",
+  "product": 1103,
+  "basic": 1103,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 15094,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1788344248
+ },
+ {
+  "id": 507818726,
+  "title": "Платье с драпировкой без рукавов облегающее макси",
+  "brand": "ULMADI",
+  "product": 2456,
+  "basic": 2456,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 284,
+  "category": "платье женское",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "платье женское",
+  "queued_ts": 1788344248
+ }
+]

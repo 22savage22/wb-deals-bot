@@ -3564,10 +3564,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 25,
-   "ok": 10,
-   "rate_limited": 11,
-   "http_error": 4,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

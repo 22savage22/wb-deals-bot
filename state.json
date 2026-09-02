@@ -4301,10 +4301,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 30,
-   "rate_limited": 3,
-   "http_error": 8,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -115714,7 +115714,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

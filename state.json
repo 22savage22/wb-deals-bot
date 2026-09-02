@@ -586,7 +586,8 @@
   "1256069115": 1788388389,
   "542369522": 1788389049,
   "770668412": 1788390186,
-  "857522437": 1788391342
+  "857522437": 1788391342,
+  "435692087": 1788391987
  },
  "feedback": {
   "855179327": {
@@ -1138,11 +1139,11 @@
    "ts": 1788388389.2020779
   },
   "джинсы женские": {
-   "posts": 34.421132873367895,
+   "posts": 36.34563409376825,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788390186.721444
+   "ts": 1788391987.3633478
   },
   "футболка мужская": {
    "posts": 34.62122598693735,
@@ -4480,10 +4481,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 435692087,
+   "title": "Джинсы палаццо с высокой посадкой",
+   "discount": 0,
+   "price": 1460,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/435692087/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788391987,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788390792,
+  "last_run": 1788391967,
   "last_posts": 1,
   "last_queries": [
    "футболка мужская",
@@ -4504,24 +4518,14 @@
   "digest_date": "2026-09-02",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 101,
-   "cards": 101,
-   "bad_price": 5,
-   "ok": 88,
-   "rating": 8,
-   "strict": 0,
-   "fallback": 88,
-   "reserve": 0,
-   "repost": 6,
-   "title_duplicate": 33,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 24,
+   "ok": 8,
+   "rate_limited": 13,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -4580,8 +4584,8 @@
    }
   ],
   "today": "2026-09-02",
-  "today_posts": 89,
-  "total_posts": 558,
+  "today_posts": 90,
+  "total_posts": 559,
   "last_scan": 1788391367,
   "last_scan_queries": [
    "платье женское",
@@ -4593,7 +4597,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,
@@ -4608,18 +4612,18 @@
    "title_duplicate": 25
   },
   "last_queue": {
-   "queue_before": 1,
-   "selected": 0,
-   "refresh_ok": 1,
+   "queue_before": 2,
+   "selected": 1,
+   "refresh_ok": 2,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {
@@ -5064,7 +5068,8 @@
   "платьеskimsнабретелькахдлинное": 1788386403,
   "платьевечернеемиди": 1788389049,
   "джинсыбежевыеширокие": 1788390186,
-  "джинсыпрямые": 1788391342
+  "джинсыпрямые": 1788391342,
+  "джинсыпалаццосвысокойпосадкой": 1788391987
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -5597,7 +5602,8 @@
   "e8f0f6f8d8d8f8f1": 1788385689,
   "d8ccc8c8ccccc8cc": 1788386403,
   "333131f0f1f17373": 1788389049,
-  "1f3931e9ede5756d": 1788391342
+  "1f3931e9ede5756d": 1788391342,
+  "b8f8cccce8c97979": 1788391987
  },
  "learned": {
   "часы мужские": {
@@ -44413,12 +44419,8 @@
   "435692087": {
    "price": 1460,
    "basic": 10050,
-   "ts": 1788391602.6255674,
+   "ts": 1788391987.3632994,
    "samples": [
-    [
-     1788341204,
-     1460
-    ],
     [
      1788377823,
      1460
@@ -44442,10 +44444,14 @@
     [
      1788390154,
      1460
+    ],
+    [
+     1788391968,
+     1460
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 1460,
+   "posted_ts": 1788391987.3632994
   },
   "1252143714": {
    "price": 2376,
@@ -70324,7 +70330,7 @@
   "12077742": {
    "price": 792,
    "basic": 1490,
-   "ts": 1788390793.5699725,
+   "ts": 1788391968.5295794,
    "samples": [
     [
      1788376919,
@@ -122466,22 +122472,6 @@
   }
  },
  "queue": [
-  {
-   "id": 435692087,
-   "title": "Джинсы палаццо с высокой посадкой",
-   "brand": "Modjimoda",
-   "product": 1460,
-   "basic": 1460,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 2712,
-   "category": "джинсы женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "джинсы женские",
-   "queued_ts": 1788391367
-  },
   {
    "id": 12077742,
    "title": "Ремень пояс тонкий кожаный",

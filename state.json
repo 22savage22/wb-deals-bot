@@ -1206,6 +1206,18 @@
  },
  "recent": [
   {
+   "pid": 857522437,
+   "title": "Джинсы прямые",
+   "discount": 0,
+   "price": 3116,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/857522437/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788391342,
+   "drop": 0
+  },
+  {
    "pid": 770668412,
    "title": "Джинсы бежевые широкие",
    "discount": 20,
@@ -4468,18 +4480,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 857522437,
-   "title": "Джинсы прямые",
-   "discount": 0,
-   "price": 3116,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/857522437/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788391342,
-   "drop": 0
   }
  ],
  "meta": {

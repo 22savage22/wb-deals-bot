@@ -1136,6 +1136,18 @@
  },
  "recent": [
   {
+   "pid": 1215521589,
+   "title": "Платье женское нарядное для праздника на осень",
+   "discount": 0,
+   "price": 3912,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1215521589/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788335739,
+   "drop": 0
+  },
+  {
    "pid": 996384932,
    "title": "Бейсболка летняя белая кепка классическая",
    "discount": 0,
@@ -3568,18 +3580,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1215521589,
-   "title": "Платье женское нарядное для праздника на осень",
-   "discount": 0,
-   "price": 3912,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1215521589/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788335739,
-   "drop": 0
   }
  ],
  "meta": {
@@ -3619,10 +3619,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 131,
-   "ok": 98,
-   "rate_limited": 6,
-   "http_error": 27,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -3717,7 +3717,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788335740.0,
   "last_engagement_kind": "fun_fact",

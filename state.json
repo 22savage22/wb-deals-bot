@@ -569,7 +569,8 @@
   "1179802931": 1788371369,
   "1097230215": 1788372041,
   "1196241574": 1788372842,
-  "936446165": 1788373616
+  "936446165": 1788373616,
+  "145529981": 1788374259
  },
  "feedback": {
   "855179327": {
@@ -1135,11 +1136,11 @@
    "ts": 1788351657.4136043
   },
   "ремень женский": {
-   "posts": 27.72444560620161,
+   "posts": 29.67658906833359,
    "likes": 0.0,
-   "dislikes": 1.4444271193462723,
+   "dislikes": 1.4419338221993037,
    "bought": 0.0,
-   "ts": 1788372842.287666
+   "ts": 1788374259.0250807
   },
   "кепка женская": {
    "posts": 31.826354529509633,
@@ -4264,10 +4265,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 145529981,
+   "title": "Кожаный ремень из натуральной кожи для джинс",
+   "discount": 0,
+   "price": 1184,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/145529981/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788374259,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788373447,
+  "last_run": 1788374244,
   "last_posts": 1,
   "last_queries": [
    "футболка мужская",
@@ -4287,24 +4301,14 @@
   "digest_date": "2026-09-02",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1100,
-   "cards": 1100,
-   "ok": 957,
-   "rating": 104,
-   "bad_price": 39,
-   "strict": 8,
-   "fallback": 949,
-   "reserve": 0,
-   "repost": 46,
-   "title_duplicate": 310,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 41,
+   "ok": 31,
+   "rate_limited": 1,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -4363,8 +4367,8 @@
    }
   ],
   "today": "2026-09-02",
-  "today_posts": 73,
-  "total_posts": 542,
+  "today_posts": 74,
+  "total_posts": 543,
   "last_scan": 1788373943,
   "last_scan_queries": [
    "платье женское",
@@ -4391,18 +4395,18 @@
    "title_duplicate": 102
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 2,
    "selected": 1,
-   "refresh_ok": 1,
-   "refresh_strict": 1,
-   "refresh_fallback": 0,
+   "refresh_ok": 2,
+   "refresh_strict": 0,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788317046.0,
   "last_engagement_ts": 1788355846.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788336545.0
  },
  "admin_ui": {
@@ -4841,7 +4845,8 @@
   "подвесканашеюсердце": 1788371369,
   "сумкабольшаяшоппера4скосметичкой": 1788372041,
   "ременьдляджинсиплатьянаталию": 1788372842,
-  "футболкаоверсайзспринтомснадписью": 1788373616
+  "футболкаоверсайзспринтомснадписью": 1788373616,
+  "кожаныйременьизнатуральнойкожидляджинс": 1788374259
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -5361,7 +5366,8 @@
   "fd613fd696961491": 1788370084,
   "a8d87cf8d0e0e0e1": 1788370722,
   "cd999f0fcf0f1b3c": 1788371369,
-  "f0f4c8c898d1d0d8": 1788372041
+  "f0f4c8c898d1d0d8": 1788372041,
+  "1a0a4827670d4c4c": 1788374259
  },
  "learned": {
   "часы мужские": {
@@ -69837,7 +69843,7 @@
   "12077742": {
    "price": 905,
    "basic": 1490,
-   "ts": 1788374004.5752947,
+   "ts": 1788374246.168133,
    "samples": [
     [
      1788284432,
@@ -70756,7 +70762,7 @@
   "145529981": {
    "price": 1184,
    "basic": 1480,
-   "ts": 1788374004.5748458,
+   "ts": 1788374259.0250316,
    "samples": [
     [
      1788333372,
@@ -70787,8 +70793,8 @@
      1184
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 1184,
+   "posted_ts": 1788374259.0250316
   },
   "95684918": {
    "price": 347,
@@ -116141,22 +116147,6 @@
    "quality": "B",
    "query": "ремень женский",
    "queued_ts": 1788373943
-  },
-  {
-   "id": 145529981,
-   "title": "Кожаный ремень из натуральной кожи для джинс",
-   "brand": "CHROME",
-   "product": 1184,
-   "basic": 1184,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 3479,
-   "category": "ремень женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "ремень женский",
-   "queued_ts": 1788373644
   },
   {
    "id": 12077742,

@@ -1222,6 +1222,18 @@
  },
  "recent": [
   {
+   "pid": 495064172,
+   "title": "Джинсы бананы мом на резинке",
+   "discount": 0,
+   "price": 3580,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/495064172/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788426228,
+   "drop": 0
+  },
+  {
    "pid": 16001949,
    "title": "Футболка синяя хлопок однотонная",
    "discount": 0,
@@ -4680,18 +4692,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 495064172,
-   "title": "Джинсы бананы мом на резинке",
-   "discount": 0,
-   "price": 3580,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/495064172/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788426228,
-   "drop": 0
   }
  ],
  "meta": {

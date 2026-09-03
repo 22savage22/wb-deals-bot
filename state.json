@@ -589,7 +589,8 @@
   "857522437": 1788391342,
   "435692087": 1788391987,
   "924437150": 1788393033,
-  "16001942": 1788394033
+  "16001942": 1788394033,
+  "367419329": 1788394684
  },
  "feedback": {
   "855179327": {
@@ -1141,11 +1142,11 @@
    "ts": 1788393033.3885033
   },
   "джинсы женские": {
-   "posts": 36.34563409376825,
+   "posts": 38.22630423701498,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788391987.3633478
+   "ts": 1788394684.1503117
   },
   "футболка мужская": {
    "posts": 36.27072307712867,
@@ -4520,10 +4521,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 367419329,
+   "title": "Джинсы скинни на средней посадке",
+   "discount": 20,
+   "price": 562,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/367419329/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788394684,
+   "drop": 1,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1788393638,
+  "last_run": 1788394659,
   "last_posts": 1,
   "last_queries": [
    "сумка женская",
@@ -4544,24 +4558,14 @@
   "digest_date": "2026-09-03",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 201,
-   "cards": 201,
-   "rating": 40,
-   "bad_price": 6,
-   "ok": 155,
-   "strict": 2,
-   "fallback": 153,
-   "reserve": 0,
-   "repost": 12,
-   "title_duplicate": 36,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 39,
+   "ok": 18,
+   "rate_limited": 14,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -4620,8 +4624,8 @@
    }
   ],
   "today": "2026-09-03",
-  "today_posts": 10,
-  "total_posts": 561,
+  "today_posts": 11,
+  "total_posts": 562,
   "last_scan": 1788394059,
   "last_scan_queries": [
    "джинсы мужские",
@@ -4633,7 +4637,7 @@
    "Изготовление кукол и игрушек",
    "Сварочное оборудование"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,
@@ -4648,18 +4652,18 @@
    "duplicate": 18
   },
   "last_queue": {
-   "queue_before": 1,
-   "selected": 0,
-   "refresh_ok": 1,
-   "refresh_strict": 0,
+   "queue_before": 2,
+   "selected": 1,
+   "refresh_ok": 2,
+   "refresh_strict": 1,
    "refresh_fallback": 1,
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {
@@ -5105,7 +5109,8 @@
   "джинсыпрямые": 1788391342,
   "джинсыпалаццосвысокойпосадкой": 1788391987,
   "футболкаоверсайзхлопковаябольшихразмеров": 1788393033,
-  "футболкабелаяхлопокбазоваяоднотонная": 1788394033
+  "футболкабелаяхлопокбазоваяоднотонная": 1788394033,
+  "джинсыскиннинасреднейпосадке": 1788394684
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -5641,7 +5646,8 @@
   "1f3931e9ede5756d": 1788391342,
   "b8f8cccce8c97979": 1788391987,
   "727368f8f0f0f068": 1788393033,
-  "6727071f0f0e92dc": 1788394033
+  "6727071f0f0e92dc": 1788394033,
+  "711717070f0d0d1d": 1788394684
  },
  "learned": {
   "часы мужские": {
@@ -70422,7 +70428,7 @@
   "12077742": {
    "price": 792,
    "basic": 1490,
-   "ts": 1788393639.1472683,
+   "ts": 1788394660.7361393,
    "samples": [
     [
      1788379122,
@@ -120433,7 +120439,7 @@
   "367419329": {
    "price": 562,
    "basic": 1213,
-   "ts": 1788394299.08134,
+   "ts": 1788394684.150271,
    "samples": [
     [
      1788377823,
@@ -120464,8 +120470,8 @@
      562
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 562,
+   "posted_ts": 1788394684.150271
   },
   "62805444": {
    "price": 2933,
@@ -123437,22 +123443,6 @@
   }
  },
  "queue": [
-  {
-   "id": 367419329,
-   "title": "Джинсы скинни на средней посадке",
-   "brand": "СИН Sinsay",
-   "product": 562,
-   "basic": 703,
-   "discount": 20,
-   "benefit": 141,
-   "rating": 4.8,
-   "feedbacks": 4163,
-   "category": "джинсы женские",
-   "selection_mode": "verified_drop",
-   "quality": "A",
-   "query": "джинсы женские",
-   "queued_ts": 1788394059
-  },
   {
    "id": 12077742,
    "title": "Ремень пояс тонкий кожаный",

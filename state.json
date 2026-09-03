@@ -1282,6 +1282,19 @@
  },
  "recent": [
   {
+   "pid": 460050562,
+   "title": "Постельное белье 1.5 спальное однотонное",
+   "discount": 0,
+   "price": 1029,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/460050562/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788447332,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 264252865,
    "title": "Сумка большая А4 с косметичкой",
    "discount": 0,
@@ -5063,19 +5076,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 460050562,
-   "title": "Постельное белье 1.5 спальное однотонное",
-   "discount": 0,
-   "price": 1029,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/460050562/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788447332,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5178,7 +5178,7 @@
   "last_scan_cats": [
    "Серия Galaxy A"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

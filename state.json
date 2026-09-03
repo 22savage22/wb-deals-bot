@@ -5222,10 +5222,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 34,
-   "rate_limited": 2,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

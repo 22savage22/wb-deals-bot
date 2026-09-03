@@ -591,7 +591,8 @@
   "924437150": 1788393033,
   "16001942": 1788394033,
   "367419329": 1788394684,
-  "890082238": 1788395694
+  "890082238": 1788395694,
+  "12077742": 1788396306
  },
  "feedback": {
   "855179327": {
@@ -1157,11 +1158,11 @@
    "ts": 1788394033.5804791
   },
   "ремень женский": {
-   "posts": 33.629788456825864,
+   "posts": 34.787741305098955,
    "likes": 0.0,
-   "dislikes": 1.439732586211904,
+   "dislikes": 1.4036835124860432,
    "bought": 0.0,
-   "ts": 1788375511.8455591
+   "ts": 1788396306.074119
   },
   "кепка женская": {
    "posts": 35.3142121088218,
@@ -4547,10 +4548,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 12077742,
+   "title": "Ремень пояс тонкий кожаный",
+   "discount": 0,
+   "price": 792,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/12077742/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788396306,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788395289,
+  "last_run": 1788396300,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -4570,24 +4584,14 @@
   "digest_date": "2026-09-03",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 401,
-   "cards": 401,
-   "ok": 339,
-   "rating": 39,
-   "bad_price": 23,
-   "strict": 4,
-   "fallback": 335,
-   "reserve": 0,
-   "repost": 29,
-   "title_duplicate": 90,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 56,
+   "ok": 31,
+   "rate_limited": 18,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -4646,8 +4650,8 @@
    }
   ],
   "today": "2026-09-03",
-  "today_posts": 12,
-  "total_posts": 563,
+  "today_posts": 13,
+  "total_posts": 564,
   "last_scan": 1788394059,
   "last_scan_queries": [
    "джинсы мужские",
@@ -4659,7 +4663,7 @@
    "Изготовление кукол и игрушек",
    "Сварочное оборудование"
   ],
-  "queue_size": 2,
+  "queue_size": 0,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,
@@ -4675,17 +4679,17 @@
   },
   "last_queue": {
    "queue_before": 1,
-   "selected": 0,
+   "selected": 1,
    "refresh_ok": 1,
    "refresh_strict": 0,
    "refresh_fallback": 1,
    "refresh_reserve": 0,
-   "queue_after": 1
+   "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {
@@ -5133,7 +5137,8 @@
   "футболкаоверсайзхлопковаябольшихразмеров": 1788393033,
   "футболкабелаяхлопокбазоваяоднотонная": 1788394033,
   "джинсыскиннинасреднейпосадке": 1788394684,
-  "платьемидиоблегающеетрикотажноесвырезом": 1788395694
+  "платьемидиоблегающеетрикотажноесвырезом": 1788395694,
+  "ременьпоястонкийкожаный": 1788396306
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -5670,7 +5675,8 @@
   "b8f8cccce8c97979": 1788391987,
   "727368f8f0f0f068": 1788393033,
   "6727071f0f0e92dc": 1788394033,
-  "711717070f0d0d1d": 1788394684
+  "711717070f0d0d1d": 1788394684,
+  "c8ccec6984d8f80e": 1788396306
  },
  "learned": {
   "часы мужские": {
@@ -70471,7 +70477,7 @@
   "12077742": {
    "price": 792,
    "basic": 1490,
-   "ts": 1788395657.7603655,
+   "ts": 1788396306.0740778,
    "samples": [
     [
      1788381348,
@@ -70502,8 +70508,8 @@
      792
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 792,
+   "posted_ts": 1788396306.0740778
   },
   "237122303": {
    "price": 653,
@@ -123648,22 +123654,6 @@
   }
  },
  "queue": [
-  {
-   "id": 12077742,
-   "title": "Ремень пояс тонкий кожаный",
-   "brand": "MON MUA",
-   "product": 905,
-   "basic": 905,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 3522,
-   "category": "ремень женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "ремень женский",
-   "queued_ts": 1788373644
-  },
   {
    "id": 239121749,
    "title": "Серьги пусеты серебряные 925 пробы с фианитами груша",

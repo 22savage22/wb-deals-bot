@@ -1374,6 +1374,18 @@
  },
  "recent": [
   {
+   "pid": 103990296,
+   "title": "Джинсы бананы прямые широкие зауженные к низу",
+   "discount": 0,
+   "price": 3347,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/103990296/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788467555,
+   "drop": 0
+  },
+  {
    "pid": 741188717,
    "title": "Джинсы прямые классические",
    "discount": 0,
@@ -5480,18 +5492,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 103990296,
-   "title": "Джинсы бананы прямые широкие зауженные к низу",
-   "discount": 0,
-   "price": 3347,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/103990296/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788467555,
-   "drop": 0
   }
  ],
  "meta": {
@@ -160136,7 +160136,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "961349293": {
    "price": 1699,
@@ -160149,7 +160149,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

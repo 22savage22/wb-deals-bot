@@ -1221,6 +1221,18 @@
  },
  "recent": [
   {
+   "pid": 16001949,
+   "title": "Футболка синяя хлопок однотонная",
+   "discount": 0,
+   "price": 425,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/16001949/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788425447,
+   "drop": 0
+  },
+  {
    "pid": 968952060,
    "title": "Платье летнее мини халтер",
    "discount": 20,
@@ -4667,18 +4679,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 16001949,
-   "title": "Футболка синяя хлопок однотонная",
-   "discount": 0,
-   "price": 425,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/16001949/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788425447,
-   "drop": 0
   }
  ],
  "meta": {
@@ -4718,10 +4718,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 139,
-   "ok": 102,
-   "rate_limited": 5,
-   "http_error": 32,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4816,10 +4816,10 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788411946.0,
   "last_engagement_ts": 1788425449.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788423558.0
  },
  "admin_ui": {
@@ -134852,7 +134852,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "434405960": {
    "price": 329,
@@ -134865,7 +134865,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

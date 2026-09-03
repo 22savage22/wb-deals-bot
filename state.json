@@ -1229,6 +1229,18 @@
  },
  "recent": [
   {
+   "pid": 966588203,
+   "title": "Платье",
+   "discount": 25,
+   "price": 647,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/966588203/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788433611,
+   "drop": 1
+  },
+  {
    "pid": 4336570,
    "title": "Футболка хлопок с принтом Мотоцикл",
    "discount": 20,
@@ -4772,18 +4784,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 966588203,
-   "title": "Платье",
-   "discount": 25,
-   "price": 647,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/966588203/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788433611,
-   "drop": 1
   }
  ],
  "meta": {

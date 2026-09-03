@@ -1284,6 +1284,18 @@
  },
  "recent": [
   {
+   "pid": 1124239091,
+   "title": "Ремень женский для джинс платья на талию кожаный",
+   "discount": 20,
+   "price": 320,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1124239091/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788449133,
+   "drop": 1
+  },
+  {
    "pid": 176843203,
    "title": "Постельное белье 2 спальное однотонное страйп",
    "discount": 0,
@@ -5091,18 +5103,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1124239091,
-   "title": "Ремень женский для джинс платья на талию кожаный",
-   "discount": 20,
-   "price": 320,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1124239091/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788449133,
-   "drop": 1
   }
  ],
  "meta": {
@@ -145302,7 +145302,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

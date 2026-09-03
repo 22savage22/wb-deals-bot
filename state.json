@@ -1297,6 +1297,19 @@
  },
  "recent": [
   {
+   "pid": 162540377,
+   "title": "Набор бижутерии колье и серьги",
+   "discount": 0,
+   "price": 765,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/162540377/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788458917,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1162917517,
    "title": "Кольцо с бирюзовым кристаллом",
    "discount": 0,
@@ -5267,19 +5280,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 162540377,
-   "title": "Набор бижутерии колье и серьги",
-   "discount": 0,
-   "price": 765,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/162540377/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788458917,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5308,10 +5308,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 33,
-   "rate_limited": 3,
-   "http_error": 11,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5383,7 +5383,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Туризм и страноведение"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 399,

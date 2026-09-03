@@ -622,7 +622,8 @@
   "489390717": 1788440648,
   "495763042": 1788440687,
   "176844033": 1788441304,
-  "173298129": 1788442069
+  "173298129": 1788442069,
+  "879176888": 1788442737
  },
  "feedback": {
   "855179327": {
@@ -1235,11 +1236,11 @@
    "ts": 1788414828.5905504
   },
   "украшения женские": {
-   "posts": 34.22472908230388,
+   "posts": 33.70312779977347,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788379976.7093263
+   "ts": 1788442737.0395503
   },
   "блузка женская": {
    "posts": 25.009587795528567,
@@ -4982,10 +4983,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 879176888,
+   "title": "Серьги ракушки украшения морские пляжные",
+   "discount": 23,
+   "price": 644,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/879176888/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788442737,
+   "drop": 1,
+   "quality": "A"
   }
  ],
  "meta": {
-  "last_run": 1788441908,
+  "last_run": 1788442698,
   "last_posts": 1,
   "last_queries": [
    "постельное белье",
@@ -5006,25 +5020,14 @@
   "digest_date": "2026-09-03",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1200,
-   "cards": 1200,
-   "ok": 964,
-   "bad_price": 104,
-   "rating": 132,
-   "strict": 15,
-   "fallback": 949,
-   "reserve": 0,
-   "repost": 73,
-   "title_duplicate": 290,
-   "electronics": 1,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 34,
+   "ok": 27,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -5083,8 +5086,8 @@
    }
   ],
   "today": "2026-09-03",
-  "today_posts": 44,
-  "total_posts": 595,
+  "today_posts": 45,
+  "total_posts": 596,
   "last_scan": 1788442193,
   "last_scan_queries": [
    "украшения женские",
@@ -5108,18 +5111,19 @@
    "title_duplicate": 73
   },
   "last_queue": {
-   "queue_before": 1,
-   "selected": 0,
+   "queue_before": 2,
+   "selected": 1,
+   "refresh_ok": 1,
    "refresh_bad_price": 1,
-   "refresh_strict": 0,
+   "refresh_strict": 1,
    "refresh_fallback": 0,
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788411946.0,
   "last_engagement_ts": 1788425449.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788423558.0
  },
  "admin_ui": {
@@ -5581,7 +5585,8 @@
   "футболкапрямаясвободнаяоднотонная": 1788440016,
   "простыньнарезинке90x200смнатяжнаяполисатин": 1788440687,
   "футболкаоверсайзплотныйхлопок": 1788441304,
-  "пододеяльник15хлопокбязьнамолнии": 1788442069
+  "пододеяльник15хлопокбязьнамолнии": 1788442069,
+  "серьгиракушкиукрашенияморскиепляжные": 1788442737
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -6139,7 +6144,8 @@
   "303070e0e0e0f070": 1788440016,
   "4140597fff9c6330": 1788440687,
   "d212d2b8f0f6f6e6": 1788441304,
-  "838a123345606ac6": 1788442069
+  "838a123345606ac6": 1788442069,
+  "9383181624211f8f": 1788442737
  },
  "learned": {
   "часы мужские": {
@@ -96446,7 +96452,7 @@
   "879176888": {
    "price": 644,
    "basic": 3355,
-   "ts": 1788442226.4292011,
+   "ts": 1788442737.0394936,
    "samples": [
     [
      1788332767,
@@ -96477,8 +96483,8 @@
      644
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 644,
+   "posted_ts": 1788442737.0394936
   },
   "413720441": {
    "price": 248,
@@ -143315,22 +143321,6 @@
    "quality": "B",
    "query": "украшения женские",
    "queued_ts": 1788442193
-  },
-  {
-   "id": 879176888,
-   "title": "Серьги ракушки украшения морские пляжные",
-   "brand": "CELEBRITY ACCESSORIES",
-   "product": 644,
-   "basic": 840,
-   "discount": 23,
-   "benefit": 196,
-   "rating": 4.9,
-   "feedbacks": 109,
-   "category": "украшения женские",
-   "selection_mode": "verified_drop",
-   "quality": "A",
-   "query": "украшения женские",
-   "queued_ts": 1788442098
   },
   {
    "id": 1011464584,

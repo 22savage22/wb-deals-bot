@@ -5595,10 +5595,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 16,
+   "ok": 0,
+   "rate_limited": 15,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -5659,29 +5659,25 @@
   "today": "2026-09-03",
   "today_posts": 82,
   "total_posts": 633,
-  "last_scan": 1788470384,
+  "last_scan": 1788473746,
   "last_scan_queries": [
-   "футболка мужская",
    "платье женское",
-   "джинсы женские",
-   "постельное белье"
+   "постельное белье",
+   "украшения женские",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Мешки для обуви"
+   "Спецодежда медицинская",
+   "Для чая"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "ok": 92,
-   "rating": 7,
-   "bad_price": 2,
-   "strict": 2,
-   "fallback": 90,
-   "reserve": 0,
-   "title_duplicate": 16,
-   "duplicate": 14
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -165320,9 +165316,9 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1788473719.2057974,
-   "runs": 13,
-   "empty": 3
+   "ts": 1788474026.6255083,
+   "runs": 14,
+   "empty": 4
   },
   "Венки декоративные": {
    "shard": "creativity38",
@@ -165374,9 +165370,9 @@
   },
   "Спецодежда медицинская": {
    "shard": "repair26",
-   "ts": 1788473719.2057974,
-   "runs": 8,
-   "empty": 3
+   "ts": 1788474026.6255083,
+   "runs": 9,
+   "empty": 4
   },
   "Аксессуары и инвентарь": {
    "shard": "sport45",

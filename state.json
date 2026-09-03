@@ -1375,6 +1375,18 @@
  },
  "recent": [
   {
+   "pid": 13634403,
+   "title": "Офисная базовая блузка",
+   "discount": 32,
+   "price": 359,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/13634403/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788468492,
+   "drop": 1
+  },
+  {
    "pid": 103990296,
    "title": "Джинсы бананы прямые широкие зауженные к низу",
    "discount": 0,
@@ -5493,18 +5505,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 13634403,
-   "title": "Офисная базовая блузка",
-   "discount": 32,
-   "price": 359,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/13634403/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788468492,
-   "drop": 1
   }
  ],
  "meta": {
@@ -5543,10 +5543,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 134,
-   "ok": 94,
-   "rate_limited": 12,
-   "http_error": 28,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

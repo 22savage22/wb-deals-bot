@@ -4692,10 +4692,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 29,
-   "rate_limited": 3,
-   "http_error": 11,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },

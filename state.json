@@ -1225,6 +1225,18 @@
  },
  "recent": [
   {
+   "pid": 152127702,
+   "title": "Футболка базовая хлопок с лайкрой",
+   "discount": 0,
+   "price": 1172,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/152127702/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788429139,
+   "drop": 0
+  },
+  {
    "pid": 262578969,
    "title": "Широкие джинсы палаццо большие размеры",
    "discount": 0,
@@ -4719,18 +4731,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 152127702,
-   "title": "Футболка базовая хлопок с лайкрой",
-   "discount": 0,
-   "price": 1172,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/152127702/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788429139,
-   "drop": 0
   }
  ],
  "meta": {
@@ -137220,7 +137220,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

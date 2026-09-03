@@ -1367,6 +1367,19 @@
  },
  "recent": [
   {
+   "pid": 1310836373,
+   "title": "Средняя коричневая сумка",
+   "discount": 0,
+   "price": 3672,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1310836373/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788461843,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1480397405,
    "title": "Маленькая черная сумка",
    "discount": 0,
@@ -5387,19 +5400,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1310836373,
-   "title": "Средняя коричневая сумка",
-   "discount": 0,
-   "price": 3672,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1310836373/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788461843,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5428,10 +5428,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 30,
-   "rate_limited": 2,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5503,7 +5503,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Тросики"
   ],
-  "queue_size": 2,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 397,

@@ -4625,10 +4625,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 14,
+   "ok": 2,
+   "rate_limited": 10,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -4689,30 +4689,26 @@
   "today": "2026-09-03",
   "today_posts": 15,
   "total_posts": 566,
-  "last_scan": 1788396328,
+  "last_scan": 1788398958,
   "last_scan_queries": [
-   "постельное белье",
-   "ремень женский",
    "платье женское",
-   "футболка мужская"
+   "футболка мужская",
+   "джинсы женские",
+   "футболка женская"
   ],
   "last_scan_cats": [
-   "Археология",
-   "Перевозка груза"
+   "Перевозка груза",
+   "Археология"
   ],
-  "queue_size": 1,
-  "last_scan_added": 1,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "ok": 89,
-   "rating": 9,
-   "bad_price": 3,
-   "strict": 2,
-   "fallback": 87,
-   "reserve": 0,
-   "title_duplicate": 28,
-   "duplicate": 12
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -4723,10 +4719,10 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {
@@ -124241,9 +124237,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1788398938.88135,
-   "runs": 13,
-   "empty": 3
+   "ts": 1788399144.085166,
+   "runs": 14,
+   "empty": 4
   },
   "Подгузники": {
    "shard": "children_things2",
@@ -124301,9 +124297,9 @@
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",
-   "ts": 1788398938.88135,
-   "runs": 8,
-   "empty": 3
+   "ts": 1788399144.085166,
+   "runs": 9,
+   "empty": 4
   },
   "Сварочное оборудование": {
    "shard": "repair24",

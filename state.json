@@ -1219,6 +1219,18 @@
  },
  "recent": [
   {
+   "pid": 806485325,
+   "title": "Кепка летняя бейсболка",
+   "discount": 0,
+   "price": 800,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/806485325/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788414828,
+   "drop": 0
+  },
+  {
    "pid": 946048191,
    "title": "Бейсболка с нашивкой",
    "discount": 0,
@@ -4641,18 +4653,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 806485325,
-   "title": "Кепка летняя бейсболка",
-   "discount": 0,
-   "price": 800,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/806485325/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788414828,
-   "drop": 0
   }
  ],
  "meta": {

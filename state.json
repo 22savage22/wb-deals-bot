@@ -1292,6 +1292,19 @@
  },
  "recent": [
   {
+   "pid": 413769386,
+   "title": "Чокер на шею бижутерия",
+   "discount": 0,
+   "price": 217,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/413769386/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788455197,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 234463999,
    "title": "Бейсболка пудровая однотонная",
    "discount": 20,
@@ -5199,19 +5212,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 413769386,
-   "title": "Чокер на шею бижутерия",
-   "discount": 0,
-   "price": 217,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/413769386/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788455197,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5240,10 +5240,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 34,
-   "rate_limited": 2,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5315,7 +5315,7 @@
    "Тормозные барабаны",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,

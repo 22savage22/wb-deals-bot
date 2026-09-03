@@ -1373,6 +1373,18 @@
  },
  "recent": [
   {
+   "pid": 741188717,
+   "title": "Джинсы прямые классические",
+   "discount": 0,
+   "price": 3046,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/741188717/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788466673,
+   "drop": 0
+  },
+  {
    "pid": 17459018,
    "title": "Кожаный ремень для джинсов",
    "discount": 0,
@@ -5467,18 +5479,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 741188717,
-   "title": "Джинсы прямые классические",
-   "discount": 0,
-   "price": 3046,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/741188717/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788466673,
-   "drop": 0
   }
  ],
  "meta": {
@@ -5515,10 +5515,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 102,
-   "ok": 80,
-   "rate_limited": 4,
-   "http_error": 18,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

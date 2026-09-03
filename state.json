@@ -1379,6 +1379,18 @@
  },
  "recent": [
   {
+   "pid": 378952391,
+   "title": "Чокер колье с сердцем на шею бижутерия",
+   "discount": 64,
+   "price": 105,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/378952391/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788473717,
+   "drop": 1
+  },
+  {
    "pid": 237950561,
    "title": "Футболка варенка оверсайз",
    "discount": 30,
@@ -5545,18 +5557,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 378952391,
-   "title": "Чокер колье с сердцем на шею бижутерия",
-   "discount": 64,
-   "price": 105,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/378952391/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788473717,
-   "drop": 1
   }
  ],
  "meta": {
@@ -5595,10 +5595,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 44,
-   "ok": 15,
-   "rate_limited": 25,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

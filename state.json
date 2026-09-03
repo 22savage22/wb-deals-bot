@@ -5021,10 +5021,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 12,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -5116,10 +5116,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788411946.0,
   "last_engagement_ts": 1788425449.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788423558.0
  },
  "admin_ui": {

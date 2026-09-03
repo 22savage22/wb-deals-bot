@@ -1281,6 +1281,18 @@
  },
  "recent": [
   {
+   "pid": 264252865,
+   "title": "Сумка большая А4 с косметичкой",
+   "discount": 0,
+   "price": 1561,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/264252865/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788446689,
+   "drop": 0
+  },
+  {
    "pid": 5094802,
    "title": "Постельное белье 2 спальное 50х70 хлопок бязь надпись",
    "discount": 0,
@@ -5050,18 +5062,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 264252865,
-   "title": "Сумка большая А4 с косметичкой",
-   "discount": 0,
-   "price": 1561,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/264252865/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788446689,
-   "drop": 0
   }
  ],
  "meta": {
@@ -144929,7 +144929,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "613900292": {
    "price": 400,
@@ -144942,7 +144942,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -5181,10 +5181,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 65,
-   "rate_limited": 10,
-   "http_error": 20,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5253,7 +5253,7 @@
    "футболка мужская"
   ],
   "last_scan_cats": [],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

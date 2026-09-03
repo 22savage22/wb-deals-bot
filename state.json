@@ -1287,6 +1287,18 @@
  },
  "recent": [
   {
+   "pid": 782743121,
+   "title": "Джинсы широкие зауженные бананы",
+   "discount": 0,
+   "price": 2747,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/782743121/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788451690,
+   "drop": 0
+  },
+  {
    "pid": 977824843,
    "title": "Нарядная футболка с принтом хлопок",
    "discount": 20,
@@ -5131,18 +5143,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 782743121,
-   "title": "Джинсы широкие зауженные бананы",
-   "discount": 0,
-   "price": 2747,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/782743121/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788451690,
-   "drop": 0
   }
  ],
  "meta": {

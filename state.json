@@ -5410,10 +5410,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 103,
-   "ok": 81,
+   "calls": 55,
+   "ok": 39,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5485,7 +5485,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Туризм и страноведение"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 399,

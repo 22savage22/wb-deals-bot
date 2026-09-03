@@ -1294,6 +1294,19 @@
  },
  "recent": [
   {
+   "pid": 494695911,
+   "title": "Тика для волос украшение на голову бохо этно",
+   "discount": 20,
+   "price": 218,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/494695911/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788456692,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 389483323,
    "title": "Футболка молочная однотонная",
    "discount": 0,
@@ -5226,19 +5239,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 494695911,
-   "title": "Тика для волос украшение на голову бохо этно",
-   "discount": 20,
-   "price": 218,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/494695911/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788456692,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -5267,10 +5267,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 23,
-   "rate_limited": 3,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5342,7 +5342,7 @@
    "Мыши",
    "Тормозные барабаны"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 299,

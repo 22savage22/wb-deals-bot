@@ -4676,10 +4676,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 16,
+   "ok": 2,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -4740,30 +4740,26 @@
   "today": "2026-09-03",
   "today_posts": 19,
   "total_posts": 570,
-  "last_scan": 1788402416,
+  "last_scan": 1788408432,
   "last_scan_queries": [
-   "платье женское",
-   "джинсы женские",
    "кепка женская",
-   "футболка мужская"
+   "футболка мужская",
+   "платье женское",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Подгузники",
-   "Лотки, пеленки"
+   "Краски автомобильные",
+   "Смазки и масла для инструмента"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "bad_price": 10,
-   "rating": 13,
-   "ok": 77,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 77,
-   "reserve": 0,
-   "title_duplicate": 8,
-   "duplicate": 6
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -126095,15 +126091,15 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1788286295.7081165,
-   "runs": 40,
-   "empty": 5
+   "ts": 1788408639.7444892,
+   "runs": 41,
+   "empty": 1
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1788286295.7081165,
-   "runs": 45,
-   "empty": 5
+   "ts": 1788408639.7444892,
+   "runs": 46,
+   "empty": 1
   },
   "Матрасы-топперы": {
    "shard": "bedding4",

@@ -1293,6 +1293,18 @@
  },
  "recent": [
   {
+   "pid": 389483323,
+   "title": "Футболка молочная однотонная",
+   "discount": 0,
+   "price": 974,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/389483323/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788456035,
+   "drop": 0
+  },
+  {
    "pid": 413769386,
    "title": "Чокер на шею бижутерия",
    "discount": 0,
@@ -5213,18 +5225,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 389483323,
-   "title": "Футболка молочная однотонная",
-   "discount": 0,
-   "price": 974,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/389483323/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788456035,
-   "drop": 0
   }
  ],
  "meta": {
@@ -148821,7 +148821,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

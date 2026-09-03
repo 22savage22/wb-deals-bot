@@ -1288,6 +1288,19 @@
  },
  "recent": [
   {
+   "pid": 847893929,
+   "title": "Кепка бейсболка женская",
+   "discount": 0,
+   "price": 416,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/847893929/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788452378,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 782743121,
    "title": "Джинсы широкие зауженные бананы",
    "discount": 0,
@@ -5144,19 +5157,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 847893929,
-   "title": "Кепка бейсболка женская",
-   "discount": 0,
-   "price": 416,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/847893929/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788452378,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5185,10 +5185,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 30,
-   "rate_limited": 4,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5260,7 +5260,7 @@
    "Средства для мытья посуды и продуктов",
    "Мыши"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

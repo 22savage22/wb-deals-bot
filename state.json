@@ -5635,10 +5635,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 6,
-   "rate_limited": 26,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5710,7 +5710,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Гроубоксы"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,
@@ -166577,7 +166577,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

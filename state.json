@@ -5181,10 +5181,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 30,
-   "rate_limited": 4,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

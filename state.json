@@ -1380,6 +1380,18 @@
  },
  "recent": [
   {
+   "pid": 372083371,
+   "title": "Кольцо с большим камнем бижутерия",
+   "discount": 30,
+   "price": 260,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/372083371/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788474717,
+   "drop": 1
+  },
+  {
    "pid": 378952391,
    "title": "Чокер колье с сердцем на шею бижутерия",
    "discount": 64,
@@ -5558,18 +5570,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 372083371,
-   "title": "Кольцо с большим камнем бижутерия",
-   "discount": 30,
-   "price": 260,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/372083371/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788474717,
-   "drop": 1
   }
  ],
  "meta": {
@@ -5609,10 +5609,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 63,
-   "ok": 31,
-   "rate_limited": 17,
-   "http_error": 15,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

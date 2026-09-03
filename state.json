@@ -1234,6 +1234,18 @@
  },
  "recent": [
   {
+   "pid": 990786873,
+   "title": "Джинсы Slim Fit со средней посадкой",
+   "discount": 20,
+   "price": 1180,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/990786873/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788437227,
+   "drop": 1
+  },
+  {
    "pid": 390920319,
    "title": "Белорусское платье женское",
    "discount": 21,
@@ -4840,18 +4852,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 990786873,
-   "title": "Джинсы Slim Fit со средней посадкой",
-   "discount": 20,
-   "price": 1180,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/990786873/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788437227,
-   "drop": 1
   }
  ],
  "meta": {
@@ -4890,10 +4890,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 171,
-   "ok": 118,
-   "rate_limited": 4,
-   "http_error": 49,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4987,10 +4987,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788411946.0,
   "last_engagement_ts": 1788425449.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788423558.0
  },
  "admin_ui": {

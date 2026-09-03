@@ -609,7 +609,8 @@
   "1181356854": 1788429808,
   "224594481": 1788431330,
   "813022152": 1788431979,
-  "966588203": 1788433611
+  "966588203": 1788433611,
+  "1244479817": 1788434275
  },
  "feedback": {
   "855179327": {
@@ -1161,11 +1162,11 @@
    "ts": 1788429139.4749782
   },
   "джинсы женские": {
-   "posts": 42.535296433702754,
+   "posts": 44.382775418493566,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788431330.0007389
+   "ts": 1788434275.7507107
   },
   "футболка мужская": {
    "posts": 42.49640172884293,
@@ -4784,10 +4785,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 1244479817,
+   "title": "Джинсы широкие с высокой посадкой",
+   "discount": 0,
+   "price": 3010,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1244479817/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788434275,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788433438,
+  "last_run": 1788434239,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -4806,24 +4820,14 @@
   "digest_date": "2026-09-03",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1199,
-   "cards": 1199,
-   "rating": 107,
-   "ok": 985,
-   "bad_price": 107,
-   "strict": 13,
-   "fallback": 972,
-   "reserve": 0,
-   "repost": 74,
-   "title_duplicate": 362,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 174,
-   "ok": 103,
-   "rate_limited": 37,
-   "http_error": 34,
+   "calls": 53,
+   "ok": 38,
+   "rate_limited": 0,
+   "http_error": 15,
    "network_error": 0,
    "json_error": 0
   },
@@ -4882,8 +4886,8 @@
    }
   ],
   "today": "2026-09-03",
-  "today_posts": 32,
-  "total_posts": 583,
+  "today_posts": 33,
+  "total_posts": 584,
   "last_scan": 1788433639,
   "last_scan_queries": [
    "джинсы женские",
@@ -4894,7 +4898,7 @@
   "last_scan_cats": [
    "Корм и лакомства"
   ],
-  "queue_size": 3,
+  "queue_size": 2,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,
@@ -4909,18 +4913,18 @@
    "duplicate": 36
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 3,
    "selected": 1,
-   "refresh_ok": 1,
+   "refresh_ok": 3,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 3,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 2
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1788411946.0,
   "last_engagement_ts": 1788425449.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788423558.0
  },
  "admin_ui": {
@@ -5372,7 +5376,8 @@
   "футболкаспортивнаяснадписью": 1788429808,
   "зауженныеджинсыскиннисвысокойпосадкойстрейч": 1788431330,
   "сумкачерезплечомаленькая": 1788431979,
-  "платье": 1788433611
+  "платье": 1788433611,
+  "джинсыширокиесвысокойпосадкой": 1788434275
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -5921,7 +5926,8 @@
   "a6b7724f45272747": 1788429139,
   "f858787478f0f2e2": 1788429808,
   "b2d0e8c0c8e8e8ec": 1788431330,
-  "a0e0c0c0ccf80105": 1788431979
+  "a0e0c0c0ccf80105": 1788431979,
+  "f0d8d8d0d0d078f8": 1788434275
  },
  "learned": {
   "часы мужские": {
@@ -109290,7 +109296,7 @@
   "1244479817": {
    "price": 3010,
    "basic": 10000,
-   "ts": 1788433675.1053424,
+   "ts": 1788434275.7506673,
    "samples": [
     [
      1788420719,
@@ -109321,8 +109327,8 @@
      3010
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 3010,
+   "posted_ts": 1788434275.7506673
   },
   "385009882": {
    "price": 2931,
@@ -139669,7 +139675,7 @@
   "176563285": {
    "price": 272,
    "basic": 500,
-   "ts": 1788433675.1074286,
+   "ts": 1788434240.5298388,
    "samples": [
     [
      1788432831,
@@ -139799,7 +139805,7 @@
   "33891441": {
    "price": 1304,
    "basic": 2501,
-   "ts": 1788433675.1079683,
+   "ts": 1788434240.5298617,
    "samples": [
     [
      1788432831,
@@ -140650,22 +140656,6 @@
   }
  },
  "queue": [
-  {
-   "id": 1244479817,
-   "title": "Джинсы широкие с высокой посадкой",
-   "brand": "ODI",
-   "product": 3010,
-   "basic": 3010,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 4851,
-   "category": "джинсы женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "джинсы женские",
-   "queued_ts": 1788433639
-  },
   {
    "id": 176563285,
    "title": "Ремень черный y2k тонкий для платья и джинс",

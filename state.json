@@ -1210,6 +1210,19 @@
  },
  "recent": [
   {
+   "pid": 367419329,
+   "title": "Джинсы скинни на средней посадке",
+   "discount": 20,
+   "price": 562,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/367419329/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788394684,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 16001942,
    "title": "Футболка белая хлопок базовая однотонная",
    "discount": 0,
@@ -4521,19 +4534,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 367419329,
-   "title": "Джинсы скинни на средней посадке",
-   "discount": 20,
-   "price": 562,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/367419329/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788394684,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -4562,10 +4562,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 18,
-   "rate_limited": 14,
-   "http_error": 7,
+   "calls": 174,
+   "ok": 103,
+   "rate_limited": 37,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0
   },
@@ -4637,7 +4637,7 @@
    "Изготовление кукол и игрушек",
    "Сварочное оборудование"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,
@@ -4660,10 +4660,10 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1788382467.0,
   "last_engagement_ts": 1788385690.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788379978.0
  },
  "admin_ui": {

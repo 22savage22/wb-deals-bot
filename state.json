@@ -5569,10 +5569,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 16,
-   "rate_limited": 18,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

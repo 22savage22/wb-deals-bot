@@ -1383,6 +1383,18 @@
  },
  "recent": [
   {
+   "pid": 1296285508,
+   "title": "Джинсы клеш с высокой посадкой буткат",
+   "discount": 40,
+   "price": 1858,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1296285508/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788480133,
+   "drop": 1
+  },
+  {
    "pid": 974366396,
    "title": "Летнее платье сарафан с открытой спиной праздничное",
    "discount": 0,
@@ -5599,18 +5611,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1296285508,
-   "title": "Джинсы клеш с высокой посадкой буткат",
-   "discount": 40,
-   "price": 1858,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1296285508/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788480133,
-   "drop": 1
   }
  ],
  "meta": {
@@ -5649,10 +5649,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 10,
-   "rate_limited": 25,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5724,7 +5724,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Гроубоксы"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,

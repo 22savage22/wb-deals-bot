@@ -5689,10 +5689,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 12,
-   "rate_limited": 28,
-   "http_error": 0,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5763,7 +5763,7 @@
   "last_scan_cats": [
    "Пуфы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 99,

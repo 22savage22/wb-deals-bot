@@ -1427,6 +1427,18 @@
  },
  "recent": [
   {
+   "pid": 307757075,
+   "title": "Постельное белье 1.5 спальное с принтом",
+   "discount": 30,
+   "price": 698,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/307757075/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788536913,
+   "drop": 1
+  },
+  {
    "pid": 14655606,
    "title": "Постельное белье, 2-спальное на молнии, наволочки 50х70см",
    "discount": 20,
@@ -6167,18 +6179,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 307757075,
-   "title": "Постельное белье 1.5 спальное с принтом",
-   "discount": 30,
-   "price": 698,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/307757075/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788536913,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6217,10 +6217,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 128,
-   "ok": 93,
-   "rate_limited": 8,
-   "http_error": 27,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6318,7 +6318,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788532971.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -215718,7 +215718,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1144363916": {
    "price": 294,
@@ -215731,7 +215731,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

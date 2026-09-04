@@ -5836,10 +5836,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 73,
-   "ok": 51,
-   "rate_limited": 14,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -187430,7 +187430,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

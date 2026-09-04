@@ -6191,10 +6191,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 19,
-   "rate_limited": 20,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6293,7 +6293,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788532971.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {

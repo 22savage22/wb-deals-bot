@@ -1394,6 +1394,18 @@
  },
  "recent": [
   {
+   "pid": 835485399,
+   "title": "Джинсы бананы широкие",
+   "discount": 59,
+   "price": 1441,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/835485399/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788498923,
+   "drop": 1
+  },
+  {
    "pid": 845875096,
    "title": "Джинсы багги широкие",
    "discount": 0,
@@ -5746,18 +5758,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 835485399,
-   "title": "Джинсы бананы широкие",
-   "discount": 59,
-   "price": 1441,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/835485399/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788498923,
-   "drop": 1
   }
  ],
  "meta": {

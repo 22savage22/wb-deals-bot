@@ -1433,6 +1433,18 @@
  },
  "recent": [
   {
+   "pid": 668835197,
+   "title": "Джинсы мужские прямые широкие",
+   "discount": 0,
+   "price": 3908,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/668835197/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788541455,
+   "drop": 0
+  },
+  {
    "pid": 924108522,
    "title": "Футболка женская облегающая скимс с цветочным принтом",
    "discount": 30,
@@ -6247,18 +6259,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 668835197,
-   "title": "Джинсы мужские прямые широкие",
-   "discount": 0,
-   "price": 3908,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/668835197/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788541455,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6298,10 +6298,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 137,
-   "ok": 101,
-   "rate_limited": 5,
-   "http_error": 31,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

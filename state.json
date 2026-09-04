@@ -6612,10 +6612,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 12,
-   "rate_limited": 11,
-   "http_error": 0,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

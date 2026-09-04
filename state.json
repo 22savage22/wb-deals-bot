@@ -1435,6 +1435,18 @@
  },
  "recent": [
   {
+   "pid": 333345302,
+   "title": "Блузка женская офисная больших размеров",
+   "discount": 0,
+   "price": 2190,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/333345302/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788543179,
+   "drop": 0
+  },
+  {
    "pid": 990786874,
    "title": "Джинсы Slim Fit со средней посадкой",
    "discount": 20,
@@ -6273,18 +6285,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 333345302,
-   "title": "Блузка женская офисная больших размеров",
-   "discount": 0,
-   "price": 2190,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/333345302/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788543179,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6324,10 +6324,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 108,
-   "ok": 80,
-   "rate_limited": 9,
-   "http_error": 19,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

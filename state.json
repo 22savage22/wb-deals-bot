@@ -1441,6 +1441,19 @@
  },
  "recent": [
   {
+   "pid": 237257175,
+   "title": "Серьги бижутерия жемчуг полукольца сережки гвоздики",
+   "discount": 20,
+   "price": 1088,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/237257175/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788548146,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 316288304,
    "title": "Колье на шею из жемчуга бижутерия",
    "discount": 20,
@@ -6351,19 +6364,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 237257175,
-   "title": "Серьги бижутерия жемчуг полукольца сережки гвоздики",
-   "discount": 20,
-   "price": 1088,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/237257175/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788548146,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -6392,10 +6392,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 35,
-   "ok": 25,
-   "rate_limited": 4,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6467,7 +6467,7 @@
    "Травяные сборы",
    "Зеркала"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

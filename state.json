@@ -1424,6 +1424,18 @@
  },
  "recent": [
   {
+   "pid": 936839787,
+   "title": "Сумочка маленькая через плечо мини кросс-боди y2k",
+   "discount": 20,
+   "price": 1152,
+   "rating": 4.4,
+   "link": "https://www.wildberries.ru/catalog/936839787/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788532970,
+   "drop": 1
+  },
+  {
    "pid": 801087904,
    "title": "Сумка экокожа тоут на рука и через плечо",
    "discount": 19,
@@ -6129,18 +6141,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 936839787,
-   "title": "Сумочка маленькая через плечо мини кросс-боди y2k",
-   "discount": 20,
-   "price": 1152,
-   "rating": 4.4,
-   "link": "https://www.wildberries.ru/catalog/936839787/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788532970,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6179,10 +6179,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 114,
-   "ok": 86,
-   "rate_limited": 3,
-   "http_error": 25,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6281,7 +6281,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788532971.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -213392,7 +213392,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "663252990": {
    "price": 1220,
@@ -213405,7 +213405,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "577626908": {
    "price": 2476,
@@ -213418,7 +213418,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

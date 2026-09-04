@@ -1413,6 +1413,18 @@
  },
  "recent": [
   {
+   "pid": 177884752,
+   "title": "Джинсы прямые классические",
+   "discount": 40,
+   "price": 1336,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/177884752/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788524765,
+   "drop": 1
+  },
+  {
    "pid": 613894992,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 20,
@@ -5997,18 +6009,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 177884752,
-   "title": "Джинсы прямые классические",
-   "discount": 40,
-   "price": 1336,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/177884752/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788524765,
-   "drop": 1
   }
  ],
  "meta": {

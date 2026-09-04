@@ -1446,6 +1446,18 @@
  },
  "recent": [
   {
+   "pid": 1049086734,
+   "title": "Сумка большая с ремнем кожаная на плечо",
+   "discount": 0,
+   "price": 1390,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1049086734/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788552662,
+   "drop": 0
+  },
+  {
    "pid": 1113261545,
    "title": "Блузка нарядная в горошек офисная",
    "discount": 0,
@@ -6417,18 +6429,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1049086734,
-   "title": "Сумка большая с ремнем кожаная на плечо",
-   "discount": 0,
-   "price": 1390,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1049086734/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788552662,
-   "drop": 0
   }
  ],
  "meta": {

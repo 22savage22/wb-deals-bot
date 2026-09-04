@@ -688,7 +688,8 @@
   "949370734": 1788517457,
   "806484027": 1788518341,
   "616071955": 1788519162,
-  "645982460": 1788520031
+  "645982460": 1788520031,
+  "892724548": 1788520685
  },
  "feedback": {
   "855179327": {
@@ -1346,11 +1347,11 @@
    "ts": 1788519162.7261944
   },
   "футболка мужская": {
-   "posts": 51.72270389344646,
+   "posts": 53.51951777118554,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788517457.413878
+   "ts": 1788520685.1878362
   },
   "ремень женский": {
    "posts": 42.6501369451236,
@@ -5929,10 +5930,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 892724548,
+   "title": "Футболка оверсайз с принтом на спине",
+   "discount": 0,
+   "price": 1304,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/892724548/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788520685,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788519767,
+  "last_run": 1788520657,
   "last_posts": 1,
   "last_queries": [
    "сумка женская",
@@ -5953,24 +5967,14 @@
   "digest_date": "2026-09-04",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1101,
-   "cards": 1101,
-   "ok": 988,
-   "rating": 81,
-   "bad_price": 32,
-   "strict": 12,
-   "fallback": 976,
-   "reserve": 0,
-   "repost": 42,
-   "title_duplicate": 242,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 34,
+   "ok": 27,
+   "rate_limited": 3,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -6029,8 +6033,8 @@
    }
   ],
   "today": "2026-09-04",
-  "today_posts": 32,
-  "total_posts": 661,
+  "today_posts": 33,
+  "total_posts": 662,
   "last_scan": 1788520057,
   "last_scan_queries": [
    "футболка мужская",
@@ -6042,7 +6046,7 @@
    "Основные части двигателя",
    "Для песочницы"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,
@@ -6057,18 +6061,18 @@
    "title_duplicate": 72
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 2,
    "selected": 1,
-   "refresh_ok": 1,
+   "refresh_ok": 2,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 1
   },
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788514671.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -6563,7 +6567,8 @@
   "футболкахлопокcvобразнымвырезом": 1788517457,
   "блузкалетняянаряднаябелая": 1788518341,
   "джинсыбаггиширокиенарезинке": 1788519162,
-  "сумкабагетмаленькаячерезплечокожаная": 1788520031
+  "сумкабагетмаленькаячерезплечокожаная": 1788520031,
+  "футболкаоверсайзспринтомнаспине": 1788520685
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -7165,7 +7170,8 @@
   "7af3f3c7d7878ecf": 1788516572,
   "31701397cec6c6c6": 1788517457,
   "787c16161f3cb587": 1788518341,
-  "b9b4b43c3834180c": 1788519162
+  "b9b4b43c3834180c": 1788519162,
+  "33bebf3b3b9f9fb9": 1788520685
  },
  "learned": {
   "часы мужские": {
@@ -162218,7 +162224,7 @@
   "892724548": {
    "price": 1304,
    "basic": 2900,
-   "ts": 1788520146.1835341,
+   "ts": 1788520685.1877944,
    "samples": [
     [
      1788502006,
@@ -162249,8 +162255,8 @@
      1304
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 1304,
+   "posted_ts": 1788520685.1877944
   },
   "148714931": {
    "price": 1590,
@@ -170313,7 +170319,7 @@
   "789123798": {
    "price": 2106,
    "basic": 7500,
-   "ts": 1788520146.1862857,
+   "ts": 1788520658.8566046,
    "samples": [
     [
      1788499049,
@@ -202124,22 +202130,6 @@
   }
  },
  "queue": [
-  {
-   "id": 892724548,
-   "title": "Футболка оверсайз с принтом на спине",
-   "brand": "RoMaxTex",
-   "product": 1304,
-   "basic": 1304,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 2865,
-   "category": "футболка мужская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "футболка мужская",
-   "queued_ts": 1788520057
-  },
   {
    "id": 789123798,
    "title": "Платье русалка сарафан летний в цветочек",

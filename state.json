@@ -1418,6 +1418,18 @@
  },
  "recent": [
   {
+   "pid": 307757065,
+   "title": "Комплект постельного 2 спального белья с принтом",
+   "discount": 30,
+   "price": 826,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/307757065/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788528223,
+   "drop": 1
+  },
+  {
    "pid": 756243434,
    "title": "Платье летнее больших размеров для высоких",
    "discount": 0,
@@ -6050,18 +6062,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 307757065,
-   "title": "Комплект постельного 2 спального белья с принтом",
-   "discount": 30,
-   "price": 826,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/307757065/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788528223,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6101,10 +6101,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 121,
-   "ok": 89,
-   "rate_limited": 8,
-   "http_error": 24,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6175,7 +6175,7 @@
   "last_scan_cats": [
    "Аксессуары для водителя"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -209401,7 +209401,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

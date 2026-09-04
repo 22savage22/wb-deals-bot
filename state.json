@@ -1426,6 +1426,18 @@
  },
  "recent": [
   {
+   "pid": 1055423380,
+   "title": "Блузка нарядная с коротким рукавом",
+   "discount": 0,
+   "price": 2106,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1055423380/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788535026,
+   "drop": 0
+  },
+  {
    "pid": 333337840,
    "title": "Сумка через плечо кросс-боди черная экокожа",
    "discount": 0,
@@ -6155,18 +6167,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1055423380,
-   "title": "Блузка нарядная с коротким рукавом",
-   "discount": 0,
-   "price": 2106,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1055423380/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788535026,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6205,10 +6205,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 112,
-   "ok": 86,
-   "rate_limited": 6,
-   "http_error": 20,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6307,7 +6307,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788532971.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -214619,7 +214619,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "980933578": {
    "price": 1306,
@@ -214632,7 +214632,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

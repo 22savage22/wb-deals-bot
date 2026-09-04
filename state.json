@@ -6048,10 +6048,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 31,
-   "rate_limited": 4,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6149,7 +6149,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788514671.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -205319,7 +205319,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "907643845": {
    "price": 1737,
@@ -205332,7 +205332,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1354321477": {
    "price": 2905,
@@ -205345,7 +205345,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "579031924": {
    "price": 3325,
@@ -205358,7 +205358,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1434040264": {
    "price": 2542,
@@ -205371,7 +205371,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "193189133": {
    "price": 2845,
@@ -205384,7 +205384,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1210375408": {
    "price": 1695,
@@ -205397,7 +205397,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "968951947": {
    "price": 1352,
@@ -205410,7 +205410,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1022347697": {
    "price": 1639,
@@ -205423,7 +205423,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "915426462": {
    "price": 997,
@@ -205436,7 +205436,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1391404115": {
    "price": 1809,
@@ -205449,7 +205449,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

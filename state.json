@@ -1436,6 +1436,18 @@
  },
  "recent": [
   {
+   "pid": 1224580661,
+   "title": "Футболка оверсайз хлопковая с принтом",
+   "discount": 30,
+   "price": 513,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1224580661/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788544030,
+   "drop": 1
+  },
+  {
    "pid": 333345302,
    "title": "Блузка женская офисная больших размеров",
    "discount": 0,
@@ -6286,18 +6298,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1224580661,
-   "title": "Футболка оверсайз хлопковая с принтом",
-   "discount": 30,
-   "price": 513,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1224580661/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788544030,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6337,10 +6337,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 123,
-   "ok": 90,
-   "rate_limited": 7,
-   "http_error": 26,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

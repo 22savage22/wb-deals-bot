@@ -1416,6 +1416,18 @@
  },
  "recent": [
   {
+   "pid": 756243434,
+   "title": "Платье летнее больших размеров для высоких",
+   "discount": 0,
+   "price": 2400,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/756243434/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788527313,
+   "drop": 0
+  },
+  {
    "pid": 447177176,
    "title": "Блузка нарядная с воланами",
    "discount": 0,
@@ -6036,18 +6048,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 756243434,
-   "title": "Платье летнее больших размеров для высоких",
-   "discount": 0,
-   "price": 2400,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/756243434/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788527313,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6087,10 +6087,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 125,
-   "ok": 94,
-   "rate_limited": 8,
-   "http_error": 23,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6188,7 +6188,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788514671.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788512570.0
  },
  "admin_ui": {
@@ -208364,7 +208364,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

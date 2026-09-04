@@ -1,1 +1,34 @@
-[]
+[
+ {
+  "id": 1000744201,
+  "title": "Вечернее платье мини в горошек",
+  "brand": "Affirmaris",
+  "product": 2076,
+  "basic": 2076,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 828,
+  "category": "платье женское",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "платье женское",
+  "queued_ts": 1788483030
+ },
+ {
+  "id": 879890811,
+  "title": "Футболка приталенная с принтом",
+  "brand": "ТВОЕ",
+  "product": 407,
+  "basic": 407,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 6312,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1788483030
+ }
+]

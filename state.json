@@ -1434,6 +1434,18 @@
  },
  "recent": [
   {
+   "pid": 990786874,
+   "title": "Джинсы Slim Fit со средней посадкой",
+   "discount": 20,
+   "price": 1180,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/990786874/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788542293,
+   "drop": 1
+  },
+  {
    "pid": 668835197,
    "title": "Джинсы мужские прямые широкие",
    "discount": 0,
@@ -6260,18 +6272,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 990786874,
-   "title": "Джинсы Slim Fit со средней посадкой",
-   "discount": 20,
-   "price": 1180,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/990786874/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788542293,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6311,10 +6311,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 100,
-   "rate_limited": 4,
-   "http_error": 31,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -219428,7 +219428,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

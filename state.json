@@ -5796,10 +5796,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 27,
-   "rate_limited": 16,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

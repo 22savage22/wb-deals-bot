@@ -1385,6 +1385,18 @@
  },
  "recent": [
   {
+   "pid": 766913880,
+   "title": "Джинсы широкие багги",
+   "discount": 20,
+   "price": 1912,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/766913880/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788481796,
+   "drop": 1
+  },
+  {
    "pid": 14725502,
    "title": "Джинсы бананы мом высокая посадка mom",
    "discount": 0,
@@ -5626,18 +5638,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 766913880,
-   "title": "Джинсы широкие багги",
-   "discount": 20,
-   "price": 1912,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/766913880/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788481796,
-   "drop": 1
   }
  ],
  "meta": {
@@ -5676,10 +5676,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 70,
-   "ok": 36,
-   "rate_limited": 20,
-   "http_error": 14,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5750,7 +5750,7 @@
   "last_scan_cats": [
    "Пуфы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 99,
@@ -167276,7 +167276,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

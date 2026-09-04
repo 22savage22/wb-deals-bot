@@ -5836,10 +5836,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 40,
-   "rate_limited": 26,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

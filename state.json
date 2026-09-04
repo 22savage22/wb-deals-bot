@@ -6535,10 +6535,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 28,
-   "rate_limited": 20,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6636,7 +6636,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788549090.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788556830.0
  },
  "admin_ui": {
@@ -6650,7 +6650,6 @@
   "кроссовки": 1787650823,
   "кроссовкиженские": 1787688014,
   "телевизорminiledspromini65l65mbsru2026": 1787403129,
-  "премиумкроссовкидемисезонныекожаныечерные": 1787348222,
   "смартфонhonor400pro12512гбкомфортнаяигравигры": 1787349533,
   "смартфонf8ultra12256гбglobal": 1787351749,
   "кроссовкиженскиеспортивныезамшевые": 1787366548,
@@ -7825,19 +7824,6 @@
    ],
    "posted_price": 96772,
    "posted_ts": 1787403129.7702732
-  },
-  "1159067788": {
-   "price": 2661,
-   "basic": 12818,
-   "ts": 1787348222.4050882,
-   "samples": [
-    [
-     1787348222,
-     2661
-    ]
-   ],
-   "posted_price": 2661,
-   "posted_ts": 1787348222.4050882
   },
   "1104759130": {
    "price": 6643,
@@ -225361,7 +225347,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "13404713": {
    "price": 832,
@@ -225374,7 +225360,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "113263474": {
    "price": 922,
@@ -225387,7 +225373,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1055400308": {
    "price": 490,
@@ -225400,7 +225386,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "399087881": {
    "price": 684,
@@ -225413,7 +225399,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1087716713": {
    "price": 352,
@@ -225426,7 +225412,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1180153858": {
    "price": 910,
@@ -225439,7 +225425,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1061775970": {
    "price": 633,
@@ -225452,7 +225438,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "756582793": {
    "price": 1199,
@@ -225465,7 +225451,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "48947950": {
    "price": 1079,
@@ -225478,7 +225464,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1021409536": {
    "price": 757,
@@ -225491,7 +225477,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "988131967": {
    "price": 1101,
@@ -225504,7 +225490,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

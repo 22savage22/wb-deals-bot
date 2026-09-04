@@ -1419,6 +1419,18 @@
  },
  "recent": [
   {
+   "pid": 236309613,
+   "title": "Базовая плотная приталенная футболка",
+   "discount": 18,
+   "price": 685,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/236309613/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788529039,
+   "drop": 1
+  },
+  {
    "pid": 307757065,
    "title": "Комплект постельного 2 спального белья с принтом",
    "discount": 30,
@@ -6063,18 +6075,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 236309613,
-   "title": "Базовая плотная приталенная футболка",
-   "discount": 18,
-   "price": 685,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/236309613/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788529039,
-   "drop": 1
   }
  ],
  "meta": {
@@ -6114,10 +6114,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 108,
-   "ok": 85,
-   "rate_limited": 3,
-   "http_error": 20,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6188,7 +6188,7 @@
   "last_scan_cats": [
    "Аксессуары для водителя"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -209524,7 +209524,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

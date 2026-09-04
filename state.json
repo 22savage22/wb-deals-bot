@@ -1387,6 +1387,19 @@
  },
  "recent": [
   {
+   "pid": 1000744201,
+   "title": "Вечернее платье мини в горошек",
+   "discount": 0,
+   "price": 2076,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1000744201/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788483657,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 243716538,
    "title": "Футболка оверсайз черная",
    "discount": 0,
@@ -5652,19 +5665,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1000744201,
-   "title": "Вечернее платье мини в горошек",
-   "discount": 0,
-   "price": 2076,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1000744201/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788483657,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5693,10 +5693,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 18,
-   "rate_limited": 9,
-   "http_error": 0,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -5768,7 +5768,7 @@
    "Пледы",
    "Банкетки"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

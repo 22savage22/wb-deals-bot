@@ -1533,6 +1533,18 @@
  },
  "recent": [
   {
+   "pid": 462624236,
+   "title": "ремень женский",
+   "discount": 16,
+   "price": 840,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/462624236/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788643348,
+   "drop": 1
+  },
+  {
    "pid": 783932281,
    "title": "Ремень женский черный для джинс и брюк",
    "discount": 20,
@@ -7541,18 +7553,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 462624236,
-   "title": "ремень женский",
-   "discount": 16,
-   "price": 840,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/462624236/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788643348,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7590,10 +7590,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 28,
-   "rate_limited": 26,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7669,7 +7669,7 @@
    "Для песочницы",
    "Растяжители и колодки для обуви"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

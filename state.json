@@ -1504,6 +1504,18 @@
  },
  "recent": [
   {
+   "pid": 371984142,
+   "title": "Сумка кросс-боди через плечо маленькая кремовая",
+   "discount": 0,
+   "price": 1404,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/371984142/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788619925,
+   "drop": 0
+  },
+  {
    "pid": 585634618,
    "title": "Футболка летняя стильная с принтом из хлопка оверсайз",
    "discount": 20,
@@ -7190,18 +7202,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 371984142,
-   "title": "Сумка кросс-боди через плечо маленькая кремовая",
-   "discount": 0,
-   "price": 1404,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/371984142/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788619925,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7241,10 +7241,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 69,
-   "rate_limited": 2,
-   "http_error": 14,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7320,7 +7320,7 @@
    "Пробники",
    "Венки декоративные"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

@@ -1460,6 +1460,19 @@
  },
  "recent": [
   {
+   "pid": 159572224,
+   "title": "Браслет из натуральных камней",
+   "discount": 28,
+   "price": 855,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/159572224/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788572180,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 269966482,
    "title": "Браслет на руку из натуральных камней",
    "discount": 28,
@@ -6602,19 +6615,6 @@
    "cat": "телефон",
    "ts": 1787694489,
    "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 159572224,
-   "title": "Браслет из натуральных камней",
-   "discount": 28,
-   "price": 855,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/159572224/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788572180,
-   "drop": 1,
    "quality": "A"
   }
  ],

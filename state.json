@@ -7578,10 +7578,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 56,
-   "ok": 25,
-   "rate_limited": 25,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7657,7 +7657,7 @@
    "Для песочницы",
    "Растяжители и колодки для обуви"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

@@ -7617,10 +7617,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 16,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -7685,12 +7685,12 @@
   "today": "2026-09-05",
   "today_posts": 83,
   "total_posts": 786,
-  "last_scan": 1788643354,
+  "last_scan": 1788646665,
   "last_scan_queries": [
-   "постельное белье",
-   "ремень женский",
    "платье женское",
-   "футболка мужская"
+   "футболка мужская",
+   "джинсы женские",
+   "футболка женская"
   ],
   "last_scan_cats": [
    "Зажимы и закладки",
@@ -7699,14 +7699,11 @@
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 100,
-   "strict": 1,
-   "fallback": 99,
-   "reserve": 0,
-   "duplicate": 3,
-   "title_duplicate": 12
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -7720,7 +7717,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788631302.0,
   "last_engagement_ts": 1788646661.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788644384.0
  },
  "admin_ui": {
@@ -280642,9 +280639,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1788646661.0618608,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788646956.4014096,
+   "runs": 25,
+   "empty": 5
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -280660,9 +280657,9 @@
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",
-   "ts": 1788646661.0618608,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788646956.4014096,
+   "runs": 25,
+   "empty": 5
   },
   "Посуда": {
    "shard": "gift23",

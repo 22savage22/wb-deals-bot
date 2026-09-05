@@ -1493,6 +1493,18 @@
  },
  "recent": [
   {
+   "pid": 506773045,
+   "title": "Платье домашнее больших размеров жираф",
+   "discount": 0,
+   "price": 1384,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/506773045/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788610203,
+   "drop": 0
+  },
+  {
    "pid": 150625892,
    "title": "Футболка поло с коротким рукавом",
    "discount": 0,
@@ -7045,18 +7057,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 506773045,
-   "title": "Платье домашнее больших размеров жираф",
-   "discount": 0,
-   "price": 1384,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/506773045/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788610203,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7096,10 +7096,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 78,
-   "rate_limited": 5,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7175,7 +7175,7 @@
    "Для чая",
    "Спецодежда медицинская"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -7201,7 +7201,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788592338.0,
   "last_engagement_ts": 1788607113.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788600465.0
  },
  "admin_ui": {
@@ -257797,7 +257797,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "156129618": {
    "price": 200,
@@ -257810,7 +257810,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "525229700": {
    "price": 3607,
@@ -257823,7 +257823,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -1507,6 +1507,19 @@
  },
  "recent": [
   {
+   "pid": 409804910,
+   "title": "Сумка через плечо средняя у2к",
+   "discount": 0,
+   "price": 1626,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/409804910/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788622666,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1434189681,
    "title": "Средняя черная сумка",
    "discount": 0,
@@ -7230,19 +7243,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 409804910,
-   "title": "Сумка через плечо средняя у2к",
-   "discount": 0,
-   "price": 1626,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/409804910/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788622666,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7269,10 +7269,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 15,
-   "rate_limited": 10,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7348,7 +7348,7 @@
    "Трубопроводы",
    "Кофе и цикорий"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 200,

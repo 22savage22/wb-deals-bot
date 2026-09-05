@@ -1461,6 +1461,19 @@
  },
  "recent": [
   {
+   "pid": 177002042,
+   "title": "Трикотажное платье вязаное лапша",
+   "discount": 0,
+   "price": 3719,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/177002042/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788572815,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 159572224,
    "title": "Браслет из натуральных камней",
    "discount": 28,
@@ -6617,19 +6630,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 177002042,
-   "title": "Трикотажное платье вязаное лапша",
-   "discount": 0,
-   "price": 3719,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/177002042/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788572815,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6656,10 +6656,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 19,
-   "ok": 9,
-   "rate_limited": 8,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6734,7 +6734,7 @@
   "last_scan_cats": [
    "Матрасы-топперы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 101,

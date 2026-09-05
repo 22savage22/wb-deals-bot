@@ -1532,6 +1532,18 @@
  },
  "recent": [
   {
+   "pid": 783932281,
+   "title": "Ремень женский черный для джинс и брюк",
+   "discount": 20,
+   "price": 304,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/783932281/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788641683,
+   "drop": 1
+  },
+  {
    "pid": 988794040,
    "title": "Сумка через плечо барсетка",
    "discount": 20,
@@ -7528,18 +7540,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 783932281,
-   "title": "Ремень женский черный для джинс и брюк",
-   "discount": 20,
-   "price": 304,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/783932281/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788641683,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7579,10 +7579,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 77,
-   "rate_limited": 9,
-   "http_error": 11,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7658,7 +7658,7 @@
    "Для песочницы",
    "Растяжители и колодки для обуви"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

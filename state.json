@@ -7656,10 +7656,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -7724,30 +7724,25 @@
   "today": "2026-09-05",
   "today_posts": 86,
   "total_posts": 789,
-  "last_scan": 1788648367,
+  "last_scan": 1788650196,
   "last_scan_queries": [
-   "футболка мужская",
    "платье женское",
-   "джинсы женские",
-   "кепка женская"
+   "кепка женская",
+   "футболка мужская",
+   "джинсы женские"
   ],
   "last_scan_cats": [
    "Восточные сладости",
-   "Сварочное оборудование"
+   "Аксессуары для водителя"
   ],
-  "queue_size": 1,
-  "last_scan_added": 1,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 289,
-   "rating": 10,
-   "bad_price": 1,
-   "strict": 1,
-   "fallback": 288,
-   "reserve": 0,
-   "duplicate": 9,
-   "title_duplicate": 52
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -282109,9 +282104,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1788650192.5106223,
-   "runs": 33,
-   "empty": 3
+   "ts": 1788650426.5414186,
+   "runs": 34,
+   "empty": 4
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -282283,9 +282278,9 @@
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
-   "ts": 1788650192.5106223,
-   "runs": 23,
-   "empty": 3
+   "ts": 1788650426.5414186,
+   "runs": 24,
+   "empty": 4
   },
   "Археология": {
    "shard": "books_archeology",

@@ -1531,6 +1531,19 @@
  },
  "recent": [
   {
+   "pid": 988794040,
+   "title": "Сумка через плечо барсетка",
+   "discount": 20,
+   "price": 384,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/988794040/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788640794,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 1311517029,
    "title": "Средняя замшевая бордовая сумка",
    "discount": 0,
@@ -7514,19 +7527,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 988794040,
-   "title": "Сумка через плечо барсетка",
-   "discount": 20,
-   "price": 384,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/988794040/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788640794,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -7555,10 +7555,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 23,
+   "calls": 55,
+   "ok": 39,
    "rate_limited": 0,
-   "http_error": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7634,7 +7634,7 @@
    "Для песочницы",
    "Растяжители и колодки для обуви"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

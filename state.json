@@ -7590,10 +7590,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 6,
-   "rate_limited": 10,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

@@ -1479,6 +1479,19 @@
  },
  "recent": [
   {
+   "pid": 204927451,
+   "title": "Шапка кепка вязаная с козырьком",
+   "discount": 0,
+   "price": 1235,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/204927451/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788590434,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1052337818,
    "title": "Винтажная кепка y2k варенка с потертостями",
    "discount": 17,
@@ -6858,19 +6871,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 204927451,
-   "title": "Шапка кепка вязаная с козырьком",
-   "discount": 0,
-   "price": 1235,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/204927451/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788590434,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

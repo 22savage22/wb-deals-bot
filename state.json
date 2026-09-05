@@ -1497,6 +1497,18 @@
  },
  "recent": [
   {
+   "pid": 391196646,
+   "title": "Платье домашнее больших размеров",
+   "discount": 0,
+   "price": 1492,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/391196646/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788614484,
+   "drop": 0
+  },
+  {
    "pid": 229363274,
    "title": "Джинсы широкие трубы с высокой посадкой",
    "discount": 0,
@@ -7097,18 +7109,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 391196646,
-   "title": "Платье домашнее больших размеров",
-   "discount": 0,
-   "price": 1492,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391196646/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788614484,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7147,10 +7147,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 118,
-   "ok": 91,
-   "rate_limited": 6,
-   "http_error": 21,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

@@ -1483,6 +1483,19 @@
  },
  "recent": [
   {
+   "pid": 140692584,
+   "title": "Джинсы женские широкие с высокой посадкой багги синие",
+   "discount": 0,
+   "price": 2546,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/140692584/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788602170,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 148111324,
    "title": "Джинсы женские прямые трубы с высокой посадкой",
    "discount": 0,
@@ -6911,19 +6924,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 140692584,
-   "title": "Джинсы женские широкие с высокой посадкой багги синие",
-   "discount": 0,
-   "price": 2546,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/140692584/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788602170,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6952,10 +6952,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 26,
-   "rate_limited": 3,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7031,7 +7031,7 @@
    "Хобби и досуг",
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

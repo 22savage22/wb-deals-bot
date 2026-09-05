@@ -1505,6 +1505,18 @@
  },
  "recent": [
   {
+   "pid": 815399826,
+   "title": "Блузка нарядная летняя",
+   "discount": 0,
+   "price": 1513,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/815399826/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788621384,
+   "drop": 0
+  },
+  {
    "pid": 371984142,
    "title": "Сумка кросс-боди через плечо маленькая кремовая",
    "discount": 0,
@@ -7203,18 +7215,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 815399826,
-   "title": "Блузка нарядная летняя",
-   "discount": 0,
-   "price": 1513,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/815399826/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788621384,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7252,10 +7252,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 40,
-   "rate_limited": 19,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7331,7 +7331,7 @@
    "Пробники",
    "Венки декоративные"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

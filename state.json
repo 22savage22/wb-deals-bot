@@ -1526,6 +1526,18 @@
  },
  "recent": [
   {
+   "pid": 225302973,
+   "title": "Футболка оверсайз хлопок 100%",
+   "discount": 20,
+   "price": 355,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/225302973/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788636550,
+   "drop": 1
+  },
+  {
    "pid": 312921060,
    "title": "Колье на шею гематит и речной жемчуг",
    "discount": 0,
@@ -7449,18 +7461,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 225302973,
-   "title": "Футболка оверсайз хлопок 100%",
-   "discount": 20,
-   "price": 355,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/225302973/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788636550,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7500,10 +7500,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 100,
-   "ok": 83,
-   "rate_limited": 4,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7579,7 +7579,7 @@
    "Насосное оборудование",
    "Посуда"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -273032,7 +273032,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

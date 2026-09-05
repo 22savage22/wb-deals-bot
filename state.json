@@ -7174,10 +7174,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 72,
-   "rate_limited": 8,
-   "http_error": 10,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

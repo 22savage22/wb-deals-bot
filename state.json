@@ -1525,6 +1525,19 @@
  },
  "recent": [
   {
+   "pid": 312921060,
+   "title": "Колье на шею гематит и речной жемчуг",
+   "discount": 0,
+   "price": 1718,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/312921060/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788635736,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1106053922,
    "title": "Кольцо с большим камнем и дорожкой кристаллов",
    "discount": 20,
@@ -7435,19 +7448,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 312921060,
-   "title": "Колье на шею гематит и речной жемчуг",
-   "discount": 0,
-   "price": 1718,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/312921060/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788635736,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7476,10 +7476,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 26,
-   "rate_limited": 2,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7555,7 +7555,7 @@
    "Насосное оборудование",
    "Посуда"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

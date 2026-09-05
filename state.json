@@ -1527,6 +1527,18 @@
  },
  "recent": [
   {
+   "pid": 898616609,
+   "title": "Футболка с печатью оверсайз",
+   "discount": 20,
+   "price": 634,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/898616609/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788637451,
+   "drop": 1
+  },
+  {
    "pid": 225302973,
    "title": "Футболка оверсайз хлопок 100%",
    "discount": 20,
@@ -7462,18 +7474,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 898616609,
-   "title": "Футболка с печатью оверсайз",
-   "discount": 20,
-   "price": 634,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/898616609/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788637451,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7513,10 +7513,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 74,
-   "rate_limited": 9,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7592,7 +7592,7 @@
    "Насосное оборудование",
    "Посуда"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

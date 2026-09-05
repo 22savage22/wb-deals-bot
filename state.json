@@ -6909,10 +6909,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 22,
-   "rate_limited": 3,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

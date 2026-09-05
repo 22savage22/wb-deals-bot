@@ -1477,6 +1477,19 @@
  },
  "recent": [
   {
+   "pid": 958324324,
+   "title": "Универсальная чёрная кепка",
+   "discount": 20,
+   "price": 400,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/958324324/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788589168,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 1096175399,
    "title": "Бейсболка унисекс для него и для нее",
    "discount": 30,
@@ -6830,19 +6843,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 958324324,
-   "title": "Универсальная чёрная кепка",
-   "discount": 20,
-   "price": 400,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/958324324/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788589168,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -6871,10 +6871,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 24,
-   "ok": 14,
-   "rate_limited": 7,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6949,7 +6949,7 @@
   "last_scan_cats": [
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 200,

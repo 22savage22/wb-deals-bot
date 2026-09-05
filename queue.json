@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 958324324,
+  "title": "Универсальная чёрная кепка",
+  "brand": "",
+  "product": 400,
+  "basic": 500,
+  "discount": 20,
+  "benefit": 100,
+  "rating": 4.9,
+  "feedbacks": 231,
+  "category": "кепка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "кепка женская",
+  "queued_ts": 1788588530
+ },
+ {
+  "id": 1052337818,
+  "title": "Винтажная кепка y2k варенка с потертостями",
+  "brand": "Нет бренда",
+  "product": 815,
+  "basic": 980,
+  "discount": 17,
+  "benefit": 165,
+  "rating": 5.0,
+  "feedbacks": 1,
+  "category": "кепка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "кепка женская",
+  "queued_ts": 1788588530
+ },
+ {
+  "id": 204927451,
+  "title": "Шапка кепка вязаная с козырьком",
+  "brand": "FOMAS",
+  "product": 1235,
+  "basic": 1235,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.8,
+  "feedbacks": 767,
+  "category": "кепка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "кепка женская",
+  "queued_ts": 1788588530
+ }
+]

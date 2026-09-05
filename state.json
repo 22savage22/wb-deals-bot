@@ -1502,6 +1502,18 @@
  },
  "recent": [
   {
+   "pid": 566879636,
+   "title": "Колье длинное бижутерия",
+   "discount": 30,
+   "price": 446,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/566879636/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788618490,
+   "drop": 1
+  },
+  {
    "pid": 7519281,
    "title": "Плед 150х200 однотонный пушистый на кровать на диван",
    "discount": 0,
@@ -7163,18 +7175,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 566879636,
-   "title": "Колье длинное бижутерия",
-   "discount": 30,
-   "price": 446,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/566879636/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788618490,
-   "drop": 1
   }
  ],
  "meta": {
@@ -263604,7 +263604,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

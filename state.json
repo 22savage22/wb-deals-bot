@@ -6638,10 +6638,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 12,
-   "rate_limited": 24,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6716,7 +6716,7 @@
   "last_scan_cats": [
    "Матрасы-топперы"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 201,

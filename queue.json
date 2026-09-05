@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 1434189681,
+  "title": "Средняя черная сумка",
+  "brand": "Novelli",
+  "product": 3672,
+  "basic": 3672,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 1568,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1788621390
+ },
+ {
+  "id": 409804910,
+  "title": "Сумка через плечо средняя у2к",
+  "brand": "LLEVATELO",
+  "product": 1626,
+  "basic": 1626,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 693,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1788621390
+ },
+ {
+  "id": 169027620,
+  "title": "Сумка рюкзак трансформер повседневный",
+  "brand": "ZEFORA",
+  "product": 1789,
+  "basic": 1789,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 17731,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1788621390
+ }
+]

@@ -1,1 +1,34 @@
-[]
+[
+ {
+  "id": 237031664,
+  "title": "Джинсы мом с высокой посадкой",
+  "brand": "Giorgio Ferretti",
+  "product": 3197,
+  "basic": 3197,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 587,
+  "category": "джинсы женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "джинсы женские",
+  "queued_ts": 1788577168
+ },
+ {
+  "id": 854140231,
+  "title": "Джинсы широкие палаццо",
+  "brand": "L.A.F",
+  "product": 3659,
+  "basic": 3659,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 819,
+  "category": "джинсы женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "джинсы женские",
+  "queued_ts": 1788577168
+ }
+]

@@ -1494,6 +1494,18 @@
  },
  "recent": [
   {
+   "pid": 477953133,
+   "title": "Джинсы клёш у2к flared rick owens",
+   "discount": 0,
+   "price": 3378,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/477953133/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788611083,
+   "drop": 0
+  },
+  {
    "pid": 506773045,
    "title": "Платье домашнее больших размеров жираф",
    "discount": 0,
@@ -7058,18 +7070,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 477953133,
-   "title": "Джинсы клёш у2к flared rick owens",
-   "discount": 0,
-   "price": 3378,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/477953133/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788611083,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7109,10 +7109,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 82,
-   "rate_limited": 7,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7188,7 +7188,7 @@
    "Для чая",
    "Спецодежда медицинская"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -7214,7 +7214,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788592338.0,
   "last_engagement_ts": 1788607113.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788600465.0
  },
  "admin_ui": {

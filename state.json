@@ -746,7 +746,8 @@
   "1023641601": 1788574870,
   "402984138": 1788575525,
   "840194402": 1788576163,
-  "453786406": 1788577141
+  "453786406": 1788577141,
+  "237031664": 1788577783
  },
  "feedback": {
   "855179327": {
@@ -1397,11 +1398,11 @@
    "ts": 1788575525.0125482
   },
   "джинсы женские": {
-   "posts": 55.775295215172555,
+   "posts": 57.57749731088758,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788574870.2041903
+   "ts": 1788577783.5154138
   },
   "футболка мужская": {
    "posts": 57.76452897811063,
@@ -6684,10 +6685,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 237031664,
+   "title": "Джинсы мом с высокой посадкой",
+   "discount": 0,
+   "price": 3197,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/237031664/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788577783,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788576768,
+  "last_run": 1788577768,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -6706,24 +6720,14 @@
   "digest_date": "2026-09-05",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 501,
-   "cards": 501,
-   "ok": 483,
-   "rating": 13,
-   "bad_price": 5,
-   "strict": 3,
-   "fallback": 480,
-   "reserve": 0,
-   "repost": 26,
-   "title_duplicate": 127,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 20,
+   "ok": 12,
+   "rate_limited": 7,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -6786,8 +6790,8 @@
    }
   ],
   "today": "2026-09-05",
-  "today_posts": 16,
-  "total_posts": 719,
+  "today_posts": 17,
+  "total_posts": 720,
   "last_scan": 1788577168,
   "last_scan_queries": [
    "платье женское",
@@ -6798,7 +6802,7 @@
   "last_scan_cats": [
    "Серия Galaxy A"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,
@@ -6811,18 +6815,18 @@
    "title_duplicate": 35
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 2,
    "selected": 1,
-   "refresh_ok": 1,
+   "refresh_ok": 2,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 1
   },
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788574871.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1788556830.0
  },
  "admin_ui": {
@@ -7346,7 +7350,8 @@
   "джинсыклешнасреднейпосадкеy2k": 1788574870,
   "футболкаполооднотоннаябазоваясворотникомvвырез": 1788575525,
   "футболкабелаяоднотоннаябазоваячистыйхлопок": 1788576163,
-  "кружевнаявечерняяблузкасрюшамииволанами": 1788577141
+  "кружевнаявечерняяблузкасрюшамииволанами": 1788577141,
+  "джинсымомсвысокойпосадкой": 1788577783
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -7981,7 +7986,8 @@
   "373669f0e4e0e4e4": 1788572815,
   "631830969e8db879": 1788575525,
   "a727170707060771": 1788576163,
-  "61692b9e8e79d9f8": 1788577141
+  "61692b9e8e79d9f8": 1788577141,
+  "620e0e4fcf1b192f": 1788577783
  },
  "learned": {
   "часы мужские": {
@@ -186140,7 +186146,7 @@
   "237031664": {
    "price": 3197,
    "basic": 5500,
-   "ts": 1788577303.696405,
+   "ts": 1788577783.5153677,
    "samples": [
     [
      1788522106,
@@ -186171,8 +186177,8 @@
      3197
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 3197,
+   "posted_ts": 1788577783.5153677
   },
   "885055252": {
    "price": 3837,
@@ -228662,7 +228668,7 @@
   "854140231": {
    "price": 3659,
    "basic": 7999,
-   "ts": 1788577303.6964426,
+   "ts": 1788577769.7338443,
    "samples": [
     [
      1788558287,
@@ -235740,22 +235746,6 @@
   }
  },
  "queue": [
-  {
-   "id": 237031664,
-   "title": "Джинсы мом с высокой посадкой",
-   "brand": "Giorgio Ferretti",
-   "product": 3197,
-   "basic": 3197,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 587,
-   "category": "джинсы женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "джинсы женские",
-   "queued_ts": 1788577168
-  },
   {
    "id": 854140231,
    "title": "Джинсы широкие палаццо",

@@ -7029,10 +7029,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 61,
-   "rate_limited": 9,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7108,7 +7108,7 @@
    "Группа 1-2 (9-25 кг)",
    "Хобби и досуг"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

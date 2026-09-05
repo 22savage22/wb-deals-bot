@@ -1462,6 +1462,18 @@
  },
  "recent": [
   {
+   "pid": 1023641601,
+   "title": "Джинсы клеш на средней посадке y2k",
+   "discount": 20,
+   "price": 1897,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1023641601/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788574870,
+   "drop": 1
+  },
+  {
    "pid": 177002042,
    "title": "Трикотажное платье вязаное лапша",
    "discount": 0,
@@ -6631,18 +6643,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1023641601,
-   "title": "Джинсы клеш на средней посадке y2k",
-   "discount": 20,
-   "price": 1897,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1023641601/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788574870,
-   "drop": 1
   }
  ],
  "meta": {

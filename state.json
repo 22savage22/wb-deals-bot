@@ -1515,6 +1515,18 @@
  },
  "recent": [
   {
+   "pid": 815504777,
+   "title": "Футболка нарядная с принтом хлопковая",
+   "discount": 30,
+   "price": 426,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/815504777/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788627766,
+   "drop": 1
+  },
+  {
    "pid": 492413002,
    "title": "Джинсы классические прямые",
    "discount": 68,
@@ -7327,18 +7339,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 815504777,
-   "title": "Футболка нарядная с принтом хлопковая",
-   "discount": 30,
-   "price": 426,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/815504777/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788627766,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7378,9 +7378,9 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 103,
-   "ok": 85,
-   "rate_limited": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
    "http_error": 16,
    "network_error": 0,
    "json_error": 0
@@ -7483,7 +7483,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788592338.0,
   "last_engagement_ts": 1788627767.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788600465.0
  },
  "admin_ui": {

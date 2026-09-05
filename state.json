@@ -7432,10 +7432,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 19,
-   "rate_limited": 6,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

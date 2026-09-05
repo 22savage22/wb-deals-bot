@@ -1496,6 +1496,18 @@
  },
  "recent": [
   {
+   "pid": 229363274,
+   "title": "Джинсы широкие трубы с высокой посадкой",
+   "discount": 0,
+   "price": 6814,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/229363274/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788612660,
+   "drop": 0
+  },
+  {
    "pid": 327410057,
    "title": "Блузка женская с объемной розой",
    "discount": 0,
@@ -7084,18 +7096,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 229363274,
-   "title": "Джинсы широкие трубы с высокой посадкой",
-   "discount": 0,
-   "price": 6814,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/229363274/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788612660,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7135,10 +7135,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 116,
-   "ok": 91,
-   "rate_limited": 3,
-   "http_error": 22,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

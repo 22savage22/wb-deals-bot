@@ -1495,6 +1495,18 @@
  },
  "recent": [
   {
+   "pid": 327410057,
+   "title": "Блузка женская с объемной розой",
+   "discount": 0,
+   "price": 3025,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/327410057/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788611881,
+   "drop": 0
+  },
+  {
    "pid": 477953133,
    "title": "Джинсы клёш у2к flared rick owens",
    "discount": 0,
@@ -7071,18 +7083,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 327410057,
-   "title": "Блузка женская с объемной розой",
-   "discount": 0,
-   "price": 3025,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/327410057/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788611881,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7122,10 +7122,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 92,
-   "ok": 77,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

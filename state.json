@@ -1492,6 +1492,19 @@
  },
  "recent": [
   {
+   "pid": 150625892,
+   "title": "Футболка поло с коротким рукавом",
+   "discount": 0,
+   "price": 1809,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/150625892/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788609363,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 762061244,
    "title": "Джинсы широкие палаццо клеш от бедра с высокой посадкой",
    "discount": 0,
@@ -7031,19 +7044,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 150625892,
-   "title": "Футболка поло с коротким рукавом",
-   "discount": 0,
-   "price": 1809,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/150625892/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788609363,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7071,10 +7071,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 27,
-   "rate_limited": 3,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7150,7 +7150,7 @@
    "Для чая",
    "Спецодежда медицинская"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -7176,7 +7176,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788592338.0,
   "last_engagement_ts": 1788607113.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788600465.0
  },
  "admin_ui": {

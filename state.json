@@ -6679,10 +6679,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 27,
-   "rate_limited": 21,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -6757,7 +6757,7 @@
   "last_scan_cats": [
    "Матрасы-топперы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 101,
@@ -6782,7 +6782,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788503846.0,
   "last_engagement_ts": 1788574871.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788556830.0
  },
  "admin_ui": {

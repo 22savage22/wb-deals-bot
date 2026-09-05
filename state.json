@@ -1537,6 +1537,18 @@
  },
  "recent": [
   {
+   "pid": 1088105582,
+   "title": "Футболка спортивная с лампасами",
+   "discount": 0,
+   "price": 1583,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1088105582/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788648860,
+   "drop": 0
+  },
+  {
    "pid": 341783355,
    "title": "Джинсы багги широкие y2k с потертостями оверсайз baggy",
    "discount": 0,
@@ -7593,18 +7605,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1088105582,
-   "title": "Футболка спортивная с лампасами",
-   "discount": 0,
-   "price": 1583,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1088105582/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788648860,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7643,10 +7643,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 16,
-   "rate_limited": 18,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7748,7 +7748,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788631302.0,
   "last_engagement_ts": 1788646661.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788644384.0
  },
  "admin_ui": {

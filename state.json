@@ -1484,6 +1484,18 @@
  },
  "recent": [
   {
+   "pid": 846211278,
+   "title": "Футболка нарядная со стразами больших размеров оверсайз",
+   "discount": 0,
+   "price": 1770,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/846211278/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788603258,
+   "drop": 0
+  },
+  {
    "pid": 140692584,
    "title": "Джинсы женские широкие с высокой посадкой багги синие",
    "discount": 0,
@@ -6925,18 +6937,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 846211278,
-   "title": "Футболка нарядная со стразами больших размеров оверсайз",
-   "discount": 0,
-   "price": 1770,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/846211278/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788603258,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6976,10 +6976,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 13,
-   "rate_limited": 22,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7055,7 +7055,7 @@
    "Хобби и досуг",
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

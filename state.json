@@ -1490,6 +1490,18 @@
  },
  "recent": [
   {
+   "pid": 294073179,
+   "title": "Платье весеннее вельветовое повседневное",
+   "discount": 0,
+   "price": 3427,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/294073179/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788607891,
+   "drop": 0
+  },
+  {
    "pid": 1124248887,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 30,
@@ -7005,18 +7017,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 294073179,
-   "title": "Платье весеннее вельветовое повседневное",
-   "discount": 0,
-   "price": 3427,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/294073179/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788607891,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7055,10 +7055,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 98,
-   "ok": 81,
-   "rate_limited": 2,
-   "http_error": 15,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7160,7 +7160,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788592338.0,
   "last_engagement_ts": 1788607113.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788600465.0
  },
  "admin_ui": {

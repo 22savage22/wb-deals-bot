@@ -1520,6 +1520,18 @@
  },
  "recent": [
   {
+   "pid": 1284763336,
+   "title": "Жемчужное ожерелье бижутерия колье",
+   "discount": 20,
+   "price": 688,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1284763336/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788632206,
+   "drop": 1
+  },
+  {
    "pid": 412107792,
    "title": "Комплект постельного белья 2 спальный перкаль",
    "discount": 0,
@@ -7368,18 +7380,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1284763336,
-   "title": "Жемчужное ожерелье бижутерия колье",
-   "discount": 20,
-   "price": 688,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1284763336/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788632206,
-   "drop": 1
   }
  ],
  "meta": {
@@ -7418,10 +7418,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 123,
-   "ok": 93,
-   "rate_limited": 8,
-   "http_error": 22,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

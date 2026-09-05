@@ -1487,6 +1487,19 @@
  },
  "recent": [
   {
+   "pid": 159700894,
+   "title": "Футболка летняя из хлопка набор 3 штуки",
+   "discount": 0,
+   "price": 1456,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/159700894/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788605394,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 486154008,
    "title": "Платье домашнее",
    "discount": 0,
@@ -6965,19 +6978,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 159700894,
-   "title": "Футболка летняя из хлопка набор 3 штуки",
-   "discount": 0,
-   "price": 1456,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/159700894/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788605394,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7006,10 +7006,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 29,
-   "rate_limited": 2,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7085,7 +7085,7 @@
    "Группа 1-2 (9-25 кг)",
    "Хобби и досуг"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

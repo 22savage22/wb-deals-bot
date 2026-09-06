@@ -8737,10 +8737,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 14,
+   "ok": 5,
+   "rate_limited": 7,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -8805,30 +8805,25 @@
   "today": "2026-09-06",
   "today_posts": 86,
   "total_posts": 869,
-  "last_scan": 1788736792,
+  "last_scan": 1788738218,
   "last_scan_queries": [
    "платье женское",
-   "джинсы женские",
    "кепка женская",
-   "футболка мужская"
+   "футболка мужская",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Пуфы",
-   "Пледы"
+   "Банкетки"
   ],
-  "queue_size": 1,
-  "last_scan_added": 1,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "ok": 170,
-   "rating": 20,
-   "bad_price": 10,
-   "strict": 5,
-   "fallback": 165,
-   "reserve": 0,
-   "duplicate": 13,
-   "title_duplicate": 46
+   "found": 3,
+   "cards": 3,
+   "bad_price": 3,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -343499,9 +343494,9 @@
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1788736788.6386445,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788738324.7666426,
+   "runs": 25,
+   "empty": 5
   },
   "Пуфы": {
    "shard": "rooms8",

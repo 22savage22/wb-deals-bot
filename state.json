@@ -1581,6 +1581,18 @@
  },
  "recent": [
   {
+   "pid": 650062406,
+   "title": "Платье миди асимметричное из жатой ткани школьное",
+   "discount": 20,
+   "price": 662,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/650062406/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788701366,
+   "drop": 1
+  },
+  {
    "pid": 758566676,
    "title": "Джинсы багги широкие укороченные на резинке",
    "discount": 0,
@@ -8166,18 +8178,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 650062406,
-   "title": "Платье миди асимметричное из жатой ткани школьное",
-   "discount": 20,
-   "price": 662,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/650062406/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788701366,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8216,10 +8216,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 113,
-   "ok": 90,
-   "rate_limited": 4,
-   "http_error": 19,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8321,7 +8321,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788701368.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

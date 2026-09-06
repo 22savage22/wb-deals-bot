@@ -1555,6 +1555,19 @@
  },
  "recent": [
   {
+   "pid": 549209681,
+   "title": "Футболка однотонная повседневная",
+   "discount": 0,
+   "price": 1719,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/549209681/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788674927,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 878914245,
    "title": "Джинсы женские рваные летние",
    "discount": 0,
@@ -7818,19 +7831,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 549209681,
-   "title": "Футболка однотонная повседневная",
-   "discount": 0,
-   "price": 1719,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/549209681/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788674927,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7859,10 +7859,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 24,
-   "rate_limited": 11,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7938,7 +7938,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

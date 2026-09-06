@@ -1644,6 +1644,18 @@
  },
  "recent": [
   {
+   "pid": 221730324,
+   "title": "Сумка женская кросс-боди через плечо маленькая серая",
+   "discount": 0,
+   "price": 1404,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/221730324/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788726603,
+   "drop": 0
+  },
+  {
    "pid": 1316990007,
    "title": "Замшевая средняя сумка-багет",
    "discount": 0,
@@ -8591,18 +8603,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 221730324,
-   "title": "Сумка женская кросс-боди через плечо маленькая серая",
-   "discount": 0,
-   "price": 1404,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/221730324/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788726603,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8642,9 +8642,9 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 106,
-   "ok": 86,
-   "rate_limited": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
    "http_error": 16,
    "network_error": 0,
    "json_error": 0
@@ -8721,7 +8721,7 @@
    "Гигиена полости рта",
    "Для чая"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,
@@ -341216,7 +341216,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

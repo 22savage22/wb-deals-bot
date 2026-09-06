@@ -1565,6 +1565,18 @@
  },
  "recent": [
   {
+   "pid": 68534996,
+   "title": "Платье летнее нарядное больших размеров",
+   "discount": 0,
+   "price": 2106,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/68534996/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788687520,
+   "drop": 0
+  },
+  {
    "pid": 248127078,
    "title": "Футболка мужская оверсайз черная однотонная плотная хлопок",
    "discount": 0,
@@ -7955,18 +7967,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 68534996,
-   "title": "Платье летнее нарядное больших размеров",
-   "discount": 0,
-   "price": 2106,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/68534996/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788687520,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8006,10 +8006,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 93,
-   "ok": 77,
-   "rate_limited": 3,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8111,7 +8111,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788644384.0
  },
  "admin_ui": {

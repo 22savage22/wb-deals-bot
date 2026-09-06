@@ -1556,6 +1556,18 @@
  },
  "recent": [
   {
+   "pid": 419990734,
+   "title": "Кепка с вышивкой двухцветная розовая у2к",
+   "discount": 0,
+   "price": 1751,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/419990734/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788675822,
+   "drop": 0
+  },
+  {
    "pid": 549209681,
    "title": "Футболка однотонная повседневная",
    "discount": 0,
@@ -7832,18 +7844,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 419990734,
-   "title": "Кепка с вышивкой двухцветная розовая у2к",
-   "discount": 0,
-   "price": 1751,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/419990734/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788675822,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7883,10 +7883,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 62,
-   "ok": 43,
-   "rate_limited": 12,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7962,7 +7962,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

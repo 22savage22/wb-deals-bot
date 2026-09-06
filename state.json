@@ -8707,10 +8707,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 9,
-   "rate_limited": 27,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

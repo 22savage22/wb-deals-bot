@@ -8046,10 +8046,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 69,
-   "rate_limited": 2,
-   "http_error": 9,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8125,7 +8125,7 @@
    "Зеркала",
    "Крепежи"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 202,
@@ -8150,7 +8150,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {
@@ -306820,7 +306820,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

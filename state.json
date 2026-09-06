@@ -7696,10 +7696,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 15,
+   "ok": 0,
+   "rate_limited": 15,
+   "http_error": 0,
    "network_error": 0,
    "json_error": 0
   },
@@ -7764,23 +7764,21 @@
   "today": "2026-09-06",
   "today_posts": 9,
   "total_posts": 792,
-  "last_scan": 1788655858,
+  "last_scan": 1788658771,
   "last_scan_queries": [
-   "кепка женская",
-   "футболка мужская",
+   "джинсы женские",
    "платье женское",
-   "джинсы женские"
+   "постельное белье",
+   "украшения женские"
   ],
   "last_scan_cats": [
-   "Археология",
-   "Репринтные издания 1860 - 1869 годов"
+   "Изготовление кукол и игрушек"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 1,
-   "cards": 1,
-   "bad_price": 1,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -285358,9 +285356,9 @@
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
-   "ts": 1788658740.0619876,
-   "runs": 24,
-   "empty": 4
+   "ts": 1788659055.923949,
+   "runs": 25,
+   "empty": 5
   },
   "Одежда и чешки": {
    "shard": "sport32",

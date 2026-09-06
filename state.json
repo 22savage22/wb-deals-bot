@@ -1546,6 +1546,19 @@
  },
  "recent": [
   {
+   "pid": 369309431,
+   "title": "Браслет глидерный на руку широкий бижутерия",
+   "discount": 0,
+   "price": 700,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/369309431/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788663649,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1217680943,
    "title": "Колье на шею с жемчугом",
    "discount": 22,
@@ -7711,19 +7724,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 369309431,
-   "title": "Браслет глидерный на руку широкий бижутерия",
-   "discount": 0,
-   "price": 700,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/369309431/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788663649,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7752,10 +7752,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 13,
-   "rate_limited": 13,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7831,7 +7831,7 @@
    "Перевозка груза",
    "Готовые строения и срубы"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,

@@ -1574,6 +1574,19 @@
  },
  "recent": [
   {
+   "pid": 360522723,
+   "title": "Сарафан летний короткий",
+   "discount": 0,
+   "price": 2072,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/360522723/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788694947,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1229153848,
    "title": "Женский кожаный ремень для брюк джинс и платья",
    "discount": 27,
@@ -8073,19 +8086,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 360522723,
-   "title": "Сарафан летний короткий",
-   "discount": 0,
-   "price": 2072,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/360522723/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788694947,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8113,10 +8113,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 91,
-   "ok": 77,
-   "rate_limited": 2,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8192,7 +8192,7 @@
    "Игрушки",
    "Напитки"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,
@@ -8218,7 +8218,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

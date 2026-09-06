@@ -1558,6 +1558,19 @@
  },
  "recent": [
   {
+   "pid": 81618649,
+   "title": "бейсболка женская кепка мужская с сеткой",
+   "discount": 0,
+   "price": 1419,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/81618649/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788677561,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 829829022,
    "title": "Джинсы широкие трубы y2k багги",
    "discount": 0,
@@ -7858,19 +7871,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 81618649,
-   "title": "бейсболка женская кепка мужская с сеткой",
-   "discount": 0,
-   "price": 1419,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/81618649/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788677561,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7899,10 +7899,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 14,
-   "rate_limited": 9,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7977,7 +7977,7 @@
   "last_scan_cats": [
    "Подвески"
   ],
-  "queue_size": 5,
+  "queue_size": 6,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 200,

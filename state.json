@@ -8019,10 +8019,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 36,
-   "rate_limited": 17,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8124,7 +8124,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

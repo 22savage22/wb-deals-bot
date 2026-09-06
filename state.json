@@ -1651,6 +1651,18 @@
  },
  "recent": [
   {
+   "pid": 670597079,
+   "title": "Джинсы прямые зауженные к низу",
+   "discount": 0,
+   "price": 3495,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/670597079/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788736787,
+   "drop": 0
+  },
+  {
    "pid": 863336668,
    "title": "Джинсы бананы зауженные к низу mom",
    "discount": 27,
@@ -8683,18 +8695,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 670597079,
-   "title": "Джинсы прямые зауженные к низу",
-   "discount": 0,
-   "price": 3495,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/670597079/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788736787,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8734,10 +8734,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
-   "rate_limited": 20,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

@@ -1579,6 +1579,18 @@
  },
  "recent": [
   {
+   "pid": 229152500,
+   "title": "Блузка офисная с коротким рукавом",
+   "discount": 20,
+   "price": 551,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/229152500/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788698834,
+   "drop": 1
+  },
+  {
    "pid": 151204280,
    "title": "Джинсы прямые летние брюки большие размеры",
    "discount": 0,
@@ -8140,18 +8152,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 229152500,
-   "title": "Блузка офисная с коротким рукавом",
-   "discount": 20,
-   "price": 551,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/229152500/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788698834,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8191,10 +8191,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 92,
-   "ok": 74,
-   "rate_limited": 5,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8296,7 +8296,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {
@@ -314278,7 +314278,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "598933783": {
    "price": 3034,
@@ -314291,7 +314291,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

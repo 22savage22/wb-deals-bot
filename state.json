@@ -1573,6 +1573,18 @@
  },
  "recent": [
   {
+   "pid": 1229153848,
+   "title": "Женский кожаный ремень для брюк джинс и платья",
+   "discount": 27,
+   "price": 972,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1229153848/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788694319,
+   "drop": 1
+  },
+  {
    "pid": 241160906,
    "title": "Футболка мужская",
    "discount": 0,
@@ -8060,18 +8072,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1229153848,
-   "title": "Женский кожаный ремень для брюк джинс и платья",
-   "discount": 27,
-   "price": 972,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1229153848/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788694319,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8110,10 +8110,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 91,
-   "ok": 77,
-   "rate_limited": 2,
-   "http_error": 12,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8215,7 +8215,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

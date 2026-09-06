@@ -1631,6 +1631,18 @@
  },
  "recent": [
   {
+   "pid": 1281343333,
+   "title": "Джинсы трубы широкие",
+   "discount": 0,
+   "price": 3453,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1281343333/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788715319,
+   "drop": 0
+  },
+  {
    "pid": 1117813994,
    "title": "Футболка черная хлопок 100% с принтом на лето",
    "discount": 0,
@@ -8421,18 +8433,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1281343333,
-   "title": "Джинсы трубы широкие",
-   "discount": 0,
-   "price": 3453,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1281343333/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788715319,
-   "drop": 0
   }
  ],
  "meta": {

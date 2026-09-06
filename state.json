@@ -1641,6 +1641,18 @@
  },
  "recent": [
   {
+   "pid": 1032242743,
+   "title": "Футболка приталенная СКИМС с цветочным принтом",
+   "discount": 0,
+   "price": 1252,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1032242743/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788724289,
+   "drop": 0
+  },
+  {
    "pid": 388795243,
    "title": "Футболка оверсайз с принтом Незабудки",
    "discount": 0,
@@ -8551,18 +8563,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1032242743,
-   "title": "Футболка приталенная СКИМС с цветочным принтом",
-   "discount": 0,
-   "price": 1252,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1032242743/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788724289,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8600,10 +8600,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 81,
+   "calls": 55,
+   "ok": 39,
    "rate_limited": 0,
-   "http_error": 14,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

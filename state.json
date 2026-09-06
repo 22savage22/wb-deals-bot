@@ -1587,6 +1587,18 @@
  },
  "recent": [
   {
+   "pid": 322164847,
+   "title": "Футболка набор 3шт",
+   "discount": 41,
+   "price": 1039,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/322164847/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788706299,
+   "drop": 1
+  },
+  {
    "pid": 168221205,
    "title": "Парные кольца бижутерия набор колец для подростков",
    "discount": 20,
@@ -8244,18 +8256,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 322164847,
-   "title": "Футболка набор 3шт",
-   "discount": 41,
-   "price": 1039,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/322164847/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788706299,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8295,10 +8295,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 73,
-   "rate_limited": 2,
-   "http_error": 13,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8400,7 +8400,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788701368.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

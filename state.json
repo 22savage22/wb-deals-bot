@@ -1551,6 +1551,18 @@
  },
  "recent": [
   {
+   "pid": 35544895,
+   "title": "Сумка через плечо кросс боди средняя",
+   "discount": 0,
+   "price": 3158,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/35544895/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788671616,
+   "drop": 0
+  },
+  {
    "pid": 822687703,
    "title": "Джинсы багги укороченные на резинке",
    "discount": 0,
@@ -7765,18 +7777,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 35544895,
-   "title": "Сумка через плечо кросс боди средняя",
-   "discount": 0,
-   "price": 3158,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/35544895/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788671616,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7817,10 +7817,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 53,
-   "rate_limited": 10,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

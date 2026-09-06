@@ -1588,6 +1588,18 @@
  },
  "recent": [
   {
+   "pid": 484957855,
+   "title": "Джинсы широкие",
+   "discount": 0,
+   "price": 3358,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/484957855/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788707249,
+   "drop": 0
+  },
+  {
    "pid": 322164847,
    "title": "Футболка набор 3шт",
    "discount": 41,
@@ -8257,18 +8269,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 484957855,
-   "title": "Джинсы широкие",
-   "discount": 0,
-   "price": 3358,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/484957855/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788707249,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8306,10 +8306,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 60,
+   "calls": 55,
    "ok": 39,
-   "rate_limited": 16,
-   "http_error": 5,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8411,7 +8411,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788701368.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

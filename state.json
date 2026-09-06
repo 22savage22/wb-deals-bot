@@ -1628,6 +1628,18 @@
  },
  "recent": [
   {
+   "pid": 99213883,
+   "title": "Теплый плед с мехом 200х220 см на кровать",
+   "discount": 0,
+   "price": 2267,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/99213883/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1788712918,
+   "drop": 0
+  },
+  {
    "pid": 180568560,
    "title": "Пододеяльник двуспальный на молнии 175х215 хлопок",
    "discount": 0,
@@ -8382,18 +8394,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 99213883,
-   "title": "Теплый плед с мехом 200х220 см на кровать",
-   "discount": 0,
-   "price": 2267,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/99213883/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1788712918,
-   "drop": 0
   }
  ],
  "meta": {

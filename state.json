@@ -7896,9 +7896,9 @@
   },
   "wb_http": {
    "calls": 55,
-   "ok": 29,
-   "rate_limited": 22,
-   "http_error": 4,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -7974,7 +7974,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

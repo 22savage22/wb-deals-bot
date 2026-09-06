@@ -1645,6 +1645,18 @@
  },
  "recent": [
   {
+   "pid": 450260175,
+   "title": "Ремень женский для джинс белый для брюк замшевый Miu Miu",
+   "discount": 20,
+   "price": 960,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/450260175/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788727465,
+   "drop": 1
+  },
+  {
    "pid": 221730324,
    "title": "Сумка женская кросс-боди через плечо маленькая серая",
    "discount": 0,
@@ -8604,18 +8616,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 450260175,
-   "title": "Ремень женский для джинс белый для брюк замшевый Miu Miu",
-   "discount": 20,
-   "price": 960,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/450260175/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788727465,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8655,10 +8655,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 79,
-   "rate_limited": 7,
-   "http_error": 9,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8734,7 +8734,7 @@
    "Гигиена полости рта",
    "Для чая"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

@@ -1561,6 +1561,19 @@
  },
  "recent": [
   {
+   "pid": 852356482,
+   "title": "Кепка бейсболка женская красная",
+   "discount": 0,
+   "price": 560,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/852356482/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788679484,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 462322705,
    "title": "Кепка сетчатая с вышивкой летняя женская мужская y2k",
    "discount": 0,
@@ -7900,19 +7913,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 852356482,
-   "title": "Кепка бейсболка женская красная",
-   "discount": 0,
-   "price": 560,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/852356482/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788679484,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7941,10 +7941,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 24,
-   "ok": 16,
-   "rate_limited": 4,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8020,7 +8020,7 @@
    "Бандажи",
    "Травяные сборы"
   ],
-  "queue_size": 5,
+  "queue_size": 6,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 201,

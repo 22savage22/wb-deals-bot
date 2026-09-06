@@ -8059,10 +8059,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 24,
-   "rate_limited": 2,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -307874,7 +307874,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -1632,6 +1632,18 @@
  },
  "recent": [
   {
+   "pid": 338688542,
+   "title": "Блузка летняя приталенная с баской и кулиской принт цветочек",
+   "discount": 38,
+   "price": 1404,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/338688542/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788716156,
+   "drop": 1
+  },
+  {
    "pid": 1281343333,
    "title": "Джинсы трубы широкие",
    "discount": 0,
@@ -8434,18 +8446,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 338688542,
-   "title": "Блузка летняя приталенная с баской и кулиской принт цветочек",
-   "discount": 38,
-   "price": 1404,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/338688542/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788716156,
-   "drop": 1
   }
  ],
  "meta": {
@@ -8484,10 +8484,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 106,
-   "ok": 82,
-   "rate_limited": 7,
-   "http_error": 17,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

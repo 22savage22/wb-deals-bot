@@ -8019,10 +8019,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 18,
-   "rate_limited": 4,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8123,7 +8123,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {
@@ -8137,7 +8137,6 @@
   "кроссовкиженские": 1787688014,
   "беспроводныенаушникиeq2plus": 1787725126,
   "смартфонs25ultra16гб1024гб8000мачandroid14": 1788020674,
-  "смартфонpocox716гб1тбростестeacфлагманский": 1787479066,
   "смартфонs26ultra161024гбсподаркомвкомплекте": 1787482657,
   "кроссовкимужскиеdunklow": 1787485887,
   "смартфонa56ultra12512гбтелефон": 1787489357,
@@ -9431,19 +9430,6 @@
    ],
    "posted_price": 629,
    "posted_ts": 1787725126.682999
-  },
-  "1307944324": {
-   "price": 7886,
-   "basic": 20618,
-   "ts": 1787479066.3766203,
-   "samples": [
-    [
-     1787479066,
-     7886
-    ]
-   ],
-   "posted_price": 7886,
-   "posted_ts": 1787479066.3766203
   },
   "1343137311": {
    "price": 5493,

@@ -7669,10 +7669,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 18,
+   "ok": 3,
+   "rate_limited": 13,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -7737,7 +7737,7 @@
   "today": "2026-09-05",
   "today_posts": 87,
   "total_posts": 790,
-  "last_scan": 1788655667,
+  "last_scan": 1788655858,
   "last_scan_queries": [
    "кепка женская",
    "футболка мужская",
@@ -7745,22 +7745,18 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1860 - 1869 годов",
-   "Изготовление кукол и игрушек"
+   "Археология",
+   "Репринтные издания 1860 - 1869 годов"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 289,
-   "rating": 10,
+   "found": 1,
+   "cards": 1,
    "bad_price": 1,
    "strict": 0,
-   "fallback": 289,
-   "reserve": 0,
-   "duplicate": 11,
-   "title_duplicate": 52
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -283561,9 +283557,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1788655853.3013418,
-   "runs": 116,
-   "empty": 1
+   "ts": 1788656094.6151743,
+   "runs": 117,
+   "empty": 2
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -283861,9 +283857,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1788655853.3013418,
-   "runs": 21,
-   "empty": 1
+   "ts": 1788656094.6151743,
+   "runs": 22,
+   "empty": 2
   },
   "Подгузники": {
    "shard": "children_things2",

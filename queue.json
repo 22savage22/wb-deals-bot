@@ -14,53 +14,5 @@
   "quality": "B",
   "query": "постельное белье",
   "queued_ts": 1788703526
- },
- {
-  "id": 168691691,
-  "title": "Кепка летняя стильная с нашивкой C",
-  "brand": "MD_CAP",
-  "product": 1405,
-  "basic": 1405,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.7,
-  "feedbacks": 522,
-  "category": "кепка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "кепка женская",
-  "queued_ts": 1788676953
- },
- {
-  "id": 1174991558,
-  "title": "Кепка летняя варенка",
-  "brand": "Setner",
-  "product": 1329,
-  "basic": 1329,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 263,
-  "category": "кепка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "кепка женская",
-  "queued_ts": 1788676953
- },
- {
-  "id": 213933917,
-  "title": "Кепка женская летняя стильная бейсболка мужская",
-  "brand": "STEFANI Fasion",
-  "product": 1415,
-  "basic": 1415,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.8,
-  "feedbacks": 251,
-  "category": "кепка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "кепка женская",
-  "queued_ts": 1788676953
  }
 ]

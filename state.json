@@ -1640,6 +1640,18 @@
  },
  "recent": [
   {
+   "pid": 388795243,
+   "title": "Футболка оверсайз с принтом Незабудки",
+   "discount": 0,
+   "price": 1405,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/388795243/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788723527,
+   "drop": 0
+  },
+  {
    "pid": 1379919029,
    "title": "Средняя замшевая коричневая сумка",
    "discount": 0,
@@ -8538,18 +8550,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 388795243,
-   "title": "Футболка оверсайз с принтом Незабудки",
-   "discount": 0,
-   "price": 1405,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/388795243/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788723527,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8589,10 +8589,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 100,
-   "ok": 84,
-   "rate_limited": 1,
-   "http_error": 15,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

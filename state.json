@@ -1576,6 +1576,19 @@
  },
  "recent": [
   {
+   "pid": 265236357,
+   "title": "Футболка оверсайз белая плотная летняя",
+   "discount": 0,
+   "price": 1304,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/265236357/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788696365,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 915495528,
    "title": "Джинсы прямые высокая посадка",
    "discount": 0,
@@ -8100,19 +8113,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 265236357,
-   "title": "Футболка оверсайз белая плотная летняя",
-   "discount": 0,
-   "price": 1304,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/265236357/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788696365,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8140,10 +8140,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 28,
+   "calls": 55,
+   "ok": 39,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8219,7 +8219,7 @@
    "Напитки",
    "Игрушки"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -8245,7 +8245,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788683156.0,
   "last_engagement_ts": 1788685962.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788688496.0
  },
  "admin_ui": {

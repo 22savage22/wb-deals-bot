@@ -1563,6 +1563,19 @@
  },
  "recent": [
   {
+   "pid": 375097999,
+   "title": "Кепка летняя",
+   "discount": 0,
+   "price": 1386,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/375097999/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788680748,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 883722218,
    "title": "Кепка джинсовая однотонная летняя",
    "discount": 0,
@@ -7928,19 +7941,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 375097999,
-   "title": "Кепка летняя",
-   "discount": 0,
-   "price": 1386,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/375097999/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788680748,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

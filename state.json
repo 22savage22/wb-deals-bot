@@ -1543,6 +1543,18 @@
  },
  "recent": [
   {
+   "pid": 266466761,
+   "title": "Платье школьное праздничное",
+   "discount": 0,
+   "price": 3429,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/266466761/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788660948,
+   "drop": 0
+  },
+  {
    "pid": 252634426,
    "title": "Постельное белье 2 спальное с европростыней комплект 50х70",
    "discount": 0,
@@ -7671,18 +7683,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 266466761,
-   "title": "Платье школьное праздничное",
-   "discount": 0,
-   "price": 3429,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/266466761/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788660948,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7722,9 +7722,9 @@
   },
   "wb_http": {
    "calls": 55,
-   "ok": 28,
-   "rate_limited": 23,
-   "http_error": 4,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

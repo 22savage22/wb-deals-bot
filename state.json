@@ -1652,6 +1652,19 @@
  },
  "recent": [
   {
+   "pid": 176842815,
+   "title": "Футболка оверсайз белая из плотного хлопка",
+   "discount": 19,
+   "price": 940,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/176842815/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788737405,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 670597079,
    "title": "Джинсы прямые зауженные к низу",
    "discount": 0,
@@ -8696,19 +8709,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 176842815,
-   "title": "Футболка оверсайз белая из плотного хлопка",
-   "discount": 19,
-   "price": 940,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/176842815/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788737405,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -8737,10 +8737,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 15,
-   "rate_limited": 10,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8816,7 +8816,7 @@
    "Пуфы",
    "Пледы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

@@ -1710,6 +1710,18 @@
  },
  "recent": [
   {
+   "pid": 1067933659,
+   "title": "Оверсайз футболка с принтом винтаж",
+   "discount": 20,
+   "price": 866,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1067933659/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788802788,
+   "drop": 1
+  },
+  {
    "pid": 960505732,
    "title": "Футболка летняя на молнии на резинке снизу",
    "discount": 0,
@@ -9470,18 +9482,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1067933659,
-   "title": "Оверсайз футболка с принтом винтаж",
-   "discount": 20,
-   "price": 866,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1067933659/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788802788,
-   "drop": 1
   }
  ],
  "meta": {
@@ -9520,10 +9520,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 98,
-   "ok": 67,
-   "rate_limited": 16,
-   "http_error": 15,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9625,7 +9625,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788796141.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {
@@ -377867,7 +377867,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

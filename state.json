@@ -1667,6 +1667,18 @@
  },
  "recent": [
   {
+   "pid": 93552539,
+   "title": "Постельное белье 1.5 спальное перкаль 70х70 см",
+   "discount": 0,
+   "price": 1851,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/93552539/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788758942,
+   "drop": 0
+  },
+  {
    "pid": 1152909884,
    "title": "Ремень с замшевой фактурой",
    "discount": 20,
@@ -8895,18 +8907,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 93552539,
-   "title": "Постельное белье 1.5 спальное перкаль 70х70 см",
-   "discount": 0,
-   "price": 1851,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/93552539/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788758942,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8946,10 +8946,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 70,
-   "ok": 46,
-   "rate_limited": 17,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9051,7 +9051,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788735240.0,
   "last_engagement_ts": 1788748158.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788732095.0
  },
  "admin_ui": {

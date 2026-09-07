@@ -1677,6 +1677,18 @@
  },
  "recent": [
   {
+   "pid": 697770869,
+   "title": "Платье праздничное в горошек вечернее",
+   "discount": 20,
+   "price": 2347,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/697770869/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788775329,
+   "drop": 1
+  },
+  {
    "pid": 1008921355,
    "title": "футболка спортивная",
    "discount": 20,
@@ -9026,18 +9038,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 697770869,
-   "title": "Платье праздничное в горошек вечернее",
-   "discount": 20,
-   "price": 2347,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/697770869/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788775329,
-   "drop": 1
   }
  ],
  "meta": {

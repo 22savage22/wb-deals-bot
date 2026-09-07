@@ -1700,6 +1700,19 @@
  },
  "recent": [
   {
+   "pid": 391249425,
+   "title": "Кепка летняя белая с сеткой",
+   "discount": 0,
+   "price": 601,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/391249425/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788792270,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 148714939,
    "title": "Футболка турецкий хлопок",
    "discount": 0,
@@ -9335,19 +9348,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 391249425,
-   "title": "Кепка летняя белая с сеткой",
-   "discount": 0,
-   "price": 601,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/391249425/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788792270,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9376,10 +9376,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 25,
-   "ok": 21,
-   "rate_limited": 1,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9455,7 +9455,7 @@
    "Лотки, пеленки",
    "Краски автомобильные"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,
@@ -9481,7 +9481,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788769813.0,
   "last_engagement_ts": 1788780211.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

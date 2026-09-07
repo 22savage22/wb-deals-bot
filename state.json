@@ -8760,10 +8760,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 15,
+   "ok": 2,
+   "rate_limited": 11,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -8828,22 +8828,23 @@
   "today": "2026-09-07",
   "today_posts": 7,
   "total_posts": 870,
-  "last_scan": 1788738218,
+  "last_scan": 1788739428,
   "last_scan_queries": [
-   "платье женское",
    "кепка женская",
    "футболка мужская",
+   "платье женское",
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Банкетки"
+   "Венки декоративные",
+   "Пробники"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 3,
-   "cards": 3,
-   "bad_price": 3,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -343474,9 +343475,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1788739400.1205554,
-   "runs": 31,
-   "empty": 1
+   "ts": 1788739636.4510877,
+   "runs": 32,
+   "empty": 2
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -343642,9 +343643,9 @@
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1788739400.1205554,
-   "runs": 21,
-   "empty": 1
+   "ts": 1788739636.4510877,
+   "runs": 22,
+   "empty": 2
   },
   "Банкетки": {
    "shard": "rooms8",

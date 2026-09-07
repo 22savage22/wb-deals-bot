@@ -1723,6 +1723,19 @@
  },
  "recent": [
   {
+   "pid": 170673003,
+   "title": "Сумка большая А4",
+   "discount": 0,
+   "price": 2068,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/170673003/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788816020,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 526150979,
    "title": "Сумка кросс-боди через плечо",
    "discount": 24,
@@ -9644,19 +9657,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 170673003,
-   "title": "Сумка большая А4",
-   "discount": 0,
-   "price": 2068,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/170673003/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788816020,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

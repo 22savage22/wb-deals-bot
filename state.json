@@ -1683,6 +1683,18 @@
  },
  "recent": [
   {
+   "pid": 443843079,
+   "title": "Платье сарафан больших размеров",
+   "discount": 0,
+   "price": 3061,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/443843079/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788780210,
+   "drop": 0
+  },
+  {
    "pid": 824673273,
    "title": "Рубашка в полоску нарядная",
    "discount": 0,
@@ -9105,18 +9117,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 443843079,
-   "title": "Платье сарафан больших размеров",
-   "discount": 0,
-   "price": 3061,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/443843079/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788780210,
-   "drop": 0
   }
  ],
  "meta": {

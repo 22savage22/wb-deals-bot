@@ -1693,6 +1693,19 @@
  },
  "recent": [
   {
+   "pid": 219438085,
+   "title": "Бейсболка Тигр, синяя",
+   "discount": 26,
+   "price": 759,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/219438085/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788787758,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 852726206,
    "title": "Блузка вязаная с открытыми плечами",
    "discount": 28,
@@ -9237,19 +9250,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 219438085,
-   "title": "Бейсболка Тигр, синяя",
-   "discount": 26,
-   "price": 759,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/219438085/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788787758,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -9278,10 +9278,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 27,
-   "rate_limited": 1,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9357,7 +9357,7 @@
    "Подгузники",
    "Краски автомобильные"
   ],
-  "queue_size": 4,
+  "queue_size": 5,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 400,
@@ -9383,7 +9383,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788769813.0,
   "last_engagement_ts": 1788780211.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

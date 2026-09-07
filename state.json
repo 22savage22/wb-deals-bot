@@ -1692,6 +1692,18 @@
  },
  "recent": [
   {
+   "pid": 852726206,
+   "title": "Блузка вязаная с открытыми плечами",
+   "discount": 28,
+   "price": 1023,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/852726206/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1788787097,
+   "drop": 1
+  },
+  {
    "pid": 668441684,
    "title": "Джинсы прямые Straight с высокой посадкой больших размеров",
    "discount": 26,
@@ -9224,18 +9236,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 852726206,
-   "title": "Блузка вязаная с открытыми плечами",
-   "discount": 28,
-   "price": 1023,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/852726206/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1788787097,
-   "drop": 1
   }
  ],
  "meta": {

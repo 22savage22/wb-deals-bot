@@ -1725,6 +1725,18 @@
  },
  "recent": [
   {
+   "pid": 855320928,
+   "title": "Футболка ВасТрик черная варенка",
+   "discount": 23,
+   "price": 835,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/855320928/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788824197,
+   "drop": 1
+  },
+  {
    "pid": 996120049,
    "title": "Сумка кожаная черная на плечо кросс-боди",
    "discount": 37,
@@ -9671,18 +9683,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 855320928,
-   "title": "Футболка ВасТрик черная варенка",
-   "discount": 23,
-   "price": 835,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/855320928/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788824197,
-   "drop": 1
   }
  ],
  "meta": {
@@ -9721,10 +9721,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 18,
-   "rate_limited": 19,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9800,7 +9800,7 @@
    "Напитки",
    "Коляски"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

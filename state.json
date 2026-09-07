@@ -1658,6 +1658,18 @@
  },
  "recent": [
   {
+   "pid": 881666388,
+   "title": "Джинсы широкие с высокой посадкой",
+   "discount": 23,
+   "price": 2568,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/881666388/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788749283,
+   "drop": 1
+  },
+  {
    "pid": 224523736,
    "title": "Платье вечернее летнее праздничное на завязках",
    "discount": 0,
@@ -8775,18 +8787,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 881666388,
-   "title": "Джинсы широкие с высокой посадкой",
-   "discount": 23,
-   "price": 2568,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/881666388/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788749283,
-   "drop": 1
   }
  ],
  "meta": {

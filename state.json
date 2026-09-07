@@ -9050,10 +9050,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 107,
-   "ok": 85,
-   "rate_limited": 8,
-   "http_error": 14,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9155,7 +9155,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788769813.0,
   "last_engagement_ts": 1788764493.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788732095.0
  },
  "admin_ui": {
@@ -9169,7 +9169,6 @@
   "кроссовкиженские": 1787688014,
   "беспроводныенаушникиeq2plus": 1787725126,
   "смартфонs25ultra16гб1024гб8000мачandroid14": 1788020674,
-  "кроссовкиairforceкеды": 1787560274,
   "смартфон5gi17promaxnfc161024gbигровыетелефоны5g": 1787563725,
   "кроссовкинайкairmaxtnplusлетниедышащие": 1787566774,
   "airpodspro3наушникибеспроводныедляiphoneиandroid": 1787569185,
@@ -10550,19 +10549,6 @@
    ],
    "posted_price": 629,
    "posted_ts": 1787725126.682999
-  },
-  "754723975": {
-   "price": 2843,
-   "basic": 9000,
-   "ts": 1787560274.1494453,
-   "samples": [
-    [
-     1787560274,
-     2843
-    ]
-   ],
-   "posted_price": 2843,
-   "posted_ts": 1787560274.1494453
   },
   "766097861": {
    "price": 9136,

@@ -1721,6 +1721,19 @@
  },
  "recent": [
   {
+   "pid": 1097268602,
+   "title": "Сумка тоут шоппер большая А4 на плечо",
+   "discount": 36,
+   "price": 746,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1097268602/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788814776,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 380973360,
    "title": "Колье на шею из гематита и речного жемчуга",
    "discount": 0,
@@ -9616,19 +9629,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1097268602,
-   "title": "Сумка тоут шоппер большая А4 на плечо",
-   "discount": 36,
-   "price": 746,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1097268602/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788814776,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -9657,10 +9657,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 28,
-   "rate_limited": 6,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9736,7 +9736,7 @@
    "Торговая мебель",
    "Рубашки"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -9763,7 +9763,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788810541.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

@@ -1701,6 +1701,18 @@
  },
  "recent": [
   {
+   "pid": 403516166,
+   "title": "Футболка хлопок с лайкрой",
+   "discount": 0,
+   "price": 1353,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/403516166/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788793046,
+   "drop": 0
+  },
+  {
    "pid": 391249425,
    "title": "Кепка летняя белая с сеткой",
    "discount": 0,
@@ -9349,18 +9361,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 403516166,
-   "title": "Футболка хлопок с лайкрой",
-   "discount": 0,
-   "price": 1353,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/403516166/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788793046,
-   "drop": 0
   }
  ],
  "meta": {
@@ -371430,7 +371430,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "482805929": {
    "price": 1400,
@@ -371443,7 +371443,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "843774821": {
    "price": 3780,
@@ -371456,7 +371456,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

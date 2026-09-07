@@ -1664,6 +1664,19 @@
  },
  "recent": [
   {
+   "pid": 247537744,
+   "title": "Джинсы широкие sk8 глоки y2k оверсайз багги шаровары 3pm у2к",
+   "discount": 0,
+   "price": 3728,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/247537744/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788755452,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 232444725,
    "title": "Черная футболка больших размеров хлопок",
    "discount": 0,
@@ -8855,19 +8868,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 247537744,
-   "title": "Джинсы широкие sk8 глоки y2k оверсайз багги шаровары 3pm у2к",
-   "discount": 0,
-   "price": 3728,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/247537744/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788755452,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8896,10 +8896,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 15,
-   "rate_limited": 9,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8975,7 +8975,7 @@
    "Источники бесперебойного питания",
    "Грунты, дренаж, мульча"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -9001,7 +9001,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788735240.0,
   "last_engagement_ts": 1788748158.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788732095.0
  },
  "admin_ui": {

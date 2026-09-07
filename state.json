@@ -9720,10 +9720,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 7,
-   "rate_limited": 18,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9799,7 +9799,7 @@
    "Напитки",
    "Коляски"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

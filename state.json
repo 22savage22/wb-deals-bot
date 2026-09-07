@@ -1653,6 +1653,18 @@
  },
  "recent": [
   {
+   "pid": 1024897826,
+   "title": "Сарафан короткий в цветочек",
+   "discount": 50,
+   "price": 588,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1024897826/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788739398,
+   "drop": 1
+  },
+  {
    "pid": 176842815,
    "title": "Футболка оверсайз белая из плотного хлопка",
    "discount": 19,
@@ -8710,18 +8722,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1024897826,
-   "title": "Сарафан короткий в цветочек",
-   "discount": 50,
-   "price": 588,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1024897826/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788739398,
-   "drop": 1
   }
  ],
  "meta": {

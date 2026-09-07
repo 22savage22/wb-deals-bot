@@ -1684,6 +1684,19 @@
  },
  "recent": [
   {
+   "pid": 868856949,
+   "title": "Футболка однотонная плотная хлопок",
+   "discount": 0,
+   "price": 1416,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/868856949/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788780878,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 443843079,
    "title": "Платье сарафан больших размеров",
    "discount": 0,
@@ -9118,19 +9131,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 868856949,
-   "title": "Футболка однотонная плотная хлопок",
-   "discount": 0,
-   "price": 1416,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/868856949/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788780878,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9159,10 +9159,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 25,
-   "rate_limited": 2,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9238,7 +9238,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Сварочное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,
@@ -9265,7 +9265,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788769813.0,
   "last_engagement_ts": 1788780211.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

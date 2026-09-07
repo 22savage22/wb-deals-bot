@@ -1695,6 +1695,19 @@
  },
  "recent": [
   {
+   "pid": 232093775,
+   "title": "Бейсболка с вышивкой",
+   "discount": 24,
+   "price": 679,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/232093775/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788789030,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 1017842494,
    "title": "Бейсболка винтажная потертая хлопковая с вышивкой и патчем",
    "discount": 26,
@@ -9264,19 +9277,6 @@
    "cat": "телефон",
    "ts": 1787694489,
    "drop": 0,
-   "quality": "A"
-  },
-  {
-   "pid": 232093775,
-   "title": "Бейсболка с вышивкой",
-   "discount": 24,
-   "price": 679,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/232093775/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788789030,
-   "drop": 1,
    "quality": "A"
   }
  ],

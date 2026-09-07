@@ -1703,6 +1703,19 @@
  },
  "recent": [
   {
+   "pid": 188887801,
+   "title": "Сумка Depasco",
+   "discount": 24,
+   "price": 822,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/188887801/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788796811,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 182580550,
    "title": "Блузка женская нарядная трикотажная офис",
    "discount": 0,
@@ -9375,19 +9388,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 188887801,
-   "title": "Сумка Depasco",
-   "discount": 24,
-   "price": 822,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/188887801/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788796811,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -9416,10 +9416,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 30,
-   "rate_limited": 2,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9495,7 +9495,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -9522,7 +9522,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788796141.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

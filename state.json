@@ -1719,6 +1719,19 @@
  },
  "recent": [
   {
+   "pid": 624513085,
+   "title": "Колье на шею из гематита с квадратной темной подвеской",
+   "discount": 0,
+   "price": 1526,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/624513085/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788813479,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 962554837,
    "title": "Цепочка на талию и живот украшение",
    "discount": 23,
@@ -9588,19 +9601,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 624513085,
-   "title": "Колье на шею из гематита с квадратной темной подвеской",
-   "discount": 0,
-   "price": 1526,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/624513085/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788813479,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9629,10 +9629,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 19,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9708,7 +9708,7 @@
    "Торговая мебель",
    "Манежи детские"
   ],
-  "queue_size": 1,
+  "queue_size": 4,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 300,
@@ -9735,7 +9735,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788810541.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

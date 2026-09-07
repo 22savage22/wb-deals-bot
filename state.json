@@ -1657,6 +1657,18 @@
  },
  "recent": [
   {
+   "pid": 224523736,
+   "title": "Платье вечернее летнее праздничное на завязках",
+   "discount": 0,
+   "price": 2567,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/224523736/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788748156,
+   "drop": 0
+  },
+  {
    "pid": 518233258,
    "title": "Постельное белье Шебби-шик Гутен Морген 1.5 спальное бязь",
    "discount": 0,
@@ -8762,18 +8774,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 224523736,
-   "title": "Платье вечернее летнее праздничное на завязках",
-   "discount": 0,
-   "price": 2567,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/224523736/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788748156,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8812,10 +8812,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 68,
-   "ok": 41,
-   "rate_limited": 20,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -8917,7 +8917,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788735240.0,
   "last_engagement_ts": 1788748158.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788732095.0
  },
  "admin_ui": {

@@ -1718,6 +1718,19 @@
  },
  "recent": [
   {
+   "pid": 962554837,
+   "title": "Цепочка на талию и живот украшение",
+   "discount": 23,
+   "price": 394,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/962554837/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788812843,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 827492006,
    "title": "Футболка скимс облегающая с рукавами летучая мышь",
    "discount": 27,
@@ -9574,19 +9587,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 962554837,
-   "title": "Цепочка на талию и живот украшение",
-   "discount": 23,
-   "price": 394,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/962554837/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788812843,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -9615,10 +9615,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 19,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9694,7 +9694,7 @@
    "Торговая мебель",
    "Манежи детские"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 300,
@@ -9720,7 +9720,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788810541.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {

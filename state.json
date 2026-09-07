@@ -953,7 +953,8 @@
   "182580550": 1788796139,
   "188887801": 1788796811,
   "178797829": 1788797819,
-  "848614600": 1788798804
+  "848614600": 1788798804,
+  "708484457": 1788799472
  },
  "feedback": {
   "855179327": {
@@ -1623,11 +1624,11 @@
    "ts": 1788789706.7627516
   },
   "постельное белье": {
-   "posts": 76.18559520238908,
-   "likes": 1.8461220787137236,
+   "posts": 78.12357759441088,
+   "likes": 1.8446192739505982,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788798804.707089
+   "ts": 1788799472.520035
   },
   "футболка женская": {
    "posts": 80.27651913715374,
@@ -9414,10 +9415,23 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 708484457,
+   "title": "Постельное белье евро с одеялом",
+   "discount": 0,
+   "price": 5869,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/708484457/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788799472,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788798426,
+  "last_run": 1788799441,
   "last_posts": 1,
   "last_queries": [
    "футболка мужская",
@@ -9436,24 +9450,14 @@
   "digest_date": "2026-09-07",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 500,
-   "cards": 500,
-   "ok": 441,
-   "rating": 57,
-   "bad_price": 2,
-   "strict": 2,
-   "fallback": 439,
-   "reserve": 0,
-   "repost": 17,
-   "title_duplicate": 92,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 28,
+   "ok": 19,
+   "rate_limited": 6,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -9516,8 +9520,8 @@
    }
   ],
   "today": "2026-09-07",
-  "today_posts": 59,
-  "total_posts": 922,
+  "today_posts": 60,
+  "total_posts": 923,
   "last_scan": 1788798841,
   "last_scan_queries": [
    "платье женское",
@@ -9529,7 +9533,7 @@
    "Подвески",
    "Бандажи"
   ],
-  "queue_size": 3,
+  "queue_size": 2,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 300,
@@ -9544,18 +9548,18 @@
    "title_duplicate": 68
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 3,
    "selected": 1,
-   "refresh_ok": 1,
-   "refresh_strict": 1,
-   "refresh_fallback": 0,
+   "refresh_ok": 3,
+   "refresh_strict": 0,
+   "refresh_fallback": 3,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 2
   },
   "cats_count": 2305,
   "no_post_notice_ts": 1788795101.0,
   "last_engagement_ts": 1788796141.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788775332.0
  },
  "admin_ui": {
@@ -10184,7 +10188,8 @@
   "блузкаженскаянаряднаятрикотажнаяофис": 1788796139,
   "сумкаdepasco": 1788796811,
   "ременьпоястонкийкоричневыйкожаный": 1788797819,
-  "постельноебельееврополисатин": 1788798804
+  "постельноебельееврополисатин": 1788798804,
+  "постельноебельеевросодеялом": 1788799472
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -10953,7 +10958,8 @@
   "f9d99d9c988cbe9d": 1788792270,
   "0cc8b8b0f8f0fcb8": 1788793046,
   "b2f0d0a0a4e8e0c0": 1788796139,
-  "1e1b29e8dcd4d4fc": 1788796811
+  "1e1b29e8dcd4d4fc": 1788796811,
+  "999b5332a381801c": 1788799472
  },
  "learned": {
   "часы мужские": {
@@ -189209,7 +189215,7 @@
   "277060554": {
    "price": 5850,
    "basic": 13390,
-   "ts": 1788798958.4744782,
+   "ts": 1788799442.7039373,
    "samples": [
     [
      1788767433,
@@ -308275,7 +308281,7 @@
   "708484457": {
    "price": 5869,
    "basic": 22000,
-   "ts": 1788798958.474391,
+   "ts": 1788799472.5199895,
    "samples": [
     [
      1788726587,
@@ -308306,8 +308312,8 @@
      5869
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 5869,
+   "posted_ts": 1788799472.5199895
   },
   "910122688": {
    "price": 2150,
@@ -335690,7 +335696,7 @@
   "486888544": {
    "price": 3477,
    "basic": 9307,
-   "ts": 1788798958.4740436,
+   "ts": 1788799442.703911,
    "samples": [
     [
      1788769813,
@@ -376827,22 +376833,6 @@
   }
  },
  "queue": [
-  {
-   "id": 708484457,
-   "title": "Постельное белье евро с одеялом",
-   "brand": "Blumarine",
-   "product": 5869,
-   "basic": 5869,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 426,
-   "category": "постельное белье",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "постельное белье",
-   "queued_ts": 1788798841
-  },
   {
    "id": 486888544,
    "title": "Постельное белье евро хлопок наволочки 50х70 Севилья",

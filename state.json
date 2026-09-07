@@ -1660,6 +1660,18 @@
  },
  "recent": [
   {
+   "pid": 861923511,
+   "title": "Футболка плотная из хлопка",
+   "discount": 0,
+   "price": 1345,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/861923511/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788752459,
+   "drop": 0
+  },
+  {
    "pid": 761098871,
    "title": "Серьги конго бижутерия в русском стиле неваляшка красная",
    "discount": 24,
@@ -8801,18 +8813,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 861923511,
-   "title": "Футболка плотная из хлопка",
-   "discount": 0,
-   "price": 1345,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/861923511/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788752459,
-   "drop": 0
   }
  ],
  "meta": {
@@ -347173,7 +347173,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

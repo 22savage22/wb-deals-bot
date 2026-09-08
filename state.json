@@ -1740,6 +1740,19 @@
  },
  "recent": [
   {
+   "pid": 812053139,
+   "title": "Постельное белье евро на резинке",
+   "discount": 0,
+   "price": 3630,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/812053139/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788855286,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 534219106,
    "title": "Чокер на шею сердце из алмазного стекла бижутерия",
    "discount": 0,
@@ -9874,19 +9887,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 812053139,
-   "title": "Постельное белье евро на резинке",
-   "discount": 0,
-   "price": 3630,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/812053139/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788855286,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9913,10 +9913,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 30,
-   "ok": 17,
-   "rate_limited": 8,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9989,7 +9989,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,

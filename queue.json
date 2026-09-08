@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 449883565,
+  "title": "Набор футболок 3 шт",
+  "brand": "Cottonworld",
+  "product": 1378,
+  "basic": 1378,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 128867,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1788873727
+ },
+ {
+  "id": 18259919,
+  "title": "Джинсы зауженные с высокой посадкой большие размеры",
+  "brand": "Feliamo",
+  "product": 2770,
+  "basic": 2770,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.8,
+  "feedbacks": 69506,
+  "category": "джинсы женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "джинсы женские",
+  "queued_ts": 1788873727
+ },
+ {
+  "id": 318845018,
+  "title": "Сумка женская замшевая через плечо",
+  "brand": "Halfmon",
+  "product": 1782,
+  "basic": 1782,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 812,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1788873727
+ }
+]

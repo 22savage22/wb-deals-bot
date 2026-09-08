@@ -1736,6 +1736,19 @@
  },
  "recent": [
   {
+   "pid": 994722670,
+   "title": "Туника женская пляжная длинная",
+   "discount": 0,
+   "price": 4418,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/994722670/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788852715,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 374864111,
    "title": "Футболка хлопок набор 3 шт",
    "discount": 0,
@@ -9818,19 +9831,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 994722670,
-   "title": "Туника женская пляжная длинная",
-   "discount": 0,
-   "price": 4418,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/994722670/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788852715,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9857,10 +9857,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 31,
-   "rate_limited": 3,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9933,7 +9933,7 @@
    "украшения женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 7,
+  "queue_size": 8,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 400,

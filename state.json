@@ -1754,6 +1754,18 @@
  },
  "recent": [
   {
+   "pid": 822602770,
+   "title": "Летнее платье с кулиской",
+   "discount": 27,
+   "price": 665,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/822602770/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788869300,
+   "drop": 1
+  },
+  {
    "pid": 439226997,
    "title": "Бейсболка с отверстием для хвоста",
    "discount": 0,
@@ -10063,18 +10075,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 822602770,
-   "title": "Летнее платье с кулиской",
-   "discount": 27,
-   "price": 665,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/822602770/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788869300,
-   "drop": 1
   }
  ],
  "meta": {

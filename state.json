@@ -10476,10 +10476,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 16,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -10544,7 +10544,7 @@
   "today": "2026-09-08",
   "today_posts": 67,
   "total_posts": 1005,
-  "last_scan": 1788907320,
+  "last_scan": 1788910784,
   "last_scan_queries": [
    "ремень женский",
    "платье женское",
@@ -10552,21 +10552,17 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Кофе и цикорий",
-   "Солнечные электростанции и комплектующие"
+   "Трубопроводы",
+   "Серия Reno"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 94,
-   "rating": 6,
-   "strict": 3,
-   "fallback": 91,
-   "reserve": 0,
-   "title_duplicate": 18,
-   "duplicate": 14
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -417992,9 +417988,9 @@
   },
   "Серия Reno": {
    "shard": "electronic88",
-   "ts": 1788750361.4707663,
-   "runs": 30,
-   "empty": 5
+   "ts": 1788911076.2004275,
+   "runs": 31,
+   "empty": 1
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
@@ -418106,9 +418102,9 @@
   },
   "Трубопроводы": {
    "shard": "autoproduct48",
-   "ts": 1788746211.7208853,
-   "runs": 25,
-   "empty": 5
+   "ts": 1788911076.2004275,
+   "runs": 26,
+   "empty": 1
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",

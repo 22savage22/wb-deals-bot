@@ -1779,6 +1779,19 @@
  },
  "recent": [
   {
+   "pid": 930367188,
+   "title": "Постельное белье 2 спальное 70x70 хлопок бязь",
+   "discount": 0,
+   "price": 2245,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/930367188/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788895011,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 140543779,
    "title": "Постельное белье 2 спальное 70х70 хлопок геометрический",
    "discount": 0,
@@ -10396,19 +10409,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 930367188,
-   "title": "Постельное белье 2 спальное 70x70 хлопок бязь",
-   "discount": 0,
-   "price": 2245,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/930367188/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788895011,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10437,10 +10437,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 28,
-   "rate_limited": 3,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10516,7 +10516,7 @@
    "Гроубоксы",
    "Гигиена полости рта"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -10542,7 +10542,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788886042.0,
   "last_engagement_ts": 1788892654.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788863048.0
  },
  "admin_ui": {

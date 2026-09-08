@@ -10466,7 +10466,7 @@
   }
  ],
  "meta": {
-  "last_run": 1788908938,
+  "last_run": 1788910395,
   "last_posts": 0,
   "last_queries": [
    "ремень женский",
@@ -10480,31 +10480,19 @@
   "empty_notice_ts": 1788904831.0,
   "cats_ts": 1788859361.0425239,
   "last_cats": [
-   "Кофе и цикорий",
-   "Венки декоративные",
-   "Солнечные электростанции и комплектующие"
+   "Венки декоративные"
   ],
   "digest_date": "2026-09-08",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 101,
-   "cards": 101,
-   "ok": 98,
-   "bad_price": 3,
-   "strict": 0,
-   "fallback": 98,
-   "reserve": 0,
-   "repost": 11,
-   "title_duplicate": 16,
-   "electronics": 2,
-   "selected": 0,
-   "published": 0
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 20,
+   "ok": 0,
+   "rate_limited": 19,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -418127,9 +418115,9 @@
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1788909434.095176,
-   "runs": 29,
-   "empty": 4
+   "ts": 1788910778.7978399,
+   "runs": 30,
+   "empty": 5
   },
   "Банкетки": {
    "shard": "rooms8",

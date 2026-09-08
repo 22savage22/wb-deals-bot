@@ -1747,6 +1747,18 @@
  },
  "recent": [
   {
+   "pid": 980731064,
+   "title": "Джинсы широкие трубы с высокой посадкой со стрелками",
+   "discount": 0,
+   "price": 5055,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/980731064/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788863045,
+   "drop": 0
+  },
+  {
    "pid": 1175363824,
    "title": "Футболка оверсайз с надписью",
    "discount": 50,
@@ -9970,18 +9982,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980731064,
-   "title": "Джинсы широкие трубы с высокой посадкой со стрелками",
-   "discount": 0,
-   "price": 5055,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/980731064/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788863045,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10020,10 +10020,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 22,
-   "rate_limited": 24,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

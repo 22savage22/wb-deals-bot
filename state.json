@@ -1749,6 +1749,18 @@
  },
  "recent": [
   {
+   "pid": 197525045,
+   "title": "Платье-рубашка длинное, сарафан макси с поясом",
+   "discount": 0,
+   "price": 1412,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/197525045/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788864950,
+   "drop": 0
+  },
+  {
    "pid": 914969652,
    "title": "Коричневый ремень женский",
    "discount": 0,
@@ -9996,18 +10008,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 197525045,
-   "title": "Платье-рубашка длинное, сарафан макси с поясом",
-   "discount": 0,
-   "price": 1412,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/197525045/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788864950,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10047,10 +10047,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 71,
-   "rate_limited": 12,
-   "http_error": 14,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

@@ -10502,19 +10502,6 @@
    "ts": 1787695906,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 672244330,
-   "title": "Телефон кнопочный для пожилых",
-   "discount": 60,
-   "price": 960,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/672244330/detail.aspx",
-   "query": "телефон",
-   "cat": "телефон",
-   "ts": 1787694489,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10553,10 +10540,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 18,
+   "ok": 0,
+   "rate_limited": 18,
+   "http_error": 0,
    "network_error": 0,
    "json_error": 0
   },
@@ -10621,29 +10608,25 @@
   "today": "2026-09-08",
   "today_posts": 67,
   "total_posts": 1005,
-  "last_scan": 1788900478,
+  "last_scan": 1788903748,
   "last_scan_queries": [
-   "платье женское",
-   "постельное белье",
    "ремень женский",
+   "платье женское",
+   "футболка мужская",
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Биотуалеты и аксессуары"
+   "Пробники",
+   "Пуфы"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "ok": 373,
-   "rating": 24,
-   "bad_price": 3,
-   "strict": 12,
-   "fallback": 361,
-   "reserve": 0,
-   "duplicate": 36,
-   "title_duplicate": 90
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -10657,7 +10640,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788886042.0,
   "last_engagement_ts": 1788892654.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788863048.0
  },
  "admin_ui": {
@@ -10667,7 +10650,6 @@
   "смартфонf612512гбglobal": 1787862477,
   "беспроводныенаушникиeq2plus": 1787725126,
   "смартфонs25ultra16гб1024гб8000мачandroid14": 1788020674,
-  "телефонкнопочныйдляпожилых": 1787694489,
   "наушникибеспроводныедляiphone": 1787695906,
   "наушникибеспроводныебольшиеapb325mvсbluetoothиanc": 1787698156,
   "twsнаушникисэкраномancbluetooth54": 1787699738,
@@ -12190,19 +12172,6 @@
    ],
    "posted_price": 629,
    "posted_ts": 1787725126.682999
-  },
-  "672244330": {
-   "price": 960,
-   "basic": 2400,
-   "ts": 1787694489.3487833,
-   "samples": [
-    [
-     1787694489,
-     960
-    ]
-   ],
-   "posted_price": 960,
-   "posted_ts": 1787694489.3487833
   },
   "823075295": {
    "price": 575,
@@ -417260,9 +417229,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1788903709.650416,
-   "runs": 38,
-   "empty": 3
+   "ts": 1788904094.1170793,
+   "runs": 39,
+   "empty": 4
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -417440,9 +417409,9 @@
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1788903709.650416,
-   "runs": 28,
-   "empty": 3
+   "ts": 1788904094.1170793,
+   "runs": 29,
+   "empty": 4
   },
   "Трубопроводы": {
    "shard": "autoproduct48",

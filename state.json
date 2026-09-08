@@ -9720,10 +9720,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 7,
-   "rate_limited": 22,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9799,7 +9799,7 @@
    "ММА",
    "Корм и лакомства"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -386308,7 +386308,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "498411133": {
    "price": 1796,
@@ -386321,7 +386321,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "766382361": {
    "price": 1520,
@@ -386334,7 +386334,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "293832437": {
    "price": 1940,
@@ -386347,7 +386347,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "414441367": {
    "price": 1323,
@@ -386360,7 +386360,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "271499135": {
    "price": 1594,
@@ -386373,7 +386373,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "206074447": {
    "price": 1353,
@@ -386386,7 +386386,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "264042592": {
    "price": 1436,
@@ -386399,7 +386399,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "929815441": {
    "price": 1324,
@@ -386412,7 +386412,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1007267855": {
    "price": 3064,
@@ -386425,7 +386425,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "402425885": {
    "price": 2827,
@@ -386438,7 +386438,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "182367346": {
    "price": 1605,
@@ -386451,7 +386451,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "766382363": {
    "price": 1601,
@@ -386464,7 +386464,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "614823181": {
    "price": 2383,
@@ -386477,7 +386477,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1046694019": {
    "price": 987,
@@ -386490,7 +386490,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1199112512": {
    "price": 432,
@@ -386503,7 +386503,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "962086945": {
    "price": 932,
@@ -386516,7 +386516,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1123898453": {
    "price": 597,
@@ -386529,7 +386529,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "404111915": {
    "price": 659,
@@ -386542,7 +386542,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "229260224": {
    "price": 1089,
@@ -386555,7 +386555,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "924268792": {
    "price": 841,
@@ -386568,7 +386568,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "569840096": {
    "price": 611,
@@ -386581,7 +386581,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

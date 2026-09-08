@@ -9759,10 +9759,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 15,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -9827,30 +9827,25 @@
   "today": "2026-09-08",
   "today_posts": 7,
   "total_posts": 945,
-  "last_scan": 1788830277,
+  "last_scan": 1788846766,
   "last_scan_queries": [
-   "джинсы женские",
-   "постельное белье",
    "ремень женский",
-   "платье женское"
+   "платье женское",
+   "футболка мужская",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Корм и лакомства",
-   "ММА"
+   "Средства для мытья посуды и продуктов",
+   "Серия Galaxy A"
   ],
-  "queue_size": 1,
+  "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "bad_price": 1,
-   "ok": 181,
-   "rating": 19,
-   "strict": 1,
-   "fallback": 180,
-   "reserve": 0,
-   "duplicate": 12,
-   "title_duplicate": 30
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -387910,9 +387905,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1788832494.1959708,
-   "runs": 82,
-   "empty": 2
+   "ts": 1788847003.9398317,
+   "runs": 83,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -387952,9 +387947,9 @@
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1788832494.1959708,
-   "runs": 52,
-   "empty": 2
+   "ts": 1788847003.9398317,
+   "runs": 53,
+   "empty": 3
   },
   "Мыши": {
    "shard": "electronic45",

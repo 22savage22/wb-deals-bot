@@ -1773,6 +1773,18 @@
  },
  "recent": [
   {
+   "pid": 1009251922,
+   "title": "Бейсболка варенка кепка классическая",
+   "discount": 29,
+   "price": 238,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1009251922/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788887103,
+   "drop": 1
+  },
+  {
    "pid": 486808666,
    "title": "Футболка блуза рубашка школьная",
    "discount": 20,
@@ -10317,18 +10329,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1009251922,
-   "title": "Бейсболка варенка кепка классическая",
-   "discount": 29,
-   "price": 238,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1009251922/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788887103,
-   "drop": 1
   }
  ],
  "meta": {

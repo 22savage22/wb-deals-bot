@@ -1761,6 +1761,19 @@
  },
  "recent": [
   {
+   "pid": 449883565,
+   "title": "Набор футболок 3 шт",
+   "discount": 0,
+   "price": 1378,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/449883565/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788874353,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 208985113,
    "title": "Джинсы прямые широкие багги",
    "discount": 0,
@@ -10158,19 +10171,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 449883565,
-   "title": "Набор футболок 3 шт",
-   "discount": 0,
-   "price": 1378,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/449883565/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788874353,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10199,10 +10199,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 30,
-   "rate_limited": 1,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10278,7 +10278,7 @@
    "Тросики",
    "Кронштейны"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

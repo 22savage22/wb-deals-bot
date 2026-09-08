@@ -1762,6 +1762,19 @@
  },
  "recent": [
   {
+   "pid": 18259919,
+   "title": "Джинсы зауженные с высокой посадкой большие размеры",
+   "discount": 0,
+   "price": 2770,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/18259919/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788874971,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 449883565,
    "title": "Набор футболок 3 шт",
    "discount": 0,
@@ -10172,19 +10185,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 18259919,
-   "title": "Джинсы зауженные с высокой посадкой большие размеры",
-   "discount": 0,
-   "price": 2770,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/18259919/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788874971,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10213,10 +10213,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 30,
-   "rate_limited": 1,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10292,7 +10292,7 @@
    "Тросики",
    "Кронштейны"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

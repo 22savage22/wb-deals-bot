@@ -1730,6 +1730,19 @@
  },
  "recent": [
   {
+   "pid": 526448768,
+   "title": "Набор футболок 3 шт хлопок",
+   "discount": 0,
+   "price": 1132,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/526448768/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788848118,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1011055630,
    "title": "Футболка оверсайз базовая однотонная",
    "discount": 16,
@@ -9736,19 +9749,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 526448768,
-   "title": "Набор футболок 3 шт хлопок",
-   "discount": 0,
-   "price": 1132,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/526448768/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788848118,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9777,10 +9777,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 25,
-   "ok": 13,
-   "rate_limited": 9,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9856,7 +9856,7 @@
    "Матрасы-топперы",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

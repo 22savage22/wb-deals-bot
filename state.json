@@ -10515,10 +10515,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 0,
-   "rate_limited": 20,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10616,7 +10616,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788886042.0,
   "last_engagement_ts": 1788892654.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788863048.0
  },
  "admin_ui": {

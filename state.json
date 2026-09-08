@@ -10112,10 +10112,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 22,
-   "rate_limited": 18,
-   "http_error": 6,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10191,7 +10191,7 @@
    "Мыши",
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

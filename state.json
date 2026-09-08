@@ -1742,6 +1742,19 @@
  },
  "recent": [
   {
+   "pid": 261984876,
+   "title": "Сумка через плечо средняя такса",
+   "discount": 0,
+   "price": 1801,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/261984876/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788856570,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 236459506,
    "title": "Браслет на руку медицинский сплав",
    "discount": 0,
@@ -9902,19 +9915,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 261984876,
-   "title": "Сумка через плечо средняя такса",
-   "discount": 0,
-   "price": 1801,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/261984876/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788856570,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9941,10 +9941,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 32,
-   "rate_limited": 1,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10017,7 +10017,7 @@
    "футболка мужская"
   ],
   "last_scan_cats": [],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

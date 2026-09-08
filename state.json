@@ -1787,6 +1787,18 @@
  },
  "recent": [
   {
+   "pid": 767157374,
+   "title": "Ремень женский черный 2.5 см экокожа премиум",
+   "discount": 29,
+   "price": 267,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/767157374/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1788903708,
+   "drop": 1
+  },
+  {
    "pid": 613895825,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 22,
@@ -10503,18 +10515,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 767157374,
-   "title": "Ремень женский черный 2.5 см экокожа премиум",
-   "discount": 29,
-   "price": 267,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/767157374/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1788903708,
-   "drop": 1
   }
  ],
  "meta": {
@@ -10553,10 +10553,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 17,
-   "rate_limited": 27,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10657,7 +10657,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788886042.0,
   "last_engagement_ts": 1788892654.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788863048.0
  },
  "admin_ui": {

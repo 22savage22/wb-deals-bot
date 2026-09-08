@@ -1737,6 +1737,19 @@
  },
  "recent": [
   {
+   "pid": 475969151,
+   "title": "Джинсы широкие трубы со стразами с высокой посадкой",
+   "discount": 0,
+   "price": 4839,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/475969151/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788853343,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 994722670,
    "title": "Туника женская пляжная длинная",
    "discount": 0,
@@ -9832,19 +9845,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 475969151,
-   "title": "Джинсы широкие трубы со стразами с высокой посадкой",
-   "discount": 0,
-   "price": 4839,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/475969151/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788853343,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9871,10 +9871,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 31,
-   "rate_limited": 3,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -9947,7 +9947,7 @@
    "украшения женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 6,
+  "queue_size": 8,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 400,

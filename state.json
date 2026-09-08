@@ -1785,6 +1785,18 @@
  },
  "recent": [
   {
+   "pid": 111643587,
+   "title": "Футболка черная с V-вырезом однотонная летняя",
+   "discount": 0,
+   "price": 793,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/111643587/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788899588,
+   "drop": 0
+  },
+  {
    "pid": 1238138341,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 38,
@@ -10477,18 +10489,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 111643587,
-   "title": "Футболка черная с V-вырезом однотонная летняя",
-   "discount": 0,
-   "price": 793,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/111643587/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788899588,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10528,10 +10528,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 93,
-   "ok": 73,
-   "rate_limited": 9,
-   "http_error": 11,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10634,7 +10634,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788886042.0,
   "last_engagement_ts": 1788892654.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788863048.0
  },
  "admin_ui": {

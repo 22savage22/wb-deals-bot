@@ -1744,6 +1744,19 @@
  },
  "recent": [
   {
+   "pid": 703561562,
+   "title": "Сумка через плечо замшевая",
+   "discount": 0,
+   "price": 3011,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/703561562/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788857851,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 694301923,
    "title": "Браслет из гематита натуральных камней на руку",
    "discount": 25,
@@ -9930,19 +9943,6 @@
    "ts": 1787694489,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 703561562,
-   "title": "Сумка через плечо замшевая",
-   "discount": 0,
-   "price": 3011,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/703561562/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788857851,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

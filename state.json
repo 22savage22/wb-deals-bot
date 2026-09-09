@@ -10477,19 +10477,6 @@
    "ts": 1787714371,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 436754379,
-   "title": "Кроссовки Zx 750",
-   "discount": 83,
-   "price": 2527,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/436754379/detail.aspx",
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "ts": 1787710204,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10529,10 +10516,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 30,
-   "rate_limited": 23,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10608,7 +10595,7 @@
    "Серия Reno",
    "Трубопроводы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 101,
@@ -10644,7 +10631,6 @@
   "смартфонf612512гбglobal": 1787862477,
   "беспроводныенаушникиeq2plus": 1787725126,
   "смартфонs25ultra16гб1024гб8000мачandroid14": 1788020674,
-  "кроссовкиzx750": 1787710204,
   "телевизор24дюймабезсмартнакухнюмаленький24yt5900": 1787714371,
   "телевизорminiled8686qned82a6b4kuhdsmarttv": 1787717295,
   "телевизор32дюймаca32h25f": 1787720154,
@@ -12168,19 +12154,6 @@
    ],
    "posted_price": 629,
    "posted_ts": 1787725126.682999
-  },
-  "436754379": {
-   "price": 2527,
-   "basic": 14999,
-   "ts": 1787710204.1377254,
-   "samples": [
-    [
-     1787710204,
-     2527
-    ]
-   ],
-   "posted_price": 2527,
-   "posted_ts": 1787710204.1377254
   },
   "157307340": {
    "price": 8406,

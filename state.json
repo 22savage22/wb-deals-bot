@@ -10628,10 +10628,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 14,
+   "ok": 2,
+   "rate_limited": 10,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -10696,28 +10696,26 @@
   "today": "2026-09-09",
   "today_posts": 15,
   "total_posts": 1018,
-  "last_scan": 1788924017,
+  "last_scan": 1788926414,
   "last_scan_queries": [
-   "украшения женские",
    "платье женское",
-   "футболка мужская",
-   "джинсы женские"
+   "джинсы женские",
+   "сумка женская",
+   "футболка мужская"
   ],
   "last_scan_cats": [
-   "Сделано в Республике Бурятия",
-   "Медиаконвертеры"
+   "Пылевыбивалки",
+   "Источники бесперебойного питания"
   ],
-  "queue_size": 2,
+  "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 100,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 100,
-   "reserve": 0,
-   "duplicate": 8,
-   "title_duplicate": 11
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -422436,9 +422434,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1788926380.5303795,
-   "runs": 86,
-   "empty": 1
+   "ts": 1788926598.7553189,
+   "runs": 87,
+   "empty": 2
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -422664,9 +422662,9 @@
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
-   "ts": 1788926380.5303795,
-   "runs": 31,
-   "empty": 1
+   "ts": 1788926598.7553189,
+   "runs": 32,
+   "empty": 2
   },
   "Медиаконвертеры": {
    "shard": "electronic78",

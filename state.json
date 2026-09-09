@@ -1814,6 +1814,18 @@
  },
  "recent": [
   {
+   "pid": 110008961,
+   "title": "Постельное белье евро однотонное страйп",
+   "discount": 15,
+   "price": 909,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/110008961/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788944094,
+   "drop": 1
+  },
+  {
    "pid": 176831076,
    "title": "Постельное белье однотонное страйп",
    "discount": 15,
@@ -10686,18 +10698,6 @@
    "ts": 1787734805,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 110008961,
-   "title": "Постельное белье евро однотонное страйп",
-   "discount": 15,
-   "price": 909,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/110008961/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788944094,
-   "drop": 1
   }
  ],
  "meta": {
@@ -430779,7 +430779,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "239615941": {
    "price": 1673,
@@ -430792,7 +430792,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "931658124": {
    "price": 1029,
@@ -430805,7 +430805,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "243938852": {
    "price": 1083,
@@ -430818,7 +430818,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "29670545": {
    "price": 619,
@@ -430831,7 +430831,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "165757795": {
    "price": 718,
@@ -430844,7 +430844,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "433608309": {
    "price": 1200,
@@ -430857,7 +430857,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "725231343": {
    "price": 1431,
@@ -430870,7 +430870,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

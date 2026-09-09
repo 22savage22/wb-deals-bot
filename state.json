@@ -1829,6 +1829,18 @@
  },
  "recent": [
   {
+   "pid": 1237461419,
+   "title": "Джинсы багги широкие оверсайз",
+   "discount": 15,
+   "price": 2984,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1237461419/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1788958910,
+   "drop": 1
+  },
+  {
    "pid": 462930313,
    "title": "Джинсы прямые классические трубы с высокой посадкой",
    "discount": 0,
@@ -10805,18 +10817,6 @@
    "ts": 1787752912,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1237461419,
-   "title": "Джинсы багги широкие оверсайз",
-   "discount": 15,
-   "price": 2984,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1237461419/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1788958910,
-   "drop": 1
   }
  ],
  "meta": {

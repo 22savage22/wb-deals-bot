@@ -11216,44 +11216,40 @@
   }
  ],
  "meta": {
-  "last_run": 1788988593,
-  "last_posts": 1,
+  "last_run": 1788989619,
+  "last_posts": 0,
   "last_queries": [
-   "сумка женская",
    "футболка мужская",
    "платье женское",
    "джинсы женские",
    "постельное белье",
-   "ремень женский"
+   "ремень женский",
+   "футболка женская"
   ],
   "learn_ts": 1788919765.3332932,
   "empty_notice_ts": 1788970949.0,
   "cats_ts": 1788946787.4098148,
   "last_cats": [
-   "Бандажи",
-   "Смазки и масла для инструмента"
+   "Подвески",
+   "Травяные сборы"
   ],
   "digest_date": "2026-09-09",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 252,
-   "rating": 32,
-   "bad_price": 16,
-   "strict": 2,
-   "fallback": 250,
+   "found": 2,
+   "cards": 2,
+   "bad_price": 2,
+   "strict": 0,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 26,
-   "title_duplicate": 57,
-   "selected": 5,
-   "published": 1
+   "selected": 0,
+   "published": 0
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 28,
+   "ok": 5,
+   "rate_limited": 22,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -11368,13 +11364,13 @@
    "title_duplicate": 68
   },
   "last_queue": {
-   "queue_before": 5,
+   "queue_before": 4,
    "selected": 0,
-   "refresh_ok": 5,
+   "refresh_ok": 4,
    "refresh_strict": 0,
-   "refresh_fallback": 5,
+   "refresh_fallback": 4,
    "refresh_reserve": 0,
-   "queue_after": 5
+   "queue_after": 4
   },
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
@@ -265764,7 +265760,7 @@
   "1434189684": {
    "price": 3432,
    "basic": 40000,
-   "ts": 1788988996.6074047,
+   "ts": 1788989621.493858,
    "samples": [
     [
      1788974283,
@@ -403887,7 +403883,7 @@
   "174159414": {
    "price": 1708,
    "basic": 5100,
-   "ts": 1788988996.6071894,
+   "ts": 1788989621.4939072,
    "samples": [
     [
      1788974283,
@@ -410170,7 +410166,7 @@
   "1054703034": {
    "price": 1429,
    "basic": 2999,
-   "ts": 1788988595.1198993,
+   "ts": 1788989621.4940267,
    "samples": [
     [
      1788974283,
@@ -426377,7 +426373,7 @@
   "235193325": {
    "price": 2920,
    "basic": 4950,
-   "ts": 1788988595.1198645,
+   "ts": 1788989621.4939456,
    "samples": [
     [
      1788974283,
@@ -448494,9 +448490,9 @@
   },
   "Подвески": {
    "shard": "bijouterie4",
-   "ts": 1788989161.506192,
-   "runs": 46,
-   "empty": 1
+   "ts": 1788990050.655236,
+   "runs": 47,
+   "empty": 2
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
@@ -448542,9 +448538,9 @@
   },
   "Травяные сборы": {
    "shard": "product1",
-   "ts": 1788989161.506192,
-   "runs": 41,
-   "empty": 1
+   "ts": 1788990050.655236,
+   "runs": 42,
+   "empty": 2
   },
   "Тросики": {
    "shard": "autoproduct56",

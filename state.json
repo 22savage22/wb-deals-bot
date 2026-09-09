@@ -1795,6 +1795,19 @@
  },
  "recent": [
   {
+   "pid": 12371869,
+   "title": "Серьги бижутерия с зеленым камнем",
+   "discount": 35,
+   "price": 332,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/12371869/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788922696,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 347709528,
    "title": "Весенняя кепка из искусственной замши",
    "discount": 0,
@@ -10520,19 +10533,6 @@
    "ts": 1787714371,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 12371869,
-   "title": "Серьги бижутерия с зеленым камнем",
-   "discount": 35,
-   "price": 332,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/12371869/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788922696,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10561,10 +10561,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 25,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10640,7 +10640,7 @@
    "Грунты, дренаж, мульча",
    "Медиаконвертеры"
   ],
-  "queue_size": 4,
+  "queue_size": 5,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 400,

@@ -1843,6 +1843,19 @@
  },
  "recent": [
   {
+   "pid": 151199184,
+   "title": "Сумка через плечо белая кросс-боди средняя",
+   "discount": 0,
+   "price": 1706,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/151199184/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788968035,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 264226138,
    "title": "Сумка коричневая A4",
    "discount": 0,
@@ -10987,19 +11000,6 @@
    "ts": 1787762022,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 151199184,
-   "title": "Сумка через плечо белая кросс-боди средняя",
-   "discount": 0,
-   "price": 1706,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/151199184/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788968035,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11027,10 +11027,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 15,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11122,7 +11122,7 @@
    "Археология",
    "Изготовление кукол и игрушек"
   ],
-  "queue_size": 6,
+  "queue_size": 9,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 200,

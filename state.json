@@ -1819,6 +1819,18 @@
  },
  "recent": [
   {
+   "pid": 18836287,
+   "title": "Футболка премиум однотонная плотная",
+   "discount": 0,
+   "price": 1388,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/18836287/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1788949256,
+   "drop": 0
+  },
+  {
    "pid": 171517234,
    "title": "Джинсы багги широкие трубы оверсайз",
    "discount": 0,
@@ -10725,18 +10737,6 @@
    "ts": 1787740759,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 18836287,
-   "title": "Футболка премиум однотонная плотная",
-   "discount": 0,
-   "price": 1388,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/18836287/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1788949256,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10776,10 +10776,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 73,
-   "ok": 49,
-   "rate_limited": 16,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10880,7 +10880,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788936012.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788906862.0
  },
  "admin_ui": {

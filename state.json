@@ -1836,6 +1836,19 @@
  },
  "recent": [
   {
+   "pid": 980022677,
+   "title": "Колье на шею бижутерия жемчужные",
+   "discount": 35,
+   "price": 579,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/980022677/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788963541,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 881644476,
    "title": "Футболка оверсайз плотная",
    "discount": 0,
@@ -10889,19 +10902,6 @@
    "ts": 1787762022,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980022677,
-   "title": "Колье на шею бижутерия жемчужные",
-   "discount": 35,
-   "price": 579,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/980022677/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788963541,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10929,10 +10929,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 30,
-   "rate_limited": 4,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11020,7 +11020,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -11047,7 +11047,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

@@ -1825,6 +1825,18 @@
  },
  "recent": [
   {
+   "pid": 980573287,
+   "title": "Платье сарафан летнее длинное на запах",
+   "discount": 0,
+   "price": 1741,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/980573287/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788955843,
+   "drop": 0
+  },
+  {
    "pid": 1022706051,
    "title": "Футболка скимс базовая облегающая",
    "discount": 21,
@@ -10764,18 +10776,6 @@
    "ts": 1787749297,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980573287,
-   "title": "Платье сарафан летнее длинное на запах",
-   "discount": 0,
-   "price": 1741,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/980573287/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788955843,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10815,10 +10815,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 33,
-   "rate_limited": 21,
-   "http_error": 11,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10923,7 +10923,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

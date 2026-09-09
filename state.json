@@ -1815,6 +1815,18 @@
  },
  "recent": [
   {
+   "pid": 1016301259,
+   "title": "Серьги бижутерия позолоченные",
+   "discount": 38,
+   "price": 650,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1016301259/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788945128,
+   "drop": 1
+  },
+  {
    "pid": 110008961,
    "title": "Постельное белье евро однотонное страйп",
    "discount": 15,
@@ -10686,18 +10698,6 @@
    "ts": 1787738099,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1016301259,
-   "title": "Серьги бижутерия позолоченные",
-   "discount": 38,
-   "price": 650,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1016301259/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788945128,
-   "drop": 1
   }
  ],
  "meta": {
@@ -10736,10 +10736,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 60,
-   "ok": 32,
-   "rate_limited": 18,
-   "http_error": 10,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10836,7 +10836,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788936012.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788906862.0
  },
  "admin_ui": {

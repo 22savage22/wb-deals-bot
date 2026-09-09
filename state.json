@@ -1793,6 +1793,19 @@
  },
  "recent": [
   {
+   "pid": 901263881,
+   "title": "Кепка летняя повседневная однотонная",
+   "discount": 34,
+   "price": 580,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/901263881/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788921423,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 1172818284,
    "title": "Кепка черная с регулируемой застёжкой",
    "discount": 19,
@@ -10492,19 +10505,6 @@
    "ts": 1787714371,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 901263881,
-   "title": "Кепка летняя повседневная однотонная",
-   "discount": 34,
-   "price": 580,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/901263881/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788921423,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10533,10 +10533,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 13,
-   "rate_limited": 7,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10612,7 +10612,7 @@
    "Сделано в Республике Бурятия",
    "Грунты, дренаж, мульча"
   ],
-  "queue_size": 2,
+  "queue_size": 4,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 200,

@@ -10516,10 +10516,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 72,
-   "ok": 47,
-   "rate_limited": 15,
-   "http_error": 10,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10595,7 +10595,7 @@
    "Серия Reno",
    "Трубопроводы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 101,

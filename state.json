@@ -1796,6 +1796,19 @@
  },
  "recent": [
   {
+   "pid": 963753696,
+   "title": "Бейсболка джинсовая с надписью",
+   "discount": 0,
+   "price": 399,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/963753696/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788923344,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 12371869,
    "title": "Серьги бижутерия с зеленым камнем",
    "discount": 35,
@@ -10534,19 +10547,6 @@
    "ts": 1787714371,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 963753696,
-   "title": "Бейсболка джинсовая с надписью",
-   "discount": 0,
-   "price": 399,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/963753696/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788923344,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10575,10 +10575,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 25,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10654,7 +10654,7 @@
    "Грунты, дренаж, мульча",
    "Медиаконвертеры"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 400,

@@ -1846,6 +1846,18 @@
  },
  "recent": [
   {
+   "pid": 489591620,
+   "title": "Постельное белье 2 спальное комплект полисатин",
+   "discount": 0,
+   "price": 1059,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/489591620/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1788972101,
+   "drop": 0
+  },
+  {
    "pid": 1119943395,
    "title": "Футболка вязаная old money",
    "discount": 0,
@@ -11015,18 +11027,6 @@
    "ts": 1787768604,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 489591620,
-   "title": "Постельное белье 2 спальное комплект полисатин",
-   "discount": 0,
-   "price": 1059,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/489591620/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788972101,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11066,10 +11066,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 18,
-   "rate_limited": 25,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11169,7 +11169,7 @@
    "Археология",
    "Изготовление кукол и игрушек"
   ],
-  "queue_size": 5,
+  "queue_size": 6,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 300,
@@ -11196,7 +11196,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788972103.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

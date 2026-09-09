@@ -1807,6 +1807,18 @@
  },
  "recent": [
   {
+   "pid": 349852394,
+   "title": "Футболка с принтом Луна белая оверсайз",
+   "discount": 24,
+   "price": 756,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/349852394/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788937055,
+   "drop": 1
+  },
+  {
    "pid": 305865478,
    "title": "Платье нарядное крестьянка мини",
    "discount": 0,
@@ -10618,18 +10630,6 @@
    "ts": 1787728536,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 349852394,
-   "title": "Футболка с принтом Луна белая оверсайз",
-   "discount": 24,
-   "price": 756,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/349852394/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788937055,
-   "drop": 1
   }
  ],
  "meta": {
@@ -10668,10 +10668,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 6,
-   "rate_limited": 19,
-   "http_error": 3,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10773,7 +10773,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788936012.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788906862.0
  },
  "admin_ui": {

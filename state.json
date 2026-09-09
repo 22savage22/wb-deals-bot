@@ -11041,10 +11041,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 15,
-   "rate_limited": 14,
-   "http_error": 4,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11144,7 +11144,7 @@
    "Археология",
    "Изготовление кукол и игрушек"
   ],
-  "queue_size": 4,
+  "queue_size": 9,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 200,

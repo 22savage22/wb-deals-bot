@@ -1856,6 +1856,19 @@
  },
  "recent": [
   {
+   "pid": 233876808,
+   "title": "Сумка черная большая с косметичкой",
+   "discount": 0,
+   "price": 2731,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/233876808/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788983477,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 102522071,
    "title": "Постельное белье 2 спальное хлопок бязь наволочки 70х70",
    "discount": 0,
@@ -11135,19 +11148,6 @@
    "ts": 1787776809,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 233876808,
-   "title": "Сумка черная большая с косметичкой",
-   "discount": 0,
-   "price": 2731,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/233876808/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788983477,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

@@ -10915,10 +10915,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 30,
-   "rate_limited": 5,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11002,7 +11002,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Сварочное оборудование"
   ],
-  "queue_size": 2,
+  "queue_size": 5,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -11028,7 +11028,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

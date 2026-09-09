@@ -1790,6 +1790,19 @@
  },
  "recent": [
   {
+   "pid": 87827101,
+   "title": "Платье майка летнее повседневное лапша в рубчик",
+   "discount": 0,
+   "price": 1216,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/87827101/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1788917739,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1391044304,
    "title": "Джинсы багги широкие оверсайз",
    "discount": 0,
@@ -10464,19 +10477,6 @@
    "ts": 1787710204,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 87827101,
-   "title": "Платье майка летнее повседневное лапша в рубчик",
-   "discount": 0,
-   "price": 1216,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/87827101/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1788917739,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10504,10 +10504,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 8,
-   "rate_limited": 8,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10583,7 +10583,7 @@
    "Серия Reno",
    "Трубопроводы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 101,

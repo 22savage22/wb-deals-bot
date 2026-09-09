@@ -1828,6 +1828,19 @@
  },
  "recent": [
   {
+   "pid": 462930313,
+   "title": "Джинсы прямые классические трубы с высокой посадкой",
+   "discount": 0,
+   "price": 4236,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/462930313/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788958108,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 214234507,
    "title": "Джинсы бананы мом на резинке большие размеры",
    "discount": 0,
@@ -10804,19 +10817,6 @@
    "ts": 1787749297,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 462930313,
-   "title": "Джинсы прямые классические трубы с высокой посадкой",
-   "discount": 0,
-   "price": 4236,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/462930313/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788958108,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10844,10 +10844,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 13,
-   "rate_limited": 13,
-   "http_error": 1,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10927,7 +10927,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,
@@ -10952,7 +10952,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

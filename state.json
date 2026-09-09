@@ -11066,10 +11066,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 21,
-   "rate_limited": 23,
-   "http_error": 5,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -11169,7 +11169,7 @@
    "Археология",
    "Изготовление кукол и игрушек"
   ],
-  "queue_size": 5,
+  "queue_size": 6,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 300,

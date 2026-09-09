@@ -10685,19 +10685,6 @@
    "ts": 1787738099,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1252820859,
-   "title": "Наушники беспроводные для андроид，iphone",
-   "discount": 96,
-   "price": 1684,
-   "rating": 5.0,
-   "link": "https://www.wildberries.ru/catalog/1252820859/detail.aspx",
-   "query": "наушники",
-   "cat": "наушники",
-   "ts": 1787734805,
-   "drop": 0,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10737,10 +10724,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 0,
-   "rate_limited": 15,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10837,7 +10824,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788936012.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788906862.0
  },
  "admin_ui": {
@@ -10846,7 +10833,6 @@
  "titles": {
   "смартфонf612512гбglobal": 1787862477,
   "смартфонs25ultra16гб1024гб8000мачandroid14": 1788020674,
-  "наушникибеспроводныедляандроидiphone": 1787734805,
   "кроссовкикедыsambaспортивныешкольные": 1787738099,
   "кроссовкидемисезонныеутепленные": 1787740759,
   "наушникибеспроводныебольшиеw56": 1787742761,
@@ -12387,19 +12373,6 @@
   }
  },
  "prices": {
-  "1252820859": {
-   "price": 1684,
-   "basic": 40000,
-   "ts": 1787734805.8269036,
-   "samples": [
-    [
-     1787734805,
-     1684
-    ]
-   ],
-   "posted_price": 1684,
-   "posted_ts": 1787734805.8269036
-  },
   "485610229": {
    "price": 2274,
    "basic": 10800,

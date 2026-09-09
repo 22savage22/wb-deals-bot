@@ -1,1 +1,66 @@
-[]
+[
+ {
+  "id": 1172818284,
+  "title": "Кепка черная с регулируемой застёжкой",
+  "brand": "десантник",
+  "product": 517,
+  "basic": 800,
+  "discount": 35,
+  "benefit": 283,
+  "rating": 4.9,
+  "feedbacks": 88,
+  "category": "кепка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "кепка женская",
+  "queued_ts": 1788920142
+ },
+ {
+  "id": 901263881,
+  "title": "Кепка летняя повседневная однотонная",
+  "brand": "Nolan",
+  "product": 580,
+  "basic": 882,
+  "discount": 34,
+  "benefit": 302,
+  "rating": 5.0,
+  "feedbacks": 4,
+  "category": "кепка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "кепка женская",
+  "queued_ts": 1788920142
+ },
+ {
+  "id": 347709528,
+  "title": "Весенняя кепка из искусственной замши",
+  "brand": "Verenitsa",
+  "product": 2341,
+  "basic": 2341,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 1526,
+  "category": "кепка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "кепка женская",
+  "queued_ts": 1788920142
+ },
+ {
+  "id": 963753696,
+  "title": "Бейсболка джинсовая с надписью",
+  "brand": "ТВОЕ",
+  "product": 399,
+  "basic": 399,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.8,
+  "feedbacks": 8422,
+  "category": "кепка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "кепка женская",
+  "queued_ts": 1788920142
+ }
+]

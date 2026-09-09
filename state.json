@@ -1861,6 +1861,18 @@
  },
  "recent": [
   {
+   "pid": 878972893,
+   "title": "Футболка оверсайз плотная футер",
+   "discount": 15,
+   "price": 2124,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/878972893/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1788987513,
+   "drop": 1
+  },
+  {
    "pid": 240348361,
    "title": "Рубашка нарядная с вышивкой",
    "discount": 19,
@@ -11188,18 +11200,6 @@
    "ts": 1787789782,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 878972893,
-   "title": "Футболка оверсайз плотная футер",
-   "discount": 15,
-   "price": 2124,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/878972893/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1788987513,
-   "drop": 1
   }
  ],
  "meta": {
@@ -11238,10 +11238,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 79,
-   "rate_limited": 2,
-   "http_error": 14,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

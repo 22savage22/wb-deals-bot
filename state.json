@@ -1799,6 +1799,19 @@
  },
  "recent": [
   {
+   "pid": 137190089,
+   "title": "Кольцо бижутерия дорожка из камней",
+   "discount": 19,
+   "price": 381,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/137190089/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1788925261,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 1156455451,
    "title": "серьги-кольца серебристого цвета с кубическим циркони",
    "discount": 33,
@@ -10563,19 +10576,6 @@
    "ts": 1787717295,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 137190089,
-   "title": "Кольцо бижутерия дорожка из камней",
-   "discount": 19,
-   "price": 381,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/137190089/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1788925261,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -10604,10 +10604,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 6,
-   "rate_limited": 9,
-   "http_error": 2,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10683,7 +10683,7 @@
    "Сделано в Республике Бурятия",
    "Медиаконвертеры"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 100,

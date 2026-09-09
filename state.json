@@ -1850,6 +1850,19 @@
  },
  "recent": [
   {
+   "pid": 153806371,
+   "title": "Бейсболка летняя женская из льна, кепка",
+   "discount": 0,
+   "price": 1643,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/153806371/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1788978781,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 837507855,
    "title": "Летняя бейсболка весенняя",
    "discount": 0,
@@ -11054,19 +11067,6 @@
    "ts": 1787776809,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 153806371,
-   "title": "Бейсболка летняя женская из льна, кепка",
-   "discount": 0,
-   "price": 1643,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/153806371/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1788978781,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11093,10 +11093,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 24,
-   "rate_limited": 8,
-   "http_error": 7,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

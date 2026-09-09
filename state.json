@@ -10737,10 +10737,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 15,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -10805,30 +10805,25 @@
   "today": "2026-09-09",
   "today_posts": 30,
   "total_posts": 1033,
-  "last_scan": 1788941488,
+  "last_scan": 1788944134,
   "last_scan_queries": [
-   "кепка женская",
-   "футболка мужская",
    "платье женское",
+   "постельное белье",
+   "украшения женские",
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Колготки и носки",
-   "Аксессуары для водителя"
+   "Основные части двигателя",
+   "Колготки и носки"
   ],
-  "queue_size": 1,
-  "last_scan_added": 1,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 301,
-   "cards": 301,
-   "ok": 262,
-   "rating": 31,
-   "bad_price": 8,
-   "strict": 5,
-   "fallback": 257,
-   "reserve": 0,
-   "duplicate": 42,
-   "title_duplicate": 43
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -10842,7 +10837,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788936012.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788906862.0
  },
  "admin_ui": {
@@ -431158,9 +431153,9 @@
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",
-   "ts": 1788944096.2690926,
-   "runs": 33,
-   "empty": 3
+   "ts": 1788944390.208293,
+   "runs": 34,
+   "empty": 4
   },
   "Посуда": {
    "shard": "gift23",
@@ -431338,9 +431333,9 @@
   },
   "Колготки и носки": {
    "shard": "school1",
-   "ts": 1788944096.2690926,
-   "runs": 9,
-   "empty": 4
+   "ts": 1788944390.208293,
+   "runs": 10,
+   "empty": 5
   },
   "Познавательная литература": {
    "shard": "books_children5",

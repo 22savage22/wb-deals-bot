@@ -1074,7 +1074,8 @@
   "452247077": 1788953657,
   "1022706051": 1788954738,
   "980573287": 1788955843,
-  "476434555": 1788956814
+  "476434555": 1788956814,
+  "214234507": 1788957475
  },
  "feedback": {
   "855179327": {
@@ -1758,11 +1759,11 @@
    "ts": 1788954738.3912446
   },
   "джинсы женские": {
-   "posts": 90.43807268013325,
+   "posts": 92.36522196912674,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1788956814.2522538
+   "ts": 1788957475.0877094
   },
   "футболка мужская": {
    "posts": 91.26495531668432,
@@ -10789,10 +10790,23 @@
    "ts": 1787749297,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 214234507,
+   "title": "Джинсы бананы мом на резинке большие размеры",
+   "discount": 0,
+   "price": 3539,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/214234507/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788957475,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1788956451,
+  "last_run": 1788957459,
   "last_posts": 1,
   "last_queries": [
    "постельное белье",
@@ -10812,25 +10826,14 @@
   "digest_date": "2026-09-09",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 501,
-   "cards": 501,
-   "ok": 481,
-   "rating": 18,
-   "bad_price": 2,
-   "strict": 5,
-   "fallback": 476,
-   "reserve": 0,
-   "repost": 39,
-   "title_duplicate": 133,
-   "electronics": 1,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 27,
+   "ok": 13,
+   "rate_limited": 13,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -10897,8 +10900,8 @@
    }
   ],
   "today": "2026-09-09",
-  "today_posts": 42,
-  "total_posts": 1045,
+  "today_posts": 43,
+  "total_posts": 1046,
   "last_scan": 1788956859,
   "last_scan_queries": [
    "ремень женский",
@@ -10910,7 +10913,7 @@
    "Сварочное оборудование",
    "Репринтные издания 1860 - 1869 годов"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 200,
@@ -10924,18 +10927,18 @@
    "title_duplicate": 40
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 2,
    "selected": 1,
-   "refresh_ok": 1,
+   "refresh_ok": 2,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 1
   },
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {
@@ -11618,7 +11621,8 @@
   "ременьженскийэкокожачерныйовальнаяпряжкасеребро": 1788953657,
   "футболкаскимсбазоваяоблегающая": 1788954738,
   "платьесарафанлетнеедлинноеназапах": 1788955843,
-  "джинсыширокиебаггинарезинке": 1788956814
+  "джинсыширокиебаггинарезинке": 1788956814,
+  "джинсыбананымомнарезинкебольшиеразмеры": 1788957475
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -12477,7 +12481,8 @@
   "ac8787078f87d7f7": 1788951581,
   "389bdbd9ccc0c033": 1788952601,
   "3c3c382878d0d0e0": 1788955843,
-  "e6c6e6e1e1e1e1e7": 1788956814
+  "e6c6e6e1e1e1e1e7": 1788956814,
+  "9dbcdce737377777": 1788957475
  },
  "learned": {
   "часы мужские": {
@@ -202770,7 +202775,7 @@
   "462930313": {
    "price": 4236,
    "basic": 18799,
-   "ts": 1788957110.050169,
+   "ts": 1788957460.6741867,
    "samples": [
     [
      1788938019,
@@ -432257,7 +432262,7 @@
   "214234507": {
    "price": 3539,
    "basic": 9500,
-   "ts": 1788957110.04993,
+   "ts": 1788957475.087666,
    "samples": [
     [
      1788938019,
@@ -432288,8 +432293,8 @@
      3539
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 3539,
+   "posted_ts": 1788957475.087666
   },
   "270823831": {
    "price": 3876,
@@ -438272,22 +438277,6 @@
   }
  },
  "queue": [
-  {
-   "id": 214234507,
-   "title": "Джинсы бананы мом на резинке большие размеры",
-   "brand": "ALEKSA",
-   "product": 3539,
-   "basic": 3539,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1947,
-   "category": "джинсы женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "джинсы женские",
-   "queued_ts": 1788956859
-  },
   {
    "id": 462930313,
    "title": "Джинсы прямые классические трубы с высокой посадкой",

@@ -10628,10 +10628,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 16,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -10696,23 +10696,21 @@
   "today": "2026-09-09",
   "today_posts": 17,
   "total_posts": 1020,
-  "last_scan": 1788927816,
+  "last_scan": 1788929602,
   "last_scan_queries": [
-   "платье женское",
-   "джинсы женские",
    "сумка женская",
-   "футболка мужская"
+   "футболка мужская",
+   "платье женское",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Источники бесперебойного питания",
-   "Пылевыбивалки"
+   "Одежда и чешки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 1,
-   "cards": 1,
-   "bad_price": 1,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -424458,9 +424456,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1788929565.6819766,
-   "runs": 34,
-   "empty": 4
+   "ts": 1788929841.4112551,
+   "runs": 35,
+   "empty": 5
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",

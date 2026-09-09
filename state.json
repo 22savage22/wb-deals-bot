@@ -1826,6 +1826,18 @@
  },
  "recent": [
   {
+   "pid": 476434555,
+   "title": "Джинсы широкие багги на резинке",
+   "discount": 0,
+   "price": 3797,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/476434555/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1788956814,
+   "drop": 0
+  },
+  {
    "pid": 980573287,
    "title": "Платье сарафан летнее длинное на запах",
    "discount": 0,
@@ -10777,18 +10789,6 @@
    "ts": 1787749297,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 476434555,
-   "title": "Джинсы широкие багги на резинке",
-   "discount": 0,
-   "price": 3797,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/476434555/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1788956814,
-   "drop": 0
   }
  ],
  "meta": {
@@ -437734,7 +437734,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

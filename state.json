@@ -11290,10 +11290,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 20,
+   "ok": 3,
+   "rate_limited": 15,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -11382,30 +11382,26 @@
   "today": "2026-09-09",
   "today_posts": 81,
   "total_posts": 1084,
-  "last_scan": 1788992712,
+  "last_scan": 1788996123,
   "last_scan_queries": [
-   "платье женское",
    "постельное белье",
    "ремень женский",
-   "джинсы женские"
+   "платье женское",
+   "футболка мужская"
   ],
   "last_scan_cats": [
-   "Подвески",
-   "Травяные сборы"
+   "Костюмы и комбинезоны",
+   "Крепежи"
   ],
-  "queue_size": 2,
+  "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "ok": 195,
-   "rating": 5,
+   "found": 1,
+   "cards": 1,
    "bad_price": 1,
-   "strict": 2,
-   "fallback": 193,
-   "reserve": 0,
-   "title_duplicate": 34,
-   "duplicate": 15
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 2,
@@ -450040,9 +450036,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1788996118.4083507,
-   "runs": 43,
-   "empty": 3
+   "ts": 1788996375.1012297,
+   "runs": 44,
+   "empty": 4
   },
   "Коляски": {
    "shard": "children_things2",
@@ -450292,9 +450288,9 @@
   },
   "Крепежи": {
    "shard": "autoproduct37",
-   "ts": 1788996118.4083507,
-   "runs": 23,
-   "empty": 3
+   "ts": 1788996375.1012297,
+   "runs": 24,
+   "empty": 4
   },
   "Домашние животные и ветеринария": {
    "shard": "books9",

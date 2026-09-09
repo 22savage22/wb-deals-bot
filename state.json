@@ -1822,6 +1822,18 @@
  },
  "recent": [
   {
+   "pid": 370859924,
+   "title": "Сумка хобо через плечо",
+   "discount": 0,
+   "price": 1906,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/370859924/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1788952601,
+   "drop": 0
+  },
+  {
    "pid": 966205524,
    "title": "Платье сарафан летнее длинное без рукавов",
    "discount": 0,
@@ -10738,18 +10750,6 @@
    "ts": 1787745044,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 370859924,
-   "title": "Сумка хобо через плечо",
-   "discount": 0,
-   "price": 1906,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/370859924/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788952601,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10788,10 +10788,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 75,
-   "ok": 47,
-   "rate_limited": 20,
-   "http_error": 8,
+   "calls": 55,
+   "ok": 39,
+   "rate_limited": 0,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -10893,7 +10893,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788908332.0,
   "last_engagement_ts": 1788952602.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788950359.0
  },
  "admin_ui": {

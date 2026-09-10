@@ -1157,7 +1157,8 @@
   "613703890": 1789051576,
   "722638871": 1789052641,
   "882516569": 1789053530,
-  "36352141": 1789054542
+  "36352141": 1789054542,
+  "831952104": 1789055226
  },
  "feedback": {
   "855179327": {
@@ -1820,11 +1821,11 @@
    "ts": 1788086723.6111212
   },
   "платье женское": {
-   "posts": 104.34447359744424,
-   "likes": 1.356440272377876,
+   "posts": 105.88105428649668,
+   "likes": 1.350415989589415,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1789051576.5315685
+   "ts": 1789055226.6480541
   },
   "постельное белье": {
    "posts": 94.89811956751159,
@@ -11797,10 +11798,23 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 831952104,
+   "title": "Летнее платье майка лапша длинное в рубчик облегающее",
+   "discount": 0,
+   "price": 1026,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/831952104/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789055226,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1789054138,
+  "last_run": 1789055187,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -11819,23 +11833,14 @@
   "digest_date": "2026-09-10",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 96,
-   "rating": 4,
-   "strict": 0,
-   "fallback": 96,
-   "reserve": 0,
-   "repost": 17,
-   "title_duplicate": 20,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 31,
+   "ok": 22,
+   "rate_limited": 4,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -11922,8 +11927,8 @@
    }
   ],
   "today": "2026-09-10",
-  "today_posts": 47,
-  "total_posts": 1127,
+  "today_posts": 48,
+  "total_posts": 1128,
   "last_scan": 1789054587,
   "last_scan_queries": [
    "джинсы мужские",
@@ -11934,7 +11939,7 @@
   "last_scan_cats": [
    "Сортеры, шнуровки"
   ],
-  "queue_size": 4,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 299,
@@ -11949,19 +11954,18 @@
    "title_duplicate": 59
   },
   "last_queue": {
-   "queue_before": 1,
-   "selected": 0,
-   "refresh_ok": 1,
-   "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "queue_before": 4,
+   "selected": 1,
+   "refresh_ok": 4,
+   "refresh_strict": 1,
+   "refresh_fallback": 3,
    "refresh_reserve": 0,
-   "no_photo": 1,
-   "queue_after": 0
+   "queue_after": 3
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {
@@ -12712,7 +12716,8 @@
   "платьешифоновоепраздничное": 1789051576,
   "футболкаоверсайзплотнаяхлопок": 1789052641,
   "джинсыпрямыедляневысоких": 1789053530,
-  "футболкаоднотоннаябазоваяхлопокslimfit": 1789054542
+  "футболкаоднотоннаябазоваяхлопокslimfit": 1789054542,
+  "летнееплатьемайкалапшадлинноеврубчикоблегающее": 1789055226
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -13627,7 +13632,8 @@
   "e1f3d3f1e8e86878": 1789050924,
   "3333474f27363121": 1789051576,
   "e9e99d95b3f19848": 1789053530,
-  "f0d0c4c1e0c0e1e7": 1789054542
+  "f0d0c4c1e0c0e1e7": 1789054542,
+  "f0f0f0f0f0f0f08e": 1789055226
  },
  "learned": {
   "часы мужские": {
@@ -28101,7 +28107,7 @@
   "395763926": {
    "price": 354,
    "basic": 543,
-   "ts": 1789054675.0842085,
+   "ts": 1789055188.4229867,
    "samples": [
     [
      1788628551,
@@ -90274,7 +90280,7 @@
   "1249718078": {
    "price": 886,
    "basic": 5000,
-   "ts": 1789054675.083932,
+   "ts": 1789055188.4229562,
    "samples": [
     [
      1788311723,
@@ -368146,7 +368152,7 @@
   "231275334": {
    "price": 1344,
    "basic": 2900,
-   "ts": 1789054139.4508154,
+   "ts": 1789055188.4230115,
    "samples": [
     [
      1789041167,
@@ -467999,15 +468005,15 @@
   "831952104": {
    "price": 1026,
    "basic": 4934,
-   "ts": 1789054675.080947,
+   "ts": 1789055226.6480181,
    "samples": [
     [
      1789054675,
      1026
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 1026,
+   "posted_ts": 1789055226.6480181
   },
   "17483682": {
    "price": 3982,
@@ -468761,22 +468767,6 @@
   }
  },
  "queue": [
-  {
-   "id": 831952104,
-   "title": "Летнее платье майка лапша длинное в рубчик облегающее",
-   "brand": "nfes",
-   "product": 1026,
-   "basic": 1026,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 6865,
-   "category": "платье женское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "платье женское",
-   "queued_ts": 1789054587
-  },
   {
    "id": 1249718078,
    "title": "Набор бейсболок",

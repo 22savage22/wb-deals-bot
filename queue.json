@@ -1,1 +1,34 @@
-[]
+[
+ {
+  "id": 1281629954,
+  "title": "Футболка базовая с принтом летняя",
+  "brand": "DNZ",
+  "product": 302,
+  "basic": 360,
+  "discount": 16,
+  "benefit": 58,
+  "rating": 4.9,
+  "feedbacks": 375,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1789073003
+ },
+ {
+  "id": 762086144,
+  "title": "Футболка поло приталенная укороченная с вырезом y2k",
+  "brand": "Uglerod",
+  "product": 1792,
+  "basic": 2146,
+  "discount": 16,
+  "benefit": 354,
+  "rating": 4.9,
+  "feedbacks": 196,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1789073003
+ }
+]

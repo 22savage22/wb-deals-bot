@@ -1899,6 +1899,19 @@
  },
  "recent": [
   {
+   "pid": 952543255,
+   "title": "Джинсы женские мом с высокой посадкой",
+   "discount": 0,
+   "price": 4808,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/952543255/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1789046993,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 120978634,
    "title": "Платье свитер вязаное теплое",
    "discount": 0,
@@ -11647,19 +11660,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 952543255,
-   "title": "Джинсы женские мом с высокой посадкой",
-   "discount": 0,
-   "price": 4808,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/952543255/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1789046993,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11686,10 +11686,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 19,
-   "rate_limited": 8,
-   "http_error": 2,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11788,7 +11788,7 @@
   "last_scan_cats": [
    "Развлечения"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 299,
@@ -11811,10 +11811,10 @@
    "refresh_reserve": 0,
    "queue_after": 3
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

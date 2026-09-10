@@ -11330,10 +11330,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 22,
-   "rate_limited": 4,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

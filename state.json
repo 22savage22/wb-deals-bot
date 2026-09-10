@@ -11287,10 +11287,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 15,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -11379,7 +11379,7 @@
   "today": "2026-09-09",
   "today_posts": 81,
   "total_posts": 1084,
-  "last_scan": 1788996123,
+  "last_scan": 1788998530,
   "last_scan_queries": [
    "постельное белье",
    "ремень женский",
@@ -11387,15 +11387,14 @@
    "футболка мужская"
   ],
   "last_scan_cats": [
-   "Костюмы и комбинезоны",
-   "Крепежи"
+   "Зеркала",
+   "Манежи детские"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 1,
-   "cards": 1,
-   "bad_price": 1,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -450313,9 +450312,9 @@
   },
   "Манежи детские": {
    "shard": "babies_room1",
-   "ts": 1788818230.3505206,
-   "runs": 50,
-   "empty": 5
+   "ts": 1788998793.407257,
+   "runs": 51,
+   "empty": 1
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
@@ -450343,9 +450342,9 @@
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1788811339.8017135,
-   "runs": 45,
-   "empty": 5
+   "ts": 1788998793.407257,
+   "runs": 46,
+   "empty": 1
   },
   "Подвески": {
    "shard": "bijouterie4",

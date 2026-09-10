@@ -1929,6 +1929,19 @@
  },
  "recent": [
   {
+   "pid": 762086144,
+   "title": "Футболка поло приталенная укороченная с вырезом y2k",
+   "discount": 0,
+   "price": 1792,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/762086144/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789074273,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1281629954,
    "title": "Футболка базовая с принтом летняя",
    "discount": 0,
@@ -12043,19 +12056,6 @@
    "ts": 1787891185,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 762086144,
-   "title": "Футболка поло приталенная укороченная с вырезом y2k",
-   "discount": 0,
-   "price": 1792,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/762086144/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789074273,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12084,10 +12084,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 18,
-   "rate_limited": 8,
-   "http_error": 0,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12186,7 +12186,7 @@
   "last_scan_cats": [
    "Туризм и страноведение"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

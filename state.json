@@ -12108,10 +12108,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 54,
-   "ok": 25,
-   "rate_limited": 19,
-   "http_error": 10,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12210,7 +12210,7 @@
   "last_scan_cats": [
    "Туризм и страноведение"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

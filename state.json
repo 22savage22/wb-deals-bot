@@ -11422,10 +11422,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 15,
-   "rate_limited": 20,
-   "http_error": 3,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11551,7 +11551,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788996118.0,
   "last_engagement_ts": 1789013713.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788993746.0
  },
  "admin_ui": {

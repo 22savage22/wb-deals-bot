@@ -12108,10 +12108,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -12200,29 +12200,25 @@
   "today": "2026-09-10",
   "today_posts": 69,
   "total_posts": 1149,
-  "last_scan": 1789073003,
+  "last_scan": 1789075367,
   "last_scan_queries": [
    "платье женское",
+   "кепка женская",
    "футболка мужская",
-   "джинсы женские",
-   "футболка женская"
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Туризм и страноведение"
+   "Пули для пневматики",
+   "Мешки для обуви"
   ],
-  "queue_size": 2,
-  "last_scan_added": 2,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 290,
-   "rating": 10,
-   "strict": 4,
-   "fallback": 286,
-   "reserve": 0,
-   "title_duplicate": 49,
-   "duplicate": 34,
-   "electronics": 3
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -476127,9 +476123,9 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1789075319.008966,
-   "runs": 36,
-   "empty": 1
+   "ts": 1789075597.508218,
+   "runs": 37,
+   "empty": 2
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
@@ -476277,9 +476273,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1789075319.008966,
-   "runs": 26,
-   "empty": 1
+   "ts": 1789075597.508218,
+   "runs": 27,
+   "empty": 2
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

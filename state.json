@@ -1920,6 +1920,19 @@
  },
  "recent": [
   {
+   "pid": 1311641559,
+   "title": "Маленькая черная сумка",
+   "discount": 0,
+   "price": 3300,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1311641559/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789066922,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 214214580,
    "title": "Джинсы широкие багги",
    "discount": 25,
@@ -11932,19 +11945,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1311641559,
-   "title": "Маленькая черная сумка",
-   "discount": 0,
-   "price": 3300,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1311641559/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789066922,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11973,10 +11973,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 18,
-   "rate_limited": 8,
-   "http_error": 2,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12076,7 +12076,7 @@
    "Расчески парикмахерские",
    "Тросики"
   ],
-  "queue_size": 4,
+  "queue_size": 5,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 300,

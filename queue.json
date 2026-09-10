@@ -1,5 +1,37 @@
 [
  {
+  "id": 882123283,
+  "title": "Платье сарафан длинный,летнее макси",
+  "brand": "DANA'S COLLECTION",
+  "product": 840,
+  "basic": 1678,
+  "discount": 50,
+  "benefit": 838,
+  "rating": 4.7,
+  "feedbacks": 13,
+  "category": "платье женское",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "платье женское",
+  "queued_ts": 1789034728
+ },
+ {
+  "id": 1503791369,
+  "title": "Платье поло вязаное мини by Karina Paletskikh",
+  "brand": "Red Flag",
+  "product": 2015,
+  "basic": 2015,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 1700,
+  "category": "платье женское",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "платье женское",
+  "queued_ts": 1789034728
+ },
+ {
   "id": 1311758579,
   "title": "Маленькая замшевая коричневая сумка",
   "brand": "Novelli",

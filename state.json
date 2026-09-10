@@ -11832,10 +11832,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 6,
-   "rate_limited": 19,
-   "http_error": 1,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11934,7 +11934,7 @@
   "last_scan_cats": [
    "Сортеры, шнуровки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -11958,10 +11958,10 @@
    "no_photo": 1,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

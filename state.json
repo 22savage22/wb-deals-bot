@@ -1875,6 +1875,18 @@
  },
  "recent": [
   {
+   "pid": 312799989,
+   "title": "Браслет на руку широкий бижутерия Accessorica",
+   "discount": 20,
+   "price": 942,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/312799989/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789013712,
+   "drop": 1
+  },
+  {
    "pid": 616419728,
    "title": "Кольцо с большим лунным камнем бижутерия Accessorica",
    "discount": 24,
@@ -11345,18 +11357,6 @@
    "ts": 1787824814,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 312799989,
-   "title": "Браслет на руку широкий бижутерия Accessorica",
-   "discount": 20,
-   "price": 942,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/312799989/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789013712,
-   "drop": 1
   }
  ],
  "meta": {
@@ -11396,10 +11396,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 22,
-   "rate_limited": 24,
-   "http_error": 3,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11521,7 +11521,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1788996118.0,
   "last_engagement_ts": 1789013713.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1788993746.0
  },
  "admin_ui": {

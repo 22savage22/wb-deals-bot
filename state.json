@@ -1932,6 +1932,18 @@
  },
  "recent": [
   {
+   "pid": 1051462866,
+   "title": "Постельное белье 2 спальное бязь хлопок",
+   "discount": 0,
+   "price": 2072,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1051462866/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1789078978,
+   "drop": 0
+  },
+  {
    "pid": 1241066911,
    "title": "Футболка с надписью базовая хлопок",
    "discount": 0,
@@ -12083,18 +12095,6 @@
    "ts": 1787891185,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1051462866,
-   "title": "Постельное белье 2 спальное бязь хлопок",
-   "discount": 0,
-   "price": 2072,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1051462866/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1789078978,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12131,10 +12131,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 7,
-   "rate_limited": 19,
-   "http_error": 2,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12260,7 +12260,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789062372.0,
   "last_engagement_ts": 1789078979.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

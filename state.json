@@ -1869,6 +1869,18 @@
  },
  "recent": [
   {
+   "pid": 237177831,
+   "title": "Джинсы багги черные",
+   "discount": 31,
+   "price": 2263,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/237177831/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1789005247,
+   "drop": 1
+  },
+  {
    "pid": 209705680,
    "title": "Платье летнее штапельное в горошек большие размеры",
    "discount": 32,
@@ -11267,18 +11279,6 @@
    "ts": 1787824814,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 237177831,
-   "title": "Джинсы багги черные",
-   "discount": 31,
-   "price": 2263,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/237177831/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1789005247,
-   "drop": 1
   }
  ],
  "meta": {
@@ -11318,10 +11318,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 86,
-   "ok": 61,
-   "rate_limited": 17,
-   "http_error": 8,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

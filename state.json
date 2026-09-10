@@ -1905,6 +1905,19 @@
  },
  "recent": [
   {
+   "pid": 980605651,
+   "title": "Прямые укороченные джинсы мом рваные",
+   "discount": 0,
+   "price": 6010,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/980605651/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1789050924,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 223923220,
    "title": "Платье женское летнее на торжество с принтом",
    "discount": 0,
@@ -11731,19 +11744,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 980605651,
-   "title": "Прямые укороченные джинсы мом рваные",
-   "discount": 0,
-   "price": 6010,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/980605651/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1789050924,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11770,10 +11770,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 6,
-   "rate_limited": 10,
-   "http_error": 1,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11872,7 +11872,7 @@
   "last_scan_cats": [
    "Развлечения"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 201,
@@ -11895,10 +11895,10 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

@@ -1,1 +1,66 @@
-[]
+[
+ {
+  "id": 256339618,
+  "title": "Футболка оверсайз базовая хлопковая",
+  "brand": "ТЕЛОДВИЖЕНИЯ",
+  "product": 636,
+  "basic": 978,
+  "discount": 35,
+  "benefit": 342,
+  "rating": 4.8,
+  "feedbacks": 25150,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1789039045
+ },
+ {
+  "id": 772424094,
+  "title": "Футболка базовая хлопок однотонная",
+  "brand": "Stark Cotton",
+  "product": 375,
+  "basic": 599,
+  "discount": 37,
+  "benefit": 224,
+  "rating": 4.9,
+  "feedbacks": 2592,
+  "category": "футболка мужская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка мужская",
+  "queued_ts": 1789039045
+ },
+ {
+  "id": 149837749,
+  "title": "футболка вязаная белая",
+  "brand": "TERRA PRO",
+  "product": 1711,
+  "basic": 2080,
+  "discount": 18,
+  "benefit": 369,
+  "rating": 4.9,
+  "feedbacks": 575,
+  "category": "футболка мужская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка мужская",
+  "queued_ts": 1789039045
+ },
+ {
+  "id": 397261568,
+  "title": "Футболка укороченная оверсайз",
+  "brand": "VZLET",
+  "product": 1406,
+  "basic": 1684,
+  "discount": 17,
+  "benefit": 278,
+  "rating": 4.8,
+  "feedbacks": 6056,
+  "category": "футболка мужская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка мужская",
+  "queued_ts": 1789039045
+ }
+]

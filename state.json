@@ -1881,6 +1881,19 @@
  },
  "recent": [
   {
+   "pid": 504272975,
+   "title": "Джинсы широкие прямые со стразами с высокой посадкой",
+   "discount": 0,
+   "price": 4820,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/504272975/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1789034721,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1338449224,
    "title": "Джинсы багги широкие с защипами",
    "discount": 0,
@@ -11411,19 +11424,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 504272975,
-   "title": "Джинсы широкие прямые со стразами с высокой посадкой",
-   "discount": 0,
-   "price": 4820,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/504272975/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1789034721,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11554,7 +11554,7 @@
   "last_scan_cats": [
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 199,

@@ -11370,10 +11370,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 65,
-   "rate_limited": 16,
-   "http_error": 7,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

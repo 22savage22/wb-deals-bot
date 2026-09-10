@@ -11382,10 +11382,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -11474,23 +11474,22 @@
   "today": "2026-09-10",
   "today_posts": 13,
   "total_posts": 1093,
-  "last_scan": 1789009362,
+  "last_scan": 1789012599,
   "last_scan_queries": [
    "платье женское",
-   "джинсы женские",
    "постельное белье",
-   "украшения женские"
+   "украшения женские",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Аксессуары и инвентарь",
-   "Коляски"
+   "Корм и лакомства",
+   "ММА"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 2,
-   "cards": 2,
-   "bad_price": 2,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -456614,15 +456613,15 @@
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1789012556.995187,
-   "runs": 36,
-   "empty": 1
+   "ts": 1789012815.650636,
+   "runs": 37,
+   "empty": 2
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1789012556.995187,
-   "runs": 36,
-   "empty": 1
+   "ts": 1789012815.650636,
+   "runs": 37,
+   "empty": 2
   },
   "Кронштейны": {
    "shard": "housecraft6",

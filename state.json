@@ -1911,6 +1911,19 @@
  },
  "recent": [
   {
+   "pid": 1249718078,
+   "title": "Набор бейсболок",
+   "discount": 32,
+   "price": 886,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1249718078/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1789055880,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 831952104,
    "title": "Летнее платье майка лапша длинное в рубчик облегающее",
    "discount": 0,
@@ -11812,19 +11825,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1249718078,
-   "title": "Набор бейсболок",
-   "discount": 32,
-   "price": 886,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1249718078/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1789055880,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -11851,10 +11851,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 22,
-   "rate_limited": 4,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11953,7 +11953,7 @@
   "last_scan_cats": [
    "Сортеры, шнуровки"
   ],
-  "queue_size": 2,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 299,
@@ -11976,10 +11976,10 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

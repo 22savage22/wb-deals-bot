@@ -1896,6 +1896,19 @@
  },
  "recent": [
   {
+   "pid": 207177462,
+   "title": "Кольцо с большим камнем помолвочное бижутерия",
+   "discount": 0,
+   "price": 1426,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/207177462/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789044667,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 256944961,
    "title": "Кольцо с жемчугом позолоченное Бижутерия",
    "discount": 0,
@@ -11606,19 +11619,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 207177462,
-   "title": "Кольцо с большим камнем помолвочное бижутерия",
-   "discount": 0,
-   "price": 1426,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/207177462/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789044667,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11646,10 +11646,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 22,
-   "rate_limited": 8,
-   "http_error": 4,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -11748,7 +11748,7 @@
   "last_scan_cats": [
    "Развлечения"
   ],
-  "queue_size": 1,
+  "queue_size": 4,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 299,
@@ -11772,10 +11772,10 @@
    "no_photo": 1,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789043371.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789037347.0
  },
  "admin_ui": {

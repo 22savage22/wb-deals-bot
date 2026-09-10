@@ -1132,7 +1132,8 @@
   "504272975": 1789034721,
   "1311758579": 1789035328,
   "882123283": 1789035401,
-  "863776430": 1789036045
+  "863776430": 1789036045,
+  "1503791369": 1789036697
  },
  "feedback": {
   "855179327": {
@@ -1795,11 +1796,11 @@
    "ts": 1788086723.6111212
   },
   "платье женское": {
-   "posts": 96.286517889508,
-   "likes": 1.383461219227134,
+   "posts": 98.13445283772445,
+   "likes": 1.3812763224570452,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1789035401.4847348
+   "ts": 1789036697.5980058
   },
   "постельное белье": {
    "posts": 96.49091423959287,
@@ -11453,10 +11454,23 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
+  },
+  {
+   "pid": 1503791369,
+   "title": "Платье поло вязаное мини by Karina Paletskikh",
+   "discount": 0,
+   "price": 2015,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1503791369/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789036697,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1789036008,
+  "last_run": 1789036652,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -11481,10 +11495,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 22,
+   "ok": 8,
+   "rate_limited": 11,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -11571,8 +11585,8 @@
    }
   ],
   "today": "2026-09-10",
-  "today_posts": 22,
-  "total_posts": 1102,
+  "today_posts": 23,
+  "total_posts": 1103,
   "last_scan": 1789034728,
   "last_scan_queries": [
    "сумка женская",
@@ -11584,7 +11598,7 @@
    "Система выпуска",
    "Конструкторы LEGO"
   ],
-  "queue_size": 4,
+  "queue_size": 0,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 100,
@@ -11599,15 +11613,15 @@
    "title_duplicate": 11
   },
   "last_queue": {
-   "queue_before": 2,
+   "queue_before": 1,
    "selected": 1,
-   "refresh_ok": 2,
+   "refresh_ok": 1,
    "refresh_strict": 0,
-   "refresh_fallback": 2,
+   "refresh_fallback": 1,
    "refresh_reserve": 0,
-   "queue_after": 1
+   "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1789020126.0,
   "last_engagement_ts": 1789013713.0,
   "last_engagement_kind": "question",
@@ -12336,7 +12350,8 @@
   "джинсымужскиепрямыеклассическиебрюкисиние": 1789022604,
   "джинсыширокиепрямыесостразамисвысокойпосадкой": 1789034721,
   "платьесарафандлинныйлетнеемакси": 1789035401,
-  "джинсыклешотколенаy2kлетние": 1789036045
+  "джинсыклешотколенаy2kлетние": 1789036045,
+  "платьеполовязаноеминиbykarinapaletskikh": 1789036697
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -13230,7 +13245,8 @@
   "88b070707070f00c": 1789024706,
   "ee4e1e1c7cc9cbeb": 1789034721,
   "b2b2b0f0f0d0f4f4": 1789035401,
-  "0d707151716160f0": 1789036045
+  "0d707151716160f0": 1789036045,
+  "3131393171713034": 1789036697
  },
  "learned": {
   "часы мужские": {
@@ -445484,7 +445500,7 @@
   "1503791369": {
    "price": 2015,
    "basic": 4999,
-   "ts": 1789036010.0887258,
+   "ts": 1789036697.5979588,
    "samples": [
     [
      1788986719,
@@ -445515,8 +445531,8 @@
      2015
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 2015,
+   "posted_ts": 1789036697.5979588
   },
   "1200164829": {
    "price": 3143,
@@ -461521,22 +461537,6 @@
   }
  },
  "queue": [
-  {
-   "id": 1503791369,
-   "title": "Платье поло вязаное мини by Karina Paletskikh",
-   "brand": "Red Flag",
-   "product": 2015,
-   "basic": 2015,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 1700,
-   "category": "платье женское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "платье женское",
-   "queued_ts": 1789034728
-  },
   {
    "id": 1434189684,
    "title": "Большая черная сумка",

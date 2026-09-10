@@ -1924,6 +1924,18 @@
  },
  "recent": [
   {
+   "pid": 804810867,
+   "title": "Плотная классическая футболка из хлопка",
+   "discount": 18,
+   "price": 745,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/804810867/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789071027,
+   "drop": 1
+  },
+  {
    "pid": 460050562,
    "title": "Постельное белье 1.5 спальное однотонное",
    "discount": 33,
@@ -11987,18 +11999,6 @@
    "ts": 1787862477,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 804810867,
-   "title": "Плотная классическая футболка из хлопка",
-   "discount": 18,
-   "price": 745,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/804810867/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789071027,
-   "drop": 1
   }
  ],
  "meta": {
@@ -475308,7 +475308,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "67529726": {
    "price": 1307,
@@ -475321,7 +475321,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "341485528": {
    "price": 333,
@@ -475334,7 +475334,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

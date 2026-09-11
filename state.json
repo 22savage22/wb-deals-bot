@@ -1943,6 +1943,18 @@
  },
  "recent": [
   {
+   "pid": 1480397404,
+   "title": "Маленькая коричневая сумка",
+   "discount": 0,
+   "price": 3520,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1480397404/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789112049,
+   "drop": 0
+  },
+  {
    "pid": 1330525325,
    "title": "Сумка багет на плечо маленькая",
    "discount": 0,
@@ -12206,18 +12218,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 1480397404,
-   "title": "Маленькая коричневая сумка",
-   "discount": 0,
-   "price": 3520,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1480397404/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789112049,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12257,10 +12257,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 35,
-   "ok": 7,
-   "rate_limited": 24,
-   "http_error": 4,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

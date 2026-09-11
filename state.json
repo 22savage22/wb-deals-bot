@@ -1231,7 +1231,8 @@
   "28923884": 1789143771,
   "429920677": 1789144644,
   "613894991": 1789145545,
-  "613894989": 1789146325
+  "613894989": 1789146325,
+  "817020215": 1789147005
  },
  "feedback": {
   "855179327": {
@@ -1929,11 +1930,11 @@
    "ts": 1789144644.573268
   },
   "ремень женский": {
-   "posts": 75.11418098038364,
+   "posts": 77.0519204502868,
    "likes": 0.0,
-   "dislikes": 3.158296998099479,
+   "dislikes": 3.15567915360286,
    "bought": 0.0,
-   "ts": 1789146325.5303771
+   "ts": 1789147005.5270543
   },
   "кепка женская": {
    "posts": 89.99987027341905,
@@ -12749,10 +12750,23 @@
    "cat": "телефон",
    "ts": 1787964836,
    "drop": 0
+  },
+  {
+   "pid": 817020215,
+   "title": "Ремень для джинс платья на талию кожаный",
+   "discount": 0,
+   "price": 250,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/817020215/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1789147005,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1789146153,
+  "last_run": 1789146973,
   "last_posts": 1,
   "last_queries": [
    "футболка мужская",
@@ -12772,25 +12786,14 @@
   "digest_date": "2026-09-11",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1190,
-   "cards": 1190,
-   "max_price": 1087,
-   "bad_price": 11,
-   "ok": 88,
-   "rating": 4,
-   "strict": 7,
-   "fallback": 81,
-   "reserve": 0,
-   "repost": 10,
-   "title_duplicate": 37,
-   "selected": 5,
-   "published": 1
+   "published": 1,
+   "selected": 1
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 32,
+   "ok": 27,
+   "rate_limited": 0,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -12877,8 +12880,8 @@
    }
   ],
   "today": "2026-09-11",
-  "today_posts": 55,
-  "total_posts": 1202,
+  "today_posts": 56,
+  "total_posts": 1203,
   "last_scan": 1789146373,
   "last_scan_queries": [
    "платье женское",
@@ -12890,7 +12893,7 @@
    "Посуда",
    "Одежда и чешки"
   ],
-  "queue_size": 2,
+  "queue_size": 1,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 399,
@@ -12906,18 +12909,18 @@
    "title_duplicate": 11
   },
   "last_queue": {
-   "queue_before": 1,
+   "queue_before": 2,
    "selected": 1,
-   "refresh_ok": 1,
+   "refresh_ok": 2,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 2,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "queue_after": 1
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789146327.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789124416.0
  },
  "admin_ui": {
@@ -13724,7 +13727,8 @@
   "футболкабазоваясvобразнымвырезом": 1789141522,
   "бейсболкаполиэстеруниверсальныйразмер5560см": 1789143005,
   "блузкалетняяофиснаяяркорозовыйкороткийрукав": 1789143771,
-  "футболкахлопок": 1789144644
+  "футболкахлопок": 1789144644,
+  "ременьдляджинсплатьянаталиюкожаный": 1789147005
  },
  "img_hash": {
   "2131b1d3df2d2d2f": 1786899184,
@@ -14692,7 +14696,8 @@
   "6cc49686c4c6e061": 1789139155,
   "e40c3e3e20366787": 1789139965,
   "447cf87cf8f0f040": 1789143005,
-  "f2f0f8e8c4c4e8f8": 1789143771
+  "f2f0f8e8c4c4e8f8": 1789143771,
+  "071f1b1e18c80c07": 1789147005
  },
  "learned": {
   "часы мужские": {
@@ -180156,7 +180161,7 @@
   "817020215": {
    "price": 250,
    "basic": 500,
-   "ts": 1789146403.2227767,
+   "ts": 1789147005.5270145,
    "samples": [
     [
      1788999858,
@@ -180187,8 +180192,8 @@
      250
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 250,
+   "posted_ts": 1789147005.5270145
   },
   "291516769": {
    "price": 1162,
@@ -490075,7 +490080,7 @@
   "13920350": {
    "price": 355,
    "basic": 1112,
-   "ts": 1789146403.2231858,
+   "ts": 1789146974.8466516,
    "samples": [
     [
      1789115158,
@@ -495943,22 +495948,6 @@
   }
  },
  "queue": [
-  {
-   "id": 817020215,
-   "title": "Ремень для джинс платья на талию кожаный",
-   "brand": "KODALIFE",
-   "product": 250,
-   "basic": 250,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 3741,
-   "category": "ремень женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "ремень женский",
-   "queued_ts": 1789146373
-  },
   {
    "id": 13920350,
    "title": "Тонкий ремень для джинс и платья",

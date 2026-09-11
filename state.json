@@ -12885,10 +12885,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 19,
+   "ok": 10,
+   "rate_limited": 6,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -12977,12 +12977,12 @@
   "today": "2026-09-11",
   "today_posts": 64,
   "total_posts": 1211,
-  "last_scan": 1789162770,
+  "last_scan": 1789163436,
   "last_scan_queries": [
-   "платье женское",
    "футболка мужская",
+   "платье женское",
    "футболка женская",
-   "джинсы женские"
+   "постельное белье"
   ],
   "last_scan_cats": [
    "Кастрюли и сковороды",
@@ -12991,16 +12991,15 @@
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "max_price": 95,
-   "ok": 5,
-   "bad_price": 1,
+   "found": 102,
+   "cards": 102,
+   "max_price": 99,
+   "ok": 1,
+   "bad_price": 2,
    "strict": 0,
-   "fallback": 5,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 1,
-   "title_duplicate": 3
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -303731,7 +303730,7 @@
   "622420334": {
    "price": 382,
    "basic": 999,
-   "ts": 1789162431.9722435,
+   "ts": 1789163523.550812,
    "samples": [
     [
      1789148405,
@@ -496008,9 +496007,9 @@
   },
   "Восточные сладости": {
    "shard": "product1",
-   "ts": 1789163392.0173519,
-   "runs": 48,
-   "empty": 3
+   "ts": 1789163523.551937,
+   "runs": 49,
+   "empty": 4
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
@@ -496404,9 +496403,9 @@
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
-   "ts": 1789163392.0173519,
-   "runs": 8,
-   "empty": 3
+   "ts": 1789163523.551937,
+   "runs": 9,
+   "empty": 4
   },
   "Бронеодежда": {
    "shard": "sport18",

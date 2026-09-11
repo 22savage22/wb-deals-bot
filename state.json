@@ -1953,6 +1953,19 @@
  },
  "recent": [
   {
+   "pid": 305506612,
+   "title": "Винтажная кепка с надписью old money",
+   "discount": 0,
+   "price": 205,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/305506612/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1789122454,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1009251918,
    "title": "Бейсболка варенка серая кепка",
    "discount": 37,
@@ -12338,19 +12351,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 305506612,
-   "title": "Винтажная кепка с надписью old money",
-   "discount": 0,
-   "price": 205,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/305506612/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1789122454,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12378,10 +12378,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 27,
-   "rate_limited": 2,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12481,7 +12481,7 @@
    "Солнечные электростанции и комплектующие",
    "Кофе и цикорий"
   ],
-  "queue_size": 2,
+  "queue_size": 5,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 400,

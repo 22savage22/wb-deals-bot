@@ -1936,6 +1936,19 @@
  },
  "recent": [
   {
+   "pid": 343096320,
+   "title": "Кольцо массивное акцентное",
+   "discount": 0,
+   "price": 407,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/343096320/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789104097,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1141517763,
    "title": "Цепочка на талию пояс ремень женский тонкий",
    "discount": 0,
@@ -12124,19 +12137,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 343096320,
-   "title": "Кольцо массивное акцентное",
-   "discount": 0,
-   "price": 407,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/343096320/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789104097,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12164,10 +12164,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 25,
-   "ok": 13,
-   "rate_limited": 9,
-   "http_error": 3,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12267,7 +12267,7 @@
    "Гроубоксы",
    "Гигиена полости рта"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,

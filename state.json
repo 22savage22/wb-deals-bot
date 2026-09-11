@@ -1955,6 +1955,19 @@
  },
  "recent": [
   {
+   "pid": 473287544,
+   "title": "Платье летнее из вискозы с разрезами большие размеры",
+   "discount": 0,
+   "price": 1873,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/473287544/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789123772,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 918153638,
    "title": "Джинсы летние с высокой посадкой",
    "discount": 0,
@@ -12366,19 +12379,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 473287544,
-   "title": "Платье летнее из вискозы с разрезами большие размеры",
-   "discount": 0,
-   "price": 1873,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/473287544/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789123772,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12406,10 +12406,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 28,
-   "rate_limited": 4,
-   "http_error": 4,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12509,7 +12509,7 @@
    "Аптечная косметика",
    "Для мам и малышей"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -12532,7 +12532,7 @@
    "refresh_reserve": 0,
    "queue_after": 3
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789110843.0,
   "last_engagement_kind": "question",

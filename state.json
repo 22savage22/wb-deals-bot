@@ -1985,6 +1985,18 @@
  },
  "recent": [
   {
+   "pid": 258618441,
+   "title": "Футболка синяя с коротким рукавом и принтом",
+   "discount": 0,
+   "price": 500,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/258618441/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789169153,
+   "drop": 0
+  },
+  {
    "pid": 84076403,
    "title": "Чокер из бисера на шею бижутерия украшение ожерелье",
    "discount": 0,
@@ -12874,18 +12886,6 @@
    "cat": "телефон",
    "ts": 1787964836,
    "drop": 0
-  },
-  {
-   "pid": 258618441,
-   "title": "Футболка синяя с коротким рукавом и принтом",
-   "discount": 0,
-   "price": 500,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/258618441/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789169153,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12924,10 +12924,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 70,
-   "ok": 48,
-   "rate_limited": 15,
-   "http_error": 7,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -13027,7 +13027,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Сварочное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

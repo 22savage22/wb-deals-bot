@@ -1984,6 +1984,19 @@
  },
  "recent": [
   {
+   "pid": 84076403,
+   "title": "Чокер из бисера на шею бижутерия украшение ожерелье",
+   "discount": 0,
+   "price": 426,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/84076403/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789166910,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 815051428,
    "title": "Колье из ракушек морские пляжные украшения",
    "discount": 32,
@@ -12860,19 +12873,6 @@
    "cat": "телефон",
    "ts": 1787964836,
    "drop": 0
-  },
-  {
-   "pid": 84076403,
-   "title": "Чокер из бисера на шею бижутерия украшение ожерелье",
-   "discount": 0,
-   "price": 426,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/84076403/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789166910,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12901,10 +12901,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 18,
-   "rate_limited": 7,
-   "http_error": 2,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -13004,7 +13004,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Сварочное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

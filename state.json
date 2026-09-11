@@ -12111,7 +12111,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789087489,
+  "last_run": 1789088627,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12125,29 +12125,20 @@
   "empty_notice_ts": 1789058446.0,
   "cats_ts": 1789034728.0400333,
   "last_cats": [
-   "Гигиена полости рта",
-   "Гроубоксы"
+   "Гроубоксы",
+   "Гигиена полости рта"
   ],
   "digest_date": "2026-09-11",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 99,
-   "rating": 1,
-   "strict": 0,
-   "fallback": 99,
-   "reserve": 0,
-   "repost": 5,
-   "title_duplicate": 28,
-   "selected": 0,
-   "published": 0
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 24,
+   "ok": 0,
+   "rate_limited": 23,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -478447,9 +478438,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1789088022.3081012,
-   "runs": 57,
-   "empty": 2
+   "ts": 1789089075.1605148,
+   "runs": 58,
+   "empty": 3
   },
   "Манежи детские": {
    "shard": "babies_room1",
@@ -478813,9 +478804,9 @@
   },
   "Гигиена полости рта": {
    "shard": "beauty55",
-   "ts": 1789088022.3081012,
-   "runs": 17,
-   "empty": 2
+   "ts": 1789089075.1605148,
+   "runs": 18,
+   "empty": 3
   },
   "Хобби и досуг": {
    "shard": "books9",

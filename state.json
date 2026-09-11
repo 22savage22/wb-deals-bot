@@ -1967,6 +1967,18 @@
  },
  "recent": [
   {
+   "pid": 1248778859,
+   "title": "Джинсы широкие прямые",
+   "discount": 0,
+   "price": 4066,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1248778859/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1789132519,
+   "drop": 0
+  },
+  {
    "pid": 924437150,
    "title": "Футболка оверсайз хлопковая больших размеров",
    "discount": 16,
@@ -12533,18 +12545,6 @@
    "query": "кроссовки",
    "cat": "кроссовки",
    "ts": 1787935933,
-   "drop": 0
-  },
-  {
-   "pid": 1248778859,
-   "title": "Джинсы широкие прямые",
-   "discount": 0,
-   "price": 4066,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1248778859/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1789132519,
    "drop": 0
   }
  ],
@@ -492310,7 +492310,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

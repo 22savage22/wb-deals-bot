@@ -12922,10 +12922,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 12,
-   "rate_limited": 17,
-   "http_error": 3,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

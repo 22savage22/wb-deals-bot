@@ -1948,6 +1948,18 @@
  },
  "recent": [
   {
+   "pid": 679136074,
+   "title": "Ремень из натуральной кожи с тиснением",
+   "discount": 0,
+   "price": 1508,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/679136074/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1789118656,
+   "drop": 0
+  },
+  {
    "pid": 1001030183,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 18,
@@ -12271,18 +12283,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 679136074,
-   "title": "Ремень из натуральной кожи с тиснением",
-   "discount": 0,
-   "price": 1508,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/679136074/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1789118656,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12321,10 +12321,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 73,
-   "ok": 41,
-   "rate_limited": 28,
-   "http_error": 4,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

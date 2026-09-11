@@ -1979,6 +1979,19 @@
  },
  "recent": [
   {
+   "pid": 1146524178,
+   "title": "Бейсболка полиэстер, универсальный размер 55–60 см",
+   "discount": 0,
+   "price": 319,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1146524178/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1789143005,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 170794702,
    "title": "Футболка базовая с v-образным вырезом",
    "discount": 42,
@@ -12696,19 +12709,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 1146524178,
-   "title": "Бейсболка полиэстер, универсальный размер 55–60 см",
-   "discount": 0,
-   "price": 319,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1146524178/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1789143005,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12737,10 +12737,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 89,
-   "ok": 77,
-   "rate_limited": 4,
-   "http_error": 8,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -12840,7 +12840,7 @@
    "Источники бесперебойного питания",
    "Пылевыбивалки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,

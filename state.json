@@ -1984,6 +1984,19 @@
  },
  "recent": [
   {
+   "pid": 817020215,
+   "title": "Ремень для джинс платья на талию кожаный",
+   "discount": 0,
+   "price": 250,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/817020215/detail.aspx",
+   "query": "ремень женский",
+   "cat": "ремень женский",
+   "ts": 1789147005,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 613894989,
    "title": "Ремень женский для джинс платья на талию кожаный",
    "discount": 18,
@@ -12750,19 +12763,6 @@
    "cat": "телефон",
    "ts": 1787964836,
    "drop": 0
-  },
-  {
-   "pid": 817020215,
-   "title": "Ремень для джинс платья на талию кожаный",
-   "discount": 0,
-   "price": 250,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/817020215/detail.aspx",
-   "query": "ремень женский",
-   "cat": "ремень женский",
-   "ts": 1789147005,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12790,10 +12790,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 27,
-   "rate_limited": 0,
-   "http_error": 5,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -12893,7 +12893,7 @@
    "Посуда",
    "Одежда и чешки"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 399,
@@ -12920,7 +12920,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789146327.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789124416.0
  },
  "admin_ui": {

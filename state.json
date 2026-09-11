@@ -1952,6 +1952,19 @@
  },
  "recent": [
   {
+   "pid": 1009251918,
+   "title": "Бейсболка варенка серая кепка",
+   "discount": 37,
+   "price": 320,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1009251918/detail.aspx",
+   "query": "кепка женская",
+   "cat": "кепка женская",
+   "ts": 1789121832,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 740278062,
    "title": "Бейсболка серая",
    "discount": 0,
@@ -12324,19 +12337,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 1009251918,
-   "title": "Бейсболка варенка серая кепка",
-   "discount": 37,
-   "price": 320,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1009251918/detail.aspx",
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "ts": 1789121832,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -12364,10 +12364,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 27,
-   "rate_limited": 2,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12467,7 +12467,7 @@
    "Солнечные электростанции и комплектующие",
    "Кофе и цикорий"
   ],
-  "queue_size": 3,
+  "queue_size": 5,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 400,

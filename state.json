@@ -1978,6 +1978,18 @@
  },
  "recent": [
   {
+   "pid": 170794702,
+   "title": "Футболка базовая с v-образным вырезом",
+   "discount": 42,
+   "price": 485,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/170794702/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789141522,
+   "drop": 1
+  },
+  {
    "pid": 194118690,
    "title": "Сумка кросс-боди бежевая маленькая",
    "discount": 0,
@@ -12683,18 +12695,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 170794702,
-   "title": "Футболка базовая с v-образным вырезом",
-   "discount": 42,
-   "price": 485,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/170794702/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789141522,
-   "drop": 1
   }
  ],
  "meta": {
@@ -495090,7 +495090,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "168954819": {
    "price": 375,
@@ -495103,7 +495103,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "668951733": {
    "price": 360,
@@ -495116,7 +495116,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "481520039": {
    "price": 447,
@@ -495129,7 +495129,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

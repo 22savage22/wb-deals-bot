@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 327127481,
+  "title": "Футболка мужская базовая плотная",
+  "brand": "Cave",
+  "product": 1521,
+  "basic": 1521,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 3635,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1789128286
+ },
+ {
+  "id": 744603594,
+  "title": "Набор базовых футболок для мужчин из хлопка 3 шт оверсайз",
+  "brand": "Habro",
+  "product": 1318,
+  "basic": 1318,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 2189,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1789128286
+ },
+ {
+  "id": 172658116,
+  "title": "Футболка широкая оверсайз черная плотная хлопок с лайкрой",
+  "brand": "Velisso",
+  "product": 1415,
+  "basic": 1415,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 52239,
+  "category": "футболка мужская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка мужская",
+  "queued_ts": 1789128286
+ }
+]

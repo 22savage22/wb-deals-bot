@@ -12912,10 +12912,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 21,
-   "rate_limited": 19,
-   "http_error": 3,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -13015,7 +13015,7 @@
    "Репринтные издания 1860 - 1869 годов",
    "Сварочное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

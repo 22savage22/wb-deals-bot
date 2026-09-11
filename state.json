@@ -1980,6 +1980,18 @@
  },
  "recent": [
   {
+   "pid": 28923884,
+   "title": "Блузка летняя офисная ярко-розовый короткий рукав",
+   "discount": 0,
+   "price": 452,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/28923884/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789143771,
+   "drop": 0
+  },
+  {
    "pid": 1146524178,
    "title": "Бейсболка полиэстер, универсальный размер 55–60 см",
    "discount": 0,
@@ -12710,18 +12722,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 28923884,
-   "title": "Блузка летняя офисная ярко-розовый короткий рукав",
-   "discount": 0,
-   "price": 452,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/28923884/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789143771,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12758,10 +12758,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 89,
-   "ok": 79,
-   "rate_limited": 2,
-   "http_error": 8,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -12861,7 +12861,7 @@
    "Источники бесперебойного питания",
    "Пылевыбивалки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,

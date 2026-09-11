@@ -1,1 +1,66 @@
-[]
+[
+ {
+  "id": 438653270,
+  "title": "Ночная сорочка хлопок длинная на бретельках",
+  "brand": "Magic Family",
+  "product": 1425,
+  "basic": 1721,
+  "discount": 17,
+  "benefit": 296,
+  "rating": 4.9,
+  "feedbacks": 1769,
+  "category": "платье женское",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "платье женское",
+  "queued_ts": 1789100420
+ },
+ {
+  "id": 1141517763,
+  "title": "Цепочка на талию пояс ремень женский тонкий",
+  "brand": "AOLA",
+  "product": 392,
+  "basic": 501,
+  "discount": 22,
+  "benefit": 109,
+  "rating": 5.0,
+  "feedbacks": 9,
+  "category": "украшения женские",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "украшения женские",
+  "queued_ts": 1789100420
+ },
+ {
+  "id": 343096320,
+  "title": "Кольцо массивное акцентное",
+  "brand": "Sorry Honey",
+  "product": 407,
+  "basic": 407,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 1796,
+  "category": "украшения женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "украшения женские",
+  "queued_ts": 1789100420
+ },
+ {
+  "id": 451821628,
+  "title": "Керамическое кольцо белое с надписью",
+  "brand": "NOIMA",
+  "product": 595,
+  "basic": 595,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 3919,
+  "category": "украшения женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "украшения женские",
+  "queued_ts": 1789100420
+ }
+]

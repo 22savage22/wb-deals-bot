@@ -12924,10 +12924,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 13,
+   "ok": 4,
+   "rate_limited": 7,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -13016,31 +13016,25 @@
   "today": "2026-09-11",
   "today_posts": 67,
   "total_posts": 1214,
-  "last_scan": 1789166303,
+  "last_scan": 1789169161,
   "last_scan_queries": [
-   "платье женское",
-   "футболка женская",
    "постельное белье",
-   "украшения женские"
+   "украшения женские",
+   "платье женское",
+   "футболка мужская"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1860 - 1869 годов",
-   "Сварочное оборудование"
+   "Зефир, мармелад, пастила"
   ],
-  "queue_size": 1,
-  "last_scan_added": 1,
+  "queue_size": 0,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "max_price": 266,
-   "ok": 29,
-   "rating": 2,
-   "bad_price": 3,
+   "found": 2,
+   "cards": 2,
+   "bad_price": 2,
    "strict": 0,
-   "fallback": 29,
-   "reserve": 0,
-   "duplicate": 7,
-   "title_duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -496647,9 +496641,9 @@
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",
-   "ts": 1789169155.2402663,
-   "runs": 9,
-   "empty": 4
+   "ts": 1789169291.8414762,
+   "runs": 10,
+   "empty": 5
   },
   "Сделано в Иваново": {
    "shard": "promo/bucket_28",

@@ -1959,6 +1959,19 @@
  },
  "recent": [
   {
+   "pid": 205729211,
+   "title": "Платье коктейльное",
+   "discount": 0,
+   "price": 3597,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/205729211/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789126336,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 8570627,
    "title": "Чокер из страз широкий на шею кожаный",
    "discount": 0,
@@ -12422,19 +12435,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 205729211,
-   "title": "Платье коктейльное",
-   "discount": 0,
-   "price": 3597,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/205729211/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789126336,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

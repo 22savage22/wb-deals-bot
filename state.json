@@ -1949,6 +1949,18 @@
  },
  "recent": [
   {
+   "pid": 1032863048,
+   "title": "Джинсы бананы зауженные к низу",
+   "discount": 32,
+   "price": 2815,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1032863048/detail.aspx",
+   "query": "джинсы мужские",
+   "cat": "джинсы мужские",
+   "ts": 1789119690,
+   "drop": 1
+  },
+  {
    "pid": 679136074,
    "title": "Ремень из натуральной кожи с тиснением",
    "discount": 0,
@@ -12284,18 +12296,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 1032863048,
-   "title": "Джинсы бананы зауженные к низу",
-   "discount": 32,
-   "price": 2815,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1032863048/detail.aspx",
-   "query": "джинсы мужские",
-   "cat": "джинсы мужские",
-   "ts": 1789119690,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12334,10 +12334,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 45,
-   "rate_limited": 21,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },

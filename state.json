@@ -1966,6 +1966,19 @@
  },
  "recent": [
   {
+   "pid": 558244199,
+   "title": "Джинсы широкие багги на высокой посадке",
+   "discount": 0,
+   "price": 2698,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/558244199/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1789130858,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 172658116,
    "title": "Футболка широкая оверсайз черная плотная хлопок с лайкрой",
    "discount": 0,
@@ -12520,19 +12533,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 558244199,
-   "title": "Джинсы широкие багги на высокой посадке",
-   "discount": 0,
-   "price": 2698,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/558244199/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1789130858,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12560,10 +12560,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 27,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12663,7 +12663,7 @@
    "Для мам и малышей",
    "Аптечная косметика"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -12686,7 +12686,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789110843.0,
   "last_engagement_kind": "question",

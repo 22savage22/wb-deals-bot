@@ -1975,6 +1975,19 @@
  },
  "recent": [
   {
+   "pid": 18018024,
+   "title": "Кольцо широкое с камнями бижутерия",
+   "discount": 0,
+   "price": 426,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/18018024/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789138057,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 18852254,
    "title": "Браслет кожаный широкий бижутерия на руку",
    "discount": 0,
@@ -12643,19 +12656,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 18018024,
-   "title": "Кольцо широкое с камнями бижутерия",
-   "discount": 0,
-   "price": 426,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/18018024/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789138057,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12684,10 +12684,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 27,
-   "rate_limited": 1,
-   "http_error": 5,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12787,7 +12787,7 @@
    "Сделано в Республике Бурятия",
    "Грунты, дренаж, мульча"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 399,
@@ -12809,7 +12809,7 @@
    "refresh_reserve": 0,
    "queue_after": 1
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789131705.0,
   "last_engagement_kind": "question",

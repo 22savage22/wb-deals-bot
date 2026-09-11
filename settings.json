@@ -1,9 +1,9 @@
 {
- "mtime": 1789134176,
+ "mtime": 1789134189,
  "cats_per_run": 10,
  "queries_per_run": 10,
  "max_posts": 1,
  "pages": 3,
  "weekly_digest": 0,
- "max_price": 0
+ "max_price": 500.0
 }

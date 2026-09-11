@@ -12268,10 +12268,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 75,
-   "rate_limited": 3,
-   "http_error": 9,
+   "calls": 16,
+   "ok": 0,
+   "rate_limited": 14,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -12360,30 +12360,25 @@
   "today": "2026-09-11",
   "today_posts": 15,
   "total_posts": 1162,
-  "last_scan": 1789110907,
+  "last_scan": 1789114174,
   "last_scan_queries": [
-   "сумка женская",
-   "футболка мужская",
    "платье женское",
-   "джинсы женские"
+   "джинсы женские",
+   "постельное белье",
+   "ремень женский"
   ],
   "last_scan_cats": [
-   "Репринтные издания 1890 - 1899 годов",
-   "Биотуалеты и аксессуары"
+   "Пуфы",
+   "Банкетки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 97,
-   "rating": 1,
-   "bad_price": 2,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 97,
-   "reserve": 0,
-   "duplicate": 14,
-   "title_duplicate": 11
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -484345,15 +484340,15 @@
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1788905838.3870778,
-   "runs": 30,
-   "empty": 5
+   "ts": 1789114420.4872155,
+   "runs": 31,
+   "empty": 1
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1788904831.9180923,
-   "runs": 30,
-   "empty": 5
+   "ts": 1789114420.4872155,
+   "runs": 31,
+   "empty": 1
   },
   "Трубопроводы": {
    "shard": "autoproduct48",

@@ -1966,6 +1966,18 @@
  },
  "recent": [
   {
+   "pid": 924437150,
+   "title": "Футболка оверсайз хлопковая больших размеров",
+   "discount": 16,
+   "price": 563,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/924437150/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789131704,
+   "drop": 1
+  },
+  {
    "pid": 558244199,
    "title": "Джинсы широкие багги на высокой посадке",
    "discount": 0,
@@ -12521,18 +12533,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 924437150,
-   "title": "Футболка оверсайз хлопковая больших размеров",
-   "discount": 16,
-   "price": 563,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/924437150/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789131704,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12572,10 +12572,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 78,
-   "rate_limited": 4,
-   "http_error": 8,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12675,7 +12675,7 @@
    "Для мам и малышей",
    "Аптечная косметика"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -12698,7 +12698,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789109788.0,
   "last_engagement_ts": 1789131705.0,
   "last_engagement_kind": "question",
@@ -491037,7 +491037,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "393902612": {
    "price": 6163,
@@ -491050,7 +491050,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "486700411": {
    "price": 3677,
@@ -491063,7 +491063,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "389920421": {
    "price": 3417,
@@ -491076,7 +491076,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "939576611": {
    "price": 1841,
@@ -491089,7 +491089,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "253590018": {
    "price": 3286,
@@ -491102,7 +491102,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "943634385": {
    "price": 2193,
@@ -491115,7 +491115,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1441466574": {
    "price": 5700,
@@ -491128,7 +491128,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "460871384": {
    "price": 4042,
@@ -491141,7 +491141,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "316533542": {
    "price": 1180,
@@ -491154,7 +491154,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "506503282": {
    "price": 2601,
@@ -491167,7 +491167,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "428886181": {
    "price": 4648,
@@ -491180,7 +491180,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "879244273": {
    "price": 3853,
@@ -491193,7 +491193,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "790296680": {
    "price": 3499,
@@ -491206,7 +491206,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1152916703": {
    "price": 1797,
@@ -491219,7 +491219,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "391143209": {
    "price": 3374,
@@ -491232,7 +491232,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "119464600": {
    "price": 1830,
@@ -491245,7 +491245,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "624530421": {
    "price": 2054,
@@ -491258,7 +491258,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "268846840": {
    "price": 5945,
@@ -491271,7 +491271,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "235832575": {
    "price": 3486,
@@ -491284,7 +491284,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1029148364": {
    "price": 2644,
@@ -491297,7 +491297,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "848849701": {
    "price": 2053,
@@ -491310,7 +491310,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1282264697": {
    "price": 4648,
@@ -491323,7 +491323,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1288762846": {
    "price": 4369,
@@ -491336,7 +491336,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "553204444": {
    "price": 5849,
@@ -491349,7 +491349,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "622062059": {
    "price": 3207,
@@ -491362,7 +491362,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "820367489": {
    "price": 1593,
@@ -491375,7 +491375,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "311707279": {
    "price": 2599,
@@ -491388,7 +491388,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "912070221": {
    "price": 3249,
@@ -491401,7 +491401,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "367700078": {
    "price": 4366,
@@ -491414,7 +491414,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "837123250": {
    "price": 1249,
@@ -491427,7 +491427,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1068199211": {
    "price": 1543,
@@ -491440,7 +491440,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "444468364": {
    "price": 1862,
@@ -491453,7 +491453,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "883890866": {
    "price": 1907,
@@ -491466,7 +491466,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "966667801": {
    "price": 1212,
@@ -491479,7 +491479,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "235277788": {
    "price": 2164,
@@ -491492,7 +491492,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "481239580": {
    "price": 1532,
@@ -491505,7 +491505,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "293832438": {
    "price": 1696,
@@ -491518,7 +491518,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "264042578": {
    "price": 1474,
@@ -491531,7 +491531,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "539002166": {
    "price": 1182,
@@ -491544,7 +491544,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "848471148": {
    "price": 1146,
@@ -491557,7 +491557,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "819745777": {
    "price": 1156,
@@ -491570,7 +491570,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1144114906": {
    "price": 715,
@@ -491583,7 +491583,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "671020053": {
    "price": 1211,
@@ -491596,7 +491596,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1099838708": {
    "price": 1690,
@@ -491609,7 +491609,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1241920861": {
    "price": 761,
@@ -491622,7 +491622,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1243251627": {
    "price": 543,
@@ -491635,7 +491635,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "491511396": {
    "price": 1440,
@@ -491648,7 +491648,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "806908813": {
    "price": 554,
@@ -491661,7 +491661,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "368866806": {
    "price": 690,
@@ -491674,7 +491674,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "387718108": {
    "price": 1070,
@@ -491687,7 +491687,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "930557969": {
    "price": 398,
@@ -491700,7 +491700,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "578723864": {
    "price": 830,
@@ -491713,7 +491713,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1351639616": {
    "price": 464,
@@ -491726,7 +491726,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "336322952": {
    "price": 608,
@@ -491739,7 +491739,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "321576201": {
    "price": 1862,
@@ -491752,7 +491752,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "437682274": {
    "price": 994,
@@ -491765,7 +491765,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "414439410": {
    "price": 1403,
@@ -491778,7 +491778,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "485437537": {
    "price": 730,
@@ -491791,7 +491791,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1004435895": {
    "price": 697,
@@ -491804,7 +491804,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "9176968": {
    "price": 332,
@@ -491817,7 +491817,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "372082322": {
    "price": 1251,
@@ -491830,7 +491830,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "381154194": {
    "price": 1320,
@@ -491843,7 +491843,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "910270102": {
    "price": 1339,
@@ -491856,7 +491856,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1201190434": {
    "price": 749,
@@ -491869,7 +491869,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "909505561": {
    "price": 1502,
@@ -491882,7 +491882,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "174990597": {
    "price": 1162,
@@ -491895,7 +491895,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "276781794": {
    "price": 1301,
@@ -491908,7 +491908,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1024318864": {
    "price": 2100,
@@ -491921,7 +491921,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "439747214": {
    "price": 1796,
@@ -491934,7 +491934,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "303378617": {
    "price": 1255,
@@ -491947,7 +491947,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {
@@ -492568,22 +492568,6 @@
    "quality": "B",
    "query": "платье женское",
    "queued_ts": 1788962872
-  },
-  {
-   "id": 164260718,
-   "title": "Бейсболка",
-   "brand": "AGCH",
-   "product": 1296,
-   "basic": 1296,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 1655,
-   "category": "кепка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "кепка женская",
-   "queued_ts": 1788958948
   }
  ]
 }

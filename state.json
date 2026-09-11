@@ -1938,6 +1938,19 @@
  },
  "recent": [
   {
+   "pid": 744514630,
+   "title": "Набор базовых футболок летних из хлопка 3 шт оверсайз",
+   "discount": 0,
+   "price": 1323,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/744514630/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789105415,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 451821628,
    "title": "Керамическое кольцо белое с надписью",
    "discount": 0,
@@ -12152,19 +12165,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 744514630,
-   "title": "Набор базовых футболок летних из хлопка 3 шт оверсайз",
-   "discount": 0,
-   "price": 1323,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/744514630/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789105415,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12192,10 +12192,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 19,
-   "rate_limited": 7,
-   "http_error": 3,
+   "calls": 87,
+   "ok": 75,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -12295,7 +12295,7 @@
    "Спецодежда медицинская",
    "Пледы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

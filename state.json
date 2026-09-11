@@ -1934,6 +1934,19 @@
  },
  "recent": [
   {
+   "pid": 438653270,
+   "title": "Ночная сорочка хлопок длинная на бретельках",
+   "discount": 17,
+   "price": 1425,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/438653270/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789102827,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 962113861,
    "title": "Футболка оверсайз больших размеров в полоску с V вырезом",
    "discount": 0,
@@ -12096,19 +12109,6 @@
    "cat": "кроссовки",
    "ts": 1787935933,
    "drop": 0
-  },
-  {
-   "pid": 438653270,
-   "title": "Ночная сорочка хлопок длинная на бретельках",
-   "discount": 17,
-   "price": 1425,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/438653270/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789102827,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -12239,7 +12239,7 @@
    "Гроубоксы",
    "Гигиена полости рта"
   ],
-  "queue_size": 3,
+  "queue_size": 4,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 200,

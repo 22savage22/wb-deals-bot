@@ -1994,6 +1994,18 @@
  },
  "recent": [
   {
+   "pid": 47350273,
+   "title": "Футболка хлопковая с коротким рукавом и принтом",
+   "discount": 0,
+   "price": 305,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/47350273/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789254053,
+   "drop": 0
+  },
+  {
    "pid": 1234909529,
    "title": "Браслет на плечо женский золотистый сталь",
    "discount": 17,
@@ -12987,18 +12999,6 @@
    "ts": 1788082957,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 47350273,
-   "title": "Футболка хлопковая с коротким рукавом и принтом",
-   "discount": 0,
-   "price": 305,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/47350273/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789254053,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13037,10 +13037,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 45,
-   "ok": 21,
-   "rate_limited": 21,
-   "http_error": 3,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -497253,7 +497253,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "804792626": {
    "price": 488,
@@ -497266,7 +497266,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

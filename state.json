@@ -1984,6 +1984,18 @@
  },
  "recent": [
   {
+   "pid": 804810901,
+   "title": "Классическая футболка из хлопка",
+   "discount": 0,
+   "price": 464,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/804810901/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789219655,
+   "drop": 0
+  },
+  {
    "pid": 118230053,
    "title": "Футболка летняя базовая однотонная с коротким рукавом",
    "discount": 0,
@@ -12933,18 +12945,6 @@
    "ts": 1788020674,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 804810901,
-   "title": "Классическая футболка из хлопка",
-   "discount": 0,
-   "price": 464,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/804810901/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789219655,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12984,10 +12984,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 86,
-   "ok": 76,
-   "rate_limited": 4,
-   "http_error": 6,
+   "calls": 89,
+   "ok": 77,
+   "rate_limited": 1,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -13113,7 +13113,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789196637.0,
   "last_engagement_ts": 1789216182.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789211343.0
  },
  "admin_ui": {

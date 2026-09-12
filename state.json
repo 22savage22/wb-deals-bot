@@ -12939,10 +12939,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 78,
-   "rate_limited": 0,
-   "http_error": 7,
+   "calls": 22,
+   "ok": 12,
+   "rate_limited": 8,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -496601,7 +496601,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "153509513": {
    "price": 474,
@@ -496614,7 +496614,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "114523243": {
    "price": 488,
@@ -496627,7 +496627,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -12950,10 +12950,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 77,
-   "rate_limited": 2,
-   "http_error": 11,
+   "calls": 22,
+   "ok": 12,
+   "rate_limited": 8,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

@@ -12952,9 +12952,9 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 22,
-   "ok": 12,
-   "rate_limited": 8,
+   "calls": 17,
+   "ok": 6,
+   "rate_limited": 9,
    "http_error": 2,
    "network_error": 0,
    "json_error": 0
@@ -13044,29 +13044,28 @@
   "today": "2026-09-12",
   "today_posts": 9,
   "total_posts": 1217,
-  "last_scan": 1789191791,
+  "last_scan": 1789194794,
   "last_scan_queries": [
+   "худи мужское",
    "платье женское",
-   "футболка мужская",
    "футболка женская",
-   "джинсы женские"
+   "сумка женская"
   ],
   "last_scan_cats": [
    "Смазки и масла для инструмента",
    "Бандажи"
   ],
   "queue_size": 0,
-  "last_scan_added": 1,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "max_price": 189,
-   "ok": 11,
+   "found": 100,
+   "cards": 100,
+   "max_price": 99,
+   "ok": 1,
    "strict": 0,
-   "fallback": 11,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 3
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -303806,7 +303805,7 @@
   "622420334": {
    "price": 382,
    "basic": 999,
-   "ts": 1789194789.8600993,
+   "ts": 1789194976.7248533,
    "samples": [
     [
      1789168768,
@@ -496568,9 +496567,9 @@
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
-   "ts": 1789194789.8644598,
-   "runs": 74,
-   "empty": 4
+   "ts": 1789194976.7258952,
+   "runs": 75,
+   "empty": 5
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
@@ -496622,9 +496621,9 @@
   },
   "Бандажи": {
    "shard": "women_underwear2",
-   "ts": 1789194789.8644598,
-   "runs": 54,
-   "empty": 4
+   "ts": 1789194976.7258952,
+   "runs": 55,
+   "empty": 5
   },
   "Зеркала": {
    "shard": "bedroom6",

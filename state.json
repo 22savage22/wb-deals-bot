@@ -12913,10 +12913,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 26,
+   "ok": 13,
+   "rate_limited": 10,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -13005,7 +13005,7 @@
   "today": "2026-09-11",
   "today_posts": 67,
   "total_posts": 1214,
-  "last_scan": 1789172727,
+  "last_scan": 1789185064,
   "last_scan_queries": [
    "постельное белье",
    "украшения женские",
@@ -13013,23 +13013,21 @@
    "футболка мужская"
   ],
   "last_scan_cats": [
-   "Археология",
-   "Изготовление кукол и игрушек"
+   "Готовые строения и срубы",
+   "Подгузники"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "max_price": 270,
-   "ok": 24,
-   "rating": 2,
-   "bad_price": 4,
+   "found": 200,
+   "cards": 200,
+   "max_price": 198,
+   "bad_price": 1,
+   "ok": 1,
    "strict": 0,
-   "fallback": 24,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 6,
-   "title_duplicate": 1
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -303755,7 +303753,7 @@
   "622420334": {
    "price": 382,
    "basic": 999,
-   "ts": 1789185059.097389,
+   "ts": 1789185242.8261554,
    "samples": [
     [
      1789158101,
@@ -496268,9 +496266,9 @@
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1789185059.0992572,
-   "runs": 127,
-   "empty": 2
+   "ts": 1789185242.8271372,
+   "runs": 128,
+   "empty": 3
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -496568,9 +496566,9 @@
   },
   "Подгузники": {
    "shard": "children_things2",
-   "ts": 1789185059.0992572,
-   "runs": 37,
-   "empty": 2
+   "ts": 1789185242.8271372,
+   "runs": 38,
+   "empty": 3
   },
   "Для песочницы": {
    "shard": "toys12",

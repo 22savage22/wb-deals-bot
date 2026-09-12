@@ -13007,10 +13007,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 20,
-   "rate_limited": 8,
-   "http_error": 3,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

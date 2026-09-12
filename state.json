@@ -1988,6 +1988,18 @@
  },
  "recent": [
   {
+   "pid": 335602118,
+   "title": "Футболка плотная 210 белая однотонная базовая хлопок",
+   "discount": 0,
+   "price": 492,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/335602118/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789237548,
+   "drop": 0
+  },
+  {
    "pid": 16001947,
    "title": "Футболка серая легкая хлопок",
    "discount": 0,
@@ -12959,18 +12971,6 @@
    "ts": 1788038859,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 335602118,
-   "title": "Футболка плотная 210 белая однотонная базовая хлопок",
-   "discount": 0,
-   "price": 492,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/335602118/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789237548,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13009,10 +13009,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 60,
-   "ok": 39,
-   "rate_limited": 15,
-   "http_error": 6,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

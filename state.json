@@ -12999,9 +12999,9 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
+   "calls": 21,
+   "ok": 13,
+   "rate_limited": 6,
    "http_error": 2,
    "network_error": 0,
    "json_error": 0
@@ -13091,15 +13091,15 @@
   "today": "2026-09-12",
   "today_posts": 15,
   "total_posts": 1223,
-  "last_scan": 1789224262,
+  "last_scan": 1789227345,
   "last_scan_queries": [
    "платье женское",
-   "футболка женская",
    "постельное белье",
+   "футболка женская",
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Развлечения"
+   "Тормозные барабаны"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -497001,9 +497001,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1789226801.3622363,
-   "runs": 54,
-   "empty": 4
+   "ts": 1789227475.1990898,
+   "runs": 55,
+   "empty": 5
   },
   "Туризм и страноведение": {
    "shard": "books9",

@@ -1990,6 +1990,19 @@
  },
  "recent": [
   {
+   "pid": 346893887,
+   "title": "Футболка с принтом хлопковая",
+   "discount": 0,
+   "price": 387,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/346893887/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789247984,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1201415948,
    "title": "Оверсайз футболка с принтом",
    "discount": 0,
@@ -12985,19 +12998,6 @@
    "ts": 1788038859,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 346893887,
-   "title": "Футболка с принтом хлопковая",
-   "discount": 0,
-   "price": 387,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/346893887/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789247984,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -13025,9 +13025,9 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 21,
-   "rate_limited": 6,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
    "http_error": 2,
    "network_error": 0,
    "json_error": 0
@@ -13128,7 +13128,7 @@
    "Группа 1-2 (9-25 кг)",
    "Хобби и досуг"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

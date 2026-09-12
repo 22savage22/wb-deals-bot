@@ -12941,10 +12941,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 26,
-   "rate_limited": 2,
-   "http_error": 4,
+   "calls": 22,
+   "ok": 12,
+   "rate_limited": 8,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

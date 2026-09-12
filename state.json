@@ -12961,45 +12961,41 @@
   }
  ],
  "meta": {
-  "last_run": 1789235702,
-  "last_posts": 1,
+  "last_run": 1789236714,
+  "last_posts": 0,
   "last_queries": [
    "платье женское",
-   "футболка женская",
    "футболка мужская",
+   "футболка женская",
    "джинсы женские",
    "блузка женская",
-   "кроссовки женские"
+   "худи мужское"
   ],
   "learn_ts": 1789193378.4368951,
   "empty_notice_ts": 1789195629.0,
   "cats_ts": 1789209473.639463,
   "last_cats": [
    "Расчески парикмахерские",
-   "Защитные стекла для телефонов Xiaomi",
-   "Кронштейны"
+   "Защитные стекла для телефонов Xiaomi"
   ],
   "digest_date": "2026-09-12",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 501,
-   "cards": 501,
-   "max_price": 478,
-   "ok": 19,
-   "bad_price": 4,
-   "strict": 1,
-   "fallback": 18,
+   "found": 102,
+   "cards": 102,
+   "max_price": 99,
+   "bad_price": 3,
+   "strict": 0,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 9,
-   "title_duplicate": 3,
-   "selected": 5,
-   "published": 1
+   "selected": 0,
+   "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 38,
+   "ok": 11,
+   "rate_limited": 24,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -496957,9 +496953,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1789236107.196262,
-   "runs": 74,
-   "empty": 4
+   "ts": 1789237189.8724992,
+   "runs": 75,
+   "empty": 5
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -497005,9 +497001,9 @@
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1789236107.196262,
-   "runs": 59,
-   "empty": 4
+   "ts": 1789237189.8724992,
+   "runs": 60,
+   "empty": 5
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",

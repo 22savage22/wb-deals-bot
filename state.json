@@ -12926,10 +12926,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 19,
+   "calls": 101,
+   "ok": 80,
    "rate_limited": 5,
-   "http_error": 3,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -496365,7 +496365,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

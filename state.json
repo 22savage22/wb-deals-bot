@@ -1987,6 +1987,18 @@
  },
  "recent": [
   {
+   "pid": 244984207,
+   "title": "Сумки в роддом прозрачные пвх",
+   "discount": 0,
+   "price": 491,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/244984207/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789189537,
+   "drop": 0
+  },
+  {
    "pid": 118831010,
    "title": "Наволочки 50х70 хлопок перкаль",
    "discount": 0,
@@ -12888,18 +12900,6 @@
    "cat": "кроссовки",
    "ts": 1787989485,
    "drop": 0
-  },
-  {
-   "pid": 244984207,
-   "title": "Сумки в роддом прозрачные пвх",
-   "discount": 0,
-   "price": 491,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/244984207/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789189537,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12938,10 +12938,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 32,
-   "rate_limited": 22,
-   "http_error": 4,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },
@@ -13068,7 +13068,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1789174766.0,
   "last_engagement_ts": 1789189538.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789167897.0
  },
  "admin_ui": {

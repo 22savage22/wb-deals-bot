@@ -12974,7 +12974,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789243084,
+  "last_run": 1789243494,
   "last_posts": 0,
   "last_queries": [
    "худи мужское",
@@ -12994,23 +12994,22 @@
   "digest_date": "2026-09-12",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 500,
-   "cards": 500,
-   "max_price": 476,
-   "bad_price": 5,
-   "ok": 19,
-   "strict": 1,
-   "fallback": 18,
+   "found": 100,
+   "cards": 100,
+   "max_price": 97,
+   "ok": 3,
+   "strict": 0,
+   "fallback": 3,
    "reserve": 0,
-   "repost": 11,
-   "title_duplicate": 3,
+   "repost": 2,
+   "title_duplicate": 1,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
+   "calls": 28,
+   "ok": 6,
+   "rate_limited": 20,
    "http_error": 2,
    "network_error": 0,
    "json_error": 0
@@ -51061,7 +51060,7 @@
   "63566987": {
    "price": 393,
    "basic": 799,
-   "ts": 1789243450.3682618,
+   "ts": 1789243906.686815,
    "samples": [
     [
      1789228283,
@@ -177767,7 +177766,7 @@
   "879890811": {
    "price": 493,
    "basic": 1699,
-   "ts": 1789243450.3684318,
+   "ts": 1789243906.68701,
    "samples": [
     [
      1789228283,
@@ -178409,7 +178408,7 @@
   "277670149": {
    "price": 488,
    "basic": 1799,
-   "ts": 1789243450.3683999,
+   "ts": 1789243906.6869802,
    "samples": [
     [
      1789228283,
@@ -497193,9 +497192,9 @@
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1789243450.3714428,
-   "runs": 44,
-   "empty": 4
+   "ts": 1789243906.6877806,
+   "runs": 45,
+   "empty": 5
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
@@ -497337,9 +497336,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1789243450.3714428,
-   "runs": 34,
-   "empty": 4
+   "ts": 1789243906.6877806,
+   "runs": 35,
+   "empty": 5
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

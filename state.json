@@ -1995,6 +1995,18 @@
  },
  "recent": [
   {
+   "pid": 762099262,
+   "title": "Цепочка на шею",
+   "discount": 0,
+   "price": 427,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/762099262/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789255058,
+   "drop": 0
+  },
+  {
    "pid": 47350273,
    "title": "Футболка хлопковая с коротким рукавом и принтом",
    "discount": 0,
@@ -13000,18 +13012,6 @@
    "ts": 1788082957,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 762099262,
-   "title": "Цепочка на шею",
-   "discount": 0,
-   "price": 427,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/762099262/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789255058,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13050,10 +13050,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 18,
-   "rate_limited": 18,
-   "http_error": 3,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

@@ -1989,6 +1989,18 @@
  },
  "recent": [
   {
+   "pid": 1201415948,
+   "title": "Оверсайз футболка с принтом",
+   "discount": 0,
+   "price": 471,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1201415948/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789244761,
+   "drop": 0
+  },
+  {
    "pid": 335602118,
    "title": "Футболка плотная 210 белая однотонная базовая хлопок",
    "discount": 0,
@@ -12972,18 +12984,6 @@
    "ts": 1788038859,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1201415948,
-   "title": "Оверсайз футболка с принтом",
-   "discount": 0,
-   "price": 471,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1201415948/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789244761,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13021,10 +13021,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 81,
-   "rate_limited": 9,
-   "http_error": 11,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

@@ -12903,15 +12903,15 @@
   }
  ],
  "meta": {
-  "last_run": 1789189098,
-  "last_posts": 1,
+  "last_run": 1789190143,
+  "last_posts": 0,
   "last_queries": [
-   "украшения женские",
    "платье женское",
    "футболка мужская",
    "футболка женская",
    "джинсы женские",
-   "сумка женская"
+   "сумка женская",
+   "худи мужское"
   ],
   "learn_ts": 1789106431.898533,
   "empty_notice_ts": 1789152307.0,
@@ -12924,24 +12924,23 @@
   "digest_date": "2026-09-12",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 500,
-   "cards": 500,
-   "max_price": 482,
-   "ok": 14,
-   "bad_price": 4,
+   "found": 400,
+   "cards": 400,
+   "max_price": 396,
+   "ok": 2,
+   "bad_price": 2,
    "strict": 0,
-   "fallback": 14,
+   "fallback": 2,
    "reserve": 0,
-   "repost": 8,
-   "title_duplicate": 2,
-   "selected": 1,
-   "published": 1
+   "repost": 2,
+   "selected": 0,
+   "published": 0
   },
   "wb_http": {
-   "calls": 101,
-   "ok": 80,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 46,
+   "ok": 25,
+   "rate_limited": 17,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -13068,7 +13067,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1789174766.0,
   "last_engagement_ts": 1789189538.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789167897.0
  },
  "admin_ui": {
@@ -303788,7 +303787,7 @@
   "622420334": {
    "price": 382,
    "basic": 999,
-   "ts": 1789189523.0070753,
+   "ts": 1789190525.836704,
    "samples": [
     [
      1789162431,
@@ -415653,12 +415652,8 @@
   "194118690": {
    "price": 325,
    "basic": 2000,
-   "ts": 1789189523.0087805,
+   "ts": 1789190525.8383121,
    "samples": [
-    [
-     1788988996,
-     325
-    ],
     [
      1789017588,
      325
@@ -415681,6 +415676,10 @@
     ],
     [
      1789188036,
+     325
+    ],
+    [
+     1789190525,
      325
     ]
    ],
@@ -496544,9 +496543,9 @@
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
-   "ts": 1789189538.5744486,
-   "runs": 58,
-   "empty": 3
+   "ts": 1789190525.8392036,
+   "runs": 59,
+   "empty": 4
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
@@ -496778,15 +496777,15 @@
   },
   "Фигурки": {
    "shard": "toys19",
-   "ts": 1789189538.5744486,
-   "runs": 38,
-   "empty": 3
+   "ts": 1789190525.8392036,
+   "runs": 39,
+   "empty": 4
   },
   "Лотки, пеленки": {
    "shard": "zoo2",
-   "ts": 1789189538.5744486,
-   "runs": 37,
-   "empty": 2
+   "ts": 1789190525.8392036,
+   "runs": 38,
+   "empty": 3
   },
   "Для чая": {
    "shard": "kitchen10",

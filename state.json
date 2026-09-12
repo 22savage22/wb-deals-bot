@@ -13021,10 +13021,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 12,
-   "rate_limited": 24,
-   "http_error": 1,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -13124,7 +13124,7 @@
    "Группа 1-2 (9-25 кг)",
    "Хобби и досуг"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 301,

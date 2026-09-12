@@ -12987,7 +12987,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789246291,
+  "last_run": 1789246986,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -13007,23 +13007,24 @@
   "digest_date": "2026-09-12",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 600,
-   "cards": 600,
-   "max_price": 597,
-   "ok": 1,
-   "bad_price": 2,
+   "found": 401,
+   "cards": 401,
+   "max_price": 395,
+   "bad_price": 3,
+   "ok": 3,
    "strict": 0,
-   "fallback": 1,
+   "fallback": 3,
    "reserve": 0,
-   "repost": 1,
+   "repost": 2,
+   "title_duplicate": 1,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 48,
+   "ok": 28,
+   "rate_limited": 17,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -51075,7 +51076,7 @@
   "63566987": {
    "price": 393,
    "basic": 799,
-   "ts": 1789245685.6970007,
+   "ts": 1789247363.6289294,
    "samples": [
     [
      1789230745,
@@ -177781,7 +177782,7 @@
   "879890811": {
    "price": 493,
    "basic": 1699,
-   "ts": 1789245685.6971552,
+   "ts": 1789247363.629111,
    "samples": [
     [
      1789230745,
@@ -178423,7 +178424,7 @@
   "277670149": {
    "price": 488,
    "basic": 1799,
-   "ts": 1789245685.6971247,
+   "ts": 1789247363.6290803,
    "samples": [
     [
      1789230745,
@@ -497321,9 +497322,9 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1789246635.3751285,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789247363.6305685,
+   "runs": 40,
+   "empty": 5
   },
   "Венки декоративные": {
    "shard": "creativity38",
@@ -497417,9 +497418,9 @@
   },
   "Рамы багетные": {
    "shard": "interior30",
-   "ts": 1789246635.3751285,
-   "runs": 24,
-   "empty": 4
+   "ts": 1789247363.6305685,
+   "runs": 25,
+   "empty": 5
   },
   "Гигиена полости рта": {
    "shard": "beauty55",

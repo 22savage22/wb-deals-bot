@@ -1992,6 +1992,19 @@
  },
  "recent": [
   {
+   "pid": 531075888,
+   "title": "Наволочки 50х70 - 2шт. Поплин",
+   "discount": 0,
+   "price": 483,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/531075888/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1789251035,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 254871914,
    "title": "Колье на шею бижутерия крупная массивная цепь",
    "discount": 17,
@@ -12973,19 +12986,6 @@
    "ts": 1788042398,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 531075888,
-   "title": "Наволочки 50х70 - 2шт. Поплин",
-   "discount": 0,
-   "price": 483,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/531075888/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1789251035,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -13013,10 +13013,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 20,
-   "rate_limited": 7,
-   "http_error": 4,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -13116,7 +13116,7 @@
    "Хобби и досуг",
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

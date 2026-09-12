@@ -12907,7 +12907,7 @@
    "Краски автомобильные",
    "Археология"
   ],
-  "digest_date": "2026-09-11",
+  "digest_date": "2026-09-12",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
    "found": 301,
@@ -12924,10 +12924,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 25,
-   "rate_limited": 20,
-   "http_error": 6,
+   "calls": 101,
+   "ok": 80,
+   "rate_limited": 5,
+   "http_error": 16,
    "network_error": 0,
    "json_error": 0
   },

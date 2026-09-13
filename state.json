@@ -12831,10 +12831,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 99,
-   "ok": 84,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12934,7 +12934,7 @@
    "Готовые строения и срубы",
    "Перевозка груза"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

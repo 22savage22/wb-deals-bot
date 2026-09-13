@@ -13054,7 +13054,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789271226,
+  "last_run": 1789271644,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -13068,32 +13068,31 @@
   "empty_notice_ts": 1789239453.0,
   "cats_ts": 1789209473.639463,
   "last_cats": [
-   "Аптечная косметика",
    "Кофе и цикорий",
-   "Для мам и малышей"
+   "Для мам и малышей",
+   "Аптечная косметика"
   ],
   "digest_date": "2026-09-13",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 402,
-   "cards": 402,
-   "max_price": 374,
-   "rating": 6,
-   "bad_price": 4,
-   "ok": 18,
-   "strict": 2,
-   "fallback": 16,
+   "found": 200,
+   "cards": 200,
+   "max_price": 195,
+   "rating": 1,
+   "bad_price": 2,
+   "ok": 2,
+   "strict": 0,
+   "fallback": 2,
    "reserve": 0,
-   "repost": 7,
-   "title_duplicate": 4,
+   "repost": 2,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 33,
+   "ok": 13,
+   "rate_limited": 16,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -415759,7 +415758,7 @@
   "194118690": {
    "price": 309,
    "basic": 2000,
-   "ts": 1789271608.6027398,
+   "ts": 1789271989.6573567,
    "samples": [
     [
      1789211343,
@@ -497388,7 +497387,7 @@
   "746727193": {
    "price": 460,
    "basic": 2900,
-   "ts": 1789271608.6027718,
+   "ts": 1789271989.657378,
    "samples": [
     [
      1789266433,
@@ -497612,9 +497611,9 @@
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1789271608.6056323,
-   "runs": 48,
-   "empty": 3
+   "ts": 1789271989.6581938,
+   "runs": 49,
+   "empty": 4
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
@@ -497972,15 +497971,15 @@
   },
   "Аптечная косметика": {
    "shard": "beauty27",
-   "ts": 1789271608.6056323,
-   "runs": 8,
-   "empty": 3
+   "ts": 1789271989.6581938,
+   "runs": 9,
+   "empty": 4
   },
   "Для мам и малышей": {
    "shard": "beauty9",
-   "ts": 1789271608.6056323,
-   "runs": 8,
-   "empty": 3
+   "ts": 1789271989.6581938,
+   "runs": 9,
+   "empty": 4
   },
   "Винные столики": {
    "shard": "furniture3",

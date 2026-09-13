@@ -2000,6 +2000,18 @@
  },
  "recent": [
   {
+   "pid": 396016372,
+   "title": "Наволочка 50х70 хлопок",
+   "discount": 0,
+   "price": 340,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/396016372/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1789276467,
+   "drop": 0
+  },
+  {
    "pid": 40581947,
    "title": "Блузка летняя хаки с коротким рукавом свободная",
    "discount": 34,
@@ -13065,18 +13077,6 @@
    "ts": 1788082957,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 396016372,
-   "title": "Наволочка 50х70 хлопок",
-   "discount": 0,
-   "price": 340,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/396016372/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1789276467,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13114,10 +13114,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 68,
-   "ok": 37,
-   "rate_limited": 21,
-   "http_error": 10,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -13242,7 +13242,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789265466.0,
   "last_engagement_ts": 1789276469.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789255060.0
  },
  "admin_ui": {

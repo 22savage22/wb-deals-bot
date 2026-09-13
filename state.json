@@ -13052,10 +13052,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 22,
-   "ok": 8,
-   "rate_limited": 13,
-   "http_error": 1,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

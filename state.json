@@ -13064,10 +13064,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 27,
-   "rate_limited": 5,
-   "http_error": 5,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

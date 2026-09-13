@@ -2029,6 +2029,18 @@
  },
  "recent": [
   {
+   "pid": 529390517,
+   "title": "Мужская футболка с короткими рукавами 3D уникальная утиная п",
+   "discount": 0,
+   "price": 492,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/529390517/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789337262,
+   "drop": 0
+  },
+  {
    "pid": 1360446904,
    "title": "Футболка облегающая укороченная кроп",
    "discount": 0,
@@ -12724,18 +12736,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 529390517,
-   "title": "Мужская футболка с короткими рукавами 3D уникальная утиная п",
-   "discount": 0,
-   "price": 492,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/529390517/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789337262,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12773,10 +12773,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 52,
-   "rate_limited": 16,
-   "http_error": 12,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12876,7 +12876,7 @@
    "Коляски",
    "Игрушки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -497709,7 +497709,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

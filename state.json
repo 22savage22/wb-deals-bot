@@ -2025,6 +2025,19 @@
  },
  "recent": [
   {
+   "pid": 174839561,
+   "title": "Набор колец гвоздь с камнем",
+   "discount": 0,
+   "price": 437,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/174839561/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789318454,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 766660360,
    "title": "Крупные серьги пусеты гвоздики повседневные",
    "discount": 0,
@@ -12781,19 +12794,6 @@
    "cat": "блузка женская",
    "ts": 1788113975,
    "drop": 0
-  },
-  {
-   "pid": 174839561,
-   "title": "Набор колец гвоздь с камнем",
-   "discount": 0,
-   "price": 437,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/174839561/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789318454,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12822,10 +12822,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 28,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12925,7 +12925,7 @@
    "Готовые строения и срубы",
    "Перевозка груза"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

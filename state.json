@@ -12815,9 +12815,9 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 26,
-   "rate_limited": 0,
+   "calls": 27,
+   "ok": 22,
+   "rate_limited": 2,
    "http_error": 3,
    "network_error": 0,
    "json_error": 0
@@ -12907,7 +12907,7 @@
   "today": "2026-09-13",
   "today_posts": 22,
   "total_posts": 1250,
-  "last_scan": 1789315472,
+  "last_scan": 1789315516,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -12920,15 +12920,15 @@
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "bad_price": 2,
-   "max_price": 389,
-   "ok": 9,
+   "found": 301,
+   "cards": 301,
+   "bad_price": 3,
+   "max_price": 297,
+   "ok": 1,
    "strict": 0,
-   "fallback": 9,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 6
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -177902,7 +177902,7 @@
   "277670149": {
    "price": 484,
    "basic": 1799,
-   "ts": 1789315500.5717413,
+   "ts": 1789315569.462286,
    "samples": [
     [
      1789301035,
@@ -497327,7 +497327,7 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1789315500.5744371,
+   "ts": 1789315569.46363,
    "runs": 75,
    "empty": 5
   },

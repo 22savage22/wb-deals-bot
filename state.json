@@ -13061,9 +13061,9 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
+   "calls": 20,
+   "ok": 6,
+   "rate_limited": 12,
    "http_error": 2,
    "network_error": 0,
    "json_error": 0
@@ -13153,7 +13153,7 @@
   "today": "2026-09-12",
   "today_posts": 28,
   "total_posts": 1236,
-  "last_scan": 1789256566,
+  "last_scan": 1789260478,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -13161,22 +13161,18 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Биотуалеты и аксессуары",
+   "Спецодежда медицинская",
    "Репринтные издания 1890 - 1899 годов"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 301,
-   "cards": 301,
-   "max_price": 297,
-   "ok": 3,
-   "bad_price": 1,
+   "found": 100,
+   "cards": 100,
+   "max_price": 100,
    "strict": 0,
-   "fallback": 3,
-   "reserve": 0,
-   "title_duplicate": 1,
-   "duplicate": 2
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -497476,9 +497472,9 @@
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
-   "ts": 1789258708.7559187,
-   "runs": 54,
-   "empty": 4
+   "ts": 1789260696.2718186,
+   "runs": 55,
+   "empty": 5
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
@@ -497722,9 +497718,9 @@
   },
   "Спецодежда медицинская": {
    "shard": "repair26",
-   "ts": 1789258708.7559187,
-   "runs": 33,
-   "empty": 3
+   "ts": 1789260696.2718186,
+   "runs": 34,
+   "empty": 4
   },
   "Аксессуары и инвентарь": {
    "shard": "sport45",

@@ -2028,6 +2028,18 @@
  },
  "recent": [
   {
+   "pid": 1360446904,
+   "title": "Футболка облегающая укороченная кроп",
+   "discount": 0,
+   "price": 467,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1360446904/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789334919,
+   "drop": 0
+  },
+  {
    "pid": 9176956,
    "title": "Футболка лайм однотонная хлопок базовая",
    "discount": 0,
@@ -12711,18 +12723,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 1360446904,
-   "title": "Футболка облегающая укороченная кроп",
-   "discount": 0,
-   "price": 467,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1360446904/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789334919,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12760,10 +12760,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 38,
-   "rate_limited": 17,
-   "http_error": 9,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

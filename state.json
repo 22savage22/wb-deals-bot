@@ -13052,10 +13052,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 22,
+   "ok": 8,
+   "rate_limited": 13,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -13144,7 +13144,7 @@
   "today": "2026-09-12",
   "today_posts": 28,
   "total_posts": 1236,
-  "last_scan": 1789260478,
+  "last_scan": 1789262086,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -13152,15 +13152,16 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Спецодежда медицинская",
-   "Репринтные издания 1890 - 1899 годов"
+   "Пробники",
+   "Банкетки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
+   "found": 101,
+   "cards": 101,
    "max_price": 100,
+   "bad_price": 1,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -497493,9 +497494,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1789114127.068348,
-   "runs": 45,
-   "empty": 5
+   "ts": 1789262306.3665113,
+   "runs": 46,
+   "empty": 1
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -497667,9 +497668,9 @@
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1789117478.312095,
-   "runs": 35,
-   "empty": 5
+   "ts": 1789262306.3665113,
+   "runs": 36,
+   "empty": 1
   },
   "Пуфы": {
    "shard": "rooms8",

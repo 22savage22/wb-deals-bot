@@ -2005,6 +2005,18 @@
  },
  "recent": [
   {
+   "pid": 167936246,
+   "title": "Футболка базовая хлопковая",
+   "discount": 0,
+   "price": 485,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/167936246/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789302610,
+   "drop": 0
+  },
+  {
    "pid": 219340454,
    "title": "Футболка хлопок однотонная летняя",
    "discount": 0,
@@ -12948,18 +12960,6 @@
    "ts": 1788093218,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 167936246,
-   "title": "Футболка базовая хлопковая",
-   "discount": 0,
-   "price": 485,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/167936246/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789302610,
-   "drop": 0
   }
  ],
  "meta": {

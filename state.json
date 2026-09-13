@@ -12842,8 +12842,8 @@
   "wb_http": {
    "calls": 97,
    "ok": 82,
-   "rate_limited": 2,
-   "http_error": 13,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

@@ -13028,7 +13028,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789264701,
+  "last_run": 1789265088,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -13042,15 +13042,17 @@
   "empty_notice_ts": 1789239453.0,
   "cats_ts": 1789209473.639463,
   "last_cats": [
-   "Банкетки",
-   "Пробники"
+   "Пробники",
+   "Банкетки"
   ],
   "digest_date": "2026-09-13",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 200,
-   "cards": 200,
-   "max_price": 200,
+   "found": 500,
+   "cards": 500,
+   "max_price": 495,
+   "rating": 1,
+   "bad_price": 4,
    "strict": 0,
    "fallback": 0,
    "reserve": 0,
@@ -13058,10 +13060,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 54,
+   "ok": 33,
+   "rate_limited": 17,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -13182,7 +13184,7 @@
    "queue_after": 0
   },
   "cats_count": 2305,
-  "no_post_notice_ts": 1789243450.0,
+  "no_post_notice_ts": 1789265466.0,
   "last_engagement_ts": 1789252970.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789255060.0
@@ -497504,9 +497506,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1789265049.9654229,
-   "runs": 49,
-   "empty": 4
+   "ts": 1789265466.1628454,
+   "runs": 50,
+   "empty": 5
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -497678,9 +497680,9 @@
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1789265049.9654229,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789265466.1628454,
+   "runs": 40,
+   "empty": 5
   },
   "Пуфы": {
    "shard": "rooms8",

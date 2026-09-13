@@ -12786,10 +12786,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 27,
+   "ok": 15,
+   "rate_limited": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -12878,7 +12878,7 @@
   "today": "2026-09-13",
   "today_posts": 31,
   "total_posts": 1259,
-  "last_scan": 1789339395,
+  "last_scan": 1789343052,
   "last_scan_queries": [
    "платье женское",
    "сумка женская",
@@ -12886,22 +12886,19 @@
    "футболка женская"
   ],
   "last_scan_cats": [
-   "Коляски",
-   "Игрушки"
+   "Аксессуары и инвентарь",
+   "Домашние животные и ветеринария"
   ],
   "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 389,
-   "bad_price": 6,
-   "ok": 5,
+   "found": 200,
+   "cards": 200,
+   "max_price": 197,
+   "bad_price": 3,
    "strict": 0,
-   "fallback": 5,
-   "reserve": 0,
-   "duplicate": 4,
-   "title_duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -12916,7 +12913,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789333903.0,
   "last_engagement_ts": 1789338276.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1789342447.0
  },
  "admin_ui": {
@@ -498135,9 +498132,9 @@
   },
   "Аксессуары и инвентарь": {
    "shard": "sport45",
-   "ts": 1789343047.2694468,
-   "runs": 34,
-   "empty": 4
+   "ts": 1789343197.8374944,
+   "runs": 35,
+   "empty": 5
   },
   "Крепежи": {
    "shard": "autoproduct37",
@@ -498147,9 +498144,9 @@
   },
   "Домашние животные и ветеринария": {
    "shard": "books9",
-   "ts": 1789343047.2694468,
-   "runs": 34,
-   "empty": 4
+   "ts": 1789343197.8374944,
+   "runs": 35,
+   "empty": 5
   },
   "Растяжители и колодки для обуви": {
    "shard": "shoes-accessories4",

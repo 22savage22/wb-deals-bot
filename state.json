@@ -13102,10 +13102,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 93,
-   "ok": 79,
-   "rate_limited": 6,
-   "http_error": 8,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

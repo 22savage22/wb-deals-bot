@@ -12920,10 +12920,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 29,
+   "ok": 23,
+   "rate_limited": 1,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -13012,29 +13012,29 @@
   "today": "2026-09-13",
   "today_posts": 20,
   "total_posts": 1248,
-  "last_scan": 1789305468,
+  "last_scan": 1789307990,
   "last_scan_queries": [
-   "футболка мужская",
    "платье женское",
    "футболка женская",
-   "джинсы женские"
+   "джинсы женские",
+   "футболка мужская"
   ],
   "last_scan_cats": [
-   "Лейки, шланги, гарнитуры",
-   "Бронеодежда"
+   "Кастрюли и сковороды",
+   "Репринтные издания 1860 - 1869 годов"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 387,
-   "ok": 9,
-   "bad_price": 4,
+   "found": 301,
+   "cards": 301,
+   "bad_price": 5,
+   "max_price": 295,
+   "ok": 1,
    "strict": 0,
-   "fallback": 9,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 4
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -178109,7 +178109,7 @@
   "277670149": {
    "price": 484,
    "basic": 1799,
-   "ts": 1789307985.4794943,
+   "ts": 1789308027.1469226,
    "samples": [
     [
      1789293427,
@@ -497462,9 +497462,9 @@
  "cats": {
   "Репринтные издания 1860 - 1869 годов": {
    "shard": "books_reprint_186x",
-   "ts": 1789307985.4834678,
-   "runs": 138,
-   "empty": 3
+   "ts": 1789308027.147892,
+   "runs": 139,
+   "empty": 4
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
@@ -497978,9 +497978,9 @@
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
-   "ts": 1789307985.4834678,
-   "runs": 13,
-   "empty": 3
+   "ts": 1789308027.147892,
+   "runs": 14,
+   "empty": 4
   },
   "Бронеодежда": {
    "shard": "sport18",

@@ -13064,8 +13064,8 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 80,
+   "calls": 97,
+   "ok": 82,
    "rate_limited": 4,
    "http_error": 11,
    "network_error": 0,

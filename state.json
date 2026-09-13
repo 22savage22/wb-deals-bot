@@ -13141,10 +13141,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 35,
+   "calls": 36,
    "ok": 28,
-   "rate_limited": 1,
-   "http_error": 6,
+   "rate_limited": 3,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },

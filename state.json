@@ -2007,6 +2007,18 @@
  },
  "recent": [
   {
+   "pid": 1032192747,
+   "title": "Оверсайз футболка с принтом на спине винтаж",
+   "discount": 0,
+   "price": 486,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1032192747/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789305462,
+   "drop": 0
+  },
+  {
    "pid": 292388775,
    "title": "Футболка базовая оверсайз больших размеров Super Big",
    "discount": 0,
@@ -12909,18 +12921,6 @@
    "ts": 1788096234,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 1032192747,
-   "title": "Оверсайз футболка с принтом на спине винтаж",
-   "discount": 0,
-   "price": 486,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1032192747/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789305462,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12959,10 +12959,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 99,
+   "calls": 97,
    "ok": 82,
-   "rate_limited": 5,
-   "http_error": 12,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

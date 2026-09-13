@@ -13106,7 +13106,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789282380,
+  "last_run": 1789283292,
   "last_posts": 0,
   "last_queries": [
    "футболка женская",
@@ -13120,30 +13120,29 @@
   "empty_notice_ts": 1789282686.0,
   "cats_ts": 1789209473.639463,
   "last_cats": [
-   "Источники бесперебойного питания",
-   "Медиаконвертеры"
+   "Медиаконвертеры",
+   "Источники бесперебойного питания"
   ],
   "digest_date": "2026-09-13",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1000,
-   "cards": 1000,
-   "max_price": 969,
-   "ok": 20,
-   "bad_price": 11,
+   "found": 500,
+   "cards": 500,
+   "max_price": 490,
+   "bad_price": 8,
+   "ok": 2,
    "strict": 1,
-   "fallback": 19,
+   "fallback": 1,
    "reserve": 0,
-   "repost": 14,
-   "title_duplicate": 3,
+   "repost": 2,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 36,
-   "rate_limited": 38,
-   "http_error": 2,
+   "calls": 64,
+   "ok": 37,
+   "rate_limited": 19,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -13268,7 +13267,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789265466.0,
   "last_engagement_ts": 1789276469.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789255060.0
  },
  "admin_ui": {
@@ -106301,7 +106300,7 @@
   "40581947": {
    "price": 335,
    "basic": 642,
-   "ts": 1789282686.530495,
+   "ts": 1789283694.6724784,
    "samples": [
     [
      1788551760,
@@ -497534,7 +497533,7 @@
   "396016372": {
    "price": 340,
    "basic": 1397,
-   "ts": 1789282686.529063,
+   "ts": 1789283694.6716733,
    "samples": [
     [
      1789276452,
@@ -497815,15 +497814,15 @@
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
-   "ts": 1789282686.5328267,
-   "runs": 42,
-   "empty": 2
+   "ts": 1789283694.6733792,
+   "runs": 43,
+   "empty": 3
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
-   "ts": 1789282686.5328267,
-   "runs": 42,
-   "empty": 2
+   "ts": 1789283694.6733792,
+   "runs": 43,
+   "empty": 3
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",

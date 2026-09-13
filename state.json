@@ -13062,10 +13062,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 32,
-   "rate_limited": 21,
-   "http_error": 4,
+   "calls": 76,
+   "ok": 36,
+   "rate_limited": 38,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },

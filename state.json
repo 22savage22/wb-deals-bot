@@ -2003,6 +2003,18 @@
  },
  "recent": [
   {
+   "pid": 795358935,
+   "title": "Платье с вырезом сердечко на бретелях для женщин",
+   "discount": 0,
+   "price": 454,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/795358935/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789291767,
+   "drop": 0
+  },
+  {
    "pid": 995690724,
    "title": "Платье кружевное летнее короткое мини на выпускной",
    "discount": 0,
@@ -13104,18 +13116,6 @@
    "ts": 1788082957,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 795358935,
-   "title": "Платье с вырезом сердечко на бретелях для женщин",
-   "discount": 0,
-   "price": 454,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/795358935/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789291767,
-   "drop": 0
   }
  ],
  "meta": {
@@ -13154,10 +13154,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 74,
-   "rate_limited": 3,
-   "http_error": 4,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -497628,7 +497628,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1177055723": {
    "price": 310,
@@ -497641,7 +497641,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1181356872": {
    "price": 340,
@@ -497654,7 +497654,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "955182792": {
    "price": 468,
@@ -497667,7 +497667,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "200465610": {
    "price": 305,
@@ -497680,7 +497680,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "795358935": {
    "price": 454,

@@ -12761,9 +12761,9 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 55,
-   "rate_limited": 14,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
    "http_error": 11,
    "network_error": 0,
    "json_error": 0
@@ -12864,7 +12864,7 @@
    "Торговая мебель",
    "Рубашки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

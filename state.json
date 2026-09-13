@@ -12761,10 +12761,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 26,
+   "ok": 15,
+   "rate_limited": 6,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -12853,30 +12853,27 @@
   "today": "2026-09-13",
   "today_posts": 29,
   "total_posts": 1257,
-  "last_scan": 1789334554,
+  "last_scan": 1789336291,
   "last_scan_queries": [
-   "платье женское",
    "футболка мужская",
+   "платье женское",
    "футболка женская",
-   "джинсы женские"
+   "сумка женская"
   ],
   "last_scan_cats": [
-   "Торговая мебель",
-   "Рубашки"
+   "Коляски",
+   "Игрушки"
   ],
   "queue_size": 1,
-  "last_scan_added": 1,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 392,
-   "bad_price": 2,
-   "ok": 6,
+   "found": 200,
+   "cards": 200,
+   "max_price": 196,
+   "bad_price": 4,
    "strict": 0,
-   "fallback": 6,
-   "reserve": 0,
-   "duplicate": 4,
-   "title_duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -497841,9 +497838,9 @@
   },
   "Коляски": {
    "shard": "children_things2",
-   "ts": 1789207918.8827176,
-   "runs": 50,
-   "empty": 5
+   "ts": 1789336417.356201,
+   "runs": 51,
+   "empty": 1
   },
   "Травяные сборы": {
    "shard": "product1",
@@ -497883,9 +497880,9 @@
   },
   "Игрушки": {
    "shard": "gift14",
-   "ts": 1789207918.8827176,
-   "runs": 45,
-   "empty": 5
+   "ts": 1789336417.356201,
+   "runs": 46,
+   "empty": 1
   },
   "Напитки": {
    "shard": "ready_meals2",

@@ -2038,6 +2038,18 @@
  },
  "recent": [
   {
+   "pid": 330841544,
+   "title": "Футболка с принтом на спине",
+   "discount": 0,
+   "price": 437,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/330841544/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789392770,
+   "drop": 0
+  },
+  {
    "pid": 1139181169,
    "title": "Футболка женская оверсайз хлопок удлиненная",
    "discount": 0,
@@ -12842,18 +12854,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 330841544,
-   "title": "Футболка с принтом на спине",
-   "discount": 0,
-   "price": 437,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/330841544/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789392770,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12891,10 +12891,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 108,
-   "ok": 88,
-   "rate_limited": 3,
-   "http_error": 17,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

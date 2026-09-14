@@ -12872,7 +12872,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789413563,
+  "last_run": 1789414421,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12886,30 +12886,30 @@
   "empty_notice_ts": 1789413816.0,
   "cats_ts": 1789383164.5890985,
   "last_cats": [
-   "Серия Reno",
    "Трубопроводы",
-   "Венки декоративные"
+   "Венки декоративные",
+   "Серия Reno"
   ],
   "digest_date": "2026-09-14",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 800,
-   "cards": 800,
-   "max_price": 788,
-   "ok": 4,
-   "bad_price": 8,
+   "found": 701,
+   "cards": 701,
+   "max_price": 689,
+   "bad_price": 11,
+   "ok": 1,
    "strict": 0,
-   "fallback": 4,
+   "fallback": 1,
    "reserve": 0,
-   "repost": 4,
+   "repost": 1,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 75,
+   "ok": 54,
+   "rate_limited": 8,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },
@@ -496994,7 +496994,7 @@
   "396016372": {
    "price": 340,
    "basic": 1397,
-   "ts": 1789413816.2576206,
+   "ts": 1789414647.1943123,
    "samples": [
     [
      1789279922,
@@ -498609,9 +498609,9 @@
   },
   "Серия Reno": {
    "shard": "electronic88",
-   "ts": 1789413816.2582855,
-   "runs": 47,
-   "empty": 2
+   "ts": 1789414647.1948903,
+   "runs": 48,
+   "empty": 3
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
@@ -498705,9 +498705,9 @@
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1789413816.2582855,
-   "runs": 42,
-   "empty": 2
+   "ts": 1789414647.1948903,
+   "runs": 43,
+   "empty": 3
   },
   "Банкетки": {
    "shard": "rooms8",
@@ -498723,9 +498723,9 @@
   },
   "Трубопроводы": {
    "shard": "autoproduct48",
-   "ts": 1789413816.2582855,
-   "runs": 42,
-   "empty": 2
+   "ts": 1789414647.1948903,
+   "runs": 43,
+   "empty": 3
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",

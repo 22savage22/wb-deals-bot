@@ -2036,6 +2036,18 @@
  },
  "recent": [
   {
+   "pid": 332423831,
+   "title": "Женская блузка с коротким рукавом",
+   "discount": 16,
+   "price": 332,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/332423831/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789369137,
+   "drop": 1
+  },
+  {
    "pid": 663983199,
    "title": "Платье-майка с открытой спиной",
    "discount": 0,
@@ -12816,18 +12828,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 332423831,
-   "title": "Женская блузка с коротким рукавом",
-   "discount": 16,
-   "price": 332,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/332423831/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789369137,
-   "drop": 1
   }
  ],
  "meta": {
@@ -497919,7 +497919,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "343267316": {
    "price": 466,
@@ -497932,7 +497932,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "330841544": {
    "price": 448,
@@ -497945,7 +497945,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

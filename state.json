@@ -12835,10 +12835,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 37,
-   "rate_limited": 21,
-   "http_error": 7,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

@@ -12813,10 +12813,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 22,
+   "ok": 13,
+   "rate_limited": 6,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -12905,7 +12905,7 @@
   "today": "2026-09-14",
   "today_posts": 5,
   "total_posts": 1261,
-  "last_scan": 1789349747,
+  "last_scan": 1789360962,
   "last_scan_queries": [
    "футболка мужская",
    "платье женское",
@@ -12914,21 +12914,18 @@
   ],
   "last_scan_cats": [
    "Напитки",
-   "Корм и лакомства"
+   "Средства для мытья посуды и продуктов"
   ],
   "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "max_price": 194,
-   "ok": 6,
+   "found": 200,
+   "cards": 200,
+   "max_price": 199,
    "bad_price": 1,
    "strict": 0,
-   "fallback": 6,
-   "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -497803,9 +497800,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1789351772.751829,
-   "runs": 98,
-   "empty": 3
+   "ts": 1789361088.5554576,
+   "runs": 99,
+   "empty": 4
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -497989,9 +497986,9 @@
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1789351772.751829,
-   "runs": 49,
-   "empty": 4
+   "ts": 1789361088.5554576,
+   "runs": 50,
+   "empty": 5
   },
   "Корм и лакомства": {
    "shard": "zoo9",

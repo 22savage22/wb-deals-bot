@@ -2042,6 +2042,18 @@
  },
  "recent": [
   {
+   "pid": 884671302,
+   "title": "Винтажная футболка скинни в полоску с принтом swag",
+   "discount": 0,
+   "price": 443,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/884671302/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789417771,
+   "drop": 0
+  },
+  {
    "pid": 13462170,
    "title": "Блузка летняя свободная короткий рукав",
    "discount": 0,
@@ -12870,18 +12882,6 @@
    "ts": 1788209885,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 884671302,
-   "title": "Винтажная футболка скинни в полоску с принтом swag",
-   "discount": 0,
-   "price": 443,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/884671302/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789417771,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12920,10 +12920,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 91,
-   "ok": 65,
-   "rate_limited": 14,
-   "http_error": 12,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

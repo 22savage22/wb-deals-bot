@@ -12813,10 +12813,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 36,
-   "rate_limited": 17,
-   "http_error": 6,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

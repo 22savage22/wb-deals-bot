@@ -12866,10 +12866,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 36,
+   "ok": 28,
+   "rate_limited": 2,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -12958,7 +12958,7 @@
   "today": "2026-09-14",
   "today_posts": 9,
   "total_posts": 1265,
-  "last_scan": 1789369186,
+  "last_scan": 1789371845,
   "last_scan_queries": [
    "платье женское",
    "футболка женская",
@@ -12966,17 +12966,17 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Конструкторы LEGO",
-   "Система выпуска"
+   "Средства защиты органов дыхания",
+   "Тормозные барабаны"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,
    "cards": 400,
-   "max_price": 393,
+   "max_price": 392,
    "ok": 4,
-   "bad_price": 3,
+   "bad_price": 4,
    "strict": 0,
    "fallback": 4,
    "reserve": 0,
@@ -12995,7 +12995,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789366331.0,
   "last_engagement_ts": 1789369139.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789342447.0
  },
  "admin_ui": {
@@ -334560,7 +334560,7 @@
   "1139181169": {
    "price": 379,
    "basic": 621,
-   "ts": 1789371841.0324664,
+   "ts": 1789371899.0891275,
    "samples": [
     [
      1789312779,
@@ -497883,7 +497883,7 @@
   "663983199": {
    "price": 459,
    "basic": 3799,
-   "ts": 1789371841.0312157,
+   "ts": 1789371899.0884216,
    "samples": [
     [
      1789366936,
@@ -497904,7 +497904,7 @@
   "715471306": {
    "price": 406,
    "basic": 1999,
-   "ts": 1789371841.0313582,
+   "ts": 1789371899.0885544,
    "samples": [
     [
      1789366936,
@@ -497925,7 +497925,7 @@
   "1125198531": {
    "price": 497,
    "basic": 1800,
-   "ts": 1789371841.0325177,
+   "ts": 1789371899.0891778,
    "samples": [
     [
      1789369118,
@@ -498103,9 +498103,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1789371841.0384483,
-   "runs": 58,
-   "empty": 3
+   "ts": 1789371899.0912743,
+   "runs": 59,
+   "empty": 4
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -498457,9 +498457,9 @@
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",
-   "ts": 1789371841.0384483,
-   "runs": 18,
-   "empty": 3
+   "ts": 1789371899.0912743,
+   "runs": 19,
+   "empty": 4
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",

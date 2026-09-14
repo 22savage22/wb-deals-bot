@@ -2032,6 +2032,18 @@
  },
  "recent": [
   {
+   "pid": 957609485,
+   "title": "Футболка оверсайз с принтом y2k",
+   "discount": 0,
+   "price": 437,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/957609485/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789346347,
+   "drop": 0
+  },
+  {
    "pid": 318388841,
    "title": "Футболка свободная однотонная базовая из хлопка",
    "discount": 0,
@@ -12763,18 +12775,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 957609485,
-   "title": "Футболка оверсайз с принтом y2k",
-   "discount": 0,
-   "price": 437,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/957609485/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789346347,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12813,10 +12813,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 27,
-   "rate_limited": 15,
-   "http_error": 6,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12916,7 +12916,7 @@
    "Мойки для кухни",
    "Для костей и суставов"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 200,

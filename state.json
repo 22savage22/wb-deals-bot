@@ -12907,10 +12907,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 75,
-   "rate_limited": 10,
-   "http_error": 12,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

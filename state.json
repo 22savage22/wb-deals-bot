@@ -12835,10 +12835,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 33,
-   "ok": 20,
-   "rate_limited": 9,
-   "http_error": 4,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -497845,7 +497845,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "715471306": {
    "price": 406,
@@ -497858,7 +497858,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

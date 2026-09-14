@@ -12778,7 +12778,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789348848,
+  "last_run": 1789349301,
   "last_posts": 0,
   "last_queries": [
    "футболка мужская",
@@ -12792,29 +12792,27 @@
   "empty_notice_ts": 1789326200.0,
   "cats_ts": 1789296557.2005746,
   "last_cats": [
-   "Мойки для кухни"
+   "Напитки",
+   "Корм и лакомства",
+   "Средства для мытья посуды и продуктов"
   ],
   "digest_date": "2026-09-14",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 699,
-   "cards": 699,
-   "max_price": 691,
-   "bad_price": 1,
-   "ok": 7,
+   "found": 100,
+   "cards": 100,
+   "max_price": 100,
    "strict": 0,
-   "fallback": 7,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 5,
-   "title_duplicate": 1,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 82,
-   "rate_limited": 4,
-   "http_error": 11,
+   "calls": 31,
+   "ok": 6,
+   "rate_limited": 22,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -217232,7 +217230,7 @@
   "379350597": {
    "price": 434,
    "basic": 1700,
-   "ts": 1789349257.0308347,
+   "ts": 1789349303.3744395,
    "samples": [
     [
      1789334881,
@@ -497801,9 +497799,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1789218089.0518968,
-   "runs": 95,
-   "empty": 5
+   "ts": 1789349742.6700606,
+   "runs": 96,
+   "empty": 1
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -497987,15 +497985,15 @@
   },
   "Напитки": {
    "shard": "ready_meals2",
-   "ts": 1789215492.666713,
-   "runs": 45,
-   "empty": 5
+   "ts": 1789349742.6700606,
+   "runs": 46,
+   "empty": 1
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1789215492.666713,
-   "runs": 45,
-   "empty": 5
+   "ts": 1789349742.6700606,
+   "runs": 46,
+   "empty": 1
   },
   "ММА": {
    "shard": "sport32",

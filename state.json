@@ -12852,10 +12852,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 75,
-   "ok": 53,
-   "rate_limited": 15,
-   "http_error": 7,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12955,7 +12955,7 @@
    "Конструкторы LEGO",
    "Система выпуска"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

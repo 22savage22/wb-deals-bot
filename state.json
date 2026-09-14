@@ -12784,10 +12784,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 27,
-   "ok": 15,
-   "rate_limited": 7,
-   "http_error": 5,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },

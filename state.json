@@ -2045,6 +2045,18 @@
  },
  "recent": [
   {
+   "pid": 442152367,
+   "title": "белый Женский Платье женское",
+   "discount": 18,
+   "price": 485,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/442152367/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789420984,
+   "drop": 1
+  },
+  {
    "pid": 29716987,
    "title": "Массивный широкий вечерний браслет на руку бижутерия",
    "discount": 22,
@@ -12870,18 +12882,6 @@
    "ts": 1788211685,
    "drop": 0,
    "quality": "A"
-  },
-  {
-   "pid": 442152367,
-   "title": "белый Женский Платье женское",
-   "discount": 18,
-   "price": 485,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/442152367/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789420984,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12921,10 +12921,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 39,
-   "rate_limited": 16,
-   "http_error": 12,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -13049,7 +13049,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789410477.0,
   "last_engagement_ts": 1789418739.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789386017.0
  },
  "admin_ui": {

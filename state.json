@@ -2033,6 +2033,18 @@
  },
  "recent": [
   {
+   "pid": 1181356865,
+   "title": "Футболка летняя с принтом цветов",
+   "discount": 0,
+   "price": 421,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1181356865/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789363487,
+   "drop": 0
+  },
+  {
    "pid": 957609485,
    "title": "Футболка оверсайз с принтом y2k",
    "discount": 0,
@@ -12776,18 +12788,6 @@
    "cat": "футболка женская",
    "ts": 1788189559,
    "drop": 0
-  },
-  {
-   "pid": 1181356865,
-   "title": "Футболка летняя с принтом цветов",
-   "discount": 0,
-   "price": 421,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1181356865/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789363487,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12825,10 +12825,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 53,
-   "rate_limited": 18,
-   "http_error": 7,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12928,7 +12928,7 @@
    "Напитки",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,

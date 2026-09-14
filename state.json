@@ -12781,7 +12781,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789427008,
+  "last_run": 1789427977,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12795,28 +12795,28 @@
   "empty_notice_ts": 1789413816.0,
   "cats_ts": 1789383164.5890985,
   "last_cats": [
-   "Зажимы и закладки",
-   "Посуда",
-   "Растяжители и колодки для обуви"
+   "Посуда"
   ],
   "digest_date": "2026-09-14",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 601,
-   "cards": 601,
-   "max_price": 594,
-   "bad_price": 7,
+   "found": 300,
+   "cards": 300,
+   "max_price": 296,
+   "ok": 3,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 0,
+   "fallback": 3,
    "reserve": 0,
+   "repost": 3,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 39,
+   "ok": 19,
+   "rate_limited": 18,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -12940,7 +12940,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789410477.0,
   "last_engagement_ts": 1789418739.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789386017.0
  },
  "admin_ui": {
@@ -334417,12 +334417,8 @@
   "1139181169": {
    "price": 428,
    "basic": 707,
-   "ts": 1789427478.3105044,
+   "ts": 1789428376.662852,
    "samples": [
-    [
-     1789408702,
-     428
-    ],
     [
      1789411287,
      428
@@ -334445,6 +334441,10 @@
     ],
     [
      1789425950,
+     428
+    ],
+    [
+     1789428376,
      428
     ]
    ],
@@ -497796,7 +497796,7 @@
   "663983199": {
    "price": 459,
    "basic": 3799,
-   "ts": 1789427478.3097785,
+   "ts": 1789428376.6620798,
    "samples": [
     [
      1789413816,
@@ -497973,7 +497973,7 @@
   "766428626": {
    "price": 408,
    "basic": 1799,
-   "ts": 1789427478.309705,
+   "ts": 1789428376.662005,
    "samples": [
     [
      1789413816,
@@ -499116,9 +499116,9 @@
   },
   "Посуда": {
    "shard": "gift23",
-   "ts": 1789427371.9381466,
-   "runs": 49,
-   "empty": 4
+   "ts": 1789428376.66401,
+   "runs": 50,
+   "empty": 5
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",

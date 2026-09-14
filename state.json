@@ -12921,10 +12921,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 21,
+   "ok": 9,
+   "rate_limited": 9,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -13013,27 +13013,27 @@
   "today": "2026-09-14",
   "today_posts": 17,
   "total_posts": 1273,
-  "last_scan": 1789419138,
+  "last_scan": 1789420991,
   "last_scan_queries": [
-   "футболка мужская",
-   "платье женское",
    "футболка женская",
-   "постельное белье"
+   "постельное белье",
+   "украшения женские",
+   "платье женское"
   ],
   "last_scan_cats": [
-   "Грунты, дренаж, мульча",
-   "Пылевыбивалки"
+   "Источники бесперебойного питания",
+   "Одежда и чешки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 393,
-   "bad_price": 4,
+   "found": 101,
+   "cards": 101,
+   "max_price": 96,
+   "bad_price": 2,
    "ok": 3,
-   "strict": 0,
-   "fallback": 3,
+   "strict": 1,
+   "fallback": 2,
    "reserve": 0,
    "duplicate": 3
   },
@@ -13049,7 +13049,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789410477.0,
   "last_engagement_ts": 1789418739.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789386017.0
  },
  "admin_ui": {
@@ -303354,7 +303354,7 @@
   "442152367": {
    "price": 485,
    "basic": 3499,
-   "ts": 1789420984.9744747,
+   "ts": 1789421148.2058516,
    "samples": [
     [
      1788796123,
@@ -497979,7 +497979,7 @@
   "663983199": {
    "price": 459,
    "basic": 3799,
-   "ts": 1789420968.0127137,
+   "ts": 1789421148.2060218,
    "samples": [
     [
      1789406163,
@@ -498154,9 +498154,9 @@
    "posted_ts": 1789392770.1378098
   },
   "766428626": {
-   "price": 363,
+   "price": 408,
    "basic": 1799,
-   "ts": 1789420968.0126393,
+   "ts": 1789421148.2059693,
    "samples": [
     [
      1789406909,
@@ -499159,9 +499159,9 @@
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
-   "ts": 1789420986.4749153,
-   "runs": 46,
-   "empty": 1
+   "ts": 1789421148.2071152,
+   "runs": 47,
+   "empty": 2
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
@@ -499189,9 +499189,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1789420986.4749153,
-   "runs": 46,
-   "empty": 1
+   "ts": 1789421148.2071152,
+   "runs": 47,
+   "empty": 2
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",

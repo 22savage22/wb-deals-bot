@@ -12768,7 +12768,7 @@
   "last_cats": [
    "ММА"
   ],
-  "digest_date": "2026-09-13",
+  "digest_date": "2026-09-14",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
    "found": 501,
@@ -12784,10 +12784,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 38,
-   "rate_limited": 16,
-   "http_error": 5,
+   "calls": 97,
+   "ok": 82,
+   "rate_limited": 4,
+   "http_error": 11,
    "network_error": 0,
    "json_error": 0
   },
@@ -12887,7 +12887,7 @@
    "Аксессуары и инвентарь",
    "Домашние животные и ветеринария"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -12911,7 +12911,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789333903.0,
   "last_engagement_ts": 1789338276.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789342447.0
  },
  "admin_ui": {

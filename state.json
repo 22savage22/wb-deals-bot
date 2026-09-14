@@ -12777,10 +12777,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 22,
+   "ok": 12,
+   "rate_limited": 8,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -12869,7 +12869,7 @@
   "today": "2026-09-14",
   "today_posts": 20,
   "total_posts": 1276,
-  "last_scan": 1789427377,
+  "last_scan": 1789429760,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -12877,20 +12877,18 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Растяжители и колодки для обуви",
-   "Зажимы и закладки"
+   "Насосное оборудование",
+   "Для песочницы"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "max_price": 297,
-   "ok": 3,
+   "found": 200,
+   "cards": 200,
+   "max_price": 200,
    "strict": 0,
-   "fallback": 3,
-   "reserve": 0,
-   "duplicate": 3
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -499062,9 +499060,9 @@
   },
   "Для песочницы": {
    "shard": "toys12",
-   "ts": 1789429401.800415,
-   "runs": 46,
-   "empty": 1
+   "ts": 1789429914.5892298,
+   "runs": 47,
+   "empty": 2
   },
   "Фигурки": {
    "shard": "toys19",
@@ -499170,9 +499168,9 @@
   },
   "Насосное оборудование": {
    "shard": "garden14",
-   "ts": 1789429401.800415,
-   "runs": 31,
-   "empty": 1
+   "ts": 1789429914.5892298,
+   "runs": 32,
+   "empty": 2
   },
   "Рамы багетные": {
    "shard": "interior30",

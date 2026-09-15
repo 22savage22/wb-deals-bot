@@ -12160,7 +12160,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789507758,
+  "last_run": 1789508242,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12181,24 +12181,23 @@
   "digest_date": "2026-09-15",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 199,
-   "cards": 199,
-   "max_price": 181,
-   "ok": 4,
-   "bad_price": 14,
+   "found": 101,
+   "cards": 101,
+   "max_price": 99,
+   "ok": 1,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 4,
+   "fallback": 1,
    "reserve": 0,
-   "repost": 3,
-   "title_duplicate": 1,
+   "repost": 1,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 32,
+   "ok": 9,
+   "rate_limited": 19,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -482839,12 +482838,8 @@
   "263054204": {
    "price": 449,
    "basic": 3992,
-   "ts": 1789506201.952157,
+   "ts": 1789508632.5593536,
    "samples": [
-    [
-     1789494152,
-     449
-    ],
     [
      1789496065,
      449
@@ -482867,6 +482862,10 @@
     ],
     [
      1789505198,
+     449
+    ],
+    [
+     1789508632,
      449
     ]
    ],
@@ -483425,9 +483424,9 @@
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1789508193.1782138,
-   "runs": 71,
-   "empty": 1
+   "ts": 1789508632.5606253,
+   "runs": 72,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -483455,9 +483454,9 @@
   },
   "Средства индивидуальной защиты и экипировка": {
    "shard": "repair26",
-   "ts": 1789508193.1782138,
-   "runs": 66,
-   "empty": 1
+   "ts": 1789508632.5606253,
+   "runs": 67,
+   "empty": 2
   },
   "Бандажи": {
    "shard": "women_underwear2",
@@ -483479,9 +483478,9 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1789508193.1782138,
-   "runs": 61,
-   "empty": 1
+   "ts": 1789508632.5606253,
+   "runs": 62,
+   "empty": 2
   },
   "Восточные сладости": {
    "shard": "product1",

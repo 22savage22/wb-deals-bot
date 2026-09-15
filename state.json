@@ -12337,10 +12337,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 29,
-   "ok": 22,
-   "rate_limited": 4,
-   "http_error": 3,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

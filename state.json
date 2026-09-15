@@ -2059,6 +2059,18 @@
  },
  "recent": [
   {
+   "pid": 63566987,
+   "title": "Футболка базовая из хлопка",
+   "discount": 0,
+   "price": 393,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/63566987/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789474988,
+   "drop": 0
+  },
+  {
    "pid": 1052588777,
    "title": "Футболка с принтом",
    "discount": 0,
@@ -12460,18 +12472,6 @@
    "ts": 1788265959,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 63566987,
-   "title": "Футболка базовая из хлопка",
-   "discount": 0,
-   "price": 393,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/63566987/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789474988,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12509,9 +12509,9 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 67,
-   "rate_limited": 4,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
    "http_error": 10,
    "network_error": 0,
    "json_error": 0
@@ -12638,7 +12638,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789461947.0,
   "last_engagement_ts": 1789455823.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789473268.0
  },
  "admin_ui": {

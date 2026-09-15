@@ -12265,10 +12265,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 124,
-   "ok": 95,
-   "rate_limited": 4,
-   "http_error": 25,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

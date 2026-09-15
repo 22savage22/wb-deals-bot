@@ -12752,10 +12752,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 30,
-   "rate_limited": 21,
-   "http_error": 2,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

@@ -2062,6 +2062,19 @@
  },
  "recent": [
   {
+   "pid": 263054204,
+   "title": "Туника больших размеров платье домашнее",
+   "discount": 0,
+   "price": 449,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/263054204/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789486001,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 340611091,
    "title": "Футболка базовая прямого кроя",
    "discount": 0,
@@ -12292,19 +12305,6 @@
    "cat": "кепка женская",
    "ts": 1788276833,
    "drop": 0
-  },
-  {
-   "pid": 263054204,
-   "title": "Туника больших размеров платье домашнее",
-   "discount": 0,
-   "price": 449,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/263054204/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789486001,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12332,10 +12332,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 28,
-   "rate_limited": 4,
-   "http_error": 5,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12435,7 +12435,7 @@
    "Игрушки",
    "Аксессуары и инвентарь"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

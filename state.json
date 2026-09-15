@@ -2058,6 +2058,18 @@
  },
  "recent": [
   {
+   "pid": 1052588777,
+   "title": "Футболка с принтом",
+   "discount": 0,
+   "price": 375,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1052588777/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789459671,
+   "drop": 0
+  },
+  {
    "pid": 1052594637,
    "title": "Футболка хлопковая с принтом",
    "discount": 16,
@@ -12746,18 +12758,6 @@
    "ts": 1788251435,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1052588777,
-   "title": "Футболка с принтом",
-   "discount": 0,
-   "price": 375,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1052588777/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789459671,
-   "drop": 0
   }
  ],
  "meta": {

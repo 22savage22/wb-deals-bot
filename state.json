@@ -2051,6 +2051,18 @@
  },
  "recent": [
   {
+   "pid": 1181356859,
+   "title": "Футболка хлопок с принтом",
+   "discount": 42,
+   "price": 356,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1181356859/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789450930,
+   "drop": 1
+  },
+  {
    "pid": 804792626,
    "title": "Футболка с принтом базовая прямая хлопок",
    "discount": 0,
@@ -12692,18 +12704,6 @@
    "cat": "блузка женская",
    "ts": 1788241708,
    "drop": 0
-  },
-  {
-   "pid": 1181356859,
-   "title": "Футболка хлопок с принтом",
-   "discount": 42,
-   "price": 356,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1181356859/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789450930,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12741,10 +12741,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 52,
-   "rate_limited": 20,
-   "http_error": 6,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

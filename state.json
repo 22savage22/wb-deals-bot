@@ -2081,6 +2081,18 @@
  },
  "recent": [
   {
+   "pid": 137985455,
+   "title": "Футболка базовая с v-образным вырезом",
+   "discount": 38,
+   "price": 429,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137985455/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789497661,
+   "drop": 1
+  },
+  {
    "pid": 253308963,
    "title": "Джинсы прямые с дырками бойфренды свободные",
    "discount": 0,
@@ -12236,18 +12248,6 @@
    "cat": "кепка женская",
    "ts": 1788288539,
    "drop": 0
-  },
-  {
-   "pid": 137985455,
-   "title": "Футболка базовая с v-образным вырезом",
-   "discount": 38,
-   "price": 429,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137985455/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789497661,
-   "drop": 1
   }
  ],
  "meta": {
@@ -486463,7 +486463,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

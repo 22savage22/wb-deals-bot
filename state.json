@@ -12509,10 +12509,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 34,
-   "ok": 27,
-   "rate_limited": 2,
-   "http_error": 5,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12638,7 +12638,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789461947.0,
   "last_engagement_ts": 1789455823.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789473268.0
  },
  "admin_ui": {
@@ -42390,14 +42390,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "332030285": {
-   "price": 4086,
-   "basic": 10274,
-   "ts": 1788265449.947511,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "239121749": {
    "price": 1224,
    "basic": 5041,
@@ -42583,14 +42575,6 @@
    "posted_price": 1749,
    "posted_ts": 1788379976.7092788
   },
-  "929887064": {
-   "price": 441,
-   "basic": 2940,
-   "ts": 1788265449.947573,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "884911674": {
    "price": 232,
    "basic": 455,
@@ -42613,14 +42597,6 @@
      232
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "482111803": {
-   "price": 1275,
-   "basic": 4025,
-   "ts": 1788265449.9476037,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -42675,54 +42651,6 @@
      1310
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "147799647": {
-   "price": 123,
-   "basic": 224,
-   "ts": 1788265449.9476252,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "679210155": {
-   "price": 1288,
-   "basic": 1984,
-   "ts": 1788265449.9476316,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1115769091": {
-   "price": 404,
-   "basic": 539,
-   "ts": 1788265449.947644,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "804759278": {
-   "price": 1292,
-   "basic": 3400,
-   "ts": 1788265449.9476535,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "726930421": {
-   "price": 1306,
-   "basic": 3300,
-   "ts": 1788265449.9476595,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1419715856": {
-   "price": 657,
-   "basic": 1485,
-   "ts": 1788265449.9476693,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -42797,14 +42725,6 @@
      1984
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "907381070": {
-   "price": 386,
-   "basic": 1150,
-   "ts": 1788265449.9476893,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -42919,14 +42839,6 @@
    "posted_price": 942,
    "posted_ts": 1789013712.3718405
   },
-  "445481249": {
-   "price": 1235,
-   "basic": 3900,
-   "ts": 1788265449.9477193,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "371637164": {
    "price": 648,
    "basic": 1500,
@@ -42961,14 +42873,6 @@
      648
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1380468321": {
-   "price": 464,
-   "basic": 2000,
-   "ts": 1788265449.947736,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -43083,22 +42987,6 @@
    "posted_price": 579,
    "posted_ts": 1788963541.4922478
   },
-  "8426758": {
-   "price": 1322,
-   "basic": 1670,
-   "ts": 1788265449.947764,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "382168919": {
-   "price": 958,
-   "basic": 960,
-   "ts": 1788265449.9477699,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "268111104": {
    "price": 1123,
    "basic": 4000,
@@ -43173,22 +43061,6 @@
    "posted_price": 400,
    "posted_ts": 1789015446.2039733
   },
-  "791571636": {
-   "price": 360,
-   "basic": 937,
-   "ts": 1788265449.9477882,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "851700800": {
-   "price": 819,
-   "basic": 2091,
-   "ts": 1788265449.9477944,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "778084331": {
    "price": 238,
    "basic": 606,
@@ -43223,14 +43095,6 @@
      238
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1033143214": {
-   "price": 556,
-   "basic": 843,
-   "ts": 1788265449.9478133,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -43318,14 +43182,6 @@
      11796
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "873310007": {
-   "price": 623,
-   "basic": 1599,
-   "ts": 1788265449.9478369,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -43450,46 +43306,6 @@
      71
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1294209562": {
-   "price": 307,
-   "basic": 800,
-   "ts": 1788265449.947867,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "903833864": {
-   "price": 1314,
-   "basic": 2000,
-   "ts": 1788265449.947878,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "983594550": {
-   "price": 426,
-   "basic": 2100,
-   "ts": 1788265449.947883,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "106021505": {
-   "price": 1283,
-   "basic": 1800,
-   "ts": 1788265449.9478881,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "892512824": {
-   "price": 756,
-   "basic": 1818,
-   "ts": 1788265449.9479,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -55438,22 +55254,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "1123281394": {
-   "price": 1894,
-   "basic": 4499,
-   "ts": 1788265449.9468179,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "876368352": {
-   "price": 447,
-   "basic": 559,
-   "ts": 1788265449.9468434,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "398289856": {
    "price": 630,
    "basic": 900,
@@ -55662,14 +55462,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "910051273": {
-   "price": 447,
-   "basic": 559,
-   "ts": 1788265449.946982,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1177266047": {
    "price": 524,
    "basic": 2050,
@@ -55684,22 +55476,6 @@
      524
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1177266103": {
-   "price": 810,
-   "basic": 2700,
-   "ts": 1788265449.9469945,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1113242312": {
-   "price": 1260,
-   "basic": 2521,
-   "ts": 1788265449.9469995,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -55766,14 +55542,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "398330829": {
-   "price": 1000,
-   "basic": 1250,
-   "ts": 1788265449.9470248,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1379679283": {
    "price": 1050,
    "basic": 7000,
@@ -55816,22 +55584,6 @@
    "posted_price": 904,
    "posted_ts": 1788617615.5524025
   },
-  "828511166": {
-   "price": 1401,
-   "basic": 4035,
-   "ts": 1788265449.947052,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1028797801": {
-   "price": 680,
-   "basic": 3696,
-   "ts": 1788265449.9470572,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "718638926": {
    "price": 1553,
    "basic": 4056,
@@ -55842,54 +55594,6 @@
      1553
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "398306494": {
-   "price": 760,
-   "basic": 950,
-   "ts": 1788265449.947075,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "486836328": {
-   "price": 622,
-   "basic": 2160,
-   "ts": 1788265449.9470806,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "10732005": {
-   "price": 436,
-   "basic": 793,
-   "ts": 1788265449.9470866,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "924491186": {
-   "price": 996,
-   "basic": 3195,
-   "ts": 1788265449.9470935,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "133855330": {
-   "price": 1335,
-   "basic": 4307,
-   "ts": 1788265449.9470987,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1173324820": {
-   "price": 2006,
-   "basic": 7024,
-   "ts": 1788265449.9471037,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -55907,30 +55611,6 @@
      962
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "332805261": {
-   "price": 504,
-   "basic": 1855,
-   "ts": 1788265449.9471173,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "152952892": {
-   "price": 493,
-   "basic": 1869,
-   "ts": 1788265449.9471223,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "634476114": {
-   "price": 879,
-   "basic": 1099,
-   "ts": 1788265449.9471295,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -55955,14 +55635,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "704821698": {
-   "price": 2247,
-   "basic": 5000,
-   "ts": 1788265449.947139,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1379679270": {
    "price": 630,
    "basic": 5000,
@@ -55976,61 +55648,18 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "604386060": {
-   "price": 1850,
-   "basic": 3929,
-   "ts": 1788265449.9471493,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1343883487": {
-   "price": 603,
-   "basic": 1935,
-   "ts": 1788265449.947159,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "37135809": {
-   "price": 503,
-   "basic": 2422,
-   "ts": 1788265449.9471717,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "174850691": {
-   "price": 590,
-   "basic": 4683,
-   "ts": 1788265449.9471786,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "825843892": {
-   "price": 827,
-   "basic": 2350,
-   "ts": 1788265449.947185,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "58276769": {
    "price": 2017,
    "basic": 3909,
    "ts": 1788265959.2103467,
-   "samples": [],
+   "samples": [
+    [
+     1788265959,
+     2017
+    ]
+   ],
    "posted_price": 2017,
    "posted_ts": 1788265959.2103467
-  },
-  "335715579": {
-   "price": 481,
-   "basic": 602,
-   "ts": 1788265449.947195,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
   },
   "893146639": {
    "price": 1510,
@@ -56045,14 +55674,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "10948615": {
-   "price": 550,
-   "basic": 3125,
-   "ts": 1788265449.9472072,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "237360579": {
    "price": 800,
    "basic": 1001,
@@ -56063,14 +55684,6 @@
      800
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "321109307": {
-   "price": 1650,
-   "basic": 3785,
-   "ts": 1788265449.94728,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -56134,14 +55747,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "708510644": {
-   "price": 1504,
-   "basic": 2501,
-   "ts": 1788265449.9473104,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "793117949": {
    "price": 950,
    "basic": 2500,
@@ -56152,22 +55757,6 @@
      950
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "133855326": {
-   "price": 1171,
-   "basic": 4307,
-   "ts": 1788265449.9473202,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "788299748": {
-   "price": 1587,
-   "basic": 4428,
-   "ts": 1788265449.9473255,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -56192,62 +55781,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "790983055": {
-   "price": 1377,
-   "basic": 4023,
-   "ts": 1788265449.9473393,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "604368897": {
-   "price": 1921,
-   "basic": 3505,
-   "ts": 1788265449.947346,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "591113601": {
-   "price": 1540,
-   "basic": 6750,
-   "ts": 1788265449.947351,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "892633308": {
-   "price": 1646,
-   "basic": 3483,
-   "ts": 1788265449.9473557,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "133855332": {
-   "price": 1311,
-   "basic": 4720,
-   "ts": 1788265449.947362,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "13630255": {
-   "price": 815,
-   "basic": 2830,
-   "ts": 1788265449.9474027,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1260524889": {
-   "price": 840,
-   "basic": 1050,
-   "ts": 1788265449.9474092,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1177266042": {
    "price": 615,
    "basic": 2563,
@@ -56265,14 +55798,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "993350479": {
-   "price": 2200,
-   "basic": 4916,
-   "ts": 1788265449.9474266,
-   "samples": [],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1194824799": {
    "price": 813,
    "basic": 1017,
@@ -56283,14 +55808,6 @@
      813
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "1426509347": {
-   "price": 571,
-   "basic": 2164,
-   "ts": 1788265449.9474418,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -56308,14 +55825,6 @@
      988
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "420086783": {
-   "price": 246,
-   "basic": 448,
-   "ts": 1788265449.9475327,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },

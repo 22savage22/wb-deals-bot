@@ -12720,7 +12720,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789446748,
+  "last_run": 1789447217,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12740,10 +12740,11 @@
   "digest_date": "2026-09-15",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 300,
-   "cards": 300,
-   "max_price": 299,
+   "found": 302,
+   "cards": 302,
+   "max_price": 297,
    "ok": 1,
+   "bad_price": 4,
    "strict": 0,
    "fallback": 1,
    "reserve": 0,
@@ -12752,10 +12753,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 40,
+   "ok": 23,
+   "rate_limited": 13,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -497643,7 +497644,7 @@
   "663983199": {
    "price": 459,
    "basic": 3799,
-   "ts": 1789446143.4826295,
+   "ts": 1789447516.2800608,
    "samples": [
     [
      1789427478,
@@ -499236,9 +499237,9 @@
   },
   "Лейки, шланги, гарнитуры": {
    "shard": "bathroom2",
-   "ts": 1789447285.6740658,
-   "runs": 19,
-   "empty": 4
+   "ts": 1789447516.281775,
+   "runs": 20,
+   "empty": 5
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
@@ -499248,9 +499249,9 @@
   },
   "Бронеодежда": {
    "shard": "sport18",
-   "ts": 1789447285.6740658,
-   "runs": 19,
-   "empty": 4
+   "ts": 1789447516.281775,
+   "runs": 20,
+   "empty": 5
   },
   "Конструкторы LEGO": {
    "shard": "toys9",

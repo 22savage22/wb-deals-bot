@@ -12431,10 +12431,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 102,
-   "ok": 83,
-   "rate_limited": 8,
-   "http_error": 11,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12560,7 +12560,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789461947.0,
   "last_engagement_ts": 1789455823.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789473268.0
  },
  "admin_ui": {

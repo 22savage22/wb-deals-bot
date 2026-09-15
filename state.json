@@ -2056,6 +2056,18 @@
  },
  "recent": [
   {
+   "pid": 1052604516,
+   "title": "Футболка хлопковая с принтом",
+   "discount": 18,
+   "price": 375,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1052604516/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789457971,
+   "drop": 1
+  },
+  {
    "pid": 768678028,
    "title": "Футболка хлопок",
    "discount": 19,
@@ -12733,18 +12745,6 @@
    "ts": 1788249292,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1052604516,
-   "title": "Футболка хлопковая с принтом",
-   "discount": 18,
-   "price": 375,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1052604516/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789457971,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12783,10 +12783,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 84,
-   "ok": 70,
-   "rate_limited": 3,
-   "http_error": 11,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12909,7 +12909,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789433760.0,
   "last_engagement_ts": 1789455823.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789429401.0
  },
  "admin_ui": {
@@ -22625,19 +22625,6 @@
    ],
    "posted_price": 2388,
    "posted_ts": 1788250319.7597315
-  },
-  "619002756": {
-   "price": 2316,
-   "basic": 6600,
-   "ts": 1788248403.0836253,
-   "samples": [
-    [
-     1788248403,
-     2316
-    ]
-   ],
-   "posted_price": 2316,
-   "posted_ts": 1788248403.0836253
   },
   "973189567": {
    "price": 3574,

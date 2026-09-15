@@ -12764,10 +12764,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 18,
+   "ok": 6,
+   "rate_limited": 10,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -12856,7 +12856,7 @@
   "today": "2026-09-14",
   "today_posts": 20,
   "total_posts": 1276,
-  "last_scan": 1789429760,
+  "last_scan": 1789430854,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -12864,18 +12864,20 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Насосное оборудование",
-   "Для песочницы"
+   "Лототроны",
+   "Насосное оборудование"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "max_price": 200,
+   "found": 100,
+   "cards": 100,
+   "max_price": 98,
+   "ok": 2,
    "strict": 0,
-   "fallback": 0,
-   "reserve": 0
+   "fallback": 2,
+   "reserve": 0,
+   "duplicate": 2
   },
   "last_queue": {
    "queue_before": 1,
@@ -12889,7 +12891,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789410477.0,
   "last_engagement_ts": 1789418739.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789429401.0
  },
  "admin_ui": {
@@ -497689,7 +497691,7 @@
   "663983199": {
    "price": 459,
    "basic": 3799,
-   "ts": 1789430849.095506,
+   "ts": 1789431038.8054678,
    "samples": [
     [
      1789415873,
@@ -497866,7 +497868,7 @@
   "766428626": {
    "price": 408,
    "basic": 1799,
-   "ts": 1789430849.0954368,
+   "ts": 1789431038.8053694,
    "samples": [
     [
      1789415873,
@@ -499135,15 +499137,15 @@
   },
   "Лототроны": {
    "shard": "rooms15",
-   "ts": 1789430849.0987594,
-   "runs": 33,
-   "empty": 3
+   "ts": 1789431038.806519,
+   "runs": 34,
+   "empty": 4
   },
   "Насосное оборудование": {
    "shard": "garden14",
-   "ts": 1789430849.0987594,
-   "runs": 33,
-   "empty": 3
+   "ts": 1789431038.806519,
+   "runs": 34,
+   "empty": 4
   },
   "Рамы багетные": {
    "shard": "interior30",

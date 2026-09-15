@@ -2068,6 +2068,18 @@
  },
  "recent": [
   {
+   "pid": 1031458553,
+   "title": "Сумка",
+   "discount": 0,
+   "price": 464,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/1031458553/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789490476,
+   "drop": 0
+  },
+  {
    "pid": 39458686,
    "title": "Колье бижутерия длинное с подвеской",
    "discount": 0,
@@ -12298,18 +12310,6 @@
    "ts": 1788281076,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1031458553,
-   "title": "Сумка",
-   "discount": 0,
-   "price": 464,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/1031458553/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789490476,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12349,10 +12349,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 116,
-   "ok": 91,
-   "rate_limited": 4,
-   "http_error": 21,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

@@ -2052,6 +2052,18 @@
  },
  "recent": [
   {
+   "pid": 199944338,
+   "title": "Сумка через плечо Кроссбоди",
+   "discount": 0,
+   "price": 382,
+   "rating": 4.4,
+   "link": "https://www.wildberries.ru/catalog/199944338/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789454266,
+   "drop": 0
+  },
+  {
    "pid": 1181356859,
    "title": "Футболка хлопок с принтом",
    "discount": 42,
@@ -12693,18 +12705,6 @@
    "ts": 1788248360,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 199944338,
-   "title": "Сумка через плечо Кроссбоди",
-   "discount": 0,
-   "price": 382,
-   "rating": 4.4,
-   "link": "https://www.wildberries.ru/catalog/199944338/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789454266,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12741,10 +12741,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 42,
-   "ok": 20,
-   "rate_limited": 18,
-   "http_error": 4,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -498712,7 +498712,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "199944338": {
    "price": 382,

@@ -2063,6 +2063,18 @@
  },
  "recent": [
   {
+   "pid": 251351420,
+   "title": "Футболка оверсайз белая плотная хлопок",
+   "discount": 0,
+   "price": 413,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/251351420/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789486882,
+   "drop": 0
+  },
+  {
    "pid": 263054204,
    "title": "Туника больших размеров платье домашнее",
    "discount": 0,
@@ -12294,18 +12306,6 @@
    "cat": "украшения женские",
    "ts": 1788277881,
    "drop": 0
-  },
-  {
-   "pid": 251351420,
-   "title": "Футболка оверсайз белая плотная хлопок",
-   "discount": 0,
-   "price": 413,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/251351420/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789486882,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12344,10 +12344,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 116,
-   "ok": 91,
-   "rate_limited": 6,
-   "http_error": 19,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12447,7 +12447,7 @@
    "Игрушки",
    "Аксессуары и инвентарь"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -12473,7 +12473,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789483614.0,
   "last_engagement_ts": 1789486884.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789473268.0
  },
  "admin_ui": {
@@ -65594,10 +65594,6 @@
    "samples": [
     [
      1788277865,
-     457
-    ],
-    [
-     1788277865.1989324,
      457
     ],
     [
@@ -491368,7 +491364,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "256810322": {
    "price": 230,
@@ -491381,7 +491377,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1248563525": {
    "price": 91,
@@ -491394,7 +491390,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1142740321": {
    "price": 357,
@@ -491407,7 +491403,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "548137878": {
    "price": 490,
@@ -491420,7 +491416,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "399638627": {
    "price": 180,
@@ -491433,7 +491429,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1261948769": {
    "price": 462,
@@ -491446,7 +491442,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "13754903": {
    "price": 223,
@@ -491459,7 +491455,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1011746699": {
    "price": 259,
@@ -491472,7 +491468,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "963907136": {
    "price": 484,
@@ -491485,7 +491481,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1266864818": {
    "price": 318,
@@ -491498,7 +491494,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "438401536": {
    "price": 349,
@@ -491511,7 +491507,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "442324419": {
    "price": 165,
@@ -491524,7 +491520,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "542721604": {
    "price": 368,
@@ -491537,7 +491533,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "708628393": {
    "price": 446,
@@ -491550,7 +491546,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "222439389": {
    "price": 370,
@@ -491563,7 +491559,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "765481184": {
    "price": 480,
@@ -491576,7 +491572,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1175303976": {
    "price": 121,
@@ -491589,7 +491585,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "12063632": {
    "price": 198,
@@ -491602,7 +491598,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "414006970": {
    "price": 203,
@@ -491615,7 +491611,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "293842374": {
    "price": 166,
@@ -491628,7 +491624,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "910191290": {
    "price": 147,
@@ -491641,7 +491637,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "573354064": {
    "price": 440,
@@ -491654,7 +491650,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "569481924": {
    "price": 204,
@@ -491667,7 +491663,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1146554673": {
    "price": 325,
@@ -491680,7 +491676,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "420188240": {
    "price": 178,
@@ -491693,7 +491689,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

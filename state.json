@@ -2082,6 +2082,19 @@
  },
  "recent": [
   {
+   "pid": 896264615,
+   "title": "Футболка фиолетовая из джерси с принтом из 100% хлопка",
+   "discount": 0,
+   "price": 413,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/896264615/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789498348,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 137985455,
    "title": "Футболка базовая с v-образным вырезом",
    "discount": 38,
@@ -12237,19 +12250,6 @@
    "cat": "джинсы мужские",
    "ts": 1788289406,
    "drop": 0
-  },
-  {
-   "pid": 896264615,
-   "title": "Футболка фиолетовая из джерси с принтом из 100% хлопка",
-   "discount": 0,
-   "price": 413,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/896264615/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789498348,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12278,10 +12278,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 19,
-   "rate_limited": 6,
-   "http_error": 3,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12381,7 +12381,7 @@
    "Корм и лакомства",
    "Матрасы-топперы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 300,

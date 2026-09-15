@@ -1,1 +1,18 @@
-[]
+[
+ {
+  "id": 1014841608,
+  "title": "Футболка",
+  "brand": "KOTON",
+  "product": 337,
+  "basic": 519,
+  "discount": 35,
+  "benefit": 182,
+  "rating": 4.8,
+  "feedbacks": 24,
+  "category": "футболка мужская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка мужская",
+  "queued_ts": 1789454274
+ }
+]

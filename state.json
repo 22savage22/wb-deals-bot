@@ -2064,6 +2064,18 @@
  },
  "recent": [
   {
+   "pid": 40616018,
+   "title": "Массивный широкий вечерний браслет на руку бижутерия",
+   "discount": 23,
+   "price": 366,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/40616018/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789487687,
+   "drop": 1
+  },
+  {
    "pid": 251351420,
    "title": "Футболка оверсайз белая плотная хлопок",
    "discount": 0,
@@ -12295,18 +12307,6 @@
    "ts": 1788278529,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 40616018,
-   "title": "Массивный широкий вечерний браслет на руку бижутерия",
-   "discount": 23,
-   "price": 366,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/40616018/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789487687,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12345,10 +12345,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 109,
-   "ok": 86,
-   "rate_limited": 3,
-   "http_error": 20,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12448,7 +12448,7 @@
    "Игрушки",
    "Аксессуары и инвентарь"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -12474,7 +12474,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789483614.0,
   "last_engagement_ts": 1789486884.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789473268.0
  },
  "admin_ui": {
@@ -50602,10 +50602,6 @@
    "basic": 4492,
    "ts": 1789083601.7715394,
    "samples": [
-    [
-     1788277935,
-     1275
-    ],
     [
      1788283528,
      1020

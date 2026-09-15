@@ -2065,6 +2065,19 @@
  },
  "recent": [
   {
+   "pid": 618084646,
+   "title": "Серьги каффы без прокола на уши набор",
+   "discount": 21,
+   "price": 337,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/618084646/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789488365,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 40616018,
    "title": "Массивный широкий вечерний браслет на руку бижутерия",
    "discount": 23,
@@ -12295,19 +12308,6 @@
    "ts": 1788279161,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 618084646,
-   "title": "Серьги каффы без прокола на уши набор",
-   "discount": 21,
-   "price": 337,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/618084646/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789488365,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -12335,10 +12335,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 24,
-   "ok": 21,
+   "calls": 90,
+   "ok": 80,
    "rate_limited": 0,
-   "http_error": 3,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12438,7 +12438,7 @@
    "Игрушки",
    "Аксессуары и инвентарь"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 301,

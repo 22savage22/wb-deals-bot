@@ -12741,10 +12741,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 28,
+   "ok": 16,
+   "rate_limited": 8,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -12833,29 +12833,29 @@
   "today": "2026-09-15",
   "today_posts": 8,
   "total_posts": 1279,
-  "last_scan": 1789447521,
+  "last_scan": 1789450938,
   "last_scan_queries": [
    "платье женское",
-   "футболка женская",
    "сумка женская",
-   "футболка мужская"
+   "футболка мужская",
+   "футболка женская"
   ],
   "last_scan_cats": [
-   "Восточные сладости",
-   "Репринтные издания 1860 - 1869 годов"
+   "Кастрюли и сковороды",
+   "Познавательная литература"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 396,
-   "ok": 2,
-   "bad_price": 2,
+   "found": 201,
+   "cards": 201,
+   "max_price": 197,
+   "bad_price": 3,
+   "ok": 1,
    "strict": 0,
-   "fallback": 2,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 2
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -334234,7 +334234,7 @@
   "1139181169": {
    "price": 428,
    "basic": 707,
-   "ts": 1789450893.5450633,
+   "ts": 1789451060.958652,
    "samples": [
     [
      1789432795,
@@ -499172,9 +499172,9 @@
   },
   "Познавательная литература": {
    "shard": "books_children5",
-   "ts": 1789309460.9832537,
-   "runs": 20,
-   "empty": 5
+   "ts": 1789451060.9591687,
+   "runs": 21,
+   "empty": 1
   },
   "Образование": {
    "shard": "books12",
@@ -499220,9 +499220,9 @@
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
-   "ts": 1789308725.6534705,
-   "runs": 15,
-   "empty": 5
+   "ts": 1789451060.9591687,
+   "runs": 16,
+   "empty": 1
   },
   "Бронеодежда": {
    "shard": "sport18",

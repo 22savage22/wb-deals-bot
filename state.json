@@ -12720,7 +12720,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789438204,
+  "last_run": 1789439086,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -12734,31 +12734,30 @@
   "empty_notice_ts": 1789413816.0,
   "cats_ts": 1789383164.5890985,
   "last_cats": [
+   "Радиоуправляемые",
    "Пододеяльники",
-   "Подметальные машины",
-   "Радиоуправляемые"
+   "Подметальные машины"
   ],
   "digest_date": "2026-09-15",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
    "found": 597,
    "cards": 597,
-   "max_price": 581,
-   "ok": 11,
+   "max_price": 590,
+   "ok": 2,
    "bad_price": 5,
    "strict": 0,
-   "fallback": 11,
+   "fallback": 2,
    "reserve": 0,
-   "repost": 8,
-   "title_duplicate": 2,
+   "repost": 2,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 63,
+   "ok": 40,
+   "rate_limited": 16,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -334267,7 +334266,7 @@
   "1139181169": {
    "price": 428,
    "basic": 707,
-   "ts": 1789438481.938849,
+   "ts": 1789439451.7021165,
    "samples": [
     [
      1789424008,
@@ -498082,7 +498081,7 @@
   "13462170": {
    "price": 426,
    "basic": 695,
-   "ts": 1789438481.940832,
+   "ts": 1789439451.7040756,
    "samples": [
     [
      1789412047,
@@ -499252,21 +499251,21 @@
   },
   "Пододеяльники": {
    "shard": "babies_room1",
-   "ts": 1789438481.9421093,
-   "runs": 7,
-   "empty": 2
+   "ts": 1789439451.705282,
+   "runs": 8,
+   "empty": 3
   },
   "Радиоуправляемые": {
    "shard": "toys15",
-   "ts": 1789438481.9421093,
-   "runs": 8,
-   "empty": 3
+   "ts": 1789439451.705282,
+   "runs": 9,
+   "empty": 4
   },
   "Подметальные машины": {
    "shard": "garden15",
-   "ts": 1789438481.9421093,
-   "runs": 8,
-   "empty": 3
+   "ts": 1789439451.705282,
+   "runs": 9,
+   "empty": 4
   },
   "Ремни и пояса": {
    "shard": "clothes_accessories3",

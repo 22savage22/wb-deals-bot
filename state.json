@@ -12337,10 +12337,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
+   "calls": 24,
+   "ok": 21,
    "rate_limited": 0,
-   "http_error": 10,
+   "http_error": 3,
    "network_error": 0,
    "json_error": 0
   },
@@ -12440,7 +12440,7 @@
    "Игрушки",
    "Аксессуары и инвентарь"
   ],
-  "queue_size": 3,
+  "queue_size": 0,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 301,

@@ -2059,6 +2059,18 @@
  },
  "recent": [
   {
+   "pid": 261307079,
+   "title": "Блузка летняя с коротким рукавом",
+   "discount": 0,
+   "price": 282,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/261307079/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789530211,
+   "drop": 0
+  },
+  {
    "pid": 12982142,
    "title": "Блузка зелёная летняя с коротким рукавом",
    "discount": 17,
@@ -12066,18 +12078,6 @@
    "query": "кепка женская",
    "cat": "кепка женская",
    "ts": 1788327683,
-   "drop": 0
-  },
-  {
-   "pid": 261307079,
-   "title": "Блузка летняя с коротким рукавом",
-   "discount": 0,
-   "price": 282,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/261307079/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789530211,
    "drop": 0
   }
  ],
@@ -479386,7 +479386,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1119923998": {
    "price": 475,
@@ -479399,7 +479399,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1005135909": {
    "price": 354,
@@ -479412,7 +479412,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

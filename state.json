@@ -11974,7 +11974,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789521969,
+  "last_run": 1789522477,
   "last_posts": 0,
   "last_queries": [
    "сумка женская",
@@ -11988,30 +11988,28 @@
   "empty_notice_ts": 1789504399.0,
   "cats_ts": 1789469602.07576,
   "last_cats": [
-   "Тросики",
-   "Туризм и страноведение"
+   "Туризм и страноведение",
+   "Тросики"
   ],
   "digest_date": "2026-09-16",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 199,
-   "cards": 199,
-   "max_price": 173,
-   "bad_price": 11,
-   "ok": 15,
+   "found": 200,
+   "cards": 200,
+   "max_price": 186,
+   "rating": 2,
+   "bad_price": 12,
    "strict": 0,
-   "fallback": 15,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 10,
-   "title_duplicate": 5,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 39,
+   "ok": 16,
+   "rate_limited": 17,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -12111,7 +12109,7 @@
    "Туризм и страноведение",
    "Тросики"
   ],
-  "queue_size": 1,
+  "queue_size": 0,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,
@@ -480931,9 +480929,9 @@
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1789522431.6122177,
-   "runs": 63,
-   "empty": 3
+   "ts": 1789522828.5637903,
+   "runs": 64,
+   "empty": 4
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
@@ -480961,9 +480959,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1789522431.6122177,
-   "runs": 58,
-   "empty": 3
+   "ts": 1789522828.5637903,
+   "runs": 59,
+   "empty": 4
   },
   "Пробники": {
    "shard": "beauty47",

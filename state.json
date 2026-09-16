@@ -11605,10 +11605,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 14,
-   "ok": 0,
-   "rate_limited": 12,
-   "http_error": 2,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

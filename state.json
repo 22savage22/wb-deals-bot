@@ -2063,6 +2063,18 @@
  },
  "recent": [
   {
+   "pid": 1515909248,
+   "title": "Парные кулоны Космонавты с проекцией 100 языков",
+   "discount": 24,
+   "price": 366,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1515909248/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789533460,
+   "drop": 1
+  },
+  {
    "pid": 13754903,
    "title": "Серьги бижутерия спелая вишня",
    "discount": 32,
@@ -12119,18 +12131,6 @@
    "cat": "кепка женская",
    "ts": 1788327683,
    "drop": 0
-  },
-  {
-   "pid": 1515909248,
-   "title": "Парные кулоны Космонавты с проекцией 100 языков",
-   "discount": 24,
-   "price": 366,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1515909248/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789533460,
-   "drop": 1
   }
  ],
  "meta": {
@@ -12168,10 +12168,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 107,
-   "ok": 82,
+   "calls": 90,
+   "ok": 80,
    "rate_limited": 0,
-   "http_error": 25,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12295,7 +12295,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789505432.0,
   "last_engagement_ts": 1789530213.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789519664.0
  },
  "admin_ui": {

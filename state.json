@@ -2040,6 +2040,18 @@
  },
  "recent": [
   {
+   "pid": 317550070,
+   "title": "Блузка офисная базовая белая с коротким рукавом",
+   "discount": 0,
+   "price": 382,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/317550070/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789548383,
+   "drop": 0
+  },
+  {
    "pid": 345100859,
    "title": "Блузка летняя нарядная с коротким рукавом больших размеров",
    "discount": 0,
@@ -12181,18 +12193,6 @@
    "cat": "джинсы женские",
    "ts": 1788339171,
    "drop": 0
-  },
-  {
-   "pid": 317550070,
-   "title": "Блузка офисная базовая белая с коротким рукавом",
-   "discount": 0,
-   "price": 382,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/317550070/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789548383,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12232,10 +12232,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 151,
-   "ok": 109,
-   "rate_limited": 2,
-   "http_error": 40,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

@@ -12184,10 +12184,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 122,
-   "ok": 90,
-   "rate_limited": 6,
-   "http_error": 26,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12314,7 +12314,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789536828.0,
   "last_engagement_ts": 1789530213.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789519664.0
  },
  "admin_ui": {
@@ -17411,10 +17411,6 @@
    "basic": 11000,
    "ts": 1788430579.938186,
    "samples": [
-    [
-     1788330497,
-     1870
-    ],
     [
      1788332767,
      1870
@@ -88773,10 +88769,6 @@
    "basic": 8199,
    "ts": 1788354468.8847492,
    "samples": [
-    [
-     1788330497,
-     819
-    ],
     [
      1788332767,
      819
@@ -479009,7 +479001,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

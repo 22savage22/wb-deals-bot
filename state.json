@@ -2056,6 +2056,19 @@
  },
  "recent": [
   {
+   "pid": 6992312,
+   "title": "Футболка женская черная однотонная базовая приталенная",
+   "discount": 0,
+   "price": 430,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/6992312/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789527814,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1117316780,
    "title": "Футболка женская хлопковая",
    "discount": 16,
@@ -12027,19 +12040,6 @@
    "cat": "кепка женская",
    "ts": 1788327683,
    "drop": 0
-  },
-  {
-   "pid": 6992312,
-   "title": "Футболка женская черная однотонная базовая приталенная",
-   "discount": 0,
-   "price": 430,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/6992312/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789527814,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12068,10 +12068,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 35,
-   "rate_limited": 6,
-   "http_error": 12,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12171,7 +12171,7 @@
    "Эмали автомобильные",
    "Ремни и пояса"
   ],
-  "queue_size": 0,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

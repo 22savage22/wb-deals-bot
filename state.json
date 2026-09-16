@@ -2030,6 +2030,18 @@
  },
  "recent": [
   {
+   "pid": 961573011,
+   "title": "Платье летнее хлопок большие размеры",
+   "discount": 0,
+   "price": 423,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/961573011/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789559946,
+   "drop": 0
+  },
+  {
    "pid": 317550070,
    "title": "Блузка офисная базовая белая с коротким рукавом",
    "discount": 0,
@@ -11982,18 +11994,6 @@
    "ts": 1788351014,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 961573011,
-   "title": "Платье летнее хлопок большие размеры",
-   "discount": 0,
-   "price": 423,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/961573011/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789559946,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12033,10 +12033,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 149,
-   "ok": 109,
+   "calls": 90,
+   "ok": 80,
    "rate_limited": 0,
-   "http_error": 40,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

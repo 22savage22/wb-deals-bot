@@ -2032,6 +2032,19 @@
  },
  "recent": [
   {
+   "pid": 114523245,
+   "title": "Футболка в полоску большие размеры хлопковая",
+   "discount": 0,
+   "price": 444,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/114523245/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789585498,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 167936251,
    "title": "Футболка базовая хлопковая",
    "discount": 33,
@@ -11698,19 +11711,6 @@
    "cat": "футболка женская",
    "ts": 1788376313,
    "drop": 0
-  },
-  {
-   "pid": 114523245,
-   "title": "Футболка в полоску большие размеры хлопковая",
-   "discount": 0,
-   "price": 444,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/114523245/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789585498,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11738,10 +11738,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 38,
-   "rate_limited": 5,
-   "http_error": 15,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -11841,7 +11841,7 @@
    "Аксессуары для водителя",
    "Пододеяльники"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 398,

@@ -2035,6 +2035,18 @@
  },
  "recent": [
   {
+   "pid": 248790361,
+   "title": "Футболка летняя хлопок",
+   "discount": 0,
+   "price": 440,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/248790361/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789544453,
+   "drop": 0
+  },
+  {
    "pid": 1114514331,
    "title": "Футболка летняя с надписью",
    "discount": 0,
@@ -12139,18 +12151,6 @@
    "cat": "платье женское",
    "ts": 1788335739,
    "drop": 0
-  },
-  {
-   "pid": 248790361,
-   "title": "Футболка летняя хлопок",
-   "discount": 0,
-   "price": 440,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/248790361/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789544453,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12189,10 +12189,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 123,
-   "ok": 94,
+   "calls": 90,
+   "ok": 80,
    "rate_limited": 0,
-   "http_error": 29,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12319,7 +12319,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789536828.0,
   "last_engagement_ts": 1789530213.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789519664.0
  },
  "admin_ui": {
@@ -38426,14 +38426,6 @@
      871
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "453453878": {
-   "price": 401,
-   "basic": 2510,
-   "ts": 1788334857.8597257,
-   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },

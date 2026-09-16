@@ -2066,6 +2066,18 @@
  },
  "recent": [
   {
+   "pid": 629215662,
+   "title": "Футболка мужская хлопковая легкая летняя дышащая",
+   "discount": 0,
+   "price": 376,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/629215662/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789541759,
+   "drop": 0
+  },
+  {
    "pid": 30143139,
    "title": "Футболка белая однотонная хлопок 100%",
    "discount": 0,
@@ -12146,18 +12158,6 @@
    "cat": "платье женское",
    "ts": 1788335739,
    "drop": 0
-  },
-  {
-   "pid": 629215662,
-   "title": "Футболка мужская хлопковая легкая летняя дышащая",
-   "discount": 0,
-   "price": 376,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/629215662/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789541759,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12197,10 +12197,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 97,
-   "ok": 73,
-   "rate_limited": 2,
-   "http_error": 22,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12327,7 +12327,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789536828.0,
   "last_engagement_ts": 1789530213.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789519664.0
  },
  "admin_ui": {
@@ -479242,7 +479242,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

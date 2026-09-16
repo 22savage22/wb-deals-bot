@@ -11643,10 +11643,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 48,
+   "ok": 30,
+   "rate_limited": 4,
+   "http_error": 14,
    "network_error": 0,
    "json_error": 0
   },
@@ -11735,7 +11735,7 @@
   "today": "2026-09-16",
   "today_posts": 38,
   "total_posts": 1337,
-  "last_scan": 1789589918,
+  "last_scan": 1789592534,
   "last_scan_queries": [
    "худи мужское",
    "платье женское",
@@ -11743,22 +11743,21 @@
    "сумка женская"
   ],
   "last_scan_cats": [
-   "Восточные сладости",
-   "Репринтные издания 1860 - 1869 годов"
+   "Изготовление кукол и игрушек",
+   "Зефир, мармелад, пастила"
   ],
   "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 398,
-   "cards": 398,
-   "max_price": 343,
-   "bad_price": 31,
-   "ok": 24,
+   "found": 300,
+   "cards": 300,
+   "max_price": 272,
+   "bad_price": 27,
+   "ok": 1,
    "strict": 0,
-   "fallback": 24,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 7,
-   "title_duplicate": 6
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -458952,7 +458951,7 @@
   "596924238": {
    "price": 417,
    "basic": 6370,
-   "ts": 1789592528.5745869,
+   "ts": 1789592628.9057176,
    "samples": [
     [
      1789579554,
@@ -459658,9 +459657,9 @@
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
-   "ts": 1789592528.5817587,
-   "runs": 51,
-   "empty": 1
+   "ts": 1789592628.9071143,
+   "runs": 52,
+   "empty": 2
   },
   "Одежда и чешки": {
    "shard": "sport32",
@@ -459886,9 +459885,9 @@
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",
-   "ts": 1789592528.5817587,
-   "runs": 21,
-   "empty": 1
+   "ts": 1789592628.9071143,
+   "runs": 22,
+   "empty": 2
   },
   "Сделано в Иваново": {
    "shard": "promo/bucket_28",

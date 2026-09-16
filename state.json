@@ -12068,10 +12068,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 90,
-   "ok": 80,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 53,
+   "ok": 35,
+   "rate_limited": 6,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -12171,7 +12171,7 @@
    "Эмали автомобильные",
    "Ремни и пояса"
   ],
-  "queue_size": 3,
+  "queue_size": 0,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

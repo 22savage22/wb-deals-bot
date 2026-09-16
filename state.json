@@ -12008,10 +12008,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 17,
-   "rate_limited": 23,
-   "http_error": 6,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12111,7 +12111,7 @@
    "Туризм и страноведение",
    "Тросики"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,
@@ -78030,10 +78030,6 @@
    "ts": 1789133929.2271414,
    "samples": [
     [
-     1788312756,
-     1559
-    ],
-    [
      1788443574,
      1559
     ],
@@ -79923,10 +79919,6 @@
    "basic": 5866,
    "ts": 1789120511.3059916,
    "samples": [
-    [
-     1788312756,
-     1649
-    ],
     [
      1789066269,
      2062

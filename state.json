@@ -2039,6 +2039,18 @@
  },
  "recent": [
   {
+   "pid": 345100859,
+   "title": "Блузка летняя нарядная с коротким рукавом больших размеров",
+   "discount": 0,
+   "price": 387,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/345100859/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789547541,
+   "drop": 0
+  },
+  {
    "pid": 233150671,
    "title": "Футболка оверсайз из хлопка базовая",
    "discount": 0,
@@ -12180,18 +12192,6 @@
    "cat": "футболка мужская",
    "ts": 1788338385,
    "drop": 1
-  },
-  {
-   "pid": 345100859,
-   "title": "Блузка летняя нарядная с коротким рукавом больших размеров",
-   "discount": 0,
-   "price": 387,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/345100859/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789547541,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12231,10 +12231,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 160,
-   "ok": 113,
-   "rate_limited": 3,
-   "http_error": 44,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12334,7 +12334,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Биотуалеты и аксессуары"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,

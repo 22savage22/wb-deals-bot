@@ -11605,10 +11605,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -11697,7 +11697,7 @@
   "today": "2026-09-16",
   "today_posts": 38,
   "total_posts": 1337,
-  "last_scan": 1789592534,
+  "last_scan": 1789595927,
   "last_scan_queries": [
    "худи мужское",
    "платье женское",
@@ -11705,21 +11705,17 @@
    "сумка женская"
   ],
   "last_scan_cats": [
-   "Изготовление кукол и игрушек",
-   "Зефир, мармелад, пастила"
+   "Археология",
+   "Сварочное оборудование"
   ],
   "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 300,
-   "cards": 300,
-   "max_price": 272,
-   "bad_price": 27,
-   "ok": 1,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 1,
-   "reserve": 0,
-   "duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -459195,9 +459191,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1789460466.327701,
-   "runs": 50,
-   "empty": 5
+   "ts": 1789596157.9641583,
+   "runs": 51,
+   "empty": 1
   },
   "Подгузники": {
    "shard": "children_things2",
@@ -459261,9 +459257,9 @@
   },
   "Сварочное оборудование": {
    "shard": "repair24",
-   "ts": 1789460466.327701,
-   "runs": 45,
-   "empty": 5
+   "ts": 1789596157.9641583,
+   "runs": 46,
+   "empty": 1
   },
   "Мешки для обуви": {
    "shard": "school2",

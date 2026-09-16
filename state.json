@@ -1353,17 +1353,6 @@
   "317550070": 1789548383
  },
  "feedback": {
-  "616310172": {
-   "likes": 1,
-   "dislikes": 0,
-   "bought": 0,
-   "ts": 1786960831,
-   "query": "кроссовки",
-   "cat": "кроссовки",
-   "voters": {
-    "976465919": 1786960831.7083604
-   }
-  },
   "328027669": {
    "likes": 1,
    "dislikes": 0,
@@ -12168,10 +12157,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 39,
-   "rate_limited": 2,
-   "http_error": 17,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

@@ -2034,6 +2034,18 @@
  },
  "recent": [
   {
+   "pid": 863485342,
+   "title": "Платье с воланом",
+   "discount": 0,
+   "price": 458,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/863485342/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789564704,
+   "drop": 0
+  },
+  {
    "pid": 373556177,
    "title": "Футболка премиум качества из 100% хлопка, плотность 260 г м²",
    "discount": 0,
@@ -11943,18 +11955,6 @@
    "query": "джинсы мужские",
    "cat": "джинсы мужские",
    "ts": 1788355844,
-   "drop": 0
-  },
-  {
-   "pid": 863485342,
-   "title": "Платье с воланом",
-   "discount": 0,
-   "price": 458,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/863485342/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789564704,
    "drop": 0
   }
  ],
@@ -471514,7 +471514,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "863485342": {
    "price": 458,

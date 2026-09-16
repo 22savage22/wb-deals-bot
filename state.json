@@ -2038,6 +2038,18 @@
  },
  "recent": [
   {
+   "pid": 233150671,
+   "title": "Футболка оверсайз из хлопка базовая",
+   "discount": 0,
+   "price": 499,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/233150671/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789546745,
+   "drop": 0
+  },
+  {
    "pid": 1119923998,
    "title": "Футболка мужская oversize",
    "discount": 0,
@@ -12167,18 +12179,6 @@
    "cat": "футболка мужская",
    "ts": 1788338385,
    "drop": 1
-  },
-  {
-   "pid": 233150671,
-   "title": "Футболка оверсайз из хлопка базовая",
-   "discount": 0,
-   "price": 499,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/233150671/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789546745,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12218,10 +12218,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 138,
-   "ok": 99,
-   "rate_limited": 4,
-   "http_error": 35,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12321,7 +12321,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Биотуалеты и аксессуары"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,

@@ -2018,6 +2018,18 @@
  },
  "recent": [
   {
+   "pid": 1566209024,
+   "title": "Серьги бижутерия вечерние",
+   "discount": 0,
+   "price": 255,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1566209024/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789576256,
+   "drop": 0
+  },
+  {
    "pid": 1503081644,
    "title": "Серьги конго маленькие бижутерия",
    "discount": 0,
@@ -11826,18 +11838,6 @@
    "cat": "футболка женская",
    "ts": 1788366717,
    "drop": 1
-  },
-  {
-   "pid": 1566209024,
-   "title": "Серьги бижутерия вечерние",
-   "discount": 0,
-   "price": 255,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1566209024/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789576256,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11878,11 +11878,11 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 147,
-   "ok": 107,
-   "rate_limited": 1,
-   "http_error": 38,
-   "network_error": 1,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
+   "network_error": 0,
    "json_error": 0
   },
   "errors": [
@@ -11981,7 +11981,7 @@
    "Лототроны",
    "Насосное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 398,
@@ -467282,7 +467282,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

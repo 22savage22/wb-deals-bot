@@ -2050,6 +2050,19 @@
  },
  "recent": [
   {
+   "pid": 245488277,
+   "title": "Платье короткое облегающее на молнии.Платье чёрное",
+   "discount": 0,
+   "price": 441,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/245488277/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789520283,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 896264615,
    "title": "Футболка фиолетовая из джерси с принтом из 100% хлопка",
    "discount": 0,
@@ -11995,19 +12008,6 @@
    "ts": 1788310819,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 245488277,
-   "title": "Платье короткое облегающее на молнии.Платье чёрное",
-   "discount": 0,
-   "price": 441,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/245488277/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789520283,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -12035,10 +12035,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 10,
-   "rate_limited": 13,
-   "http_error": 5,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12138,7 +12138,7 @@
    "Туризм и страноведение",
    "Тросики"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 100,

@@ -2036,6 +2036,18 @@
  },
  "recent": [
   {
+   "pid": 159646280,
+   "title": "Блуза летняя нарядная",
+   "discount": 0,
+   "price": 476,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/159646280/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789545265,
+   "drop": 0
+  },
+  {
    "pid": 248790361,
    "title": "Футболка летняя хлопок",
    "discount": 0,
@@ -12152,18 +12164,6 @@
    "cat": "платье женское",
    "ts": 1788335739,
    "drop": 0
-  },
-  {
-   "pid": 159646280,
-   "title": "Блуза летняя нарядная",
-   "discount": 0,
-   "price": 476,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/159646280/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789545265,
-   "drop": 0
   }
  ],
  "meta": {
@@ -12202,10 +12202,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 149,
-   "ok": 107,
-   "rate_limited": 5,
-   "http_error": 37,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -12332,7 +12332,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789536828.0,
   "last_engagement_ts": 1789530213.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789519664.0
  },
  "admin_ui": {

@@ -11554,10 +11554,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 48,
-   "ok": 16,
-   "rate_limited": 27,
-   "http_error": 5,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -87617,10 +87617,6 @@
    "basic": 9200,
    "ts": 1789083601.7715883,
    "samples": [
-    [
-     1788393006,
-     3390
-    ],
     [
      1788396520,
      3390

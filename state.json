@@ -2017,6 +2017,19 @@
  },
  "recent": [
   {
+   "pid": 1503081644,
+   "title": "Серьги конго маленькие бижутерия",
+   "discount": 0,
+   "price": 295,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1503081644/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789575361,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 239353392,
    "title": "Колье чокер на шею украшение цветок красная роза шнурок",
    "discount": 0,
@@ -11824,19 +11837,6 @@
    "cat": "кепка женская",
    "ts": 1788365896,
    "drop": 1
-  },
-  {
-   "pid": 1503081644,
-   "title": "Серьги конго маленькие бижутерия",
-   "discount": 0,
-   "price": 295,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1503081644/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789575361,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11864,10 +11864,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 35,
-   "rate_limited": 4,
-   "http_error": 13,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },
@@ -11967,7 +11967,7 @@
    "Лототроны",
    "Насосное оборудование"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 398,

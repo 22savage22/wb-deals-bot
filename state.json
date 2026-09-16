@@ -2037,6 +2037,18 @@
  },
  "recent": [
   {
+   "pid": 1319289698,
+   "title": "Футболка женская серый меланж базовая 100% хлопок",
+   "discount": 0,
+   "price": 492,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1319289698/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789573892,
+   "drop": 0
+  },
+  {
    "pid": 1199217087,
    "title": "Футболка базовая однотонная",
    "discount": 43,
@@ -11832,18 +11844,6 @@
    "cat": "кепка женская",
    "ts": 1788365083,
    "drop": 1
-  },
-  {
-   "pid": 1319289698,
-   "title": "Футболка женская серый меланж базовая 100% хлопок",
-   "discount": 0,
-   "price": 492,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1319289698/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789573892,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11883,10 +11883,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 137,
-   "ok": 102,
-   "rate_limited": 3,
-   "http_error": 32,
+   "calls": 90,
+   "ok": 80,
+   "rate_limited": 0,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0
   },

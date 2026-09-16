@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 909560284,
+  "title": "Футболка женская однотонная базовая летняя хлопковая",
+  "brand": "Новомосковский трикотаж",
+  "product": 397,
+  "basic": 520,
+  "discount": 24,
+  "benefit": 123,
+  "rating": 4.9,
+  "feedbacks": 281,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1789525912
+ },
+ {
+  "id": 1117316780,
+  "title": "Футболка женская хлопковая",
+  "brand": "Stark Cotton",
+  "product": 404,
+  "basic": 480,
+  "discount": 16,
+  "benefit": 76,
+  "rating": 4.8,
+  "feedbacks": 33,
+  "category": "футболка женская",
+  "selection_mode": "verified_drop",
+  "quality": "A",
+  "query": "футболка женская",
+  "queued_ts": 1789525912
+ },
+ {
+  "id": 6992312,
+  "title": "Футболка женская черная однотонная базовая приталенная",
+  "brand": "Макс-Экстрим",
+  "product": 430,
+  "basic": 430,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 6579,
+  "category": "футболка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка женская",
+  "queued_ts": 1789525912
+ }
+]

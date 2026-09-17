@@ -2029,6 +2029,18 @@
  },
  "recent": [
   {
+   "pid": 137973340,
+   "title": "Футболка с лайкрой с v-вырезом базовая",
+   "discount": 0,
+   "price": 487,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137973340/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789671398,
+   "drop": 0
+  },
+  {
    "pid": 412603283,
    "title": "Футболка базовая однотонная набор 2 шт",
    "discount": 0,
@@ -11204,31 +11216,6 @@
    "ts": 1788462498,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1310836373,
-   "title": "Средняя коричневая сумка",
-   "discount": 0,
-   "price": 3672,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1310836373/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1788461843,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 137973340,
-   "title": "Футболка с лайкрой с v-вырезом базовая",
-   "discount": 0,
-   "price": 487,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137973340/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789671398,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11267,10 +11254,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 163,
-   "ok": 113,
-   "rate_limited": 7,
-   "http_error": 43,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11396,7 +11383,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789658069.0,
   "last_engagement_ts": 1789671399.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789653766.0
  },
  "admin_ui": {
@@ -11444,7 +11431,6 @@
   "сумкаженскаячерезплечо": 1789266456,
   "постельноебелье15спальноеоднотонное": 1789069972,
   "маленькаячернаясумка": 1789066922,
-  "средняякоричневаясумка": 1788461843,
   "маленькаякоричневаясумка": 1789112049,
   "футболкабазоваяоднотонная": 1789652085,
   "футболкаоверсайзбольшихразмеровлетняя": 1788464198,

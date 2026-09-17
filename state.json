@@ -11640,10 +11640,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 167,
-   "ok": 117,
-   "rate_limited": 2,
-   "http_error": 48,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

@@ -11602,10 +11602,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 150,
+   "ok": 102,
+   "rate_limited": 9,
+   "http_error": 39,
    "network_error": 0,
    "json_error": 0
   },

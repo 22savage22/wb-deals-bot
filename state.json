@@ -2007,6 +2007,18 @@
  },
  "recent": [
   {
+   "pid": 14600342,
+   "title": "Блузка базовая офисная с коротким рукавом",
+   "discount": 21,
+   "price": 340,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/14600342/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789617958,
+   "drop": 1
+  },
+  {
    "pid": 1040324093,
    "title": "Платье вечернее летное",
    "discount": 0,
@@ -11512,18 +11524,6 @@
    "cat": "кепка женская",
    "ts": 1788414828,
    "drop": 0
-  },
-  {
-   "pid": 14600342,
-   "title": "Блузка базовая офисная с коротким рукавом",
-   "discount": 21,
-   "price": 340,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/14600342/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789617958,
-   "drop": 1
   }
  ],
  "meta": {
@@ -453323,7 +453323,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

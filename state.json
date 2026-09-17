@@ -11736,10 +11736,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 164,
-   "ok": 116,
-   "rate_limited": 2,
-   "http_error": 46,
+   "calls": 53,
+   "ok": 33,
+   "rate_limited": 3,
+   "http_error": 17,
    "network_error": 0,
    "json_error": 0
   },
@@ -11828,31 +11828,30 @@
   "today": "2026-09-17",
   "today_posts": 25,
   "total_posts": 1362,
-  "last_scan": 1789633006,
+  "last_scan": 1789635713,
   "last_scan_queries": [
-   "сумка женская",
-   "футболка мужская",
    "платье женское",
-   "футболка женская"
+   "футболка женская",
+   "постельное белье",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Крепежи",
-   "Рубашки"
+   "Коляски",
+   "Торговая мебель"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 301,
-   "cards": 301,
-   "ok": 37,
-   "max_price": 236,
-   "bad_price": 27,
-   "rating": 1,
+   "found": 299,
+   "cards": 299,
+   "max_price": 253,
+   "ok": 3,
+   "bad_price": 43,
    "strict": 0,
-   "fallback": 37,
+   "fallback": 3,
    "reserve": 0,
-   "duplicate": 18,
-   "title_duplicate": 5
+   "duplicate": 2,
+   "title_duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -445343,7 +445342,7 @@
   "245488277": {
    "price": 441,
    "basic": 2001,
-   "ts": 1789635708.5300605,
+   "ts": 1789635795.7297096,
    "samples": [
     [
      1789620569,
@@ -449049,7 +449048,7 @@
   "863485342": {
    "price": 458,
    "basic": 9900,
-   "ts": 1789635708.5301712,
+   "ts": 1789635795.7298203,
    "samples": [
     [
      1789611959,
@@ -450920,7 +450919,7 @@
   "913275668": {
    "price": 298,
    "basic": 1599,
-   "ts": 1789635708.5301442,
+   "ts": 1789635795.729794,
    "samples": [
     [
      1789625699,
@@ -451181,9 +451180,9 @@
   },
   "Коляски": {
    "shard": "children_things2",
-   "ts": 1789485371.9193473,
-   "runs": 60,
-   "empty": 5
+   "ts": 1789635795.7319078,
+   "runs": 61,
+   "empty": 1
   },
   "Травяные сборы": {
    "shard": "product1",
@@ -451481,9 +451480,9 @@
   },
   "Торговая мебель": {
    "shard": "rooms15",
-   "ts": 1789485371.9193473,
-   "runs": 30,
-   "empty": 5
+   "ts": 1789635795.7319078,
+   "runs": 31,
+   "empty": 1
   },
   "Книги и бланки для ведения учета": {
    "shard": "stationery14",

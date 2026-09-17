@@ -11563,10 +11563,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 130,
-   "ok": 87,
-   "rate_limited": 8,
-   "http_error": 35,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11666,7 +11666,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

@@ -2004,6 +2004,18 @@
  },
  "recent": [
   {
+   "pid": 957409346,
+   "title": "Платье волан",
+   "discount": 0,
+   "price": 458,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/957409346/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789615821,
+   "drop": 0
+  },
+  {
    "pid": 1256080555,
    "title": "Футболка базовая с принтом",
    "discount": 18,
@@ -11470,18 +11482,6 @@
    "query": "кепка женская",
    "cat": "кепка женская",
    "ts": 1788414828,
-   "drop": 0
-  },
-  {
-   "pid": 957409346,
-   "title": "Платье волан",
-   "discount": 0,
-   "price": 458,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/957409346/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789615821,
    "drop": 0
   }
  ],
@@ -453013,7 +453013,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1422858524": {
    "price": 270,
@@ -453026,7 +453026,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "494106706": {
    "price": 492,
@@ -453039,7 +453039,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "343267328": {
    "price": 477,
@@ -453052,7 +453052,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "388058130": {
    "price": 450,
@@ -453065,7 +453065,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "388297640": {
    "price": 306,
@@ -453078,7 +453078,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "418395009": {
    "price": 376,
@@ -453091,7 +453091,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "980617811": {
    "price": 407,
@@ -453104,7 +453104,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "738641865": {
    "price": 495,
@@ -453117,7 +453117,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "14722685": {
    "price": 288,
@@ -453130,7 +453130,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1159400378": {
    "price": 393,
@@ -453143,7 +453143,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "957409346": {
    "price": 458,

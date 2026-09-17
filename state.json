@@ -11602,10 +11602,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 140,
-   "ok": 92,
-   "rate_limited": 14,
-   "http_error": 34,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -89957,7 +89957,12 @@
    "price": 2184,
    "basic": 3990,
    "ts": 1788412878.5210922,
-   "samples": [],
+   "samples": [
+    [
+     1788412878,
+     2184
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },

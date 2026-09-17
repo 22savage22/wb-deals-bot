@@ -2019,6 +2019,18 @@
  },
  "recent": [
   {
+   "pid": 379342425,
+   "title": "Футболка базовая больших размеров",
+   "discount": 0,
+   "price": 478,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/379342425/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789672188,
+   "drop": 0
+  },
+  {
    "pid": 137973340,
    "title": "Футболка с лайкрой с v-вырезом базовая",
    "discount": 0,
@@ -11193,18 +11205,6 @@
    "cat": "футболка женская",
    "ts": 1788464198,
    "drop": 1
-  },
-  {
-   "pid": 379342425,
-   "title": "Футболка базовая больших размеров",
-   "discount": 0,
-   "price": 478,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/379342425/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789672188,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11243,10 +11243,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 138,
-   "ok": 99,
-   "rate_limited": 5,
-   "http_error": 34,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11372,7 +11372,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789658069.0,
   "last_engagement_ts": 1789671399.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789653766.0
  },
  "admin_ui": {
@@ -46636,7 +46636,12 @@
    "price": 1342,
    "basic": 2923,
    "ts": 1788463312.6502743,
-   "samples": [],
+   "samples": [
+    [
+     1788463312,
+     1342
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -81212,7 +81217,12 @@
    "price": 3700,
    "basic": 10695,
    "ts": 1788464162.0603795,
-   "samples": [],
+   "samples": [
+    [
+     1788464162,
+     3700
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },

@@ -11245,10 +11245,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 36,
-   "rate_limited": 2,
-   "http_error": 14,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11375,7 +11375,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789658069.0,
   "last_engagement_ts": 1789671399.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789653766.0
  },
  "admin_ui": {
@@ -12085,7 +12085,6 @@
   "кольцографф": 1789674777
  },
  "img_hash": {
-  "004299d966668200": 1787082938,
   "f0f0f03036f3d2a6": 1787085056,
   "8c9c88464643431b": 1787086714,
   "6105869637e6c060": 1787090164,

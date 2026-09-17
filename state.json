@@ -2025,6 +2025,18 @@
  },
  "recent": [
   {
+   "pid": 10302974,
+   "title": "Футболка базовая хлопок однотонная",
+   "discount": 0,
+   "price": 351,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/10302974/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789650276,
+   "drop": 0
+  },
+  {
    "pid": 240161782,
    "title": "Блузка белая в черный горошек",
    "discount": 0,
@@ -11489,31 +11501,6 @@
    "ts": 1788441304,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 495763042,
-   "title": "Простынь на резинке 90x200 см натяжная полисатин",
-   "discount": 0,
-   "price": 436,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/495763042/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788440687,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 10302974,
-   "title": "Футболка базовая хлопок однотонная",
-   "discount": 0,
-   "price": 351,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/10302974/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789650276,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11551,10 +11538,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 128,
-   "ok": 92,
-   "rate_limited": 4,
-   "http_error": 32,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11680,7 +11667,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789636461.0,
   "last_engagement_ts": 1789650278.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789610038.0
  },
  "admin_ui": {
@@ -11725,7 +11712,6 @@
   "платье": 1789624955,
   "джинсыширокиесвысокойпосадкой": 1788749283,
   "джинсыslimfitсосреднейпосадкой": 1788542293,
-  "простыньнарезинке90x200смнатяжнаяполисатин": 1788440687,
   "футболкаоверсайзплотныйхлопок": 1788441304,
   "пододеяльник15хлопокбязьнамолнии": 1788442069,
   "серьгиракушкиукрашенияморскиепляжные": 1788442737,

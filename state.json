@@ -11521,10 +11521,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 156,
-   "ok": 108,
-   "rate_limited": 11,
-   "http_error": 37,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

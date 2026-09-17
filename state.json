@@ -2022,6 +2022,19 @@
  },
  "recent": [
   {
+   "pid": 1098938253,
+   "title": "Браслет женский на руку бижутерия стразы под жемчуг",
+   "discount": 0,
+   "price": 331,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1098938253/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789675459,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 707026639,
    "title": "Кольцо Графф",
    "discount": 0,
@@ -11207,19 +11220,6 @@
    "cat": "ремень женский",
    "ts": 1788465903,
    "drop": 0
-  },
-  {
-   "pid": 1098938253,
-   "title": "Браслет женский на руку бижутерия стразы под жемчуг",
-   "discount": 0,
-   "price": 331,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1098938253/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789675459,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11248,10 +11248,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 36,
-   "rate_limited": 2,
-   "http_error": 14,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11351,7 +11351,7 @@
    "Эмали автомобильные",
    "Уход за вещами"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 399,
@@ -11378,7 +11378,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789658069.0,
   "last_engagement_ts": 1789671399.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789653766.0
  },
  "admin_ui": {

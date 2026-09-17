@@ -2015,6 +2015,19 @@
  },
  "recent": [
   {
+   "pid": 155762427,
+   "title": "Серьги бижутерия с камнем",
+   "discount": 0,
+   "price": 411,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/155762427/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789627011,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 271597109,
    "title": "Кольца бижутерия набор",
    "discount": 0,
@@ -11605,19 +11618,6 @@
    "cat": "платье женское",
    "ts": 1788422757,
    "drop": 1
-  },
-  {
-   "pid": 155762427,
-   "title": "Серьги бижутерия с камнем",
-   "discount": 0,
-   "price": 411,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/155762427/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789627011,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11646,10 +11646,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 55,
-   "ok": 38,
-   "rate_limited": 1,
-   "http_error": 16,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11749,7 +11749,7 @@
    "Манежи детские",
    "Костюмы и комбинезоны"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

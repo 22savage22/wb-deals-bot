@@ -2025,6 +2025,18 @@
  },
  "recent": [
   {
+   "pid": 1198887152,
+   "title": "Футболка базовая однотонная",
+   "discount": 18,
+   "price": 332,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1198887152/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789652085,
+   "drop": 1
+  },
+  {
    "pid": 10302974,
    "title": "Футболка базовая хлопок однотонная",
    "discount": 0,
@@ -11464,18 +11476,6 @@
    "ts": 1788442737,
    "drop": 1,
    "quality": "A"
-  },
-  {
-   "pid": 1198887152,
-   "title": "Футболка базовая однотонная",
-   "discount": 18,
-   "price": 332,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1198887152/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789652085,
-   "drop": 1
   }
  ],
  "meta": {
@@ -11513,10 +11513,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 145,
-   "ok": 103,
-   "rate_limited": 5,
-   "http_error": 37,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11642,7 +11642,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789636461.0,
   "last_engagement_ts": 1789650278.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789610038.0
  },
  "admin_ui": {

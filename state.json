@@ -2006,6 +2006,19 @@
  },
  "recent": [
   {
+   "pid": 1040324093,
+   "title": "Платье вечернее летное",
+   "discount": 0,
+   "price": 495,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/1040324093/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789617132,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 335685035,
    "title": "Футболка женская с принтом белая",
    "discount": 42,
@@ -11498,19 +11511,6 @@
    "cat": "кепка женская",
    "ts": 1788414828,
    "drop": 0
-  },
-  {
-   "pid": 1040324093,
-   "title": "Платье вечернее летное",
-   "discount": 0,
-   "price": 495,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/1040324093/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789617132,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11538,10 +11538,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 65,
+   "calls": 76,
    "ok": 41,
-   "rate_limited": 5,
-   "http_error": 19,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11641,7 +11641,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

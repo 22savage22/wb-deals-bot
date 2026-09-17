@@ -11664,10 +11664,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 32,
-   "rate_limited": 4,
-   "http_error": 14,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

@@ -2027,6 +2027,19 @@
  },
  "recent": [
   {
+   "pid": 299527079,
+   "title": "Платье плиссе",
+   "discount": 0,
+   "price": 393,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/299527079/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789654677,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1199006544,
    "title": "Футболка в рубчик",
    "discount": 28,
@@ -11440,19 +11453,6 @@
    "cat": "постельное белье",
    "ts": 1788445920,
    "drop": 0
-  },
-  {
-   "pid": 299527079,
-   "title": "Платье плиссе",
-   "discount": 0,
-   "price": 393,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/299527079/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789654677,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11480,10 +11480,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 35,
-   "rate_limited": 5,
-   "http_error": 12,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11583,7 +11583,7 @@
    "Средства для мытья посуды и продуктов",
    "Серия Galaxy A"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 398,
@@ -11609,7 +11609,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789636461.0,
   "last_engagement_ts": 1789650278.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789653766.0
  },
  "admin_ui": {

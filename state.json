@@ -10974,10 +10974,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 159,
-   "ok": 114,
-   "rate_limited": 0,
-   "http_error": 45,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

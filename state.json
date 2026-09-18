@@ -10640,44 +10640,34 @@
   }
  ],
  "meta": {
-  "last_run": 1789768514,
-  "last_posts": 1,
+  "last_run": 1789769603,
+  "last_posts": 0,
   "last_queries": [
    "платье женское",
-   "футболка женская",
    "футболка мужская",
+   "футболка женская",
    "джинсы женские",
    "блузка женская",
-   "кроссовки женские"
+   "худи мужское"
   ],
   "learn_ts": 1789715163.0153756,
-  "empty_notice_ts": 1789725991.0,
+  "empty_notice_ts": 1789769982.0,
   "cats_ts": 1789730025.659843,
   "last_cats": [
-   "Кастрюли и сковороды",
-   "Зефир, мармелад, пастила"
+   "Археология",
+   "Сварочное оборудование"
   ],
   "digest_date": "2026-09-18",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 300,
-   "cards": 300,
-   "ok": 51,
-   "max_price": 229,
-   "bad_price": 20,
-   "strict": 0,
-   "fallback": 51,
-   "reserve": 0,
-   "repost": 24,
-   "title_duplicate": 15,
-   "selected": 1,
-   "published": 1
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 22,
+   "ok": 0,
+   "rate_limited": 20,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -374147,9 +374137,9 @@
   },
   "Археология": {
    "shard": "books_archeology",
-   "ts": 1789769231.3376603,
-   "runs": 56,
-   "empty": 1
+   "ts": 1789769982.5933552,
+   "runs": 57,
+   "empty": 2
   },
   "Подгузники": {
    "shard": "children_things2",
@@ -374213,9 +374203,9 @@
   },
   "Сварочное оборудование": {
    "shard": "repair24",
-   "ts": 1789769231.3376603,
-   "runs": 51,
-   "empty": 1
+   "ts": 1789769982.5933552,
+   "runs": 52,
+   "empty": 2
   },
   "Мешки для обуви": {
    "shard": "school2",

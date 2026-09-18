@@ -2033,6 +2033,18 @@
  },
  "recent": [
   {
+   "pid": 13462172,
+   "title": "Блузка офисная базовая с коротким рукавом",
+   "discount": 0,
+   "price": 340,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/13462172/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789715161,
+   "drop": 0
+  },
+  {
    "pid": 12743092,
    "title": "Блузка-футболка летняя с коротким рукавом",
    "discount": 0,
@@ -11039,18 +11051,6 @@
    "cat": "футболка мужская",
    "ts": 1788512568,
    "drop": 1
-  },
-  {
-   "pid": 13462172,
-   "title": "Блузка офисная базовая с коротким рукавом",
-   "discount": 0,
-   "price": 340,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/13462172/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789715161,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11090,10 +11090,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 136,
-   "ok": 91,
-   "rate_limited": 6,
-   "http_error": 39,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

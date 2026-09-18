@@ -2049,6 +2049,19 @@
  },
  "recent": [
   {
+   "pid": 150599512,
+   "title": "Футболка оверсайз с принтом плотный хлопок",
+   "discount": 0,
+   "price": 287,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/150599512/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789740207,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 220789763,
    "title": "Блузка штапельная летняя",
    "discount": 0,
@@ -10958,19 +10971,6 @@
    "cat": "футболка мужская",
    "ts": 1788531349,
    "drop": 1
-  },
-  {
-   "pid": 150599512,
-   "title": "Футболка оверсайз с принтом плотный хлопок",
-   "discount": 0,
-   "price": 287,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/150599512/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789740207,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -10999,10 +10999,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 38,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11102,7 +11102,7 @@
    "Зажимы и закладки",
    "Медиаконвертеры"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

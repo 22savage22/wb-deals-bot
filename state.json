@@ -11062,10 +11062,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
+   "calls": 16,
+   "ok": 0,
    "rate_limited": 15,
-   "http_error": 20,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -11154,7 +11154,7 @@
   "today": "2026-09-17",
   "today_posts": 37,
   "total_posts": 1374,
-  "last_scan": 1789689790,
+  "last_scan": 1789693073,
   "last_scan_queries": [
    "постельное белье",
    "украшения женские",
@@ -11163,22 +11163,16 @@
   ],
   "last_scan_cats": [
    "Пледы",
-   "Гигиена полости рта"
+   "Рамы багетные"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 299,
-   "cards": 299,
-   "max_price": 244,
-   "ok": 31,
-   "rating": 10,
-   "bad_price": 14,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 31,
-   "reserve": 0,
-   "duplicate": 10,
-   "title_duplicate": 5
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -412128,9 +412122,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1789693068.735403,
-   "runs": 89,
-   "empty": 4
+   "ts": 1789693364.001202,
+   "runs": 90,
+   "empty": 5
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -412530,9 +412524,9 @@
   },
   "Рамы багетные": {
    "shard": "interior30",
-   "ts": 1789693068.735403,
-   "runs": 38,
-   "empty": 3
+   "ts": 1789693364.001202,
+   "runs": 39,
+   "empty": 4
   },
   "Гигиена полости рта": {
    "shard": "beauty55",

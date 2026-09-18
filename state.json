@@ -10998,10 +10998,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 123,
-   "ok": 84,
-   "rate_limited": 7,
-   "http_error": 32,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11101,7 +11101,7 @@
    "Зажимы и закладки",
    "Медиаконвертеры"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -62882,10 +62882,6 @@
    "basic": 1500,
    "ts": 1789062793.9758966,
    "samples": [
-    [
-     1788531338,
-     408
-    ],
     [
      1788545021,
      408

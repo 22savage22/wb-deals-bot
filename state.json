@@ -11009,10 +11009,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 38,
-   "rate_limited": 5,
-   "http_error": 16,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

@@ -2038,6 +2038,18 @@
  },
  "recent": [
   {
+   "pid": 28547444,
+   "title": "Футболка оверсайз с принтом легкая хлопок Турция",
+   "discount": 0,
+   "price": 393,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/28547444/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789720743,
+   "drop": 0
+  },
+  {
    "pid": 65142544,
    "title": "Футболка однотонная",
    "discount": 0,
@@ -11105,18 +11117,6 @@
    "cat": "футболка мужская",
    "ts": 1788512568,
    "drop": 1
-  },
-  {
-   "pid": 28547444,
-   "title": "Футболка оверсайз с принтом легкая хлопок Турция",
-   "discount": 0,
-   "price": 393,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/28547444/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789720743,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11156,10 +11156,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 146,
-   "ok": 104,
-   "rate_limited": 2,
-   "http_error": 40,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

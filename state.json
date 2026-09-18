@@ -2048,6 +2048,18 @@
  },
  "recent": [
   {
+   "pid": 220789763,
+   "title": "Блузка штапельная летняя",
+   "discount": 0,
+   "price": 419,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/220789763/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789739516,
+   "drop": 0
+  },
+  {
    "pid": 242251435,
    "title": "Футболка серая оверсайз хлопок однотонная",
    "discount": 0,
@@ -10958,18 +10970,6 @@
    "ts": 1788530557,
    "drop": 1,
    "quality": "A"
-  },
-  {
-   "pid": 220789763,
-   "title": "Блузка штапельная летняя",
-   "discount": 0,
-   "price": 419,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/220789763/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789739516,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11009,10 +11009,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 145,
-   "ok": 100,
-   "rate_limited": 5,
-   "http_error": 40,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -82637,7 +82637,12 @@
    "price": 849,
    "basic": 16990,
    "ts": 1788529974.065026,
-   "samples": [],
+   "samples": [
+    [
+     1788529974,
+     849
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -88412,7 +88417,12 @@
    "price": 1011,
    "basic": 3328,
    "ts": 1788529974.0677838,
-   "samples": [],
+   "samples": [
+    [
+     1788529974,
+     1011
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -88849,7 +88859,12 @@
    "price": 960,
    "basic": 2400,
    "ts": 1788531338.0798094,
-   "samples": [],
+   "samples": [
+    [
+     1788531338,
+     960
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -113931,7 +113946,12 @@
    "price": 3438,
    "basic": 8500,
    "ts": 1788531338.0802062,
-   "samples": [],
+   "samples": [
+    [
+     1788531338,
+     3438
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -117319,7 +117339,12 @@
    "price": 1737,
    "basic": 4500,
    "ts": 1788529974.0693865,
-   "samples": [],
+   "samples": [
+    [
+     1788529974,
+     1737
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -398410,7 +398435,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1315160963": {
    "price": 378,
@@ -398423,7 +398448,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "220789763": {
    "price": 419,

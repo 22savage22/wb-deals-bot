@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 995690815,
+  "title": "Платье летнее короткое",
+  "brand": "Red Flag",
+  "product": 307,
+  "basic": 307,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.8,
+  "feedbacks": 3985,
+  "category": "платье женское",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "платье женское",
+  "queued_ts": 1789710808
+ },
+ {
+  "id": 922242302,
+  "title": "Сумка-ведро женская на плечо из замши",
+  "brand": "YogodLns",
+  "product": 302,
+  "basic": 302,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 1,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
+  "queued_ts": 1789710808
+ },
+ {
+  "id": 423588519,
+  "title": "Футболка базовая с принтом женская мужская",
+  "brand": "SOFELIT",
+  "product": 300,
+  "basic": 300,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.7,
+  "feedbacks": 9641,
+  "category": "футболка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "футболка женская",
+  "queued_ts": 1789710808
+ }
+]

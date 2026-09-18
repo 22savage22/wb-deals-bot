@@ -2035,6 +2035,18 @@
  },
  "recent": [
   {
+   "pid": 4336550,
+   "title": "Футболка хлопок с принтом Байкер",
+   "discount": 0,
+   "price": 271,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/4336550/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789717436,
+   "drop": 0
+  },
+  {
    "pid": 65142543,
    "title": "Футболка однотонная базовая оверсайз",
    "discount": 0,
@@ -11066,18 +11078,6 @@
    "cat": "футболка мужская",
    "ts": 1788512568,
    "drop": 1
-  },
-  {
-   "pid": 4336550,
-   "title": "Футболка хлопок с принтом Байкер",
-   "discount": 0,
-   "price": 271,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/4336550/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789717436,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11117,10 +11117,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 141,
-   "ok": 102,
-   "rate_limited": 1,
-   "http_error": 38,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11220,7 +11220,7 @@
    "Солнечные электростанции и комплектующие",
    "Кофе и цикорий"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

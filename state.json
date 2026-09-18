@@ -2047,6 +2047,18 @@
  },
  "recent": [
   {
+   "pid": 242251435,
+   "title": "Футболка серая оверсайз хлопок однотонная",
+   "discount": 0,
+   "price": 344,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/242251435/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789738682,
+   "drop": 0
+  },
+  {
    "pid": 585406529,
    "title": "Футболка мужская хлопковая легкая оверсайз",
    "discount": 23,
@@ -10957,18 +10969,6 @@
    "cat": "постельное белье",
    "ts": 1788529913,
    "drop": 0
-  },
-  {
-   "pid": 242251435,
-   "title": "Футболка серая оверсайз хлопок однотонная",
-   "discount": 0,
-   "price": 344,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/242251435/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789738682,
-   "drop": 0
   }
  ],
  "meta": {
@@ -11008,10 +11008,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 148,
-   "ok": 107,
-   "rate_limited": 3,
-   "http_error": 38,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },

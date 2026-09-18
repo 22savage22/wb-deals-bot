@@ -11128,10 +11128,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 102,
-   "rate_limited": 0,
-   "http_error": 33,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -404151,7 +404151,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

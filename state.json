@@ -2034,6 +2034,19 @@
  },
  "recent": [
   {
+   "pid": 65142543,
+   "title": "Футболка однотонная базовая оверсайз",
+   "discount": 0,
+   "price": 348,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/65142543/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789715829,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 13462172,
    "title": "Блузка офисная базовая с коротким рукавом",
    "discount": 0,
@@ -11052,19 +11065,6 @@
    "cat": "футболка мужская",
    "ts": 1788512568,
    "drop": 1
-  },
-  {
-   "pid": 65142543,
-   "title": "Футболка однотонная базовая оверсайз",
-   "discount": 0,
-   "price": 348,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/65142543/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789715829,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11093,10 +11093,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 50,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 14,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11196,7 +11196,7 @@
    "Солнечные электростанции и комплектующие",
    "Кофе и цикорий"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

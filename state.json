@@ -11014,7 +11014,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789692580,
+  "last_run": 1789693673,
   "last_posts": 0,
   "last_queries": [
    "постельное белье",
@@ -11028,31 +11028,20 @@
   "empty_notice_ts": 1789680173.0,
   "cats_ts": 1789643034.3637004,
   "last_cats": [
-   "Пледы",
    "Рамы багетные",
    "Гигиена полости рта"
   ],
   "digest_date": "2026-09-18",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 299,
-   "cards": 299,
-   "ok": 47,
-   "max_price": 243,
-   "bad_price": 9,
-   "strict": 0,
-   "fallback": 47,
-   "reserve": 0,
-   "repost": 7,
-   "title_duplicate": 17,
-   "selected": 0,
-   "published": 0
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 21,
+   "ok": 0,
+   "rate_limited": 19,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -412510,15 +412499,15 @@
   },
   "Рамы багетные": {
    "shard": "interior30",
-   "ts": 1789693364.001202,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789694063.794658,
+   "runs": 40,
+   "empty": 5
   },
   "Гигиена полости рта": {
    "shard": "beauty55",
-   "ts": 1789693068.735403,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789694063.794658,
+   "runs": 40,
+   "empty": 5
   },
   "Хобби и досуг": {
    "shard": "books9",

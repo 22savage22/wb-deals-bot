@@ -11066,10 +11066,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 136,
-   "ok": 99,
-   "rate_limited": 2,
-   "http_error": 35,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -402252,7 +402252,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

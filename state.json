@@ -2043,6 +2043,18 @@
  },
  "recent": [
   {
+   "pid": 122857517,
+   "title": "Футболка камуфляж военная милитари тактическая",
+   "discount": 0,
+   "price": 316,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/122857517/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789759150,
+   "drop": 0
+  },
+  {
    "pid": 1199515843,
    "title": "Футболка летняя с принтом",
    "discount": 0,
@@ -10746,18 +10758,6 @@
    "cat": "футболка женская",
    "ts": 1788549914,
    "drop": 1
-  },
-  {
-   "pid": 122857517,
-   "title": "Футболка камуфляж военная милитари тактическая",
-   "discount": 0,
-   "price": 316,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/122857517/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789759150,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10795,10 +10795,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 129,
-   "ok": 90,
-   "rate_limited": 5,
-   "http_error": 34,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -10923,7 +10923,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789750713.0,
   "last_engagement_ts": 1789747205.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789752255.0
  },
  "admin_ui": {

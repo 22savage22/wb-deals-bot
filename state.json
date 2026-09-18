@@ -2026,6 +2026,19 @@
  },
  "recent": [
   {
+   "pid": 531081407,
+   "title": "Футболка женская однотонная базовая хлопок приталенная",
+   "discount": 0,
+   "price": 433,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/531081407/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789710130,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1201462995,
    "title": "Футболка укороченная",
    "discount": 0,
@@ -10967,19 +10980,6 @@
    "cat": "кепка женская",
    "ts": 1788500925,
    "drop": 1
-  },
-  {
-   "pid": 531081407,
-   "title": "Футболка женская однотонная базовая хлопок приталенная",
-   "discount": 0,
-   "price": 433,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/531081407/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789710130,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11008,10 +11008,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 36,
-   "rate_limited": 3,
-   "http_error": 14,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11111,7 +11111,7 @@
    "Биотуалеты и аксессуары",
    "Пробники"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

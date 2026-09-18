@@ -2051,6 +2051,18 @@
  },
  "recent": [
   {
+   "pid": 28923886,
+   "title": "Блузка летняя свободная темно-бежевый короткий рукав",
+   "discount": 0,
+   "price": 401,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/28923886/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789747960,
+   "drop": 0
+  },
+  {
    "pid": 388057360,
    "title": "Футболка оверсайз больших размеров хлопок летняя удлиненная",
    "discount": 0,
@@ -10876,31 +10888,6 @@
    "ts": 1788538975,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 474811445,
-   "title": "постельное белье 2 спальное бязь",
-   "discount": 0,
-   "price": 2052,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/474811445/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1788538364,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 28923886,
-   "title": "Блузка летняя свободная темно-бежевый короткий рукав",
-   "discount": 0,
-   "price": 401,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/28923886/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789747960,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10938,10 +10925,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 132,
-   "ok": 95,
-   "rate_limited": 2,
-   "http_error": 35,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11067,7 +11054,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789726910.0,
   "last_engagement_ts": 1789747205.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789708852.0
  },
  "admin_ui": {

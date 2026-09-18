@@ -2029,6 +2029,19 @@
  },
  "recent": [
   {
+   "pid": 922242302,
+   "title": "Сумка-ведро женская на плечо из замши",
+   "discount": 0,
+   "price": 302,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/922242302/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1789712077,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 995690815,
    "title": "Платье летнее короткое",
    "discount": 0,
@@ -10985,19 +10998,6 @@
    "cat": "футболка мужская",
    "ts": 1788512568,
    "drop": 1
-  },
-  {
-   "pid": 922242302,
-   "title": "Сумка-ведро женская на плечо из замши",
-   "discount": 0,
-   "price": 302,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/922242302/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1789712077,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -11026,10 +11026,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 34,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11129,7 +11129,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Пробники"
   ],
-  "queue_size": 1,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,

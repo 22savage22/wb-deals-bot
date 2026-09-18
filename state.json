@@ -11019,10 +11019,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 146,
+   "ok": 107,
+   "rate_limited": 1,
+   "http_error": 38,
    "network_error": 0,
    "json_error": 0
   },

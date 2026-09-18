@@ -10662,10 +10662,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 17,
+   "ok": 0,
+   "rate_limited": 16,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -10754,7 +10754,7 @@
   "today": "2026-09-18",
   "today_posts": 32,
   "total_posts": 1406,
-  "last_scan": 1789769003,
+  "last_scan": 1789772371,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -10762,21 +10762,17 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Археология",
-   "Сварочное оборудование"
+   "Готовые строения и срубы",
+   "Подгузники"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "ok": 31,
-   "max_price": 69,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 31,
-   "reserve": 0,
-   "duplicate": 10,
-   "title_duplicate": 10
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -373046,9 +373042,9 @@
   },
   "Готовые строения и срубы": {
    "shard": "garden29",
-   "ts": 1789610037.6119788,
-   "runs": 145,
-   "empty": 5
+   "ts": 1789772663.8049183,
+   "runs": 146,
+   "empty": 1
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
@@ -373346,9 +373342,9 @@
   },
   "Подгузники": {
    "shard": "children_things2",
-   "ts": 1789610037.6119788,
-   "runs": 55,
-   "empty": 5
+   "ts": 1789772663.8049183,
+   "runs": 56,
+   "empty": 1
   },
   "Для песочницы": {
    "shard": "toys12",

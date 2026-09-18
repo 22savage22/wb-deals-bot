@@ -2052,6 +2052,18 @@
  },
  "recent": [
   {
+   "pid": 1315160963,
+   "title": "Блузка",
+   "discount": 0,
+   "price": 378,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1315160963/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789748851,
+   "drop": 0
+  },
+  {
    "pid": 28923886,
    "title": "Блузка летняя свободная темно-бежевый короткий рукав",
    "discount": 0,
@@ -10876,18 +10888,6 @@
    "cat": "плед",
    "ts": 1788539773,
    "drop": 0
-  },
-  {
-   "pid": 1315160963,
-   "title": "Блузка",
-   "discount": 0,
-   "price": 378,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1315160963/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789748851,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10925,10 +10925,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 152,
-   "ok": 105,
-   "rate_limited": 8,
-   "http_error": 39,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11054,7 +11054,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789726910.0,
   "last_engagement_ts": 1789747205.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789708852.0
  },
  "admin_ui": {

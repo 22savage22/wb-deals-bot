@@ -10962,10 +10962,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 158,
-   "ok": 110,
-   "rate_limited": 9,
-   "http_error": 39,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -11786,7 +11786,6 @@
   "футболкаоверсайзспринтомплотныйхлопок": 1789740207
  },
  "img_hash": {
-  "1f4f0fb6158dd0c0": 1787152561,
   "6ffef4d4e4e6c3cd": 1787154678,
   "929fcb8f1f7fe3db": 1787157386,
   "69e8cc8e86f46671": 1787158919,

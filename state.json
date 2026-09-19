@@ -10407,10 +10407,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 129,
-   "ok": 93,
-   "rate_limited": 5,
-   "http_error": 31,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -10536,7 +10536,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789807558.0,
   "last_engagement_ts": 1789811022.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789796150.0
  },
  "admin_ui": {
@@ -359607,7 +359607,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "879308737": {
    "price": 404,
@@ -359620,7 +359620,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1038642346": {
    "price": 399,
@@ -359633,7 +359633,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "822475519": {
    "price": 385,
@@ -359646,7 +359646,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "682355921": {
    "price": 468,
@@ -359659,7 +359659,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

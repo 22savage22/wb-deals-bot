@@ -10623,10 +10623,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 40,
+   "ok": 23,
+   "rate_limited": 5,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -10715,7 +10715,7 @@
   "today": "2026-09-18",
   "today_posts": 32,
   "total_posts": 1406,
-  "last_scan": 1789775900,
+  "last_scan": 1789776456,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -10729,16 +10729,13 @@
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 101,
-   "cards": 101,
-   "ok": 30,
-   "max_price": 68,
-   "bad_price": 3,
+   "found": 200,
+   "cards": 200,
+   "bad_price": 33,
+   "max_price": 167,
    "strict": 0,
-   "fallback": 30,
-   "reserve": 0,
-   "duplicate": 9,
-   "title_duplicate": 10
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -372195,9 +372192,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1789776125.690061,
-   "runs": 86,
-   "empty": 1
+   "ts": 1789776561.8872905,
+   "runs": 87,
+   "empty": 2
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -372519,9 +372516,9 @@
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",
-   "ts": 1789776125.690061,
-   "runs": 51,
-   "empty": 1
+   "ts": 1789776561.8872905,
+   "runs": 52,
+   "empty": 2
   },
   "Сварочное оборудование": {
    "shard": "repair24",

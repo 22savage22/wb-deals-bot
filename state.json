@@ -2061,6 +2061,18 @@
  },
  "recent": [
   {
+   "pid": 988220785,
+   "title": "Модные летние 3D полосатые футболки с буквенным принтом",
+   "discount": 0,
+   "price": 493,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/988220785/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789805123,
+   "drop": 0
+  },
+  {
    "pid": 272794883,
    "title": "Футболка хлопок однотонная",
    "discount": 0,
@@ -10503,18 +10515,6 @@
    "cat": "футболка мужская",
    "ts": 1788599518,
    "drop": 0
-  },
-  {
-   "pid": 988220785,
-   "title": "Модные летние 3D полосатые футболки с буквенным принтом",
-   "discount": 0,
-   "price": 493,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/988220785/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789805123,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10554,10 +10554,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 137,
-   "ok": 100,
-   "rate_limited": 1,
-   "http_error": 36,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -10684,7 +10684,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789772366.0,
   "last_engagement_ts": 1789795398.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789796150.0
  },
  "admin_ui": {

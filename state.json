@@ -10325,10 +10325,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 156,
-   "ok": 109,
-   "rate_limited": 7,
-   "http_error": 40,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -110529,10 +110529,6 @@
    "basic": 2472,
    "ts": 1788643322.1423726,
    "samples": [
-    [
-     1788620940,
-     1429
-    ],
     [
      1788623363,
      1429

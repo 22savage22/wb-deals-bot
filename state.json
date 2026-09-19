@@ -2058,6 +2058,18 @@
  },
  "recent": [
   {
+   "pid": 370292648,
+   "title": "Футболка хлопок с принтом Тигра",
+   "discount": 0,
+   "price": 428,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/370292648/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789802681,
+   "drop": 0
+  },
+  {
    "pid": 142607567,
    "title": "Худи черное",
    "discount": 0,
@@ -10464,18 +10476,6 @@
    "cat": "футболка мужская",
    "ts": 1788599518,
    "drop": 0
-  },
-  {
-   "pid": 370292648,
-   "title": "Футболка хлопок с принтом Тигра",
-   "discount": 0,
-   "price": 428,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/370292648/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789802681,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10515,10 +10515,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 133,
-   "ok": 99,
-   "rate_limited": 5,
-   "http_error": 29,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -10618,7 +10618,7 @@
    "Сетевые хранилища",
    "Торговые принадлежности"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,
@@ -10645,7 +10645,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789772366.0,
   "last_engagement_ts": 1789795398.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789796150.0
  },
  "admin_ui": {

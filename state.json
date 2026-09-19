@@ -10592,7 +10592,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789777546,
+  "last_run": 1789778898,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -10606,27 +10606,20 @@
   "empty_notice_ts": 1789769982.0,
   "cats_ts": 1789730025.659843,
   "last_cats": [
-   "Перевозка груза",
-   "Краски автомобильные"
+   "Краски автомобильные",
+   "Перевозка груза"
   ],
   "digest_date": "2026-09-19",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 100,
-   "cards": 100,
-   "bad_price": 18,
-   "max_price": 82,
-   "strict": 0,
-   "fallback": 0,
-   "reserve": 0,
-   "selected": 0,
-   "published": 0
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 41,
-   "rate_limited": 15,
-   "http_error": 20,
+   "calls": 22,
+   "ok": 0,
+   "rate_limited": 21,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -372192,9 +372185,9 @@
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
-   "ts": 1789778049.9190223,
-   "runs": 88,
-   "empty": 3
+   "ts": 1789779328.171068,
+   "runs": 89,
+   "empty": 4
   },
   "Смазки и масла для инструмента": {
    "shard": "repair54",
@@ -372516,9 +372509,9 @@
   },
   "Перевозка груза": {
    "shard": "preset_autoproduct35",
-   "ts": 1789778049.9190223,
-   "runs": 53,
-   "empty": 3
+   "ts": 1789779328.171068,
+   "runs": 54,
+   "empty": 4
   },
   "Сварочное оборудование": {
    "shard": "repair24",

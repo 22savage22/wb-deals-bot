@@ -2063,6 +2063,18 @@
  },
  "recent": [
   {
+   "pid": 949980246,
+   "title": "Футболка 100% хлопок с необработанным краем",
+   "discount": 0,
+   "price": 463,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/949980246/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789811020,
+   "drop": 0
+  },
+  {
    "pid": 439363684,
    "title": "Простынь на резинке 180x200 см натяжная полисатин",
    "discount": 0,
@@ -10505,18 +10517,6 @@
    "cat": "джинсы женские",
    "ts": 1788601532,
    "drop": 0
-  },
-  {
-   "pid": 949980246,
-   "title": "Футболка 100% хлопок с необработанным краем",
-   "discount": 0,
-   "price": 463,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/949980246/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789811020,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10555,10 +10555,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 64,
-   "rate_limited": 3,
-   "http_error": 18,
+   "calls": 76,
+   "ok": 41,
+   "rate_limited": 15,
+   "http_error": 20,
    "network_error": 0,
    "json_error": 0
   },
@@ -10684,7 +10684,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789807558.0,
   "last_engagement_ts": 1789811022.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789796150.0
  },
  "admin_ui": {

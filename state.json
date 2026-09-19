@@ -2093,6 +2093,18 @@
  },
  "recent": [
   {
+   "pid": 879308737,
+   "title": "Футболка мужская",
+   "discount": 0,
+   "price": 404,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/879308737/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789846062,
+   "drop": 0
+  },
+  {
    "pid": 236309459,
    "title": "Базовая плотная футболка свободного кроя",
    "discount": 22,
@@ -10124,18 +10136,6 @@
    "cat": "футболка женская",
    "ts": 1788636550,
    "drop": 1
-  },
-  {
-   "pid": 879308737,
-   "title": "Футболка мужская",
-   "discount": 0,
-   "price": 404,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/879308737/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789846062,
-   "drop": 0
   }
  ],
  "meta": {
@@ -342718,7 +342718,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1175578179": {
    "price": 135,
@@ -342731,7 +342731,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "365432991": {
    "price": 477,
@@ -342744,7 +342744,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1046399289": {
    "price": 498,
@@ -342757,7 +342757,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1065593115": {
    "price": 484,
@@ -342770,7 +342770,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "762219306": {
    "price": 382,
@@ -342783,7 +342783,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1144509275": {
    "price": 465,
@@ -342796,7 +342796,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1196727679": {
    "price": 343,
@@ -342809,7 +342809,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

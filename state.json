@@ -10080,10 +10080,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 15,
+   "ok": 0,
+   "rate_limited": 13,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -10172,7 +10172,7 @@
   "today": "2026-09-19",
   "today_posts": 30,
   "total_posts": 1435,
-  "last_scan": 1789858366,
+  "last_scan": 1789858376,
   "last_scan_queries": [
    "украшения женские",
    "платье женское",
@@ -10180,15 +10180,14 @@
    "футболка женская"
   ],
   "last_scan_cats": [
-   "Эмали автомобильные",
-   "Уход за вещами"
+   "Пули для пневматики",
+   "Репринтные издания 1840 - 1849 годов"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 1,
-   "cards": 1,
-   "bad_price": 1,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -10205,7 +10204,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789852356.0,
   "last_engagement_ts": 1789845284.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1789839934.0
  },
  "admin_ui": {
@@ -335080,15 +335079,15 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1789677120.4375453,
-   "runs": 60,
-   "empty": 5
+   "ts": 1789858613.29086,
+   "runs": 61,
+   "empty": 1
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1789680173.8239818,
-   "runs": 60,
-   "empty": 5
+   "ts": 1789858613.29086,
+   "runs": 61,
+   "empty": 1
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",

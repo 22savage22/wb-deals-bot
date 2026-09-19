@@ -2090,6 +2090,18 @@
  },
  "recent": [
   {
+   "pid": 418148356,
+   "title": "Футболка базовая оверсайз плотная",
+   "discount": 0,
+   "price": 382,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/418148356/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789833972,
+   "drop": 0
+  },
+  {
    "pid": 418395009,
    "title": "Плотная базовая футболка оверсайз",
    "discount": 0,
@@ -10246,18 +10258,6 @@
    "ts": 1788624614,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 418148356,
-   "title": "Футболка базовая оверсайз плотная",
-   "discount": 0,
-   "price": 382,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/418148356/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789833972,
-   "drop": 0
   }
  ],
  "meta": {
@@ -10296,10 +10296,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 163,
-   "ok": 113,
-   "rate_limited": 6,
-   "http_error": 44,
+   "calls": 48,
+   "ok": 35,
+   "rate_limited": 0,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },

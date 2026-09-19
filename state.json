@@ -10283,10 +10283,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 159,
-   "ok": 113,
-   "rate_limited": 3,
-   "http_error": 43,
+   "calls": 48,
+   "ok": 35,
+   "rate_limited": 0,
+   "http_error": 13,
    "network_error": 0,
    "json_error": 0
   },

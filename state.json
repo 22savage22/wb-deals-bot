@@ -10058,10 +10058,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 24,
-   "rate_limited": 24,
-   "http_error": 9,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -332596,7 +332596,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "494685940": {
    "price": 298,
@@ -332609,7 +332609,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

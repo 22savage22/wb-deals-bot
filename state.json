@@ -9695,10 +9695,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 144,
-   "ok": 107,
-   "rate_limited": 1,
-   "http_error": 36,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

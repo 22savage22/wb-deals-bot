@@ -9580,10 +9580,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 14,
+   "ok": 0,
+   "rate_limited": 12,
+   "http_error": 2,
    "network_error": 0,
    "json_error": 0
   },
@@ -9672,7 +9672,7 @@
   "today": "2026-09-20",
   "today_posts": 32,
   "total_posts": 1467,
-  "last_scan": 1789939504,
+  "last_scan": 1789940770,
   "last_scan_queries": [
    "худи мужское",
    "платье женское",
@@ -9680,16 +9680,14 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Образование",
-   "Колготки и носки"
+   "Пододеяльники",
+   "Лейки, шланги, гарнитуры"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 100,
-   "cards": 100,
-   "max_price": 93,
-   "bad_price": 7,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -285722,9 +285720,9 @@
   },
   "Лейки, шланги, гарнитуры": {
    "shard": "bathroom2",
-   "ts": 1789760149.227755,
-   "runs": 30,
-   "empty": 5
+   "ts": 1789941004.403419,
+   "runs": 31,
+   "empty": 1
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
@@ -285782,9 +285780,9 @@
   },
   "Пододеяльники": {
    "shard": "babies_room1",
-   "ts": 1789757480.552434,
-   "runs": 20,
-   "empty": 5
+   "ts": 1789941004.403419,
+   "runs": 21,
+   "empty": 1
   },
   "Радиоуправляемые": {
    "shard": "toys15",

@@ -2106,6 +2106,20 @@
  },
  "recent": [
   {
+   "pid": 330671504,
+   "image": "https://basket-20.wbbasket.ru/vol3306/part330671/330671504/images/big/1.webp",
+   "title": "Простынь на резинке 160x200 см полисатин",
+   "discount": 0,
+   "price": 449,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/330671504/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1789886943,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 418580987,
    "title": "Платье сарафан летний повседневный мини",
    "discount": 0,
@@ -9906,20 +9920,6 @@
    "ts": 1788677561,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 330671504,
-   "image": "https://basket-20.wbbasket.ru/vol3306/part330671/330671504/images/big/1.webp",
-   "title": "Простынь на резинке 160x200 см полисатин",
-   "discount": 0,
-   "price": 449,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/330671504/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1789886943,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9948,10 +9948,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 18,
-   "ok": 15,
-   "rate_limited": 2,
-   "http_error": 1,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -10050,7 +10050,7 @@
   "last_scan_cats": [
    "Гроубоксы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 202,
@@ -10076,7 +10076,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {

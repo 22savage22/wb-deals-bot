@@ -2137,6 +2137,19 @@
  },
  "recent": [
   {
+   "pid": 13634406,
+   "image": "https://basket-01.wbbasket.ru/vol136/part13634/13634406/images/big/1.webp",
+   "title": "Блузка летняя нарядная свободная короткий рукав",
+   "discount": 0,
+   "price": 288,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/13634406/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1789929217,
+   "drop": 0
+  },
+  {
    "pid": 1191413091,
    "image": "https://basket-44.wbbasket.ru/vol11914/part1191413/1191413091/images/big/1.webp",
    "title": "Футболка оверсайз с надписью",
@@ -9649,19 +9662,6 @@
    "cat": "украшения женские",
    "ts": 1788720310,
    "drop": 1
-  },
-  {
-   "pid": 13634406,
-   "image": "https://basket-01.wbbasket.ru/vol136/part13634/13634406/images/big/1.webp",
-   "title": "Блузка летняя нарядная свободная короткий рукав",
-   "discount": 0,
-   "price": 288,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/13634406/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1789929217,
-   "drop": 0
   }
  ],
  "meta": {
@@ -292207,7 +292207,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "440568280": {
    "price": 472,
@@ -292220,7 +292220,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "523190391": {
    "price": 432,
@@ -292233,7 +292233,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "235650799": {
    "price": 491,
@@ -292246,7 +292246,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "178950079": {
    "price": 462,
@@ -292259,7 +292259,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "7279424": {
    "price": 357,
@@ -292272,7 +292272,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "13634406": {
    "price": 288,

@@ -5,3 +5,10 @@ __pycache__/
 *.json.tmp
 graphify-out/
 .graphify-venv/
+.env*
+miniapp-data/
+*.sqlite3*
+.test-tmp/
+node_modules/
+playwright-report/
+test-results/

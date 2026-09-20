@@ -42,6 +42,10 @@ class FakeTG:
 
 
 class FakeWB:
+    @staticmethod
+    def photo_url(pid):
+        return ""
+
     items = {}
     photo_map = {}
     cat_menu = []

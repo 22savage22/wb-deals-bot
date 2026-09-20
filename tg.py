@@ -1,5 +1,6 @@
 import html
 import json
+import os
 import re
 
 import requests
@@ -181,7 +182,7 @@ def _kb(markup):
 
 
 def _buttons(link, pid):
-    return {
+    markup = {
         "inline_keyboard": [
             [{"text": "Купить", "url": link}],
             [
@@ -191,6 +192,13 @@ def _buttons(link, pid):
             ],
         ]
     }
+    username = os.getenv("MINIAPP_BOT_USERNAME", "").lstrip("@").strip()
+    if os.getenv("MINIAPP_ENABLED") == "1" and re.fullmatch(r"[A-Za-z0-9_]{5,32}", username):
+        markup["inline_keyboard"].append([
+            {"text": "🔖 Сохранить", "url": f"https://t.me/{username}?startapp=save_{int(pid)}"},
+            {"text": "✨ Собрать образ", "url": f"https://t.me/{username}?startapp=look_{int(pid)}"},
+        ])
+    return markup
 
 
 def _rewind(photo):

@@ -1,0 +1,6 @@
+*
+!miniapp/
+!miniapp/**
+miniapp/__pycache__/
+miniapp/**/__pycache__/
+miniapp/*.sqlite3*

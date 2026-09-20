@@ -1,0 +1,25 @@
+name: Mini App Catalog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 */6 * * *"
+permissions:
+  contents: read
+concurrency:
+  group: miniapp-catalog
+  cancel-in-progress: false
+jobs:
+  catalog:
+    if: vars.MINIAPP_API_URL != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python -m miniapp.scan
+        env:
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}

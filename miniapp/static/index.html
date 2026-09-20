@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="Сохраняйте находки Wildberries и собирайте образы в своём бюджете.">
+  <title>Находки · Мой гардероб</title>
+  <script src="https://telegram.org/js/telegram-web-app.js?63"></script>
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#finds"><span class="brand-mark">н.</span> находки<span class="brand-note">вещи, которые складываются</span></a><button id="profile-button" class="avatar" aria-label="Мой профиль">Я</button></header>
+  <main>
+    <section id="finds" class="view">
+      <div class="heading"><h1>Найти <span>своё.</span></h1></div>
+      <div class="intro"><p>Сохраните вещь или соберите вокруг неё образ.</p><button class="text-button" id="how-button">Как это работает ↗</button></div>
+      <div class="filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Найти платье, сумку, джинсы…" aria-label="Поиск товаров"></label><label class="sort-label">Порядок<select id="sort"><option value="new">Новые</option><option value="price">Сначала дешевле</option><option value="rating">По рейтингу</option></select></label></div>
+      <div id="categories" class="chips" aria-label="Категории"></div>
+      <div class="section-line"><h2>Находки для вас</h2><span id="count" class="muted"></span></div>
+      <p id="catalog-notice" class="notice" hidden></p>
+      <div id="products" class="product-grid" aria-live="polite"><p class="empty">Загружаем находки…</p></div>
+    </section>
+    <section id="saved" class="view" hidden><p class="eyebrow">ВСЁ ПОД РУКОЙ</p><h1>Мои находки<span class="dot">.</span></h1><p class="muted">Сохранённое останется здесь, даже когда пост уйдёт далеко в ленте.</p><div class="chips" id="folders"></div><div id="saved-products" class="product-grid"></div><div class="section-line"><h2>Сохранённые образы</h2></div><div id="saved-outfits" class="outfit-grid"></div></section>
+    <section id="builder" class="view" hidden><p class="eyebrow">ИЗ НАХОДКИ В ОБРАЗ</p><h1>Соберём вместе<span class="dot">.</span></h1><div id="anchor"></div><form id="build-form" class="build-form"><label>Бюджет на новые вещи<input id="budget" type="number" min="100" max="100000" step="1" value="5000" required></label><label>Куда собираетесь<select id="occasion"><option value="everyday">На каждый день</option><option value="office">В офис</option><option value="evening">На вечер</option></select></label><button class="primary" id="build-button" type="submit">Подобрать образы ↗</button></form><p class="fineprint">Подбор по типам вещей, поводу и бюджету. Цвета, посадку, размеры и актуальную цену проверьте на WB.</p><div id="outfits" class="outfit-grid" aria-live="polite"></div></section>
+    <section id="profile" class="view" hidden><p class="eyebrow">НАСТРОИТЬ ПОД СЕБЯ</p><h1>Мой профиль<span class="dot">.</span></h1><div class="profile-card"><span class="pill">Бесплатная версия</span><h2>Ваш привычный бюджет</h2><form id="preferences-form"><label>Сумма на новые вещи, ₽<input id="pref-budget" type="number" min="100" max="100000" value="5000" required></label><label>Чаще собираю образы<select id="pref-occasion"><option value="everyday">На каждый день</option><option value="office">В офис</option><option value="evening">На вечер</option></select></label><button class="primary">Сохранить настройки</button></form></div><div class="profile-card"><h2>Только ваше</h2><p>Сохранения и образы привязаны к вашему Telegram. Другие подписчики их не видят. Данные хранятся на сервере приложения и не попадают в GitHub.</p><button id="delete-account" class="danger">Удалить мои сохранения и настройки</button></div><button id="admin-button" class="secondary" hidden>Управление каталогом</button></section>
+    <section id="admin" class="view" hidden><p class="eyebrow">ДЛЯ ВЛАДЕЛЬЦА</p><h1>Каталог<span class="dot">.</span></h1><p>Проверьте тип вещи и аудиторию. Скрытый товар не попадёт в новые подборки.</p><div id="admin-products"></div></section>
+  </main>
+  <nav class="bottom-nav" aria-label="Разделы"><button data-tab="finds" class="active"><span>◇</span>Находки</button><button data-tab="saved"><span>♡</span>Сохранённое</button><button data-tab="builder"><span>✧</span>Мой образ</button><button data-tab="profile"><span>○</span>Профиль</button></nav>
+  <dialog id="product-dialog"><button class="close" aria-label="Закрыть">×</button><div id="product-detail"></div></dialog>
+  <dialog id="info-dialog"><button class="close" aria-label="Закрыть">×</button><p class="eyebrow">ТРИ ПРОСТЫХ ШАГА</p><h2>Вещи находят друг друга</h2><ol><li>Выберите вещь и нажмите «Собрать образ».</li><li>Укажите бюджет и повод. Отметьте сохранённые вещи «Уже есть», чтобы не считать их в бюджете.</li><li>Выберите комплект, замените неподходящие вещи и откройте понравившиеся на WB.</li></ol><p class="fineprint">В первой версии подбор основан на категориях и названиях. Приложение не определяет посадку по фото.</p></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body></html>

@@ -301,6 +301,7 @@ def _publish_queued(data, limit):
         data["recent"].append(
             {
                 "pid": pid,
+                "image": wb.photo_url(pid),
                 "title": deal["title"],
                 "discount": deal["discount"],
                 "price": deal["product"],
@@ -546,6 +547,7 @@ def run_posting(data, settings, notify=True):
             data["recent"].append(
                 {
                     "pid": pid,
+                    "image": wb.photo_url(pid),
                     "title": deal["title"],
                     "discount": deal["discount"],
                     "price": deal["product"],

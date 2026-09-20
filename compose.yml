@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: miniapp/Dockerfile
+    restart: unless-stopped
+    env_file: .env.miniapp
+    volumes:
+      - app-data:/data
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/api/health',timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  https:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    env_file: .env.miniapp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./miniapp/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+volumes:
+  app-data:
+  caddy-data:
+  caddy-config:

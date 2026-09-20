@@ -41,6 +41,8 @@ jobs:
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
           GITHUB_TOKEN: ${{ github.token }}
+          MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
+          MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
 
       - name: Continue callback polling
         if: success()

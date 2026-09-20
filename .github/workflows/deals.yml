@@ -44,6 +44,8 @@ jobs:
         run: |
           for round in {1..4}; do
             python bot.py
+            # Optional service: a failure must not interrupt channel publishing.
+            python -m miniapp.sync || echo '::warning::Mini App catalog sync failed'
             if (( round == 1 )); then
               WB_PAGES=1 WB_QUERIES_PER_RUN=4 WB_CATS_PER_RUN=2 \
                 timeout 8m python scanner.py || true &
@@ -55,6 +57,10 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
+          MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
+          MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
           WB_MIN_DISCOUNT: "50"
           WB_MIN_RATING: "4.3"
           WB_MAX_POSTS: "1"

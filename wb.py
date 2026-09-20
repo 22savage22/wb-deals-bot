@@ -27,6 +27,7 @@ MENU_FALLBACKS = [
 ]
 
 _HOSTS = {}
+_PHOTO_URLS = {}
 FORMAT_FAILS = 0
 HTTP_STATS = {}
 
@@ -386,18 +387,27 @@ def photos(nm, limit=3):
     base = f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/images"
     out = []
     for idx in range(1, limit + 1):
-        buf = _fetch_photo(f"{base}/big/{idx}.webp")
+        source = f"{base}/big/{idx}.webp"
+        buf = _fetch_photo(source)
         if buf is None:
             for path in (f"c516x688/{idx}.webp", f"c246x328/{idx}.webp"):
-                buf = _fetch_photo(f"{base}/{path}")
+                source = f"{base}/{path}"
+                buf = _fetch_photo(source)
                 if buf is not None:
                     break
         if buf is None:
             break
+        if idx == 1:
+            _PHOTO_URLS[nm] = source
         if out and image_hash(buf) == image_hash(out[0]):
             continue
         out.append(buf)
     return out
+
+
+def photo_url(nm):
+    """URL of an image already fetched successfully; never starts another request."""
+    return _PHOTO_URLS.get(nm, "")
 
 
 def photo(nm):

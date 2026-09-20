@@ -1086,6 +1086,7 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
     data["recent"].append(
         {
             "pid": pid,
+            "image": wb.photo_url(pid),
             "title": deal["title"],
             "discount": deal["discount"],
             "price": deal["product"],

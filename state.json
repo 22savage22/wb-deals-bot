@@ -2120,6 +2120,19 @@
  },
  "recent": [
   {
+   "pid": 711909612,
+   "image": "https://basket-34.wbbasket.ru/vol7119/part711909/711909612/images/big/1.webp",
+   "title": "Мужская футболка из хлопка с принтом",
+   "discount": 0,
+   "price": 468,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/711909612/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789910989,
+   "drop": 0
+  },
+  {
    "pid": 19450816,
    "image": "https://basket-02.wbbasket.ru/vol194/part19450/19450816/images/big/1.webp",
    "title": "Пляжная сумка",
@@ -9807,19 +9820,6 @@
    "cat": "постельное белье",
    "ts": 1788702154,
    "drop": 0
-  },
-  {
-   "pid": 711909612,
-   "image": "https://basket-34.wbbasket.ru/vol7119/part711909/711909612/images/big/1.webp",
-   "title": "Мужская футболка из хлопка с принтом",
-   "discount": 0,
-   "price": 468,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/711909612/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789910989,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9857,10 +9857,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 140,
-   "ok": 102,
-   "rate_limited": 2,
-   "http_error": 36,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9986,7 +9986,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789905058.0,
   "last_engagement_ts": 1789899333.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {

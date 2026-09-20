@@ -43,6 +43,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
           MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
+          MINIAPP_LINK_MODE: ${{ vars.MINIAPP_LINK_MODE }}
 
       - name: Continue callback polling
         if: success()

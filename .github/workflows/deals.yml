@@ -59,6 +59,7 @@ jobs:
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
           MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
           MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
+          MINIAPP_LINK_MODE: ${{ vars.MINIAPP_LINK_MODE }}
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
           WB_MIN_DISCOUNT: "50"

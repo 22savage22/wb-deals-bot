@@ -194,9 +194,10 @@ def _buttons(link, pid):
     }
     username = os.getenv("MINIAPP_BOT_USERNAME", "").lstrip("@").strip()
     if os.getenv("MINIAPP_ENABLED") == "1" and re.fullmatch(r"[A-Za-z0-9_]{5,32}", username):
+        launch = "start" if os.getenv("MINIAPP_LINK_MODE") == "bot" else "startapp"
         markup["inline_keyboard"].append([
-            {"text": "🔖 Сохранить", "url": f"https://t.me/{username}?startapp=save_{int(pid)}"},
-            {"text": "✨ Собрать образ", "url": f"https://t.me/{username}?startapp=look_{int(pid)}"},
+            {"text": "🔖 Сохранить", "url": f"https://t.me/{username}?{launch}=save_{int(pid)}"},
+            {"text": "✨ Собрать образ", "url": f"https://t.me/{username}?{launch}=look_{int(pid)}"},
         ])
     return markup
 

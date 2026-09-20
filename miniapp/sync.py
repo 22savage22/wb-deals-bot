@@ -31,10 +31,12 @@ def upload(products):
     if parsed.scheme != "https" or parsed.username or parsed.password or parsed.query or parsed.fragment or len(key) < 32:
         raise SystemExit("Mini App sync configuration is invalid")
     try:
-        response = requests.post(url + "/api/sync", json={"products": products},
-                                 headers={"Authorization": "Bearer " + key}, timeout=(5, 20), allow_redirects=False)
-        if response.status_code != 200:
-            raise SystemExit(f"Mini App catalog sync failed: HTTP {response.status_code}")
+        # Keep each request within the free D1 query budget.
+        for offset in range(0, len(products), 40):
+            response = requests.post(url + "/api/sync", json={"products": products[offset:offset + 40]},
+                                     headers={"Authorization": "Bearer " + key}, timeout=(5, 20), allow_redirects=False)
+            if response.status_code != 200:
+                raise SystemExit(f"Mini App catalog sync failed: HTTP {response.status_code}")
     except requests.RequestException:
         raise SystemExit("Mini App catalog sync failed: connection error") from None
     print(f"Mini App catalog synced: {len(products)} products")

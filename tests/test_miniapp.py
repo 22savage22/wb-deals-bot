@@ -116,6 +116,10 @@ class MiniAppTests(unittest.TestCase):
         with patch.dict(os.environ,{"MINIAPP_ENABLED":"1","MINIAPP_BOT_USERNAME":"test_find_bot"}):
             buttons=tg._buttons('https://example.test',1)['inline_keyboard']
             self.assertEqual(buttons[-1][1]['url'],'https://t.me/test_find_bot?startapp=look_1')
+        with patch.dict(os.environ,{"MINIAPP_ENABLED":"1","MINIAPP_BOT_USERNAME":"test_find_bot","MINIAPP_LINK_MODE":"bot"}):
+            buttons=tg._buttons('https://example.test',1)['inline_keyboard']
+            self.assertEqual(buttons[-1][0]['url'],'https://t.me/test_find_bot?start=save_1')
+            self.assertEqual(buttons[-1][1]['url'],'https://t.me/test_find_bot?start=look_1')
         with patch.dict(os.environ,{"MINIAPP_ENABLED":"1","MINIAPP_BOT_USERNAME":"bad/path"}):
             self.assertEqual(len(tg._buttons('https://example.test',1)['inline_keyboard']),2)
 

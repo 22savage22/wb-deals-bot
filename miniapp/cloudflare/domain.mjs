@@ -37,6 +37,12 @@ export function normalize(raw) {
   if (!Number.isSafeInteger(checked) || checked<0) throw new Error('Некорректная дата проверки');
   return {id,title,price:Math.round(price*100)/100,category,image:safeImage(raw.image),slot:UNSUITABLE.test(text)?'other':detect(category)||detect(title)||'other',audience:text.includes('мужск')&&!text.includes('женск')?'men':text.includes('женск')?'women':'unknown',rating:Number.isFinite(rating)?Math.min(5,Math.max(0,rating)):0,checked_at:checked,url:`https://www.wildberries.ru/catalog/${id}/detail.aspx`};
 }
+function balanced(rows,quality,cheap,key,best=8,affordable=4) {
+  const seen=new Set();
+  return [...rows.toSorted(quality).slice(0,best),...rows.toSorted(cheap).slice(0,affordable)].filter(row=>{
+    const id=key(row);if(seen.has(id))return false;seen.add(id);return true;
+  });
+}
 export function build(products,anchorId,budget,occasion='everyday',ownedIds=[],excludedIds=[],now=Date.now()/1000) {
   if (!Object.hasOwn(OCCASIONS,occasion)) throw new Error('Неизвестный повод');
   const owned=new Set(ownedIds), excluded=new Set(excludedIds);
@@ -54,33 +60,45 @@ export function build(products,anchorId,budget,occasion='everyday',ownedIds=[],e
   const words={office:['рубаш','блуз','лофер','жакет','брюк'],evening:['плать','серьг','клатч','туфл'],everyday:['джинс','футбол','кроссов','кед']}[occasion];
   const scores=new Map(fresh.map(p=>[p.id,p.rating+2*words.filter(w=>p.title.toLowerCase().includes(w)).length]));
   const score=p=>scores.get(p.id), bySlot=Object.fromEntries(Object.keys(SLOTS).map(s=>[s,[]]));
-  for(const p of fresh) if(p.id!==anchorId&&(anchor.audience==='unknown'||p.audience===anchor.audience||p.audience==='unknown')) bySlot[p.slot]?.push(p);
-  for(const slot of Object.keys(bySlot)) bySlot[slot]=bySlot[slot].sort((a,b)=>score(b)-score(a)||cost(a)-cost(b)||a.id-b.id).slice(0,12);
-  const candidates=[];
+  for(const p of fresh) if(p.id!==anchorId&&cost(anchor)+cost(p)<=ceiling&&compatible([anchor],p,signals,occasion)) bySlot[p.slot]?.push(p);
+  for(const slot of Object.keys(bySlot)) bySlot[slot]=balanced(bySlot[slot],(a,b)=>score(b)-score(a)||cost(a)-cost(b)||a.id-b.id,(a,b)=>cost(a)-cost(b)||score(b)-score(a)||a.id-b.id,p=>p.id);
+  let candidates=[];
   for(const pattern of [['dress','shoes'],['top','bottom','shoes']]) {
     if(['dress','top','bottom'].includes(anchor.slot)&&!pattern.includes(anchor.slot)) continue;
     let beam=[{items:[anchor],total:cost(anchor),score:score(anchor)}];
     for(const slot of pattern.filter(s=>s!==anchor.slot)) {
       const next=[];
       for(const b of beam) for(const p of bySlot[slot]) if(b.total+cost(p)<=ceiling&&compatible(b.items,p,signals,occasion)) next.push({items:[...b.items,p],total:b.total+cost(p),score:b.score+score(p)});
-      beam=next.sort((a,b)=>b.score-a.score||a.total-b.total).slice(0,32);
+      beam=balanced(next,(a,b)=>b.score-a.score||a.total-b.total,(a,b)=>a.total-b.total||b.score-a.score,b=>b.items.map(p=>p.id).join(','),24,8);
     }
-    for(let b of beam) {
-      for(const slot of ['bag','jewelry']) {
-        if(b.items.some(p=>p.slot===slot)) continue;
-        const extra=bySlot[slot].find(p=>b.total+cost(p)<=ceiling&&compatible(b.items,p,signals,occasion));
-        if(extra) b={items:[...b.items,extra],total:b.total+cost(extra),score:b.score+score(extra)};
-      }
-      candidates.push(b);
-    }
+    candidates.push(...beam);
   }
-  candidates.sort((a,b)=>b.score/b.items.length-a.score/a.items.length||a.total-b.total);
-  const signatures=new Set(), result=[];
-  for(const b of candidates) {
-    const signature=b.items.filter(p=>['dress','top','bottom','shoes'].includes(p.slot)).map(p=>p.id).sort((a,b)=>a-b).join(',');
-    if(signatures.has(signature)) continue;
-    signatures.add(signature);result.push({items:b.items,total:b.total/100,occasion,owned:b.items.filter(p=>owned.has(p.id)).map(p=>p.id),notes:['Полный комплект в пределах бюджета; цены проверены за последние 48 часов.','Явные конфликты стиля, сезона и цветов отсеяны по описаниям.'],disclaimer:'Коллаж реальных товаров, не виртуальная примерка. Оттенки, посадку и размеры проверьте в карточках.'});
-    if(result.length===3) break;
+  const quality=(a,b)=>b.score/b.items.length-a.score/a.items.length||a.total-b.total;
+  const core=b=>b.items.filter(p=>p.id!==anchorId&&['dress','top','bottom','shoes'].includes(p.slot)).map(p=>p.id).sort((a,b)=>a-b);
+  const selected=[],result=[];
+  while(candidates.length&&result.length<3) {
+    const index=result.length;
+    const distance=b=>{
+      const ids=new Set(core(b));
+      return Math.min(...selected.map(s=>{
+        const union=new Set([...ids,...s]);let shared=0;for(const id of ids)if(s.includes(id))shared++;
+        return (union.size-shared)/Math.max(1,union.size);
+      }));
+    };
+    candidates.sort(index===0?quality:index===1?(a,b)=>a.total-b.total||quality(a,b):(a,b)=>distance(b)-distance(a)||quality(a,b));
+    let b=candidates[0];selected.push(core(b));
+    const signature=core(b).join(',');candidates=candidates.filter(c=>core(c).join(',')!==signature);
+    // Keep the budget choice free of optional extras.
+    if(index!==1)for(const slot of ['bag','jewelry']) {
+      if(b.items.some(p=>p.slot===slot))continue;
+      const extra=bySlot[slot].find(p=>b.total+cost(p)<=ceiling&&compatible(b.items,p,signals,occasion));
+      if(extra)b={items:[...b.items,extra],total:b.total+cost(extra),score:b.score+score(extra)};
+    }
+    const label=index===0?'Основной образ':index===1&&b.total<Math.round(result[0].total*100)?'Экономнее':'Другой вариант';
+    const notes=['Полный комплект в пределах бюджета; цены проверены за последние 48 часов.','Явные конфликты стиля, сезона и цветов отсеяны по описаниям.'];
+    if(index===1)notes.push('Без дополнительных аксессуаров: только основа образа и выбранная вещь.');
+    if(b.items.some(p=>owned.has(p.id)))notes.push('Вещи с отметкой «Уже есть» не входят в сумму новых покупок.');
+    result.push({items:b.items,total:b.total/100,occasion,label,owned:b.items.filter(p=>owned.has(p.id)).map(p=>p.id),notes,disclaimer:'Коллаж реальных товаров, не виртуальная примерка. Оттенки, посадку и размеры проверьте в карточках.'});
   }
   return result;
 }

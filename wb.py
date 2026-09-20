@@ -290,7 +290,7 @@ def raw_deal(card):
     }
 
 
-def evaluate(card, min_discount=None, min_rating=None, min_feedbacks=0):
+def evaluate(card, min_discount=None, min_rating=None, min_feedbacks=0, max_price=None):
     """Return ``(deal, reason)`` so an empty run can be explained."""
     d = raw_deal(card)
     if (
@@ -307,7 +307,8 @@ def evaluate(card, min_discount=None, min_rating=None, min_feedbacks=0):
     min_rating = config.MIN_RATING if min_rating is None else min_rating
     if d["discount"] < min_discount:
         return None, "discount"
-    if config.MAX_PRICE and d["product"] > config.MAX_PRICE:
+    price_cap = config.MAX_PRICE if max_price is None else max_price
+    if price_cap and d["product"] > price_cap:
         return None, "max_price"
     if min_rating and d["rating"] < min_rating:
         return None, "rating"

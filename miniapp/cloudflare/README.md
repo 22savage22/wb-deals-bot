@@ -56,3 +56,31 @@ These are provider limits, not availability guarantees.
 The outfit engine is category/keyword based, not visual styling or size fitting.
 Only recently verified prices are used. Older catalog items may lack photos;
 the dedicated scanner gradually adds verified images and category coverage.
+
+## Catalog and outfit refresh (September 2026)
+
+The scheduled scanner reads the current public catalog first, skips photos and
+prices checked in the last 24 hours, and rotates three search pages and candidate
+windows. Its 11-query plan includes male and female outfit foundations on every
+run, plus two rotating categories; groups with fewer fresh photos run first.
+Unknown audience labels remain unknown rather than being guessed from a query.
+The Mini App explicitly uses a 15,000 RUB per-item cap without changing the
+channel's default price filter.
+
+Backfill alternates missing photos with photographed items due for a daily price
+refresh, up to 48 candidates per run, balanced by audience and category. Existing
+photo URLs are downloaded and checked before trying basket-host discovery again.
+Failed price/photo checks never advance freshness, and each verified item is
+uploaded immediately. Scan/backfill have bounded work windows; a slow WB request
+can still use the underlying request retries before the next deadline check.
+
+Both Python and Worker outfit engines reserve space for affordable candidates
+and filter compatibility before truncation. They return up to three distinct
+clothing foundations: the main choice, a lower-cost alternative when available
+(without optional accessories), and an alternative selected for fewer repeated
+pieces. Owned items cost zero; freshness, audience, style and budget gates remain
+in force. Labels describe the actual result and never promise visual matching.
+
+Publishing to GitHub updates future catalog jobs. Worker code and UI still need
+a separate `python -m miniapp.cloudflare_deploy NONCE update` with the temporary
+RAM-only credential handoff. Do not use bootstrap for an existing deployment.

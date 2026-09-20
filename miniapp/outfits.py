@@ -8,7 +8,7 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
         raise ValueError("Неизвестный повод")
     owned, exclude = set(owned), set(exclude)
     now = time.time() if now is None else now
-    # ponytail: bounded catalog/beam search; curated style metadata can improve matching later.
+    # Bounded catalog/beam search; descriptive signals are not visual styling.
     fresh = [p for p in products if p.get("enabled", True) and p["id"] not in exclude
              and 0 <= now - p["checked_at"] <= 48 * 3600 and safe_image(p.get("image")) and style(p)["eligible"]]
     signals = {p["id"]: style(p) for p in fresh}
@@ -17,7 +17,8 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
         raise ValueError("Для подбора нужна вещь с фото и ценой, проверенной за последние 48 часов")
     if anchor["slot"] == "other":
         raise ValueError("Выберите одежду, обувь или аксессуар для образа")
-    cost = lambda p: 0 if p["id"] in owned else p["price"]
+    budget = round(budget * 100)
+    cost = lambda p: 0 if p["id"] in owned else round(p["price"] * 100)
     if cost(anchor) > budget:
         return []
     def compatible(items, p):
@@ -48,7 +49,19 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
                  "everyday": ("джинс", "футбол", "кроссов", "кед")}[occasion]
         return p["rating"] + sum(w in text for w in words) * 2
 
-    by_slot = {s: sorted((p for p in fresh if p["slot"] == s), key=lambda p: (-rank(p), cost(p), p["id"]))[:18] for s in SLOTS}
+    def balanced(rows, quality, cheap, key, best=8, affordable=4):
+        # Keep cheap paths even when many expensive products rank above them.
+        result, seen = [], set()
+        for row in sorted(rows, key=quality)[:best] + sorted(rows, key=cheap)[:affordable]:
+            identity = key(row)
+            if identity not in seen:
+                seen.add(identity)
+                result.append(row)
+        return result
+
+    by_slot = {s: balanced(
+        [p for p in fresh if p['slot'] == s and cost(anchor) + cost(p) <= budget and compatible([anchor], p)],
+        lambda p: (-rank(p), cost(p), p['id']), lambda p: (cost(p), -rank(p), p['id']), lambda p: p['id']) for s in SLOTS}
     patterns = [["dress", "shoes"], ["top", "bottom", "shoes"]]
     candidates = []
     for pattern in patterns:
@@ -62,28 +75,50 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
             if not following:
                 beam = []
                 break
-            beam = sorted(following, key=lambda b: (-sum(rank(p) for p in b[0]), b[1]))[:80]
-        for items, total in beam:
-            for slot in ("bag", "jewelry"):
-                if any(p["slot"] == slot for p in items):
+            beam = balanced(following, lambda b: (-sum(rank(p) for p in b[0]), b[1]),
+                            lambda b: (b[1], -sum(rank(p) for p in b[0])),
+                            lambda b: tuple(p['id'] for p in b[0]), best=24, affordable=8)
+        candidates.extend(beam)
+
+    def quality(b):
+        return (-sum(rank(p) for p in b[0]) / len(b[0]), b[1])
+
+    def signature(b):
+        return frozenset(p['id'] for p in b[0] if p['slot'] in ('dress', 'top', 'bottom', 'shoes') and p['id'] != anchor_id)
+
+    selected, results = [], []
+    while candidates and len(results) < 3:
+        index = len(results)
+        if index == 0:
+            chosen = min(candidates, key=quality)
+        elif index == 1:
+            chosen = min(candidates, key=lambda b: (b[1], quality(b)))
+        else:
+            def variety(b):
+                ids = signature(b)
+                distance = min(len(ids ^ s) / max(1, len(ids | s)) for s in selected)
+                return (-distance, quality(b))
+            chosen = min(candidates, key=variety)
+        selected.append(signature(chosen))
+        candidates = [b for b in candidates if signature(b) not in selected]
+        items, total = chosen
+        # The budget option is a complete foundation without optional extras.
+        if index != 1:
+            for slot in ('bag', 'jewelry'):
+                if any(p['slot'] == slot for p in items):
                     continue
                 extra = next((p for p in by_slot[slot] if total + cost(p) <= budget and compatible(items, p)), None)
                 if extra:
                     items = items + [extra]
                     total += cost(extra)
-            candidates.append((items, total))
-    candidates.sort(key=lambda b: (-sum(rank(p) for p in b[0]) / len(b[0]), b[1]))
-    results, signatures = [], set()
-    for items, total in candidates:
-        # Different clothes/shoes, not three copies with only different earrings.
-        signature = tuple(sorted(p["id"] for p in items if p["slot"] in ("dress", "top", "bottom", "shoes")))
-        if signature in signatures:
-            continue
-        signatures.add(signature)
-        results.append({"items": items, "total": round(total, 2), "occasion": occasion,
+        label = 'Основной образ' if index == 0 else 'Экономнее' if index == 1 and total < round(results[0]['total'] * 100) else 'Другой вариант'
+        notes = ["Полный комплект в пределах бюджета; цены проверены за последние 48 часов.", "Явные конфликты стиля, сезона и цветов отсеяны по описаниям."]
+        if index == 1:
+            notes.append('Без дополнительных аксессуаров: только основа образа и выбранная вещь.')
+        if any(p['id'] in owned for p in items):
+            notes.append('Вещи с отметкой «Уже есть» не входят в сумму новых покупок.')
+        results.append({"items": items, "total": total / 100, "occasion": occasion, 'label': label,
                         "owned": [p["id"] for p in items if p["id"] in owned],
-                        "notes": ["Полный комплект в пределах бюджета; цены проверены за последние 48 часов.", "Явные конфликты стиля, сезона и цветов отсеяны по описаниям."],
+                        "notes": notes,
                         "disclaimer": "Коллаж реальных товаров, не виртуальная примерка. Оттенки, посадку и размеры проверьте в карточках."})
-        if len(results) == 3:
-            break
     return results

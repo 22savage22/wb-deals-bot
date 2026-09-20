@@ -27,3 +27,19 @@ test('no incomplete outfits and photographed owned anchor retains zero cost',()=
   const result=build([anchor,product(2,'Джинсы женские'),product(3,'Кеды женские')],1,2000,'everyday',[1],[],now);
   assert.equal(result[0].total,2000);assert.deepEqual(result[0].owned,[1]);
 });
+test('affordable path survives many higher scoring expensive candidates',()=>{
+  const items=[product(1,'Футболка женская',{price:100}),...Array.from({length:30},(_,i)=>product(i+10,'Джинсы женские',{price:1800,rating:5})),product(50,'Брюки женские',{price:700,rating:4.5}),product(51,'Туфли женские',{price:800})];
+  const result=build(items,1,2000,'everyday',[],[],now);
+  assert.ok(result.length);assert.deepEqual(result[0].items.map(p=>p.id),[1,50,51]);assert.equal(result[0].total,1600);
+});
+test('incompatible high ranked products cannot hide matching shoes',()=>{
+  const items=[product(1,'Платье летнее женское'),...Array.from({length:30},(_,i)=>product(i+10,'Ботинки зимние женские',{rating:5})),product(50,'Босоножки женские',{rating:4.5})];
+  assert.equal(build(items,1,3000,'everyday',[],[],now).length,1);
+});
+test('budget choice omits extras and variants change the clothing foundation',()=>{
+  const items=[product(1,'Сумка женская',{price:100}),product(2,'Футболка женская'),product(3,'Футболка женская',{price:500}),product(4,'Джинсы женские'),product(5,'Брюки женские',{price:500}),product(6,'Кроссовки женские'),product(7,'Туфли женские',{price:500}),product(8,'Серьги женские')];
+  const result=build(items,1,10000,'everyday',[],[],now);
+  assert.equal(result.length,3);assert.equal(result[1].label,'Экономнее');assert.equal(result[1].total,1600);assert.ok(!result[1].items.some(p=>p.id===8));
+  const cores=result.map(o=>o.items.filter(p=>['top','bottom','shoes'].includes(p.slot)).map(p=>p.id).sort().join(','));
+  assert.equal(new Set(cores).size,3);assert.ok(result.every(o=>o.total<=10000));
+});

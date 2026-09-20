@@ -9780,10 +9780,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 52,
-   "ok": 34,
-   "rate_limited": 8,
-   "http_error": 10,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -112828,7 +112828,12 @@
    "price": 450,
    "basic": 500,
    "ts": 1788713692.9020662,
-   "samples": [],
+   "samples": [
+    [
+     1788713692,
+     450
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -128607,7 +128612,12 @@
    "price": 1188,
    "basic": 2000,
    "ts": 1788713692.902014,
-   "samples": [],
+   "samples": [
+    [
+     1788713692,
+     1188
+    ]
+   ],
    "posted_price": 0,
    "posted_ts": 0.0
   },

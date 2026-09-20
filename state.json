@@ -9949,10 +9949,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 128,
+   "ok": 96,
+   "rate_limited": 2,
+   "http_error": 30,
    "network_error": 0,
    "json_error": 0
   },
@@ -10078,7 +10078,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {

@@ -9514,7 +9514,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789942423,
+  "last_run": 1789947043,
   "last_posts": 0,
   "last_queries": [
    "худи мужское",
@@ -9525,7 +9525,7 @@
    "блузка женская"
   ],
   "learn_ts": 1789888585.9020078,
-  "empty_notice_ts": 1789903294.0,
+  "empty_notice_ts": 1789947479.0,
   "cats_ts": 1789903150.3514364,
   "last_cats": [
    "Лейки, шланги, гарнитуры",
@@ -9534,10 +9534,10 @@
   "digest_date": "2026-09-20",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 101,
-   "cards": 101,
-   "bad_price": 5,
-   "max_price": 96,
+   "found": 100,
+   "cards": 100,
+   "max_price": 97,
+   "bad_price": 3,
    "strict": 0,
    "fallback": 0,
    "reserve": 0,
@@ -9545,10 +9545,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 34,
+   "ok": 8,
+   "rate_limited": 22,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -281796,9 +281796,9 @@
   },
   "Лейки, шланги, гарнитуры": {
    "shard": "bathroom2",
-   "ts": 1789942943.1459446,
-   "runs": 33,
-   "empty": 3
+   "ts": 1789947479.322427,
+   "runs": 34,
+   "empty": 4
   },
   "Кастрюли и сковороды": {
    "shard": "kitchen38",
@@ -281856,9 +281856,9 @@
   },
   "Пододеяльники": {
    "shard": "babies_room1",
-   "ts": 1789942943.1459446,
-   "runs": 23,
-   "empty": 3
+   "ts": 1789947479.322427,
+   "runs": 24,
+   "empty": 4
   },
   "Радиоуправляемые": {
    "shard": "toys15",

@@ -2110,6 +2110,19 @@
  },
  "recent": [
   {
+   "pid": 1038642346,
+   "image": "https://basket-42.wbbasket.ru/vol10386/part1038642/1038642346/images/big/1.webp",
+   "title": "Базовая хакки футболка хлопок",
+   "discount": 0,
+   "price": 380,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1038642346/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789890286,
+   "drop": 0
+  },
+  {
    "pid": 259436867,
    "image": "https://basket-16.wbbasket.ru/vol2594/part259436/259436867/images/big/1.webp",
    "title": "Простынь на резинке 120х200 страйп полисатин борт 30 см",
@@ -9898,19 +9911,6 @@
    "ts": 1788680748,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1038642346,
-   "image": "https://basket-42.wbbasket.ru/vol10386/part1038642/1038642346/images/big/1.webp",
-   "title": "Базовая хакки футболка хлопок",
-   "discount": 0,
-   "price": 380,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1038642346/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789890286,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9950,10 +9950,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 124,
-   "ok": 89,
-   "rate_limited": 5,
-   "http_error": 30,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -10079,7 +10079,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {

@@ -9948,10 +9948,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 120,
-   "ok": 91,
-   "rate_limited": 2,
-   "http_error": 27,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -10050,7 +10050,7 @@
   "last_scan_cats": [
    "Гроубоксы"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 202,
@@ -10076,7 +10076,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {
@@ -15188,6 +15188,10 @@
    "basic": 3500,
    "ts": 1789120511.303043,
    "samples": [
+    [
+     1788678941,
+     1386
+    ],
     [
      1788680748,
      1386
@@ -45191,6 +45195,10 @@
    "basic": 2630,
    "ts": 1789008375.2409859,
    "samples": [
+    [
+     1788678941,
+     441
+    ],
     [
      1788979768,
      371
@@ -108296,6 +108304,10 @@
    "basic": 1057,
    "ts": 1789041167.746483,
    "samples": [
+    [
+     1788678941,
+     323
+    ],
     [
      1788697157,
      323

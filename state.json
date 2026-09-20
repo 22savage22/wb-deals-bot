@@ -2105,6 +2105,18 @@
  },
  "recent": [
   {
+   "pid": 418580987,
+   "title": "Платье сарафан летний повседневный мини",
+   "discount": 0,
+   "price": 477,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/418580987/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789886261,
+   "drop": 0
+  },
+  {
    "pid": 189170358,
    "title": "Стильное женское платье, оверсайз",
    "discount": 0,
@@ -9904,18 +9916,6 @@
    "query": "джинсы мужские",
    "cat": "джинсы мужские",
    "ts": 1788676917,
-   "drop": 0
-  },
-  {
-   "pid": 418580987,
-   "title": "Платье сарафан летний повседневный мини",
-   "discount": 0,
-   "price": 477,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/418580987/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789886261,
    "drop": 0
   }
  ],
@@ -322392,7 +322392,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "259436867": {
    "price": 407,
@@ -322405,7 +322405,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

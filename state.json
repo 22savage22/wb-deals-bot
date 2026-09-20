@@ -9685,8 +9685,8 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 147,
-   "ok": 105,
+   "calls": 135,
+   "ok": 93,
    "rate_limited": 7,
    "http_error": 35,
    "network_error": 0,

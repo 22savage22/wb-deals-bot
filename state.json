@@ -9813,10 +9813,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 116,
-   "ok": 86,
-   "rate_limited": 4,
-   "http_error": 26,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9942,7 +9942,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789905058.0,
   "last_engagement_ts": 1789899333.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {
@@ -303563,7 +303563,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "343267321": {
    "price": 470,
@@ -303576,7 +303576,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "315740730": {
    "price": 270,
@@ -303589,7 +303589,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1199515504": {
    "price": 466,
@@ -303602,7 +303602,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "261367001": {
    "price": 394,
@@ -303615,7 +303615,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "807493919": {
    "price": 286,
@@ -303628,7 +303628,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1149573999": {
    "price": 407,
@@ -303641,7 +303641,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

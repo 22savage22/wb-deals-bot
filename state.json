@@ -9769,10 +9769,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 131,
-   "ok": 97,
-   "rate_limited": 3,
-   "http_error": 31,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

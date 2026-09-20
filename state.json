@@ -9794,10 +9794,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 138,
-   "ok": 103,
-   "rate_limited": 1,
-   "http_error": 34,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -299640,7 +299640,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

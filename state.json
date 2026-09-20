@@ -9595,10 +9595,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 29,
+   "ok": 10,
+   "rate_limited": 13,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -9687,7 +9687,7 @@
   "today": "2026-09-20",
   "today_posts": 32,
   "total_posts": 1467,
-  "last_scan": 1789937286,
+  "last_scan": 1789939504,
   "last_scan_queries": [
    "худи мужское",
    "платье женское",
@@ -9695,21 +9695,19 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Колготки и носки",
-   "Аксессуары для водителя"
+   "Образование",
+   "Колготки и носки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 301,
-   "cards": 301,
-   "max_price": 277,
-   "bad_price": 23,
-   "ok": 1,
+   "found": 100,
+   "cards": 100,
+   "max_price": 93,
+   "bad_price": 7,
    "strict": 0,
-   "fallback": 1,
-   "reserve": 0,
-   "duplicate": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -285890,9 +285888,9 @@
   },
   "Колготки и носки": {
    "shard": "school1",
-   "ts": 1789939209.0008714,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789939721.7551904,
+   "runs": 40,
+   "empty": 5
   },
   "Познавательная литература": {
    "shard": "books_children5",
@@ -285902,9 +285900,9 @@
   },
   "Образование": {
    "shard": "books12",
-   "ts": 1789939209.0008714,
-   "runs": 38,
-   "empty": 3
+   "ts": 1789939721.7551904,
+   "runs": 39,
+   "empty": 4
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",

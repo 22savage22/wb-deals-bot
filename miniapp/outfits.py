@@ -1,6 +1,6 @@
 """Bounded, explainable outfit suggestions. No invented availability or fit."""
 import time
-from .catalog import OCCASIONS, SLOTS
+from .catalog import OCCASIONS, SLOTS, safe_image, style
 
 
 def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=(), now=None):
@@ -10,14 +10,32 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
     now = time.time() if now is None else now
     # ponytail: bounded catalog/beam search; curated style metadata can improve matching later.
     fresh = [p for p in products if p.get("enabled", True) and p["id"] not in exclude
-             and 0 <= now - p["checked_at"] <= 48 * 3600]
+             and 0 <= now - p["checked_at"] <= 48 * 3600 and safe_image(p.get("image")) and style(p)["eligible"]]
+    signals = {p["id"]: style(p) for p in fresh}
     anchor = next((p for p in fresh if p["id"] == anchor_id), None)
     if anchor is None:
-        raise ValueError("Цена этой вещи устарела или товар недоступен для подбора")
+        raise ValueError("Для подбора нужна вещь с фото и ценой, проверенной за последние 48 часов")
     if anchor["slot"] == "other":
         raise ValueError("Выберите одежду, обувь или аксессуар для образа")
     cost = lambda p: 0 if p["id"] in owned else p["price"]
     if cost(anchor) > budget:
+        return []
+    def compatible(items, p):
+        b = signals[p["id"]]
+        if occasion in ("office", "evening") and b["sport"]:
+            return False
+        if occasion == "evening" and b["sneakers"]:
+            return False
+        accents = set(b["color"])
+        for a in items:
+            s = signals[a["id"]]
+            if a.get("audience", "unknown") != "unknown" and p.get("audience", "unknown") != "unknown" and a["audience"] != p["audience"]:
+                return False
+            if (s["formal"] and (b["sport"] or b["sneakers"])) or ((s["sport"] or s["sneakers"]) and b["formal"]) or (s["winter"] and b["summer"]) or (s["summer"] and b["winter"]):
+                return False
+            accents.update(s["color"])
+        return len(accents) <= 1
+    if not compatible([], anchor):
         return []
     audience = anchor.get("audience", "unknown")
     fresh = [p for p in fresh if p["id"] != anchor_id and
@@ -40,7 +58,7 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
         beam = [([anchor], cost(anchor))]
         for slot in required:
             following = [(items + [p], total + cost(p)) for items, total in beam
-                         for p in by_slot[slot] if total + cost(p) <= budget]
+                         for p in by_slot[slot] if total + cost(p) <= budget and compatible(items, p)]
             if not following:
                 beam = []
                 break
@@ -49,7 +67,7 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
             for slot in ("bag", "jewelry"):
                 if any(p["slot"] == slot for p in items):
                     continue
-                extra = next((p for p in by_slot[slot] if total + cost(p) <= budget), None)
+                extra = next((p for p in by_slot[slot] if total + cost(p) <= budget and compatible(items, p)), None)
                 if extra:
                     items = items + [extra]
                     total += cost(extra)
@@ -63,7 +81,9 @@ def build(products, anchor_id, budget, occasion="everyday", owned=(), exclude=()
             continue
         signatures.add(signature)
         results.append({"items": items, "total": round(total, 2), "occasion": occasion,
-                        "owned": [p["id"] for p in items if p["id"] in owned]})
+                        "owned": [p["id"] for p in items if p["id"] in owned],
+                        "notes": ["Полный комплект в пределах бюджета; цены проверены за последние 48 часов.", "Явные конфликты стиля, сезона и цветов отсеяны по описаниям."],
+                        "disclaimer": "Коллаж реальных товаров, не виртуальная примерка. Оттенки, посадку и размеры проверьте в карточках."})
         if len(results) == 3:
             break
     return results

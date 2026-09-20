@@ -1,7 +1,7 @@
 """Deploy only Workers/D1 through a short-lived in-memory credential.
 
 No credential is written to disk. Existing resources are reused by exact name.
-Run from repository root: python -m miniapp.cloudflare_deploy NONCE inspect|deploy
+Run from repository root: python -m miniapp.cloudflare_deploy NONCE inspect|deploy|update
 """
 import base64
 import hashlib
@@ -53,6 +53,48 @@ def gh(*args, secret=None):
     return result.stdout
 
 
+def update_existing(token, prefix, url):
+    """Code/assets only: inherit every existing binding, never rotate secrets."""
+    endpoint = prefix + f'/workers/scripts/{NAME}'
+    settings = api(token, 'GET', endpoint + '/settings')
+    existing = settings.get('bindings', [])
+    required = {'DB', 'ASSETS', 'MINIAPP_BOT_TOKEN', 'MINIAPP_SYNC_KEY',
+                'MINIAPP_WEBHOOK_SECRET', 'MINIAPP_ADMIN_ID', 'RATE_LIMITER'}
+    if not required.issubset({b['name'] for b in existing}):
+        raise RuntimeError('Existing runtime bindings incomplete; update refused')
+    bindings = [{'type': 'inherit', 'name': b['name']} for b in existing if b['type'] != 'assets']
+    bindings.append({'type': 'assets', 'name': 'ASSETS'})
+    manifest, assets = {}, {}
+    for name, route, mime in [('index.html', '/index.html', 'text/html; charset=utf-8'),
+                              ('app.css', '/static/app.css', 'text/css; charset=utf-8'),
+                              ('app.js', '/static/app.js', 'application/javascript; charset=utf-8')]:
+        content = (ROOT / 'static' / name).read_bytes()
+        digest = hashlib.sha256(content).hexdigest()[:32]
+        manifest[route] = {'hash': digest, 'size': len(content)}
+        assets[digest] = (digest, base64.b64encode(content), mime)
+    upload = api(token, 'POST', endpoint + '/assets-upload-session', json={'manifest': manifest})
+    completion = upload['jwt']
+    for bucket in upload['buckets']:
+        uploaded = api(upload['jwt'], 'POST', prefix + '/workers/assets/upload?base64=true',
+                       files={h: assets[h] for h in bucket})
+        if uploaded and uploaded.get('jwt'):
+            completion = uploaded['jwt']
+    metadata = {'main_module': 'worker.mjs', 'compatibility_date': '2026-09-01',
+                'bindings': bindings, 'assets': {'jwt': completion, 'config': {
+                    'run_worker_first': True, 'html_handling': 'none'}},
+                'observability': {'enabled': False}}
+    parts = {'metadata': ('metadata.json', json.dumps(metadata), 'application/json')}
+    for path in (ROOT / 'cloudflare').glob('*.mjs'):
+        if not path.name.endswith('.test.mjs'):
+            parts[path.name] = (path.name, path.read_bytes(), 'application/javascript+module')
+    # Strict inheritance refuses publication if any old binding cannot be resolved.
+    deployed = api(token, 'PUT', endpoint + '?bindings_inherit=strict', files=parts)
+    print('Code/assets updated; database, secrets and webhook preserved:', deployed.get('id', NAME), flush=True)
+    health = requests.get(url + '/api/health', timeout=30)
+    if health.status_code != 200 or not health.json().get('configured'):
+        raise RuntimeError('Post-update health check failed')
+
+
 def main():
     nonce, action = sys.argv[1:3]
     credentials = requests.get('http://127.0.0.1:8769/credential',
@@ -68,6 +110,8 @@ def main():
     print('Application address:', url, flush=True)
     if action == 'inspect':
         return
+    if action == 'update':
+        return update_existing(token, prefix, url)
     if action != 'deploy':
         raise RuntimeError('Unknown action')
     # This exact credential file was explicitly supplied by the owner.

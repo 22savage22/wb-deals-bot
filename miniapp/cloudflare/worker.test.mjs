@@ -22,7 +22,7 @@ function environment() {
 async function request(env,path,method='GET',body=undefined,id=11,headers={}) {
   return worker.fetch(new Request('https://test.example'+path,{method,headers:{'Content-Type':'application/json',...(id?{'X-Telegram-Init-Data':signed(id)}:{}),...headers},...(body===undefined?{}:{body:JSON.stringify(body)})}),env);
 }
-const raw=(id,title='Платье женское',price=1000,extras={})=>({id,title,price,checked_at:now,rating:4.8,...extras});
+const raw=(id,title='Платье женское',price=1000,extras={})=>({id,title,price,checked_at:now,rating:4.8,image:'https://basket-01.wbbasket.ru/image.webp',...extras});
 async function sync(env,products){const r=await request(env,'/api/sync','POST',{products},null,{Authorization:'Bearer '+env.MINIAPP_SYNC_KEY});assert.equal(r.status,200,await r.clone().text());return r;}
 
 test('Telegram HMAC validates independently signed data and rejects spoof/expiry/duplicates',async()=>{

@@ -47,7 +47,7 @@ def main():
         assert call('GET','/api/admin/products',uid).status_code == 403
         assert call('PUT','/api/preferences',uid,json={'budget':3500,'occasion':'office'}).status_code == 200
         assert call('GET','/api/me',uid).json()['preferences']['budget'] == 3500
-        anchor=next(p for p in products if p['slot']=='dress' and 0<=time.time()-p['checked_at']<172800 and p['price']<5000)
+        anchor=next(p for p in products if p['slot']=='dress' and p.get('image') and 0<=time.time()-p['checked_at']<172800 and p['price']<5000)
         suggested=call('POST','/api/outfits',uid,json={'anchor':anchor['id'],'budget':15000,'occasion':'everyday'})
         assert suggested.status_code == 200, suggested.status_code
         outfits=suggested.json()['outfits']; assert outfits, 'Fresh shoes/clothes not yet available'

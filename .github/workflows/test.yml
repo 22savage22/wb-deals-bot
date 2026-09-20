@@ -19,7 +19,7 @@ jobs:
           node-version: "24"
       - run: pip install -r requirements.txt -r miniapp/requirements.txt
       - run: python tests/run_all.py
-      - run: python -m unittest discover -s tests -p test_miniapp.py -v
+      - run: python -m unittest discover -s tests -p 'test_miniapp*.py' -v
       - run: node --check miniapp/static/app.js
       - run: node --test miniapp/cloudflare/*.test.mjs
       - run: docker build -f miniapp/Dockerfile -t finds-miniapp:test .

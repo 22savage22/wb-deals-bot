@@ -20,6 +20,19 @@ MARKERS = {
     "top": ("футбол", "блуз", "рубаш", "топ", "свитер", "кардиган", "джемпер", "худи", "кофт", "жакет", "свитшот"),
 }
 OCCASIONS = {"everyday": "На каждый день", "office": "В офис", "evening": "На вечер"}
+UNSUITABLE = re.compile(r"детск|девоч|мальчик|малыш|кукл|игруш|постель|подуш|штор|ковр|коврик|чехол|для мебели|для дома|домашн|пижам|ночнуш|бель[её]|бюстгальтер|трус|купаль|плавк|карнавал|косплей|костюмирован|униформ|спецодеж|медицин")
+
+
+def style(p):
+    """Only explicit description signals; unknown is not visual validation."""
+    text = (p["title"] + " " + p.get("category", "")).lower()
+    return {"eligible": not UNSUITABLE.search(text),
+            "sport": bool(re.search(r"спортив|бегов|фитнес|трениров|леггин|худи|свитшот", text)),
+            "sneakers": bool(re.search(r"кроссов|кеды", text)),
+            "formal": bool(re.search(r"вечерн|коктейл|торжеств|атлас|пайет|смокинг", text)),
+            "summer": bool(re.search(r"летн|босонож|сандал|шорт|сарафан", text)),
+            "winter": bool(re.search(r"зимн|утеплен|утеплён|пухов|мехов", text)),
+            "color": {c for c, pattern in (("red", r"красн|бордов"), ("pink", r"розов"), ("blue", r"голуб|син[ияе]"), ("green", r"зел[её]н|изумруд"), ("yellow", r"ж[её]лт|оранж"), ("purple", r"фиолет|сирен")) if re.search(pattern, text)}}
 
 
 def safe_image(value):
@@ -45,6 +58,8 @@ def normalize(raw):
     slot = next((s for s, markers in MARKERS.items() if any(m in category.lower() for m in markers)), None)
     if slot is None:
         slot = next((s for s, markers in MARKERS.items() if any(m in title.lower() for m in markers)), "other")
+    if UNSUITABLE.search(text):
+        slot = "other"
     audience = "men" if "мужск" in text and "женск" not in text else "women" if "женск" in text else "unknown"
     rating = float(raw.get("rating") or 0)
     checked = int(raw.get("checked_at") or raw.get("ts") or raw.get("queued_ts") or 0)

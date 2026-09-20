@@ -7,6 +7,16 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&
 const product = (id) => state.products.find(p => p.id === Number(id)) || (state.privateProducts || []).find(p => p.id === Number(id));
 const saved = (id) => state.saved.find(p => p.product_id === id);
 const stale = (p) => !p.checked_at || Date.now()/1000 - p.checked_at > 48*3600;
+const DISCOVERY_KEY = 'finds.discovery.v1';
+const discoveryDefaults = {audience:'all', interest:'all', maxPrice:0};
+let discovery = {...discoveryDefaults}, discoverySeen = false;
+try {const stored=JSON.parse(localStorage.getItem(DISCOVERY_KEY)); if(stored?.version===1){ discoverySeen=true; discovery={audience:['all','women','men'].includes(stored.audience)?stored.audience:'all',interest:['all','apparel','accessories','home'].includes(stored.interest)?stored.interest:'all',maxPrice:Number.isFinite(stored.maxPrice)&&stored.maxPrice>=100&&stored.maxPrice<=1000000?stored.maxPrice:0}; }}catch(_){/* Storage can be disabled in embedded browsers. */}
+const failedImages = new Set();
+let feed = [], feedOffset = 0, automaticPages = 0;
+function interestOf(p) {return ['bag','belt','hat','jewelry','accessory','accessories'].includes(p.slot)?'accessories':['top','bottom','dress','shoes','outer'].includes(p.slot)?'apparel':/дом|кухн|посуд|постель|полотен|декор|светильник|ваза|плед|подуш|ковр|хранени|органайзер/i.test(`${p.category} ${p.title}`)?'home':'other';}
+function interleave(items) {const buckets=new Map();for(const p of items){const key=p.slot||'other';if(!buckets.has(key))buckets.set(key,[]);buckets.get(key).push(p);}const result=[];while(buckets.size){for(const [key,items] of buckets){result.push(items.shift());if(!items.length)buckets.delete(key);}}return result;}
+function rememberDiscovery() {discoverySeen=true;try{localStorage.setItem(DISCOVERY_KEY,JSON.stringify({version:1,...discovery}));}catch(_){/* Preferences still work for this visit. */}}
+function openDiscovery() {const form=$('#discovery-form');form.elements.audience.value=discovery.audience;form.elements.interest.value=discovery.interest;$('#discovery-price').value=discovery.maxPrice||'';$('#discovery-dialog').showModal();}
 let toastTimer;
 function toast(message) { $('#toast').textContent = message; $('#toast').classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => $('#toast').classList.remove('visible'), 4200); }
 async function api(path, options = {}) {
@@ -20,7 +30,7 @@ function image(p, className = '') {
   return p.image ? `<img class="${className}" src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" referrerpolicy="no-referrer">` : '<div class="no-image"><span>◇</span><small>Фото пока нет</small></div>';
 }
 // Image errors are handled without inline scripts (strict content security policy).
-document.addEventListener('error', (event) => { if (event.target.tagName === 'IMG') { const box=document.createElement('div'); box.className='no-image'; box.textContent='Фото временно недоступно'; event.target.replaceWith(box); } }, true);
+document.addEventListener('error', (event) => { if (event.target.tagName === 'IMG') { const card=event.target.closest('#products .product-card');if(card){failedImages.add(Number(card.dataset.product));card.remove();updateFeedStatus();if(!$('#products').children.length)appendFeed();return;}const box=document.createElement('div'); box.className='no-image'; box.textContent='Фото временно недоступно'; event.target.replaceWith(box); } }, true);
 function showTab(tab) {
   if (tab === 'admin' && !state.admin) return;
   state.tab = tab;
@@ -34,23 +44,27 @@ function showTab(tab) {
 }
 function card(p) {
   const s = saved(p.id);
-  return `<article class="product-card"><div class="photo-wrap"><button class="photo-open" data-detail="${p.id}" aria-label="Подробнее: ${esc(p.title)}">${image(p)}</button><button class="save-button ${s ? 'selected' : ''}" data-save="${p.id}" aria-label="${s ? 'Убрать из сохранённого' : 'Сохранить'}" aria-pressed="${!!s}">${s ? '♥' : '♡'}</button>${s?.owned ? '<span class="badge">Уже есть</span>' : stale(p) ? '<span class="badge">Цена требует проверки</span>' : ''}</div><div class="price-row"><span class="price">${money(p.price)}</span><span class="rating">${p.rating ? '★ '+p.rating : ''}</span></div><p class="product-name">${esc(p.title)}</p><button class="build-link" ${p.slot === 'other' ? `data-detail="${p.id}"` : `data-build="${p.id}"`}>${p.slot === 'other' ? 'Посмотреть вещь' : 'Собрать образ'}<span>↗</span></button></article>`;
+  return `<article class="product-card" data-product="${p.id}"><div class="photo-wrap"><button class="photo-open" data-detail="${p.id}" aria-label="Подробнее: ${esc(p.title)}">${image(p)}</button><button class="save-button ${s ? 'selected' : ''}" data-save="${p.id}" aria-label="${s ? 'Убрать из сохранённого' : 'Сохранить'}" aria-pressed="${!!s}">${s ? '♥' : '♡'}</button>${s?.owned ? '<span class="badge">Уже есть</span>' : stale(p) ? '<span class="badge">Цена требует проверки</span>' : ''}</div><div class="price-row"><span class="price">${money(p.price)}</span><span class="rating">${p.rating ? '★ '+p.rating : ''}</span></div><p class="product-name">${esc(p.title)}</p><button class="build-link" ${p.slot === 'other' ? `data-detail="${p.id}"` : `data-build="${p.id}"`}>${p.slot === 'other' ? 'Посмотреть вещь' : 'Собрать образ'}<span>↗</span></button></article>`;
 }
 function renderCatalog() {
   const query = $('#search').value.toLowerCase().trim();
-  const products = state.products.filter(p => (state.category === 'all' || p.slot === state.category) && (p.title+' '+p.category).toLowerCase().includes(query));
+  const products = state.products.filter(p => p.image && !failedImages.has(p.id) && (discovery.audience==='all'||p.audience===discovery.audience||interestOf(p)==='home') && (!discovery.maxPrice||p.price<=discovery.maxPrice) && (discovery.interest==='all'||interestOf(p)===discovery.interest) && (state.category === 'all' || p.slot === state.category) && (p.title+' '+p.category).toLowerCase().includes(query));
   const sort = $('#sort').value;
   products.sort((a,b) => sort === 'price' ? a.price-b.price : sort === 'rating' ? b.rating-a.rating : b.checked_at-a.checked_at);
-  $('#count').textContent = `${products.length} вещей`;
-  $('#products').innerHTML = products.length ? products.slice(0,state.visibleCount).map(card).join('') + (products.length > state.visibleCount ? '<button class="secondary" id="load-more">Показать ещё</button>' : '') : '<p class="empty">Здесь пока нет подходящих находок. Попробуйте другую категорию или поиск.</p>';
+  feed=sort==='mix'?interleave(products):products;feedOffset=0;automaticPages=0;
+  $('#products').innerHTML='';appendFeed();
+  $('#edit-discovery').textContent=`${{all:'Для всех',women:'Женское',men:'Мужское'}[discovery.audience]} · ${discovery.maxPrice?'до '+money(discovery.maxPrice):'Любой бюджет'} · Настроить`;
   $('#categories').innerHTML = [['all','Все'],...Object.entries(state.slots).filter(([slot]) => state.products.some(p => p.slot === slot))].map(([id,name]) => `<button class="chip ${state.category === id ? 'active' : ''}" data-category="${id}">${esc(name)}</button>`).join('');
 }
+function updateFeedStatus(){const total=feed.filter(p=>!failedImages.has(p.id)).length;$('#count').textContent=`${total} вещей с фото`;$('#load-more').hidden=feedOffset>=feed.length;$('#feed-status').textContent=feedOffset>=feed.length&&total?'Вы посмотрели все находки по этим фильтрам. Можно выбрать что-то новое.':'';if(!$('#products').children.length&&feedOffset>=feed.length)$('#products').innerHTML='<div class="empty"><h2>Попробуем чуть шире?</h2><p>Пока нет вещей с фото по этим условиям. Измените бюджет или категорию.</p><button class="secondary" data-open-discovery="1">Изменить фильтры</button></div>';}
+function appendFeed(){const batch=feed.slice(feedOffset,feedOffset+24);feedOffset+=batch.length;$('#products').insertAdjacentHTML('beforeend',batch.filter(p=>!failedImages.has(p.id)).map(card).join(''));updateFeedStatus();}
+function updateSaveButtons(){document.querySelectorAll('[data-save]').forEach(b=>{const yes=!!saved(Number(b.dataset.save));b.classList.toggle('selected',yes);b.setAttribute('aria-pressed',String(yes));b.setAttribute('aria-label',yes?'Убрать из сохранённого':'Сохранить');b.textContent=yes?'♥':'♡';});}
 function renderSaved() {
   const folders = ['Все',...new Set(state.saved.map(s => s.folder)), 'Уже есть'];
   $('#folders').innerHTML = [...new Set(folders)].map(f => `<button class="chip ${state.folder === f ? 'active' : ''}" data-folder="${esc(f)}">${esc(f)}</button>`).join('');
   const items = state.saved.filter(s => state.folder === 'Все' || (state.folder === 'Уже есть' ? s.owned : s.folder === state.folder)).map(s => product(s.product_id)).filter(Boolean);
   $('#saved-products').innerHTML = items.length ? items.map(card).join('') : `<p class="empty">${state.authenticated ? 'Сохраняйте вещи значком ♡ — они появятся здесь.' : 'Откройте приложение через Telegram, чтобы видеть свои сохранённые находки.'}</p>`;
-  $('#saved-outfits').innerHTML = state.outfits.length ? state.outfits.map(o => `<article class="outfit-card"><h2>${esc(o.title)}</h2>${o.ids.map(id => product(id)).filter(Boolean).map(p => itemRow(p, false)).join('')}<button class="secondary" data-remove-outfit="${o.id}">Удалить образ</button></article>`).join('') : '<p class="muted">Готовые образы тоже можно сохранить.</p>';
+  $('#saved-outfits').innerHTML = state.outfits.length ? state.outfits.map(o => {const items=o.ids.map(id=>product(id)).filter(Boolean);return `<article class="outfit-card"><h2>${esc(o.title)}</h2>${outfitCollage(items)}${items.map(p=>itemRow(p,false)).join('')}<button class="secondary" data-remove-outfit="${o.id}">Удалить образ</button></article>`;}).join('') : '<p class="muted">Готовые образы тоже можно сохранить.</p>';
 }
 async function refreshMe() {
   const me = await api('me');
@@ -61,7 +75,7 @@ async function toggleSave(id) {
   if (!requireAuth()) return;
   const s = saved(id);
   await api('saved/'+id, {method: s ? 'DELETE' : 'PUT', ...(!s ? {body: JSON.stringify({folder:'Себе', owned:false})} : {})});
-  await refreshMe(); renderCatalog(); if (state.tab === 'saved') renderSaved();
+  await refreshMe(); updateSaveButtons(); if (state.tab === 'saved') renderSaved();
   toast(s ? 'Удалено из сохранённого' : 'Сохранено в «Мои находки»');
   try { tg?.HapticFeedback?.notificationOccurred('success'); } catch (_) { /* older Telegram */ }
 }
@@ -88,13 +102,16 @@ function itemRow(p, canReplace = true) {
   const owned = saved(p.id)?.owned;
   return `<div class="outfit-item">${image(p)}<div><p>${esc(p.title)}</p><strong>${owned ? 'Уже есть · 0 ₽' : money(p.price)}</strong><div class="outfit-actions">${canReplace && p.id !== state.anchor ? `<button data-replace="${p.id}">Заменить</button>` : ''}<button data-detail="${p.id}">Подробнее</button><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">На WB ↗</a></div></div></div>`;
 }
+function outfitCollage(items){return `<div class="outfit-collage">${items.map(p=>`<button class="collage-piece piece-${['top','bottom','dress','shoes','bag','jewelry','hat','belt'].includes(p.slot)?p.slot:'other'}" data-detail="${p.id}" aria-label="Посмотреть ${esc(p.title)}">${image(p)}<span>${esc(state.slots[p.slot]||'Деталь')}</span></button>`).join('')}</div><p class="collage-caption">Коллаж вещей, не примерка · нажмите на вещь</p>`;}
 async function suggest() {
   if (!requireAuth()) return false;
   const button = $('#build-button'); button.disabled = true; button.textContent = 'Собираем сочетания…';
   try {
     const result = await api('outfits', {method:'POST',body:JSON.stringify({anchor:state.anchor,budget:Number($('#budget').value),occasion:$('#occasion').value,exclude:state.exclude})});
     state.suggestions = result.outfits;
-    $('#outfits').innerHTML = result.outfits.length ? result.outfits.map((o,i)=>`<article class="outfit-card"><p class="eyebrow">ВАРИАНТ 0${i+1}</p><h2>${esc($('#occasion').selectedOptions[0].textContent)}</h2>${o.items.map(p=>itemRow(p)).join('')}<div class="outfit-total"><span>Новые вещи</span><span>${money(o.total)}</span></div><button class="primary" data-save-outfit="${i}">Сохранить образ</button></article>`).join('') : `<p class="empty">${esc(result.message)}${state.exclude.length ? '<br><button class="text-button" id="reset-replacements">Вернуть исключённые вещи</button>' : ''}</p>`;
+    for(const outfit of result.outfits)for(const p of outfit.items){if(!product(p.id)){state.privateProducts=state.privateProducts||[];state.privateProducts.push(p);}}
+    $('#outfits').innerHTML = result.outfits.length ? result.outfits.map((o,i)=>`<article class="outfit-card"><p class="eyebrow">СОЧЕТАНИЕ 0${i+1}</p><h2>${esc($('#occasion').selectedOptions[0].textContent)}</h2>${outfitCollage(o.items)}${Array.isArray(o.notes)?`<p class="fineprint">${o.notes.map(esc).join(' · ')}</p>`:''}${o.items.map(p=>itemRow(p)).join('')}<div class="outfit-total"><span>Новые вещи</span><span>${money(o.total)}</span></div><button class="primary" data-save-outfit="${i}">Сохранить образ</button></article>`).join('') : `<p class="empty">${esc(result.message)}${state.exclude.length ? '<br><button class="text-button" id="reset-replacements">Вернуть исключённые вещи</button>' : ''}</p>`;
+    if(result.outfits.length)$('#outfits').insertAdjacentHTML('beforeend',`<p class="fineprint outfit-disclaimer">${esc(result.disclaimer||'Подбор по описаниям вещей, не консультация стилиста. Оттенки, посадку и размеры проверьте на WB.')}</p>`);
     return true;
   } finally {button.disabled=false; button.textContent='Подобрать образы ↗';}
 }
@@ -109,7 +126,9 @@ document.addEventListener('click', async event => {
     if (b.classList.contains('close')) { b.closest('dialog').close(); return; }
     if (b.dataset.tab) { showTab(b.dataset.tab); return; }
     if (b.dataset.category) { state.category=b.dataset.category; state.visibleCount=48; renderCatalog(); return; }
-    if (b.id === 'load-more') { state.visibleCount+=48; renderCatalog(); return; }
+    if (b.id === 'load-more') {automaticPages=0;appendFeed();return;}
+    if (b.dataset.openDiscovery) {openDiscovery();return;}
+    if (b.dataset.budgetPreset!==undefined) {$('#discovery-price').value=Number(b.dataset.budgetPreset)||'';return;}
     if (b.dataset.folder) { state.folder=b.dataset.folder; renderSaved(); return; }
     if (b.dataset.detail) { openDetail(Number(b.dataset.detail)); return; }
     if (b.dataset.build) { startBuild(Number(b.dataset.build)); return; }
@@ -140,6 +159,11 @@ $('.brand').onclick = event => {event.preventDefault();showTab('finds');};
 $('#profile-button').onclick = () => showTab('profile');
 $('#how-button').onclick = () => $('#info-dialog').showModal();
 $('#admin-button').onclick = () => showTab('admin');
+$('#edit-discovery').onclick=openDiscovery;
+$('#discovery-dialog').addEventListener('close',()=>{if(!discoverySeen)rememberDiscovery();});
+$('#skip-discovery').onclick=()=>{discovery={...discoveryDefaults};rememberDiscovery();$('#discovery-dialog').close();state.category='all';renderCatalog();};
+$('#discovery-form').onsubmit=event=>{event.preventDefault();const form=event.currentTarget;discovery={audience:form.elements.audience.value,interest:form.elements.interest.value,maxPrice:Number($('#discovery-price').value)||0};rememberDiscovery();$('#discovery-dialog').close();state.category='all';renderCatalog();};
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&state.tab==='finds'&&feedOffset<feed.length&&automaticPages<4){automaticPages++;appendFeed();}},{rootMargin:'450px'});observer.observe($('#feed-end'));}
 $('#build-form').onsubmit = async event => {event.preventDefault();try{await suggest();}catch(e){toast(e.message);}};
 $('#preferences-form').onsubmit = async event => {
   event.preventDefault(); if(!requireAuth()) return;
@@ -166,7 +190,7 @@ async function init() {
           openDetail(id);
         }
       } else toast('Товар ещё не появился в каталоге. Зайдите немного позже.');
-    }
+    } else if(!discoverySeen) openDiscovery();
   } catch(e) {$('#products').innerHTML='<p class="empty">Не удалось загрузить находки. Проверьте соединение и откройте приложение заново.</p>';toast(e.message);}
 }
 init();

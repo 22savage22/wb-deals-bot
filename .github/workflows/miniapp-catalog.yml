@@ -12,7 +12,7 @@ jobs:
   catalog:
     if: vars.MINIAPP_API_URL != ''
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,6 +20,14 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python -m miniapp.scan
+        timeout-minutes: 22
+        env:
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+      - name: Repair photos in older catalog items
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        run: python -m miniapp.backfill
         env:
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}

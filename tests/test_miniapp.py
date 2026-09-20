@@ -30,7 +30,7 @@ def auth(uid=101, when=None):
 
 def products():
     titles = ["Платье женское", "Кроссовки женские", "Балетки женские", "Туфли женские", "Сумка женская", "Серьги женские", "Футболка женская", "Джинсы женские", "Кроссовки мужские"]
-    return [normalize({"id": i+1, "title": title, "price": 500+i*100, "rating": 4.8, "checked_at": int(time.time())}) for i,title in enumerate(titles)]
+    return [normalize({"id": i+1, "title": title, "price": 500+i*100, "rating": 4.8, "checked_at": int(time.time()), "image": "https://basket-01.wbbasket.ru/image.webp"}) for i,title in enumerate(titles)]
 
 
 class MiniAppTests(unittest.TestCase):
@@ -90,6 +90,19 @@ class MiniAppTests(unittest.TestCase):
         self.assertTrue(all(2 not in [p['id'] for p in o['items']] for o in replaced))
         self.assertEqual(build(self.items[:1],1,4000),[])
         with self.assertRaises(ValueError): build(self.items,1,4000,now=time.time()+49*3600)
+
+    def test_text_compatibility_and_photo_gate(self):
+        def item(pid, title, **extra):
+            return normalize(dict(self.items[0], id=pid, title=title, **extra))
+        dress = item(1, 'Платье вечернее женское красное')
+        for shoes in ('Кроссовки женские', 'Туфли женские зеленые'):
+            self.assertEqual(build([dress, item(2, shoes)], 1, 4000, 'evening'), [])
+        result = build([dress, item(2, 'Туфли женские белые')], 1, 4000, 'evening')
+        self.assertEqual(len(result), 1)
+        self.assertIn('не виртуальная примерка', result[0]['disclaimer'])
+        self.assertEqual(build([dress, item(2, 'Туфли женские', image='')], 1, 4000), [])
+        for title in ('Платье детское', 'Топ нижнее белье', 'Подушка кольцо'):
+            self.assertEqual(item(1, title)['slot'], 'other')
 
     def test_server_owned_prices_and_admin_permissions(self):
         response=self.client.post('/api/outfits',json={"anchor":1,"budget":4000,"owned":[1],"price":0},headers=auth())

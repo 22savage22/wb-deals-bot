@@ -3,6 +3,26 @@ export const SLOTS = {dress:'Платье',top:'Верх',bottom:'Низ',shoes:
 export const OCCASIONS = {everyday:'На каждый день',office:'В офис',evening:'На вечер'};
 const MARKERS = {belt:['ремень','ремни','пояс'],dress:['плать','сарафан'],outer:['куртк','пальто','пуховик','тренч','плащ'],bottom:['юбк','джинс','брюк','шорт','леггин'],shoes:['кроссов','кед','туфл','ботин','сапог','лофер','босонож','балетк'],bag:['сумк','рюкзак','клатч'],jewelry:['серьг','украшен','кольц','брасл','ожерел','кулон','колье','чокер','цепоч','брошь','подвеск'],hat:['кепк','шапк','шляп','панам','бейсбол'],top:['футбол','блуз','рубаш','топ','свитер','кардиган','джемпер','худи','кофт','жакет','свитшот']};
 export const integer = x => Number.isSafeInteger(x) && x > 0;
+// Conservative text signals, not image recognition or a promise of fit.
+const UNSUITABLE = /детск|девоч|мальчик|малыш|кукл|игруш|постель|подуш|штор|ковр|коврик|чехол|для мебели|для дома|домашн|пижам|ночнуш|бель[её]|бюстгальтер|трус|купаль|плавк|карнавал|косплей|костюмирован|униформ|спецодеж|медицин/;
+export function style(p) {
+  const text=(p.title+' '+(p.category||'')).toLowerCase();
+  const colors=[['neutral',/черн|чёрн|бел[аыо]|беж|сер[аыо]|молоч|кремов|коричнев|темно-син|тёмно-син/],['red',/красн|бордов/],['pink',/розов/],['blue',/голуб|син[ияе]/],['green',/зел[её]н|изумруд/],['yellow',/ж[её]лт|оранж/],['purple',/фиолет|сирен/]];
+  return {eligible:!UNSUITABLE.test(text),sport:/спортив|бегов|фитнес|трениров|леггин|худи|свитшот/.test(text),sneakers:/кроссов|кеды/.test(text),formal:/вечерн|коктейл|торжеств|атлас|пайет|смокинг/.test(text),summer:/летн|босонож|сандал|шорт|сарафан/.test(text),winter:/зимн|утеплен|утеплён|пухов|мехов/.test(text),color:colors.filter(([,re])=>re.test(text)).map(([c])=>c).filter(c=>c!=='neutral')};
+}
+function compatible(items,p,signals,occasion) {
+  const b=signals.get(p.id);
+  if((occasion==='office'||occasion==='evening')&&b.sport) return false;
+  if(occasion==='evening'&&b.sneakers) return false;
+  const accents=new Set(b.color);
+  for(const a of items) {
+    const s=signals.get(a.id);
+    if(a.audience!=='unknown'&&p.audience!=='unknown'&&a.audience!==p.audience) return false;
+    if((s.formal&&(b.sport||b.sneakers))||((s.sport||s.sneakers)&&b.formal)||(s.winter&&b.summer)||(s.summer&&b.winter)) return false;
+    for(const c of s.color) accents.add(c);
+  }
+  return accents.size<=1;
+}
 export function safeImage(value) {
   if (typeof value !== 'string' || value.length > 1000) return '';
   try {const u=new URL(value);return u.protocol==='https:' && /^basket-\d{2,3}\.wbbasket\.ru$/.test(u.hostname) && !u.username && !u.password && !u.port ? u.href : '';} catch {return '';}
@@ -15,17 +35,22 @@ export function normalize(raw) {
   const detect=text=>Object.entries(MARKERS).find(([,markers])=>markers.some(m=>text.toLowerCase().includes(m)))?.[0];
   const text=(title+' '+category).toLowerCase(), rating=Number(raw.rating || 0), checked=Number(raw.checked_at || raw.ts || raw.queued_ts || 0);
   if (!Number.isSafeInteger(checked) || checked<0) throw new Error('Некорректная дата проверки');
-  return {id,title,price:Math.round(price*100)/100,category,image:safeImage(raw.image),slot:detect(category)||detect(title)||'other',audience:text.includes('мужск')&&!text.includes('женск')?'men':text.includes('женск')?'women':'unknown',rating:Number.isFinite(rating)?Math.min(5,Math.max(0,rating)):0,checked_at:checked,url:`https://www.wildberries.ru/catalog/${id}/detail.aspx`};
+  return {id,title,price:Math.round(price*100)/100,category,image:safeImage(raw.image),slot:UNSUITABLE.test(text)?'other':detect(category)||detect(title)||'other',audience:text.includes('мужск')&&!text.includes('женск')?'men':text.includes('женск')?'women':'unknown',rating:Number.isFinite(rating)?Math.min(5,Math.max(0,rating)):0,checked_at:checked,url:`https://www.wildberries.ru/catalog/${id}/detail.aspx`};
 }
 export function build(products,anchorId,budget,occasion='everyday',ownedIds=[],excludedIds=[],now=Date.now()/1000) {
   if (!Object.hasOwn(OCCASIONS,occasion)) throw new Error('Неизвестный повод');
   const owned=new Set(ownedIds), excluded=new Set(excludedIds);
-  const fresh=products.filter(p=>p.enabled!==false&&!excluded.has(p.id)&&now-p.checked_at>=0&&now-p.checked_at<=172800);
+  const signals=new Map();
+  const fresh=products.filter(p=>{
+    if(p.enabled===false||excluded.has(p.id)||now-p.checked_at<0||now-p.checked_at>172800||!safeImage(p.image)) return false;
+    const s=style(p);signals.set(p.id,s);return s.eligible;
+  });
   const anchor=fresh.find(p=>p.id===anchorId);
-  if(!anchor) throw new Error('Цена этой вещи устарела или товар недоступен для подбора');
+  if(!anchor) throw new Error('Для подбора нужна вещь с фото и ценой, проверенной за последние 48 часов');
   if(anchor.slot==='other') throw new Error('Выберите одежду, обувь или аксессуар для образа');
   const cost=p=>owned.has(p.id)?0:Math.round(p.price*100), ceiling=budget*100;
   if(cost(anchor)>ceiling) return [];
+  if(!compatible([],anchor,signals,occasion)) return [];
   const words={office:['рубаш','блуз','лофер','жакет','брюк'],evening:['плать','серьг','клатч','туфл'],everyday:['джинс','футбол','кроссов','кед']}[occasion];
   const scores=new Map(fresh.map(p=>[p.id,p.rating+2*words.filter(w=>p.title.toLowerCase().includes(w)).length]));
   const score=p=>scores.get(p.id), bySlot=Object.fromEntries(Object.keys(SLOTS).map(s=>[s,[]]));
@@ -37,13 +62,13 @@ export function build(products,anchorId,budget,occasion='everyday',ownedIds=[],e
     let beam=[{items:[anchor],total:cost(anchor),score:score(anchor)}];
     for(const slot of pattern.filter(s=>s!==anchor.slot)) {
       const next=[];
-      for(const b of beam) for(const p of bySlot[slot]) if(b.total+cost(p)<=ceiling) next.push({items:[...b.items,p],total:b.total+cost(p),score:b.score+score(p)});
+      for(const b of beam) for(const p of bySlot[slot]) if(b.total+cost(p)<=ceiling&&compatible(b.items,p,signals,occasion)) next.push({items:[...b.items,p],total:b.total+cost(p),score:b.score+score(p)});
       beam=next.sort((a,b)=>b.score-a.score||a.total-b.total).slice(0,32);
     }
     for(let b of beam) {
       for(const slot of ['bag','jewelry']) {
         if(b.items.some(p=>p.slot===slot)) continue;
-        const extra=bySlot[slot].find(p=>b.total+cost(p)<=ceiling);
+        const extra=bySlot[slot].find(p=>b.total+cost(p)<=ceiling&&compatible(b.items,p,signals,occasion));
         if(extra) b={items:[...b.items,extra],total:b.total+cost(extra),score:b.score+score(extra)};
       }
       candidates.push(b);
@@ -54,7 +79,7 @@ export function build(products,anchorId,budget,occasion='everyday',ownedIds=[],e
   for(const b of candidates) {
     const signature=b.items.filter(p=>['dress','top','bottom','shoes'].includes(p.slot)).map(p=>p.id).sort((a,b)=>a-b).join(',');
     if(signatures.has(signature)) continue;
-    signatures.add(signature);result.push({items:b.items,total:b.total/100,occasion,owned:b.items.filter(p=>owned.has(p.id)).map(p=>p.id)});
+    signatures.add(signature);result.push({items:b.items,total:b.total/100,occasion,owned:b.items.filter(p=>owned.has(p.id)).map(p=>p.id),notes:['Полный комплект в пределах бюджета; цены проверены за последние 48 часов.','Явные конфликты стиля, сезона и цветов отсеяны по описаниям.'],disclaimer:'Коллаж реальных товаров, не виртуальная примерка. Оттенки, посадку и размеры проверьте в карточках.'});
     if(result.length===3) break;
   }
   return result;

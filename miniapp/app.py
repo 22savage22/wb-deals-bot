@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import sqlite3
 import time
+from contextlib import closing
 from urllib.parse import parse_qsl
 
 from flask import Flask, abort, g, jsonify, request, send_from_directory
@@ -50,7 +51,7 @@ def create_app(test_config=None):
     if test_config:
         app.config.update(test_config)
     Path(app.config["DATABASE"]).parent.mkdir(parents=True, exist_ok=True)
-    with sqlite3.connect(app.config["DATABASE"]) as db:
+    with closing(sqlite3.connect(app.config["DATABASE"])) as db, db:
         db.executescript("""
             PRAGMA journal_mode=WAL;
             CREATE TABLE IF NOT EXISTS products (

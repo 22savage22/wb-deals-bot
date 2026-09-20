@@ -9636,10 +9636,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 44,
+   "ok": 30,
+   "rate_limited": 2,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -9728,7 +9728,7 @@
   "today": "2026-09-20",
   "today_posts": 32,
   "total_posts": 1467,
-  "last_scan": 1789934628,
+  "last_scan": 1789937286,
   "last_scan_queries": [
    "худи мужское",
    "платье женское",
@@ -9736,22 +9736,21 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Радиоуправляемые",
-   "Подметальные машины"
+   "Колготки и носки",
+   "Аксессуары для водителя"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 357,
-   "bad_price": 22,
-   "ok": 21,
+   "found": 301,
+   "cards": 301,
+   "max_price": 277,
+   "bad_price": 23,
+   "ok": 1,
    "strict": 0,
-   "fallback": 21,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 5
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -285695,7 +285694,7 @@
   "1000883698": {
    "price": 396,
    "basic": 1299,
-   "ts": 1789937277.0679917,
+   "ts": 1789937329.7193763,
    "samples": [
     [
      1789925709,
@@ -286526,9 +286525,9 @@
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
-   "ts": 1789937277.0735085,
-   "runs": 61,
-   "empty": 1
+   "ts": 1789937329.7204585,
+   "runs": 62,
+   "empty": 2
   },
   "Археология": {
    "shard": "books_archeology",
@@ -286694,9 +286693,9 @@
   },
   "Колготки и носки": {
    "shard": "school1",
-   "ts": 1789937277.0735085,
-   "runs": 36,
-   "empty": 1
+   "ts": 1789937329.7204585,
+   "runs": 37,
+   "empty": 2
   },
   "Познавательная литература": {
    "shard": "books_children5",

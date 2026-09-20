@@ -9608,10 +9608,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 43,
-   "ok": 13,
-   "rate_limited": 22,
-   "http_error": 8,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -115865,10 +115865,6 @@
    "basic": 1999,
    "ts": 1789053494.6868181,
    "samples": [
-    [
-     1788729158,
-     687
-    ],
     [
      1789038977,
      594

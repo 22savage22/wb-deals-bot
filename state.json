@@ -2103,6 +2103,18 @@
  },
  "recent": [
   {
+   "pid": 366249016,
+   "title": "Футболка хлопковая свободная",
+   "discount": 0,
+   "price": 448,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/366249016/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789884621,
+   "drop": 0
+  },
+  {
    "pid": 592747711,
    "title": "Футболка женская с отворотом",
    "discount": 0,
@@ -9891,18 +9903,6 @@
    "cat": "кепка женская",
    "ts": 1788675822,
    "drop": 0
-  },
-  {
-   "pid": 366249016,
-   "title": "Футболка хлопковая свободная",
-   "discount": 0,
-   "price": 448,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/366249016/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789884621,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9942,10 +9942,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 142,
-   "ok": 99,
-   "rate_limited": 9,
-   "http_error": 34,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -10072,7 +10072,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {

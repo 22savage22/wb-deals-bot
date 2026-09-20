@@ -2121,6 +2121,19 @@
  },
  "recent": [
   {
+   "pid": 1199515698,
+   "image": "https://basket-44.wbbasket.ru/vol11995/part1199515/1199515698/images/big/1.webp",
+   "title": "Футболка оверсайз летняя",
+   "discount": 0,
+   "price": 442,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1199515698/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789912705,
+   "drop": 0
+  },
+  {
    "pid": 711909612,
    "image": "https://basket-34.wbbasket.ru/vol7119/part711909/711909612/images/big/1.webp",
    "title": "Мужская футболка из хлопка с принтом",
@@ -9797,19 +9810,6 @@
    "cat": "постельное белье",
    "ts": 1788703940,
    "drop": 1
-  },
-  {
-   "pid": 1199515698,
-   "image": "https://basket-44.wbbasket.ru/vol11995/part1199515/1199515698/images/big/1.webp",
-   "title": "Футболка оверсайз летняя",
-   "discount": 0,
-   "price": 442,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1199515698/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789912705,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9848,10 +9848,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 148,
-   "ok": 104,
-   "rate_limited": 6,
-   "http_error": 38,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9977,7 +9977,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789905058.0,
   "last_engagement_ts": 1789899333.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {
@@ -117885,10 +117885,6 @@
    "ts": 1789062793.9762623,
    "samples": [
     [
-     1788702974,
-     999
-    ],
-    [
      1788705475,
      999
     ],
@@ -118473,10 +118469,6 @@
    "basic": 8000,
    "ts": 1789062793.9759557,
    "samples": [
-    [
-     1788702974,
-     1803
-    ],
     [
      1788705475,
      1803

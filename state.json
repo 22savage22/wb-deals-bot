@@ -9709,9 +9709,9 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 146,
-   "ok": 106,
-   "rate_limited": 5,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
    "http_error": 35,
    "network_error": 0,
    "json_error": 0

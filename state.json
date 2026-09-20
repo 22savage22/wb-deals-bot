@@ -9551,7 +9551,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789939817,
+  "last_run": 1789940376,
   "last_posts": 0,
   "last_queries": [
    "худи мужское",
@@ -9565,31 +9565,25 @@
   "empty_notice_ts": 1789903294.0,
   "cats_ts": 1789903150.3514364,
   "last_cats": [
-   "Образование",
-   "Аксессуары для водителя",
-   "Колготки и носки"
+   "Образование"
   ],
   "digest_date": "2026-09-20",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 401,
-   "cards": 401,
-   "max_price": 368,
-   "bad_price": 21,
-   "ok": 12,
+   "found": 1,
+   "cards": 1,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 12,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 6,
-   "title_duplicate": 4,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 22,
+   "ok": 2,
+   "rate_limited": 19,
+   "http_error": 1,
    "network_error": 0,
    "json_error": 0
   },
@@ -70027,6 +70021,10 @@
    "basic": 4200,
    "ts": 1789134796.6933448,
    "samples": [
+    [
+     1788730906,
+     1916
+    ],
     [
      1788733004,
      1916
@@ -285692,9 +285690,9 @@
   },
   "Образование": {
    "shard": "books12",
-   "ts": 1789940314.2548246,
-   "runs": 39,
-   "empty": 4
+   "ts": 1789940763.6810195,
+   "runs": 40,
+   "empty": 5
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",

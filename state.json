@@ -9955,10 +9955,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 29,
-   "rate_limited": 1,
-   "http_error": 7,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -10084,7 +10084,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789881314.0,
   "last_engagement_ts": 1789883699.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789883700.0
  },
  "admin_ui": {
@@ -64738,12 +64738,7 @@
    "price": 3060,
    "basic": 5000,
    "ts": 1788675798.3749154,
-   "samples": [
-    [
-     1788674236,
-     3060
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -70590,12 +70585,7 @@
    "price": 2800,
    "basic": 5699,
    "ts": 1788675798.3761804,
-   "samples": [
-    [
-     1788674236,
-     2800
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -83181,12 +83171,7 @@
    "price": 3986,
    "basic": 14159,
    "ts": 1788675798.3747976,
-   "samples": [
-    [
-     1788674236,
-     3986
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -83659,12 +83644,7 @@
    "price": 2664,
    "basic": 8300,
    "ts": 1788675798.3757215,
-   "samples": [
-    [
-     1788674236,
-     2871
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -85491,12 +85471,7 @@
    "price": 3427,
    "basic": 7000,
    "ts": 1788675798.374633,
-   "samples": [
-    [
-     1788674236,
-     3427
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -93801,12 +93776,7 @@
    "price": 3131,
    "basic": 10200,
    "ts": 1788675798.374596,
-   "samples": [
-    [
-     1788674236,
-     3131
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -93814,12 +93784,7 @@
    "price": 1742,
    "basic": 6625,
    "ts": 1788675798.3750262,
-   "samples": [
-    [
-     1788674236,
-     1742
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -107871,12 +107836,7 @@
    "price": 5418,
    "basic": 10000,
    "ts": 1788675798.374984,
-   "samples": [
-    [
-     1788674236,
-     5418
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -107921,12 +107881,7 @@
    "price": 3251,
    "basic": 10802,
    "ts": 1788675798.375012,
-   "samples": [
-    [
-     1788674236,
-     3251
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108008,12 +107963,7 @@
    "price": 1978,
    "basic": 5620,
    "ts": 1788675798.3751354,
-   "samples": [
-    [
-     1788674236,
-     1978
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108095,12 +108045,7 @@
    "price": 4200,
    "basic": 7150,
    "ts": 1788675798.3752677,
-   "samples": [
-    [
-     1788674236,
-     4200
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108219,12 +108164,7 @@
    "price": 2345,
    "basic": 4644,
    "ts": 1788675798.3753605,
-   "samples": [
-    [
-     1788674236,
-     2345
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108232,12 +108172,7 @@
    "price": 2027,
    "basic": 5760,
    "ts": 1788675798.3754075,
-   "samples": [
-    [
-     1788674236,
-     2027
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108245,12 +108180,7 @@
    "price": 2473,
    "basic": 7148,
    "ts": 1788675798.3754213,
-   "samples": [
-    [
-     1788674236,
-     2473
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108258,12 +108188,7 @@
    "price": 3672,
    "basic": 6000,
    "ts": 1788675798.375479,
-   "samples": [
-    [
-     1788674236,
-     3672
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108271,12 +108196,7 @@
    "price": 4070,
    "basic": 7390,
    "ts": 1788675798.3755567,
-   "samples": [
-    [
-     1788674236,
-     4070
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108358,12 +108278,7 @@
    "price": 2361,
    "basic": 6095,
    "ts": 1788675798.375819,
-   "samples": [
-    [
-     1788674236,
-     2361
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108371,12 +108286,7 @@
    "price": 4665,
    "basic": 15499,
    "ts": 1788675798.3759124,
-   "samples": [
-    [
-     1788674236,
-     4665
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -108384,12 +108294,7 @@
    "price": 3495,
    "basic": 8300,
    "ts": 1788675798.3759913,
-   "samples": [
-    [
-     1788674236,
-     3495
-    ]
-   ],
+   "samples": [],
    "posted_price": 0,
    "posted_ts": 0.0
   },
@@ -324077,7 +323982,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "85957193": {
    "price": 393,
@@ -324090,7 +323995,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1199515698": {
    "price": 442,
@@ -324103,7 +324008,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "407040984": {
    "price": 495,
@@ -324116,7 +324021,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1068157593": {
    "price": 271,
@@ -324129,7 +324034,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -9576,7 +9576,7 @@
   }
  ],
  "meta": {
-  "last_run": 1789937886,
+  "last_run": 1789938757,
   "last_posts": 0,
   "last_queries": [
    "худи мужское",
@@ -9597,25 +9597,21 @@
   "digest_date": "2026-09-20",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1199,
-   "cards": 1199,
-   "max_price": 1062,
-   "bad_price": 78,
-   "ok": 58,
-   "rating": 1,
+   "found": 101,
+   "cards": 101,
+   "max_price": 92,
+   "bad_price": 9,
    "strict": 0,
-   "fallback": 58,
+   "fallback": 0,
    "reserve": 0,
-   "repost": 18,
-   "title_duplicate": 21,
    "selected": 0,
    "published": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 43,
+   "ok": 13,
+   "rate_limited": 22,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -115869,6 +115865,10 @@
    "basic": 1999,
    "ts": 1789053494.6868181,
    "samples": [
+    [
+     1788729158,
+     687
+    ],
     [
      1789038977,
      594
@@ -285765,9 +285765,9 @@
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
-   "ts": 1789938148.6403282,
-   "runs": 63,
-   "empty": 3
+   "ts": 1789939209.0008714,
+   "runs": 64,
+   "empty": 4
   },
   "Археология": {
    "shard": "books_archeology",
@@ -285933,9 +285933,9 @@
   },
   "Колготки и носки": {
    "shard": "school1",
-   "ts": 1789938148.6403282,
-   "runs": 38,
-   "empty": 3
+   "ts": 1789939209.0008714,
+   "runs": 39,
+   "empty": 4
   },
   "Познавательная литература": {
    "shard": "books_children5",
@@ -285945,9 +285945,9 @@
   },
   "Образование": {
    "shard": "books12",
-   "ts": 1789938148.6403282,
-   "runs": 37,
-   "empty": 2
+   "ts": 1789939209.0008714,
+   "runs": 38,
+   "empty": 3
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",

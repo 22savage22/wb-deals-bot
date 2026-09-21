@@ -9106,7 +9106,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790025043,
+  "last_run": 1790025152,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9130,10 +9130,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -226676,9 +226676,9 @@
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1790025083.6635711,
-   "runs": 89,
-   "empty": 4
+   "ts": 1790025193.6374955,
+   "runs": 90,
+   "empty": 5
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -227102,9 +227102,9 @@
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",
-   "ts": 1790025083.6635711,
-   "runs": 39,
-   "empty": 4
+   "ts": 1790025193.6374955,
+   "runs": 40,
+   "empty": 5
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",

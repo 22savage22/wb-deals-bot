@@ -2154,6 +2154,20 @@
  },
  "recent": [
   {
+   "pid": 343267321,
+   "image": "https://basket-20.wbbasket.ru/vol3432/part343267/343267321/images/big/1.webp",
+   "title": "Футболка однотонная хлопок на лето",
+   "discount": 0,
+   "price": 470,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/343267321/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1789971738,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 318390083,
    "image": "https://basket-19.wbbasket.ru/vol3183/part318390/318390083/images/big/1.webp",
    "title": "Футболка свободная однотонная базовая из хлопка",
@@ -9460,20 +9474,6 @@
    "ts": 1788762471,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 343267321,
-   "image": "https://basket-20.wbbasket.ru/vol3432/part343267/343267321/images/big/1.webp",
-   "title": "Футболка однотонная хлопок на лето",
-   "discount": 0,
-   "price": 470,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/343267321/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789971738,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9500,10 +9500,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 30,
-   "rate_limited": 2,
-   "http_error": 8,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9603,7 +9603,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

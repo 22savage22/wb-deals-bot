@@ -9531,10 +9531,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 15,
-   "rate_limited": 8,
-   "http_error": 5,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

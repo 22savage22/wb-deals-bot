@@ -2169,6 +2169,20 @@
  },
  "recent": [
   {
+   "pid": 1012686741,
+   "image": "https://basket-41.wbbasket.ru/vol10126/part1012686/1012686741/images/big/1.webp",
+   "title": "Колье галстук длинное на шею с подвеской бижутерия",
+   "discount": 0,
+   "price": 391,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1012686741/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790008276,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1008338861,
    "image": "https://basket-41.wbbasket.ru/vol10083/part1008338/1008338861/images/big/1.webp",
    "title": "Футболка женская базовая оранжевая прямая хлопок",
@@ -9225,20 +9239,6 @@
    "cat": "постельное белье",
    "ts": 1788798804,
    "drop": 1
-  },
-  {
-   "pid": 1012686741,
-   "image": "https://basket-41.wbbasket.ru/vol10126/part1012686/1012686741/images/big/1.webp",
-   "title": "Колье галстук длинное на шею с подвеской бижутерия",
-   "discount": 0,
-   "price": 391,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1012686741/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790008276,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9265,10 +9265,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 49,
-   "ok": 34,
-   "rate_limited": 3,
-   "http_error": 12,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9368,7 +9368,7 @@
    "Винные столики",
    "Средства от тараканов"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 400,
@@ -9392,10 +9392,10 @@
    "refresh_reserve": 0,
    "queue_after": 2
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789998115.0,
   "last_engagement_ts": 1789999738.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {

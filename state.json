@@ -9104,10 +9104,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9196,7 +9196,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790029296,
+  "last_scan": 1790031308,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9204,7 +9204,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Тросики"
+   "Ремни и пояса"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -224373,9 +224373,9 @@
   },
   "Ремни и пояса": {
    "shard": "clothes_accessories3",
-   "ts": 1789854383.1232948,
-   "runs": 20,
-   "empty": 5
+   "ts": 1790031309.7853305,
+   "runs": 21,
+   "empty": 1
   },
   "Уход за вещами": {
    "shard": "appliances20",

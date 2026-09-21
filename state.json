@@ -9069,7 +9069,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790033278,
+  "last_run": 1790033919,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9083,7 +9083,7 @@
   "empty_notice_ts": 1789991105.0,
   "cats_ts": 1789989573.6319373,
   "last_cats": [
-   "Ремни и пояса"
+   "Сортеры, шнуровки"
   ],
   "digest_date": "2026-09-21",
   "week_digest_ts": 1788107929.0,
@@ -9092,10 +9092,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -223096,9 +223096,9 @@
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
-   "ts": 1790033320.6035116,
-   "runs": 36,
-   "empty": 1
+   "ts": 1790033951.4296353,
+   "runs": 37,
+   "empty": 2
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",

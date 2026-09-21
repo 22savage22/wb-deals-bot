@@ -9220,15 +9220,15 @@
   }
  ],
  "meta": {
-  "last_run": 1790015315,
-  "last_posts": 1,
+  "last_run": 1790016095,
+  "last_posts": 0,
   "last_queries": [
-   "украшения женские",
    "платье женское",
    "футболка мужская",
    "футболка женская",
    "джинсы женские",
-   "сумка женская"
+   "сумка женская",
+   "худи мужское"
   ],
   "learn_ts": 1789975090.8570898,
   "empty_notice_ts": 1789991105.0,
@@ -9240,26 +9240,14 @@
   "digest_date": "2026-09-21",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 1185,
-   "cards": 1185,
-   "max_price": 1023,
-   "ok": 82,
-   "rating": 3,
-   "bad_price": 77,
-   "strict": 0,
-   "fallback": 82,
-   "reserve": 0,
-   "repost": 26,
-   "electronics": 1,
-   "title_duplicate": 20,
-   "selected": 1,
-   "published": 1
+   "found": 0,
+   "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 12,
+   "ok": 0,
+   "rate_limited": 5,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -235701,15 +235689,15 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1790015488.6191156,
-   "runs": 87,
-   "empty": 2
+   "ts": 1790016218.9456131,
+   "runs": 88,
+   "empty": 3
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1790015488.6191156,
-   "runs": 87,
-   "empty": 2
+   "ts": 1790016218.9456131,
+   "runs": 88,
+   "empty": 3
   },
   "Мыши": {
    "shard": "electronic45",

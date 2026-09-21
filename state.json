@@ -9290,10 +9290,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 136,
-   "ok": 102,
-   "rate_limited": 2,
-   "http_error": 32,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9416,10 +9416,10 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1789998115.0,
   "last_engagement_ts": 1789977191.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {
@@ -79186,10 +79186,6 @@
    "ts": 1789124527.2801344,
    "samples": [
     [
-     1788789153,
-     636
-    ],
-    [
      1788791056,
      645
     ],
@@ -99208,10 +99204,6 @@
    "ts": 1789131661.5041056,
    "samples": [
     [
-     1788789153,
-     970
-    ],
-    [
      1789109788,
      986
     ],
@@ -99286,10 +99278,6 @@
    "basic": 7000,
    "ts": 1789009296.8325763,
    "samples": [
-    [
-     1788789153,
-     3093
-    ],
     [
      1788979768,
      2848
@@ -104718,10 +104706,6 @@
    "basic": 2909,
    "ts": 1789125706.940753,
    "samples": [
-    [
-     1788789153,
-     712
-    ],
     [
      1788791056,
      712
@@ -248109,7 +248093,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

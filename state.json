@@ -9119,7 +9119,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790023747,
+  "last_run": 1790024400,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9143,10 +9143,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -226690,7 +226690,7 @@
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1790024239.3102927,
+   "ts": 1790024434.8215551,
    "runs": 88,
    "empty": 3
   },
@@ -227116,7 +227116,7 @@
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",
-   "ts": 1790024239.3102927,
+   "ts": 1790024434.8215551,
    "runs": 38,
    "empty": 3
   },

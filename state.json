@@ -9081,7 +9081,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790033184,
+  "last_run": 1790033278,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9104,10 +9104,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -223720,9 +223720,9 @@
   },
   "Ремни и пояса": {
    "shard": "clothes_accessories3",
-   "ts": 1790033214.7387147,
-   "runs": 24,
-   "empty": 4
+   "ts": 1790033312.700853,
+   "runs": 25,
+   "empty": 5
   },
   "Уход за вещами": {
    "shard": "appliances20",

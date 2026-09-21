@@ -9234,10 +9234,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 152,
-   "ok": 110,
-   "rate_limited": 1,
-   "http_error": 41,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

@@ -9257,10 +9257,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 1,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -9349,7 +9349,7 @@
   "today": "2026-09-21",
   "today_posts": 28,
   "total_posts": 1495,
-  "last_scan": 1790009658,
+  "last_scan": 1790009868,
   "last_scan_queries": [
    "украшения женские",
    "платье женское",
@@ -9357,23 +9357,17 @@
    "футболка женская"
   ],
   "last_scan_cats": [
-   "Винные столики",
-   "Средства от тараканов"
+   "Средства от тараканов",
+   "Винные столики"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 355,
-   "ok": 39,
-   "rating": 2,
-   "bad_price": 4,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 39,
-   "reserve": 0,
-   "duplicate": 19,
-   "title_duplicate": 9
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -241482,9 +241476,9 @@
   },
   "Винные столики": {
    "shard": "furniture3",
-   "ts": 1790009689.2631311,
-   "runs": 27,
-   "empty": 2
+   "ts": 1790009878.447629,
+   "runs": 28,
+   "empty": 3
   },
   "Мойки для кухни": {
    "shard": "repair35",
@@ -241578,9 +241572,9 @@
   },
   "Средства от тараканов": {
    "shard": "garden30",
-   "ts": 1790009689.2631311,
-   "runs": 12,
-   "empty": 2
+   "ts": 1790009878.447629,
+   "runs": 13,
+   "empty": 3
   },
   "Сделано в Ленинградской области": {
    "shard": "promo/bucket_28",

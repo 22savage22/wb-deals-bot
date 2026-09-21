@@ -9222,10 +9222,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 153,
-   "ok": 109,
-   "rate_limited": 5,
-   "http_error": 39,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

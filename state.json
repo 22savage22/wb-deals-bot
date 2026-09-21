@@ -2161,6 +2161,19 @@
  },
  "recent": [
   {
+   "pid": 440568280,
+   "image": "https://basket-25.wbbasket.ru/vol4405/part440568/440568280/images/big/1.webp",
+   "title": "Футболка Микки",
+   "discount": 0,
+   "price": 472,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/440568280/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789985152,
+   "drop": 0
+  },
+  {
    "pid": 1129529518,
    "image": "https://basket-43.wbbasket.ru/vol11295/part1129529/1129529518/images/big/1.webp",
    "title": "Дыхание, влага, потоотделение, сухая мужская футболка",
@@ -9462,19 +9475,6 @@
    "cat": "джинсы женские",
    "ts": 1788776233,
    "drop": 0
-  },
-  {
-   "pid": 440568280,
-   "image": "https://basket-25.wbbasket.ru/vol4405/part440568/440568280/images/big/1.webp",
-   "title": "Футболка Микки",
-   "discount": 0,
-   "price": 472,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/440568280/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789985152,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9513,10 +9513,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 146,
-   "ok": 104,
-   "rate_limited": 4,
-   "http_error": 38,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9643,7 +9643,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789976210.0,
   "last_engagement_ts": 1789977191.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {

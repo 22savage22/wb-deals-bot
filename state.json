@@ -2160,6 +2160,19 @@
  },
  "recent": [
   {
+   "pid": 1129529518,
+   "image": "https://basket-43.wbbasket.ru/vol11295/part1129529/1129529518/images/big/1.webp",
+   "title": "Дыхание, влага, потоотделение, сухая мужская футболка",
+   "discount": 0,
+   "price": 493,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1129529518/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789984349,
+   "drop": 0
+  },
+  {
    "pid": 523190391,
    "image": "https://basket-28.wbbasket.ru/vol5231/part523190/523190391/images/big/1.webp",
    "title": "Футболка индиго 100% хлопок, Узбекистан",
@@ -9460,19 +9473,6 @@
    "cat": "платье женское",
    "ts": 1788775329,
    "drop": 1
-  },
-  {
-   "pid": 1129529518,
-   "image": "https://basket-43.wbbasket.ru/vol11295/part1129529/1129529518/images/big/1.webp",
-   "title": "Дыхание, влага, потоотделение, сухая мужская футболка",
-   "discount": 0,
-   "price": 493,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1129529518/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789984349,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9511,10 +9511,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 134,
-   "ok": 96,
-   "rate_limited": 8,
-   "http_error": 30,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9641,7 +9641,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789976210.0,
   "last_engagement_ts": 1789977191.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {

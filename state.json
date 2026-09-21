@@ -9518,10 +9518,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 46,
-   "ok": 32,
-   "rate_limited": 5,
-   "http_error": 9,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

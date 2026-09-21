@@ -1,1 +1,50 @@
-[]
+[
+ {
+  "id": 1012686741,
+  "title": "Колье галстук длинное на шею с подвеской бижутерия",
+  "brand": "AOLA",
+  "product": 391,
+  "basic": 391,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 54,
+  "category": "украшения женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "украшения женские",
+  "queued_ts": 1790007638
+ },
+ {
+  "id": 1307601931,
+  "title": "Браслет на ногу бижутерия",
+  "brand": "GLEMME",
+  "product": 356,
+  "basic": 356,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 2,
+  "category": "украшения женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "украшения женские",
+  "queued_ts": 1790007638
+ },
+ {
+  "id": 962448373,
+  "title": "Чокер ожерелье на шею украшение из морских ракушек и бисера",
+  "brand": "Moreonika Jewelry",
+  "product": 387,
+  "basic": 387,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.5,
+  "feedbacks": 11,
+  "category": "украшения женские",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "украшения женские",
+  "queued_ts": 1790007638
+ }
+]

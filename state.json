@@ -9243,10 +9243,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -9335,7 +9335,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790016990,
+  "last_scan": 1790019047,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9343,22 +9343,17 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Корм и лакомства",
-   "Средства для мытья посуды и продуктов"
+   "Тормозные барабаны",
+   "Конструкторы LEGO"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 339,
-   "bad_price": 32,
-   "ok": 29,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 29,
-   "reserve": 0,
-   "duplicate": 11,
-   "title_duplicate": 9
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -233792,9 +233787,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1789838141.9610064,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790019050.354343,
+   "runs": 76,
+   "empty": 1
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -234194,9 +234189,9 @@
   },
   "Конструкторы LEGO": {
    "shard": "toys9",
-   "ts": 1789838141.9610064,
-   "runs": 30,
-   "empty": 5
+   "ts": 1790019050.354343,
+   "runs": 31,
+   "empty": 1
   },
   "Система выпуска": {
    "shard": "autoproduct22",

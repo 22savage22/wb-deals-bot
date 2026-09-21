@@ -9256,10 +9256,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 39,
+   "ok": 27,
+   "rate_limited": 3,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -9348,30 +9348,30 @@
   "today": "2026-09-21",
   "today_posts": 22,
   "total_posts": 1489,
-  "last_scan": 1790002479,
+  "last_scan": 1790004934,
   "last_scan_queries": [
    "платье женское",
    "футболка женская",
-   "джинсы женские",
-   "футболка мужская"
+   "футболка мужская",
+   "джинсы женские"
   ],
   "last_scan_cats": [
-   "Игрушки",
-   "Витамин D"
+   "Домашние животные и ветеринария",
+   "Сделано в Ленинградской области"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 400,
-   "cards": 400,
-   "max_price": 345,
-   "bad_price": 18,
-   "ok": 37,
+   "found": 301,
+   "cards": 301,
+   "max_price": 278,
+   "bad_price": 19,
+   "ok": 4,
    "strict": 0,
-   "fallback": 37,
+   "fallback": 4,
    "reserve": 0,
-   "duplicate": 16,
-   "title_duplicate": 11
+   "duplicate": 3,
+   "title_duplicate": 1
   },
   "last_queue": {
    "queue_before": 1,
@@ -9382,10 +9382,10 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1789998115.0,
   "last_engagement_ts": 1789999738.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {
@@ -16490,7 +16490,7 @@
   "529390517": {
    "price": 493,
    "basic": 1188,
-   "ts": 1790004818.4006555,
+   "ts": 1790004996.4228437,
    "samples": [
     [
      1789990363,
@@ -234550,7 +234550,7 @@
   "538317183": {
    "price": 443,
    "basic": 3980,
-   "ts": 1790004818.4005013,
+   "ts": 1790004996.4227111,
    "samples": [
     [
      1789989641,
@@ -240827,7 +240827,7 @@
   "1000883698": {
    "price": 396,
    "basic": 1299,
-   "ts": 1790004818.3970401,
+   "ts": 1790004996.4222286,
    "samples": [
     [
      1789990363,
@@ -241236,7 +241236,7 @@
   "523190391": {
    "price": 432,
    "basic": 795,
-   "ts": 1790004818.4003031,
+   "ts": 1790004996.422553,
    "samples": [
     [
      1789989641,
@@ -243930,9 +243930,9 @@
   },
   "Домашние животные и ветеринария": {
    "shard": "books9",
-   "ts": 1790004850.0916257,
-   "runs": 52,
-   "empty": 2
+   "ts": 1790004996.423684,
+   "runs": 53,
+   "empty": 3
   },
   "Растяжители и колодки для обуви": {
    "shard": "shoes-accessories4",
@@ -244182,9 +244182,9 @@
   },
   "Сделано в Ленинградской области": {
    "shard": "promo/bucket_28",
-   "ts": 1790004850.0916257,
-   "runs": 12,
-   "empty": 2
+   "ts": 1790004996.423684,
+   "runs": 13,
+   "empty": 3
   },
   "Уход за телом": {
    "shard": "beauty24",

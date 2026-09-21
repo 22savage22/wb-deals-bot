@@ -9525,10 +9525,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 56,
-   "ok": 28,
-   "rate_limited": 19,
-   "http_error": 9,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

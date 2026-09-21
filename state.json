@@ -9553,10 +9553,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 17,
-   "ok": 0,
-   "rate_limited": 16,
-   "http_error": 1,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

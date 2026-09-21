@@ -9494,10 +9494,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 89,
-   "ok": 51,
-   "rate_limited": 21,
-   "http_error": 17,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

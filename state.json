@@ -9208,7 +9208,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790016825,
+  "last_run": 1790016933,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9232,10 +9232,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 9,
+   "ok": 0,
+   "rate_limited": 1,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -234361,15 +234361,15 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1790016872.382991,
-   "runs": 89,
-   "empty": 4
+   "ts": 1790016982.018384,
+   "runs": 90,
+   "empty": 5
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1790016872.382991,
-   "runs": 89,
-   "empty": 4
+   "ts": 1790016982.018384,
+   "runs": 90,
+   "empty": 5
   },
   "Мыши": {
    "shard": "electronic45",

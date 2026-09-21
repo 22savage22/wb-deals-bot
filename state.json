@@ -9081,7 +9081,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790029896,
+  "last_run": 1790030535,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9104,10 +9104,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -223952,9 +223952,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1790029928.1298645,
-   "runs": 72,
-   "empty": 2
+   "ts": 1790030568.438368,
+   "runs": 73,
+   "empty": 3
   },
   "Пробники": {
    "shard": "beauty47",

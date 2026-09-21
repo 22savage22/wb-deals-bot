@@ -9501,10 +9501,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 131,
-   "ok": 98,
-   "rate_limited": 5,
-   "http_error": 28,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9604,7 +9604,7 @@
    "Обогреватели и вентиляторы",
    "Фигурки"
   ],
-  "queue_size": 0,
+  "queue_size": 1,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

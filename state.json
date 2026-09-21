@@ -2149,6 +2149,19 @@
  },
  "recent": [
   {
+   "pid": 295989610,
+   "image": "https://basket-18.wbbasket.ru/vol2959/part295989/295989610/images/big/1.webp",
+   "title": "Клипсы на уши женские без прокола",
+   "discount": 0,
+   "price": 466,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/295989610/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789964852,
+   "drop": 0
+  },
+  {
    "pid": 432401518,
    "image": "https://basket-24.wbbasket.ru/vol4324/part432401/432401518/images/big/1.webp",
    "title": "серьги кольца маленькие медицинский сплав женские",
@@ -9463,19 +9476,6 @@
    "ts": 1788755452,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 295989610,
-   "image": "https://basket-18.wbbasket.ru/vol2959/part295989/295989610/images/big/1.webp",
-   "title": "Клипсы на уши женские без прокола",
-   "discount": 0,
-   "price": 466,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/295989610/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789964852,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9517,10 +9517,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 118,
-   "ok": 85,
-   "rate_limited": 11,
-   "http_error": 22,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },

@@ -9502,10 +9502,10 @@
    "published": 0
   },
   "wb_http": {
-   "calls": 124,
-   "ok": 94,
-   "rate_limited": 3,
-   "http_error": 27,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -275081,7 +275081,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

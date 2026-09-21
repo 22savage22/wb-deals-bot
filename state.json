@@ -2158,6 +2158,19 @@
  },
  "recent": [
   {
+   "pid": 219336199,
+   "image": "https://basket-15.wbbasket.ru/vol2193/part219336/219336199/images/big/1.webp",
+   "title": "Футболка хлопок однотонная летняя",
+   "discount": 0,
+   "price": 239,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/219336199/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789978033,
+   "drop": 0
+  },
+  {
    "pid": 893026058,
    "image": "https://basket-39.wbbasket.ru/vol8930/part893026/893026058/images/big/1.webp",
    "title": "Футболка хлопковая с принтом скелета",
@@ -9444,19 +9457,6 @@
    "cat": "футболка мужская",
    "ts": 1788772540,
    "drop": 1
-  },
-  {
-   "pid": 219336199,
-   "image": "https://basket-15.wbbasket.ru/vol2193/part219336/219336199/images/big/1.webp",
-   "title": "Футболка хлопок однотонная летняя",
-   "discount": 0,
-   "price": 239,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/219336199/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789978033,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9494,10 +9494,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 145,
-   "ok": 104,
-   "rate_limited": 8,
-   "http_error": 33,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9624,7 +9624,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789976210.0,
   "last_engagement_ts": 1789977191.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {
@@ -61724,10 +61724,6 @@
    "ts": 1789124527.2799067,
    "samples": [
     [
-     1788768246,
-     1186
-    ],
-    [
      1788770800,
      1186
     ],
@@ -79834,10 +79830,6 @@
    "basic": 80100,
    "ts": 1789062793.976615,
    "samples": [
-    [
-     1788768246,
-     35373
-    ],
     [
      1788770800,
      35373

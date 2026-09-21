@@ -2164,6 +2164,19 @@
  },
  "recent": [
   {
+   "pid": 813566189,
+   "image": "https://basket-37.wbbasket.ru/vol8135/part813566/813566189/images/big/1.webp",
+   "title": "Кофта летняя штапель",
+   "discount": 0,
+   "price": 324,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/813566189/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790004848,
+   "drop": 0
+  },
+  {
    "pid": 846713183,
    "image": "https://basket-38.wbbasket.ru/vol8467/part846713/846713183/images/big/1.webp",
    "title": "Футболка женская оверсайз NEW YORK",
@@ -9205,19 +9218,6 @@
    "cat": "блузка женская",
    "ts": 1788796139,
    "drop": 0
-  },
-  {
-   "pid": 813566189,
-   "image": "https://basket-37.wbbasket.ru/vol8135/part813566/813566189/images/big/1.webp",
-   "title": "Кофта летняя штапель",
-   "discount": 0,
-   "price": 324,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/813566189/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790004848,
-   "drop": 0
   }
  ],
  "meta": {
@@ -14732,10 +14732,6 @@
    "basic": 2753,
    "ts": 1789069950.6025372,
    "samples": [
-    [
-     1788795101,
-     1114
-    ],
     [
      1789069950,
      1015
@@ -39379,10 +39375,6 @@
    "basic": 4167,
    "ts": 1789134796.696791,
    "samples": [
-    [
-     1788795101,
-     1054
-    ],
     [
      1789117440,
      813
@@ -82165,10 +82157,6 @@
    "basic": 3700,
    "ts": 1789057476.8518844,
    "samples": [
-    [
-     1788795101,
-     1201
-    ],
     [
      1788801778,
      1201
@@ -243495,7 +243483,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1125180705": {
    "price": 424,
@@ -243508,7 +243496,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1088062327": {
    "price": 404,
@@ -243521,7 +243509,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "813566189": {
    "price": 324,

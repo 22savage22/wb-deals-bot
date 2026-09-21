@@ -2147,6 +2147,19 @@
  },
  "recent": [
   {
+   "pid": 331565825,
+   "image": "https://basket-20.wbbasket.ru/vol3315/part331565/331565825/images/big/1.webp",
+   "title": "Серьги бижутерия висячие",
+   "discount": 0,
+   "price": 410,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/331565825/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1789962969,
+   "drop": 0
+  },
+  {
    "pid": 498765386,
    "image": "https://basket-27.wbbasket.ru/vol4987/part498765/498765386/images/big/1.webp",
    "title": "Простынь на резинке 90x200 см натяжная полисатин",
@@ -9460,19 +9473,6 @@
    "ts": 1788753750,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 331565825,
-   "image": "https://basket-20.wbbasket.ru/vol3315/part331565/331565825/images/big/1.webp",
-   "title": "Серьги бижутерия висячие",
-   "discount": 0,
-   "price": 410,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/331565825/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1789962969,
-   "drop": 0
   }
  ],
  "meta": {
@@ -276090,7 +276090,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "432401518": {
    "price": 410,
@@ -276103,7 +276103,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "397654995": {
    "price": 500,
@@ -276116,7 +276116,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "353797097": {
    "price": 395,
@@ -276129,7 +276129,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

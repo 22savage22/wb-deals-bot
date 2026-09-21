@@ -2155,6 +2155,19 @@
  },
  "recent": [
   {
+   "pid": 465638488,
+   "image": "https://basket-26.wbbasket.ru/vol4656/part465638/465638488/images/big/1.webp",
+   "title": "Платье летнее мини",
+   "discount": 0,
+   "price": 396,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/465638488/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1789973420,
+   "drop": 0
+  },
+  {
    "pid": 343267321,
    "image": "https://basket-20.wbbasket.ru/vol3432/part343267/343267321/images/big/1.webp",
    "title": "Футболка однотонная хлопок на лето",
@@ -9449,19 +9462,6 @@
    "query": "блузка женская",
    "cat": "блузка женская",
    "ts": 1788764491,
-   "drop": 0
-  },
-  {
-   "pid": 465638488,
-   "image": "https://basket-26.wbbasket.ru/vol4656/part465638/465638488/images/big/1.webp",
-   "title": "Платье летнее мини",
-   "discount": 0,
-   "price": 396,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/465638488/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789973420,
    "drop": 0
   }
  ],
@@ -270342,7 +270342,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "465638488": {
    "price": 396,

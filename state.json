@@ -9093,7 +9093,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790026448,
+  "last_run": 1790027095,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9117,10 +9117,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -225839,9 +225839,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1790026486.82982,
-   "runs": 98,
-   "empty": 3
+   "ts": 1790027136.2136452,
+   "runs": 99,
+   "empty": 4
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -226289,9 +226289,9 @@
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",
-   "ts": 1790026486.82982,
-   "runs": 38,
-   "empty": 3
+   "ts": 1790027136.2136452,
+   "runs": 39,
+   "empty": 4
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",

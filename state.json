@@ -9104,10 +9104,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9196,7 +9196,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790031308,
+  "last_scan": 1790033319,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9204,7 +9204,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Ремни и пояса"
+   "Сортеры, шнуровки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -223624,9 +223624,9 @@
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
-   "ts": 1789854820.1293647,
-   "runs": 35,
-   "empty": 5
+   "ts": 1790033320.6035116,
+   "runs": 36,
+   "empty": 1
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",

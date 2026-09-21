@@ -2159,6 +2159,19 @@
  },
  "recent": [
   {
+   "pid": 523190391,
+   "image": "https://basket-28.wbbasket.ru/vol5231/part523190/523190391/images/big/1.webp",
+   "title": "Футболка индиго 100% хлопок, Узбекистан",
+   "discount": 0,
+   "price": 432,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/523190391/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1789978972,
+   "drop": 0
+  },
+  {
    "pid": 219336199,
    "image": "https://basket-15.wbbasket.ru/vol2193/part219336/219336199/images/big/1.webp",
    "title": "Футболка хлопок однотонная летняя",
@@ -9458,19 +9471,6 @@
    "cat": "футболка мужская",
    "ts": 1788772540,
    "drop": 1
-  },
-  {
-   "pid": 523190391,
-   "image": "https://basket-28.wbbasket.ru/vol5231/part523190/523190391/images/big/1.webp",
-   "title": "Футболка индиго 100% хлопок, Узбекистан",
-   "discount": 0,
-   "price": 432,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/523190391/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789978972,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9510,10 +9510,10 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 149,
-   "ok": 103,
-   "rate_limited": 13,
-   "http_error": 33,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9640,7 +9640,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1789976210.0,
   "last_engagement_ts": 1789977191.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1789971045.0
  },
  "admin_ui": {

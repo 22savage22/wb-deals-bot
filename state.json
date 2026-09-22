@@ -9092,10 +9092,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9184,7 +9184,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790033319,
+  "last_scan": 1790035245,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -223095,7 +223095,7 @@
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
-   "ts": 1790035228.802169,
+   "ts": 1790035248.364854,
    "runs": 39,
    "empty": 4
   },

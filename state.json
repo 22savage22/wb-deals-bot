@@ -8854,7 +8854,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790065695,
+  "last_run": 1790066339,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -8878,10 +8878,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -217150,15 +217150,15 @@
   },
   "Творчество": {
    "shard": "school7",
-   "ts": 1790065731.3546162,
-   "runs": 7,
-   "empty": 2
+   "ts": 1790066374.3534694,
+   "runs": 8,
+   "empty": 3
   },
   "Уход за одеждой": {
    "shard": "housecraft9",
-   "ts": 1790065731.3546162,
-   "runs": 7,
-   "empty": 2
+   "ts": 1790066374.3534694,
+   "runs": 8,
+   "empty": 3
   },
   "Камни для бани": {
    "shard": "garden20",

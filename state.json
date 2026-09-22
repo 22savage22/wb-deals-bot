@@ -9033,7 +9033,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790042564,
+  "last_run": 1790043204,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9047,7 +9047,7 @@
   "empty_notice_ts": 1790034592.0,
   "cats_ts": 1789989573.6319373,
   "last_cats": [
-   "Эмали автомобильные"
+   "Пули для пневматики"
   ],
   "digest_date": "2026-09-22",
   "week_digest_ts": 1788107929.0,
@@ -9056,10 +9056,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -219720,9 +219720,9 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1790042605.992054,
-   "runs": 66,
-   "empty": 1
+   "ts": 1790043238.793653,
+   "runs": 67,
+   "empty": 2
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",

@@ -1,6 +1,8 @@
 import json
 import os
 
+from filelock import safe_save_json
+
 
 def _int(name, default):
     raw = os.getenv(name)
@@ -105,7 +107,7 @@ DEFAULT_QUERIES = [
 
 QUERIES = [q.strip() for q in os.getenv("WB_QUERIES", "").split(";") if q.strip()]
 
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
 
 
 def load_settings(path=SETTINGS_FILE):
@@ -120,8 +122,7 @@ def load_settings(path=SETTINGS_FILE):
 
 
 def save_settings(data, path=SETTINGS_FILE):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    safe_save_json(path, data, indent=2)
 
 
 def apply(settings):

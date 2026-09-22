@@ -3,6 +3,8 @@ __pycache__/
 *.log
 *.zip
 *.json.tmp
+*.lock
+tmp*.tmp
 graphify-out/
 .graphify-venv/
 .env*

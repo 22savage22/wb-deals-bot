@@ -341,10 +341,15 @@ def deal_from_search(item, min_discount=None, min_rating=None, min_feedbacks=0):
 
 def _http_ok(url):
     try:
-        with SESSION.get(url, timeout=8, stream=True) as resp:
+        with SESSION.get(url, timeout=3, stream=True) as resp:
             return resp.status_code == 200
     except requests.RequestException:
         return False
+
+
+# Known upper bound: all observed WB basket shards are <= 45.
+# 50 gives a safety margin while cutting worst-case probe time.
+_BASKET_HOST_LIMIT = 50
 
 
 def _basket_host(nm):
@@ -353,7 +358,7 @@ def _basket_host(nm):
     cached = _HOSTS.get(vol)
     if cached:
         return cached
-    for i in range(1, 61):
+    for i in range(1, _BASKET_HOST_LIMIT + 1):
         host = f"{i:02d}"
         probe = f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/info/ru/card.json"
         if _http_ok(probe):

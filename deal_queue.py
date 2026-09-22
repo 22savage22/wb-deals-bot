@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 
+from filelock import safe_save_json
 import state
 
 
@@ -58,6 +59,5 @@ def load(path):
 
 def save(path, queue, posted=None):
     clean = merge(queue, [], posted)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(clean, f, ensure_ascii=False, indent=1)
+    safe_save_json(path, clean)
     return clean

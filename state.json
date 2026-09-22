@@ -9057,10 +9057,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -9149,7 +9149,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790050736,
+  "last_scan": 1790051723,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9157,7 +9157,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Мешки для обуви"
+   "Группа 1-2 (9-25 кг)",
+   "Хобби и досуг"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -219875,9 +219876,9 @@
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",
-   "ts": 1789886262.797059,
-   "runs": 55,
-   "empty": 5
+   "ts": 1790051725.8003252,
+   "runs": 56,
+   "empty": 1
   },
   "Спецодежда медицинская": {
    "shard": "repair26",
@@ -219935,9 +219936,9 @@
   },
   "Хобби и досуг": {
    "shard": "books9",
-   "ts": 1789886262.797059,
-   "runs": 45,
-   "empty": 5
+   "ts": 1790051725.8003252,
+   "runs": 46,
+   "empty": 1
   },
   "Рубашки": {
    "shard": "school1",

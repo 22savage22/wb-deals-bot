@@ -9069,7 +9069,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790034557,
+  "last_run": 1790035198,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9092,10 +9092,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -223095,9 +223095,9 @@
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
-   "ts": 1790034591.9684196,
-   "runs": 38,
-   "empty": 3
+   "ts": 1790035228.802169,
+   "runs": 39,
+   "empty": 4
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",

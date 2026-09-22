@@ -9056,10 +9056,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 4,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -9148,16 +9148,14 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790046661,
+  "last_scan": 1790048684,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
    "футболка женская",
    "джинсы женские"
   ],
-  "last_scan_cats": [
-   "Для чая"
-  ],
+  "last_scan_cats": [],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {

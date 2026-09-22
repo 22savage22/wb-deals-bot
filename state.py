@@ -642,5 +642,6 @@ def save(path, data):
     data["recent"] = sorted(
         data["recent"], key=lambda r: r["ts"], reverse=True
     )[:RECENT_MAX]
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=1)
+    # File lock prevents concurrent writers (scanner.py + bot.py in deals.yml).
+    from filelock import safe_save_json
+    safe_save_json(path, data)

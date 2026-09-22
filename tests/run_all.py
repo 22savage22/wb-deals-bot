@@ -28,6 +28,7 @@ def main():
     run("test_bot", lambda: __import__("test_bot").main())
     run("test_scanner", lambda: __import__("test_scanner").main())
     run("test_poller", lambda: __import__("test_poller").main())
+    run("test_concurrency", lambda: __import__("test_concurrency").main())
     print("ALL TESTS PASSED")
 
 

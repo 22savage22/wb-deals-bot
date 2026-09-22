@@ -267,19 +267,23 @@ def _touch(bucket, key):
 
 
 def record_post(data, query, cat):
-    for key in (query, cat):
-        if key is None:
-            continue
-        s = _touch(data["cat_stats"] if key == cat else data["query_stats"], key)
+    if query is not None:
+        s = _touch(data["query_stats"], query)
+        s["posts"] += 1
+        s["ts"] = time.time()
+    if cat is not None:
+        s = _touch(data["cat_stats"], cat)
         s["posts"] += 1
         s["ts"] = time.time()
 
 
 def record_feedback(data, query, cat, action):
-    for key in (query, cat):
-        if key is None:
-            continue
-        s = _touch(data["cat_stats"] if key == cat else data["query_stats"], key)
+    if query is not None:
+        s = _touch(data["query_stats"], query)
+        s[action] += 1
+        s["ts"] = time.time()
+    if cat is not None:
+        s = _touch(data["cat_stats"], cat)
         s[action] += 1
         s["ts"] = time.time()
 

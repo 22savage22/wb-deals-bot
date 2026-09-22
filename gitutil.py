@@ -3,6 +3,8 @@ import os
 import subprocess
 import time
 
+from filelock import safe_save_json
+
 
 def _run(*args, env=None):
     res = subprocess.run(args, capture_output=True, text=True, env=env)
@@ -40,8 +42,7 @@ def commit(path, merge_fn, msg):
             _run("git", "restore", "--", path)
             rebase = _run("git", "rebase", "origin/main")
             if rebase.returncode != 0:
-                with open(path, "w", encoding="utf-8") as f:
-                    json.dump(merged, f, ensure_ascii=False, indent=1)
+                safe_save_json(path, merged)
                 _run("git", "add", path)
                 rebase = _run(
                     "git",
@@ -54,8 +55,7 @@ def commit(path, merge_fn, msg):
                     print("rebase не удался, попытка", attempt + 1)
                     time.sleep(3 + attempt * 3)
                     continue
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(merged, f, ensure_ascii=False, indent=1)
+        safe_save_json(path, merged)
         _run("git", "add", path)
         changed = subprocess.run(
             ["git", "diff", "--cached", "--quiet"], capture_output=True

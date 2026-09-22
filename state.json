@@ -8323,10 +8323,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 6,
+   "calls": 12,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -8447,7 +8447,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790108010.0,
   "last_engagement_ts": 1790109415.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790101868.0
  },
  "admin_ui": {

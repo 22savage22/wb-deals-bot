@@ -9056,10 +9056,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 7,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -9179,7 +9179,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790042495.0,
   "last_engagement_ts": 1790043879.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790014517.0
  },
  "admin_ui": {

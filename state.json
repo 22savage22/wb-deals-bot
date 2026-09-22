@@ -8756,10 +8756,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8848,7 +8848,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790075306,
+  "last_scan": 1790077370,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -8856,8 +8856,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Принтеры",
-   "Уход за телом"
+   "Уход за телом",
+   "Зеркала детские"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -213441,9 +213441,9 @@
   },
   "Уход за телом": {
    "shard": "beauty24",
-   "ts": 1790077362.5547168,
-   "runs": 13,
-   "empty": 3
+   "ts": 1790077373.3461773,
+   "runs": 14,
+   "empty": 4
   },
   "Садовые инструменты": {
    "shard": "garden18",
@@ -213507,9 +213507,9 @@
   },
   "Зеркала детские": {
    "shard": "babies_room2",
-   "ts": 1790077362.5547168,
-   "runs": 2,
-   "empty": 2
+   "ts": 1790077373.3461773,
+   "runs": 3,
+   "empty": 3
   },
   "Литературоведение и публицистика": {
    "shard": "books_literary_criticism",

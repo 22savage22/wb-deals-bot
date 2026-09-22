@@ -8804,7 +8804,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790069792,
+  "last_run": 1790070434,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -8828,10 +8828,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -214931,9 +214931,9 @@
   },
   "Венки декоративные": {
    "shard": "creativity38",
-   "ts": 1790069828.2046645,
-   "runs": 62,
-   "empty": 2
+   "ts": 1790070468.7379751,
+   "runs": 63,
+   "empty": 3
   },
   "Банкетки": {
    "shard": "rooms8",
@@ -215231,9 +215231,9 @@
   },
   "Другие автоинструменты": {
    "shard": "autoproduct61",
-   "ts": 1790069828.2046645,
-   "runs": 17,
-   "empty": 2
+   "ts": 1790070468.7379751,
+   "runs": 18,
+   "empty": 3
   },
   "Расходные материалы для уборки": {
    "shard": "repair55",

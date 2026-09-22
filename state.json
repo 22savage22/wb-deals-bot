@@ -8816,10 +8816,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8908,7 +8908,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790071224,
+  "last_scan": 1790073271,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -8916,8 +8916,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Серия Reno",
-   "Кабели и зарядные устройства"
+   "Пылевыбивалки",
+   "Для нервной системы"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -214015,9 +214015,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1789913843.0184736,
-   "runs": 120,
-   "empty": 5
+   "ts": 1790073273.1059792,
+   "runs": 121,
+   "empty": 1
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -214669,9 +214669,9 @@
   },
   "Для нервной системы": {
    "shard": "shealth2",
-   "ts": 1789913843.0184736,
-   "runs": 10,
-   "empty": 5
+   "ts": 1790073273.1059792,
+   "runs": 11,
+   "empty": 1
   },
   "Транспорт": {
    "shard": "interior18",

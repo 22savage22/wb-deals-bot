@@ -9080,10 +9080,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 7,
+   "calls": 135,
+   "ok": 93,
+   "rate_limited": 7,
+   "http_error": 35,
    "network_error": 0,
    "json_error": 0
   },
@@ -51741,10 +51741,6 @@
    "basic": 2940,
    "ts": 1788846929.3282743,
    "samples": [
-    [
-     1788830878,
-     893
-    ],
     [
      1788846929,
      893

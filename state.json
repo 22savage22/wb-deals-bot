@@ -8880,7 +8880,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790064942,
+  "last_run": 1790065049,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -8904,10 +8904,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -217192,9 +217192,9 @@
   },
   "Банкетки": {
    "shard": "rooms8",
-   "ts": 1790064979.687951,
-   "runs": 64,
-   "empty": 4
+   "ts": 1790065087.615779,
+   "runs": 65,
+   "empty": 5
   },
   "Пуфы": {
    "shard": "rooms8",
@@ -217390,9 +217390,9 @@
   },
   "Аптечная косметика": {
    "shard": "beauty27",
-   "ts": 1790064979.687951,
-   "runs": 34,
-   "empty": 4
+   "ts": 1790065087.615779,
+   "runs": 35,
+   "empty": 5
   },
   "Для мам и малышей": {
    "shard": "beauty9",

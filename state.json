@@ -9058,10 +9058,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -9150,7 +9150,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790051723,
+  "last_scan": 1790052800,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -219877,9 +219877,9 @@
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",
-   "ts": 1790052784.2863665,
-   "runs": 58,
-   "empty": 3
+   "ts": 1790052803.4268653,
+   "runs": 59,
+   "empty": 4
   },
   "Спецодежда медицинская": {
    "shard": "repair26",
@@ -219937,9 +219937,9 @@
   },
   "Хобби и досуг": {
    "shard": "books9",
-   "ts": 1790052784.2863665,
-   "runs": 48,
-   "empty": 3
+   "ts": 1790052803.4268653,
+   "runs": 49,
+   "empty": 4
   },
   "Рубашки": {
    "shard": "school1",

@@ -8919,7 +8919,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790062904,
+  "last_run": 1790063006,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -8943,10 +8943,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 8,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -217257,9 +217257,9 @@
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1790062943.157333,
-   "runs": 64,
-   "empty": 4
+   "ts": 1790063047.7056868,
+   "runs": 65,
+   "empty": 5
   },
   "Трубопроводы": {
    "shard": "autoproduct48",
@@ -217293,9 +217293,9 @@
   },
   "Спецодежда медицинская": {
    "shard": "repair26",
-   "ts": 1790062943.157333,
-   "runs": 59,
-   "empty": 4
+   "ts": 1790063047.7056868,
+   "runs": 60,
+   "empty": 5
   },
   "Аксессуары и инвентарь": {
    "shard": "sport45",

@@ -8904,10 +8904,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8996,7 +8996,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790063053,
+  "last_scan": 1790065095,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9004,8 +9004,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Аптечная косметика",
-   "Банкетки"
+   "Творчество",
+   "Уход за одеждой"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -217546,15 +217546,15 @@
   },
   "Творчество": {
    "shard": "school7",
-   "ts": 1789905058.5144742,
-   "runs": 5,
-   "empty": 5
+   "ts": 1790065098.068094,
+   "runs": 6,
+   "empty": 1
   },
   "Уход за одеждой": {
    "shard": "housecraft9",
-   "ts": 1789905058.5144742,
-   "runs": 5,
-   "empty": 5
+   "ts": 1790065098.068094,
+   "runs": 6,
+   "empty": 1
   },
   "Камни для бани": {
    "shard": "garden20",

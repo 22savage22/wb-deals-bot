@@ -9056,10 +9056,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9148,7 +9148,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790040568,
+  "last_scan": 1790042604,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9156,7 +9156,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Эмали автомобильные"
+   "Пули для пневматики"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -219721,9 +219721,9 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1789864528.5111854,
-   "runs": 65,
-   "empty": 5
+   "ts": 1790042605.992054,
+   "runs": 66,
+   "empty": 1
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",

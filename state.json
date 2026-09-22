@@ -9069,7 +9069,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790039137,
+  "last_run": 1790039776,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9092,10 +9092,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -221559,9 +221559,9 @@
   },
   "Уход за вещами": {
    "shard": "appliances20",
-   "ts": 1790039169.946178,
-   "runs": 22,
-   "empty": 2
+   "ts": 1790039811.0818896,
+   "runs": 23,
+   "empty": 3
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",

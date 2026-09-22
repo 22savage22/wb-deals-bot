@@ -9033,7 +9033,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790053400,
+  "last_run": 1790054061,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9047,8 +9047,6 @@
   "empty_notice_ts": 1790034592.0,
   "cats_ts": 1789989573.6319373,
   "last_cats": [
-   "Хобби и досуг",
-   "Группа 1-2 (9-25 кг)",
    "Гроубоксы"
   ],
   "digest_date": "2026-09-22",
@@ -9058,10 +9056,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -219564,9 +219562,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1790053445.789373,
-   "runs": 89,
-   "empty": 4
+   "ts": 1790054097.9117348,
+   "runs": 90,
+   "empty": 5
   },
   "Манежи детские": {
    "shard": "babies_room1",

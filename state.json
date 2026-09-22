@@ -9092,10 +9092,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9184,7 +9184,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790035245,
+  "last_scan": 1790038537,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -9192,7 +9192,7 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Сортеры, шнуровки"
+   "Уход за вещами"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -221759,9 +221759,9 @@
   },
   "Уход за вещами": {
    "shard": "appliances20",
-   "ts": 1789858561.3825622,
-   "runs": 20,
-   "empty": 5
+   "ts": 1790038539.3061635,
+   "runs": 21,
+   "empty": 1
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",

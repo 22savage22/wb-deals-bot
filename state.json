@@ -9045,7 +9045,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790040525,
+  "last_run": 1790041168,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9059,7 +9059,7 @@
   "empty_notice_ts": 1790034592.0,
   "cats_ts": 1789989573.6319373,
   "last_cats": [
-   "Уход за вещами"
+   "Эмали автомобильные"
   ],
   "digest_date": "2026-09-22",
   "week_digest_ts": 1788107929.0,
@@ -9068,10 +9068,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 7,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -220492,9 +220492,9 @@
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",
-   "ts": 1790040571.0756884,
-   "runs": 21,
-   "empty": 1
+   "ts": 1790041203.528093,
+   "runs": 22,
+   "empty": 2
   },
   "Комплекты белья": {
    "shard": "women_underwear2",

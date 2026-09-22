@@ -8591,10 +8591,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8683,7 +8683,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790087636,
+  "last_scan": 1790087926,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -207050,9 +207050,9 @@
   },
   "Посуда": {
    "shard": "gift23",
-   "ts": 1790087638.688955,
-   "runs": 66,
-   "empty": 1
+   "ts": 1790087928.1503205,
+   "runs": 67,
+   "empty": 2
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
@@ -207176,9 +207176,9 @@
   },
   "Лототроны": {
    "shard": "rooms15",
-   "ts": 1790087638.688955,
-   "runs": 51,
-   "empty": 1
+   "ts": 1790087928.1503205,
+   "runs": 52,
+   "empty": 2
   },
   "Насосное оборудование": {
    "shard": "garden14",

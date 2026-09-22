@@ -1,5 +1,5 @@
 {
- "mtime": 1790092936,
+ "mtime": 1790093000,
  "cats_per_run": 10,
  "queries_per_run": 10,
  "max_posts": 1,
@@ -28,6 +28,5 @@
   "Худи",
   "Лонгслив"
  ],
- "min_discount": 30.0,
- "post_now_ts": 1790092936
+ "min_discount": 30.0
 }

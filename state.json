@@ -9058,10 +9058,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -9150,14 +9150,16 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790048684,
+  "last_scan": 1790050736,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
    "футболка женская",
    "джинсы женские"
   ],
-  "last_scan_cats": [],
+  "last_scan_cats": [
+   "Мешки для обуви"
+  ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
@@ -219868,9 +219870,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1790050730.4887009,
-   "runs": 59,
-   "empty": 4
+   "ts": 1790050738.4327455,
+   "runs": 60,
+   "empty": 5
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

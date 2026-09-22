@@ -9033,7 +9033,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790049284,
+  "last_run": 1790049930,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -9047,9 +9047,9 @@
   "empty_notice_ts": 1790034592.0,
   "cats_ts": 1789989573.6319373,
   "last_cats": [
-   "Смарт-часы и браслеты",
+   "Мешки для обуви",
    "Защитные стекла для телефонов Xiaomi",
-   "Мешки для обуви"
+   "Смарт-часы и браслеты"
   ],
   "digest_date": "2026-09-22",
   "week_digest_ts": 1788107929.0,
@@ -9058,10 +9058,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 135,
-   "ok": 93,
-   "rate_limited": 7,
-   "http_error": 35,
+   "calls": 9,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -9179,7 +9179,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790042495.0,
   "last_engagement_ts": 1790043879.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1790014517.0
  },
  "admin_ui": {
@@ -219575,9 +219575,9 @@
   },
   "Защитные стекла для телефонов Xiaomi": {
    "shard": "electronic85",
-   "ts": 1790049323.4687004,
-   "runs": 81,
-   "empty": 1
+   "ts": 1790049971.0308044,
+   "runs": 82,
+   "empty": 2
   },
   "Обогреватели и вентиляторы": {
    "shard": "appliances18",
@@ -219611,9 +219611,9 @@
   },
   "Смарт-часы и браслеты": {
    "shard": "electronic58",
-   "ts": 1790049323.4687004,
-   "runs": 76,
-   "empty": 1
+   "ts": 1790049971.0308044,
+   "runs": 77,
+   "empty": 2
   },
   "Восточные сладости": {
    "shard": "product1",
@@ -219869,9 +219869,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1790049323.4687004,
-   "runs": 56,
-   "empty": 1
+   "ts": 1790049971.0308044,
+   "runs": 57,
+   "empty": 2
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

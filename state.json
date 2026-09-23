@@ -8311,10 +8311,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8403,7 +8403,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790122524,
+  "last_scan": 1790124477,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -8411,8 +8411,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Подвески",
-   "Торговые принадлежности"
+   "Костюмы и комбинезоны",
+   "Зеркала"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -186048,9 +186048,9 @@
   },
   "Зеркала": {
    "shard": "bedroom6",
-   "ts": 1789987063.6168163,
-   "runs": 80,
-   "empty": 5
+   "ts": 1790124479.6069417,
+   "runs": 81,
+   "empty": 1
   },
   "Подвески": {
    "shard": "bijouterie4",
@@ -186090,9 +186090,9 @@
   },
   "Костюмы и комбинезоны": {
    "shard": "school3",
-   "ts": 1789984351.2872517,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790124479.6069417,
+   "runs": 76,
+   "empty": 1
   },
   "Коляски": {
    "shard": "children_things2",

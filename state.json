@@ -7879,10 +7879,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7971,7 +7971,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790160779,
+  "last_scan": 1790162484,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -168059,9 +168059,9 @@
   },
   "Мыши": {
    "shard": "electronic45",
-   "ts": 1790160782.0859258,
-   "runs": 91,
-   "empty": 1
+   "ts": 1790162486.8967602,
+   "runs": 92,
+   "empty": 2
   },
   "Гроубоксы": {
    "shard": "garden27",
@@ -168485,9 +168485,9 @@
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",
-   "ts": 1790160782.0859258,
-   "runs": 41,
-   "empty": 1
+   "ts": 1790162486.8967602,
+   "runs": 42,
+   "empty": 2
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",

@@ -7378,9 +7378,9 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 2,
-   "rate_limited": 9,
+   "calls": 12,
+   "ok": 0,
+   "rate_limited": 0,
    "http_error": 12,
    "network_error": 0,
    "json_error": 0
@@ -7504,7 +7504,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1790151608.0,
   "last_engagement_ts": 1790152896.0,
   "last_engagement_kind": "poll",
@@ -143969,7 +143969,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "429084383": {
    "price": 311,
@@ -143982,7 +143982,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "183642647": {
    "price": 484,
@@ -143995,7 +143995,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "256206203": {
    "price": 436,
@@ -144008,7 +144008,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "63566990": {
    "price": 317,
@@ -144021,7 +144021,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

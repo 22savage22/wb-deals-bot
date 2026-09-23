@@ -235,27 +235,77 @@ def _publish_queued(data, limit):
             funnel["repost"] = funnel.get("repost", 0) + 1
             continue
         fresh = refreshed.get(pid)
+        queued_manual = int(deal.get("manual") or 0)
         if fresh is None:
-            if pid not in cards_by_id:
+            if queued_manual and int(deal.get("product") or 0) > 0 and str(
+                deal.get("title") or ""
+            ).strip():
+                # Admin-confirmed manual entry: WAF/filters must not block it.
+                if pid in cards_by_id:
+                    try:
+                        cand = wb.raw_deal(cards_by_id[pid])
+                    except Exception:
+                        cand = None
+                    if cand and int(cand.get("product") or 0) > 0:
+                        fresh = dict(
+                            cand,
+                            manual=1,
+                            selection_mode=deal.get("selection_mode") or "manual",
+                            quality=deal.get("quality") or "M",
+                        )
+                        funnel["manual_raw_refresh"] = (
+                            funnel.get("manual_raw_refresh", 0) + 1
+                        )
+                if fresh is None:
+                    fresh = {
+                        "id": pid,
+                        "title": deal["title"],
+                        "brand": deal.get("brand") or "",
+                        "product": int(deal["product"]),
+                        "basic": int(deal.get("basic") or deal["product"]),
+                        "discount": int(deal.get("discount") or 0),
+                        "benefit": int(
+                            deal.get("benefit")
+                            or max(
+                                0,
+                                int(deal.get("basic") or deal["product"])
+                                - int(deal["product"]),
+                            )
+                        ),
+                        "rating": float(deal.get("rating") or 0),
+                        "feedbacks": int(deal.get("feedbacks") or 0),
+                        "category": deal.get("category") or "другое",
+                        "selection_mode": deal.get("selection_mode") or "manual",
+                        "quality": deal.get("quality") or "M",
+                        "manual": 1,
+                    }
+                    funnel["manual_no_refresh"] = funnel.get("manual_no_refresh", 0) + 1
+            elif pid not in cards_by_id:
                 deferred.append(deal)
                 funnel["refresh_missing"] = funnel.get("refresh_missing", 0) + 1
+                continue
             else:
                 funnel["refresh_rejected"] = funnel.get("refresh_rejected", 0) + 1
-            continue
+                continue
         queued_price = int(deal.get("product", 0) or 0)
         if queued_price and fresh["product"] > queued_price * 1.1:
             funnel["price_changed"] = funnel.get("price_changed", 0) + 1
             continue
         queued_ts = deal.get("queued_ts", 0)
         query = deal.get("query") or ""
-        deal = dict(fresh, query=query, queued_ts=queued_ts)
+        deal = dict(
+            fresh,
+            query=query,
+            queued_ts=queued_ts,
+            manual=queued_manual or int(fresh.get("manual") or 0),
+        )
         if deal.get("category") == "другое" and query:
             deal["category"] = query
         key = smart.norm_title(deal.get("title", ""))
         if key and titles.get(key) and now - titles[key] < repost_secs:
             funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
             continue
-        if _is_electronics(deal.get("title", "")):
+        if _is_electronics(deal.get("title", "")) and not deal.get("manual"):
             funnel["electronics"] = funnel.get("electronics", 0) + 1
             continue
         images = wb.photos(pid)

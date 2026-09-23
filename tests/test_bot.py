@@ -75,6 +75,41 @@ class FakeWB:
         return [FakeWB.items[pid] for pid in ids if pid in FakeWB.items]
 
     @staticmethod
+    def raw_deal(card):
+        sizes = card.get("sizes") or []
+        best = None
+        for size in sizes:
+            p = size.get("price") or {}
+            product = p.get("product") or 0
+            basic = p.get("basic") or 0
+            if not product or not basic:
+                continue
+            product_rub = product // 100
+            basic_rub = basic // 100
+            if basic_rub <= 0:
+                continue
+            if best is None or product_rub < best[0]:
+                best = (product_rub, basic_rub)
+        if best is None:
+            product = basic = discount = benefit = 0
+        else:
+            product, basic = best
+            discount = round(100 - product * 100 / basic) if basic else 0
+            benefit = basic - product
+        return {
+            "id": card.get("id"),
+            "title": card.get("name") or "",
+            "brand": card.get("brand") or "",
+            "product": product,
+            "basic": basic,
+            "discount": discount,
+            "benefit": benefit,
+            "rating": card.get("reviewRating") or 0,
+            "feedbacks": card.get("feedbacks") or 0,
+            "category": str(card.get("subjectName") or "другое").strip(),
+        }
+
+    @staticmethod
     def search_healthy():
         return True
 
@@ -554,6 +589,58 @@ def main():
     assert data["cats"]["КатСмартфоны"]["empty"] == 1
     FakeWB.search_subject_only = False
     print("11. category search + learning OK")
+
+    # --- 12. manual fallback: WAF (no cards) → publish from queued data ---
+    manual_data = empty_data()
+    manual_deal = {
+        "id": 777001, "title": "Ручной товар из очереди", "brand": "Бр",
+        "product": 990, "basic": 1980, "discount": 50, "benefit": 990,
+        "rating": 4.5, "feedbacks": 12, "category": "Кухня",
+        "selection_mode": "manual", "quality": "M", "query": "",
+        "queued_ts": int(time.time()), "manual": 1,
+    }
+    manual_data["queue"] = [manual_deal]
+    FakeWB.items = {}  # cards() → [] (WAF)
+    FakeWB.photo_map = {}
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(manual_data, 1)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert manual_data["posted"].get(777001)
+    assert deals[0]["product"] == 990
+    assert deals[0].get("manual") == 1
+    assert funnel.get("manual_no_refresh") == 1, funnel
+    photos = [c for c in FakeTG.sent if c[0] == "photo"]
+    assert photos, FakeTG.sent
+
+    # non-manual with empty cards still deferred
+    nd = empty_data()
+    nd["queue"] = [dict(manual_deal, id=777002, manual=0)]
+    FakeWB.items = {}
+    FakeTG.sent = []
+    pub, _, f2 = bot._publish_queued(nd, 1)
+    assert pub == 0 and nd["queue"], (f2, nd["queue"])
+    print("12. manual WAF fallback OK")
+
+    # --- 12b. manual with live card but evaluate rejected → raw_deal refresh ---
+    md = empty_data()
+    md["queue"] = [dict(manual_deal, id=777003)]
+    FakeWB.items = {
+        777003: {
+            "id": 777003, "name": "Ручной live", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.5, "feedbacks": 12, "subjectName": "Кухня",
+        }
+    }
+    # evaluate rejects on rating (min_discount=0 in refresh path) but raw_deal works for manual
+    old_mr = config.MIN_RATING
+    config.MIN_RATING = 5.0
+    FakeTG.sent = []
+    pub, deals, f3 = bot._publish_queued(md, 1)
+    config.MIN_RATING = old_mr
+    assert pub == 1, (f3, FakeTG.sent)
+    assert deals[0]["product"] == 500
+    assert f3.get("manual_raw_refresh") == 1, f3
+    print("12b. manual raw refresh OK")
 
 
 if __name__ == "__main__":

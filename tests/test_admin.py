@@ -328,6 +328,131 @@ def main():
     assert [c for c in FakeTG.calls if c[0] == "edit"]
     print("18. queue quick publish OK")
 
+    # --- 19. parse price input ---
+    assert admin._parse_price_input("1990") == (1990, 1990)
+    assert admin._parse_price_input("1990/3990") == (1990, 3990)
+    assert admin._parse_price_input("1 990") == (1990, 1990)
+    assert admin._parse_price_input("3990/1990") is None
+    assert admin._parse_price_input("abc") is None
+    assert admin._parse_price_input("") is None
+    assert admin._parse_price_input("0") is None
+    assert admin._parse_price_input("100/0") is None
+    print("19. price input OK")
+
+    # --- 20. manual link → cards OK → preview with queue button ---
+    FakeTG.calls.clear()
+    d = make_data()
+    wbmod.cards = lambda ids: [card]
+    wbmod.photos = lambda nm, limit=3: [b"jpeg"]
+    admin.wb = wbmod
+    changed, d, s = run("manual", data=d)
+    assert d["admin_ui"]["pending"] == "manual_post"
+    ok = admin._admin_message(
+        "tok", 111, d, s, "https://www.wildberries.ru/catalog/777/detail.aspx"
+    )
+    assert ok is True, (ok, FakeTG.calls, d.get("admin_ui"))
+    draft = d["admin_ui"].get("manual_draft")
+    assert draft and draft["id"] == 777 and int(draft.get("product") or 0) > 0, draft
+    assert d["admin_ui"].get("pending") is None
+    previews = [c for c in FakeTG.calls if c[0] in ("photo", "album")]
+    assert previews, FakeTG.calls
+    assert "manual:queue:777" in _json.dumps(previews[0][2], ensure_ascii=False)
+    # queue via button
+    changed = admin._admin_callback("tok", d, {}, cb("manual:queue:777"))
+    assert changed and d["queue"] and d["queue"][0]["id"] == 777, (d["queue"], FakeTG.calls)
+    assert d["queue"][0].get("manual") == 1
+    assert "manual_draft" not in d["admin_ui"]
+    assert "manual_deal" not in d["admin_ui"]
+    print("20. manual cards->queue OK")
+
+    # --- 21. WAF: no cards → basket meta → price → queue ---
+    FakeTG.calls.clear()
+    d = make_data()
+    wbmod.cards = lambda ids: []
+    wbmod.basket_card = lambda nm: {
+        "id": nm, "title": "Кофеварка X", "brand": "Polaris",
+        "category": "Кухня", "rating": 4.6, "feedbacks": 42,
+    }
+    admin.wb = wbmod
+    run("manual", data=d)
+    admin._admin_message("tok", 111, d, {}, "555000")
+    assert d["admin_ui"]["pending"] == "manual_price", d["admin_ui"]
+    assert d["admin_ui"]["manual_draft"]["title"] == "Кофеварка X"
+    # bad price keeps pending
+    admin._admin_message("tok", 111, d, {}, "abc")
+    assert d["admin_ui"]["pending"] == "manual_price"
+    # good price → preview
+    FakeTG.calls.clear()
+    ok = admin._admin_message("tok", 111, d, {}, "1990/3990")
+    assert ok is True
+    assert d["admin_ui"].get("pending") is None
+    draft = d["admin_ui"]["manual_draft"]
+    assert draft["product"] == 1990 and draft["basic"] == 3990 and draft["discount"] == 50
+    assert int(d["admin_ui"]["manual_deal"]["product"]) == 1990
+    changed = admin._admin_callback("tok", d, {}, cb("manual:queue:555000"))
+    assert changed and d["queue"][0]["product"] == 1990, d["queue"]
+    assert d["queue"][0]["manual"] == 1
+    print("21. manual WAF->queue OK")
+
+    # --- 22. basket has no title → ask title first ---
+    FakeTG.calls.clear()
+    d = make_data()
+    wbmod.cards = lambda ids: []
+    wbmod.basket_card = lambda nm: None
+    run("manual", data=d)
+    admin._admin_message("tok", 111, d, {}, "123456")
+    assert d["admin_ui"]["pending"] == "manual_title", d["admin_ui"]
+    admin._admin_message("tok", 111, d, {}, "Супер чайник")
+    assert d["admin_ui"]["pending"] == "manual_price"
+    admin._admin_message("tok", 111, d, {}, "500")
+    assert d["admin_ui"].get("pending") is None
+    assert d["admin_ui"]["manual_draft"]["title"] == "Супер чайник"
+    print("22. manual title path OK")
+
+    # --- 23. cancel clears draft ---
+    d = make_data()
+    d["admin_ui"]["manual_draft"] = {"id": 1, "title": "X", "product": 100}
+    d["admin_ui"]["pending"] = "manual_price"
+    changed = admin._admin_callback("tok", d, {}, cb("cancel"))
+    assert changed
+    assert "manual_draft" not in d["admin_ui"] and d["admin_ui"].get("pending") is None
+    d = make_data()
+    d["admin_ui"]["manual_deal"] = {"id": 2, "title": "Y", "product": 100, "queued_ts": 1}
+    changed = admin._admin_callback("tok", d, {}, cb("manual:cancel"))
+    assert changed and "manual_deal" not in d["admin_ui"]
+    print("23. cancel clears draft OK")
+
+    # --- 24. do_publish fallback when cards fail (WAF) ---
+    d = make_data()
+    d["queue"] = []
+    wbmod.cards = lambda ids: []
+    wbmod.photos = lambda nm, limit=3: [b"j1", b"j2"]
+    admin.wb = wbmod
+    admin.config.TG_CHAT_ID = "CH"
+    FakeTG.calls.clear()
+    d["admin_ui"]["manual_draft"] = {
+        "id": 888, "title": "Ручной товар", "brand": "B", "category": "Кухня",
+        "rating": 4.5, "feedbacks": 9, "product": 500, "basic": 1000, "discount": 50,
+    }
+    changed = admin._do_publish("tok", d, 111, "c9", 888)
+    assert changed is True, (FakeTG.calls, d)
+    assert d["posted"].get(888)
+    assert "manual_draft" not in d["admin_ui"]
+    print("24. do_publish WAF fallback OK")
+
+    # --- 25. /post accepts a link ---
+    FakeTG.calls.clear()
+    d = make_data()
+    wbmod.cards = lambda ids: [card]
+    wbmod.photos = lambda nm, limit=3: [b"jpeg"]
+    admin.wb = wbmod
+    ok = admin._admin_message(
+        "tok", 111, d, {}, "/post https://www.wildberries.ru/catalog/777/detail.aspx"
+    )
+    assert ok is True
+    assert d["admin_ui"].get("manual_draft", {}).get("id") == 777
+    print("25. /post link OK")
+
 
 if __name__ == "__main__":
     main()

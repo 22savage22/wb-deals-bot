@@ -1,4 +1,5 @@
 import random
+import re
 import time
 from io import BytesIO
 
@@ -414,6 +415,75 @@ def photos(nm, limit=3):
 def photo_url(nm):
     """URL of an image already fetched successfully; never starts another request."""
     return _PHOTO_URLS.get(nm, "")
+
+
+def parse_nm(text):
+    """Extract WB article from a product link or bare digits. None if not found."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    m = re.search(r"/catalog/(\d{5,10})", t, re.I)
+    if m:
+        return int(m.group(1))
+    m = re.search(
+        r"(?:wildberries\.\w{2,3}|wb\.ru|w\.bz|wb\.gg)[^\s]*/(\d{5,10})",
+        t,
+        re.I,
+    )
+    if m:
+        return int(m.group(1))
+    if t.isdigit() and 5 <= len(t) <= 10:
+        return int(t)
+    return None
+
+
+def basket_card(nm):
+    """Basket metadata (no prices) when card.wb.ru is blocked by WAF."""
+    try:
+        nm = int(nm)
+    except (TypeError, ValueError):
+        return None
+    if nm <= 0:
+        return None
+    host = _basket_host(nm)
+    if not host:
+        return None
+    vol = nm // 100000
+    part = nm // 1000
+    url = (
+        f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/info/ru/card.json"
+    )
+    data = _get(url, tries=2)
+    if not isinstance(data, dict):
+        return None
+    title = data.get("imt_name") or data.get("name") or data.get("title") or ""
+    brand = data.get("selling") or data.get("brand") or data.get("brandName") or ""
+    category = (
+        data.get("subj_name")
+        or data.get("subject_name")
+        or data.get("subj")
+        or data.get("category")
+        or ""
+    )
+    title = str(title).strip()
+    if not title:
+        return None
+    try:
+        rating = float(data.get("reviewRating") or data.get("rating") or 0)
+    except (TypeError, ValueError):
+        rating = 0
+    try:
+        feedbacks = int(data.get("feedbacks") or data.get("nmFeedbacks") or 0)
+    except (TypeError, ValueError):
+        feedbacks = 0
+    return {
+        "id": nm,
+        "title": title[:300],
+        "brand": str(brand).strip()[:150],
+        "category": str(category).strip()[:200] or "другое",
+        "rating": rating,
+        "feedbacks": feedbacks,
+    }
 
 
 def photo(nm):

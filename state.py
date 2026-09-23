@@ -270,7 +270,83 @@ def _norm_admin_ui(raw):
     pending = raw.get("pending")
     if not isinstance(pending, str):
         pending = None
-    return {"pending": pending}
+    out = {"pending": pending}
+    draft = raw.get("manual_draft")
+    if isinstance(draft, dict):
+        try:
+            pid = int(draft.get("id"))
+        except (TypeError, ValueError):
+            pid = None
+        if pid and pid > 0:
+            try:
+                rating = float(draft.get("rating") or 0)
+            except (TypeError, ValueError):
+                rating = 0.0
+            try:
+                feedbacks = int(draft.get("feedbacks") or 0)
+            except (TypeError, ValueError):
+                feedbacks = 0
+            clean = {
+                "id": pid,
+                "title": str(draft.get("title") or "")[:300],
+                "brand": str(draft.get("brand") or "")[:150],
+                "category": str(draft.get("category") or "другое")[:200],
+                "rating": rating,
+                "feedbacks": feedbacks,
+                "url": str(draft.get("url") or "")[:500],
+            }
+            try:
+                product = int(draft.get("product") or 0)
+            except (TypeError, ValueError):
+                product = 0
+            if product > 0:
+                try:
+                    basic = int(draft.get("basic") or 0)
+                except (TypeError, ValueError):
+                    basic = 0
+                if basic < product:
+                    basic = product
+                try:
+                    discount = int(draft.get("discount") or 0)
+                except (TypeError, ValueError):
+                    discount = 0
+                clean["product"] = product
+                clean["basic"] = basic
+                clean["discount"] = discount
+            out["manual_draft"] = clean
+    deal = raw.get("manual_deal")
+    if isinstance(deal, dict):
+        try:
+            pid = int(deal.get("id"))
+            product = int(deal.get("product") or 0)
+            basic = int(deal.get("basic") or 0)
+            discount = int(deal.get("discount") or 0)
+            queued_ts = int(deal.get("queued_ts") or 0)
+            rating = float(deal.get("rating") or 0)
+            feedbacks = int(deal.get("feedbacks") or 0)
+        except (TypeError, ValueError):
+            pid = None
+        if pid and pid > 0 and product > 0 and queued_ts:
+            if basic < product:
+                basic = product
+            out["manual_deal"] = {
+                "id": pid,
+                "title": str(deal.get("title") or "")[:300],
+                "brand": str(deal.get("brand") or "")[:150],
+                "product": product,
+                "basic": basic,
+                "discount": discount,
+                "benefit": max(0, basic - product),
+                "rating": rating,
+                "feedbacks": feedbacks,
+                "category": str(deal.get("category") or "другое")[:200],
+                "selection_mode": str(deal.get("selection_mode") or "manual")[:30],
+                "quality": str(deal.get("quality") or "M")[:10],
+                "query": str(deal.get("query") or "")[:200],
+                "queued_ts": queued_ts,
+                "manual": 1,
+            }
+    return out
 
 
 def _norm_queue(raw):
@@ -309,6 +385,7 @@ def _norm_queue(raw):
             "quality": str(item.get("quality") or "A")[:10],
             "query": str(item.get("query") or "")[:200],
             "queued_ts": queued_ts,
+            "manual": 1 if item.get("manual") else 0,
         }
         old = out.get(pid)
         if old is None or queued_ts > old["queued_ts"]:
@@ -567,8 +644,14 @@ def merge(local, remote):
     m["queue"] = _norm_queue(
         [item for pid, item in queued.items() if pid not in m["posted"]]
     )
-    local_ui = local.get("admin_ui") or {}
+    local_ui = _norm_admin_ui(local.get("admin_ui") or {})
+    remote_ui = m["admin_ui"]
     m["admin_ui"] = {"pending": local_ui.get("pending")}
+    for key in ("manual_draft", "manual_deal"):
+        if local_ui.get(key):
+            m["admin_ui"][key] = local_ui[key]
+        elif remote_ui.get(key):
+            m["admin_ui"][key] = remote_ui[key]
     return m
 
 

@@ -246,6 +246,54 @@ def main():
     assert wb.evaluate(low, min_discount=40, min_rating=4.3, min_feedbacks=20)[1] == "feedbacks"
     print("14. evaluate diagnostics OK")
 
+    # 15. parse_nm: ссылка и артикул
+    assert wb.parse_nm("https://www.wildberries.ru/catalog/1262712/detail.aspx") == 1262712
+    assert wb.parse_nm("https://www.wildberries.ru/catalog/1262712/Detail.aspx?stuff=&free=0") == 1262712
+    assert wb.parse_nm("wildberries.ru/catalog/555000/detail.aspx") == 555000
+    assert wb.parse_nm("wb.ru/catalog/1234567/detail.aspx") == 1234567
+    assert wb.parse_nm("1262712") == 1262712
+    assert wb.parse_nm("  1262712  ") == 1262712
+    assert wb.parse_nm("не артикул") is None
+    assert wb.parse_nm("") is None
+    assert wb.parse_nm(None) is None
+    assert wb.parse_nm("123") is None  # слишком короткий
+    print("15. parse_nm OK")
+
+    # 16. basket_card: метаданные без цен (WAF-резерв)
+    orig_get = wb._get
+    orig_host = wb._basket_host
+
+    def fake_get(url, params=None, tries=3):
+        assert "card.json" in url
+        return {
+            "imt_name": "Кофеварка",
+            "selling": "Polaris",
+            "subj_name": "Кофеварки",
+            "reviewRating": 4.7,
+            "feedbacks": 120,
+        }
+
+    wb._get = fake_get
+    wb._basket_host = lambda nm: "01"
+    try:
+        meta = wb.basket_card(1262712)
+        assert meta and meta["title"] == "Кофеварка"
+        assert meta["brand"] == "Polaris"
+        assert meta["category"] == "Кофеварки"
+        assert meta["rating"] == 4.7 and meta["feedbacks"] == 120
+        # пустой title → None
+        wb._get = lambda url, params=None, tries=3: {"imt_name": ""}
+        assert wb.basket_card(1262712) is None
+        # нет host → None
+        wb._basket_host = lambda nm: None
+        wb._get = fake_get
+        assert wb.basket_card(1262712) is None
+        assert wb.basket_card("bad") is None
+    finally:
+        wb._get = orig_get
+        wb._basket_host = orig_host
+    print("16. basket_card OK")
+
 
 if __name__ == "__main__":
     main()

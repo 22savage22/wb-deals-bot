@@ -8050,10 +8050,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8142,7 +8142,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790146901,
+  "last_scan": 1790148940,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -8150,8 +8150,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Для костей и суставов",
-   "Напитки"
+   "Матрасы-топперы",
+   "Серия Galaxy A"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -174850,15 +174850,15 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1790016982.018384,
-   "runs": 90,
-   "empty": 5
+   "ts": 1790148942.4244895,
+   "runs": 91,
+   "empty": 1
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1790016982.018384,
-   "runs": 90,
-   "empty": 5
+   "ts": 1790148942.4244895,
+   "runs": 91,
+   "empty": 1
   },
   "Мыши": {
    "shard": "electronic45",

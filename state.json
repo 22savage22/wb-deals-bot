@@ -7378,10 +7378,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 12,
    "ok": 0,
-   "rate_limited": 3,
-   "http_error": 4,
+   "rate_limited": 0,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -7498,7 +7498,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2253,
+  "cats_count": 2305,
   "no_post_notice_ts": 1790151608.0,
   "last_engagement_ts": 1790152896.0,
   "last_engagement_kind": "poll",
@@ -63079,10 +63079,6 @@
     [
      1788992241,
      1429
-    ],
-    [
-     1788992241.3920445,
-     1429
     ]
    ],
    "posted_price": 0,
@@ -68354,10 +68350,6 @@
    "samples": [
     [
      1788992241,
-     2920
-    ],
-    [
-     1788992241.3920226,
      2920
     ]
    ],

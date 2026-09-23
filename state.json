@@ -7354,10 +7354,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 23,
-   "ok": 2,
-   "rate_limited": 9,
-   "http_error": 12,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7446,7 +7446,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790200435,
+  "last_scan": 1790202321,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -7454,22 +7454,17 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Расчески парикмахерские",
-   "Средства защиты органов дыхания"
+   "Средства защиты органов дыхания",
+   "Расчески парикмахерские"
   ],
   "queue_size": 13,
-  "last_scan_added": 13,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 198,
-   "cards": 198,
-   "ok": 48,
-   "max_price": 148,
-   "rating": 2,
-   "strict": 1,
-   "fallback": 47,
-   "reserve": 0,
-   "duplicate": 13,
-   "title_duplicate": 19
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 1,
@@ -143784,9 +143779,9 @@
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
-   "ts": 1790200593.1257744,
-   "runs": 101,
-   "empty": 1
+   "ts": 1790202322.9918036,
+   "runs": 102,
+   "empty": 2
   },
   "Краски автомобильные": {
    "shard": "autoproduct5",
@@ -144234,9 +144229,9 @@
   },
   "Средства защиты органов дыхания": {
    "shard": "work_clothes",
-   "ts": 1790200593.1257744,
-   "runs": 41,
-   "empty": 1
+   "ts": 1790202322.9918036,
+   "runs": 42,
+   "empty": 2
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",

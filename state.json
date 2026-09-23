@@ -7463,10 +7463,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 4,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7555,7 +7555,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790181807,
+  "last_scan": 1790192848,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -7563,10 +7563,10 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Мыши",
-   "Развлечения"
+   "Развлечения",
+   "Для коррекции веса"
   ],
-  "queue_size": 20,
+  "queue_size": 5,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -153814,9 +153814,9 @@
   },
   "Развлечения": {
    "shard": "housecraft_bigroot1",
-   "ts": 1790181809.3637822,
-   "runs": 44,
-   "empty": 4
+   "ts": 1790192851.3197377,
+   "runs": 45,
+   "empty": 5
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
@@ -154078,9 +154078,9 @@
   },
   "Для коррекции веса": {
    "shard": "shealth2",
-   "ts": 1790166454.4717004,
-   "runs": 2,
-   "empty": 2
+   "ts": 1790192851.3197377,
+   "runs": 3,
+   "empty": 3
   }
  },
  "queue": [

@@ -7402,10 +7402,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 6,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -7494,7 +7494,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790194738,
+  "last_scan": 1790196611,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -7502,10 +7502,9 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Рабочая обувь",
-   "Для коррекции веса"
+   "Рабочая обувь"
   ],
-  "queue_size": 5,
+  "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -147680,9 +147679,9 @@
   },
   "Рабочая обувь": {
    "shard": "work_clothes",
-   "ts": 1790194741.0585597,
-   "runs": 3,
-   "empty": 3
+   "ts": 1790196614.409696,
+   "runs": 4,
+   "empty": 4
   },
   "Для коррекции веса": {
    "shard": "shealth2",

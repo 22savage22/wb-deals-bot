@@ -8098,10 +8098,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 12,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -8683,7 +8683,6 @@
   "коричневаяминисумкаспятнамиимилойсобачкой": 1790015487
  },
  "img_hash": {
-  "e0e8d8d8b9b9ba3e": 1787552803,
   "47d9d8e8ece47270": 1787557227,
   "013d2f3f371b1b1b": 1787560274,
   "969efcf4febcbc9c": 1787563725,

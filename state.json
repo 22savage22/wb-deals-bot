@@ -7378,10 +7378,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 7,
    "ok": 0,
-   "rate_limited": 0,
-   "http_error": 12,
+   "rate_limited": 3,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -7498,7 +7498,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1790151608.0,
   "last_engagement_ts": 1790152896.0,
   "last_engagement_kind": "poll",

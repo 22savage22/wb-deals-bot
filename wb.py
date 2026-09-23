@@ -1,4 +1,5 @@
 import random
+import re
 import time
 from io import BytesIO
 
@@ -414,6 +415,124 @@ def photos(nm, limit=3):
 def photo_url(nm):
     """URL of an image already fetched successfully; never starts another request."""
     return _PHOTO_URLS.get(nm, "")
+
+
+def parse_nm(text):
+    """Extract WB article from a product link or bare digits. None if not found."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    m = re.search(r"/catalog/(\d{5,10})", t, re.I)
+    if m:
+        return int(m.group(1))
+    m = re.search(
+        r"(?:wildberries\.\w{2,3}|wb\.ru|w\.bz|wb\.gg)[^\s]*/(\d{5,10})",
+        t,
+        re.I,
+    )
+    if m:
+        return int(m.group(1))
+    if t.isdigit() and 5 <= len(t) <= 10:
+        return int(t)
+    return None
+
+
+def parse_ozon_nm(text):
+    """Extract Ozon product id from product link. None if not found."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    m = re.search(r"/product/([^?\s#]+)", t, re.I)
+    if not m:
+        return None
+    seg = m.group(1).rstrip("/")
+    m2 = re.search(r"-(\d{4,15})$", seg)
+    if m2:
+        return int(m2.group(1))
+    if seg.isdigit() and 4 <= len(seg) <= 15:
+        return int(seg)
+    return None
+
+
+def parse_product(text):
+    """Return (marketplace, pid, url) or None. Detect ozon by host, else wb."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    if "ozon.ru" in t.lower():
+        pid = parse_ozon_nm(t)
+        if not pid:
+            # Host says ozon but path is unusable — do not mis-parse as WB digits.
+            return None
+        url = t if t.lower().startswith("http") else ""
+        return ("ozon", pid, url)
+    pid = parse_nm(t)
+    if not pid:
+        return None
+    url = t if t.lower().startswith("http") else ""
+    return ("wb", pid, url)
+
+
+def product_link(pid, marketplace="wb", url=""):
+    """Original product URL when saved, otherwise build by marketplace."""
+    u = str(url or "")
+    if u.startswith("http"):
+        return u
+    if str(marketplace or "wb") == "ozon":
+        return f"https://www.ozon.ru/product/-{pid}/"
+    try:
+        return config.LINK_TEMPLATE.format(nm=pid)
+    except (KeyError, IndexError, ValueError):
+        return f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
+
+
+def basket_card(nm):
+    """Basket metadata (no prices) when card.wb.ru is blocked by WAF."""
+    try:
+        nm = int(nm)
+    except (TypeError, ValueError):
+        return None
+    if nm <= 0:
+        return None
+    host = _basket_host(nm)
+    if not host:
+        return None
+    vol = nm // 100000
+    part = nm // 1000
+    url = (
+        f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/info/ru/card.json"
+    )
+    data = _get(url, tries=2)
+    if not isinstance(data, dict):
+        return None
+    title = data.get("imt_name") or data.get("name") or data.get("title") or ""
+    brand = data.get("selling") or data.get("brand") or data.get("brandName") or ""
+    category = (
+        data.get("subj_name")
+        or data.get("subject_name")
+        or data.get("subj")
+        or data.get("category")
+        or ""
+    )
+    title = str(title).strip()
+    if not title:
+        return None
+    try:
+        rating = float(data.get("reviewRating") or data.get("rating") or 0)
+    except (TypeError, ValueError):
+        rating = 0
+    try:
+        feedbacks = int(data.get("feedbacks") or data.get("nmFeedbacks") or 0)
+    except (TypeError, ValueError):
+        feedbacks = 0
+    return {
+        "id": nm,
+        "title": title[:300],
+        "brand": str(brand).strip()[:150],
+        "category": str(category).strip()[:200] or "другое",
+        "rating": rating,
+        "feedbacks": feedbacks,
+    }
 
 
 def photo(nm):

@@ -33,6 +33,11 @@ class FakeTG:
         return True
 
     @staticmethod
+    def send_deal_text(t, c, caption, link, pid):
+        FakeTG.sent.append(("text", c, pid, caption, link))
+        return True
+
+    @staticmethod
     def fmt(n):
         return f"{n:,}".replace(",", " ")
 
@@ -45,6 +50,12 @@ class FakeWB:
     @staticmethod
     def photo_url(pid):
         return ""
+
+    @staticmethod
+    def product_link(pid, marketplace="wb", url=""):
+        import wb as _wb
+
+        return _wb.product_link(pid, marketplace, url)
 
     items = {}
     photo_map = {}
@@ -73,6 +84,41 @@ class FakeWB:
     @staticmethod
     def cards(ids):
         return [FakeWB.items[pid] for pid in ids if pid in FakeWB.items]
+
+    @staticmethod
+    def raw_deal(card):
+        sizes = card.get("sizes") or []
+        best = None
+        for size in sizes:
+            p = size.get("price") or {}
+            product = p.get("product") or 0
+            basic = p.get("basic") or 0
+            if not product or not basic:
+                continue
+            product_rub = product // 100
+            basic_rub = basic // 100
+            if basic_rub <= 0:
+                continue
+            if best is None or product_rub < best[0]:
+                best = (product_rub, basic_rub)
+        if best is None:
+            product = basic = discount = benefit = 0
+        else:
+            product, basic = best
+            discount = round(100 - product * 100 / basic) if basic else 0
+            benefit = basic - product
+        return {
+            "id": card.get("id"),
+            "title": card.get("name") or "",
+            "brand": card.get("brand") or "",
+            "product": product,
+            "basic": basic,
+            "discount": discount,
+            "benefit": benefit,
+            "rating": card.get("reviewRating") or 0,
+            "feedbacks": card.get("feedbacks") or 0,
+            "category": str(card.get("subjectName") or "другое").strip(),
+        }
 
     @staticmethod
     def search_healthy():
@@ -554,6 +600,153 @@ def main():
     assert data["cats"]["КатСмартфоны"]["empty"] == 1
     FakeWB.search_subject_only = False
     print("11. category search + learning OK")
+
+    # --- 12. manual fallback: WAF (no cards) → publish from queued data ---
+    manual_data = empty_data()
+    manual_deal = {
+        "id": 777001, "title": "Ручной товар из очереди", "brand": "Бр",
+        "product": 990, "basic": 1980, "discount": 50, "benefit": 990,
+        "rating": 4.5, "feedbacks": 12, "category": "Кухня",
+        "selection_mode": "manual", "quality": "M", "query": "",
+        "queued_ts": int(time.time()), "manual": 1,
+    }
+    manual_data["queue"] = [manual_deal]
+    FakeWB.items = {}  # cards() → [] (WAF)
+    FakeWB.photo_map = {}
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(manual_data, 1)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert manual_data["posted"].get(777001)
+    assert deals[0]["product"] == 990
+    assert deals[0].get("manual") == 1
+    assert funnel.get("manual_no_refresh") == 1, funnel
+    photos = [c for c in FakeTG.sent if c[0] == "photo"]
+    assert photos, FakeTG.sent
+
+    # non-manual with empty cards still deferred
+    nd = empty_data()
+    nd["queue"] = [dict(manual_deal, id=777002, manual=0)]
+    FakeWB.items = {}
+    FakeTG.sent = []
+    pub, _, f2 = bot._publish_queued(nd, 1)
+    assert pub == 0 and nd["queue"], (f2, nd["queue"])
+    print("12. manual WAF fallback OK")
+
+    # --- 12b. manual with live card but evaluate rejected → raw_deal refresh ---
+    md = empty_data()
+    md["queue"] = [dict(manual_deal, id=777003)]
+    FakeWB.items = {
+        777003: {
+            "id": 777003, "name": "Ручной live", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.5, "feedbacks": 12, "subjectName": "Кухня",
+        }
+    }
+    # evaluate rejects on rating (min_discount=0 in refresh path) but raw_deal works for manual
+    old_mr = config.MIN_RATING
+    config.MIN_RATING = 5.0
+    FakeTG.sent = []
+    pub, deals, f3 = bot._publish_queued(md, 1)
+    config.MIN_RATING = old_mr
+    assert pub == 1, (f3, FakeTG.sent)
+    assert deals[0]["product"] == 500
+    assert f3.get("manual_raw_refresh") == 1, f3
+    print("12b. manual raw refresh OK")
+
+    # --- 13. ozon publish: без wb.photos, send_deal_text, posted, recent ---
+    ozon_deal = {
+        "id": 184567895, "title": "Куртка ozon", "brand": "", "product": 2490,
+        "basic": 4990, "discount": 50, "benefit": 2500, "rating": 0, "feedbacks": 0,
+        "category": "другое", "selection_mode": "manual", "quality": "M", "query": "",
+        "queued_ts": int(time.time()), "manual": 1, "marketplace": "ozon",
+        "url": "https://www.ozon.ru/product/kurtka-184567895/?from=share",
+    }
+    od = empty_data()
+    od["queue"] = [dict(ozon_deal)]
+    FakeWB.items = {}
+    FakeWB.photo_map = {}
+    orig_photos = FakeWB.photos
+    photos_calls = {"n": 0}
+
+    def counting_photos(nm, limit=3):
+        photos_calls["n"] += 1
+        return orig_photos(nm, limit)
+
+    FakeWB.photos = staticmethod(counting_photos)
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(od, 1)
+    FakeWB.photos = staticmethod(orig_photos)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert photos_calls["n"] == 0, photos_calls  # ozon без фото
+    texts = [x for x in FakeTG.sent if x[0] == "text"]
+    assert texts and texts[0][2] == 184567895, FakeTG.sent
+    assert texts[0][4] == "https://www.ozon.ru/product/kurtka-184567895/?from=share"
+    assert od["posted"].get(184567895)
+    assert od["queue"] == []
+    assert od["recent"][-1]["pid"] == 184567895
+    assert od["recent"][-1]["image"] == ""
+    assert od["recent"][-1]["link"] == texts[0][4]
+    assert funnel.get("manual_no_refresh") == 1, funnel
+    print("13. ozon queue publish OK")
+
+    # --- 13b. mixed queue: сбой ozon-элемента не убивает wb-публикацию ---
+    mixed = empty_data()
+    bad_ozon = dict(
+        ozon_deal, id=184567896, title="Сбойный ozon",
+        url="https://www.ozon.ru/product/-184567896/",
+    )
+    wb_q = dict(queued_deal, id=940, query="дом", manual=1)
+    mixed["queue"] = [bad_ozon, wb_q]
+    FakeWB.items = {
+        940: {
+            "id": 940, "name": "Товар из очереди", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        }
+    }
+    FakeWB.photo_map = {}
+    orig_send_text = FakeTG.send_deal_text
+
+    def boom(t, c, caption, link, pid):
+        raise RuntimeError("ozon down")
+
+    FakeTG.send_deal_text = staticmethod(boom)
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(mixed, 2)
+    FakeTG.send_deal_text = staticmethod(orig_send_text)
+    fails = funnel.get("send_failed", 0) + funnel.get("error", 0)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert fails == 1, funnel
+    assert mixed["posted"].get(940)
+    assert not mixed["posted"].get(184567896)
+    # Send-level failure (ok=False path) drops the ozon item after isolation.
+    assert not [q for q in mixed["queue"] if q["id"] == 940], mixed["queue"]
+    print("13b. mixed queue fault isolation OK")
+
+    # --- 13c. unexpected exception inside per-item try re-queues (transient) ---
+    mixed2 = empty_data()
+    wb_only = dict(queued_deal, id=941, query="дом", manual=1, title="Хрупкий WB")
+    mixed2["queue"] = [dict(wb_only)]
+    FakeWB.items = {
+        941: {
+            "id": 941, "name": "Хрупкий WB", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        }
+    }
+    FakeWB.photo_map = {}
+
+    def boom_photos(nm, limit=3):
+        raise RuntimeError("transient photos failure")
+
+    orig_photos2 = FakeWB.photos
+    FakeWB.photos = staticmethod(boom_photos)
+    published2, _, funnel2 = bot._publish_queued(mixed2, 1)
+    FakeWB.photos = staticmethod(orig_photos2)
+    assert funnel2.get("error", 0) == 1, funnel2
+    assert not mixed2["posted"].get(941)
+    assert any(q.get("id") == 941 for q in mixed2["queue"]), mixed2["queue"]
+    print("13c. transient exception re-queues item OK")
 
 
 if __name__ == "__main__":

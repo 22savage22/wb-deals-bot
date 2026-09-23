@@ -208,7 +208,12 @@ def _publish_queued(data, limit):
     titles = data.setdefault("titles", {})
     prices = data.setdefault("prices", {})
     img_hash = data.setdefault("img_hash", {})
-    fresh_cards = wb.cards([item["id"] for item in queue])
+    wb_ids = [
+        item["id"]
+        for item in queue
+        if str(item.get("marketplace") or "wb") != "ozon"
+    ]
+    fresh_cards = wb.cards(wb_ids) if wb_ids else []
     cards_by_id = {card.get("id"): card for card in fresh_cards if card.get("id")}
     refresh_funnel = {}
     refreshed = {
@@ -228,144 +233,179 @@ def _publish_queued(data, limit):
         deal = ordered[0]
         queue.remove(deal)
         pid = deal["id"]
-        if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
-            funnel["expired"] = funnel.get("expired", 0) + 1
-            continue
-        if pid in posted:
-            funnel["repost"] = funnel.get("repost", 0) + 1
-            continue
-        fresh = refreshed.get(pid)
-        queued_manual = int(deal.get("manual") or 0)
-        if fresh is None:
-            if queued_manual and int(deal.get("product") or 0) > 0 and str(
-                deal.get("title") or ""
-            ).strip():
-                # Admin-confirmed manual entry: WAF/filters must not block it.
-                if pid in cards_by_id:
-                    try:
-                        cand = wb.raw_deal(cards_by_id[pid])
-                    except Exception:
-                        cand = None
-                    if cand and int(cand.get("product") or 0) > 0:
-                        fresh = dict(
-                            cand,
-                            manual=1,
-                            selection_mode=deal.get("selection_mode") or "manual",
-                            quality=deal.get("quality") or "M",
-                        )
-                        funnel["manual_raw_refresh"] = (
-                            funnel.get("manual_raw_refresh", 0) + 1
-                        )
-                if fresh is None:
-                    fresh = {
-                        "id": pid,
-                        "title": deal["title"],
-                        "brand": deal.get("brand") or "",
-                        "product": int(deal["product"]),
-                        "basic": int(deal.get("basic") or deal["product"]),
-                        "discount": int(deal.get("discount") or 0),
-                        "benefit": int(
-                            deal.get("benefit")
-                            or max(
-                                0,
-                                int(deal.get("basic") or deal["product"])
-                                - int(deal["product"]),
-                            )
-                        ),
-                        "rating": float(deal.get("rating") or 0),
-                        "feedbacks": int(deal.get("feedbacks") or 0),
-                        "category": deal.get("category") or "другое",
-                        "selection_mode": deal.get("selection_mode") or "manual",
-                        "quality": deal.get("quality") or "M",
-                        "manual": 1,
-                    }
-                    funnel["manual_no_refresh"] = funnel.get("manual_no_refresh", 0) + 1
-            elif pid not in cards_by_id:
-                deferred.append(deal)
-                funnel["refresh_missing"] = funnel.get("refresh_missing", 0) + 1
-                continue
-            else:
-                funnel["refresh_rejected"] = funnel.get("refresh_rejected", 0) + 1
-                continue
-        queued_price = int(deal.get("product", 0) or 0)
-        if queued_price and fresh["product"] > queued_price * 1.1:
-            funnel["price_changed"] = funnel.get("price_changed", 0) + 1
-            continue
-        queued_ts = deal.get("queued_ts", 0)
-        query = deal.get("query") or ""
-        deal = dict(
-            fresh,
-            query=query,
-            queued_ts=queued_ts,
-            manual=queued_manual or int(fresh.get("manual") or 0),
-        )
-        if deal.get("category") == "другое" and query:
-            deal["category"] = query
-        key = smart.norm_title(deal.get("title", ""))
-        if key and titles.get(key) and now - titles[key] < repost_secs:
-            funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
-            continue
-        if _is_electronics(deal.get("title", "")) and not deal.get("manual"):
-            funnel["electronics"] = funnel.get("electronics", 0) + 1
-            continue
-        images = wb.photos(pid)
-        if len(images) < 2:
-            funnel["no_photo"] = funnel.get("no_photo", 0) + 1
-            state.record_error(data, f"Мало фото ({len(images)}): {pid}")
-            print("Мало фото:", pid, len(images))
-            continue
-        h = wb.image_hash(images[0])
-        if h and _img_dup(img_hash, h, now, repost_secs):
-            funnel["photo_duplicate"] = funnel.get("photo_duplicate", 0) + 1
-            posted[pid] = int(now)
-            continue
-        link = _link(pid)
         try:
-            ok = _post_images(
-                config.TG_BOT_TOKEN,
-                config.TG_CHAT_ID,
-                images,
-                tg.caption(deal, pid),
-                link,
-                pid,
+            is_ozon = str(deal.get("marketplace") or "wb") == "ozon"
+            if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
+                funnel["expired"] = funnel.get("expired", 0) + 1
+                continue
+            if pid in posted:
+                funnel["repost"] = funnel.get("repost", 0) + 1
+                continue
+            fresh = refreshed.get(pid)
+            queued_manual = int(deal.get("manual") or 0)
+            if fresh is None:
+                if (queued_manual or is_ozon) and int(deal.get("product") or 0) > 0 and str(
+                    deal.get("title") or ""
+                ).strip():
+                    # Admin-confirmed manual entry: WAF/filters must not block it.
+                    if not is_ozon and pid in cards_by_id:
+                        try:
+                            cand = wb.raw_deal(cards_by_id[pid])
+                        except Exception:
+                            cand = None
+                        if cand and int(cand.get("product") or 0) > 0:
+                            fresh = dict(
+                                cand,
+                                manual=1,
+                                selection_mode=deal.get("selection_mode") or "manual",
+                                quality=deal.get("quality") or "M",
+                            )
+                            funnel["manual_raw_refresh"] = (
+                                funnel.get("manual_raw_refresh", 0) + 1
+                            )
+                    if fresh is None:
+                        fresh = {
+                            "id": pid,
+                            "title": deal["title"],
+                            "brand": deal.get("brand") or "",
+                            "product": int(deal["product"]),
+                            "basic": int(deal.get("basic") or deal["product"]),
+                            "discount": int(deal.get("discount") or 0),
+                            "benefit": int(
+                                deal.get("benefit")
+                                or max(
+                                    0,
+                                    int(deal.get("basic") or deal["product"])
+                                    - int(deal["product"]),
+                                )
+                            ),
+                            "rating": float(deal.get("rating") or 0),
+                            "feedbacks": int(deal.get("feedbacks") or 0),
+                            "category": deal.get("category") or "другое",
+                            "selection_mode": deal.get("selection_mode") or "manual",
+                            "quality": deal.get("quality") or "M",
+                            "manual": 1,
+                            "marketplace": deal.get("marketplace") or "wb",
+                            "url": str(deal.get("url") or "")[:500],
+                        }
+                        funnel["manual_no_refresh"] = funnel.get("manual_no_refresh", 0) + 1
+                elif pid not in cards_by_id:
+                    deferred.append(deal)
+                    funnel["refresh_missing"] = funnel.get("refresh_missing", 0) + 1
+                    continue
+                else:
+                    funnel["refresh_rejected"] = funnel.get("refresh_rejected", 0) + 1
+                    continue
+            queued_price = int(deal.get("product", 0) or 0)
+            if queued_price and fresh["product"] > queued_price * 1.1:
+                funnel["price_changed"] = funnel.get("price_changed", 0) + 1
+                continue
+            queued_ts = deal.get("queued_ts", 0)
+            query = deal.get("query") or ""
+            deal = dict(
+                fresh,
+                query=query,
+                queued_ts=queued_ts,
+                manual=queued_manual or int(fresh.get("manual") or 0),
+                marketplace=str(
+                    deal.get("marketplace") or fresh.get("marketplace") or "wb"
+                )[:10],
+                url=str(deal.get("url") or fresh.get("url") or "")[:500],
             )
-        except Exception as exc:
-            ok = False
-            state.record_error(data, f"Очередь: ошибка публикации {pid}: {exc}")
-        if not ok:
-            funnel["send_failed"] = funnel.get("send_failed", 0) + 1
-            detail = tg.last_error() if hasattr(tg, "last_error") else ""
-            state.record_error(data, f"Telegram не принял {pid}: {detail or 'без описания'}")
-            continue
+            if deal.get("category") == "другое" and query:
+                deal["category"] = query
+            key = smart.norm_title(deal.get("title", ""))
+            if key and titles.get(key) and now - titles[key] < repost_secs:
+                funnel["title_duplicate"] = funnel.get("title_duplicate", 0) + 1
+                continue
+            if _is_electronics(deal.get("title", "")) and not deal.get("manual"):
+                funnel["electronics"] = funnel.get("electronics", 0) + 1
+                continue
+            h = None
+            images = []
+            if is_ozon:
+                # Ozon has no photo source here — text-only post is allowed.
+                pass
+            else:
+                images = wb.photos(pid)
+                if len(images) < 2:
+                    funnel["no_photo"] = funnel.get("no_photo", 0) + 1
+                    state.record_error(data, f"Мало фото ({len(images)}): {pid}")
+                    print("Мало фото:", pid, len(images))
+                    continue
+                h = wb.image_hash(images[0])
+                if h and _img_dup(img_hash, h, now, repost_secs):
+                    funnel["photo_duplicate"] = funnel.get("photo_duplicate", 0) + 1
+                    posted[pid] = int(now)
+                    continue
+            link = wb.product_link(
+                pid, "ozon" if is_ozon else "wb", str(deal.get("url") or "")
+            )
+            if is_ozon:
+                try:
+                    ok = tg.send_deal_text(
+                        config.TG_BOT_TOKEN,
+                        config.TG_CHAT_ID,
+                        tg.caption(deal, pid),
+                        link,
+                        pid,
+                    )
+                except Exception as exc:
+                    ok = False
+                    state.record_error(data, f"Очередь: ошибка публикации {pid}: {exc}")
+            else:
+                try:
+                    ok = _post_images(
+                        config.TG_BOT_TOKEN,
+                        config.TG_CHAT_ID,
+                        images,
+                        tg.caption(deal, pid),
+                        link,
+                        pid,
+                    )
+                except Exception as exc:
+                    ok = False
+                    state.record_error(data, f"Очередь: ошибка публикации {pid}: {exc}")
+            if not ok:
+                funnel["send_failed"] = funnel.get("send_failed", 0) + 1
+                detail = tg.last_error() if hasattr(tg, "last_error") else ""
+                state.record_error(data, f"Telegram не принял {pid}: {detail or 'без описания'}")
+                continue
 
-        posted_at = time.time()
-        posted[pid] = int(posted_at)
-        if h:
-            img_hash[h] = int(posted_at)
-        smart.observe_price(prices, deal, posted_at, posted=True)
-        if key:
-            titles[key] = int(posted_at)
-        published += 1
-        funnel["selected"] += 1
-        posted_deals.append(deal)
-        data["recent"].append(
-            {
-                "pid": pid,
-                "image": wb.photo_url(pid),
-                "title": deal["title"],
-                "discount": deal["discount"],
-                "price": deal["product"],
-                "rating": deal["rating"],
-                "link": link,
-                "query": deal.get("query"),
-                "cat": deal["category"],
-                "ts": int(posted_at),
-                "drop": int(deal.get("price_drop") or 0),
-                "quality": deal.get("quality", "A"),
-            }
-        )
-        smart.record_post(data, deal.get("query"), deal["category"])
-        print("Опубликовано из очереди:", pid, f"{deal['discount']}%", deal["title"][:50])
+            posted_at = time.time()
+            posted[pid] = int(posted_at)
+            if h:
+                img_hash[h] = int(posted_at)
+            smart.observe_price(prices, deal, posted_at, posted=True)
+            if key:
+                titles[key] = int(posted_at)
+            published += 1
+            funnel["selected"] += 1
+            posted_deals.append(deal)
+            data["recent"].append(
+                {
+                    "pid": pid,
+                    "image": "" if is_ozon else wb.photo_url(pid),
+                    "title": deal["title"],
+                    "discount": deal["discount"],
+                    "price": deal["product"],
+                    "rating": deal["rating"],
+                    "link": link,
+                    "query": deal.get("query"),
+                    "cat": deal["category"],
+                    "ts": int(posted_at),
+                    "drop": int(deal.get("price_drop") or 0),
+                    "quality": deal.get("quality", "A"),
+                }
+            )
+            smart.record_post(data, deal.get("query"), deal["category"])
+            print("Опубликовано из очереди:", pid, f"{deal['discount']}%", deal["title"][:50])
+        except Exception as exc:
+            # One broken entry (mixed wb/ozon batch) must not kill the whole run.
+            funnel["error"] = funnel.get("error", 0) + 1
+            state.record_error(data, f"Очередь: сбой элемента {pid}: {exc}")
+            print("Сбой элемента очереди:", pid, exc)
+            continue
 
     data["queue"] = queue + deferred
     funnel["queue_after"] = len(data["queue"])

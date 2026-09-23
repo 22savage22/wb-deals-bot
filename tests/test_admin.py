@@ -19,7 +19,7 @@ class FakeTG:
 
     @staticmethod
     def send_message(t, c, text, markup=None):
-        FakeTG.calls.append(("send", text[:40], markup))
+        FakeTG.calls.append(("send", text, markup))
         return True
 
     @staticmethod
@@ -30,6 +30,11 @@ class FakeTG:
     @staticmethod
     def send_album(t, c, photos, text, link=None, pid=None, markup=None):
         FakeTG.calls.append(("album", text[:30], markup))
+        return True
+
+    @staticmethod
+    def send_deal_text(t, c, caption, link, pid):
+        FakeTG.calls.append(("text", caption[:40], {"link": link, "pid": pid}))
         return True
 
     @staticmethod
@@ -452,6 +457,222 @@ def main():
     assert ok is True
     assert d["admin_ui"].get("manual_draft", {}).get("id") == 777
     print("25. /post link OK")
+
+    # --- 26. batch: 2 wb + 1 ozon -> 3 в очереди ---
+    FakeTG.calls.clear()
+    d = make_data()
+    d["queue"] = []
+    wbmod.cards = lambda ids: []
+    wbmod.basket_card = lambda nm: {
+        "id": nm, "title": "Куртка", "brand": "B", "category": "Одежда",
+        "rating": 4.5, "feedbacks": 10,
+    }
+    admin.wb = wbmod
+    changed, d, s = run("batch", data=d)
+    assert d["admin_ui"]["pending"] == "batch_links"
+    ok = admin._admin_message(
+        "tok", 111, d, {},
+        "\n".join([
+            "",
+            "  ",
+            "https://www.wildberries.ru/catalog/1262712/detail.aspx 1990/3990",
+            "555000 990",
+            "https://www.ozon.ru/product/kurtka-184567890/ 2490/4990 Куртка зимняя",
+        ]),
+    )
+    assert ok is True, (FakeTG.calls, d.get("queue"))
+    assert d["admin_ui"].get("pending") is None
+    assert len(d["queue"]) == 3, d["queue"]
+    by_id = {q["id"]: q for q in d["queue"]}
+    assert by_id[1262712]["marketplace"] == "wb"
+    assert by_id[1262712]["product"] == 1990 and by_id[1262712]["basic"] == 3990
+    assert by_id[1262712]["discount"] == 50
+    assert by_id[1262712]["title"] == "Куртка"
+    assert by_id[1262712]["manual"] == 1
+    assert by_id[555000]["marketplace"] == "wb"
+    assert by_id[555000]["product"] == 990 and by_id[555000]["discount"] == 0
+    oz = by_id[184567890]
+    assert oz["marketplace"] == "ozon"
+    assert oz["title"] == "Куртка зимняя"
+    assert oz["product"] == 2490 and oz["basic"] == 4990 and oz["discount"] == 50
+    assert oz["url"] == "https://www.ozon.ru/product/kurtka-184567890/"
+    sent = [c for c in FakeTG.calls if c[0] == "send"][-1][1]
+    assert "✅ В очередь: <b>3</b>" in sent, sent
+    assert "Ozon #184567890" in sent, sent
+    assert "WB #1262712" in sent, sent
+    print("26. batch accept OK")
+
+    # --- 27. batch:rejects (нет цены / нет названия / дубль / кривая цена), good проходят ---
+    FakeTG.calls.clear()
+    d = make_data()
+    d["queue"] = []
+    run("batch", data=d)
+    ok = admin._admin_message(
+        "tok", 111, d, {},
+        "\n".join([
+            "1262712",  # нет цены
+            "https://www.ozon.ru/product/tovar-111222333/ 500",  # нет названия
+            "https://www.ozon.ru/product/x-999888777/ 3990/1990 Товар",  # basic < product
+            "https://www.ozon.ru/product/kurtka-184567890/ 2490/4990 Куртка зимняя",
+            "https://www.ozon.ru/product/kurtka-184567890/ 1000 Дубль",  # дубль id
+        ]),
+    )
+    assert len(d["queue"]) == 1, d["queue"]
+    assert d["queue"][0]["id"] == 184567890
+    sent = [c for c in FakeTG.calls if c[0] == "send"][-1][1]
+    assert "✅ В очередь: <b>1</b>" in sent, sent
+    assert "❌ Отклонено: <b>4</b>" in sent, sent
+    assert "нет цены" in sent, sent
+    assert "нет названия" in sent, sent
+    assert "некорректная цена" in sent, sent
+    assert "уже в очереди" in sent, sent
+    # пустой batch
+    FakeTG.calls.clear()
+    d2 = make_data()
+    run("batch", data=d2)
+    ok = admin._admin_message("tok", 111, d2, {}, "\n  \n")
+    assert ok is False
+    assert "Нет строк" in [c for c in FakeTG.calls if c[0] == "send"][-1][1]
+    print("27. batch rejects OK")
+
+    # --- 28. single ozon: link → title → price → preview → queue (без wb.cards/photos) ---
+    FakeTG.calls.clear()
+    d = make_data()
+    d["queue"] = []
+    cards_calls = []
+    photos_calls = []
+    wbmod.cards = lambda ids: cards_calls.append(list(ids)) or []
+    wbmod.photos = lambda nm, limit=3: photos_calls.append(nm) or [b"j1", b"j2"]
+    admin.wb = wbmod
+    run("manual", data=d)
+    ok = admin._admin_message(
+        "tok", 111, d, {}, "https://www.ozon.ru/product/kurtka-184567891/?from=share"
+    )
+    assert ok is True, (FakeTG.calls, d.get("admin_ui"))
+    draft = d["admin_ui"]["manual_draft"]
+    assert draft["id"] == 184567891 and draft["marketplace"] == "ozon", draft
+    assert draft["url"].startswith("https://www.ozon.ru"), draft
+    assert cards_calls == [], cards_calls
+    assert d["admin_ui"]["pending"] == "manual_title", d["admin_ui"]
+    admin._admin_message("tok", 111, d, {}, "Куртка зимняя")
+    assert d["admin_ui"]["pending"] == "manual_price"
+    ok = admin._admin_message("tok", 111, d, {}, "2490/4990")
+    assert ok is True
+    assert d["admin_ui"].get("pending") is None
+    deal = d["admin_ui"]["manual_deal"]
+    assert deal["marketplace"] == "ozon" and deal["url"].startswith("https://www.ozon")
+    assert deal["product"] == 2490 and deal["discount"] == 50
+    assert photos_calls == [], photos_calls  # предпросмотр ozon без wb.photos
+    previews = [c for c in FakeTG.calls if c[0] == "send" and "Предпросмотр" in c[1]]
+    assert previews, FakeTG.calls
+    assert "публикация может не пройти" not in previews[0][1]  # ozon без фото — ок
+    changed = admin._admin_callback("tok", d, {}, cb("manual:queue:184567891"))
+    assert changed and d["queue"][0]["id"] == 184567891, (d["queue"], FakeTG.calls)
+    assert d["queue"][0]["marketplace"] == "ozon"
+    assert d["queue"][0]["url"].startswith("https://www.ozon")
+    print("28. single ozon flow OK")
+
+    # --- 29. enqueue duplicate reject (в очереди / уже публиковался) ---
+    d = make_data()
+    d["queue"] = [{
+        "id": 777, "title": "X", "product": 100, "basic": 200,
+        "discount": 50, "queued_ts": int(time.time()),
+    }]
+    d["admin_ui"]["manual_draft"] = {
+        "id": 777, "title": "X", "product": 100, "basic": 200,
+    }
+    FakeTG.calls.clear()
+    changed = admin._queue_manual("tok", d, 111, "cid", 777)
+    assert changed is False, (d["queue"], FakeTG.calls)
+    assert len(d["queue"]) == 1
+    assert "уже в очереди" in str(FakeTG.calls)
+    d2 = make_data()  # posted содержит 5
+    d2["admin_ui"]["manual_draft"] = {"id": 5, "title": "X", "product": 100, "basic": 200}
+    FakeTG.calls.clear()
+    changed = admin._queue_manual("tok", d2, 111, "cid", 5)
+    assert changed is False and d2["queue"] == []
+    assert "публиковался" in str(FakeTG.calls)
+    print("29. enqueue duplicate reject OK")
+
+    # --- 30. do_publish ozon: без wb.cards/wb.photos, send_deal_text, posted ---
+    admin.config.TG_CHAT_ID = "CH"
+    d = make_data()
+    photos_calls = []
+    cards_calls = []
+    wbmod.photos = lambda nm, limit=3: photos_calls.append(nm) or [b"j"]
+    wbmod.cards = lambda ids: cards_calls.append(list(ids)) or []
+    admin.wb = wbmod
+    d["admin_ui"]["manual_deal"] = {
+        "id": 184567892, "title": "Куртка ozon", "brand": "", "product": 2490,
+        "basic": 4990, "discount": 50, "benefit": 2500, "rating": 0, "feedbacks": 0,
+        "category": "другое", "selection_mode": "manual", "quality": "M", "query": "",
+        "queued_ts": int(time.time()), "manual": 1, "marketplace": "ozon",
+        "url": "https://www.ozon.ru/product/-184567892/",
+    }
+    FakeTG.calls.clear()
+    changed = admin._do_publish("tok", d, 111, "c30", 184567892)
+    assert changed is True, (FakeTG.calls, d)
+    assert d["posted"].get(184567892)
+    assert photos_calls == [], photos_calls
+    assert cards_calls == [], cards_calls
+    texts = [c for c in FakeTG.calls if c[0] == "text"]
+    assert texts, FakeTG.calls
+    assert texts[0][2]["pid"] == 184567892
+    assert texts[0][2]["link"] == "https://www.ozon.ru/product/-184567892/"
+    assert d["recent"][0]["pid"] == 184567892
+    assert d["recent"][0]["image"] == ""
+    assert "manual_deal" not in d["admin_ui"]
+    print("30. do_publish ozon OK")
+
+    # --- 31. queue view: иконки WB/Ozon, escape; help: пакет ссылок ---
+    d = make_data()
+    d["queue"] = [{
+        "id": 184567893, "title": "Куртка <b>", "product": 2490, "basic": 4990,
+        "discount": 50, "rating": 0, "feedbacks": 0, "category": "другое",
+        "queued_ts": int(time.time()), "manual": 1, "marketplace": "ozon",
+        "url": "https://www.ozon.ru/product/-184567893/",
+    }]
+    t, m = admin._queue_view(d)
+    assert "🔵 Ozon" in t and "184567893" in t, t
+    assert "Куртка &lt;b&gt;" in t, t
+    assert "Куртка <b>" not in t, t  # сырые теги не попадают в текст
+    d2 = make_data()
+    d2["queue"] = [{
+        "id": 1262713, "title": "Чайник", "product": 990, "basic": 1980,
+        "discount": 50, "rating": 4.5, "feedbacks": 9, "category": "Кухня",
+        "queued_ts": int(time.time()),
+    }]
+    t2, m2 = admin._queue_view(d2)
+    assert "🌐 WB" in t2, t2
+    t, m = admin._help_view()
+    assert "Пакет ссылок" in t, t
+    t, m = admin._menu_view(make_data(), {})
+    btns = [b["text"] for row in m for b in row]
+    assert "📦 Пакет ссылок" in btns, btns
+    assert "📦 Ссылка/артикул" in btns, btns
+    # callback batch ставит pending
+    changed, d3, s3 = run("batch")
+    assert d3["admin_ui"]["pending"] == "batch_links"
+    print("31. queue icons + help + batch button OK")
+
+    # --- 32. _start_review ozon: text-only из queue, без wb.cards ---
+    d = make_data()
+    d["queue"] = [{
+        "id": 184567894, "title": "Куртка ozon", "product": 2490, "basic": 4990,
+        "discount": 50, "rating": 0, "feedbacks": 0, "category": "другое",
+        "queued_ts": int(time.time()), "manual": 1, "marketplace": "ozon",
+        "url": "https://www.ozon.ru/product/-184567894/",
+    }]
+    cards_calls = []
+    wbmod.cards = lambda ids: cards_calls.append(list(ids)) or []
+    admin.wb = wbmod
+    FakeTG.calls.clear()
+    admin._start_review("tok", 111, "c32", 184567894, d)
+    assert cards_calls == [], cards_calls
+    shows = [c for c in FakeTG.calls if c[0] == "send" and "предпросмотр" in c[1].lower()]
+    assert shows, FakeTG.calls
+    assert "manual:publish:184567894" in _json.dumps(shows[0][2], ensure_ascii=False)
+    print("32. start_review ozon OK")
 
 
 if __name__ == "__main__":

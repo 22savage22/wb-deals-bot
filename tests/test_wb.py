@@ -259,6 +259,38 @@ def main():
     assert wb.parse_nm("123") is None  # слишком короткий
     print("15. parse_nm OK")
 
+    # 15b. parse_ozon_nm / parse_product / product_link
+    assert wb.parse_ozon_nm("https://www.ozon.ru/product/slug-name-184567890/") == 184567890
+    assert wb.parse_ozon_nm("https://ozon.ru/product/-184567890/") == 184567890
+    assert (
+        wb.parse_ozon_nm("https://www.ozon.ru/product/kurtka-184567890/?from=share")
+        == 184567890
+    )
+    assert wb.parse_ozon_nm("https://www.ozon.ru/product/184567890/") == 184567890
+    assert wb.parse_ozon_nm("https://www.ozon.ru/product/abc-12-184567890/") == 184567890
+    assert wb.parse_ozon_nm("https://www.ozon.ru/product/some-slug/") is None
+    assert wb.parse_ozon_nm("ozon без ссылки") is None
+    assert wb.parse_ozon_nm("") is None
+    assert wb.parse_ozon_nm(None) is None
+
+    ozon_url = "https://www.ozon.ru/product/kurtka-184567890/?from=share"
+    assert wb.parse_product(ozon_url) == ("ozon", 184567890, ozon_url)
+    wb_url = "https://www.wildberries.ru/catalog/1262712/detail.aspx"
+    assert wb.parse_product(wb_url) == ("wb", 1262712, wb_url)
+    assert wb.parse_product("1262712") == ("wb", 1262712, "")
+    assert wb.parse_product("  555000  ") == ("wb", 555000, "")
+    assert wb.parse_product("мусор и шум") is None
+    assert wb.parse_product("https://www.ozon.ru/product/broken/") is None
+    assert wb.parse_product("") is None
+    assert wb.parse_product(None) is None
+
+    assert wb.product_link(184567890, "ozon", ozon_url) == ozon_url
+    assert wb.product_link(184567890, "ozon", "") == "https://www.ozon.ru/product/-184567890/"
+    assert wb.product_link(184567890, "ozon", None) == "https://www.ozon.ru/product/-184567890/"
+    assert wb.product_link(1262712) == wb_url
+    assert wb.product_link(1262712, "wb", wb_url) == wb_url
+    print("15b. parse_ozon_nm/parse_product/product_link OK")
+
     # 16. basket_card: метаданные без цен (WAF-резерв)
     orig_get = wb._get
     orig_host = wb._basket_host

@@ -437,6 +437,54 @@ def parse_nm(text):
     return None
 
 
+def parse_ozon_nm(text):
+    """Extract Ozon product id from product link. None if not found."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    m = re.search(r"/product/([^?\s#]+)", t, re.I)
+    if not m:
+        return None
+    seg = m.group(1).rstrip("/")
+    m2 = re.search(r"-(\d{4,15})$", seg)
+    if m2:
+        return int(m2.group(1))
+    if seg.isdigit() and 4 <= len(seg) <= 15:
+        return int(seg)
+    return None
+
+
+def parse_product(text):
+    """Return (marketplace, pid, url) or None. Detect ozon by host, else wb."""
+    t = str(text or "").strip()
+    if not t:
+        return None
+    if "ozon.ru" in t.lower():
+        pid = parse_ozon_nm(t)
+        if not pid:
+            return None
+        url = t if t.lower().startswith("http") else ""
+        return ("ozon", pid, url)
+    pid = parse_nm(t)
+    if not pid:
+        return None
+    url = t if t.lower().startswith("http") else ""
+    return ("wb", pid, url)
+
+
+def product_link(pid, marketplace="wb", url=""):
+    """Original product URL when saved, otherwise build by marketplace."""
+    u = str(url or "")
+    if u.startswith("http"):
+        return u
+    if str(marketplace or "wb") == "ozon":
+        return f"https://www.ozon.ru/product/-{pid}/"
+    try:
+        return config.LINK_TEMPLATE.format(nm=pid)
+    except (KeyError, IndexError, ValueError):
+        return f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
+
+
 def basket_card(nm):
     """Basket metadata (no prices) when card.wb.ru is blocked by WAF."""
     try:

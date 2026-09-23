@@ -286,13 +286,147 @@ def _deal_from_draft(draft, product, basic):
         "query": "",
         "queued_ts": int(time.time()),
         "manual": 1,
+        "marketplace": str(draft.get("marketplace") or "wb")[:10],
+        "url": str(draft.get("url") or "")[:500],
     }
+
+
+def _parse_batch_line(line):
+    """Parse one batch line into a queue-ready deal. Returns (error, deal)."""
+    tokens = str(line or "").split()
+    if not tokens:
+        return "нет строки", None
+    parsed = wb.parse_product(tokens[0])
+    if not parsed:
+        return "не распознана ссылка/артикул", None
+    mp, pid, url = parsed
+    if not pid or int(pid) <= 0:
+        return "не распознана ссылка/артикул", None
+    rest = tokens[1:]
+    if not rest:
+        return "нет цены", None
+    price = _parse_price_input(rest[0])
+    if price is None:
+        token = rest[0]
+        if "/" in token or token.replace(" ", "").isdigit():
+            return "некорректная цена (формат цена[/базовая])", None
+        return "нет цены", None
+    product, basic = price
+    if int(product) <= 0 or int(basic) < int(product):
+        return "некорректная цена", None
+    title = ""
+    brand = ""
+    category = "другое"
+    rating = 0
+    feedbacks = 0
+    if mp == "ozon":
+        title = " ".join(rest[1:]).strip()[:300]
+        if not title:
+            return "нет названия", None
+    else:
+        meta = None
+        try:
+            meta = wb.basket_card(pid)
+        except Exception:
+            meta = None
+        if meta:
+            title = str(meta.get("title") or "").strip()[:300]
+            brand = str(meta.get("brand") or "")[:150]
+            category = str(meta.get("category") or "другое")[:200]
+            try:
+                rating = float(meta.get("rating") or 0)
+            except (TypeError, ValueError):
+                rating = 0
+            try:
+                feedbacks = int(meta.get("feedbacks") or 0)
+            except (TypeError, ValueError):
+                feedbacks = 0
+        if not title:
+            title = "Товар Wildberries"
+    discount = round(100 - int(product) * 100 / int(basic)) if int(basic) > int(product) else 0
+    deal = {
+        "id": int(pid),
+        "title": title[:300],
+        "brand": brand[:150],
+        "product": int(product),
+        "basic": int(basic),
+        "discount": int(discount),
+        "benefit": max(0, int(basic) - int(product)),
+        "rating": float(rating or 0),
+        "feedbacks": int(feedbacks or 0),
+        "category": str(category or "другое")[:200],
+        "selection_mode": "manual",
+        "quality": "M",
+        "query": "",
+        "queued_ts": int(time.time()),
+        "manual": 1,
+        "marketplace": mp,
+        "url": str(url or "")[:500],
+    }
+    return None, deal
+
+
+def _handle_batch(token, chat_id, data, text):
+    """Enqueue valid batch lines, report accepted and rejected rows."""
+    lines = [ln.strip() for ln in str(text or "").splitlines() if ln.strip()]
+    if not lines:
+        tg.send_message(
+            token,
+            chat_id,
+            "❌ Нет строк. Отправь хотя бы одну строку с товаром.",
+            markup=[[_btn("🏠 Меню", MENU + "menu")]],
+        )
+        return False
+    posted_ids = set(int(p) for p in (data.get("posted") or {}))
+    queue_ids = {
+        int(i.get("id") or 0) for i in data.get("queue") or [] if i.get("id")
+    }
+    queued = []
+    rejected = []
+    for idx, line in enumerate(lines, 1):
+        err, deal = _parse_batch_line(line)
+        if err:
+            rejected.append(f"строка {idx}: {err}")
+            continue
+        pid = deal["id"]
+        if pid in posted_ids:
+            rejected.append(f"строка {idx}: артикул уже публиковался")
+            continue
+        if pid in queue_ids:
+            rejected.append(f"строка {idx}: артикул уже в очереди")
+            continue
+        queue_ids.add(pid)
+        queued.append(deal)
+    if queued:
+        data["queue"] = list(queued) + list(data.get("queue") or [])
+        data["queue"] = state._norm_queue(data["queue"])
+    out = [f"✅ В очередь: <b>{len(queued)}</b>"]
+    for deal in queued:
+        icon = "Ozon" if deal.get("marketplace") == "ozon" else "WB"
+        title = html.escape(str(deal.get("title") or "")[:60])
+        out.append(f"• {icon} #{deal['id']} — {title} ({deal['product']}₽)")
+    if rejected:
+        out.append("")
+        out.append(f"❌ Отклонено: <b>{len(rejected)}</b>")
+        for row in rejected[:20]:
+            out.append("• " + html.escape(row))
+    out.append("")
+    q_text, q_markup = _queue_view(data)
+    out.append(q_text)
+    tg.send_message(token, chat_id, "\n".join(out), markup=q_markup)
+    return bool(queued)
 
 
 def _price_prompt_text(draft):
     brand = html.escape(str(draft.get("brand") or "—"))
     cat = html.escape(str(draft.get("category") or "другое"))
     title = html.escape(str(draft.get("title") or "Товар"))
+    is_ozon = str(draft.get("marketplace") or "wb") == "ozon"
+    source_line = (
+        "Ozon без автоданных — пришли <b>текущую</b> цену с карточки:"
+        if is_ozon
+        else "WB не отдал цену — пришли <b>текущую</b> цену с карточки:"
+    )
     return "\n".join(
         [
             "📦 <b>Ручной ввод в очередь</b>",
@@ -301,7 +435,7 @@ def _price_prompt_text(draft):
             f"Бренд: {brand} · Тема: {cat}",
             f"Артикул: <code>{draft['id']}</code>",
             "",
-            "WB не отдал цену — пришли <b>текущую</b> цену с карточки:",
+            source_line,
             "<code>1990</code> — только цена",
             "<code>1990/3990</code> — цена/старая цена (посчитаем скидку)",
             "",
@@ -313,10 +447,13 @@ def _price_prompt_text(draft):
 
 def _show_manual_preview(token, chat_id, deal):
     pid = deal["id"]
-    try:
-        images = wb.photos(pid) or []
-    except Exception:
-        images = []
+    is_ozon = str(deal.get("marketplace") or "wb") == "ozon"
+    images = []
+    if not is_ozon:
+        try:
+            images = wb.photos(pid) or []
+        except Exception:
+            images = []
     caption = (
         tg.caption(deal, pid) + "\n\n⚠️ <b>Предпросмотр.</b> В канал ещё не отправлено."
     )
@@ -333,18 +470,20 @@ def _show_manual_preview(token, chat_id, deal):
         else:
             tg.send_photo(token, chat_id, images[0], caption, markup=markup)
     else:
+        extra = "" if is_ozon else "\n\n⚠️ Фото пока недоступны — публикация может не пройти."
         tg.send_message(
             token,
             chat_id,
-            caption + "\n\n⚠️ Фото пока недоступны — публикация может не пройти.",
+            caption + extra,
             markup=markup,
         )
 
 
-def _prepare_manual(token, chat_id, data, pid, url=""):
+def _prepare_manual(token, chat_id, data, pid, url="", marketplace="wb"):
     """Build a queue-ready card from link/article; ask for missing fields."""
     ui = data.setdefault("admin_ui", {})
     ui.setdefault("pending", None)
+    marketplace = "ozon" if str(marketplace) == "ozon" else "wb"
     draft = {
         "id": int(pid),
         "title": "",
@@ -353,74 +492,83 @@ def _prepare_manual(token, chat_id, data, pid, url=""):
         "rating": 0,
         "feedbacks": 0,
         "url": str(url or "")[:500],
+        "marketplace": marketplace,
     }
     deal = None
-    try:
-        cards = wb.cards([pid]) or []
-    except Exception:
-        cards = []
-    if cards:
+    if marketplace != "ozon":
         try:
-            deal = wb.raw_deal(cards[0])
+            cards = wb.cards([pid]) or []
         except Exception:
-            deal = None
-    if (
-        deal
-        and deal.get("id")
-        and int(deal.get("product") or 0) > 0
-        and str(deal.get("title") or "").strip()
-    ):
-        deal = dict(
-            deal,
-            selection_mode="manual",
-            quality="M",
-            query="",
-            manual=1,
-            queued_ts=int(time.time()),
-        )
-        draft.update(
-            {
-                "title": deal["title"],
-                "brand": deal.get("brand") or "",
-                "category": deal.get("category") or "другое",
-                "rating": deal.get("rating") or 0,
-                "feedbacks": deal.get("feedbacks") or 0,
-                "product": int(deal["product"]),
-                "basic": int(deal.get("basic") or deal["product"]),
-                "discount": int(deal.get("discount") or 0),
-            }
-        )
-        ui["manual_draft"] = draft
-        ui["manual_deal"] = deal
-        ui.pop("pending", None)
-        _show_manual_preview(token, chat_id, deal)
-        return "ready"
-    meta = None
-    try:
-        meta = wb.basket_card(pid)
-    except Exception:
+            cards = []
+        if cards:
+            try:
+                deal = wb.raw_deal(cards[0])
+            except Exception:
+                deal = None
+        if (
+            deal
+            and deal.get("id")
+            and int(deal.get("product") or 0) > 0
+            and str(deal.get("title") or "").strip()
+        ):
+            deal = dict(
+                deal,
+                selection_mode="manual",
+                quality="M",
+                query="",
+                manual=1,
+                queued_ts=int(time.time()),
+                marketplace="wb",
+                url=draft["url"],
+            )
+            draft.update(
+                {
+                    "title": deal["title"],
+                    "brand": deal.get("brand") or "",
+                    "category": deal.get("category") or "другое",
+                    "rating": deal.get("rating") or 0,
+                    "feedbacks": deal.get("feedbacks") or 0,
+                    "product": int(deal["product"]),
+                    "basic": int(deal.get("basic") or deal["product"]),
+                    "discount": int(deal.get("discount") or 0),
+                }
+            )
+            ui["manual_draft"] = draft
+            ui["manual_deal"] = deal
+            ui.pop("pending", None)
+            _show_manual_preview(token, chat_id, deal)
+            return "ready"
         meta = None
-    if meta:
-        draft["title"] = str(meta.get("title") or "").strip()[:300]
-        draft["brand"] = str(meta.get("brand") or "")[:150]
-        draft["category"] = str(meta.get("category") or "другое")[:200]
         try:
-            draft["rating"] = float(meta.get("rating") or 0)
-        except (TypeError, ValueError):
-            draft["rating"] = 0
-        try:
-            draft["feedbacks"] = int(meta.get("feedbacks") or 0)
-        except (TypeError, ValueError):
-            draft["feedbacks"] = 0
+            meta = wb.basket_card(pid)
+        except Exception:
+            meta = None
+        if meta:
+            draft["title"] = str(meta.get("title") or "").strip()[:300]
+            draft["brand"] = str(meta.get("brand") or "")[:150]
+            draft["category"] = str(meta.get("category") or "другое")[:200]
+            try:
+                draft["rating"] = float(meta.get("rating") or 0)
+            except (TypeError, ValueError):
+                draft["rating"] = 0
+            try:
+                draft["feedbacks"] = int(meta.get("feedbacks") or 0)
+            except (TypeError, ValueError):
+                draft["feedbacks"] = 0
     ui["manual_draft"] = draft
     if not draft["title"]:
         ui["pending"] = "manual_title"
+        fail_line = (
+            f"⚠️ Название <code>{pid}</code> не получили автоматически (Ozon без автоданных)."
+            if marketplace == "ozon"
+            else f"⚠️ Не удалось получить название <code>{pid}</code> (WB недоступен)."
+        )
         tg.send_message(
             token,
             chat_id,
             "\n".join(
                 [
-                    f"⚠️ Не удалось получить название <code>{pid}</code> (WB недоступен).",
+                    fail_line,
                     "",
                     "Отправь <b>название товара</b> одним сообщением:",
                 ]
@@ -455,16 +603,33 @@ def _queue_manual(token, data, chat_id, cb_id, pid):
             if cb_id:
                 tg.answer_callback(token, cb_id, "❌ Черновик не найден")
             return False
+    if int(pid) in data["posted"]:
+        if cb_id:
+            tg.answer_callback(token, cb_id, "⏳ Артикул уже публиковался")
+        tg.send_message(
+            token,
+            chat_id,
+            f"❌ Артикул <code>{pid}</code> уже публиковался — пропущен.",
+        )
+        return False
+    if any(int(i.get("id") or 0) == int(pid) for i in data.get("queue") or []):
+        if cb_id:
+            tg.answer_callback(token, cb_id, "⏳ Артикул уже в очереди")
+        tg.send_message(
+            token,
+            chat_id,
+            f"❌ Артикул <code>{pid}</code> уже в очереди — пропущен.",
+        )
+        return False
     deal = dict(
         deal,
         manual=1,
         selection_mode="manual",
         query=str(deal.get("query") or "")[:200],
         queued_ts=int(time.time()),
+        marketplace=str(deal.get("marketplace") or "wb")[:10],
+        url=str(deal.get("url") or "")[:500],
     )
-    data["queue"] = [
-        i for i in (data.get("queue") or []) if i.get("id") != int(pid)
-    ]
     data["queue"].insert(0, deal)
     data["queue"] = state._norm_queue(data["queue"])
     ui.pop("manual_draft", None)
@@ -585,7 +750,10 @@ def _menu_view(data, settings):
             _btn("📦 Ссылка/артикул", MENU + "manual"),
         ],
         [
+            _btn("📦 Пакет ссылок", MENU + "batch"),
             _btn("⚙️ Настройки", MENU + "cfg"),
+        ],
+        [
             _btn(pause_lbl, pause_cmd),
         ],
         [
@@ -639,12 +807,13 @@ def _queue_view(data, settings=None):
             f"📉 <b>{int(deal.get('discount', 0))}%</b>"
             if deal.get("price_drop") else "💎 текущая цена"
         )
+        mp_icon = "🔵 Ozon" if str(deal.get("marketplace") or "wb") == "ozon" else "🌐 WB"
         lines.append(
             f"{i}. {price_note} · <b>{tg.fmt(int(deal.get('product', 0)))} ₽</b> · "
             f"⭐ {deal.get('rating', 0):g}"
         )
         lines.append(f"   {title}")
-        lines.append(f"   <code>{deal.get('id')}</code>")
+        lines.append(f"   {mp_icon} <code>{deal.get('id')}</code>")
         lines.append("")
         markup.append(
             [
@@ -1112,6 +1281,7 @@ def _help_view():
             "⏸ Пауза — приостановить постинг на время",
             "🚀 Пост сейчас — разовый запуск поиска",
             "📦 Ссылка/артикул — в очередь по ссылке на товар или артикулу (WB WAF-резерв)",
+            "📦 Пакет ссылок — несколько строк WB/Ozon сразу, каждая со своей ценой",
             "🔍 Превью — что бот найдёт прямо сейчас; 📦 = предпросмотр поста",
             "🗂 Ротация: одна категория — один пост за запуск,"
             "   после поста категория отдыхает 12 часов",
@@ -1176,13 +1346,13 @@ def _preview_view(data, settings, limit=10):
         title = html.escape(d["title"])
         if len(title) > 50:
             title = title[:47] + "..."
-        link = _link(d["id"])
         price_note = f"📉 <b>{d['discount']}%</b>" if d.get("price_drop") else "💎"
         rows.append(
             f"{i}. {price_note} · {tg.fmt(d['product'])} ₽"
             f" · ⭐ {d['rating']} · <i>{html.escape(str(d['category']))}</i>"
         )
         rows.append(f"   {title}")
+        link = wb.product_link(d["id"], d.get("marketplace") or "wb", d.get("url") or "")
         rows.append(
             f'   <a href="{link}">открыть</a> · <code>{d["id"]}</code>'
         )
@@ -1259,7 +1429,82 @@ def _set_pause(settings, hours):
     settings["mtime"] = int(time.time())
 
 
-def _start_review(token, chat_id, cb_id, pid):
+def _marketplace_for(data, pid):
+    """Marketplace of a known item (stored draft/deal or queue), default wb."""
+    if not data:
+        return "wb"
+    ui = data.get("admin_ui") or {}
+    for key in ("manual_deal", "manual_draft"):
+        item = ui.get(key)
+        if isinstance(item, dict) and int(item.get("id") or 0) == int(pid):
+            return str(item.get("marketplace") or "wb") or "wb"
+    for q in data.get("queue") or []:
+        if int(q.get("id") or 0) == int(pid):
+            return str(q.get("marketplace") or "wb") or "wb"
+    return "wb"
+
+
+def _stored_deal(data, pid):
+    """Manual/queue-backed deal without WB cards (ozon or WAF fallback)."""
+    if not data:
+        return None
+    ui = data.get("admin_ui") or {}
+    stored = ui.get("manual_deal")
+    if (
+        stored
+        and int(stored.get("id") or 0) == int(pid)
+        and int(stored.get("product") or 0) > 0
+    ):
+        return dict(stored)
+    draft_m = ui.get("manual_draft") or {}
+    if int(draft_m.get("id") or 0) == int(pid) and int(draft_m.get("product") or 0) > 0:
+        return _deal_from_draft(
+            draft_m,
+            int(draft_m["product"]),
+            int(draft_m.get("basic") or draft_m["product"]),
+        )
+    queued_m = next(
+        (q for q in (data.get("queue") or []) if int(q.get("id") or 0) == int(pid)),
+        None,
+    )
+    if (
+        queued_m
+        and int(queued_m.get("product") or 0) > 0
+        and str(queued_m.get("title") or "").strip()
+    ):
+        return dict(
+            queued_m,
+            manual=1,
+            selection_mode=queued_m.get("selection_mode") or "manual",
+        )
+    return None
+
+
+def _start_review(token, chat_id, cb_id, pid, data=None):
+    if _marketplace_for(data, pid) == "ozon":
+        deal = _stored_deal(data, pid)
+        if not deal or not deal.get("id"):
+            if cb_id:
+                tg.answer_callback(token, cb_id, "❌ Нет данных по товару")
+            tg.send_message(
+                token,
+                chat_id,
+                f"❌ Нет данных для предпросмотра <code>{pid}</code>.",
+                markup=_home_row(),
+            )
+            return
+        if cb_id:
+            tg.answer_callback(token, cb_id, "📄 Предпросмотр готов")
+        caption = (
+            tg.caption(deal, pid)
+            + "\n\n⚠️ <b>Это предпросмотр.</b> В канал ещё не отправлено."
+        )
+        markup = [
+            [_btn("✅ Опубликовать в канал", MENU + "manual:publish:" + str(pid))],
+            [_btn("❌ Отмена", MENU + "manual:cancel")],
+        ]
+        tg.send_message(token, chat_id, caption, markup=markup)
+        return
     cards = wb.cards([pid])
     if not cards:
         if cb_id:
@@ -1301,66 +1546,55 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
         if cb_id:
             tg.answer_callback(token, cb_id, "⏳ Уже публиковали недавно — подожди")
         return False
-    cards = []
-    try:
-        cards = wb.cards([pid]) or []
-    except Exception:
-        cards = []
+    is_ozon = _marketplace_for(data, pid) == "ozon"
     deal = None
-    if cards:
-        deal = wb.evaluate(cards[0], min_discount=0)[0] if validate else wb.raw_deal(cards[0])
-        if deal:
-            smart.price_drop(deal, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
-    if not deal or not deal.get("id") or int(deal.get("product") or 0) <= 0:
-        # WAF/cards unavailable — use admin-confirmed manual draft/deal or queue item.
-        ui_m = data.get("admin_ui") or {}
-        deal = None
-        stored = ui_m.get("manual_deal")
-        if stored and int(stored.get("id") or 0) == int(pid) and int(stored.get("product") or 0) > 0:
-            deal = dict(stored)
-        if not deal:
-            draft_m = ui_m.get("manual_draft") or {}
-            if int(draft_m.get("id") or 0) == int(pid) and int(draft_m.get("product") or 0) > 0:
-                deal = _deal_from_draft(
-                    draft_m,
-                    int(draft_m["product"]),
-                    int(draft_m.get("basic") or draft_m["product"]),
-                )
-        if not deal:
-            queued_m = next(
-                (q for q in (data.get("queue") or []) if q.get("id") == pid), None
-            )
-            if queued_m and int(queued_m.get("product") or 0) > 0 and str(
-                queued_m.get("title") or ""
-            ).strip():
-                deal = dict(
-                    queued_m,
-                    manual=1,
-                    selection_mode=queued_m.get("selection_mode") or "manual",
-                )
-        if deal:
-            state.record_error(
-                data,
-                f"Публикация #{pid} из подтверждённых данных (WB cards недоступны)",
-            )
-    if deal:
+    if is_ozon:
+        deal = _stored_deal(data, pid)
+        if not deal or not deal.get("id") or int(deal.get("product") or 0) <= 0:
+            state.record_error(data, f"Не удалось подготовить пост {pid} (ozon)")
+            if cb_id:
+                tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
+            return False
+    else:
+        cards = []
         try:
-            smart.price_drop(deal, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
+            cards = wb.cards([pid]) or []
         except Exception:
-            pass
+            cards = []
+        if cards:
+            deal = wb.evaluate(cards[0], min_discount=0)[0] if validate else wb.raw_deal(cards[0])
+            if deal:
+                smart.price_drop(deal, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
+        if not deal or not deal.get("id") or int(deal.get("product") or 0) <= 0:
+            # WAF/cards unavailable — use admin-confirmed manual draft/deal or queue item.
+            deal = _stored_deal(data, pid)
+            if deal:
+                state.record_error(
+                    data,
+                    f"Публикация #{pid} из подтверждённых данных (WB cards недоступны)",
+                )
+        if deal:
+            try:
+                smart.price_drop(deal, data.setdefault("prices", {}), config.PRICE_DROP_MIN)
+            except Exception:
+                pass
     images = []
-    try:
-        images = wb.photos(pid) or []
-    except Exception:
-        images = []
-    if not images or not deal or not deal.get("id"):
+    if not is_ozon:
+        try:
+            images = wb.photos(pid) or []
+        except Exception:
+            images = []
+    if not deal or not deal.get("id") or (not is_ozon and not images):
         state.record_error(data, f"Не удалось подготовить пост {pid}")
         if cb_id:
             tg.answer_callback(token, cb_id, "❌ Не удалось подготовить пост")
         return False
-    link = _link(pid)
+    mp = "ozon" if is_ozon else "wb"
+    link = wb.product_link(pid, mp, str(deal.get("url") or ""))
     caption = tg.caption(deal, pid)
-    if len(images) > 1:
+    if is_ozon:
+        ok = tg.send_deal_text(token, config.TG_CHAT_ID, caption, link, pid)
+    elif len(images) > 1:
         ok = tg.send_album(token, config.TG_CHAT_ID, images, caption, link, pid)
     else:
         ok = tg.send_photo(token, config.TG_CHAT_ID, images[0], caption, link, pid)
@@ -1382,7 +1616,7 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
     data["recent"].append(
         {
             "pid": pid,
-            "image": wb.photo_url(pid),
+            "image": "" if is_ozon else wb.photo_url(pid),
             "title": deal["title"],
             "discount": deal["discount"],
             "price": deal["product"],
@@ -1748,6 +1982,26 @@ def _admin_callback(token, data, settings, cb):
         )
         _render(token, chat_id, msg_id, text, [[_btn("❌ Отмена", MENU + "cancel")]])
         tg.answer_callback(token, cb_id, "Введи ссылку или артикул…")
+    elif cmd == "batch":
+        data.setdefault("admin_ui", {})["pending"] = "batch_links"
+        text = "\n".join(
+            [
+                "📦 <b>Пакет ссылок WB + Ozon</b>",
+                "",
+                "Каждая строка — один товар:",
+                "",
+                "WB:   &lt;ссылка|артикул&gt; [цена[/базовая]]",
+                "Ozon: &lt;ссылка&gt; &lt;цена[/базовая&gt;] &lt;название&gt;",
+                "",
+                "Примеры:",
+                "<code>https://www.wildberries.ru/catalog/1262712/detail.aspx 1990/3990</code>",
+                "<code>https://www.ozon.ru/product/kurtka-184567890/ 2490/4990 Куртка зимняя</code>",
+                "",
+                "Цена обязательна для обеих площадок. Ozon без автоданных — название обязательно.",
+            ]
+        )
+        _render(token, chat_id, msg_id, text, [[_btn("❌ Отмена", MENU + "cancel")]])
+        tg.answer_callback(token, cb_id, "Вставь строки…")
     elif cmd.startswith("manual:queue:"):
         parts_q = cmd.split(":")
         pid = _clean_pid(parts_q[2] if len(parts_q) > 2 else "")
@@ -1775,7 +2029,7 @@ def _admin_callback(token, data, settings, cb):
     elif cmd.startswith("preview:post:"):
         pid = _clean_pid(cmd.split(":", 2)[2] if len(cmd.split(":")) > 2 else "")
         if pid is not None:
-            _start_review(token, chat_id, cb_id, pid)
+            _start_review(token, chat_id, cb_id, pid, data)
         else:
             tg.answer_callback(token, cb_id, "❌ Неверный артикул")
     elif cmd == "preview":
@@ -1885,19 +2139,26 @@ def _admin_message(token, chat_id, data, settings, text):
                 markup=markup,
             )
             return True
+        if pending == "batch_links":
+            ui.pop("pending", None)
+            return _handle_batch(token, chat_id, data, text)
         if pending == "manual_post":
-            pid = wb.parse_nm(text) or _clean_pid(text)
+            parsed = wb.parse_product(text)
+            pid = parsed[1] if parsed else None
+            if not pid:
+                pid = _clean_pid(text)
+                parsed = ("wb", pid, "") if pid else None
             if not pid:
                 tg.send_message(
                     token,
                     chat_id,
-                    "❌ Не понял артикул. Пришли ссылку на товар WB или артикул цифрами.",
+                    "❌ Не понял артикул. Пришли ссылку на товар WB/Ozon или артикул цифрами.",
                 )
                 return False
             ui.pop("pending", None)
-            url = str(text).strip() if "http" in str(text).lower() else ""
+            mp_m, url = (parsed[0], parsed[2]) if parsed else ("wb", "")
             tg.send_message(token, chat_id, f"🔄 Готовлю карточку <code>{pid}</code>…")
-            _prepare_manual(token, chat_id, data, pid, url)
+            _prepare_manual(token, chat_id, data, pid, url, mp_m)
             return True
         if pending == "manual_title":
             draft_t = ui.get("manual_draft") or {}
@@ -2051,15 +2312,19 @@ def _admin_message(token, chat_id, data, settings, text):
                 markup=_home_row(),
             )
             return False
-        pid = wb.parse_nm(raw_post) or _clean_pid(raw_post)
+        parsed_post = wb.parse_product(raw_post)
+        if parsed_post:
+            mp_post, pid, url = parsed_post
+        else:
+            pid = _clean_pid(raw_post)
+            mp_post, url = "wb", ""
         if not pid:
             tg.send_message(
                 token, chat_id, "❌ Не понял артикул.", markup=_home_row()
             )
             return False
         tg.send_message(token, chat_id, f"🔄 Готовлю карточку <code>{pid}</code>…")
-        url = raw_post if "http" in raw_post.lower() else ""
-        _prepare_manual(token, chat_id, data, pid, url)
+        _prepare_manual(token, chat_id, data, pid, url, mp_post)
         return True
     elif cmd == "/preview":
         tg.send_message(token, chat_id, "🔍 Ищу лучшие скидки…")

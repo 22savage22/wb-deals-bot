@@ -264,6 +264,11 @@ def _norm_prices(raw):
     return out
 
 
+def _norm_marketplace(value):
+    mp = str(value or "wb").strip().lower()[:10]
+    return mp if mp in ("wb", "ozon") else "wb"
+
+
 def _norm_admin_ui(raw):
     if not isinstance(raw, dict):
         return {"pending": None}
@@ -294,6 +299,7 @@ def _norm_admin_ui(raw):
                 "rating": rating,
                 "feedbacks": feedbacks,
                 "url": str(draft.get("url") or "")[:500],
+                "marketplace": _norm_marketplace(draft.get("marketplace")),
             }
             try:
                 product = int(draft.get("product") or 0)
@@ -345,6 +351,8 @@ def _norm_admin_ui(raw):
                 "query": str(deal.get("query") or "")[:200],
                 "queued_ts": queued_ts,
                 "manual": 1,
+                "marketplace": _norm_marketplace(deal.get("marketplace")),
+                "url": str(deal.get("url") or "")[:500],
             }
     return out
 
@@ -386,6 +394,8 @@ def _norm_queue(raw):
             "query": str(item.get("query") or "")[:200],
             "queued_ts": queued_ts,
             "manual": 1 if item.get("manual") else 0,
+            "marketplace": _norm_marketplace(item.get("marketplace")),
+            "url": str(item.get("url") or "")[:500],
         }
         old = out.get(pid)
         if old is None or queued_ts > old["queued_ts"]:

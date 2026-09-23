@@ -33,6 +33,11 @@ class FakeTG:
         return True
 
     @staticmethod
+    def send_deal_text(t, c, caption, link, pid):
+        FakeTG.sent.append(("text", c, pid, caption, link))
+        return True
+
+    @staticmethod
     def fmt(n):
         return f"{n:,}".replace(",", " ")
 
@@ -45,6 +50,12 @@ class FakeWB:
     @staticmethod
     def photo_url(pid):
         return ""
+
+    @staticmethod
+    def product_link(pid, marketplace="wb", url=""):
+        import wb as _wb
+
+        return _wb.product_link(pid, marketplace, url)
 
     items = {}
     photo_map = {}
@@ -641,6 +652,75 @@ def main():
     assert deals[0]["product"] == 500
     assert f3.get("manual_raw_refresh") == 1, f3
     print("12b. manual raw refresh OK")
+
+    # --- 13. ozon publish: без wb.photos, send_deal_text, posted, recent ---
+    ozon_deal = {
+        "id": 184567895, "title": "Куртка ozon", "brand": "", "product": 2490,
+        "basic": 4990, "discount": 50, "benefit": 2500, "rating": 0, "feedbacks": 0,
+        "category": "другое", "selection_mode": "manual", "quality": "M", "query": "",
+        "queued_ts": int(time.time()), "manual": 1, "marketplace": "ozon",
+        "url": "https://www.ozon.ru/product/kurtka-184567895/?from=share",
+    }
+    od = empty_data()
+    od["queue"] = [dict(ozon_deal)]
+    FakeWB.items = {}
+    FakeWB.photo_map = {}
+    orig_photos = FakeWB.photos
+    photos_calls = {"n": 0}
+
+    def counting_photos(nm, limit=3):
+        photos_calls["n"] += 1
+        return orig_photos(nm, limit)
+
+    FakeWB.photos = staticmethod(counting_photos)
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(od, 1)
+    FakeWB.photos = staticmethod(orig_photos)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert photos_calls["n"] == 0, photos_calls  # ozon без фото
+    texts = [x for x in FakeTG.sent if x[0] == "text"]
+    assert texts and texts[0][2] == 184567895, FakeTG.sent
+    assert texts[0][4] == "https://www.ozon.ru/product/kurtka-184567895/?from=share"
+    assert od["posted"].get(184567895)
+    assert od["queue"] == []
+    assert od["recent"][-1]["pid"] == 184567895
+    assert od["recent"][-1]["image"] == ""
+    assert od["recent"][-1]["link"] == texts[0][4]
+    assert funnel.get("manual_no_refresh") == 1, funnel
+    print("13. ozon queue publish OK")
+
+    # --- 13b. mixed queue: сбой ozon-элемента не убивает wb-публикацию ---
+    mixed = empty_data()
+    bad_ozon = dict(
+        ozon_deal, id=184567896, title="Сбойный ozon",
+        url="https://www.ozon.ru/product/-184567896/",
+    )
+    wb_q = dict(queued_deal, id=940, query="дом", manual=1)
+    mixed["queue"] = [bad_ozon, wb_q]
+    FakeWB.items = {
+        940: {
+            "id": 940, "name": "Товар из очереди", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        }
+    }
+    FakeWB.photo_map = {}
+    orig_send_text = FakeTG.send_deal_text
+
+    def boom(t, c, caption, link, pid):
+        raise RuntimeError("ozon down")
+
+    FakeTG.send_deal_text = staticmethod(boom)
+    FakeTG.sent = []
+    published, deals, funnel = bot._publish_queued(mixed, 2)
+    FakeTG.send_deal_text = staticmethod(orig_send_text)
+    fails = funnel.get("send_failed", 0) + funnel.get("error", 0)
+    assert published == 1, (funnel, FakeTG.sent)
+    assert fails == 1, funnel
+    assert mixed["posted"].get(940)
+    assert not mixed["posted"].get(184567896)
+    assert not [q for q in mixed["queue"] if q["id"] in (940, 184567896)], mixed["queue"]
+    print("13b. mixed queue fault isolation OK")
 
 
 if __name__ == "__main__":

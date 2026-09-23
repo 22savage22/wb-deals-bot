@@ -298,6 +298,41 @@ def main():
     assert merged["admin_ui"]["manual_draft"]["id"] == 99
     print("18b. manual state OK")
 
+    # 18c. queue/draft/deal сохраняют marketplace и url (default wb)
+    now = int(time.time())
+    d = state._empty()
+    d["queue"] = [
+        {"id": 184567890, "title": "Куртка ozon", "product": 2490, "basic": 4990,
+         "discount": 50, "rating": 0, "feedbacks": 0, "category": "другое",
+         "queued_ts": now, "manual": 1, "marketplace": "ozon",
+         "url": "https://www.ozon.ru/product/kurtka-184567890/"},
+        {"id": 1262712, "title": "Без полей", "product": 1990, "basic": 3990,
+         "discount": 50, "queued_ts": now},
+        {"id": 777001, "title": "Кривой mp", "product": 100, "basic": 200,
+         "queued_ts": now, "marketplace": "amazon"},
+    ]
+    by_id = {q["id"]: q for q in state._from_dict(d)["queue"]}
+    assert by_id[184567890]["marketplace"] == "ozon"
+    assert by_id[184567890]["url"] == "https://www.ozon.ru/product/kurtka-184567890/"
+    assert by_id[1262712]["marketplace"] == "wb"
+    assert by_id[1262712]["url"] == ""
+    assert by_id[777001]["marketplace"] == "wb"  # невалидное значение → wb
+    ui = state._norm_admin_ui({
+        "pending": None,
+        "manual_draft": {"id": 55, "title": "T", "marketplace": "ozon",
+                         "url": "https://ozon.ru/product/-55/"},
+        "manual_deal": {"id": 55, "title": "T", "product": 100, "basic": 200,
+                        "discount": 50, "queued_ts": now, "marketplace": "ozon",
+                        "url": "https://ozon.ru/product/-55/"},
+    })
+    assert ui["manual_draft"]["marketplace"] == "ozon"
+    assert ui["manual_draft"]["url"] == "https://ozon.ru/product/-55/"
+    assert ui["manual_deal"]["marketplace"] == "ozon"
+    assert ui["manual_deal"]["url"] == "https://ozon.ru/product/-55/"
+    ui2 = state._norm_admin_ui({"pending": None, "manual_draft": {"id": 77}})
+    assert ui2["manual_draft"]["marketplace"] == "wb"
+    print("18c. marketplace state OK")
+
     # 19. stale scanner metadata must not roll back publisher counters/state
     remote = state._empty()
     remote["meta"] = {

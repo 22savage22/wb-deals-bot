@@ -462,6 +462,7 @@ def parse_product(text):
     if "ozon.ru" in t.lower():
         pid = parse_ozon_nm(t)
         if not pid:
+            # Host says ozon but path is unusable — do not mis-parse as WB digits.
             return None
         url = t if t.lower().startswith("http") else ""
         return ("ozon", pid, url)

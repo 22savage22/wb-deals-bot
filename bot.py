@@ -405,6 +405,9 @@ def _publish_queued(data, limit):
             funnel["error"] = funnel.get("error", 0) + 1
             state.record_error(data, f"Очередь: сбой элемента {pid}: {exc}")
             print("Сбой элемента очереди:", pid, exc)
+            # Transient network/WAF errors: keep the item for the next cycle.
+            if pid not in posted:
+                deferred.append(deal)
             continue
 
     data["queue"] = queue + deferred

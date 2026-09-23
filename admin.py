@@ -217,14 +217,6 @@ def _btn(text, data):
     return {"text": text, "callback_data": data}
 
 
-def _link(pid):
-    """Безопасная ссылка: кривой шаблон не должен уронить бота."""
-    try:
-        return config.LINK_TEMPLATE.format(nm=pid)
-    except (KeyError, IndexError, ValueError):
-        return f"https://www.wildberries.ru/catalog/{pid}/detail.aspx"
-
-
 def _home_row():
     return [[_btn("🏠 Меню", MENU + "menu")]]
 
@@ -324,11 +316,14 @@ def _parse_batch_line(line):
         if not title:
             return "нет названия", None
     else:
+        # Optional admin title on the WB line wins over basket metadata.
+        line_title = " ".join(rest[1:]).strip()[:300]
         meta = None
-        try:
-            meta = wb.basket_card(pid)
-        except Exception:
-            meta = None
+        if not line_title:
+            try:
+                meta = wb.basket_card(pid)
+            except Exception:
+                meta = None
         if meta:
             title = str(meta.get("title") or "").strip()[:300]
             brand = str(meta.get("brand") or "")[:150]
@@ -341,6 +336,8 @@ def _parse_batch_line(line):
                 feedbacks = int(meta.get("feedbacks") or 0)
             except (TypeError, ValueError):
                 feedbacks = 0
+        if line_title:
+            title = line_title
         if not title:
             title = "Товар Wildberries"
     discount = round(100 - int(product) * 100 / int(basic)) if int(basic) > int(product) else 0
@@ -401,10 +398,12 @@ def _handle_batch(token, chat_id, data, text):
         data["queue"] = list(queued) + list(data.get("queue") or [])
         data["queue"] = state._norm_queue(data["queue"])
     out = [f"✅ В очередь: <b>{len(queued)}</b>"]
-    for deal in queued:
+    for deal in queued[:20]:
         icon = "Ozon" if deal.get("marketplace") == "ozon" else "WB"
         title = html.escape(str(deal.get("title") or "")[:60])
         out.append(f"• {icon} #{deal['id']} — {title} ({deal['product']}₽)")
+    if len(queued) > 20:
+        out.append(f"… и ещё {len(queued) - 20}")
     if rejected:
         out.append("")
         out.append(f"❌ Отклонено: <b>{len(rejected)}</b>")
@@ -412,7 +411,11 @@ def _handle_batch(token, chat_id, data, text):
             out.append("• " + html.escape(row))
     out.append("")
     q_text, q_markup = _queue_view(data)
-    out.append(q_text)
+    # Telegram rejects messages over ~4096 chars — keep the report deliverable.
+    body = "\n".join(out)
+    budget = 3500 - len(body)
+    if budget > 80:
+        out.append(q_text[:budget] + ("…" if len(q_text) > budget else ""))
     tg.send_message(token, chat_id, "\n".join(out), markup=q_markup)
     return bool(queued)
 
@@ -965,7 +968,8 @@ def _last_view(data, page=0, size=PAGE):
         )
         rows.append(f"   {title}")
         if link:
-            rows.append(f'   <a href="{link}">открыть товар</a>')
+            safe_href = html.escape(str(link), quote=True)
+            rows.append(f'   <a href="{safe_href}">открыть товар</a>')
         rows.append("")
     rows.append("🗑 — забыть артикул, можно публиковать снова")
     markup = []
@@ -1352,7 +1356,10 @@ def _preview_view(data, settings, limit=10):
             f" · ⭐ {d['rating']} · <i>{html.escape(str(d['category']))}</i>"
         )
         rows.append(f"   {title}")
-        link = wb.product_link(d["id"], d.get("marketplace") or "wb", d.get("url") or "")
+        link = html.escape(
+            wb.product_link(d["id"], d.get("marketplace") or "wb", d.get("url") or ""),
+            quote=True,
+        )
         rows.append(
             f'   <a href="{link}">открыть</a> · <code>{d["id"]}</code>'
         )
@@ -1990,8 +1997,8 @@ def _admin_callback(token, data, settings, cb):
                 "",
                 "Каждая строка — один товар:",
                 "",
-                "WB:   &lt;ссылка|артикул&gt; [цена[/базовая]]",
-                "Ozon: &lt;ссылка&gt; &lt;цена[/базовая&gt;] &lt;название&gt;",
+                "WB:   &lt;ссылка|артикул&gt; &lt;цена[/базовая]&gt; [название]",
+                "Ozon: &lt;ссылка&gt; &lt;цена[/базовая]&gt; &lt;название&gt;",
                 "",
                 "Примеры:",
                 "<code>https://www.wildberries.ru/catalog/1262712/detail.aspx 1990/3990</code>",

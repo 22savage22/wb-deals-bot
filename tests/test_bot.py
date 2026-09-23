@@ -719,8 +719,34 @@ def main():
     assert fails == 1, funnel
     assert mixed["posted"].get(940)
     assert not mixed["posted"].get(184567896)
-    assert not [q for q in mixed["queue"] if q["id"] in (940, 184567896)], mixed["queue"]
+    # Send-level failure (ok=False path) drops the ozon item after isolation.
+    assert not [q for q in mixed["queue"] if q["id"] == 940], mixed["queue"]
     print("13b. mixed queue fault isolation OK")
+
+    # --- 13c. unexpected exception inside per-item try re-queues (transient) ---
+    mixed2 = empty_data()
+    wb_only = dict(queued_deal, id=941, query="дом", manual=1, title="Хрупкий WB")
+    mixed2["queue"] = [dict(wb_only)]
+    FakeWB.items = {
+        941: {
+            "id": 941, "name": "Хрупкий WB", "brand": "Бр",
+            "sizes": [{"price": {"product": 50000, "basic": 100000}}],
+            "reviewRating": 4.8, "feedbacks": 300, "subjectName": "Дом",
+        }
+    }
+    FakeWB.photo_map = {}
+
+    def boom_photos(nm, limit=3):
+        raise RuntimeError("transient photos failure")
+
+    orig_photos2 = FakeWB.photos
+    FakeWB.photos = staticmethod(boom_photos)
+    published2, _, funnel2 = bot._publish_queued(mixed2, 1)
+    FakeWB.photos = staticmethod(orig_photos2)
+    assert funnel2.get("error", 0) == 1, funnel2
+    assert not mixed2["posted"].get(941)
+    assert any(q.get("id") == 941 for q in mixed2["queue"]), mixed2["queue"]
+    print("13c. transient exception re-queues item OK")
 
 
 if __name__ == "__main__":

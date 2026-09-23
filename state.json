@@ -8146,10 +8146,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -8238,7 +8238,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790136717,
+  "last_scan": 1790138753,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -8246,8 +8246,8 @@
    "джинсы женские"
   ],
   "last_scan_cats": [
-   "Деревья и кустарники",
-   "Игрушки"
+   "Витамин D",
+   "ММА"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -178292,9 +178292,9 @@
   },
   "ММА": {
    "shard": "sport32",
-   "ts": 1790003221.4301977,
-   "runs": 70,
-   "empty": 5
+   "ts": 1790138756.0560906,
+   "runs": 71,
+   "empty": 1
   },
   "Кронштейны": {
    "shard": "housecraft6",
@@ -178772,9 +178772,9 @@
   },
   "Витамин D": {
    "shard": "shealth2",
-   "ts": 1790002520.2360587,
-   "runs": 10,
-   "empty": 5
+   "ts": 1790138756.0560906,
+   "runs": 11,
+   "empty": 1
   },
   "Творчество": {
    "shard": "school7",

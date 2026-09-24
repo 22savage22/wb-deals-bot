@@ -6760,10 +6760,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 5,
+   "calls": 4,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 5,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },
@@ -6852,16 +6852,14 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790272602,
+  "last_scan": 1790274485,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
    "сумка женская",
    "худи мужское"
   ],
-  "last_scan_cats": [
-   "Мешки для обуви"
-  ],
+  "last_scan_cats": [],
   "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {

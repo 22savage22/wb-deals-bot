@@ -7197,10 +7197,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7289,7 +7289,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790224128,
+  "last_scan": 1790230579,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -7300,7 +7300,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 20,
+  "queue_size": 7,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -130834,9 +130834,9 @@
   },
   "Туризм и страноведение": {
    "shard": "books9",
-   "ts": 1790224130.753058,
-   "runs": 82,
-   "empty": 2
+   "ts": 1790230581.4671125,
+   "runs": 83,
+   "empty": 3
   },
   "Репринтные издания 1890 - 1899 годов": {
    "shard": "books_reprint_189x",
@@ -130918,9 +130918,9 @@
   },
   "Кронштейны": {
    "shard": "housecraft6",
-   "ts": 1790224130.753058,
-   "runs": 72,
-   "empty": 2
+   "ts": 1790230581.4671125,
+   "runs": 73,
+   "empty": 3
   },
   "Пули для пневматики": {
    "shard": "sport32",

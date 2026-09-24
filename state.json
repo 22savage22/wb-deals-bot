@@ -7185,10 +7185,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },

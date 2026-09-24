@@ -7062,19 +7062,6 @@
    "ts": 1789040916,
    "drop": 1,
    "quality": "A"
-  },
-  {
-   "pid": 772424094,
-   "title": "Футболка базовая хлопок однотонная",
-   "discount": 37,
-   "price": 375,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/772424094/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789040297,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -7103,10 +7090,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 4,
+   "calls": 12,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 12,
    "network_error": 0,
    "json_error": 0
   },
@@ -7206,7 +7193,7 @@
    "Для чая",
    "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 397,
@@ -7235,7 +7222,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790242536.0,
   "last_engagement_ts": 1790242535.0,
-  "last_engagement_kind": "question",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790145503.0
  },
  "admin_ui": {

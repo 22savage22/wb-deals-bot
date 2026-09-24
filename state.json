@@ -7294,10 +7294,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 12,
+   "calls": 42,
+   "ok": 25,
+   "rate_limited": 9,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -7421,7 +7421,7 @@
    "refresh_reserve": 0,
    "queue_after": 0
   },
-  "cats_count": 2305,
+  "cats_count": 2253,
   "no_post_notice_ts": 1790151608.0,
   "last_engagement_ts": 1790152896.0,
   "last_engagement_kind": "poll",
@@ -8765,8 +8765,7 @@
   "868e049008080929": 1790008276,
   "db3f0fde3cf8d00e": 1790008924,
   "868a032313181838": 1790009579,
-  "062c2c28f0f80880": 1790015487,
-  "0011012026faf8fa": 1787623435
+  "062c2c28f0f80880": 1790015487
  },
  "learned": {
   "часы мужские": {

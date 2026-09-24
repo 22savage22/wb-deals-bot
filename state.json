@@ -6559,10 +6559,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 4,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },

@@ -7098,7 +7098,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790245851,
+  "last_run": 1790245951,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -7112,9 +7112,9 @@
   "empty_notice_ts": 1790242535.0,
   "cats_ts": 1790164541.4580364,
   "last_cats": [
-   "Сортеры, шнуровки",
    "Эмали автомобильные",
-   "Уход за вещами"
+   "Уход за вещами",
+   "Сортеры, шнуровки"
   ],
   "digest_date": "2026-09-24",
   "week_digest_ts": 1788107929.0,
@@ -7123,10 +7123,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 9,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -7247,7 +7247,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790242536.0,
   "last_engagement_ts": 1790242535.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1790145503.0
  },
  "admin_ui": {
@@ -125514,9 +125514,9 @@
   },
   "Сортеры, шнуровки": {
    "shard": "toys11",
-   "ts": 1790245896.834118,
-   "runs": 43,
-   "empty": 3
+   "ts": 1790245995.7043986,
+   "runs": 44,
+   "empty": 4
   },
   "Зефир, мармелад, пастила": {
    "shard": "product1",
@@ -125616,15 +125616,15 @@
   },
   "Уход за вещами": {
    "shard": "appliances20",
-   "ts": 1790245896.834118,
-   "runs": 28,
-   "empty": 3
+   "ts": 1790245995.7043986,
+   "runs": 29,
+   "empty": 4
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",
-   "ts": 1790245896.834118,
-   "runs": 28,
-   "empty": 3
+   "ts": 1790245995.7043986,
+   "runs": 29,
+   "empty": 4
   },
   "Комплекты белья": {
    "shard": "women_underwear2",

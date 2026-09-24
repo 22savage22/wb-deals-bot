@@ -6927,7 +6927,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790263139,
+  "last_scan": 1790265033,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -6935,9 +6935,9 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Стулья и кресла"
+   "Мешки для обуви"
   ],
-  "queue_size": 19,
+  "queue_size": 7,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -115844,9 +115844,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1790050738.4327455,
-   "runs": 60,
-   "empty": 5
+   "ts": 1790265034.6176789,
+   "runs": 61,
+   "empty": 1
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

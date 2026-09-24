@@ -7161,10 +7161,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7253,7 +7253,7 @@
   "today": "2026-09-21",
   "today_posts": 29,
   "total_posts": 1496,
-  "last_scan": 1790238129,
+  "last_scan": 1790243546,
   "last_scan_queries": [
    "платье женское",
    "футболка мужская",
@@ -7265,19 +7265,13 @@
    "Ремни и пояса"
   ],
   "queue_size": 20,
-  "last_scan_added": 7,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 396,
-   "cards": 396,
-   "bad_price": 16,
-   "max_price": 326,
-   "ok": 52,
-   "rating": 2,
-   "strict": 2,
-   "fallback": 50,
-   "reserve": 0,
-   "duplicate": 22,
-   "title_duplicate": 15
+   "found": 0,
+   "cards": 0,
+   "strict": 0,
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 20,
@@ -125352,9 +125346,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1790243184.2155428,
-   "runs": 78,
-   "empty": 3
+   "ts": 1790243550.6773148,
+   "runs": 79,
+   "empty": 4
   },
   "Пробники": {
    "shard": "beauty47",
@@ -125778,9 +125772,9 @@
   },
   "Ремни и пояса": {
    "shard": "clothes_accessories3",
-   "ts": 1790243184.2155428,
-   "runs": 28,
-   "empty": 3
+   "ts": 1790243550.6773148,
+   "runs": 29,
+   "empty": 4
   },
   "Уход за вещами": {
    "shard": "appliances20",

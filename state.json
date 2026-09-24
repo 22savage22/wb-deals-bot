@@ -7064,10 +7064,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7190,7 +7190,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790242536.0,
   "last_engagement_ts": 1790242535.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1790145503.0
  },
  "admin_ui": {

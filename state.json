@@ -7137,7 +7137,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790156286,
+  "last_run": 1790242493,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -7148,11 +7148,11 @@
    "худи мужское"
   ],
   "learn_ts": 1789975090.8570898,
-  "empty_notice_ts": 1790121675.0,
+  "empty_notice_ts": 1790242535.0,
   "cats_ts": 1790164541.4580364,
   "last_cats": [
-   "Система выпуска",
-   "Средства индивидуальной защиты и экипировка"
+   "Тросики",
+   "Ремни и пояса"
   ],
   "digest_date": "2026-09-24",
   "week_digest_ts": 1788107929.0,
@@ -7161,10 +7161,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 8,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -7280,18 +7280,18 @@
    "title_duplicate": 15
   },
   "last_queue": {
-   "queue_before": 1,
-   "selected": 1,
-   "refresh_ok": 1,
+   "queue_before": 20,
+   "selected": 0,
    "refresh_strict": 0,
-   "refresh_fallback": 1,
+   "refresh_fallback": 0,
    "refresh_reserve": 0,
-   "queue_after": 0
+   "refresh_missing": 20,
+   "queue_after": 20
   },
   "cats_count": 2305,
-  "no_post_notice_ts": 1790151608.0,
-  "last_engagement_ts": 1790152896.0,
-  "last_engagement_kind": "poll",
+  "no_post_notice_ts": 1790242536.0,
+  "last_engagement_ts": 1790242535.0,
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1790145503.0
  },
  "admin_ui": {
@@ -125830,9 +125830,9 @@
   },
   "Тросики": {
    "shard": "autoproduct56",
-   "ts": 1790238162.426598,
-   "runs": 76,
-   "empty": 1
+   "ts": 1790242535.2734566,
+   "runs": 77,
+   "empty": 2
   },
   "Пробники": {
    "shard": "beauty47",
@@ -126256,9 +126256,9 @@
   },
   "Ремни и пояса": {
    "shard": "clothes_accessories3",
-   "ts": 1790238162.426598,
-   "runs": 26,
-   "empty": 1
+   "ts": 1790242535.2734566,
+   "runs": 27,
+   "empty": 2
   },
   "Уход за вещами": {
    "shard": "appliances20",

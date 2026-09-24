@@ -6809,10 +6809,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 5,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -6901,7 +6901,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790266918,
+  "last_scan": 1790268811,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -6911,7 +6911,7 @@
   "last_scan_cats": [
    "Мешки для обуви"
   ],
-  "queue_size": 7,
+  "queue_size": 1,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,
@@ -113801,9 +113801,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1790266921.103114,
-   "runs": 62,
-   "empty": 2
+   "ts": 1790268813.3954272,
+   "runs": 63,
+   "empty": 3
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",

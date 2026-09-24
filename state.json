@@ -7090,10 +7090,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 26,
-   "ok": 4,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -7182,31 +7182,25 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790248032,
+  "last_scan": 1790249941,
   "last_scan_queries": [
-   "футболка мужская",
    "платье женское",
    "джинсы женские",
-   "сумка женская"
+   "сумка женская",
+   "худи мужское"
   ],
   "last_scan_cats": [
-   "Для чая",
-   "Репринтные издания 1840 - 1849 годов"
+   "Пули для пневматики",
+   "Для чая"
   ],
   "queue_size": 19,
-  "last_scan_added": 1,
+  "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 397,
-   "cards": 397,
-   "ok": 18,
-   "max_price": 373,
-   "rating": 4,
-   "bad_price": 2,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 18,
-   "reserve": 0,
-   "duplicate": 10,
-   "title_duplicate": 7
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 20,
@@ -123512,9 +123506,9 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1790247941.191408,
-   "runs": 72,
-   "empty": 2
+   "ts": 1790249946.5873036,
+   "runs": 73,
+   "empty": 3
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
@@ -123620,9 +123614,9 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1790248058.3478155,
-   "runs": 68,
-   "empty": 3
+   "ts": 1790249946.5873036,
+   "runs": 69,
+   "empty": 4
   },
   "Венки декоративные": {
    "shard": "creativity38",

@@ -7059,7 +7059,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790247249,
+  "last_run": 1790247896,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -7073,8 +7073,8 @@
   "empty_notice_ts": 1790242535.0,
   "cats_ts": 1790164541.4580364,
   "last_cats": [
-   "Пули для пневматики",
    "Репринтные издания 1840 - 1849 годов",
+   "Пули для пневматики",
    "Для чая"
   ],
   "digest_date": "2026-09-24",
@@ -7084,10 +7084,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 12,
+   "calls": 9,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 12,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0
   },
@@ -7208,7 +7208,7 @@
   "cats_count": 2305,
   "no_post_notice_ts": 1790242536.0,
   "last_engagement_ts": 1790242535.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "question",
   "queue_low_notice_ts": 1790145503.0
  },
  "admin_ui": {
@@ -124944,15 +124944,15 @@
   },
   "Пули для пневматики": {
    "shard": "sport32",
-   "ts": 1790247290.9877656,
-   "runs": 71,
-   "empty": 1
+   "ts": 1790247941.191408,
+   "runs": 72,
+   "empty": 2
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1790247290.9877656,
-   "runs": 71,
-   "empty": 1
+   "ts": 1790247941.191408,
+   "runs": 72,
+   "empty": 2
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
@@ -125052,9 +125052,9 @@
   },
   "Для чая": {
    "shard": "kitchen10",
-   "ts": 1790247290.9877656,
-   "runs": 66,
-   "empty": 1
+   "ts": 1790247941.191408,
+   "runs": 67,
+   "empty": 2
   },
   "Венки декоративные": {
    "shard": "creativity38",

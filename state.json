@@ -6860,10 +6860,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -6952,7 +6952,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790261567,
+  "last_scan": 1790263139,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -6960,8 +6960,7 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Стулья и кресла",
-   "Оборудование для касс"
+   "Стулья и кресла"
   ],
   "queue_size": 19,
   "last_scan_added": 0,
@@ -116733,9 +116732,9 @@
   },
   "Стулья и кресла": {
    "shard": "furniture2",
-   "ts": 1790261569.8159225,
-   "runs": 4,
-   "empty": 4
+   "ts": 1790263141.7522655,
+   "runs": 5,
+   "empty": 5
   },
   "Оборудование для касс": {
    "shard": "rooms15",

@@ -5772,10 +5772,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -5864,14 +5864,16 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790377855,
+  "last_scan": 1790379909,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
    "сумка женская",
    "худи мужское"
   ],
-  "last_scan_cats": [],
+  "last_scan_cats": [
+   "Группа 1-2 (9-25 кг)"
+  ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
@@ -39408,9 +39410,9 @@
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",
-   "ts": 1790379903.8140316,
-   "runs": 64,
-   "empty": 4
+   "ts": 1790379911.5261283,
+   "runs": 65,
+   "empty": 5
   },
   "Спецодежда медицинская": {
    "shard": "repair26",

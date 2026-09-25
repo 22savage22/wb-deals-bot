@@ -6155,8 +6155,8 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
    "http_error": 6,
    "network_error": 0,
@@ -6247,7 +6247,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790338388,
+  "last_scan": 1790340273,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -6255,8 +6255,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Алкоголь",
-   "Уход за ногами"
+   "Уход за ногами",
+   "Алкоголь"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -67321,15 +67321,15 @@
   },
   "Уход за ногами": {
    "shard": "beauty23",
-   "ts": 1790338391.6556416,
-   "runs": 1,
-   "empty": 1
+   "ts": 1790340275.4226127,
+   "runs": 2,
+   "empty": 2
   },
   "Алкоголь": {
    "shard": "product5",
-   "ts": 1790338391.6556416,
-   "runs": 1,
-   "empty": 1
+   "ts": 1790340275.4226127,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": [

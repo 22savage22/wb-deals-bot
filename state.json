@@ -6181,7 +6181,7 @@
   ],
   "learn_ts": 1789975090.8570898,
   "empty_notice_ts": 1790242535.0,
-  "cats_ts": 1790251826.126974,
+  "cats_ts": 1790338388.2852612,
   "last_cats": [
    "Репринтные издания 1840 - 1849 годов",
    "Пули для пневматики",
@@ -6194,10 +6194,10 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 4,
-   "ok": 0,
+   "calls": 7,
+   "ok": 1,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -6286,14 +6286,17 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790336517,
+  "last_scan": 1790338388,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
    "сумка женская",
    "худи мужское"
   ],
-  "last_scan_cats": [],
+  "last_scan_cats": [
+   "Алкоголь",
+   "Уход за ногами"
+  ],
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
@@ -68525,6 +68528,18 @@
    "ts": 1790261569.8159225,
    "runs": 5,
    "empty": 5
+  },
+  "Уход за ногами": {
+   "shard": "beauty23",
+   "ts": 1790338391.6556416,
+   "runs": 1,
+   "empty": 1
+  },
+  "Алкоголь": {
+   "shard": "product5",
+   "ts": 1790338391.6556416,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": [

@@ -5747,7 +5747,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790388697,
+  "last_run": 1790389338,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -5771,10 +5771,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 8,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -39060,9 +39060,9 @@
   },
   "Кофе и цикорий": {
    "shard": "product1",
-   "ts": 1790388734.5185103,
-   "runs": 77,
-   "empty": 2
+   "ts": 1790389379.32949,
+   "runs": 78,
+   "empty": 3
   },
   "Сделано в Республике Бурятия": {
    "shard": "promo/bucket_28",
@@ -39228,9 +39228,9 @@
   },
   "Пуфы": {
    "shard": "rooms8",
-   "ts": 1790388734.5185103,
-   "runs": 67,
-   "empty": 2
+   "ts": 1790389379.32949,
+   "runs": 68,
+   "empty": 3
   },
   "Трубопроводы": {
    "shard": "autoproduct48",

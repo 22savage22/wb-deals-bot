@@ -5734,10 +5734,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -5826,7 +5826,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790412613,
+  "last_scan": 1790414585,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -38633,15 +38633,15 @@
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
-   "ts": 1790413894.4501553,
-   "runs": 73,
-   "empty": 3
+   "ts": 1790414588.2735918,
+   "runs": 74,
+   "empty": 4
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",
-   "ts": 1790413894.4501553,
-   "runs": 73,
-   "empty": 3
+   "ts": 1790414588.2735918,
+   "runs": 74,
+   "empty": 4
   },
   "Зажимы и закладки": {
    "shard": "school6",

@@ -5747,7 +5747,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790382553,
+  "last_run": 1790383203,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -5761,9 +5761,7 @@
   "empty_notice_ts": 1790378501.0,
   "cats_ts": 1790338388.2852612,
   "last_cats": [
-   "Гроубоксы",
-   "Хобби и досуг",
-   "Пледы"
+   "Хобби и досуг"
   ],
   "digest_date": "2026-09-26",
   "week_digest_ts": 1788107929.0,
@@ -5772,10 +5770,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 7,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 7,
    "network_error": 0,
    "json_error": 0
   },
@@ -5898,7 +5896,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790378501.0,
   "last_engagement_ts": 1790378501.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1790378501.0
  },
  "admin_ui": {
@@ -39391,9 +39389,9 @@
   },
   "Хобби и досуг": {
    "shard": "books9",
-   "ts": 1790382598.1595225,
-   "runs": 54,
-   "empty": 4
+   "ts": 1790383238.2403696,
+   "runs": 55,
+   "empty": 5
   },
   "Рубашки": {
    "shard": "school1",

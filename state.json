@@ -5723,7 +5723,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790400184,
+  "last_run": 1790400305,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -5747,10 +5747,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 8,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -38683,9 +38683,9 @@
   },
   "Серия Reno": {
    "shard": "electronic88",
-   "ts": 1790400225.2526188,
-   "runs": 74,
-   "empty": 4
+   "ts": 1790400345.3619416,
+   "runs": 75,
+   "empty": 5
   },
   "Источники бесперебойного питания": {
    "shard": "electronic43",
@@ -39079,9 +39079,9 @@
   },
   "Другие автоинструменты": {
    "shard": "autoproduct61",
-   "ts": 1790400225.2526188,
-   "runs": 24,
-   "empty": 4
+   "ts": 1790400345.3619416,
+   "runs": 25,
+   "empty": 5
   },
   "Расходные материалы для уборки": {
    "shard": "repair55",

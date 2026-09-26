@@ -5698,8 +5698,8 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
    "http_error": 6,
    "network_error": 0,
@@ -5790,7 +5790,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790427475,
+  "last_scan": 1790427728,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5799,7 +5799,7 @@
   ],
   "last_scan_cats": [
    "Изготовление свечей",
-   "Зажимы и закладки"
+   "Серия Redmi Note"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -38992,15 +38992,15 @@
   },
   "Изготовление свечей": {
    "shard": "creativity15",
-   "ts": 1790427477.3374805,
-   "runs": 2,
-   "empty": 2
+   "ts": 1790427730.9296267,
+   "runs": 3,
+   "empty": 3
   },
   "Серия Redmi Note": {
    "shard": "electronic25",
-   "ts": 1790425876.4615998,
-   "runs": 1,
-   "empty": 1
+   "ts": 1790427730.9296267,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": []

@@ -5766,7 +5766,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790429598,
+  "last_scan": 1790431484,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5774,8 +5774,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Серия Redmi Note",
-   "Одежда и чешки"
+   "Изготовление свечей",
+   "Серия Redmi Note"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -38920,15 +38920,15 @@
   },
   "Изготовление свечей": {
    "shard": "creativity15",
-   "ts": 1790427730.9296267,
-   "runs": 3,
-   "empty": 3
+   "ts": 1790431486.792379,
+   "runs": 4,
+   "empty": 4
   },
   "Серия Redmi Note": {
    "shard": "electronic25",
-   "ts": 1790429600.8377924,
-   "runs": 3,
-   "empty": 3
+   "ts": 1790431486.792379,
+   "runs": 4,
+   "empty": 4
   }
  },
  "queue": []

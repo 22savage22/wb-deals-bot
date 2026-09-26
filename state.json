@@ -5675,10 +5675,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 4,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 4,
    "network_error": 0,
    "json_error": 0
   },

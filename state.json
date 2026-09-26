@@ -5675,10 +5675,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -5767,7 +5767,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790433364,
+  "last_scan": 1790435320,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5775,8 +5775,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Изготовление свечей",
-   "Серия Redmi Note"
+   "Лототроны",
+   "Посуда"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -38417,9 +38417,9 @@
   },
   "Посуда": {
    "shard": "gift23",
-   "ts": 1790435315.8205981,
-   "runs": 72,
-   "empty": 2
+   "ts": 1790435322.443492,
+   "runs": 73,
+   "empty": 3
   },
   "Аксессуары для водителя": {
    "shard": "autoproduct52",
@@ -38543,9 +38543,9 @@
   },
   "Лототроны": {
    "shard": "rooms15",
-   "ts": 1790435315.8205981,
-   "runs": 57,
-   "empty": 2
+   "ts": 1790435322.443492,
+   "runs": 58,
+   "empty": 3
   },
   "Насосное оборудование": {
    "shard": "garden14",

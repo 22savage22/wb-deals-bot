@@ -1,0 +1,118 @@
+name: WB TG Diag (temp)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: WB endpoint status
+        run: |
+          python - <<'PY'
+          import requests, sys
+          sys.stdout.reconfigure(encoding="utf-8")
+          S = requests.Session()
+          S.headers.update({
+              "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+              "Accept": "application/json, text/plain, */*",
+              "Accept-Language": "ru-RU,ru;q=0.9",
+          })
+          urls = [
+              ("SEARCH", "https://search.wb.ru/exactmatch/ru/common/v9/search",
+               {"appType":"1","curr":"rub","dest":"1105763","spp":"30","lang":"ru",
+                "query":"платье женское","sort":"benefit","page":"1","resultset":"catalog"}),
+              ("CATALOG", "https://catalog.wb.ru/catalog/onepiececlothes/v1/catalog",
+               {"appType":"1","curr":"rub","dest":"110572","lang":"ru","page":"1","sort":"popular","subject":"5003"}),
+              ("CARDS", "https://card.wb.ru/cards/v4/detail",
+               {"appType":"1","curr":"rub","dest":"1105763","spp":"30","nm":"676874295"}),
+              ("MENU", "https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json", None),
+          ]
+          for name, url, params in urls:
+              try:
+                  r = S.get(url, params=params, timeout=25)
+                  n = 0
+                  if r.headers.get("content-type", "").startswith("application/json"):
+                      try:
+                          n = len((r.json().get("data") or {}).get("products") or r.json().get("products") or [])
+                      except Exception:
+                          n = -1
+                  print(f"WB {name:8} status={r.status_code} len={len(r.content)} retry_after={r.headers.get('Retry-After')} products={n}")
+              except Exception as e:
+                  print(f"WB {name:8} EXC {type(e).__name__}: {e}")
+          PY
+
+      - name: Telegram capability check
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
+        run: |
+          python - <<'PY'
+          import io, os, sys, time
+          import requests
+          sys.stdout.reconfigure(encoding="utf-8")
+          tok = os.environ.get("TG_BOT_TOKEN") or ""
+          chat = os.environ.get("TG_CHAT_ID") or ""
+          admin = os.environ.get("TG_ADMIN_ID") or ""
+          print("secrets present: token=%s chat_id=%s admin_id=%s" % (bool(tok), bool(chat), bool(admin)))
+          if not tok:
+              sys.exit(0)
+          api = f"https://api.telegram.org/bot{tok}"
+          r = requests.get(f"{api}/getMe", timeout=20).json()
+          print("getMe ok=%s username=%s can_join_groups=%s" % (
+              r.get("ok"), (r.get("result") or {}).get("username"),
+              (r.get("result") or {}).get("can_join_groups")))
+          if chat:
+              rc = requests.get(f"{api}/getChat", params={"chat_id": chat}, timeout=20).json()
+              res = rc.get("result") or {}
+              print("getChat ok=%s type=%s title=%s" % (rc.get("ok"), res.get("type"), res.get("title")))
+              bot_id = (r.get("result") or {}).get("id")
+              rm = requests.get(f"{api}/getChatMember", params={"chat_id": chat, "user_id": bot_id}, timeout=20).json()
+              m = rm.get("result") or {}
+              print("getChatMember ok=%s status=%s can_post=%s can_edit=%s" % (
+                  rm.get("ok"), m.get("status"), m.get("can_post"), m.get("can_post_messages")))
+              if rm.get("ok"):
+                  from PIL import Image, ImageDraw
+                  buf = io.BytesIO()
+                  img = Image.new("RGB", (200, 200), (220, 40, 40))
+                  ImageDraw.Draw(img).rectangle((20, 20, 180, 180), outline=(255, 255, 255), width=6)
+                  img.save(buf, format="JPEG", quality=85)
+                  buf.seek(0)
+                  rp = requests.post(f"{api}/sendPhoto", data={"chat_id": chat, "caption": "DIAG TEST — удалю через 5 сек"},
+                                     files={"photo": ("diag.jpg", buf, "image/jpeg")}, timeout=30).json()
+                  pid = (rp.get("result") or {}).get("message_id")
+                  print("sendPhoto ok=%s message_id=%s" % (rp.get("ok"), pid))
+                  if rp.get("ok"):
+                      rb = requests.post(f"{api}/sendMessage", data={
+                          "chat_id": chat,
+                          "text": "DIAG TEST inline",
+                          "reply_markup": '{"inline_keyboard":[[{"text":"👍 1","callback_data":"l1"},{"text":"👎 1","callback_data":"d1"}]]}',
+                      }, timeout=30).json()
+                      bid = (rb.get("result") or {}).get("message_id")
+                      print("sendMessage ok=%s message_id=%s" % (rb.get("ok"), bid))
+                      time.sleep(5)
+                      for mid in (pid, bid):
+                          if mid:
+                              rd = requests.post(f"{api}/deleteMessage", data={"chat_id": chat, "message_id": mid}, timeout=20).json()
+                              print("deleteMessage mid=%s ok=%s" % (mid, rd.get("ok")))
+          if admin:
+              ra = requests.post(f"{api}/sendMessage", data={"chat_id": admin, "text": "WB Diag: проверка доставки (автоудаление)"}, timeout=20).json()
+              print("sendMessage admin ok=%s" % ra.get("ok"))
+              if ra.get("ok"):
+                  mid = (ra.get("result") or {}).get("message_id")
+                  rd = requests.post(f"{api}/deleteMessage", data={"chat_id": admin, "message_id": mid}, timeout=20).json()
+                  print("deleteMessage admin ok=%s" % rd.get("ok"))
+          ru = requests.get(f"{api}/getUpdates", params={"timeout": 0, "allowed_updates": '["callback_query"]'}, timeout=20).json()
+          print("getUpdates ok=%s pending_updates=%s" % (ru.get("ok"), len(ru.get("result") or [])))
+          PY

@@ -5710,7 +5710,7 @@
   }
  ],
  "meta": {
-  "last_run": 1790402251,
+  "last_run": 1790402365,
   "last_posts": 0,
   "last_queries": [
    "платье женское",
@@ -5734,10 +5734,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 8,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0
   },
@@ -38444,9 +38444,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1790402289.4430969,
-   "runs": 129,
-   "empty": 4
+   "ts": 1790402409.2763443,
+   "runs": 130,
+   "empty": 5
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -39050,9 +39050,9 @@
   },
   "Кабели и зарядные устройства": {
    "shard": "electronic54",
-   "ts": 1790402289.4430969,
-   "runs": 24,
-   "empty": 4
+   "ts": 1790402409.2763443,
+   "runs": 25,
+   "empty": 5
   },
   "Принтеры": {
    "shard": "electronic81",

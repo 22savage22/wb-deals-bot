@@ -5601,10 +5601,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -13818,6 +13818,10 @@
    "samples": [
     [
      1789247984,
+     387
+    ],
+    [
+     1789247984.79691,
      387
     ]
    ],

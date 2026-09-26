@@ -5770,10 +5770,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
+   "calls": 5,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 7,
+   "http_error": 5,
    "network_error": 0,
    "json_error": 0
   },
@@ -5862,7 +5862,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790384017,
+  "last_scan": 1790385956,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5870,8 +5870,7 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Пробники",
-   "Рамы багетные"
+   "Гигиена полости рта"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -5896,7 +5895,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790378501.0,
   "last_engagement_ts": 1790378501.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790378501.0
  },
  "admin_ui": {
@@ -39311,7 +39310,7 @@
   },
   "Гигиена полости рта": {
    "shard": "beauty55",
-   "ts": 1790385949.9763548,
+   "ts": 1790385957.8165345,
    "runs": 55,
    "empty": 5
   },

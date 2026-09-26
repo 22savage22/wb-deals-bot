@@ -5734,10 +5734,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 4,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 4,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -39127,22 +39127,5 @@
    "empty": 5
   }
  },
- "queue": [
-  {
-   "id": 676874295,
-   "title": "Сумка через плечо кросс-боди",
-   "brand": "ANDD",
-   "product": 492,
-   "basic": 492,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 17,
-   "category": "сумка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "сумка женская",
-   "queued_ts": 1790248032
-  }
- ]
+ "queue": []
 }

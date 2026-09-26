@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install deps
+        run: pip install requests pillow
+
       - name: WB endpoint status
         run: |
           python - <<'PY'

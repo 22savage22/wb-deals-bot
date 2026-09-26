@@ -5772,10 +5772,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 9,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 9,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -5864,7 +5864,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790379909,
+  "last_scan": 1790381953,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5872,7 +5872,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Группа 1-2 (9-25 кг)"
+   "Гроубоксы",
+   "Пледы"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -38976,9 +38977,9 @@
   },
   "Пледы": {
    "shard": "babies_room1",
-   "ts": 1790381948.1374059,
-   "runs": 103,
-   "empty": 3
+   "ts": 1790381955.1881676,
+   "runs": 104,
+   "empty": 4
   },
   "Расчески парикмахерские": {
    "shard": "beauty42",
@@ -39018,9 +39019,9 @@
   },
   "Гроубоксы": {
    "shard": "garden27",
-   "ts": 1790381948.1374059,
-   "runs": 93,
-   "empty": 3
+   "ts": 1790381955.1881676,
+   "runs": 94,
+   "empty": 4
   },
   "Манежи детские": {
    "shard": "babies_room1",

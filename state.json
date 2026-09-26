@@ -5747,10 +5747,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -5839,7 +5839,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790398287,
+  "last_scan": 1790400353,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5847,8 +5847,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Другие автоинструменты",
-   "Серия Reno"
+   "Кабели и зарядные устройства",
+   "Пылевыбивалки"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -38461,9 +38461,9 @@
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
-   "ts": 1790075299.4796743,
-   "runs": 125,
-   "empty": 5
+   "ts": 1790400355.4680183,
+   "runs": 126,
+   "empty": 1
   },
   "Пледы": {
    "shard": "babies_room1",
@@ -39067,9 +39067,9 @@
   },
   "Кабели и зарядные устройства": {
    "shard": "electronic54",
-   "ts": 1790073265.2471309,
-   "runs": 20,
-   "empty": 5
+   "ts": 1790400355.4680183,
+   "runs": 21,
+   "empty": 1
   },
   "Принтеры": {
    "shard": "electronic81",

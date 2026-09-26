@@ -5734,10 +5734,10 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 8,
+   "calls": 6,
    "ok": 0,
    "rate_limited": 0,
-   "http_error": 8,
+   "http_error": 6,
    "network_error": 0,
    "json_error": 0
   },
@@ -5826,7 +5826,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790404457,
+  "last_scan": 1790406499,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -5834,8 +5834,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Уход за телом",
-   "Принтеры"
+   "Зеркала детские",
+   "Литературоведение и публицистика"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -39144,15 +39144,15 @@
   },
   "Зеркала детские": {
    "shard": "babies_room2",
-   "ts": 1790079328.8778722,
-   "runs": 5,
-   "empty": 5
+   "ts": 1790406501.0441442,
+   "runs": 6,
+   "empty": 1
   },
   "Литературоведение и публицистика": {
    "shard": "books_literary_criticism",
-   "ts": 1790079328.8778722,
-   "runs": 5,
-   "empty": 5
+   "ts": 1790406501.0441442,
+   "runs": 6,
+   "empty": 1
   },
   "Грунты для растений": {
    "shard": "garden11",

@@ -4,6 +4,11 @@ on:
     paths-ignore: ["state.json", "queue.json", "settings.json"]
   pull_request:
   workflow_dispatch:
+    inputs:
+      source_probe:
+        description: Run bounded, read-only source diagnostics
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -19,7 +24,7 @@ jobs:
           node-version: "24"
       - run: pip install -r requirements.txt -r miniapp/requirements.txt
       - name: Read-only WB source probe on runner
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.source_probe
         run: python tests/probe_sources.py
       - run: python tests/run_all.py
       - run: python -m unittest discover -s tests -p 'test_miniapp*.py' -v

@@ -4743,8 +4743,8 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
    "http_error": 6,
    "network_error": 0,
@@ -4866,7 +4866,7 @@
    "refresh_reserve": 0,
    "queue_after": 19
   },
-  "cats_count": 2254,
+  "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790435213.0,
   "last_engagement_kind": "poll",
@@ -5084,7 +5084,6 @@
   "футболкаспринтомкамуфляжхлопковаятактическая": 1790248655
  },
  "img_hash": {
-  "9c9898bc9cde7a3c": 1788097448,
   "92e9e970c4ccd9f8": 1788098048,
   "39783c1c5c3c0c3c": 1788098648,
   "8c8c8c8b9a9aba36": 1788099464,

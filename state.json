@@ -4633,12 +4633,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 36,
+   "ok": 8,
+   "rate_limited": 15,
+   "http_error": 13,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 8,
+   "worker_error": 4,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -4725,31 +4728,29 @@
   "today": "2026-09-29",
   "today_posts": 4,
   "total_posts": 1502,
-  "last_scan": 1790721633,
+  "last_scan": 1790723588,
   "last_scan_queries": [
    "платье женское",
-   "сумка женская",
-   "худи мужское",
-   "джинсы женские"
+   "джинсы женские",
+   "постельное белье",
+   "блузка женская"
   ],
   "last_scan_cats": [
-   "Средства для мытья посуды и продуктов",
-   "Корм и лакомства"
+   "Тормозные барабаны",
+   "Конструкторы LEGO"
   ],
-  "queue_size": 10,
-  "last_scan_added": 7,
+  "queue_size": 15,
+  "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 100,
    "cards": 100,
-   "ok": 66,
-   "rating": 31,
-   "max_price": 3,
+   "max_price": 62,
+   "ok": 36,
+   "rating": 2,
    "strict": 0,
-   "fallback": 66,
+   "fallback": 36,
    "reserve": 0,
-   "duplicate": 2,
-   "electronics": 2,
-   "title_duplicate": 8
+   "title_duplicate": 5
   },
   "last_queue": {
    "queue_before": 8,
@@ -34603,6 +34604,474 @@
    ],
    "posted_price": 0,
    "posted_ts": 0.0
+  },
+  "982915020": {
+   "price": 713,
+   "basic": 2999,
+   "ts": 1790723728.6463585,
+   "samples": [
+    [
+     1790723728,
+     713
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "982915019": {
+   "price": 698,
+   "basic": 2999,
+   "ts": 1790723728.6463816,
+   "samples": [
+    [
+     1790723728,
+     698
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "893394259": {
+   "price": 1668,
+   "basic": 6000,
+   "ts": 1790723728.6464295,
+   "samples": [
+    [
+     1790723728,
+     1668
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "143324541": {
+   "price": 1559,
+   "basic": 7800,
+   "ts": 1790723728.6464467,
+   "samples": [
+    [
+     1790723728,
+     1559
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "882679696": {
+   "price": 589,
+   "basic": 1165,
+   "ts": 1790723728.6464574,
+   "samples": [
+    [
+     1790723728,
+     589
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "670026402": {
+   "price": 1613,
+   "basic": 6120,
+   "ts": 1790723728.6464782,
+   "samples": [
+    [
+     1790723728,
+     1613
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1022178733": {
+   "price": 1249,
+   "basic": 2300,
+   "ts": 1790723728.6464884,
+   "samples": [
+    [
+     1790723728,
+     1249
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1158240563": {
+   "price": 1028,
+   "basic": 2641,
+   "ts": 1790723728.6465085,
+   "samples": [
+    [
+     1790723728,
+     1028
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "458655372": {
+   "price": 557,
+   "basic": 2200,
+   "ts": 1790723728.6465185,
+   "samples": [
+    [
+     1790723728,
+     557
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1094700589": {
+   "price": 2377,
+   "basic": 4058,
+   "ts": 1790723728.646529,
+   "samples": [
+    [
+     1790723728,
+     2377
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "996837727": {
+   "price": 2312,
+   "basic": 3000,
+   "ts": 1790723728.6465447,
+   "samples": [
+    [
+     1790723728,
+     2312
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1113538359": {
+   "price": 2475,
+   "basic": 4800,
+   "ts": 1790723728.6465595,
+   "samples": [
+    [
+     1790723728,
+     2475
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "163185292": {
+   "price": 709,
+   "basic": 6000,
+   "ts": 1790723728.6465747,
+   "samples": [
+    [
+     1790723728,
+     709
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "162679830": {
+   "price": 762,
+   "basic": 1587,
+   "ts": 1790723728.646584,
+   "samples": [
+    [
+     1790723728,
+     762
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "446607794": {
+   "price": 589,
+   "basic": 1165,
+   "ts": 1790723728.6465933,
+   "samples": [
+    [
+     1790723728,
+     589
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "882688228": {
+   "price": 669,
+   "basic": 1323,
+   "ts": 1790723728.6466696,
+   "samples": [
+    [
+     1790723728,
+     669
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "991920401": {
+   "price": 1012,
+   "basic": 2000,
+   "ts": 1790723728.646688,
+   "samples": [
+    [
+     1790723728,
+     1012
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1022178735": {
+   "price": 1536,
+   "basic": 2715,
+   "ts": 1790723728.6467383,
+   "samples": [
+    [
+     1790723728,
+     1536
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "324452394": {
+   "price": 946,
+   "basic": 3000,
+   "ts": 1790723728.6467552,
+   "samples": [
+    [
+     1790723728,
+     946
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "955162218": {
+   "price": 2980,
+   "basic": 12502,
+   "ts": 1790723728.6467633,
+   "samples": [
+    [
+     1790723728,
+     2980
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "399595367": {
+   "price": 1245,
+   "basic": 3896,
+   "ts": 1790723728.6467912,
+   "samples": [
+    [
+     1790723728,
+     1245
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1281708964": {
+   "price": 1636,
+   "basic": 2700,
+   "ts": 1790723728.6468153,
+   "samples": [
+    [
+     1790723728,
+     1636
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1179940957": {
+   "price": 2711,
+   "basic": 5000,
+   "ts": 1790723728.6468227,
+   "samples": [
+    [
+     1790723728,
+     2711
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "446606359": {
+   "price": 589,
+   "basic": 1165,
+   "ts": 1790723728.646831,
+   "samples": [
+    [
+     1790723728,
+     589
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1087538898": {
+   "price": 2122,
+   "basic": 5000,
+   "ts": 1790723728.646855,
+   "samples": [
+    [
+     1790723728,
+     2122
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1187182930": {
+   "price": 1377,
+   "basic": 2833,
+   "ts": 1790723728.6468797,
+   "samples": [
+    [
+     1790723728,
+     1377
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "309309362": {
+   "price": 2177,
+   "basic": 5990,
+   "ts": 1790723728.6469004,
+   "samples": [
+    [
+     1790723728,
+     2177
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1000794365": {
+   "price": 2131,
+   "basic": 3700,
+   "ts": 1790723728.646916,
+   "samples": [
+    [
+     1790723728,
+     2131
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1221021914": {
+   "price": 2197,
+   "basic": 4120,
+   "ts": 1790723728.6469245,
+   "samples": [
+    [
+     1790723728,
+     2197
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "499637279": {
+   "price": 1573,
+   "basic": 6890,
+   "ts": 1790723728.6469374,
+   "samples": [
+    [
+     1790723728,
+     1573
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1044830536": {
+   "price": 2912,
+   "basic": 9500,
+   "ts": 1790723728.6469457,
+   "samples": [
+    [
+     1790723728,
+     2912
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1179939170": {
+   "price": 2711,
+   "basic": 5000,
+   "ts": 1790723728.6469584,
+   "samples": [
+    [
+     1790723728,
+     2711
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "791432848": {
+   "price": 2768,
+   "basic": 10500,
+   "ts": 1790723728.6469667,
+   "samples": [
+    [
+     1790723728,
+     2768
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "816743911": {
+   "price": 2637,
+   "basic": 5114,
+   "ts": 1790723728.6469898,
+   "samples": [
+    [
+     1790723728,
+     2637
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "320471152": {
+   "price": 2262,
+   "basic": 7777,
+   "ts": 1790723728.6469972,
+   "samples": [
+    [
+     1790723728,
+     2262
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "808769449": {
+   "price": 569,
+   "basic": 4900,
+   "ts": 1790723728.6470165,
+   "samples": [
+    [
+     1790723728,
+     569
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
   }
  },
  "cats": {
@@ -34734,9 +35203,9 @@
   },
   "Тормозные барабаны": {
    "shard": "autoproduct48",
-   "ts": 1790155036.8138847,
-   "runs": 85,
-   "empty": 5
+   "ts": 1790723728.6521251,
+   "runs": 86,
+   "empty": 1
   },
   "Туризм и страноведение": {
    "shard": "books9",
@@ -35136,9 +35605,9 @@
   },
   "Конструкторы LEGO": {
    "shard": "toys9",
-   "ts": 1790155036.8138847,
-   "runs": 40,
-   "empty": 5
+   "ts": 1790723728.6521251,
+   "runs": 41,
+   "empty": 1
   },
   "Система выпуска": {
    "shard": "autoproduct22",
@@ -35436,6 +35905,134 @@
   }
  },
  "queue": [
+  {
+   "id": 882679696,
+   "title": "Платье больших размеров",
+   "brand": "Galtex",
+   "product": 589,
+   "basic": 589,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 832,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 446607794,
+   "title": "Платье женское больших размеров",
+   "brand": "Galtex",
+   "product": 589,
+   "basic": 589,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 2839,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 446606359,
+   "title": "Платье летнее больших размеров",
+   "brand": "Galtex",
+   "product": 589,
+   "basic": 589,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 3427,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 955162218,
+   "title": "Платье вечернее праздничное миди на торжество с поясом",
+   "brand": "DILARTE",
+   "product": 2980,
+   "basic": 2980,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.8,
+   "feedbacks": 61,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 1000794365,
+   "title": "Вечернее платье в горошек",
+   "brand": "Affirmaris",
+   "product": 2131,
+   "basic": 2131,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 718,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 816743911,
+   "title": "Платье трикотажное повседневное, офисное в полоску",
+   "brand": "INICIO",
+   "product": 2637,
+   "basic": 2637,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 599,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 324452394,
+   "title": "Черное платье миди в цветочек",
+   "brand": "Mugish fashion",
+   "product": 946,
+   "basic": 946,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 515,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
+  {
+   "id": 458655372,
+   "title": "Трикотажное платье вечернее лапша теплое с горлом",
+   "brand": "SOFELIT",
+   "product": 557,
+   "basic": 557,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.8,
+   "feedbacks": 919,
+   "category": "платье женское",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "платье женское",
+   "queued_ts": 1790723588
+  },
   {
    "id": 583159351,
    "title": "Средство для мытья посуды 3 литра Имбирный цитрус",

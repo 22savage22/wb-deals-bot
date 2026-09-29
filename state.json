@@ -2070,6 +2070,20 @@
  },
  "recent": [
   {
+   "pid": 14552639,
+   "image": "https://basket-02.wbbasket.ru/vol145/part14552/14552639/images/big/1.webp",
+   "title": "Хозяйственное жидкое мыло 5 л",
+   "discount": 0,
+   "price": 560,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/14552639/detail.aspx",
+   "query": "Средства для мытья посуды и продуктов",
+   "cat": "Средства для мытья посуды и продуктов",
+   "ts": 1790723481,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 66875586,
    "image": "https://basket-04.wbbasket.ru/vol668/part66875/66875586/images/big/1.webp",
    "title": "Сумка через плечо кросс-боди с ручками",
@@ -4593,20 +4607,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 14552639,
-   "image": "https://basket-02.wbbasket.ru/vol145/part14552/14552639/images/big/1.webp",
-   "title": "Хозяйственное жидкое мыло 5 л",
-   "discount": 0,
-   "price": 560,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/14552639/detail.aspx",
-   "query": "Средства для мытья посуды и продуктов",
-   "cat": "Средства для мытья посуды и продуктов",
-   "ts": 1790723481,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4633,15 +4633,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 30,
-   "ok": 6,
-   "rate_limited": 15,
-   "http_error": 9,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 6,
-   "worker_error": 2,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4739,7 +4736,7 @@
    "Средства для мытья посуды и продуктов",
    "Корм и лакомства"
   ],
-  "queue_size": 7,
+  "queue_size": 10,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 100,

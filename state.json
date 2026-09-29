@@ -4866,7 +4866,7 @@
    "refresh_reserve": 0,
    "queue_after": 19
   },
-  "cats_count": 2253,
+  "cats_count": 2254,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790435213.0,
   "last_engagement_kind": "poll",
@@ -8706,10 +8706,6 @@
    "ts": 1789496879.8325412,
    "samples": [
     [
-     1789485185,
-     375
-    ],
-    [
      1789487681,
      375
     ],
@@ -11876,10 +11872,6 @@
    "basic": 1282,
    "ts": 1789496879.8315628,
    "samples": [
-    [
-     1789485185,
-     366
-    ],
     [
      1789487681,
      366

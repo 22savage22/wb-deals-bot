@@ -4527,12 +4527,15 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 47,
+   "ok": 11,
+   "rate_limited": 17,
+   "http_error": 19,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 11,
+   "worker_error": 7,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -4619,7 +4622,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790718829,
+  "last_scan": 1790719956,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -4633,8 +4636,9 @@
   "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
+   "found": 100,
+   "cards": 100,
+   "max_price": 100,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -31353,9 +31357,9 @@
   },
   "Средства для мытья посуды и продуктов": {
    "shard": "household_chemicals2",
-   "ts": 1790718831.0145266,
-   "runs": 127,
-   "empty": 2
+   "ts": 1790720127.5724719,
+   "runs": 128,
+   "empty": 3
   },
   "Пылевыбивалки": {
    "shard": "housecraft28",
@@ -31545,9 +31549,9 @@
   },
   "Корм и лакомства": {
    "shard": "zoo9",
-   "ts": 1790718831.0145266,
-   "runs": 77,
-   "empty": 2
+   "ts": 1790720127.5724719,
+   "runs": 78,
+   "empty": 3
   },
   "ММА": {
    "shard": "sport32",

@@ -4744,7 +4744,7 @@
   ],
   "learn_ts": 1789975090.8570898,
   "empty_notice_ts": 1790435213.0,
-  "cats_ts": 1790600581.3002138,
+  "cats_ts": 1790688745.8282094,
   "last_cats": [
    "Растяжители и колодки для обуви"
   ],
@@ -4755,8 +4755,8 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
+   "calls": 7,
+   "ok": 1,
    "rate_limited": 0,
    "http_error": 6,
    "network_error": 0,
@@ -4847,7 +4847,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790686861,
+  "last_scan": 1790688745,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -4855,8 +4855,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Мойки для кухни",
-   "Средства от тараканов"
+   "Носки",
+   "Оборудование для презентаций"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -4878,7 +4878,7 @@
    "refresh_reserve": 0,
    "queue_after": 19
   },
-  "cats_count": 2253,
+  "cats_count": 2254,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790435213.0,
   "last_engagement_kind": "poll",
@@ -33796,6 +33796,18 @@
    "ts": 1790608593.2751153,
    "runs": 5,
    "empty": 5
+  },
+  "Носки": {
+   "shard": "gift12",
+   "ts": 1790688750.326092,
+   "runs": 1,
+   "empty": 1
+  },
+  "Оборудование для презентаций": {
+   "shard": "electronic81",
+   "ts": 1790688750.326092,
+   "runs": 1,
+   "empty": 1
   }
  },
  "queue": []

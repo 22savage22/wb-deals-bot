@@ -2081,6 +2081,20 @@
  },
  "recent": [
   {
+   "pid": 955162218,
+   "image": "https://basket-40.wbbasket.ru/vol9551/part955162/955162218/images/big/1.webp",
+   "title": "Платье вечернее праздничное миди на торжество с поясом",
+   "discount": 0,
+   "price": 2980,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/955162218/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790726192,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 583159351,
    "image": "https://basket-30.wbbasket.ru/vol5831/part583159/583159351/images/big/1.webp",
    "title": "Средство для мытья посуды 3 литра Имбирный цитрус",
@@ -4660,20 +4674,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 955162218,
-   "image": "https://basket-40.wbbasket.ru/vol9551/part955162/955162218/images/big/1.webp",
-   "title": "Платье вечернее праздничное миди на торжество с поясом",
-   "discount": 0,
-   "price": 2980,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/955162218/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790726192,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4700,15 +4700,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 34,
-   "rate_limited": 11,
-   "http_error": 26,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 34,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4806,7 +4803,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 399,

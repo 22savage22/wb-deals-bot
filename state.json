@@ -2080,6 +2080,20 @@
  },
  "recent": [
   {
+   "pid": 583159351,
+   "image": "https://basket-30.wbbasket.ru/vol5831/part583159/583159351/images/big/1.webp",
+   "title": "Средство для мытья посуды 3 литра Имбирный цитрус",
+   "discount": 0,
+   "price": 355,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/583159351/detail.aspx",
+   "query": "Средства для мытья посуды и продуктов",
+   "cat": "Средства для мытья посуды и продуктов",
+   "ts": 1790725482,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 446607794,
    "image": "https://basket-25.wbbasket.ru/vol4466/part446607/446607794/images/big/1.webp",
    "title": "Платье женское больших размеров",
@@ -4645,20 +4659,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 583159351,
-   "image": "https://basket-30.wbbasket.ru/vol5831/part583159/583159351/images/big/1.webp",
-   "title": "Средство для мытья посуды 3 литра Имбирный цитрус",
-   "discount": 0,
-   "price": 355,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/583159351/detail.aspx",
-   "query": "Средства для мытья посуды и продуктов",
-   "cat": "Средства для мытья посуды и продуктов",
-   "ts": 1790725482,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4685,15 +4685,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 8,
-   "rate_limited": 15,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 8,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4791,7 +4788,7 @@
    "Тормозные барабаны",
    "Конструкторы LEGO"
   ],
-  "queue_size": 12,
+  "queue_size": 15,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 100,

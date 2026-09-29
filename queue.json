@@ -13,7 +13,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 155703191,
@@ -29,23 +29,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
- },
- {
-  "id": 66875586,
-  "title": "Сумка через плечо кросс-боди с ручками",
-  "brand": "JOURNEY",
-  "product": 1110,
-  "basic": 1110,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 2442,
-  "category": "сумка женская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "сумка женская",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 14552639,
@@ -61,7 +45,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 583159351,
@@ -72,12 +56,12 @@
   "discount": 0,
   "benefit": 0,
   "rating": 4.9,
-  "feedbacks": 6888,
+  "feedbacks": 6890,
   "category": "Средства для мытья посуды и продуктов",
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 583156282,
@@ -93,7 +77,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 456816574,
@@ -109,7 +93,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 132238151,
@@ -125,7 +109,7 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
-  "queued_ts": 1790720598
+  "queued_ts": 1790720704
  },
  {
   "id": 192571077,
@@ -141,6 +125,150 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "Средства для мытья посуды и продуктов",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 425169927,
+  "title": "Лакомство для собак мини пород Кальциевая косточка, 55 г",
+  "brand": "Деревенские лакомства",
+  "product": 234,
+  "basic": 234,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 1023,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 512745075,
+  "title": "Корм для собак сухой, Говядина 12кг",
+  "brand": "Ушастый Пилот",
+  "product": 1735,
+  "basic": 1735,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 343,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 1097747869,
+  "title": "Лакомство для собак \"Трахея говяжья\" с мясом говядины",
+  "brand": "Деревенские лакомства",
+  "product": 274,
+  "basic": 274,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 153,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 1028766849,
+  "title": "Лакомство для собак тренировочное с говядиной 90 г",
+  "brand": "Мнямс",
+  "product": 214,
+  "basic": 214,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 79,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 466408726,
+  "title": "Лакомство для собак Завтрак хрустящий с индейкой 700г",
+  "brand": "Titbit",
+  "product": 369,
+  "basic": 369,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 66,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 430234203,
+  "title": "Колечки для щенков, 85 гр",
+  "brand": "Деревенские лакомства",
+  "product": 390,
+  "basic": 390,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 60,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 926750661,
+  "title": "Лакомство для птиц палочки 2х40 г",
+  "brand": "РИО",
+  "product": 256,
+  "basic": 256,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 52,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 263493443,
+  "title": "Влажный корм для кошек \"Утка с лососем\", паучи, 12 шт",
+  "brand": "Деревенские лакомства",
+  "product": 1335,
+  "basic": 1335,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 51,
+  "category": "Корм и лакомства",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "Корм и лакомства",
+  "queued_ts": 1790720704
+ },
+ {
+  "id": 66875586,
+  "title": "Сумка через плечо кросс-боди с ручками",
+  "brand": "JOURNEY",
+  "product": 1110,
+  "basic": 1110,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 4.9,
+  "feedbacks": 2442,
+  "category": "сумка женская",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "сумка женская",
   "queued_ts": 1790720598
  },
  {

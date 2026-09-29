@@ -171,6 +171,32 @@ def main():
         tg.requests.post = original_post
     print("15. fast callback acknowledgement OK")
 
+    # 16. ozon: свои хештеги, wb-хэштегов нет
+    d = _deal(42, title="Куртка зимняя", category="другое", brand="Nike")
+    d["marketplace"] = "ozon"
+    tags = tg._hashtags(d)
+    assert "#ozon" in tags and "#скидки" in tags, tags
+    assert "#вайлдберриз" not in tags and "#wb" not in tags, tags
+    assert "#nike" in tags, tags
+    # wb по умолчанию — прежние хештеги
+    tags_wb = tg._hashtags(_deal(42, title="Куртка зимняя", category="другое", brand="Nike"))
+    assert "#вайлдберриз" in tags_wb and "#wb" in tags_wb and "#ozon" not in tags_wb
+    print("16. ozon hashtags OK")
+
+    # 17. send_deal_text: текстовое сообщение с кнопкой «Купить»
+    calls = []
+    tg.requests.post = lambda *args, **kwargs: calls.append(kwargs) or Response(True)
+    try:
+        assert tg.send_deal_text("tok", "@ch", "caption", "https://ozon/x", 184567890)
+        assert calls[0].get("data", {}).get("chat_id") == "@ch"
+        kb = json.loads(calls[0]["data"]["reply_markup"])
+        assert kb["inline_keyboard"][0][0]["text"] == "Купить"
+        assert kb["inline_keyboard"][0][0]["url"] == "https://ozon/x"
+        assert kb["inline_keyboard"][1][0]["callback_data"] == "l184567890"
+    finally:
+        tg.requests.post = original_post
+    print("17. send_deal_text OK")
+
 
 if __name__ == "__main__":
     main()

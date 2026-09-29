@@ -120,6 +120,16 @@ def _insight(deal, pid):
 
 
 def _hashtags(deal):
+    if str(deal.get("marketplace") or "wb") == "ozon":
+        tags = ["#ozon", "#скидки"]
+        tag = _tag(deal.get("brand")).strip()
+        if tag and tag not in tags:
+            tags.append(tag)
+        for word in _title_tags(deal.get("title")):
+            t = "#" + word
+            if t not in tags:
+                tags.append(t)
+        return " ".join(tags)
     tags = ["#вайлдберриз", "#скидки", "#wb"]
     for value in (deal.get("category"), deal.get("brand")):
         tag = _tag(value).strip()
@@ -301,6 +311,11 @@ def send_message(token, chat_id, text, markup=None):
     except requests.RequestException as exc:
         _remember_error(exc=exc)
         return False
+
+
+def send_deal_text(token, chat_id, caption, link, pid):
+    """Text-only deal post with the standard Buy/feedback buttons."""
+    return send_message(token, chat_id, caption, markup=_buttons(link, pid))
 
 
 def send_poll(token, chat_id, question, options, is_anonymous=True):

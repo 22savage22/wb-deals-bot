@@ -61,6 +61,20 @@ def main():
     assert state._norm_stats("junk") == {}
     assert state._norm_tg([1]) == {"offset": 0}
     assert state._norm_meta([]) == {}
+    # 5b. manual_draft сохраняется, мусор отбрасывается
+    ui = state._norm_admin_ui({
+        "pending": "manual_price",
+        "manual_draft": {"id": "1262712", "title": "Кофеварка X", "brand": "Polaris",
+                         "product": "1990", "basic": "3990", "discount": "50",
+                         "category": "Кухня", "rating": "4.5", "feedbacks": "10",
+                         "url": "https://wb/1262712"},
+    })
+    assert ui["pending"] == "manual_price"
+    assert ui["manual_draft"]["id"] == 1262712
+    assert ui["manual_draft"]["product"] == 1990
+    assert ui["manual_draft"]["basic"] == 3990
+    assert ui["manual_draft"]["discount"] == 50
+    assert state._norm_admin_ui({"pending": None, "manual_draft": {"id": "bad"}}) == {"pending": None}
     print("5. norm junk OK")
 
     # 6. roundtrip save/load
@@ -254,6 +268,7 @@ def main():
     ]
     d = state._from_dict(d)
     assert len(d["queue"]) == 1 and d["queue"][0]["title"] == "A"
+    assert d["queue"][0]["manual"] == 0
     remote = state._empty()
     remote["queue"] = list(d["queue"])
     local = state._empty()
@@ -261,6 +276,62 @@ def main():
     merged = state.merge(local, remote)
     assert merged["queue"] == []
     print("18. queue OK")
+
+    # 18b. manual-флаг очереди и черновика переживают norm/merge
+    d = state._empty()
+    d["queue"] = [{
+        "id": 77, "title": "M", "product": 100, "basic": 200, "discount": 50,
+        "rating": 4.0, "feedbacks": 1, "category": "c", "queued_ts": now, "manual": 1,
+    }]
+    out = state._from_dict(d)
+    assert out["queue"][0]["manual"] == 1
+    d["queue"][0].pop("manual")
+    out = state._from_dict(d)
+    assert out["queue"][0]["manual"] == 0
+    local = state._empty()
+    local["admin_ui"] = {
+        "pending": "manual_price",
+        "manual_draft": {"id": 99, "title": "T", "product": 100, "basic": 200, "discount": 50},
+    }
+    merged = state.merge(local, None)
+    assert merged["admin_ui"]["pending"] == "manual_price"
+    assert merged["admin_ui"]["manual_draft"]["id"] == 99
+    print("18b. manual state OK")
+
+    # 18c. queue/draft/deal сохраняют marketplace и url (default wb)
+    now = int(time.time())
+    d = state._empty()
+    d["queue"] = [
+        {"id": 184567890, "title": "Куртка ozon", "product": 2490, "basic": 4990,
+         "discount": 50, "rating": 0, "feedbacks": 0, "category": "другое",
+         "queued_ts": now, "manual": 1, "marketplace": "ozon",
+         "url": "https://www.ozon.ru/product/kurtka-184567890/"},
+        {"id": 1262712, "title": "Без полей", "product": 1990, "basic": 3990,
+         "discount": 50, "queued_ts": now},
+        {"id": 777001, "title": "Кривой mp", "product": 100, "basic": 200,
+         "queued_ts": now, "marketplace": "amazon"},
+    ]
+    by_id = {q["id"]: q for q in state._from_dict(d)["queue"]}
+    assert by_id[184567890]["marketplace"] == "ozon"
+    assert by_id[184567890]["url"] == "https://www.ozon.ru/product/kurtka-184567890/"
+    assert by_id[1262712]["marketplace"] == "wb"
+    assert by_id[1262712]["url"] == ""
+    assert by_id[777001]["marketplace"] == "wb"  # невалидное значение → wb
+    ui = state._norm_admin_ui({
+        "pending": None,
+        "manual_draft": {"id": 55, "title": "T", "marketplace": "ozon",
+                         "url": "https://ozon.ru/product/-55/"},
+        "manual_deal": {"id": 55, "title": "T", "product": 100, "basic": 200,
+                        "discount": 50, "queued_ts": now, "marketplace": "ozon",
+                        "url": "https://ozon.ru/product/-55/"},
+    })
+    assert ui["manual_draft"]["marketplace"] == "ozon"
+    assert ui["manual_draft"]["url"] == "https://ozon.ru/product/-55/"
+    assert ui["manual_deal"]["marketplace"] == "ozon"
+    assert ui["manual_deal"]["url"] == "https://ozon.ru/product/-55/"
+    ui2 = state._norm_admin_ui({"pending": None, "manual_draft": {"id": 77}})
+    assert ui2["manual_draft"]["marketplace"] == "wb"
+    print("18c. marketplace state OK")
 
     # 19. stale scanner metadata must not roll back publisher counters/state
     remote = state._empty()

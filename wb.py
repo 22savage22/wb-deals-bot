@@ -1,3 +1,4 @@
+import os
 import random
 import time
 from io import BytesIO
@@ -19,6 +20,7 @@ SESSION.headers.update(
 SEARCH = "https://search.wb.ru/exactmatch/ru/common/v9/search"
 CATALOG = "https://catalog.wb.ru/catalog"
 CARDS = "https://card.wb.ru/cards/v4/detail"
+SOURCE_BASE = "https://wb-product-source.valeramyakishev000.workers.dev"
 MENU_URL = "https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json"
 MENU_FALLBACKS = [
     "https://static-basket-02.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json",
@@ -42,6 +44,9 @@ def reset_health():
         "http_error": 0,
         "network_error": 0,
         "json_error": 0,
+        "worker_ok": 0,
+        "worker_error": 0,
+        "direct_ok": 0,
     }
 
 
@@ -52,33 +57,62 @@ def health_snapshot():
 reset_health()
 
 
+def _source_route(url):
+    if url == SEARCH:
+        return SOURCE_BASE + "/search"
+    if url == CARDS:
+        return SOURCE_BASE + "/cards"
+    if url.startswith(CATALOG + "/") and url.endswith("/catalog"):
+        shard = url[len(CATALOG) + 1 : -len("/catalog")]
+        if shard and all(c.isascii() and (c.isalnum() or c in "_-") for c in shard):
+            return SOURCE_BASE + "/catalog/" + shard
+    return None
+
+
 def _get(url, params=None, tries=3):
     sleeps = (5, 15, 30)
-    for attempt in range(tries):
-        HTTP_STATS["calls"] += 1
-        try:
-            resp = SESSION.get(url, params=params, timeout=25)
-            if resp.status_code == 200:
-                try:
-                    data = resp.json()
-                    HTTP_STATS["ok"] += 1
-                    return data
-                except ValueError:
-                    HTTP_STATS["json_error"] += 1
-                    return None
-            if resp.status_code == 429:
-                HTTP_STATS["rate_limited"] += 1
-                wait = sleeps[min(attempt, len(sleeps) - 1)]
-                retry_after = resp.headers.get("Retry-After")
-                if retry_after and str(retry_after).isdigit():
-                    wait = min(60, max(wait, int(retry_after)))
-                time.sleep(wait + random.uniform(0, 4))
-                continue
-            HTTP_STATS["http_error"] += 1
-            return None
-        except requests.RequestException:
-            HTTP_STATS["network_error"] += 1
-        time.sleep(3 + attempt * 3)
+    route = _source_route(url)
+    key = os.getenv("WB_SOURCE_KEY", "")
+    sources = []
+    if route and key:
+        sources.append(("worker", route, {"Authorization": "Bearer " + key}))
+    sources.append(("direct", url, {}))
+    for source, source_url, headers in sources:
+        for attempt in range(tries):
+            HTTP_STATS["calls"] += 1
+            try:
+                resp = SESSION.get(source_url, params=params, headers=headers, timeout=25)
+                if resp.status_code == 200:
+                    try:
+                        data = resp.json()
+                        HTTP_STATS["ok"] += 1
+                        HTTP_STATS[source + "_ok"] += 1
+                        print("SOURCE", source, "SUCCESS", flush=True)
+                        return data
+                    except ValueError:
+                        HTTP_STATS["json_error"] += 1
+                        break
+                if resp.status_code == 429:
+                    HTTP_STATS["rate_limited"] += 1
+                    wait = sleeps[min(attempt, len(sleeps) - 1)]
+                    retry_after = resp.headers.get("Retry-After")
+                    if retry_after and str(retry_after).isdigit():
+                        wait = min(60, max(wait, int(retry_after)))
+                    if attempt + 1 < tries:
+                        time.sleep(wait + random.uniform(0, 4))
+                    continue
+                HTTP_STATS["http_error"] += 1
+                if source == "worker":
+                    HTTP_STATS["worker_error"] += 1
+                print("SOURCE", source, "ERROR", resp.status_code, flush=True)
+                # In particular, never keep retrying WB's 403 response.
+                break
+            except requests.RequestException:
+                HTTP_STATS["network_error"] += 1
+                if source == "worker":
+                    HTTP_STATS["worker_error"] += 1
+            if attempt + 1 < tries:
+                time.sleep(3 + attempt * 3)
     return None
 
 
@@ -101,6 +135,8 @@ def search(query, page, subject=None):
         url = f"{CATALOG}/{subject}/catalog" if subject else SEARCH
         data = _get(url, params)
         if not data:
+            if subject:
+                return _search_plain(query, page)
             return []
         products = (data.get("data") or {}).get("products")
         if products is None:

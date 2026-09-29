@@ -12,6 +12,20 @@ on:
 permissions:
   contents: read
 jobs:
+  wb_worker_smoke:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/fix/wb-source-resilience-20260929'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - name: Verify new WB products through Cloudflare Worker
+        run: python tests/probe_worker_source.py
+        env:
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
   source_probe:
     if: github.event_name == 'workflow_dispatch' && inputs.source_probe
     strategy:

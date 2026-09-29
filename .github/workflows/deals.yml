@@ -57,6 +57,7 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
           MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
           MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
           MINIAPP_LINK_MODE: ${{ vars.MINIAPP_LINK_MODE }}

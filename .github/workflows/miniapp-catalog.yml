@@ -24,6 +24,7 @@ jobs:
         env:
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
       - name: Repair photos in older catalog items
         if: ${{ !cancelled() }}
         timeout-minutes: 10
@@ -31,3 +32,4 @@ jobs:
         env:
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}

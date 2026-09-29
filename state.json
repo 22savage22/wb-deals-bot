@@ -1860,10 +1860,10 @@
    "ts": 1790248655.935657
   },
   "Средства для мытья посуды и продуктов": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790721628.0388288
   }
  },
@@ -2023,10 +2023,10 @@
    "ts": 1790014777.835386
   },
   "Средства для мытья посуды и продуктов": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790721628.0388305
   }
  },
@@ -2034,6 +2034,20 @@
   "offset": 810944948
  },
  "recent": [
+  {
+   "pid": 716524319,
+   "image": "https://basket-34.wbbasket.ru/vol7165/part716524/716524319/images/big/1.webp",
+   "title": "Средство для мытья посуды 5 литров",
+   "discount": 0,
+   "price": 531,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/716524319/detail.aspx",
+   "query": "Средства для мытья посуды и продуктов",
+   "cat": "Средства для мытья посуды и продуктов",
+   "ts": 1790721628,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 114134293,
    "image": "https://basket-08.wbbasket.ru/vol1141/part114134/114134293/images/big/1.webp",
@@ -4516,20 +4530,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 716524319,
-   "image": "https://basket-34.wbbasket.ru/vol7165/part716524/716524319/images/big/1.webp",
-   "title": "Средство для мытья посуды 5 литров",
-   "discount": 0,
-   "price": 531,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/716524319/detail.aspx",
-   "query": "Средства для мытья посуды и продуктов",
-   "cat": "Средства для мытья посуды и продуктов",
-   "ts": 1790721628,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4659,7 +4659,7 @@
    "Корм и лакомства",
    "Средства для мытья посуды и продуктов"
   ],
-  "queue_size": 23,
+  "queue_size": 16,
   "last_scan_added": 16,
   "last_scan_funnel": {
    "found": 200,

@@ -1868,10 +1868,10 @@
    "ts": 1790721628.0388288
   },
   "Корм и лакомства": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790722254.9269857
   }
  },
@@ -2038,10 +2038,10 @@
    "ts": 1790721628.0388305
   },
   "Корм и лакомства": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790722254.9269881
   }
  },
@@ -2049,6 +2049,20 @@
   "offset": 810944948
  },
  "recent": [
+  {
+   "pid": 425169927,
+   "image": "https://basket-24.wbbasket.ru/vol4251/part425169/425169927/images/big/1.webp",
+   "title": "Лакомство для собак мини пород Кальциевая косточка, 55 г",
+   "discount": 0,
+   "price": 234,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/425169927/detail.aspx",
+   "query": "Корм и лакомства",
+   "cat": "Корм и лакомства",
+   "ts": 1790722254,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 716524319,
    "image": "https://basket-34.wbbasket.ru/vol7165/part716524/716524319/images/big/1.webp",
@@ -4545,20 +4559,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 425169927,
-   "image": "https://basket-24.wbbasket.ru/vol4251/part425169/425169927/images/big/1.webp",
-   "title": "Лакомство для собак мини пород Кальциевая косточка, 55 г",
-   "discount": 0,
-   "price": 234,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/425169927/detail.aspx",
-   "query": "Корм и лакомства",
-   "cat": "Корм и лакомства",
-   "ts": 1790722254,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4585,15 +4585,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 30,
-   "ok": 6,
-   "rate_limited": 15,
-   "http_error": 9,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 6,
-   "worker_error": 2,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4691,7 +4688,7 @@
    "Средства для мытья посуды и продуктов",
    "Корм и лакомства"
   ],
-  "queue_size": 9,
+  "queue_size": 10,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 100,

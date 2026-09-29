@@ -4743,8 +4743,8 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 7,
-   "ok": 1,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
    "http_error": 6,
    "network_error": 0,
@@ -4835,7 +4835,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790688745,
+  "last_scan": 1790690612,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -33779,15 +33779,15 @@
   },
   "Носки": {
    "shard": "gift12",
-   "ts": 1790688750.326092,
-   "runs": 1,
-   "empty": 1
+   "ts": 1790690614.7047672,
+   "runs": 2,
+   "empty": 2
   },
   "Оборудование для презентаций": {
    "shard": "electronic81",
-   "ts": 1790688750.326092,
-   "runs": 1,
-   "empty": 1
+   "ts": 1790690614.7047672,
+   "runs": 2,
+   "empty": 2
   }
  },
  "queue": []

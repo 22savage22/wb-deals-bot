@@ -4527,15 +4527,12 @@
    "cards": 0
   },
   "wb_http": {
-   "calls": 47,
-   "ok": 11,
-   "rate_limited": 17,
-   "http_error": 19,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 11,
-   "worker_error": 7,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {

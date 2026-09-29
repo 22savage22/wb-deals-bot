@@ -4619,7 +4619,7 @@
   "today": "2026-09-24",
   "today_posts": 2,
   "total_posts": 1498,
-  "last_scan": 1790713201,
+  "last_scan": 1790714385,
   "last_scan_queries": [
    "платье женское",
    "джинсы женские",
@@ -4627,8 +4627,8 @@
    "худи мужское"
   ],
   "last_scan_cats": [
-   "Матрасы-топперы",
-   "Серия Galaxy A"
+   "Серия Galaxy A",
+   "Матрасы-топперы"
   ],
   "queue_size": 0,
   "last_scan_added": 0,
@@ -31596,15 +31596,15 @@
   },
   "Матрасы-топперы": {
    "shard": "bedding4",
-   "ts": 1790713204.1614797,
-   "runs": 98,
-   "empty": 3
+   "ts": 1790714387.8448906,
+   "runs": 99,
+   "empty": 4
   },
   "Серия Galaxy A": {
    "shard": "electronic76",
-   "ts": 1790713204.1614797,
-   "runs": 98,
-   "empty": 3
+   "ts": 1790714387.8448906,
+   "runs": 99,
+   "empty": 4
   },
   "Мыши": {
    "shard": "electronic45",

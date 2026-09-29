@@ -2079,6 +2079,20 @@
  },
  "recent": [
   {
+   "pid": 446607794,
+   "image": "https://basket-25.wbbasket.ru/vol4466/part446607/446607794/images/big/1.webp",
+   "title": "Платье женское больших размеров",
+   "discount": 0,
+   "price": 589,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/446607794/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790724853,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 882679696,
    "image": "https://basket-39.wbbasket.ru/vol8826/part882679/882679696/images/big/1.webp",
    "title": "Платье больших размеров",
@@ -4630,20 +4644,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 446607794,
-   "image": "https://basket-25.wbbasket.ru/vol4466/part446607/446607794/images/big/1.webp",
-   "title": "Платье женское больших размеров",
-   "discount": 0,
-   "price": 589,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/446607794/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790724853,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4670,15 +4670,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 8,
-   "rate_limited": 15,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 8,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4776,7 +4773,7 @@
    "Тормозные барабаны",
    "Конструкторы LEGO"
   ],
-  "queue_size": 13,
+  "queue_size": 15,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 100,

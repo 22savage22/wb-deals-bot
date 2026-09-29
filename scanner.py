@@ -166,6 +166,8 @@ def fill_queue(data, settings, target=None):
     meta["wb_http"] = wb.health_snapshot()
     smart.tally_run(data, pool, queries, {})
     smart.tally_cats(data, cat_names, {})
+    print("FOUND_FROM_SOURCE", len(seen), "VALID_AFTER_FILTER", len(eligible),
+          "ADDED_TO_QUEUE", len(selected), "QUEUE_SIZE", len(queue), flush=True)
     print(f"Сканирование завершено: добавлено {len(selected)}, в очереди {len(queue)}/{target}")
     return len(selected)
 

@@ -246,6 +246,45 @@ def main():
     assert wb.evaluate(low, min_discount=40, min_rating=4.3, min_feedbacks=20)[1] == "feedbacks"
     print("14. evaluate diagnostics OK")
 
+    # 15. Worker is used first only for the three fixed WB routes; no secret
+    # is sent to the direct WB fallback or to unrelated CDN requests.
+    assert wb._source_route(wb.SEARCH) == wb.SOURCE_BASE + "/search"
+    assert wb._source_route(wb.CARDS) == wb.SOURCE_BASE + "/cards"
+    assert wb._source_route(wb.CATALOG + "/platya/catalog") == wb.SOURCE_BASE + "/catalog/platya"
+    assert wb._source_route("https://example.com/") is None
+    original_session_get = wb.SESSION.get
+    previous_key = os.environ.get("WB_SOURCE_KEY")
+    calls = []
+
+    class Response:
+        headers = {}
+
+        def __init__(self, status):
+            self.status_code = status
+
+        def json(self):
+            return {"products": [{"id": 42}]}
+
+    def source_get(url, params=None, headers=None, timeout=None):
+        calls.append((url, headers))
+        return Response(403 if url.startswith(wb.SOURCE_BASE) else 200)
+
+    os.environ["WB_SOURCE_KEY"] = "test-only-key"
+    wb.SESSION.get = source_get
+    try:
+        wb.reset_health()
+        assert wb._get(wb.SEARCH, {"query": "dress"})["products"][0]["id"] == 42
+        assert calls[0] == (wb.SOURCE_BASE + "/search", {"Authorization": "Bearer test-only-key"})
+        assert calls[1] == (wb.SEARCH, {})
+        assert wb.health_snapshot()["worker_error"] == 1
+    finally:
+        wb.SESSION.get = original_session_get
+        if previous_key is None:
+            os.environ.pop("WB_SOURCE_KEY", None)
+        else:
+            os.environ["WB_SOURCE_KEY"] = previous_key
+    print("15. authenticated WB source and direct failover OK")
+
 
 if __name__ == "__main__":
     main()

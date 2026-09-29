@@ -158,7 +158,12 @@ def _post_images(token, chat_id, images, caption, link, pid):
 
 def _candidate_cards(cards, seen):
     """Prefer detailed cards, but keep search results missing from cards API."""
-    by_id = {c.get("id"): c for c in cards if c.get("id")}
+    def priced(card):
+        return any((size.get("price") or {}).get("product") and
+                   (size.get("price") or {}).get("basic")
+                   for size in card.get("sizes") or [])
+
+    by_id = {c.get("id"): c for c in cards if c.get("id") and priced(c)}
     for pid, item in seen.items():
         by_id.setdefault(pid, item)
     return list(by_id.values())

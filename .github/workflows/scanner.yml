@@ -43,6 +43,7 @@ jobs:
           WB_CATS_PER_RUN: "2"
           WB_QUEUE_TARGET: "30"
           WB_QUEUE_MAX_AGE_HOURS: "8"
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
           GITHUB_TOKEN: ${{ github.token }}
 
       - name: Sync optional Mini App catalog

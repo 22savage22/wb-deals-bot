@@ -1950,10 +1950,10 @@
    "ts": 1790730719.0527978
   },
   "постельное белье": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790732030.5471892
   }
  },
@@ -2138,6 +2138,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 176843198,
+   "image": "https://basket-12.wbbasket.ru/vol1768/part176843/176843198/images/big/1.webp",
+   "title": "Постельное белье 2 спальное однотонное страйп",
+   "discount": 0,
+   "price": 783,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/176843198/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1790732030,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 550799896,
    "image": "https://basket-29.wbbasket.ru/vol5507/part550799/550799896/images/big/1.webp",
@@ -4831,20 +4845,6 @@
    "cat": "футболка женская",
    "ts": 1789523954,
    "drop": 1
-  },
-  {
-   "pid": 176843198,
-   "image": "https://basket-12.wbbasket.ru/vol1768/part176843/176843198/images/big/1.webp",
-   "title": "Постельное белье 2 спальное однотонное страйп",
-   "discount": 0,
-   "price": 783,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/176843198/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1790732030,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4871,15 +4871,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 35,
-   "ok": 10,
-   "rate_limited": 13,
-   "http_error": 12,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 10,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4977,7 +4974,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 101,

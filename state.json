@@ -1988,10 +1988,10 @@
    "ts": 1790735238.2715676
   },
   "Средства индивидуальной защиты и экипировка": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790738497.1730855
   }
  },
@@ -2193,10 +2193,10 @@
    "ts": 1790735238.27157
   },
   "Средства индивидуальной защиты и экипировка": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790738497.173088
   }
  },
@@ -2204,6 +2204,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 1190133854,
+   "image": "https://basket-43.wbbasket.ru/vol11901/part1190133/1190133854/images/big/1.webp",
+   "title": "Комбинезон защитный одноразовый 1шт",
+   "discount": 0,
+   "price": 462,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1190133854/detail.aspx",
+   "query": "Средства индивидуальной защиты и экипировка",
+   "cat": "Средства индивидуальной защиты и экипировка",
+   "ts": 1790738497,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 391569827,
    "image": "https://basket-22.wbbasket.ru/vol3915/part391569/391569827/images/big/1.webp",
@@ -4950,20 +4964,6 @@
    "cat": "блузка женская",
    "ts": 1789529445,
    "drop": 1
-  },
-  {
-   "pid": 1190133854,
-   "image": "https://basket-43.wbbasket.ru/vol11901/part1190133/1190133854/images/big/1.webp",
-   "title": "Комбинезон защитный одноразовый 1шт",
-   "discount": 0,
-   "price": 462,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1190133854/detail.aspx",
-   "query": "Средства индивидуальной защиты и экипировка",
-   "cat": "Средства индивидуальной защиты и экипировка",
-   "ts": 1790738497,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4990,15 +4990,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 44,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5096,7 +5093,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,
@@ -9596,10 +9593,6 @@
     [
      1789529440,
      385
-    ],
-    [
-     1789529440.6433365,
-     385
     ]
    ],
    "posted_price": 0,
@@ -10447,10 +10440,6 @@
    "samples": [
     [
      1789529440,
-     497
-    ],
-    [
-     1789529440.6429286,
      497
     ]
    ],

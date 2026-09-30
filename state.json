@@ -1907,10 +1907,10 @@
    "ts": 1790726192.6900089
   },
   "кроссовки женские": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790726834.7531226
   }
  },
@@ -2084,10 +2084,10 @@
    "ts": 1790722254.9269881
   },
   "кроссовки женские": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790726834.753125
   }
  },
@@ -2095,6 +2095,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 1039128867,
+   "image": "https://basket-42.wbbasket.ru/vol10391/part1039128/1039128867/images/big/1.webp",
+   "title": "Кроссовки спортивные дышащие белые",
+   "discount": 0,
+   "price": 1252,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1039128867/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790726834,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 955162218,
    "image": "https://basket-40.wbbasket.ru/vol9551/part955162/955162218/images/big/1.webp",
@@ -4689,20 +4703,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1039128867,
-   "image": "https://basket-42.wbbasket.ru/vol10391/part1039128/1039128867/images/big/1.webp",
-   "title": "Кроссовки спортивные дышащие белые",
-   "discount": 0,
-   "price": 1252,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1039128867/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790726834,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4729,15 +4729,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 34,
-   "rate_limited": 11,
-   "http_error": 26,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 34,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4835,7 +4832,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 399,

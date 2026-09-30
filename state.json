@@ -2326,6 +2326,20 @@
  },
  "recent": [
   {
+   "pid": 1224244910,
+   "image": "https://basket-44.wbbasket.ru/vol12242/part1224244/1224244910/images/big/1.webp",
+   "title": "Юбка миди классическая с разрезом",
+   "discount": 0,
+   "price": 1331,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1224244910/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790768513,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 312674333,
    "image": "https://basket-19.wbbasket.ru/vol3126/part312674/312674333/images/big/1.webp",
    "title": "Свитшот тонкий с принтом больших размеров",
@@ -5522,20 +5536,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 1224244910,
-   "image": "https://basket-44.wbbasket.ru/vol12242/part1224244/1224244910/images/big/1.webp",
-   "title": "Юбка миди классическая с разрезом",
-   "discount": 0,
-   "price": 1331,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1224244910/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790768513,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5562,15 +5562,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5668,7 +5665,7 @@
    "Средства защиты органов дыхания",
    "Расчески парикмахерские"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

@@ -2141,6 +2141,20 @@
  },
  "recent": [
   {
+   "pid": 133391885,
+   "image": "https://basket-10.wbbasket.ru/vol1333/part133391/133391885/images/big/1.webp",
+   "title": "Кофта теплая в рубчик осень",
+   "discount": 0,
+   "price": 840,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/133391885/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790733277,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 227443149,
    "image": "https://basket-15.wbbasket.ru/vol2274/part227443/227443149/images/big/1.webp",
    "title": "Футболка поло базовая с воротником черная",
@@ -4861,20 +4875,6 @@
    "cat": "футболка женская",
    "ts": 1789523954,
    "drop": 1
-  },
-  {
-   "pid": 133391885,
-   "image": "https://basket-10.wbbasket.ru/vol1333/part133391/133391885/images/big/1.webp",
-   "title": "Кофта теплая в рубчик осень",
-   "discount": 0,
-   "price": 840,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/133391885/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790733277,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4901,15 +4901,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 35,
-   "ok": 10,
-   "rate_limited": 13,
-   "http_error": 12,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 10,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5007,7 +5004,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 101,

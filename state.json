@@ -2190,6 +2190,20 @@
  },
  "recent": [
   {
+   "pid": 391569827,
+   "image": "https://basket-22.wbbasket.ru/vol3915/part391569/391569827/images/big/1.webp",
+   "title": "Демисезонные кроссовки повседневные",
+   "discount": 0,
+   "price": 2090,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/391569827/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790737859,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 217928268,
    "image": "https://basket-14.wbbasket.ru/vol2179/part217928/217928268/images/big/1.webp",
    "title": "Футболка базовая из хлопка",
@@ -4933,20 +4947,6 @@
    "cat": "блузка женская",
    "ts": 1789528670,
    "drop": 1
-  },
-  {
-   "pid": 391569827,
-   "image": "https://basket-22.wbbasket.ru/vol3915/part391569/391569827/images/big/1.webp",
-   "title": "Демисезонные кроссовки повседневные",
-   "discount": 0,
-   "price": 2090,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391569827/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790737859,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4973,15 +4973,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 44,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5079,7 +5076,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,
@@ -10070,10 +10067,6 @@
     [
      1789529440,
      413
-    ],
-    [
-     1789529440.6422362,
-     413
     ]
    ],
    "posted_price": 413,
@@ -11261,10 +11254,6 @@
    "samples": [
     [
      1789529440,
-     409
-    ],
-    [
-     1789529440.642368,
      409
     ]
    ],

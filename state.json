@@ -5562,15 +5562,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -88199,7 +88196,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1433307446": {
    "price": 2653,
@@ -88212,7 +88209,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "188041165": {
    "price": 2059,
@@ -88225,7 +88222,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "445169797": {
    "price": 589,
@@ -88238,7 +88235,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "160241117": {
    "price": 455,
@@ -88251,7 +88248,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "861544369": {
    "price": 1286,
@@ -88264,7 +88261,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1105925427": {
    "price": 1182,
@@ -88277,7 +88274,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "180153538": {
    "price": 2049,
@@ -88290,7 +88287,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1332717571": {
    "price": 1182,
@@ -88303,7 +88300,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "97970586": {
    "price": 1275,
@@ -88316,7 +88313,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1055718636": {
    "price": 1002,
@@ -88329,7 +88326,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1251958252": {
    "price": 2626,
@@ -88342,7 +88339,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1191124921": {
    "price": 1606,
@@ -88355,7 +88352,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1083676124": {
    "price": 2160,
@@ -88368,7 +88365,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "783544111": {
    "price": 2762,
@@ -88381,7 +88378,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1247537794": {
    "price": 919,
@@ -88394,7 +88391,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1136287221": {
    "price": 1103,
@@ -88407,7 +88404,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "825649855": {
    "price": 956,
@@ -88420,7 +88417,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "676345650": {
    "price": 1544,
@@ -88433,7 +88430,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "223153295": {
    "price": 1525,
@@ -88446,7 +88443,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "554813103": {
    "price": 861,
@@ -88459,7 +88456,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

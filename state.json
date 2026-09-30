@@ -2347,6 +2347,20 @@
  },
  "recent": [
   {
+   "pid": 205324812,
+   "image": "https://basket-14.wbbasket.ru/vol2053/part205324/205324812/images/big/1.webp",
+   "title": "Футболка с принтом хлопковая",
+   "discount": 0,
+   "price": 581,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/205324812/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1790773150,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 960470703,
    "image": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/images/big/1.webp",
    "title": "Джинсы палаццо широкие стрейч",
@@ -5593,20 +5607,6 @@
    "cat": "платье женское",
    "ts": 1789564704,
    "drop": 0
-  },
-  {
-   "pid": 205324812,
-   "image": "https://basket-14.wbbasket.ru/vol2053/part205324/205324812/images/big/1.webp",
-   "title": "Футболка с принтом хлопковая",
-   "discount": 0,
-   "price": 581,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/205324812/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1790773150,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5633,15 +5633,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 45,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 11,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5739,7 +5736,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 600,

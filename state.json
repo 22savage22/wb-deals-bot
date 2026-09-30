@@ -2046,10 +2046,10 @@
    "ts": 1790751571.4920874
   },
   "Рабочая обувь": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790758090.9375017
   }
  },
@@ -2272,10 +2272,10 @@
    "ts": 1790751571.4920893
   },
   "Рабочая обувь": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790758090.9375036
   }
  },
@@ -2283,6 +2283,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 706333072,
+   "image": "https://basket-34.wbbasket.ru/vol7063/part706333/706333072/images/big/1.webp",
+   "title": "Полуботинки рабочие летние",
+   "discount": 0,
+   "price": 1338,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/706333072/detail.aspx",
+   "query": "Рабочая обувь",
+   "cat": "Рабочая обувь",
+   "ts": 1790758090,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 163064944,
    "image": "https://basket-11.wbbasket.ru/vol1630/part163064/163064944/images/big/1.webp",
@@ -5256,20 +5270,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 706333072,
-   "image": "https://basket-34.wbbasket.ru/vol7063/part706333/706333072/images/big/1.webp",
-   "title": "Полуботинки рабочие летние",
-   "discount": 0,
-   "price": 1338,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/706333072/detail.aspx",
-   "query": "Рабочая обувь",
-   "cat": "Рабочая обувь",
-   "ts": 1790758090,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5296,15 +5296,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 47,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 26,
-   "network_error": 1,
-   "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 14,
-   "direct_ok": 0
+   "http_error": 6,
+   "network_error": 0,
+   "json_error": 0
   },
   "errors": [
    {
@@ -5402,7 +5399,7 @@
    "Рабочая обувь",
    "Для коррекции веса"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

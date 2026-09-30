@@ -1665,28 +1665,6 @@
   "177224444": 1790806433
  },
  "feedback": {
-  "908463381": {
-   "likes": 1,
-   "dislikes": 0,
-   "bought": 0,
-   "ts": 1788214445,
-   "query": "платье женское",
-   "cat": "платье женское",
-   "voters": {
-    "896358099": 1788214445.976029
-   }
-  },
-  "681995513": {
-   "likes": 0,
-   "dislikes": 1,
-   "bought": 0,
-   "ts": 1788214449,
-   "query": "кепка женская",
-   "cat": "кепка женская",
-   "voters": {
-    "896358099": 1788214449.826043
-   }
-  },
   "1244479817": {
    "likes": 1,
    "dislikes": 0,
@@ -2524,6 +2502,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 177224444,
+   "image": "https://basket-12.wbbasket.ru/vol1772/part177224/177224444/images/big/1.webp",
+   "title": "Магнитная рыбалка для малышей деревянная с удочкой и рыбками",
+   "discount": 0,
+   "price": 399,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/177224444/detail.aspx",
+   "query": "Сортеры, шнуровки",
+   "cat": "Сортеры, шнуровки",
+   "ts": 1790806433,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 274288359,
    "image": "https://basket-17.wbbasket.ru/vol2742/part274288/274288359/images/big/1.webp",
@@ -6347,20 +6339,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 177224444,
-   "image": "https://basket-12.wbbasket.ru/vol1772/part177224/177224444/images/big/1.webp",
-   "title": "Магнитная рыбалка для малышей деревянная с удочкой и рыбками",
-   "discount": 0,
-   "price": 399,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/177224444/detail.aspx",
-   "query": "Сортеры, шнуровки",
-   "cat": "Сортеры, шнуровки",
-   "ts": 1790806433,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6388,15 +6366,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 17,
-   "rate_limited": 11,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 17,
-   "worker_error": 5,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6494,7 +6469,7 @@
    "Эмали автомобильные",
    "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 12,
+  "queue_size": 15,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 201,

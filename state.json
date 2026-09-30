@@ -2327,6 +2327,20 @@
  },
  "recent": [
   {
+   "pid": 518840488,
+   "image": "https://basket-27.wbbasket.ru/vol5188/part518840/518840488/images/big/1.webp",
+   "title": "Худи с капюшоном без начеса",
+   "discount": 0,
+   "price": 824,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/518840488/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1790769207,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1224244910,
    "image": "https://basket-44.wbbasket.ru/vol12242/part1224244/1224244910/images/big/1.webp",
    "title": "Юбка миди классическая с разрезом",
@@ -5537,20 +5551,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 518840488,
-   "image": "https://basket-27.wbbasket.ru/vol5188/part518840/518840488/images/big/1.webp",
-   "title": "Худи с капюшоном без начеса",
-   "discount": 0,
-   "price": 824,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/518840488/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1790769207,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5577,15 +5577,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5683,7 +5680,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,
@@ -13080,10 +13077,6 @@
     [
      1789560739,
      451
-    ],
-    [
-     1789560739.717574,
-     451
     ]
    ],
    "posted_price": 451,
@@ -13281,10 +13274,6 @@
    "samples": [
     [
      1789560739,
-     499
-    ],
-    [
-     1789560739.718187,
      499
     ]
    ],
@@ -13678,10 +13667,6 @@
    "samples": [
     [
      1789560739,
-     500
-    ],
-    [
-     1789560739.721098,
      500
     ]
    ],

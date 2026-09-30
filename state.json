@@ -1915,10 +1915,10 @@
    "ts": 1790726834.7531226
   },
   "худи мужское": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790727446.9966042
   }
  },
@@ -2103,6 +2103,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 15750238,
+   "image": "https://basket-02.wbbasket.ru/vol157/part15750/15750238/images/big/1.webp",
+   "title": "Худи теплое с начесом",
+   "discount": 0,
+   "price": 1500,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/15750238/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1790727446,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1039128867,
    "image": "https://basket-42.wbbasket.ru/vol10391/part1039128/1039128867/images/big/1.webp",
@@ -4711,20 +4725,6 @@
    "ts": 1789520283,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 15750238,
-   "image": "https://basket-02.wbbasket.ru/vol157/part15750/15750238/images/big/1.webp",
-   "title": "Худи теплое с начесом",
-   "discount": 0,
-   "price": 1500,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/15750238/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1790727446,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4751,15 +4751,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 34,
-   "rate_limited": 11,
-   "http_error": 26,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 34,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4857,7 +4854,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 399,

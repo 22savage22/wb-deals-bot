@@ -2267,6 +2267,20 @@
  },
  "recent": [
   {
+   "pid": 898473250,
+   "image": "https://basket-39.wbbasket.ru/vol8984/part898473/898473250/images/big/1.webp",
+   "title": "Худи оверсайз с принтом y2k",
+   "discount": 0,
+   "price": 1758,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/898473250/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1790756129,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 165495535,
    "image": "https://basket-11.wbbasket.ru/vol1654/part165495/165495535/images/big/1.webp",
    "title": "Футболка с принтом",
@@ -5233,20 +5247,6 @@
    "cat": "футболка мужская",
    "ts": 1789546745,
    "drop": 0
-  },
-  {
-   "pid": 898473250,
-   "image": "https://basket-39.wbbasket.ru/vol8984/part898473/898473250/images/big/1.webp",
-   "title": "Худи оверсайз с принтом y2k",
-   "discount": 0,
-   "price": 1758,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/898473250/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1790756129,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5273,15 +5273,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5379,7 +5376,7 @@
    "Для коррекции веса",
    "Рабочая обувь"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

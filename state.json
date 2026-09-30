@@ -1968,10 +1968,10 @@
    "ts": 1790733985.529444
   },
   "юбка женская": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790734614.497105
   }
  },
@@ -2159,10 +2159,10 @@
    "ts": 1790733985.5294461
   },
   "юбка женская": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790734614.4971073
   }
  },
@@ -2170,6 +2170,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 561020304,
+   "image": "https://basket-29.wbbasket.ru/vol5610/part561020/561020304/images/big/1.webp",
+   "title": "Юбка-шорты мини на запах",
+   "discount": 0,
+   "price": 1282,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/561020304/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790734614,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1038972476,
    "image": "https://basket-42.wbbasket.ru/vol10389/part1038972/1038972476/images/big/1.webp",
@@ -4895,20 +4909,6 @@
    "cat": "платье женское",
    "ts": 1789525855,
    "drop": 0
-  },
-  {
-   "pid": 561020304,
-   "image": "https://basket-29.wbbasket.ru/vol5610/part561020/561020304/images/big/1.webp",
-   "title": "Юбка-шорты мини на запах",
-   "discount": 0,
-   "price": 1282,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/561020304/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790734614,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4935,15 +4935,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 73,
-   "ok": 47,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 26,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 13,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5041,7 +5038,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

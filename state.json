@@ -2510,6 +2510,20 @@
  },
  "recent": [
   {
+   "pid": 248914922,
+   "image": "https://basket-16.wbbasket.ru/vol2489/part248914/248914922/images/big/1.webp",
+   "title": "Эмаль ремонтная с кисточкой, (цв.Калина 104)",
+   "discount": 0,
+   "price": 247,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/248914922/detail.aspx",
+   "query": "Эмали автомобильные",
+   "cat": "Эмали автомобильные",
+   "ts": 1790808473,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 827117631,
    "image": "https://basket-37.wbbasket.ru/vol8271/part827117/827117631/images/big/1.webp",
    "title": "Органайзер для хранения пластиковые с крышкой",
@@ -6374,20 +6388,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 248914922,
-   "image": "https://basket-16.wbbasket.ru/vol2489/part248914/248914922/images/big/1.webp",
-   "title": "Эмаль ремонтная с кисточкой, (цв.Калина 104)",
-   "discount": 0,
-   "price": 247,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/248914922/detail.aspx",
-   "query": "Эмали автомобильные",
-   "cat": "Эмали автомобильные",
-   "ts": 1790808473,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6849,7 +6849,6 @@
   "эмальремонтнаяскисточкойцвкалина104": 1790808473
  },
  "img_hash": {
-  "8de4d87b8f812101": 1788216514,
   "8f2f76f1eae9edb1": 1788217114,
   "a666646ceceeeec6": 1788217714,
   "9232f8e9f1f0b838": 1788218314,

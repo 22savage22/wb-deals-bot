@@ -2265,6 +2265,20 @@
  },
  "recent": [
   {
+   "pid": 480827751,
+   "image": "https://basket-26.wbbasket.ru/vol4808/part480827/480827751/images/big/1.webp",
+   "title": "кофта оверсайз на замке",
+   "discount": 0,
+   "price": 1716,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/480827751/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790754802,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 140410544,
    "image": "https://basket-10.wbbasket.ru/vol1404/part140410/140410544/images/big/1.webp",
    "title": "Платье для дома, туника, ночная сорочка",
@@ -5228,20 +5242,6 @@
    "cat": "блузка женская",
    "ts": 1789545265,
    "drop": 0
-  },
-  {
-   "pid": 480827751,
-   "image": "https://basket-26.wbbasket.ru/vol4808/part480827/480827751/images/big/1.webp",
-   "title": "кофта оверсайз на замке",
-   "discount": 0,
-   "price": 1716,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/480827751/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790754802,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5268,15 +5268,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 44,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 20,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 10,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5374,7 +5371,7 @@
    "Рабочая обувь",
    "Для коррекции веса"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

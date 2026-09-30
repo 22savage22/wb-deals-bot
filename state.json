@@ -2349,6 +2349,20 @@
  },
  "recent": [
   {
+   "pid": 734841301,
+   "image": "https://basket-34.wbbasket.ru/vol7348/part734841/734841301/images/big/1.webp",
+   "title": "Флисовая кофта теплая на молнии",
+   "discount": 0,
+   "price": 1920,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/734841301/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790774449,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 860043554,
    "image": "https://basket-38.wbbasket.ru/vol8600/part860043/860043554/images/big/1.webp",
    "title": "Кроссовки женские коричневые на высокой подошве",
@@ -5611,20 +5625,6 @@
    "ts": 1789565367,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 734841301,
-   "image": "https://basket-34.wbbasket.ru/vol7348/part734841/734841301/images/big/1.webp",
-   "title": "Флисовая кофта теплая на молнии",
-   "discount": 0,
-   "price": 1920,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/734841301/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790774449,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7907,10 +7907,6 @@
    "samples": [
     [
      1789566128,
-     333
-    ],
-    [
-     1789566128.4447982,
      333
     ]
    ],
@@ -13643,10 +13639,6 @@
     [
      1789566128,
      282
-    ],
-    [
-     1789566128.4444516,
-     282
     ]
    ],
    "posted_price": 282,
@@ -15083,10 +15075,6 @@
    "samples": [
     [
      1789566128,
-     387
-    ],
-    [
-     1789566128.4450703,
      387
     ]
    ],

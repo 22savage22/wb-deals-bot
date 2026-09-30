@@ -2196,10 +2196,10 @@
    "ts": 1790808473.1389718
   },
   "Репринтные издания 1840 - 1849 годов": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790809156.4862945
   }
  },
@@ -2513,10 +2513,10 @@
    "ts": 1790808473.1389773
   },
   "Репринтные издания 1840 - 1849 годов": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790809156.4862964
   }
  },
@@ -2524,6 +2524,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 24039436,
+   "image": "https://basket-02.wbbasket.ru/vol240/part24039/24039436/images/big/1.webp",
+   "title": "Restoration and Conversion of the Jews",
+   "discount": 0,
+   "price": 977,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/24039436/detail.aspx",
+   "query": "Репринтные издания 1840 - 1849 годов",
+   "cat": "Репринтные издания 1840 - 1849 годов",
+   "ts": 1790809156,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 248914922,
    "image": "https://basket-16.wbbasket.ru/vol2489/part248914/248914922/images/big/1.webp",
@@ -6403,20 +6417,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 24039436,
-   "image": "https://basket-02.wbbasket.ru/vol240/part24039/24039436/images/big/1.webp",
-   "title": "Restoration and Conversion of the Jews",
-   "discount": 0,
-   "price": 977,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/24039436/detail.aspx",
-   "query": "Репринтные издания 1840 - 1849 годов",
-   "cat": "Репринтные издания 1840 - 1849 годов",
-   "ts": 1790809156,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6444,15 +6444,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 32,
-   "ok": 6,
-   "rate_limited": 17,
-   "http_error": 9,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 6,
-   "worker_error": 2,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {

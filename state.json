@@ -2213,6 +2213,20 @@
  },
  "recent": [
   {
+   "pid": 1448331597,
+   "image": "https://basket-47.wbbasket.ru/vol14483/part1448331/1448331597/images/big/1.webp",
+   "title": "Блузка офисная больших размеров",
+   "discount": 0,
+   "price": 1075,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1448331597/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790743730,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1007813513,
    "image": "https://basket-41.wbbasket.ru/vol10078/part1007813/1007813513/images/big/1.webp",
    "title": "Футболка хлопковая с надписью",
@@ -4998,20 +5012,6 @@
    "cat": "украшения женские",
    "ts": 1789534303,
    "drop": 0
-  },
-  {
-   "pid": 1448331597,
-   "image": "https://basket-47.wbbasket.ru/vol14483/part1448331/1448331597/images/big/1.webp",
-   "title": "Блузка офисная больших размеров",
-   "discount": 0,
-   "price": 1075,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1448331597/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790743730,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5038,15 +5038,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 42,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 24,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5144,7 +5141,7 @@
    "Развлечения",
    "Мыши"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 501,

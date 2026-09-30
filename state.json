@@ -2213,10 +2213,10 @@
    "ts": 1790804500.2724972
   },
   "Эмали автомобильные": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790805808.3455567
   }
  },
@@ -2523,10 +2523,10 @@
    "ts": 1790804500.2725022
   },
   "Эмали автомобильные": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790805808.3455591
   }
  },
@@ -2534,6 +2534,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 274288359,
+   "image": "https://basket-17.wbbasket.ru/vol2742/part274288/274288359/images/big/1.webp",
+   "title": "1K эмаль автомобильная ремонтная, (Песочный 237)",
+   "discount": 0,
+   "price": 441,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/274288359/detail.aspx",
+   "query": "Эмали автомобильные",
+   "cat": "Эмали автомобильные",
+   "ts": 1790805808,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 149450857,
    "image": "https://basket-10.wbbasket.ru/vol1494/part149450/149450857/images/big/1.webp",
@@ -6343,20 +6357,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 274288359,
-   "image": "https://basket-17.wbbasket.ru/vol2742/part274288/274288359/images/big/1.webp",
-   "title": "1K эмаль автомобильная ремонтная, (Песочный 237)",
-   "discount": 0,
-   "price": 441,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/274288359/detail.aspx",
-   "query": "Эмали автомобильные",
-   "cat": "Эмали автомобильные",
-   "ts": 1790805808,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6384,15 +6384,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 17,
-   "rate_limited": 11,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 17,
-   "worker_error": 5,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6490,7 +6487,7 @@
    "Эмали автомобильные",
    "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 13,
+  "queue_size": 15,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 201,

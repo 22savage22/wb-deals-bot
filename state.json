@@ -2131,6 +2131,20 @@
  },
  "recent": [
   {
+   "pid": 550799896,
+   "image": "https://basket-29.wbbasket.ru/vol5507/part550799/550799896/images/big/1.webp",
+   "title": "Джинсы стильные багги широкие тренд",
+   "discount": 0,
+   "price": 2023,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/550799896/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1790731354,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 246845260,
    "image": "https://basket-16.wbbasket.ru/vol2468/part246845/246845260/images/big/1.webp",
    "title": "Блузка нарядная офисная больших размеров",
@@ -4809,20 +4823,6 @@
    "cat": "футболка женская",
    "ts": 1789523954,
    "drop": 1
-  },
-  {
-   "pid": 550799896,
-   "image": "https://basket-29.wbbasket.ru/vol5507/part550799/550799896/images/big/1.webp",
-   "title": "Джинсы стильные багги широкие тренд",
-   "discount": 0,
-   "price": 2023,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/550799896/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1790731354,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4849,15 +4849,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 16,
-   "rate_limited": 11,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 16,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4955,7 +4952,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 201,

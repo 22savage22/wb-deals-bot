@@ -2511,6 +2511,20 @@
  },
  "recent": [
   {
+   "pid": 11793441,
+   "image": "https://basket-01.wbbasket.ru/vol117/part11793/11793441/images/big/1.webp",
+   "title": "Развивающая деревянная игрушка шнуровка сортер Монтессори",
+   "discount": 0,
+   "price": 463,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/11793441/detail.aspx",
+   "query": "Сортеры, шнуровки",
+   "cat": "Сортеры, шнуровки",
+   "ts": 1790799315,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 270867648,
    "image": "https://basket-17.wbbasket.ru/vol2708/part270867/270867648/images/big/1.webp",
    "title": "Колье летнее на шею стильное украшение бижутерия",
@@ -6179,20 +6193,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 11793441,
-   "image": "https://basket-01.wbbasket.ru/vol117/part11793/11793441/images/big/1.webp",
-   "title": "Развивающая деревянная игрушка шнуровка сортер Монтессори",
-   "discount": 0,
-   "price": 463,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/11793441/detail.aspx",
-   "query": "Сортеры, шнуровки",
-   "cat": "Сортеры, шнуровки",
-   "ts": 1790799315,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6220,15 +6220,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 79,
-   "ok": 49,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6326,7 +6323,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 598,

@@ -2208,6 +2208,20 @@
  },
  "recent": [
   {
+   "pid": 191825005,
+   "image": "https://basket-12.wbbasket.ru/vol1918/part191825/191825005/images/big/1.webp",
+   "title": "Демисезонные кроссовки на высокой подошве",
+   "discount": 0,
+   "price": 2307,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/191825005/detail.aspx",
+   "query": "кроссовки мужские",
+   "cat": "кроссовки мужские",
+   "ts": 1790740428,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 235648705,
    "image": "https://basket-15.wbbasket.ru/vol2356/part235648/235648705/images/big/1.webp",
    "title": "Костюм трикотажный с укороченными брюками на резинке",
@@ -4971,20 +4985,6 @@
    "cat": "блузка женская",
    "ts": 1789531066,
    "drop": 0
-  },
-  {
-   "pid": 191825005,
-   "image": "https://basket-12.wbbasket.ru/vol1918/part191825/191825005/images/big/1.webp",
-   "title": "Демисезонные кроссовки на высокой подошве",
-   "discount": 0,
-   "price": 2307,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/191825005/detail.aspx",
-   "query": "кроссовки мужские",
-   "cat": "кроссовки мужские",
-   "ts": 1790740428,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5011,15 +5011,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 51,
-   "ok": 37,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 14,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 37,
-   "worker_error": 7,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5117,7 +5114,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 501,

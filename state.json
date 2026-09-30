@@ -2288,6 +2288,20 @@
  },
  "recent": [
   {
+   "pid": 137987617,
+   "image": "https://basket-10.wbbasket.ru/vol1379/part137987/137987617/images/big/1.webp",
+   "title": "Футболка базовая больших размеров",
+   "discount": 0,
+   "price": 558,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137987617/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1790760054,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 912627476,
    "image": "https://basket-39.wbbasket.ru/vol9126/part912627/912627476/images/big/1.webp",
    "title": "Кроссовки белые спортивные на высокой подошве",
@@ -5302,20 +5316,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 137987617,
-   "image": "https://basket-10.wbbasket.ru/vol1379/part137987/137987617/images/big/1.webp",
-   "title": "Футболка базовая больших размеров",
-   "discount": 0,
-   "price": 558,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137987617/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1790760054,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5342,15 +5342,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5448,7 +5445,7 @@
    "Рабочая обувь",
    "Для коррекции веса"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

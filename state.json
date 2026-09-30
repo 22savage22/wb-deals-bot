@@ -2324,6 +2324,20 @@
  },
  "recent": [
   {
+   "pid": 391554568,
+   "image": "https://basket-22.wbbasket.ru/vol3915/part391554/391554568/images/big/1.webp",
+   "title": "Туника большие размеры хлопок",
+   "discount": 0,
+   "price": 568,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/391554568/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790767230,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 778497448,
    "image": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/images/big/1.webp",
    "title": "Кроссовки Air Force 1 форсы",
@@ -5492,20 +5506,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 391554568,
-   "image": "https://basket-22.wbbasket.ru/vol3915/part391554/391554568/images/big/1.webp",
-   "title": "Туника большие размеры хлопок",
-   "discount": 0,
-   "price": 568,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/391554568/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790767230,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5532,15 +5532,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5638,7 +5635,7 @@
    "Средства защиты органов дыхания",
    "Расчески парикмахерские"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

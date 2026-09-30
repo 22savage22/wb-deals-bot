@@ -6340,15 +6340,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 15,
-   "rate_limited": 11,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 15,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6446,7 +6443,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 12,
+  "queue_size": 15,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,

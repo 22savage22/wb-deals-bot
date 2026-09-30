@@ -2261,6 +2261,20 @@
  },
  "recent": [
   {
+   "pid": 1179336911,
+   "image": "https://basket-43.wbbasket.ru/vol11793/part1179336/1179336911/images/big/1.webp",
+   "title": "Юбка трапеция трикотажная плотная офисная",
+   "discount": 0,
+   "price": 2343,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1179336911/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790752211,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1109850798,
    "image": "https://basket-42.wbbasket.ru/vol11098/part1109850/1109850798/images/big/1.webp",
    "title": "Хлорофилл жидкий пищевой",
@@ -5192,20 +5206,6 @@
    "cat": "футболка мужская",
    "ts": 1789543694,
    "drop": 0
-  },
-  {
-   "pid": 1179336911,
-   "image": "https://basket-43.wbbasket.ru/vol11793/part1179336/1179336911/images/big/1.webp",
-   "title": "Юбка трапеция трикотажная плотная офисная",
-   "discount": 0,
-   "price": 2343,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1179336911/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790752211,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5232,15 +5232,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 73,
-   "ok": 47,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 26,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 13,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5338,7 +5335,7 @@
    "Для коррекции веса",
    "Рабочая обувь"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 600,
@@ -9924,6 +9921,10 @@
    "basic": 1499,
    "ts": 1789558428.9730117,
    "samples": [
+    [
+     1789542547,
+     418
+    ],
     [
      1789544439,
      418

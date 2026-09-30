@@ -2122,6 +2122,20 @@
  },
  "recent": [
   {
+   "pid": 304866760,
+   "image": "https://basket-18.wbbasket.ru/vol3048/part304866/304866760/images/big/1.webp",
+   "title": "Худи оверсайз теплое",
+   "discount": 0,
+   "price": 2284,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/304866760/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1790730092,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 111322287,
    "image": "https://basket-07.wbbasket.ru/vol1113/part111322/111322287/images/big/1.webp",
    "title": "Лонгслив в рубчик джемпер облегающий лапша",
@@ -4772,20 +4786,6 @@
    "cat": "футболка женская",
    "ts": 1789523954,
    "drop": 1
-  },
-  {
-   "pid": 304866760,
-   "image": "https://basket-18.wbbasket.ru/vol3048/part304866/304866760/images/big/1.webp",
-   "title": "Худи оверсайз теплое",
-   "discount": 0,
-   "price": 2284,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/304866760/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1790730092,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4812,15 +4812,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 38,
-   "ok": 16,
-   "rate_limited": 11,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 16,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -4918,7 +4915,7 @@
    "Конструкторы LEGO",
    "Тормозные барабаны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 201,

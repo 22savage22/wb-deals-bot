@@ -2163,10 +2163,10 @@
    "ts": 1790791972.5569847
   },
   "Кронштейны": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790792598.2584476
   }
  },
@@ -2445,10 +2445,10 @@
    "ts": 1790791972.5569873
   },
   "Кронштейны": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790792598.258451
   }
  },
@@ -2456,6 +2456,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 162722634,
+   "image": "https://basket-11.wbbasket.ru/vol1627/part162722/162722634/images/big/1.webp",
+   "title": "Кронштейн мебельный 150x200 мм 10 шт",
+   "discount": 0,
+   "price": 527,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/162722634/detail.aspx",
+   "query": "Кронштейны",
+   "cat": "Кронштейны",
+   "ts": 1790792598,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 605699868,
    "image": "https://basket-30.wbbasket.ru/vol6056/part605699/605699868/images/big/1.webp",
@@ -6010,20 +6024,6 @@
    "cat": "футболка мужская",
    "ts": 1789584821,
    "drop": 1
-  },
-  {
-   "pid": 162722634,
-   "image": "https://basket-11.wbbasket.ru/vol1627/part162722/162722634/images/big/1.webp",
-   "title": "Кронштейн мебельный 150x200 мм 10 шт",
-   "discount": 0,
-   "price": 527,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/162722634/detail.aspx",
-   "query": "Кронштейны",
-   "cat": "Кронштейны",
-   "ts": 1790792598,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6051,15 +6051,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6157,7 +6154,7 @@
    "Ремни и пояса",
    "Тросики"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 600,
@@ -9971,10 +9968,6 @@
    "samples": [
     [
      1789583168,
-     421
-    ],
-    [
-     1789583168.1961436,
      421
     ]
    ],
@@ -13814,10 +13807,6 @@
     [
      1789583168,
      250
-    ],
-    [
-     1789583168.1958947,
-     250
     ]
    ],
    "posted_price": 0,
@@ -13831,10 +13820,6 @@
     [
      1789583168,
      499
-    ],
-    [
-     1789583168.1959364,
-     499
     ]
    ],
    "posted_price": 499,
@@ -13847,10 +13832,6 @@
    "samples": [
     [
      1789583168,
-     443
-    ],
-    [
-     1789583168.196053,
      443
     ]
    ],

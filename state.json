@@ -2402,6 +2402,20 @@
  },
  "recent": [
   {
+   "pid": 1025491109,
+   "image": "https://basket-41.wbbasket.ru/vol10254/part1025491/1025491109/images/big/1.webp",
+   "title": "юбка летняя лапша длинная",
+   "discount": 0,
+   "price": 882,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1025491109/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790783093,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 7468158,
    "image": "https://basket-01.wbbasket.ru/vol74/part7468/7468158/images/big/1.webp",
    "title": "Блузка базовая офисная",
@@ -5821,20 +5835,6 @@
    "cat": "футболка женская",
    "ts": 1789573892,
    "drop": 0
-  },
-  {
-   "pid": 1025491109,
-   "image": "https://basket-41.wbbasket.ru/vol10254/part1025491/1025491109/images/big/1.webp",
-   "title": "юбка летняя лапша длинная",
-   "discount": 0,
-   "price": 882,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1025491109/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790783093,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5861,15 +5861,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5967,7 +5964,7 @@
    "Туризм и страноведение",
    "Крючки"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

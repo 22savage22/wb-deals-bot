@@ -2517,6 +2517,20 @@
  },
  "recent": [
   {
+   "pid": 413137319,
+   "image": "https://basket-23.wbbasket.ru/vol4131/part413137/413137319/images/big/1.webp",
+   "title": "Пижама с шортами и майкой",
+   "discount": 0,
+   "price": 939,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/413137319/detail.aspx",
+   "query": "Уход за вещами",
+   "cat": "Уход за вещами",
+   "ts": 1790803247,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 200301545,
    "image": "https://basket-13.wbbasket.ru/vol2003/part200301/200301545/images/big/1.webp",
    "title": "Развивающие игрушки сортер деревянный для малышей Монтессори",
@@ -6269,20 +6283,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 413137319,
-   "image": "https://basket-23.wbbasket.ru/vol4131/part413137/413137319/images/big/1.webp",
-   "title": "Пижама с шортами и майкой",
-   "discount": 0,
-   "price": 939,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/413137319/detail.aspx",
-   "query": "Уход за вещами",
-   "cat": "Уход за вещами",
-   "ts": 1790803247,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6310,15 +6310,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 37,
-   "ok": 15,
-   "rate_limited": 11,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 15,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6416,7 +6413,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 14,
+  "queue_size": 15,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 200,
@@ -8407,10 +8404,6 @@
    "samples": [
     [
      1789594494,
-     332
-    ],
-    [
-     1789594494.234641,
      332
     ]
    ],

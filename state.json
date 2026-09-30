@@ -2210,6 +2210,20 @@
  },
  "recent": [
   {
+   "pid": 70763083,
+   "image": "https://basket-04.wbbasket.ru/vol707/part70763/70763083/images/big/1.webp",
+   "title": "Юбка замшевая миди с разрезом в офис",
+   "discount": 0,
+   "price": 2807,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/70763083/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790741754,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 966708423,
    "image": "https://basket-41.wbbasket.ru/vol9667/part966708/966708423/images/big/1.webp",
    "title": "Футболка базовая с принтом",
@@ -4977,20 +4991,6 @@
    "cat": "украшения женские",
    "ts": 1789532657,
    "drop": 1
-  },
-  {
-   "pid": 70763083,
-   "image": "https://basket-04.wbbasket.ru/vol707/part70763/70763083/images/big/1.webp",
-   "title": "Юбка замшевая миди с разрезом в офис",
-   "discount": 0,
-   "price": 2807,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/70763083/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790741754,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5017,15 +5017,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 45,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 11,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5123,7 +5120,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

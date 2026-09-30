@@ -5756,15 +5756,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 46,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 34,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 17,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {

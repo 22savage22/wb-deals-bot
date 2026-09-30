@@ -2245,6 +2245,20 @@
  },
  "recent": [
   {
+   "pid": 498531952,
+   "image": "https://basket-27.wbbasket.ru/vol4985/part498531/498531952/images/big/1.webp",
+   "title": "Кроссовки спортивные женские",
+   "discount": 0,
+   "price": 1328,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/498531952/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790750866,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 282084737,
    "image": "https://basket-17.wbbasket.ru/vol2820/part282084/282084737/images/big/1.webp",
    "title": "Джинсы широкие прямые бойфренды",
@@ -5160,20 +5174,6 @@
    "cat": "футболка мужская",
    "ts": 1789541759,
    "drop": 0
-  },
-  {
-   "pid": 498531952,
-   "image": "https://basket-27.wbbasket.ru/vol4985/part498531/498531952/images/big/1.webp",
-   "title": "Кроссовки спортивные женские",
-   "discount": 0,
-   "price": 1328,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/498531952/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790750866,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5200,15 +5200,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5306,7 +5303,7 @@
    "Развлечения",
    "Мыши"
   ],
-  "queue_size": 28,
+  "queue_size": 30,
   "last_scan_added": 11,
   "last_scan_funnel": {
    "found": 600,

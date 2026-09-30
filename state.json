@@ -2266,6 +2266,20 @@
  },
  "recent": [
   {
+   "pid": 165495535,
+   "image": "https://basket-11.wbbasket.ru/vol1654/part165495/165495535/images/big/1.webp",
+   "title": "Футболка с принтом",
+   "discount": 0,
+   "price": 705,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/165495535/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1790755493,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 480827751,
    "image": "https://basket-26.wbbasket.ru/vol4808/part480827/480827751/images/big/1.webp",
    "title": "кофта оверсайз на замке",
@@ -5218,33 +5232,6 @@
    "cat": "футболка мужская",
    "ts": 1789546745,
    "drop": 0
-  },
-  {
-   "pid": 1119923998,
-   "title": "Футболка мужская oversize",
-   "discount": 0,
-   "price": 475,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1119923998/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789545952,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 165495535,
-   "image": "https://basket-11.wbbasket.ru/vol1654/part165495/165495535/images/big/1.webp",
-   "title": "Футболка с принтом",
-   "discount": 0,
-   "price": 705,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/165495535/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1790755493,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5271,15 +5258,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5377,7 +5361,7 @@
    "Для коррекции веса",
    "Рабочая обувь"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,
@@ -5431,7 +5415,6 @@
   "футболкабазоваяхлопковая": 1789584821,
   "футболкасвободнаяоднотоннаябазоваяизхлопка": 1789971043,
   "футболкаврубчик": 1789652961,
-  "футболкамужскаяoversize": 1789545952,
   "футболкаоверсайзизхлопкабазовая": 1789546745,
   "блузкалетняянаряднаяскороткимрукавомбольшихразмеров": 1789547541,
   "блузкаофиснаябазоваябелаяскороткимрукавом": 1789548383,

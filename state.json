@@ -2329,6 +2329,20 @@
  },
  "recent": [
   {
+   "pid": 169034403,
+   "image": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/images/big/1.webp",
+   "title": "Джинсы клеш от колена с высокой посадкой",
+   "discount": 0,
+   "price": 2520,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/169034403/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1790770470,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 446606359,
    "image": "https://basket-25.wbbasket.ru/vol4466/part446606/446606359/images/big/1.webp",
    "title": "Платье летнее больших размеров",
@@ -5555,20 +5569,6 @@
    "cat": "платье женское",
    "ts": 1789561507,
    "drop": 0
-  },
-  {
-   "pid": 169034403,
-   "image": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/images/big/1.webp",
-   "title": "Джинсы клеш от колена с высокой посадкой",
-   "discount": 0,
-   "price": 2520,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/169034403/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1790770470,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5595,15 +5595,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5701,7 +5698,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

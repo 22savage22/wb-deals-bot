@@ -2123,10 +2123,10 @@
    "ts": 1790778408.6175869
   },
   "плед": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790784373.504771
   }
  },
@@ -2388,6 +2388,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 152953621,
+   "image": "https://basket-10.wbbasket.ru/vol1529/part152953/152953621/images/big/1.webp",
+   "title": "Плед 150х200 детский пушистый на кровать на диван Minecraft",
+   "discount": 0,
+   "price": 786,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/152953621/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1790784373,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1213989589,
    "image": "https://basket-44.wbbasket.ru/vol12139/part1213989/1213989589/images/big/1.webp",
@@ -5812,20 +5826,6 @@
    "ts": 1789575361,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 152953621,
-   "image": "https://basket-10.wbbasket.ru/vol1529/part152953/152953621/images/big/1.webp",
-   "title": "Плед 150х200 детский пушистый на кровать на диван Minecraft",
-   "discount": 0,
-   "price": 786,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/152953621/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1790784373,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5852,15 +5852,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5958,7 +5955,7 @@
    "Туризм и страноведение",
    "Крючки"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

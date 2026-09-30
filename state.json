@@ -2346,6 +2346,20 @@
  },
  "recent": [
   {
+   "pid": 960470703,
+   "image": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/images/big/1.webp",
+   "title": "Джинсы палаццо широкие стрейч",
+   "discount": 0,
+   "price": 2070,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/960470703/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1790772441,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 8288419,
    "image": "https://basket-01.wbbasket.ru/vol82/part8288/8288419/images/big/1.webp",
    "title": "Брошь Цветок клевер маленькая на платье и одежду",
@@ -5590,20 +5604,6 @@
    "cat": "футболка мужская",
    "ts": 1789563119,
    "drop": 0
-  },
-  {
-   "pid": 960470703,
-   "image": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/images/big/1.webp",
-   "title": "Джинсы палаццо широкие стрейч",
-   "discount": 0,
-   "price": 2070,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/960470703/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1790772441,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5630,15 +5630,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 18,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 9,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5736,7 +5733,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

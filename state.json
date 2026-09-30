@@ -2345,6 +2345,20 @@
  },
  "recent": [
   {
+   "pid": 8288419,
+   "image": "https://basket-01.wbbasket.ru/vol82/part8288/8288419/images/big/1.webp",
+   "title": "Брошь Цветок клевер маленькая на платье и одежду",
+   "discount": 0,
+   "price": 543,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/8288419/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790771801,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 229806718,
    "image": "https://basket-15.wbbasket.ru/vol2298/part229806/229806718/images/big/1.webp",
    "title": "Санкт-Петербург. Туристическая карта",
@@ -5575,32 +5589,6 @@
    "cat": "футболка мужская",
    "ts": 1789563119,
    "drop": 0
-  },
-  {
-   "pid": 413313564,
-   "title": "Платье на лямках жёлтый",
-   "discount": 0,
-   "price": 344,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/413313564/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1789562289,
-   "drop": 0
-  },
-  {
-   "pid": 8288419,
-   "image": "https://basket-01.wbbasket.ru/vol82/part8288/8288419/images/big/1.webp",
-   "title": "Брошь Цветок клевер маленькая на платье и одежду",
-   "discount": 0,
-   "price": 543,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/8288419/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790771801,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5627,15 +5615,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 18,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 9,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5733,7 +5718,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,
@@ -5786,7 +5771,6 @@
   "футболкабазоваяхлопковая": 1789584821,
   "футболкасвободнаяоднотоннаябазоваяизхлопка": 1789971043,
   "футболкаврубчик": 1789652961,
-  "платьеналямкахжёлтый": 1789562289,
   "футболкапремиумкачестваиз100хлопкаплотность260гм²": 1789563119,
   "платьесволаном": 1789564704,
   "футболкачернаяоднотоннаяхлопокбазовая": 1789565367,
@@ -15953,19 +15937,6 @@
    ],
    "posted_price": 417,
    "posted_ts": 1789561507.3290334
-  },
-  "413313564": {
-   "price": 344,
-   "basic": 7500,
-   "ts": 1789562289.751676,
-   "samples": [
-    [
-     1789562265,
-     344
-    ]
-   ],
-   "posted_price": 344,
-   "posted_ts": 1789562289.751676
   },
   "1543719667": {
    "price": 332,

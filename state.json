@@ -1976,10 +1976,10 @@
    "ts": 1790734614.497105
   },
   "костюм женский": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790735238.2715676
   }
  },
@@ -2174,10 +2174,10 @@
    "ts": 1790734614.4971073
   },
   "костюм женский": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790735238.27157
   }
  },
@@ -2185,6 +2185,20 @@
   "offset": 810944949
  },
  "recent": [
+  {
+   "pid": 366719451,
+   "image": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/images/big/1.webp",
+   "title": "вельветовый полузамок с брюками",
+   "discount": 0,
+   "price": 2365,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/366719451/detail.aspx",
+   "query": "костюм женский",
+   "cat": "костюм женский",
+   "ts": 1790735238,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 561020304,
    "image": "https://basket-29.wbbasket.ru/vol5610/part561020/561020304/images/big/1.webp",
@@ -4924,20 +4938,6 @@
    "cat": "платье женское",
    "ts": 1789525855,
    "drop": 0
-  },
-  {
-   "pid": 366719451,
-   "image": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/images/big/1.webp",
-   "title": "вельветовый полузамок с брюками",
-   "discount": 0,
-   "price": 2365,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/366719451/detail.aspx",
-   "query": "костюм женский",
-   "cat": "костюм женский",
-   "ts": 1790735238,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

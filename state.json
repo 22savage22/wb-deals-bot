@@ -2460,6 +2460,20 @@
  },
  "recent": [
   {
+   "pid": 145149244,
+   "image": "https://basket-10.wbbasket.ru/vol1451/part145149/145149244/images/big/1.webp",
+   "title": "Атлас Москвы и Московской области. 4 карты в 1 атласе 2026",
+   "discount": 0,
+   "price": 400,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/145149244/detail.aspx",
+   "query": "Туризм и страноведение",
+   "cat": "Туризм и страноведение",
+   "ts": 1790794610,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 491827571,
    "image": "https://basket-27.wbbasket.ru/vol4918/part491827/491827571/images/big/1.webp",
    "title": "Крючки самоклеящиеся",
@@ -6043,20 +6057,6 @@
    "ts": 1789585498,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 145149244,
-   "image": "https://basket-10.wbbasket.ru/vol1451/part145149/145149244/images/big/1.webp",
-   "title": "Атлас Москвы и Московской области. 4 карты в 1 атласе 2026",
-   "discount": 0,
-   "price": 400,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/145149244/detail.aspx",
-   "query": "Туризм и страноведение",
-   "cat": "Туризм и страноведение",
-   "ts": 1790794610,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6084,15 +6084,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6190,7 +6187,7 @@
    "Тросики",
    "Ремни и пояса"
   ],
-  "queue_size": 14,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,

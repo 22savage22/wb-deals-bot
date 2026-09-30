@@ -2211,6 +2211,20 @@
  },
  "recent": [
   {
+   "pid": 695081914,
+   "image": "https://basket-33.wbbasket.ru/vol6950/part695081/695081914/images/big/1.webp",
+   "title": "Блузка нарядная на запах",
+   "discount": 0,
+   "price": 1420,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/695081914/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790742385,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 70763083,
    "image": "https://basket-04.wbbasket.ru/vol707/part70763/70763083/images/big/1.webp",
    "title": "Юбка замшевая миди с разрезом в офис",
@@ -4980,20 +4994,6 @@
    "cat": "украшения женские",
    "ts": 1789533460,
    "drop": 1
-  },
-  {
-   "pid": 695081914,
-   "image": "https://basket-33.wbbasket.ru/vol6950/part695081/695081914/images/big/1.webp",
-   "title": "Блузка нарядная на запах",
-   "discount": 0,
-   "price": 1420,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/695081914/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790742385,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5020,15 +5020,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 45,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 11,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5126,7 +5123,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

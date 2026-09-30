@@ -1,21 +1,5 @@
 [
  {
-  "id": 549183661,
-  "title": "Кожаные кроссовки демисезонные спортивные",
-  "brand": "X-Plode",
-  "product": 2428,
-  "basic": 2428,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 959,
-  "category": "кроссовки мужские",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "кроссовки мужские",
-  "queued_ts": 1790758787
- },
- {
   "id": 1224244910,
   "title": "Юбка миди классическая с разрезом",
   "brand": "ТЕЛОДВИЖЕНИЯ",
@@ -45,22 +29,6 @@
   "selection_mode": "good_price",
   "quality": "B",
   "query": "костюм женский",
-  "queued_ts": 1790750940
- },
- {
-  "id": 137987617,
-  "title": "Футболка базовая больших размеров",
-  "brand": "Happyfox",
-  "product": 558,
-  "basic": 558,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 4.9,
-  "feedbacks": 6451,
-  "category": "футболка мужская",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "футболка мужская",
   "queued_ts": 1790750940
  },
  {

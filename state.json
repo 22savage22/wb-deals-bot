@@ -1616,7 +1616,9 @@
   "223098321": 1790775782,
   "284262247": 1790776408,
   "712183512": 1790777105,
-  "310981052": 1790777729
+  "310981052": 1790777729,
+  "1113903586": 1790778335,
+  "1495656742": 1790778408
  },
  "feedback": {
   "848700904": {
@@ -2125,6 +2127,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790777729.528673
+  },
+  "Крючки": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790778408.6175869
   }
  },
  "cat_stats": {
@@ -2372,6 +2381,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790777729.528675
+  },
+  "Крючки": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790778408.6175892
   }
  },
  "tg": {
@@ -5700,10 +5716,24 @@
    "cat": "футболка женская",
    "ts": 1789573892,
    "drop": 0
+  },
+  {
+   "pid": 1495656742,
+   "image": "https://basket-47.wbbasket.ru/vol14956/part1495656/1495656742/images/big/1.webp",
+   "title": "Крючки для одежды в прихожую, настенные 3 шт Хром",
+   "discount": 0,
+   "price": 318,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1495656742/detail.aspx",
+   "query": "Крючки",
+   "cat": "Крючки",
+   "ts": 1790778408,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1790777711,
+  "last_run": 1790778335,
   "last_posts": 1,
   "last_queries": [
    "платье женское",
@@ -5726,12 +5756,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
+   "calls": 65,
+   "ok": 41,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 24,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 41,
+   "worker_error": 12,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -5816,8 +5849,8 @@
    }
   ],
   "today": "2026-09-30",
-  "today_posts": 87,
-  "total_posts": 1585,
+  "today_posts": 88,
+  "total_posts": 1586,
   "last_scan": 1790776473,
   "last_scan_queries": [
    "джинсы женские",
@@ -5829,7 +5862,7 @@
    "Книжки-игрушки",
    "Крючки"
   ],
-  "queue_size": 20,
+  "queue_size": 9,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 499,
@@ -5845,14 +5878,17 @@
    "title_duplicate": 57
   },
   "last_queue": {
-   "queue_before": 19,
+   "queue_before": 18,
    "selected": 1,
-   "refresh_ok": 16,
-   "refresh_bad_price": 3,
+   "refresh_max_price": 11,
+   "refresh_ok": 3,
+   "refresh_bad_price": 4,
    "refresh_strict": 0,
-   "refresh_fallback": 16,
+   "refresh_fallback": 3,
    "refresh_reserve": 0,
-   "queue_after": 18
+   "refresh_rejected": 7,
+   "photo_duplicate": 1,
+   "queue_after": 9
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
@@ -6113,7 +6149,8 @@
   "худискапюшономвстилеy2kбезначеса": 1790775782,
   "костюмспортивный": 1790776408,
   "футболкаskimsспринтомоблегающая": 1790777105,
-  "книгаигрушкадлямалышейложимсяспать": 1790777729
+  "книгаигрушкадлямалышейложимсяспать": 1790777729,
+  "крючкидляодеждывприхожуюнастенные3штхром": 1790778408
  },
  "img_hash": {
   "4c20686c68707477": 1788189559,
@@ -7044,7 +7081,8 @@
   "710d6486930b1d1f": 1790775782,
   "cf9bbc989ae8ce9c": 1790776408,
   "3070f8e0f1919393": 1790777105,
-  "f8b4cc94d4dcd29a": 1790777729
+  "f8b4cc94d4dcd29a": 1790777729,
+  "02295b67a59af674": 1790778408
  },
  "learned": {
   "часы мужские": {
@@ -13955,19 +13993,6 @@
    ],
    "posted_price": 440,
    "posted_ts": 1789544453.9312932
-  },
-  "562614691": {
-   "price": 442,
-   "basic": 700,
-   "ts": 1789568805.797489,
-   "samples": [
-    [
-     1789568805,
-     442
-    ]
-   ],
-   "posted_price": 0,
-   "posted_ts": 0.0
   },
   "828932611": {
    "price": 461,
@@ -51165,12 +51190,8 @@
   "1113903586": {
    "price": 967,
    "basic": 3714,
-   "ts": 1790777714.7846062,
+   "ts": 1790778338.917983,
    "samples": [
-    [
-     1790741193,
-     967
-    ],
     [
      1790743141,
      967
@@ -51193,6 +51214,10 @@
     ],
     [
      1790776392,
+     967
+    ],
+    [
+     1790778338,
      967
     ]
    ],
@@ -95821,7 +95846,7 @@
   "1495656742": {
    "price": 318,
    "basic": 520,
-   "ts": 1790777714.7846444,
+   "ts": 1790778408.6175394,
    "samples": [
     [
      1790775298,
@@ -95832,8 +95857,8 @@
      318
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 318,
+   "posted_ts": 1790778408.6175394
   },
   "123004191": {
    "price": 164,
@@ -96921,7 +96946,7 @@
   "447587441": {
    "price": 559,
    "basic": 1666,
-   "ts": 1790777714.7846167,
+   "ts": 1790778338.9180064,
    "samples": [
     [
      1790775298,
@@ -98046,22 +98071,6 @@
    "queued_ts": 1790775247
   },
   {
-   "id": 1113903586,
-   "title": "Костюм базовый",
-   "brand": "DNZ",
-   "product": 967,
-   "basic": 967,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 344,
-   "category": "костюм женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "костюм женский",
-   "queued_ts": 1790775247
-  },
-  {
    "id": 447587441,
    "title": "Развивающие игрушки книжка шуршалка для новорожденных малыш",
    "brand": "FergoKids",
@@ -98091,22 +98100,6 @@
    "selection_mode": "good_price",
    "quality": "B",
    "query": "костюм женский",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 1495656742,
-   "title": "Крючки для одежды в прихожую, настенные 3 шт Хром",
-   "brand": "SpektrWood",
-   "product": 318,
-   "basic": 318,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 548,
-   "category": "Крючки",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Крючки",
    "queued_ts": 1790775247
   },
   {

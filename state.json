@@ -2139,10 +2139,10 @@
    "ts": 1790784373.504771
   },
   "Тросики": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790790625.7482898
   }
  },
@@ -2400,10 +2400,10 @@
    "ts": 1790778408.6175892
   },
   "Тросики": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790790625.7482924
   }
  },
@@ -2411,6 +2411,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 143532337,
+   "image": "https://basket-10.wbbasket.ru/vol1435/part143532/143532337/images/big/1.webp",
+   "title": "Трос стальной нержавеющий 2 мм 7x7 50 метров",
+   "discount": 0,
+   "price": 993,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/143532337/detail.aspx",
+   "query": "Тросики",
+   "cat": "Тросики",
+   "ts": 1790790625,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 152540730,
    "image": "https://basket-10.wbbasket.ru/vol1525/part152540/152540730/images/big/1.webp",
@@ -5923,20 +5937,6 @@
    "cat": "футболка мужская",
    "ts": 1789584821,
    "drop": 1
-  },
-  {
-   "pid": 143532337,
-   "image": "https://basket-10.wbbasket.ru/vol1435/part143532/143532337/images/big/1.webp",
-   "title": "Трос стальной нержавеющий 2 мм 7x7 50 метров",
-   "discount": 0,
-   "price": 993,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/143532337/detail.aspx",
-   "query": "Тросики",
-   "cat": "Тросики",
-   "ts": 1790790625,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5964,15 +5964,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 148,
-   "ok": 90,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 58,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 90,
-   "worker_error": 29,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6070,7 +6067,7 @@
    "Тросики",
    "Ремни и пояса"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

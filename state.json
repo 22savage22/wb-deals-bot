@@ -2075,10 +2075,10 @@
    "ts": 1790758090.9375017
   },
   "Расчески парикмахерские": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790764560.619601
   }
  },
@@ -2308,10 +2308,10 @@
    "ts": 1790758090.9375036
   },
   "Расчески парикмахерские": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790764560.6196027
   }
  },
@@ -2319,6 +2319,20 @@
   "offset": 810944950
  },
  "recent": [
+  {
+   "pid": 36927998,
+   "image": "https://basket-03.wbbasket.ru/vol369/part36927/36927998/images/big/1.webp",
+   "title": "Расческа для стрижки парикмахерская волнистыми зубцами",
+   "discount": 0,
+   "price": 198,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/36927998/detail.aspx",
+   "query": "Расчески парикмахерские",
+   "cat": "Расчески парикмахерские",
+   "ts": 1790764560,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 28202209,
    "image": "https://basket-02.wbbasket.ru/vol282/part28202/28202209/images/big/1.webp",
@@ -5432,20 +5446,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 36927998,
-   "image": "https://basket-03.wbbasket.ru/vol369/part36927/36927998/images/big/1.webp",
-   "title": "Расческа для стрижки парикмахерская волнистыми зубцами",
-   "discount": 0,
-   "price": 198,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/36927998/detail.aspx",
-   "query": "Расчески парикмахерские",
-   "cat": "Расчески парикмахерские",
-   "ts": 1790764560,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5472,15 +5472,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5578,7 +5575,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

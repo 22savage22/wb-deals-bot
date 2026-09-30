@@ -2516,6 +2516,20 @@
  },
  "recent": [
   {
+   "pid": 200301545,
+   "image": "https://basket-13.wbbasket.ru/vol2003/part200301/200301545/images/big/1.webp",
+   "title": "Развивающие игрушки сортер деревянный для малышей Монтессори",
+   "discount": 0,
+   "price": 694,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/200301545/detail.aspx",
+   "query": "Сортеры, шнуровки",
+   "cat": "Сортеры, шнуровки",
+   "ts": 1790802532,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 192848604,
    "image": "https://basket-13.wbbasket.ru/vol1928/part192848/192848604/images/big/1.webp",
    "title": "Сумка через плечо кросс-боди, маленькая, черная",
@@ -6254,20 +6268,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 200301545,
-   "image": "https://basket-13.wbbasket.ru/vol2003/part200301/200301545/images/big/1.webp",
-   "title": "Развивающие игрушки сортер деревянный для малышей Монтессори",
-   "discount": 0,
-   "price": 694,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/200301545/detail.aspx",
-   "query": "Сортеры, шнуровки",
-   "cat": "Сортеры, шнуровки",
-   "ts": 1790802532,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6295,15 +6295,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 50,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 32,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 50,
-   "worker_error": 16,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6401,7 +6398,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 14,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

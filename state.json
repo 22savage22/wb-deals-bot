@@ -2397,6 +2397,20 @@
  },
  "recent": [
   {
+   "pid": 152540730,
+   "image": "https://basket-10.wbbasket.ru/vol1525/part152540/152540730/images/big/1.webp",
+   "title": "Кроссовки спортивные на платформе демисезонные",
+   "discount": 0,
+   "price": 895,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/152540730/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790789998,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 484475575,
    "image": "https://basket-26.wbbasket.ru/vol4844/part484475/484475575/images/big/1.webp",
    "title": "Лонгслив кофта оверсайз варенка с пич эффектом",
@@ -5894,20 +5908,6 @@
    "cat": "футболка мужская",
    "ts": 1789584821,
    "drop": 1
-  },
-  {
-   "pid": 152540730,
-   "image": "https://basket-10.wbbasket.ru/vol1525/part152540/152540730/images/big/1.webp",
-   "title": "Кроссовки спортивные на платформе демисезонные",
-   "discount": 0,
-   "price": 895,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/152540730/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790789998,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5935,15 +5935,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 148,
-   "ok": 90,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 58,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 90,
-   "worker_error": 29,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6041,7 +6038,7 @@
    "Тросики",
    "Ремни и пояса"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

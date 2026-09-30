@@ -2206,6 +2206,20 @@
  },
  "recent": [
   {
+   "pid": 142049215,
+   "image": "https://basket-10.wbbasket.ru/vol1420/part142049/142049215/images/big/1.webp",
+   "title": "Юбка мини замшевая на молнии",
+   "discount": 0,
+   "price": 1181,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/142049215/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790739113,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1190133854,
    "image": "https://basket-43.wbbasket.ru/vol11901/part1190133/1190133854/images/big/1.webp",
    "title": "Комбинезон защитный одноразовый 1шт",
@@ -4953,20 +4967,6 @@
    "cat": "блузка женская",
    "ts": 1789530211,
    "drop": 0
-  },
-  {
-   "pid": 142049215,
-   "image": "https://basket-10.wbbasket.ru/vol1420/part142049/142049215/images/big/1.webp",
-   "title": "Юбка мини замшевая на молнии",
-   "discount": 0,
-   "price": 1181,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/142049215/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790739113,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4993,15 +4993,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 44,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5099,7 +5096,7 @@
    "Средства индивидуальной защиты и экипировка",
    "Система выпуска"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,
@@ -13283,6 +13280,10 @@
    "ts": 1789559918.342918,
    "samples": [
     [
+     1789529440,
+     458
+    ],
+    [
      1789550883,
      458
     ],
@@ -13300,11 +13301,11 @@
    "ts": 1789531045.9444857,
    "samples": [
     [
-     1789531045,
+     1789529440,
      472
     ],
     [
-     1789531045.9444857,
+     1789531045,
      472
     ]
    ],

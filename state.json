@@ -6340,12 +6340,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 41,
+   "ok": 17,
+   "rate_limited": 11,
+   "http_error": 13,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 17,
+   "worker_error": 5,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -6432,32 +6435,31 @@
   "today": "2026-09-30",
   "today_posts": 127,
   "total_posts": 1625,
-  "last_scan": 1790802610,
+  "last_scan": 1790804574,
   "last_scan_queries": [
    "джинсы женские",
    "кофта женская",
-   "товары для кухни",
+   "кроссовки мужские",
    "платье женское"
   ],
   "last_scan_cats": [
-   "Сортеры, шнуровки",
-   "Уход за вещами"
+   "Эмали автомобильные",
+   "Репринтные издания 1840 - 1849 годов"
   ],
   "queue_size": 15,
-  "last_scan_added": 0,
+  "last_scan_added": 8,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "ok": 37,
-   "max_price": 140,
-   "bad_price": 5,
-   "rating": 18,
+   "found": 201,
+   "cards": 201,
+   "max_price": 177,
+   "ok": 20,
+   "rating": 3,
+   "bad_price": 1,
    "strict": 0,
-   "fallback": 37,
+   "fallback": 20,
    "reserve": 0,
-   "duplicate": 10,
-   "title_duplicate": 13,
-   "electronics": 1
+   "duplicate": 1,
+   "title_duplicate": 1
   },
   "last_queue": {
    "queue_before": 13,
@@ -49661,12 +49663,8 @@
   "1245009476": {
    "price": 453,
    "basic": 3500,
-   "ts": 1790800697.6377616,
+   "ts": 1790804696.6457267,
    "samples": [
-    [
-     1790786599,
-     453
-    ],
     [
      1790788624,
      453
@@ -49689,6 +49687,10 @@
     ],
     [
      1790800697,
+     453
+    ],
+    [
+     1790804696,
      453
     ]
    ],
@@ -108496,6 +108498,253 @@
    ],
    "posted_price": 0,
    "posted_ts": 0.0
+  },
+  "289292554": {
+   "price": 557,
+   "basic": 1296,
+   "ts": 1790804696.645816,
+   "samples": [
+    [
+     1790804696,
+     557
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "271597672": {
+   "price": 441,
+   "basic": 1041,
+   "ts": 1790804696.6458294,
+   "samples": [
+    [
+     1790804696,
+     441
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "273456755": {
+   "price": 475,
+   "basic": 1041,
+   "ts": 1790804696.6458726,
+   "samples": [
+    [
+     1790804696,
+     475
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "248204249": {
+   "price": 237,
+   "basic": 543,
+   "ts": 1790804696.6458802,
+   "samples": [
+    [
+     1790804696,
+     237
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "443928652": {
+   "price": 609,
+   "basic": 1183,
+   "ts": 1790804696.6458883,
+   "samples": [
+    [
+     1790804696,
+     609
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "446568424": {
+   "price": 560,
+   "basic": 1284,
+   "ts": 1790804696.6458974,
+   "samples": [
+    [
+     1790804696,
+     560
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "446568485": {
+   "price": 569,
+   "basic": 1284,
+   "ts": 1790804696.645936,
+   "samples": [
+    [
+     1790804696,
+     569
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "280973520": {
+   "price": 723,
+   "basic": 1110,
+   "ts": 1790804696.6459486,
+   "samples": [
+    [
+     1790804696,
+     723
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "768446309": {
+   "price": 440,
+   "basic": 1227,
+   "ts": 1790804696.6459575,
+   "samples": [
+    [
+     1790804696,
+     440
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "248914922": {
+   "price": 247,
+   "basic": 543,
+   "ts": 1790804696.645972,
+   "samples": [
+    [
+     1790804696,
+     247
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "504427804": {
+   "price": 438,
+   "basic": 792,
+   "ts": 1790804696.6460037,
+   "samples": [
+    [
+     1790804696,
+     438
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "276213086": {
+   "price": 454,
+   "basic": 1041,
+   "ts": 1790804696.6460094,
+   "samples": [
+    [
+     1790804696,
+     454
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "279934489": {
+   "price": 557,
+   "basic": 1296,
+   "ts": 1790804696.6460152,
+   "samples": [
+    [
+     1790804696,
+     557
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "274288359": {
+   "price": 441,
+   "basic": 1041,
+   "ts": 1790804696.646021,
+   "samples": [
+    [
+     1790804696,
+     441
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "767545089": {
+   "price": 424,
+   "basic": 1183,
+   "ts": 1790804696.6460316,
+   "samples": [
+    [
+     1790804696,
+     424
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "288615190": {
+   "price": 566,
+   "basic": 1296,
+   "ts": 1790804696.6460435,
+   "samples": [
+    [
+     1790804696,
+     566
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "834230177": {
+   "price": 968,
+   "basic": 2970,
+   "ts": 1790804696.646054,
+   "samples": [
+    [
+     1790804696,
+     968
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "51464963": {
+   "price": 608,
+   "basic": 934,
+   "ts": 1790804696.6460907,
+   "samples": [
+    [
+     1790804696,
+     608
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "279981762": {
+   "price": 557,
+   "basic": 1296,
+   "ts": 1790804696.6461163,
+   "samples": [
+    [
+     1790804696,
+     557
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
   }
  },
  "cats": {
@@ -108729,9 +108978,9 @@
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1790257499.6971412,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790804696.6502986,
+   "runs": 76,
+   "empty": 1
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
@@ -109101,9 +109350,9 @@
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",
-   "ts": 1790246643.6187654,
-   "runs": 30,
-   "empty": 5
+   "ts": 1790804696.6502986,
+   "runs": 31,
+   "empty": 1
   },
   "Комплекты белья": {
    "shard": "women_underwear2",
@@ -109341,6 +109590,134 @@
   }
  },
  "queue": [
+  {
+   "id": 274288359,
+   "title": "1K эмаль автомобильная ремонтная, (Песочный 237)",
+   "brand": "KUDO",
+   "product": 441,
+   "basic": 441,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 26,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 279934489,
+   "title": "1K эмаль автомобильная ремонтная, (Буран)",
+   "brand": "KUDO",
+   "product": 557,
+   "basic": 557,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 7,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 443928652,
+   "title": "Краска аэрозольная автомобильная 206 Талая вода металлик",
+   "brand": "KUDO",
+   "product": 609,
+   "basic": 609,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 6,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 273456755,
+   "title": "1K эмаль автомобильная ремонтная, (Желтая 225)",
+   "brand": "KUDO",
+   "product": 475,
+   "basic": 475,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 4,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 446568485,
+   "title": "1K эмаль автомобильная ремонтная, (Фея 416)",
+   "brand": "KUDO",
+   "product": 569,
+   "basic": 569,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 4,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 289292554,
+   "title": "1K эмаль автомобильная ремонтная, (Синий 445)",
+   "brand": "KUDO",
+   "product": 557,
+   "basic": 557,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 248914922,
+   "title": "Эмаль ремонтная с кисточкой, (цв.Калина 104)",
+   "brand": "KUDO",
+   "product": 247,
+   "basic": 247,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
+  {
+   "id": 279981762,
+   "title": "1K эмаль автомобильная ремонтная, (Триумф 100)",
+   "brand": "KUDO",
+   "product": 557,
+   "basic": 557,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 3,
+   "category": "Эмали автомобильные",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Эмали автомобильные",
+   "queued_ts": 1790804574
+  },
   {
    "id": 177224444,
    "title": "Магнитная рыбалка для малышей деревянная с удочкой и рыбками",

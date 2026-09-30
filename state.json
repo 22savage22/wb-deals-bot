@@ -2185,10 +2185,10 @@
    "ts": 1790796022.524142
   },
   "Сортеры, шнуровки": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790796640.5497606
   }
  },
@@ -2481,10 +2481,10 @@
    "ts": 1790796022.5241442
   },
   "Сортеры, шнуровки": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790796640.549763
   }
  },
@@ -2492,6 +2492,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 11793442,
+   "image": "https://basket-01.wbbasket.ru/vol117/part11793/11793442/images/big/1.webp",
+   "title": "Развивающая игрушка деревянная шнуровка Монтессори",
+   "discount": 0,
+   "price": 641,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/11793442/detail.aspx",
+   "query": "Сортеры, шнуровки",
+   "cat": "Сортеры, шнуровки",
+   "ts": 1790796640,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1586871134,
    "image": "https://basket-49.wbbasket.ru/vol15868/part1586871/1586871134/images/big/1.webp",
@@ -6105,20 +6119,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 11793442,
-   "image": "https://basket-01.wbbasket.ru/vol117/part11793/11793442/images/big/1.webp",
-   "title": "Развивающая игрушка деревянная шнуровка Монтессори",
-   "discount": 0,
-   "price": 641,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/11793442/detail.aspx",
-   "query": "Сортеры, шнуровки",
-   "cat": "Сортеры, шнуровки",
-   "ts": 1790796640,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6146,15 +6146,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6252,7 +6249,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 25,
+  "queue_size": 30,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 499,

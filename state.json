@@ -6474,12 +6474,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
+   "calls": 29,
    "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
-   "network_error": 0,
-   "json_error": 0
+   "rate_limited": 18,
+   "http_error": 10,
+   "network_error": 1,
+   "json_error": 0,
+   "worker_ok": 0,
+   "worker_error": 2,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -6566,32 +6569,25 @@
   "today": "2026-09-30",
   "today_posts": 136,
   "total_posts": 1634,
-  "last_scan": 1790809011,
+  "last_scan": 1790810542,
   "last_scan_queries": [
-   "кроссовки мужские",
+   "товары для кухни",
+   "украшения женские",
    "джинсы женские",
-   "кофта женская",
-   "товары для кухни"
+   "кроссовки мужские"
   ],
   "last_scan_cats": [
-   "Эмали автомобильные",
-   "Репринтные издания 1840 - 1849 годов"
+   "Репринтные издания 1840 - 1849 годов",
+   "Эмали автомобильные"
   ],
-  "queue_size": 5,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 401,
-   "cards": 401,
-   "max_price": 345,
-   "ok": 34,
-   "bad_price": 6,
-   "rating": 16,
+   "found": 0,
+   "cards": 0,
    "strict": 0,
-   "fallback": 34,
-   "reserve": 0,
-   "duplicate": 6,
-   "title_duplicate": 13,
-   "electronics": 1
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 3,
@@ -109201,9 +109197,9 @@
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1790809108.6852994,
-   "runs": 79,
-   "empty": 4
+   "ts": 1790810704.094903,
+   "runs": 80,
+   "empty": 5
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
@@ -109573,9 +109569,9 @@
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",
-   "ts": 1790809108.6852994,
-   "runs": 34,
-   "empty": 4
+   "ts": 1790810704.094903,
+   "runs": 35,
+   "empty": 5
   },
   "Комплекты белья": {
    "shard": "women_underwear2",

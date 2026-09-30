@@ -2214,6 +2214,20 @@
  },
  "recent": [
   {
+   "pid": 669877391,
+   "image": "https://basket-32.wbbasket.ru/vol6698/part669877/669877391/images/big/1.webp",
+   "title": "Джинсы широкие багги",
+   "discount": 0,
+   "price": 1924,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/669877391/detail.aspx",
+   "query": "джинсы женские",
+   "cat": "джинсы женские",
+   "ts": 1790744358,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1448331597,
    "image": "https://basket-47.wbbasket.ru/vol14483/part1448331/1448331597/images/big/1.webp",
    "title": "Блузка офисная больших размеров",
@@ -5001,20 +5015,6 @@
    "cat": "футболка женская",
    "ts": 1789537589,
    "drop": 0
-  },
-  {
-   "pid": 669877391,
-   "image": "https://basket-32.wbbasket.ru/vol6698/part669877/669877391/images/big/1.webp",
-   "title": "Джинсы широкие багги",
-   "discount": 0,
-   "price": 1924,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/669877391/detail.aspx",
-   "query": "джинсы женские",
-   "cat": "джинсы женские",
-   "ts": 1790744358,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5041,15 +5041,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 42,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 24,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5147,7 +5144,7 @@
    "Развлечения",
    "Мыши"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 501,

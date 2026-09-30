@@ -2520,6 +2520,20 @@
  },
  "recent": [
   {
+   "pid": 149450857,
+   "image": "https://basket-10.wbbasket.ru/vol1494/part149450/149450857/images/big/1.webp",
+   "title": "Пояс ремень широкий для платья и рубашки",
+   "discount": 0,
+   "price": 375,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/149450857/detail.aspx",
+   "query": "Ремни и пояса",
+   "cat": "Ремни и пояса",
+   "ts": 1790805186,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 547916617,
    "image": "https://basket-28.wbbasket.ru/vol5479/part547916/547916617/images/big/1.webp",
    "title": "Коробка для хранения вещей тканевая",
@@ -6314,20 +6328,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 149450857,
-   "image": "https://basket-10.wbbasket.ru/vol1494/part149450/149450857/images/big/1.webp",
-   "title": "Пояс ремень широкий для платья и рубашки",
-   "discount": 0,
-   "price": 375,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/149450857/detail.aspx",
-   "query": "Ремни и пояса",
-   "cat": "Ремни и пояса",
-   "ts": 1790805186,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6355,15 +6355,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 41,
-   "ok": 17,
-   "rate_limited": 11,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 17,
-   "worker_error": 5,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6461,7 +6458,7 @@
    "Эмали автомобильные",
    "Репринтные издания 1840 - 1849 годов"
   ],
-  "queue_size": 14,
+  "queue_size": 15,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 201,

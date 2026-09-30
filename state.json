@@ -2243,6 +2243,20 @@
  },
  "recent": [
   {
+   "pid": 898486677,
+   "image": "https://basket-39.wbbasket.ru/vol8984/part898486/898486677/images/big/1.webp",
+   "title": "Худи оверсайз с капюшоном y2k",
+   "discount": 0,
+   "price": 2051,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/898486677/detail.aspx",
+   "query": "худи мужское",
+   "cat": "худи мужское",
+   "ts": 1790749598,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1469307660,
    "image": "https://basket-47.wbbasket.ru/vol14693/part1469307/1469307660/images/big/1.webp",
    "title": "сумка для учебы средняя тоут",
@@ -5130,20 +5144,6 @@
    "cat": "футболка мужская",
    "ts": 1789541759,
    "drop": 0
-  },
-  {
-   "pid": 898486677,
-   "image": "https://basket-39.wbbasket.ru/vol8984/part898486/898486677/images/big/1.webp",
-   "title": "Худи оверсайз с капюшоном y2k",
-   "discount": 0,
-   "price": 2051,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/898486677/detail.aspx",
-   "query": "худи мужское",
-   "cat": "худи мужское",
-   "ts": 1790749598,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5170,15 +5170,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5276,7 +5273,7 @@
    "Развлечения",
    "Мыши"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

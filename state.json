@@ -2092,10 +2092,10 @@
    "ts": 1790764560.619601
   },
   "Туризм и страноведение": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790771183.8207543
   }
  },
@@ -2332,10 +2332,10 @@
    "ts": 1790764560.6196027
   },
   "Туризм и страноведение": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790771183.8207562
   }
  },
@@ -2343,6 +2343,20 @@
   "offset": 810944950
  },
  "recent": [
+  {
+   "pid": 229806718,
+   "image": "https://basket-15.wbbasket.ru/vol2298/part229806/229806718/images/big/1.webp",
+   "title": "Санкт-Петербург. Туристическая карта",
+   "discount": 0,
+   "price": 124,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/229806718/detail.aspx",
+   "query": "Туризм и страноведение",
+   "cat": "Туризм и страноведение",
+   "ts": 1790771183,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 169034403,
    "image": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/images/big/1.webp",
@@ -5572,20 +5586,6 @@
    "cat": "платье женское",
    "ts": 1789562289,
    "drop": 0
-  },
-  {
-   "pid": 229806718,
-   "image": "https://basket-15.wbbasket.ru/vol2298/part229806/229806718/images/big/1.webp",
-   "title": "Санкт-Петербург. Туристическая карта",
-   "discount": 0,
-   "price": 124,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/229806718/detail.aspx",
-   "query": "Туризм и страноведение",
-   "cat": "Туризм и страноведение",
-   "ts": 1790771183,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5612,15 +5612,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 18,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 9,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5718,7 +5715,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

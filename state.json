@@ -2263,6 +2263,20 @@
  },
  "recent": [
   {
+   "pid": 137985454,
+   "image": "https://basket-10.wbbasket.ru/vol1379/part137985/137985454/images/big/1.webp",
+   "title": "Футболка базовая с v-образным вырезом",
+   "discount": 0,
+   "price": 456,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137985454/detail.aspx",
+   "query": "футболка мужская",
+   "cat": "футболка мужская",
+   "ts": 1790753544,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1531367069,
    "image": "https://basket-48.wbbasket.ru/vol15313/part1531367/1531367069/images/big/1.webp",
    "title": "Спортивный костюм теплый без начеса большие размеры",
@@ -5210,20 +5224,6 @@
    "cat": "футболка мужская",
    "ts": 1789544453,
    "drop": 0
-  },
-  {
-   "pid": 137985454,
-   "image": "https://basket-10.wbbasket.ru/vol1379/part137985/137985454/images/big/1.webp",
-   "title": "Футболка базовая с v-образным вырезом",
-   "discount": 0,
-   "price": 456,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137985454/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1790753544,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5250,15 +5250,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 44,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 20,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 10,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5356,7 +5353,7 @@
    "Рабочая обувь",
    "Для коррекции веса"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

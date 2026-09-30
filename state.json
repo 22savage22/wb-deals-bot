@@ -2120,10 +2120,10 @@
    "ts": 1790771183.8207543
   },
   "Книжки-игрушки": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790777729.528673
   }
  },
@@ -2367,10 +2367,10 @@
    "ts": 1790771183.8207562
   },
   "Книжки-игрушки": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790777729.528675
   }
  },
@@ -2378,6 +2378,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 310981052,
+   "image": "https://basket-19.wbbasket.ru/vol3109/part310981/310981052/images/big/1.webp",
+   "title": "Книга игрушка для малышей Ложимся спать",
+   "discount": 0,
+   "price": 445,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/310981052/detail.aspx",
+   "query": "Книжки-игрушки",
+   "cat": "Книжки-игрушки",
+   "ts": 1790777729,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 712183512,
    "image": "https://basket-34.wbbasket.ru/vol7121/part712183/712183512/images/big/1.webp",
@@ -5686,20 +5700,6 @@
    "cat": "футболка женская",
    "ts": 1789573892,
    "drop": 0
-  },
-  {
-   "pid": 310981052,
-   "image": "https://basket-19.wbbasket.ru/vol3109/part310981/310981052/images/big/1.webp",
-   "title": "Книга игрушка для малышей Ложимся спать",
-   "discount": 0,
-   "price": 445,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/310981052/detail.aspx",
-   "query": "Книжки-игрушки",
-   "cat": "Книжки-игрушки",
-   "ts": 1790777729,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5726,15 +5726,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 41,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 24,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 41,
-   "worker_error": 12,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5832,7 +5829,7 @@
    "Книжки-игрушки",
    "Крючки"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 499,

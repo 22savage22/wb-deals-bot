@@ -2328,6 +2328,20 @@
  },
  "recent": [
   {
+   "pid": 446606359,
+   "image": "https://basket-25.wbbasket.ru/vol4466/part446606/446606359/images/big/1.webp",
+   "title": "Платье летнее больших размеров",
+   "discount": 0,
+   "price": 589,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/446606359/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790769845,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 518840488,
    "image": "https://basket-27.wbbasket.ru/vol5188/part518840/518840488/images/big/1.webp",
    "title": "Худи с капюшоном без начеса",
@@ -5540,20 +5554,6 @@
    "cat": "платье женское",
    "ts": 1789561507,
    "drop": 0
-  },
-  {
-   "pid": 446606359,
-   "image": "https://basket-25.wbbasket.ru/vol4466/part446606/446606359/images/big/1.webp",
-   "title": "Платье летнее больших размеров",
-   "discount": 0,
-   "price": 589,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/446606359/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790769845,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5580,15 +5580,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5686,7 +5683,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

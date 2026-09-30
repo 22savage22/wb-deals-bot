@@ -5517,12 +5517,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
+   "calls": 79,
+   "ok": 49,
    "rate_limited": 0,
-   "http_error": 6,
+   "http_error": 30,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 49,
+   "worker_error": 15,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -5620,7 +5623,7 @@
    "Средства защиты органов дыхания",
    "Расчески парикмахерские"
   ],
-  "queue_size": 20,
+  "queue_size": 17,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

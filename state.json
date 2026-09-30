@@ -2240,6 +2240,20 @@
  },
  "recent": [
   {
+   "pid": 336337853,
+   "image": "https://basket-20.wbbasket.ru/vol3363/part336337/336337853/images/big/1.webp",
+   "title": "Спортивный костюм на замке круглогодичный",
+   "discount": 0,
+   "price": 1170,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/336337853/detail.aspx",
+   "query": "костюм женский",
+   "cat": "костюм женский",
+   "ts": 1790747640,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1046254595,
    "image": "https://basket-42.wbbasket.ru/vol10462/part1046254/1046254595/images/big/1.webp",
    "title": "Кроссовки из экокожи на платформе большие размеры",
@@ -5085,20 +5099,6 @@
    "cat": "футболка мужская",
    "ts": 1789541759,
    "drop": 0
-  },
-  {
-   "pid": 336337853,
-   "image": "https://basket-20.wbbasket.ru/vol3363/part336337/336337853/images/big/1.webp",
-   "title": "Спортивный костюм на замке круглогодичный",
-   "discount": 0,
-   "price": 1170,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/336337853/detail.aspx",
-   "query": "костюм женский",
-   "cat": "костюм женский",
-   "ts": 1790747640,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5125,15 +5125,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 26,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 13,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5231,7 +5228,7 @@
    "Мыши",
    "Развлечения"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 501,

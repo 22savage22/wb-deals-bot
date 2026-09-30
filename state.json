@@ -2507,6 +2507,20 @@
  },
  "recent": [
   {
+   "pid": 827117631,
+   "image": "https://basket-37.wbbasket.ru/vol8271/part827117/827117631/images/big/1.webp",
+   "title": "Органайзер для хранения пластиковые с крышкой",
+   "discount": 0,
+   "price": 399,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/827117631/detail.aspx",
+   "query": "органайзер для дома",
+   "cat": "органайзер для дома",
+   "ts": 1790807809,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 273456755,
    "image": "https://basket-17.wbbasket.ru/vol2734/part273456/273456755/images/big/1.webp",
    "title": "1K эмаль автомобильная ремонтная, (Желтая 225)",
@@ -6357,20 +6371,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 827117631,
-   "image": "https://basket-37.wbbasket.ru/vol8271/part827117/827117631/images/big/1.webp",
-   "title": "Органайзер для хранения пластиковые с крышкой",
-   "discount": 0,
-   "price": 399,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/827117631/detail.aspx",
-   "query": "органайзер для дома",
-   "cat": "органайзер для дома",
-   "ts": 1790807809,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6398,15 +6398,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 15,
-   "rate_limited": 11,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 15,
-   "worker_error": 5,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6504,7 +6501,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Эмали автомобильные"
   ],
-  "queue_size": 7,
+  "queue_size": 11,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 201,

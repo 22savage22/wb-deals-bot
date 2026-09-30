@@ -2193,10 +2193,10 @@
    "ts": 1790796640.5497606
   },
   "органайзер для дома": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790797354.5407746
   }
  },
@@ -2496,10 +2496,10 @@
    "ts": 1790796640.549763
   },
   "органайзер для дома": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790797354.540778
   }
  },
@@ -2507,6 +2507,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 1513620196,
+   "image": "https://basket-48.wbbasket.ru/vol15136/part1513620/1513620196/images/big/1.webp",
+   "title": "Органайзер для косметики и хранения канцелярии в ящик стола",
+   "discount": 0,
+   "price": 394,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1513620196/detail.aspx",
+   "query": "органайзер для дома",
+   "cat": "органайзер для дома",
+   "ts": 1790797354,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 11793442,
    "image": "https://basket-01.wbbasket.ru/vol117/part11793/11793442/images/big/1.webp",
@@ -6134,20 +6148,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 1513620196,
-   "image": "https://basket-48.wbbasket.ru/vol15136/part1513620/1513620196/images/big/1.webp",
-   "title": "Органайзер для косметики и хранения канцелярии в ящик стола",
-   "discount": 0,
-   "price": 394,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1513620196/detail.aspx",
-   "query": "органайзер для дома",
-   "cat": "органайзер для дома",
-   "ts": 1790797354,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6175,15 +6175,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 45,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 11,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6281,7 +6278,7 @@
    "Уход за вещами",
    "Сортеры, шнуровки"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 599,

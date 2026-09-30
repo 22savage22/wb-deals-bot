@@ -2528,6 +2528,19 @@
  },
  "recent": [
   {
+   "pid": 1109762404,
+   "image": "https://basket-42.wbbasket.ru/vol11097/part1109762/1109762404/images/big/1.webp",
+   "title": "Теннисный Браслет бижутерия с фианитами 3 мм",
+   "discount": 0,
+   "price": 640,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1109762404/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790811479,
+   "drop": 0
+  },
+  {
    "pid": 1000722266,
    "image": "https://basket-41.wbbasket.ru/vol10007/part1000722/1000722266/images/big/1.webp",
    "title": "Сортер развивающая игрушка уточка",
@@ -6448,19 +6461,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 1109762404,
-   "image": "https://basket-42.wbbasket.ru/vol11097/part1109762/1109762404/images/big/1.webp",
-   "title": "Теннисный Браслет бижутерия с фианитами 3 мм",
-   "discount": 0,
-   "price": 640,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1109762404/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790811479,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6500,15 +6500,12 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 53,
-   "ok": 7,
-   "rate_limited": 29,
-   "http_error": 17,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 7,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6606,7 +6603,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Эмали автомобильные"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

@@ -2187,6 +2187,20 @@
  },
  "recent": [
   {
+   "pid": 463722894,
+   "image": "https://basket-26.wbbasket.ru/vol4637/part463722/463722894/images/big/1.webp",
+   "title": "Сумка шоппер большая А4 из экокожи",
+   "discount": 0,
+   "price": 1291,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/463722894/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790735931,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 366719451,
    "image": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/images/big/1.webp",
    "title": "вельветовый полузамок с брюками",
@@ -4927,20 +4941,6 @@
    "ts": 1789526550,
    "drop": 1,
    "quality": "A"
-  },
-  {
-   "pid": 463722894,
-   "image": "https://basket-26.wbbasket.ru/vol4637/part463722/463722894/images/big/1.webp",
-   "title": "Сумка шоппер большая А4 из экокожи",
-   "discount": 0,
-   "price": 1291,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/463722894/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790735931,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -4967,15 +4967,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 67,
-   "ok": 45,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 22,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 11,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5073,7 +5070,7 @@
    "Система выпуска",
    "Средства индивидуальной защиты и экипировка"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

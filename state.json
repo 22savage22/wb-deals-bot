@@ -2397,6 +2397,20 @@
  },
  "recent": [
   {
+   "pid": 1245009476,
+   "image": "https://basket-44.wbbasket.ru/vol12450/part1245009/1245009476/images/big/1.webp",
+   "title": "Кроссовки демисезонные спортивные",
+   "discount": 0,
+   "price": 453,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1245009476/detail.aspx",
+   "query": "кроссовки мужские",
+   "cat": "кроссовки мужские",
+   "ts": 1790779743,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 160241117,
    "image": "https://basket-11.wbbasket.ru/vol1602/part160241/160241117/images/big/1.webp",
    "title": "Мини платье-поло с коротким рукавом",
@@ -5746,20 +5760,6 @@
    "cat": "футболка женская",
    "ts": 1789573892,
    "drop": 0
-  },
-  {
-   "pid": 1245009476,
-   "image": "https://basket-44.wbbasket.ru/vol12450/part1245009/1245009476/images/big/1.webp",
-   "title": "Кроссовки демисезонные спортивные",
-   "discount": 0,
-   "price": 453,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1245009476/detail.aspx",
-   "query": "кроссовки мужские",
-   "cat": "кроссовки мужские",
-   "ts": 1790779743,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5786,15 +5786,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 46,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 34,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 17,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5892,7 +5889,7 @@
    "Книжки-игрушки",
    "Крючки"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 500,

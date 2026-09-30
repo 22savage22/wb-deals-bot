@@ -6415,12 +6415,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 32,
+   "ok": 6,
+   "rate_limited": 17,
+   "http_error": 9,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 6,
+   "worker_error": 2,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -6507,32 +6510,28 @@
   "today": "2026-09-30",
   "today_posts": 133,
   "total_posts": 1631,
-  "last_scan": 1790806508,
+  "last_scan": 1790808544,
   "last_scan_queries": [
+   "кроссовки мужские",
    "джинсы женские",
    "кофта женская",
-   "платье женское",
-   "кроссовки мужские"
+   "товары для кухни"
   ],
   "last_scan_cats": [
    "Репринтные издания 1840 - 1849 годов",
    "Эмали автомобильные"
   ],
-  "queue_size": 11,
-  "last_scan_added": 0,
+  "queue_size": 5,
+  "last_scan_added": 1,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "max_price": 164,
-   "ok": 32,
-   "bad_price": 4,
-   "rating": 1,
+   "found": 100,
+   "cards": 100,
+   "max_price": 85,
+   "rating": 14,
+   "ok": 1,
    "strict": 0,
-   "fallback": 32,
-   "reserve": 0,
-   "duplicate": 5,
-   "title_duplicate": 13,
-   "electronics": 1
+   "fallback": 1,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 7,
@@ -108913,6 +108912,19 @@
    ],
    "posted_price": 0,
    "posted_ts": 0.0
+  },
+  "24039436": {
+   "price": 977,
+   "basic": 2361,
+   "ts": 1790808738.9543188,
+   "samples": [
+    [
+     1790808738,
+     977
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
   }
  },
  "cats": {
@@ -109146,9 +109158,9 @@
   },
   "Репринтные издания 1840 - 1849 годов": {
    "shard": "books_reprint_184x",
-   "ts": 1790806654.8037696,
-   "runs": 77,
-   "empty": 2
+   "ts": 1790808738.9549003,
+   "runs": 78,
+   "empty": 3
   },
   "Биотуалеты и аксессуары": {
    "shard": "garden23",
@@ -109518,9 +109530,9 @@
   },
   "Эмали автомобильные": {
    "shard": "autoproduct6",
-   "ts": 1790806654.8037696,
-   "runs": 32,
-   "empty": 2
+   "ts": 1790808738.9549003,
+   "runs": 33,
+   "empty": 3
   },
   "Комплекты белья": {
    "shard": "women_underwear2",
@@ -109758,6 +109770,22 @@
   }
  },
  "queue": [
+  {
+   "id": 24039436,
+   "title": "Restoration and Conversion of the Jews",
+   "brand": "ARCHIVE PUBLICA",
+   "product": 977,
+   "basic": 977,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 1,
+   "category": "Репринтные издания 1840 - 1849 годов",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Репринтные издания 1840 - 1849 годов",
+   "queued_ts": 1790808544
+  },
   {
    "id": 279981762,
    "title": "1K эмаль автомобильная ремонтная, (Триумф 100)",

@@ -2506,6 +2506,20 @@
  },
  "recent": [
   {
+   "pid": 273456755,
+   "image": "https://basket-17.wbbasket.ru/vol2734/part273456/273456755/images/big/1.webp",
+   "title": "1K эмаль автомобильная ремонтная, (Желтая 225)",
+   "discount": 0,
+   "price": 475,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/273456755/detail.aspx",
+   "query": "Эмали автомобильные",
+   "cat": "Эмали автомобильные",
+   "ts": 1790807165,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 177224444,
    "image": "https://basket-12.wbbasket.ru/vol1772/part177224/177224444/images/big/1.webp",
    "title": "Магнитная рыбалка для малышей деревянная с удочкой и рыбками",
@@ -6342,20 +6356,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 273456755,
-   "image": "https://basket-17.wbbasket.ru/vol2734/part273456/273456755/images/big/1.webp",
-   "title": "1K эмаль автомобильная ремонтная, (Желтая 225)",
-   "discount": 0,
-   "price": 475,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/273456755/detail.aspx",
-   "query": "Эмали автомобильные",
-   "cat": "Эмали автомобильные",
-   "ts": 1790807165,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6383,15 +6383,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 15,
-   "rate_limited": 11,
-   "http_error": 13,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 15,
-   "worker_error": 5,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6489,7 +6486,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Эмали автомобильные"
   ],
-  "queue_size": 8,
+  "queue_size": 11,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 201,

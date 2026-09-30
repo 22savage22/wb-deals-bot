@@ -2391,6 +2391,20 @@
  },
  "recent": [
   {
+   "pid": 110758148,
+   "image": "https://basket-07.wbbasket.ru/vol1107/part110758/110758148/images/big/1.webp",
+   "title": "Футболка женская с принтом \"Взмах крыльев\" оверсайз хлопок",
+   "discount": 0,
+   "price": 453,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/110758148/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1790785756,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 539855427,
    "image": "https://basket-28.wbbasket.ru/vol5398/part539855/539855427/images/big/1.webp",
    "title": "Колье на шею тонкое со стразами украшение чокер",
@@ -5829,20 +5843,6 @@
    "cat": "украшения женские",
    "ts": 1789576256,
    "drop": 0
-  },
-  {
-   "pid": 110758148,
-   "image": "https://basket-07.wbbasket.ru/vol1107/part110758/110758148/images/big/1.webp",
-   "title": "Футболка женская с принтом \"Взмах крыльев\" оверсайз хлопок",
-   "discount": 0,
-   "price": 453,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/110758148/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1790785756,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5869,15 +5869,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
-   "network_error": 1,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 15,
-   "direct_ok": 0
+   "http_error": 6,
+   "network_error": 0,
+   "json_error": 0
   },
   "errors": [
    {
@@ -5975,7 +5972,7 @@
    "Кронштейны",
    "Книжки-игрушки"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

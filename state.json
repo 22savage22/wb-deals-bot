@@ -2350,6 +2350,20 @@
  },
  "recent": [
   {
+   "pid": 460225159,
+   "image": "https://basket-26.wbbasket.ru/vol4602/part460225/460225159/images/big/1.webp",
+   "title": "Стильная сумка с двумя ручками и плечевым ремнем",
+   "discount": 0,
+   "price": 1453,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/460225159/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790775153,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 734841301,
    "image": "https://basket-34.wbbasket.ru/vol7348/part734841/734841301/images/big/1.webp",
    "title": "Флисовая кофта теплая на молнии",
@@ -5613,20 +5627,6 @@
    "cat": "футболка женская",
    "ts": 1789566161,
    "drop": 1
-  },
-  {
-   "pid": 460225159,
-   "image": "https://basket-26.wbbasket.ru/vol4602/part460225/460225159/images/big/1.webp",
-   "title": "Стильная сумка с двумя ручками и плечевым ремнем",
-   "discount": 0,
-   "price": 1453,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/460225159/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790775153,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5653,15 +5653,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5759,7 +5756,7 @@
    "Туризм и страноведение",
    "Кронштейны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,

@@ -2393,6 +2393,20 @@
  },
  "recent": [
   {
+   "pid": 1128239310,
+   "image": "https://basket-43.wbbasket.ru/vol11282/part1128239/1128239310/images/big/1.webp",
+   "title": "Юбка шорты летняя мини с воланами",
+   "discount": 0,
+   "price": 876,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1128239310/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790787176,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 163185292,
    "image": "https://basket-11.wbbasket.ru/vol1631/part163185/163185292/images/big/1.webp",
    "title": "Платье летнее праздничное",
@@ -5835,20 +5849,6 @@
    "cat": "футболка мужская",
    "ts": 1789584821,
    "drop": 1
-  },
-  {
-   "pid": 1128239310,
-   "image": "https://basket-43.wbbasket.ru/vol11282/part1128239/1128239310/images/big/1.webp",
-   "title": "Юбка шорты летняя мини с воланами",
-   "discount": 0,
-   "price": 876,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1128239310/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790787176,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5875,15 +5875,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 79,
-   "ok": 49,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5981,7 +5978,7 @@
    "Книжки-игрушки",
    "Кронштейны"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 598,

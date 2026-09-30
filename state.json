@@ -2305,6 +2305,20 @@
  },
  "recent": [
   {
+   "pid": 28202209,
+   "image": "https://basket-02.wbbasket.ru/vol282/part28202/28202209/images/big/1.webp",
+   "title": "Джемпер в рубчик облегающий лонгслив с кнопками",
+   "discount": 0,
+   "price": 731,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/28202209/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790763938,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1207530108,
    "image": "https://basket-44.wbbasket.ru/vol12075/part1207530/1207530108/images/big/1.webp",
    "title": "Нарядная женская блузка с баской",
@@ -5403,20 +5417,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 28202209,
-   "image": "https://basket-02.wbbasket.ru/vol282/part28202/28202209/images/big/1.webp",
-   "title": "Джемпер в рубчик облегающий лонгслив с кнопками",
-   "discount": 0,
-   "price": 731,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/28202209/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790763938,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5443,15 +5443,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 76,
-   "ok": 48,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 48,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5549,7 +5546,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

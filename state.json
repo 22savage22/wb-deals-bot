@@ -2459,6 +2459,20 @@
  },
  "recent": [
   {
+   "pid": 491827571,
+   "image": "https://basket-27.wbbasket.ru/vol4918/part491827/491827571/images/big/1.webp",
+   "title": "Крючки самоклеящиеся",
+   "discount": 0,
+   "price": 91,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/491827571/detail.aspx",
+   "query": "Крючки",
+   "cat": "Крючки",
+   "ts": 1790793964,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 10854590,
    "image": "https://basket-01.wbbasket.ru/vol108/part10854/10854590/images/big/1.webp",
    "title": "Санкт-Петербург. Подробный туристический план",
@@ -6040,20 +6054,6 @@
    "cat": "футболка мужская",
    "ts": 1789584821,
    "drop": 1
-  },
-  {
-   "pid": 491827571,
-   "image": "https://basket-27.wbbasket.ru/vol4918/part491827/491827571/images/big/1.webp",
-   "title": "Крючки самоклеящиеся",
-   "discount": 0,
-   "price": 91,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/491827571/detail.aspx",
-   "query": "Крючки",
-   "cat": "Крючки",
-   "ts": 1790793964,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6081,15 +6081,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 71,
-   "ok": 43,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 28,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 43,
-   "worker_error": 14,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6187,7 +6184,7 @@
    "Тросики",
    "Ремни и пояса"
   ],
-  "queue_size": 15,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,

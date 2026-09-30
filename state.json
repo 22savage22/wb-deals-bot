@@ -2514,6 +2514,20 @@
  },
  "recent": [
   {
+   "pid": 761344672,
+   "image": "https://basket-35.wbbasket.ru/vol7613/part761344/761344672/images/big/1.webp",
+   "title": "Футболка оверсайз чёрная с надписью manicure mood",
+   "discount": 0,
+   "price": 976,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/761344672/detail.aspx",
+   "query": "Уход за вещами",
+   "cat": "Уход за вещами",
+   "ts": 1790801278,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 15854527,
    "image": "https://basket-02.wbbasket.ru/vol158/part15854/15854527/images/big/1.webp",
    "title": "Шнуровка развивающая для детей сортер Монтессори",
@@ -6224,20 +6238,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 761344672,
-   "image": "https://basket-35.wbbasket.ru/vol7613/part761344/761344672/images/big/1.webp",
-   "title": "Футболка оверсайз чёрная с надписью manicure mood",
-   "discount": 0,
-   "price": 976,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/761344672/detail.aspx",
-   "query": "Уход за вещами",
-   "cat": "Уход за вещами",
-   "ts": 1790801278,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6265,15 +6265,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 50,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 32,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 50,
-   "worker_error": 16,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6371,7 +6368,7 @@
    "Сортеры, шнуровки",
    "Уход за вещами"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,

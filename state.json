@@ -2323,6 +2323,20 @@
  },
  "recent": [
   {
+   "pid": 778497448,
+   "image": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/images/big/1.webp",
+   "title": "Кроссовки Air Force 1 форсы",
+   "discount": 0,
+   "price": 2019,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/778497448/detail.aspx",
+   "query": "кроссовки мужские",
+   "cat": "кроссовки мужские",
+   "ts": 1790766523,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 503823360,
    "image": "https://basket-27.wbbasket.ru/vol5038/part503823/503823360/images/big/1.webp",
    "title": "Джинсы скинни",
@@ -5477,20 +5491,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 778497448,
-   "image": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/images/big/1.webp",
-   "title": "Кроссовки Air Force 1 форсы",
-   "discount": 0,
-   "price": 2019,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/778497448/detail.aspx",
-   "query": "кроссовки мужские",
-   "cat": "кроссовки мужские",
-   "ts": 1790766523,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5517,15 +5517,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 79,
-   "ok": 49,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 30,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 15,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5623,7 +5620,7 @@
    "Средства защиты органов дыхания",
    "Расчески парикмахерские"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 599,
@@ -10229,10 +10226,6 @@
    "samples": [
     [
      1789558428,
-     418
-    ],
-    [
-     1789558428.9730117,
      418
     ]
    ],

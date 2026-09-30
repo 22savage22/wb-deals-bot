@@ -2290,6 +2290,20 @@
  },
  "recent": [
   {
+   "pid": 158266939,
+   "image": "https://basket-10.wbbasket.ru/vol1582/part158266/158266939/images/big/1.webp",
+   "title": "Юбка кожаная черная карандаш",
+   "discount": 0,
+   "price": 412,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/158266939/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790761361,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 715866450,
    "image": "https://basket-34.wbbasket.ru/vol7158/part715866/715866450/images/big/1.webp",
    "title": "Спортивный костюм флисовый",
@@ -5332,20 +5346,6 @@
    "cat": "платье женское",
    "ts": 1789559946,
    "drop": 0
-  },
-  {
-   "pid": 158266939,
-   "image": "https://basket-10.wbbasket.ru/vol1582/part158266/158266939/images/big/1.webp",
-   "title": "Юбка кожаная черная карандаш",
-   "discount": 0,
-   "price": 412,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/158266939/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790761361,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -5372,15 +5372,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 88,
-   "ok": 52,
+   "calls": 6,
+   "ok": 0,
    "rate_limited": 0,
-   "http_error": 36,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 52,
-   "worker_error": 18,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -5478,7 +5475,7 @@
    "Расчески парикмахерские",
    "Средства защиты органов дыхания"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 600,

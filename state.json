@@ -2799,6 +2799,20 @@
  },
  "recent": [
   {
+   "pid": 376767258,
+   "image": "https://basket-22.wbbasket.ru/vol3767/part376767/376767258/images/big/1.webp",
+   "title": "Коробки для хранения вещей с окном 2 штуки",
+   "discount": 0,
+   "price": 429,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/376767258/detail.aspx",
+   "query": "органайзер для дома",
+   "cat": "органайзер для дома",
+   "ts": 1790881443,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1221217383,
    "image": "https://basket-44.wbbasket.ru/vol12212/part1221217/1221217383/images/big/1.webp",
    "title": "Домашнее платье летнее больших размеров",
@@ -7763,20 +7777,6 @@
    "cat": "футболка мужская",
    "ts": 1789672188,
    "drop": 0
-  },
-  {
-   "pid": 376767258,
-   "image": "https://basket-22.wbbasket.ru/vol3767/part376767/376767258/images/big/1.webp",
-   "title": "Коробки для хранения вещей с окном 2 штуки",
-   "discount": 0,
-   "price": 429,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/376767258/detail.aspx",
-   "query": "органайзер для дома",
-   "cat": "органайзер для дома",
-   "ts": 1790881443,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7805,14 +7805,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 83,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 36,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 18,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7910,7 +7910,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 4,
+  "queue_size": 8,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 499,
@@ -7940,7 +7940,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790876398.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

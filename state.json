@@ -2787,6 +2787,20 @@
  },
  "recent": [
   {
+   "pid": 90455027,
+   "image": "https://basket-05.wbbasket.ru/vol904/part90455/90455027/images/big/1.webp",
+   "title": "Фата свадебная длинная на гребне",
+   "discount": 0,
+   "price": 958,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/90455027/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790874174,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 245479768,
    "image": "https://basket-16.wbbasket.ru/vol2454/part245479/245479768/images/big/1.webp",
    "title": "Плед 150х200 на диван и кровать",
@@ -7626,20 +7640,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 90455027,
-   "image": "https://basket-05.wbbasket.ru/vol904/part90455/90455027/images/big/1.webp",
-   "title": "Фата свадебная длинная на гребне",
-   "discount": 0,
-   "price": 958,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/90455027/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790874174,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7668,14 +7668,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 61,
-   "ok": 37,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 37,
-   "worker_error": 12,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7773,7 +7773,7 @@
   "last_scan_cats": [
    "Диваны и кресла"
   ],
-  "queue_size": 4,
+  "queue_size": 7,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 401,

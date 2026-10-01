@@ -2826,6 +2826,20 @@
  },
  "recent": [
   {
+   "pid": 176962990,
+   "image": "https://basket-12.wbbasket.ru/vol1769/part176962/176962990/images/big/1.webp",
+   "title": "Постельное белье евро однотонное страйп",
+   "discount": 0,
+   "price": 986,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/176962990/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1790890180,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 47458979,
    "image": "https://basket-04.wbbasket.ru/vol474/part47458/47458979/images/big/1.webp",
    "title": "Набор для шитья гнома повар",
@@ -7910,20 +7924,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 176962990,
-   "image": "https://basket-12.wbbasket.ru/vol1769/part176962/176962990/images/big/1.webp",
-   "title": "Постельное белье евро однотонное страйп",
-   "discount": 0,
-   "price": 986,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/176962990/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1790890180,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7951,14 +7951,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 51,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 51,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8057,7 +8057,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 12,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 599,
@@ -14204,10 +14204,6 @@
    "ts": 1789689643.2361364,
    "samples": [
     [
-     1789680594,
-     485
-    ],
-    [
      1789685116,
      485
     ],
@@ -14509,10 +14505,6 @@
    "ts": 1789689643.2357054,
    "samples": [
     [
-     1789680594,
-     399
-    ],
-    [
      1789685116,
      399
     ],
@@ -14630,19 +14622,6 @@
     [
      1789916193,
      390
-    ]
-   ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
-  "158577217": {
-   "price": 487,
-   "basic": 1556,
-   "ts": 1789680594.306835,
-   "samples": [
-    [
-     1789680594,
-     487
     ]
    ],
    "posted_price": 0,
@@ -16470,19 +16449,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "1177481840": {
-   "price": 459,
-   "basic": 1083,
-   "ts": 1789680594.3070478,
-   "samples": [
-    [
-     1789680594,
-     459
-    ]
-   ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "1199122088": {
    "price": 365,
    "basic": 1322,
@@ -16557,19 +16523,6 @@
    "posted_price": 0,
    "posted_ts": 0.0
   },
-  "462269951": {
-   "price": 459,
-   "basic": 3500,
-   "ts": 1789680594.3064432,
-   "samples": [
-    [
-     1789680594,
-     459
-    ]
-   ],
-   "posted_price": 0,
-   "posted_ts": 0.0
-  },
   "412603283": {
    "price": 256,
    "basic": 1000,
@@ -16606,19 +16559,6 @@
    ],
    "posted_price": 270,
    "posted_ts": 1789660597.7643378
-  },
-  "214905238": {
-   "price": 354,
-   "basic": 1200,
-   "ts": 1789680594.3066146,
-   "samples": [
-    [
-     1789680594,
-     354
-    ]
-   ],
-   "posted_price": 0,
-   "posted_ts": 0.0
   },
   "498096870": {
    "price": 366,
@@ -16877,10 +16817,6 @@
    "ts": 1789689643.2359364,
    "samples": [
     [
-     1789680594,
-     486
-    ],
-    [
      1789685116,
      486
     ],
@@ -16897,10 +16833,6 @@
    "basic": 714,
    "ts": 1789689643.2361095,
    "samples": [
-    [
-     1789680594,
-     225
-    ],
     [
      1789685116,
      225
@@ -16955,10 +16887,6 @@
    "basic": 2890,
    "ts": 1789689643.2361677,
    "samples": [
-    [
-     1789680594,
-     398
-    ],
     [
      1789685116,
      379

@@ -7996,14 +7996,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 3,
-   "rate_limited": 17,
-   "http_error": 11,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 3,
-   "worker_error": 3,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [

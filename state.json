@@ -2744,6 +2744,20 @@
  },
  "recent": [
   {
+   "pid": 268995246,
+   "image": "https://basket-17.wbbasket.ru/vol2689/part268995/268995246/images/big/1.webp",
+   "title": "Плед 150х200 на диван и кровать пушистый",
+   "discount": 0,
+   "price": 659,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/268995246/detail.aspx",
+   "query": "Пледы",
+   "cat": "Пледы",
+   "ts": 1790855100,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 266100519,
    "image": "https://basket-17.wbbasket.ru/vol2661/part266100/266100519/images/big/1.webp",
    "title": "Водолазка теплая без горла",
@@ -7238,20 +7252,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 268995246,
-   "image": "https://basket-17.wbbasket.ru/vol2689/part268995/268995246/images/big/1.webp",
-   "title": "Плед 150х200 на диван и кровать пушистый",
-   "discount": 0,
-   "price": 659,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/268995246/detail.aspx",
-   "query": "Пледы",
-   "cat": "Пледы",
-   "ts": 1790855100,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7280,13 +7280,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 33,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 33,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -7383,7 +7383,7 @@
    "сумка женская"
   ],
   "last_scan_cats": [],
-  "queue_size": 11,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

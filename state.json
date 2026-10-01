@@ -2567,6 +2567,20 @@
  },
  "recent": [
   {
+   "pid": 326367944,
+   "image": "https://basket-19.wbbasket.ru/vol3263/part326367/326367944/images/big/1.webp",
+   "title": "Мешок для обуви школьный, Nike",
+   "discount": 0,
+   "price": 162,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/326367944/detail.aspx",
+   "query": "Мешки для обуви",
+   "cat": "Мешки для обуви",
+   "ts": 1790819918,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 108698421,
    "image": "https://basket-07.wbbasket.ru/vol1086/part108698/108698421/images/big/1.webp",
    "title": "Мешок для обуви с карманом",
@@ -6625,20 +6639,6 @@
    "cat": "блузка женская",
    "ts": 1789611965,
    "drop": 0
-  },
-  {
-   "pid": 326367944,
-   "image": "https://basket-19.wbbasket.ru/vol3263/part326367/326367944/images/big/1.webp",
-   "title": "Мешок для обуви школьный, Nike",
-   "discount": 0,
-   "price": 162,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/326367944/detail.aspx",
-   "query": "Мешки для обуви",
-   "cat": "Мешки для обуви",
-   "ts": 1790819918,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {

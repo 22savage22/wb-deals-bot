@@ -2549,6 +2549,20 @@
  },
  "recent": [
   {
+   "pid": 1039169510,
+   "image": "https://basket-42.wbbasket.ru/vol10391/part1039169/1039169510/images/big/1.webp",
+   "title": "Кроссовки спортивные легкие дышащие",
+   "discount": 0,
+   "price": 977,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1039169510/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790817334,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 188406096,
    "image": "https://basket-12.wbbasket.ru/vol1884/part188406/188406096/images/big/1.webp",
    "title": "Сумка через плечо маленькая модная",
@@ -6563,20 +6577,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 1039169510,
-   "image": "https://basket-42.wbbasket.ru/vol10391/part1039169/1039169510/images/big/1.webp",
-   "title": "Кроссовки спортивные легкие дышащие",
-   "discount": 0,
-   "price": 977,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1039169510/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790817334,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6604,15 +6604,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 39,
-   "ok": 18,
-   "rate_limited": 10,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 18,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6709,7 +6706,7 @@
   "last_scan_cats": [
    "Оборудование для касс"
   ],
-  "queue_size": 2,
+  "queue_size": 4,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 201,

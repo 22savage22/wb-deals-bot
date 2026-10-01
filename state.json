@@ -7295,13 +7295,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 33,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 33,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -7398,7 +7398,7 @@
    "сумка женская"
   ],
   "last_scan_cats": [],
-  "queue_size": 12,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,
@@ -13259,6 +13259,10 @@
    "basic": 1590,
    "ts": 1789655439.5748024,
    "samples": [
+    [
+     1789646150,
+     489
+    ],
     [
      1789648498,
      489

@@ -2749,6 +2749,20 @@
  },
  "recent": [
   {
+   "pid": 1515904456,
+   "image": "https://basket-48.wbbasket.ru/vol15159/part1515904/1515904456/images/big/1.webp",
+   "title": "Лонгслив женский облегающий скимс оливковый",
+   "discount": 0,
+   "price": 957,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1515904456/detail.aspx",
+   "query": "Лонгслив",
+   "cat": "Лонгслив",
+   "ts": 1790858440,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 148524824,
    "image": "https://basket-10.wbbasket.ru/vol1485/part148524/148524824/images/big/1.webp",
    "title": "Химия Самоучитель Френкель Е.Н",
@@ -7313,20 +7327,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 1515904456,
-   "image": "https://basket-48.wbbasket.ru/vol15159/part1515904/1515904456/images/big/1.webp",
-   "title": "Лонгслив женский облегающий скимс оливковый",
-   "discount": 0,
-   "price": 957,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1515904456/detail.aspx",
-   "query": "Лонгслив",
-   "cat": "Лонгслив",
-   "ts": 1790858440,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7355,14 +7355,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 60,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 36,
-   "worker_error": 12,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7458,7 +7458,7 @@
    "кроссовки женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

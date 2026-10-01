@@ -2250,10 +2250,10 @@
    "ts": 1790825813.7787852
   },
   "Стулья и кресла": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790827821.6528463
   }
  },
@@ -2595,10 +2595,10 @@
    "ts": 1790825813.7787907
   },
   "Стулья и кресла": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790827821.6528485
   }
  },
@@ -2606,6 +2606,20 @@
   "offset": 810944962
  },
  "recent": [
+  {
+   "pid": 1302425352,
+   "image": "https://basket-45.wbbasket.ru/vol13024/part1302425/1302425352/images/big/1.webp",
+   "title": "Стул складной туристический, до 120 кг, черный",
+   "discount": 0,
+   "price": 553,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1302425352/detail.aspx",
+   "query": "Стулья и кресла",
+   "cat": "Стулья и кресла",
+   "ts": 1790827821,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1218214962,
    "image": "https://basket-44.wbbasket.ru/vol12182/part1218214/1218214962/images/big/1.webp",
@@ -6735,20 +6749,6 @@
    "cat": "блузка женская",
    "ts": 1789618892,
    "drop": 0
-  },
-  {
-   "pid": 1302425352,
-   "image": "https://basket-45.wbbasket.ru/vol13024/part1302425/1302425352/images/big/1.webp",
-   "title": "Стул складной туристический, до 120 кг, черный",
-   "discount": 0,
-   "price": 553,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1302425352/detail.aspx",
-   "query": "Стулья и кресла",
-   "cat": "Стулья и кресла",
-   "ts": 1790827821,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -16431,10 +16431,6 @@
    "samples": [
     [
      1789619686,
-     393
-    ],
-    [
-     1789619686.0157359,
      393
     ]
    ],

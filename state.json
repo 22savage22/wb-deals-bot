@@ -2746,6 +2746,20 @@
  },
  "recent": [
   {
+   "pid": 752351852,
+   "image": "https://basket-35.wbbasket.ru/vol7523/part752351/752351852/images/big/1.webp",
+   "title": "Сумка через плечо маленькая черная кросс-боди",
+   "discount": 0,
+   "price": 968,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/752351852/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790856452,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 244531999,
    "image": "https://basket-16.wbbasket.ru/vol2445/part244531/244531999/images/big/1.webp",
    "title": "Худи оверсайз на замке с начесом",
@@ -7268,20 +7282,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 752351852,
-   "image": "https://basket-35.wbbasket.ru/vol7523/part752351/752351852/images/big/1.webp",
-   "title": "Сумка через плечо маленькая черная кросс-боди",
-   "discount": 0,
-   "price": 968,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/752351852/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790856452,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7310,14 +7310,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 83,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 36,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 18,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7415,7 +7415,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 500,

@@ -2715,6 +2715,20 @@
  },
  "recent": [
   {
+   "pid": 241712569,
+   "image": "https://basket-16.wbbasket.ru/vol2417/part241712/241712569/images/big/1.webp",
+   "title": "Водолазка с горлом с коротким рукавом",
+   "discount": 0,
+   "price": 665,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/241712569/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790844975,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 257827154,
    "image": "https://basket-16.wbbasket.ru/vol2578/part257827/257827154/images/big/1.webp",
    "title": "Кофта трикотажная лапша фонарик",
@@ -7012,20 +7026,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 241712569,
-   "image": "https://basket-16.wbbasket.ru/vol2417/part241712/241712569/images/big/1.webp",
-   "title": "Водолазка с горлом с коротким рукавом",
-   "discount": 0,
-   "price": 665,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/241712569/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790844975,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7053,14 +7053,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 45,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7158,7 +7158,7 @@
   "last_scan_cats": [
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 28,
+  "queue_size": 30,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 500,

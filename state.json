@@ -2570,6 +2570,20 @@
  },
  "recent": [
   {
+   "pid": 247211136,
+   "image": "https://basket-16.wbbasket.ru/vol2472/part247211/247211136/images/big/1.webp",
+   "title": "Блузка вечерняя с длинным рукавом",
+   "discount": 0,
+   "price": 680,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/247211136/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790821881,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1061013759,
    "image": "https://basket-42.wbbasket.ru/vol10610/part1061013/1061013759/images/big/1.webp",
    "title": "Джинсы клеш женские со средней посадкой",
@@ -6658,20 +6672,6 @@
    "cat": "футболка женская",
    "ts": 1789613153,
    "drop": 0
-  },
-  {
-   "pid": 247211136,
-   "image": "https://basket-16.wbbasket.ru/vol2472/part247211/247211136/images/big/1.webp",
-   "title": "Блузка вечерняя с длинным рукавом",
-   "discount": 0,
-   "price": 680,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/247211136/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790821881,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -15709,10 +15709,6 @@
    "samples": [
     [
      1789613136,
-     404
-    ],
-    [
-     1789613136.4756544,
      404
     ]
    ],

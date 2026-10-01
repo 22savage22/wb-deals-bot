@@ -2714,6 +2714,20 @@
  },
  "recent": [
   {
+   "pid": 257827154,
+   "image": "https://basket-16.wbbasket.ru/vol2578/part257827/257827154/images/big/1.webp",
+   "title": "Кофта трикотажная лапша фонарик",
+   "discount": 0,
+   "price": 905,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/257827154/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790844353,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 25432207,
    "image": "https://basket-02.wbbasket.ru/vol254/part25432/25432207/images/big/1.webp",
    "title": "Витамины группы В",
@@ -6997,20 +7011,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 257827154,
-   "image": "https://basket-16.wbbasket.ru/vol2578/part257827/257827154/images/big/1.webp",
-   "title": "Кофта трикотажная лапша фонарик",
-   "discount": 0,
-   "price": 905,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/257827154/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790844353,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7038,14 +7038,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 45,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [

@@ -2716,6 +2716,20 @@
  },
  "recent": [
   {
+   "pid": 398308100,
+   "image": "https://basket-23.wbbasket.ru/vol3983/part398308/398308100/images/big/1.webp",
+   "title": "Плед 150х200 пушистый на диван",
+   "discount": 0,
+   "price": 721,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/398308100/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1790845608,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 241712569,
    "image": "https://basket-16.wbbasket.ru/vol2417/part241712/241712569/images/big/1.webp",
    "title": "Водолазка с горлом с коротким рукавом",
@@ -7027,20 +7041,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 398308100,
-   "image": "https://basket-23.wbbasket.ru/vol3983/part398308/398308100/images/big/1.webp",
-   "title": "Плед 150х200 пушистый на диван",
-   "discount": 0,
-   "price": 721,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/398308100/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1790845608,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7068,14 +7068,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 45,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7173,7 +7173,7 @@
   "last_scan_cats": [
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 27,
+  "queue_size": 30,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 500,

@@ -2544,6 +2544,19 @@
  },
  "recent": [
   {
+   "pid": 438982860,
+   "image": "https://basket-25.wbbasket.ru/vol4389/part438982/438982860/images/big/1.webp",
+   "title": "Домашнее платье летнее оверсайз больших размеров",
+   "discount": 0,
+   "price": 579,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/438982860/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790813798,
+   "drop": 0
+  },
+  {
    "pid": 170243807,
    "image": "https://basket-12.wbbasket.ru/vol1702/part170243/170243807/images/big/1.webp",
    "title": "монетница пластиковая для кассы",
@@ -6490,19 +6503,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 438982860,
-   "image": "https://basket-25.wbbasket.ru/vol4389/part438982/438982860/images/big/1.webp",
-   "title": "Домашнее платье летнее оверсайз больших размеров",
-   "discount": 0,
-   "price": 579,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/438982860/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790813798,
-   "drop": 0
   }
  ],
  "meta": {
@@ -6542,15 +6542,12 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 18,
-   "rate_limited": 27,
-   "http_error": 24,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 18,
-   "worker_error": 8,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6648,7 +6645,7 @@
    "Репринтные издания 1840 - 1849 годов",
    "Эмали автомобильные"
   ],
-  "queue_size": 1,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 0,

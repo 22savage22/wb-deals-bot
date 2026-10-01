@@ -2804,6 +2804,20 @@
  },
  "recent": [
   {
+   "pid": 1256752858,
+   "image": "https://basket-44.wbbasket.ru/vol12567/part1256752/1256752858/images/big/1.webp",
+   "title": "Блузка офисная больших размеров праздничная нарядная",
+   "discount": 0,
+   "price": 918,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1256752858/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790884940,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 139444018,
    "image": "https://basket-10.wbbasket.ru/vol1394/part139444/139444018/images/big/1.webp",
    "title": "Рубашка шелковая офисная оверсайз Блузка школьная",
@@ -7789,20 +7803,6 @@
    "ts": 1789675459,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1256752858,
-   "image": "https://basket-44.wbbasket.ru/vol12567/part1256752/1256752858/images/big/1.webp",
-   "title": "Блузка офисная больших размеров праздничная нарядная",
-   "discount": 0,
-   "price": 918,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1256752858/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790884940,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7830,14 +7830,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 79,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 30,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 15,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7936,7 +7936,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 17,
   "last_scan_funnel": {
    "found": 600,

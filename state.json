@@ -2827,6 +2827,20 @@
  },
  "recent": [
   {
+   "pid": 320968679,
+   "image": "https://basket-19.wbbasket.ru/vol3209/part320968/320968679/images/big/1.webp",
+   "title": "Заготовки для поделок Ангелы деревянные для творчества",
+   "discount": 0,
+   "price": 303,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/320968679/detail.aspx",
+   "query": "Хобби и досуг",
+   "cat": "Хобби и досуг",
+   "ts": 1790890887,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 176962990,
    "image": "https://basket-12.wbbasket.ru/vol1769/part176962/176962990/images/big/1.webp",
    "title": "Постельное белье евро однотонное страйп",
@@ -7925,20 +7939,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 320968679,
-   "image": "https://basket-19.wbbasket.ru/vol3209/part320968/320968679/images/big/1.webp",
-   "title": "Заготовки для поделок Ангелы деревянные для творчества",
-   "discount": 0,
-   "price": 303,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/320968679/detail.aspx",
-   "query": "Хобби и досуг",
-   "cat": "Хобби и досуг",
-   "ts": 1790890887,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7966,14 +7966,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 22,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 36,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8072,7 +8072,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 402,

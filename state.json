@@ -2363,10 +2363,10 @@
    "ts": 1790861735.9692857
   },
   "Свадебная фата": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790862433.9263856
   }
  },
@@ -2757,10 +2757,10 @@
    "ts": 1790861735.9692912
   },
   "Свадебная фата": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790862433.9263878
   }
  },
@@ -2768,6 +2768,20 @@
   "offset": 810944963
  },
  "recent": [
+  {
+   "pid": 72049399,
+   "image": "https://basket-05.wbbasket.ru/vol720/part72049/72049399/images/big/1.webp",
+   "title": "Фата свадебная короткая",
+   "discount": 0,
+   "price": 948,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/72049399/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790862433,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 683612281,
    "image": "https://basket-33.wbbasket.ru/vol6836/part683612/683612281/images/big/1.webp",
@@ -7393,20 +7407,6 @@
    "cat": "футболка женская",
    "ts": 1789652961,
    "drop": 1
-  },
-  {
-   "pid": 72049399,
-   "image": "https://basket-05.wbbasket.ru/vol720/part72049/72049399/images/big/1.webp",
-   "title": "Фата свадебная короткая",
-   "discount": 0,
-   "price": 948,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/72049399/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790862433,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7435,15 +7435,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 55,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
-   "direct_ok": 1
+   "worker_ok": 42,
+   "worker_error": 13,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -7541,7 +7541,7 @@
    "Диваны и кресла",
    "Свадебная фата"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 600,
@@ -7568,7 +7568,7 @@
    "refresh_rejected": 2,
    "queue_after": 17
   },
-  "cats_count": 2254,
+  "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790812492.0,
   "last_engagement_kind": "poll",

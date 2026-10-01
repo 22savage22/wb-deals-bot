@@ -2778,6 +2778,20 @@
  },
  "recent": [
   {
+   "pid": 57779891,
+   "image": "https://basket-04.wbbasket.ru/vol577/part57779/57779891/images/big/1.webp",
+   "title": "Фата свадебная короткая с гребнем",
+   "discount": 0,
+   "price": 956,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/57779891/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790868300,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 268689310,
    "image": "https://basket-17.wbbasket.ru/vol2686/part268689/268689310/images/big/1.webp",
    "title": "Плед теплый на диван Гармония 200х220",
@@ -7503,20 +7517,6 @@
    "cat": "футболка женская",
    "ts": 1789660597,
    "drop": 0
-  },
-  {
-   "pid": 57779891,
-   "image": "https://basket-04.wbbasket.ru/vol577/part57779/57779891/images/big/1.webp",
-   "title": "Фата свадебная короткая с гребнем",
-   "discount": 0,
-   "price": 956,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/57779891/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790868300,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7545,14 +7545,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 46,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7650,7 +7650,7 @@
   "last_scan_cats": [
    "Диваны и кресла"
   ],
-  "queue_size": 13,
+  "queue_size": 16,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 500,

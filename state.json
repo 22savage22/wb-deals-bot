@@ -2828,6 +2828,20 @@
  },
  "recent": [
   {
+   "pid": 482055567,
+   "image": "https://basket-26.wbbasket.ru/vol4820/part482055/482055567/images/big/1.webp",
+   "title": "Постельное белье 2 спальное 50х70 полисатин",
+   "discount": 0,
+   "price": 995,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/482055567/detail.aspx",
+   "query": "постельное белье",
+   "cat": "постельное белье",
+   "ts": 1790891559,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 320968679,
    "image": "https://basket-19.wbbasket.ru/vol3209/part320968/320968679/images/big/1.webp",
    "title": "Заготовки для поделок Ангелы деревянные для творчества",
@@ -7940,20 +7954,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 482055567,
-   "image": "https://basket-26.wbbasket.ru/vol4820/part482055/482055567/images/big/1.webp",
-   "title": "Постельное белье 2 спальное 50х70 полисатин",
-   "discount": 0,
-   "price": 995,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/482055567/detail.aspx",
-   "query": "постельное белье",
-   "cat": "постельное белье",
-   "ts": 1790891559,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7981,14 +7981,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 22,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 36,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [

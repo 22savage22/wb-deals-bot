@@ -2754,6 +2754,20 @@
  },
  "recent": [
   {
+   "pid": 683612281,
+   "image": "https://basket-33.wbbasket.ru/vol6836/part683612/683612281/images/big/1.webp",
+   "title": "Плед новогодний 200х220 пушистый на диван на кровать",
+   "discount": 0,
+   "price": 779,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/683612281/detail.aspx",
+   "query": "Пледы",
+   "cat": "Пледы",
+   "ts": 1790861735,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 156651232,
    "image": "https://basket-10.wbbasket.ru/vol1566/part156651/156651232/images/big/1.webp",
    "title": "Лонгслив базовый футболка с длинным рукавом хлопок 100%",
@@ -7364,20 +7378,6 @@
    "cat": "футболка женская",
    "ts": 1789652961,
    "drop": 1
-  },
-  {
-   "pid": 683612281,
-   "image": "https://basket-33.wbbasket.ru/vol6836/part683612/683612281/images/big/1.webp",
-   "title": "Плед новогодний 200х220 пушистый на диван на кровать",
-   "discount": 0,
-   "price": 779,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/683612281/detail.aspx",
-   "query": "Пледы",
-   "cat": "Пледы",
-   "ts": 1790861735,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7888,7 +7888,6 @@
   "пледновогодний200х220пушистыйнадиваннакровать": 1790861735
  },
  "img_hash": {
-  "f1f1d9d8cae22082": 1788269767,
   "9090a8686c686070": 1788270399,
   "b83013e6cac2c801": 1788271036,
   "dad9dccdd1c1f1f1": 1788271700,

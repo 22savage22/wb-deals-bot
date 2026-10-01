@@ -2720,6 +2720,20 @@
  },
  "recent": [
   {
+   "pid": 695388261,
+   "image": "https://basket-33.wbbasket.ru/vol6953/part695388/695388261/images/big/1.webp",
+   "title": "Сумка через плечо",
+   "discount": 0,
+   "price": 706,
+   "rating": 4.3,
+   "link": "https://www.wildberries.ru/catalog/695388261/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790848289,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 449419638,
    "image": "https://basket-25.wbbasket.ru/vol4494/part449419/449419638/images/big/1.webp",
    "title": "Плед 150х200 на диван, кровать пушистый мягкий",
@@ -7087,20 +7101,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 695388261,
-   "image": "https://basket-33.wbbasket.ru/vol6953/part695388/695388261/images/big/1.webp",
-   "title": "Сумка через плечо",
-   "discount": 0,
-   "price": 706,
-   "rating": 4.3,
-   "link": "https://www.wildberries.ru/catalog/695388261/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790848289,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7128,13 +7128,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 63,
-   "ok": 37,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 37,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -7231,7 +7231,7 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [],
-  "queue_size": 3,
+  "queue_size": 6,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,

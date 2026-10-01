@@ -2776,6 +2776,20 @@
  },
  "recent": [
   {
+   "pid": 238170661,
+   "image": "https://basket-15.wbbasket.ru/vol2381/part238170/238170661/images/big/1.webp",
+   "title": "Фата свадебная для девичника на заколке с бантиком",
+   "discount": 0,
+   "price": 480,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/238170661/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790866976,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 312815734,
    "image": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/images/big/1.webp",
    "title": "Серьги висячие длинные сердечки с жемчугом бижутерия",
@@ -7473,20 +7487,6 @@
    "cat": "футболка женская",
    "ts": 1789660597,
    "drop": 0
-  },
-  {
-   "pid": 238170661,
-   "image": "https://basket-15.wbbasket.ru/vol2381/part238170/238170661/images/big/1.webp",
-   "title": "Фата свадебная для девичника на заколке с бантиком",
-   "discount": 0,
-   "price": 480,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/238170661/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790866976,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7515,14 +7515,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 38,
-   "rate_limited": 0,
-   "http_error": 28,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
-   "worker_error": 14,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7618,7 +7618,7 @@
    "костюм женский"
   ],
   "last_scan_cats": [],
-  "queue_size": 14,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

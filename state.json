@@ -8001,57 +8001,50 @@
   }
  ],
  "meta": {
-  "last_run": 1790893515,
-  "last_posts": 1,
+  "last_run": 1790894364,
+  "last_posts": 0,
   "last_queries": [
-   "украшения женские",
    "джинсы женские",
    "кроссовки мужские",
    "костюм женский",
-   "платье женское",
-   "сумка женская"
+   "футболка женская",
+   "сумка женская",
+   "футболка мужская"
   ],
   "learn_ts": 1790876398.6197343,
-  "empty_notice_ts": 1790813376.0,
+  "empty_notice_ts": 1790894613.0,
   "cats_ts": 1790861819.6821547,
   "last_cats": [
-   "Рамы багетные",
-   "Пробники"
+   "Пробники",
+   "Рамы багетные"
   ],
   "digest_date": "2026-10-01",
   "week_digest_ts": 1788107929.0,
   "last_funnel": {
-   "found": 700,
-   "cards": 700,
-   "max_price": 482,
-   "ok": 181,
-   "rating": 36,
-   "bad_price": 1,
+   "found": 300,
+   "cards": 300,
+   "max_price": 294,
+   "ok": 3,
+   "bad_price": 3,
    "strict": 0,
-   "fallback": 181,
+   "fallback": 3,
    "reserve": 0,
-   "repost": 14,
-   "title_duplicate": 8,
-   "electronics": 1,
-   "selected": 5,
-   "published": 1
+   "repost": 3,
+   "selected": 0,
+   "published": 0
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 85,
+   "ok": 31,
+   "rate_limited": 20,
+   "http_error": 34,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 31,
+   "worker_error": 14,
    "direct_ok": 0
   },
   "errors": [
-   {
-    "ts": 1790795333,
-    "msg": "Мало фото (1): 275362194"
-   },
    {
     "ts": 1790825171,
     "msg": "Мало фото (1): 193551660"
@@ -8127,6 +8120,10 @@
    {
     "ts": 1790893528,
     "msg": "Мало фото (1): 164727428"
+   },
+   {
+    "ts": 1790894375,
+    "msg": "Мало фото (1): 164727428"
    }
   ],
   "today": "2026-10-01",
@@ -8143,7 +8140,7 @@
    "Пробники",
    "Рамы багетные"
   ],
-  "queue_size": 6,
+  "queue_size": 0,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1,
@@ -8154,21 +8151,21 @@
    "reserve": 0
   },
   "last_queue": {
-   "queue_before": 5,
+   "queue_before": 4,
    "selected": 0,
-   "refresh_bad_price": 4,
+   "refresh_bad_price": 3,
    "refresh_ok": 1,
    "refresh_strict": 0,
    "refresh_fallback": 1,
    "refresh_reserve": 0,
-   "refresh_rejected": 4,
+   "refresh_rejected": 3,
    "no_photo": 1,
    "queue_after": 0
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {
@@ -93499,12 +93496,8 @@
   "978894465": {
    "price": 976,
    "basic": 3750,
-   "ts": 1790890308.0587285,
+   "ts": 1790894613.610766,
    "samples": [
-    [
-     1790875570,
-     976
-    ],
     [
      1790878073,
      976
@@ -93527,6 +93520,10 @@
     ],
     [
      1790890308,
+     976
+    ],
+    [
+     1790894613,
      976
     ]
    ],
@@ -94893,12 +94890,8 @@
   "1061013759": {
    "price": 960,
    "basic": 8699,
-   "ts": 1790890308.059649,
+   "ts": 1790894613.6114712,
    "samples": [
-    [
-     1790875570,
-     960
-    ],
     [
      1790878073,
      960
@@ -94921,6 +94914,10 @@
     ],
     [
      1790890308,
+     960
+    ],
+    [
+     1790894613,
      960
     ]
    ],
@@ -100004,7 +100001,7 @@
   "164727428": {
    "price": 545,
    "basic": 872,
-   "ts": 1790893519.2422144,
+   "ts": 1790894366.8262932,
    "samples": [
     [
      1790863681,
@@ -127845,9 +127842,9 @@
    "posted_ts": 0.0
   },
   "320434524": {
-   "price": 676,
+   "price": 738,
    "basic": 1228,
-   "ts": 1790884215.7575672,
+   "ts": 1790894613.6113515,
    "samples": [
     [
      1790849818,
@@ -127860,6 +127857,10 @@
     [
      1790884215,
      676
+    ],
+    [
+     1790894613,
+     738
     ]
    ],
    "posted_price": 621,
@@ -133290,9 +133291,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1790893757.175439,
-   "runs": 82,
-   "empty": 2
+   "ts": 1790894613.6117682,
+   "runs": 83,
+   "empty": 3
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -133548,9 +133549,9 @@
   },
   "Рамы багетные": {
    "shard": "interior30",
-   "ts": 1790893757.175439,
-   "runs": 57,
-   "empty": 2
+   "ts": 1790894613.6117682,
+   "runs": 58,
+   "empty": 3
   },
   "Гигиена полости рта": {
    "shard": "beauty55",

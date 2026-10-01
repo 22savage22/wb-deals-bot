@@ -2545,6 +2545,20 @@
  },
  "recent": [
   {
+   "pid": 724725803,
+   "image": "https://basket-34.wbbasket.ru/vol7247/part724725/724725803/images/big/1.webp",
+   "title": "Лоток для вставки кассового аппарата",
+   "discount": 0,
+   "price": 936,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/724725803/detail.aspx",
+   "query": "Оборудование для касс",
+   "cat": "Оборудование для касс",
+   "ts": 1790814434,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 438982860,
    "image": "https://basket-25.wbbasket.ru/vol4389/part438982/438982860/images/big/1.webp",
    "title": "Домашнее платье летнее оверсайз больших размеров",
@@ -6504,20 +6518,6 @@
    "cat": "платье женское",
    "ts": 1789610036,
    "drop": 0
-  },
-  {
-   "pid": 724725803,
-   "image": "https://basket-34.wbbasket.ru/vol7247/part724725/724725803/images/big/1.webp",
-   "title": "Лоток для вставки кассового аппарата",
-   "discount": 0,
-   "price": 936,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/724725803/detail.aspx",
-   "query": "Оборудование для касс",
-   "cat": "Оборудование для касс",
-   "ts": 1790814434,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -6546,15 +6546,12 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 40,
-   "ok": 20,
-   "rate_limited": 9,
-   "http_error": 11,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 20,
-   "worker_error": 4,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6652,7 +6649,7 @@
    "Оборудование для касс",
    "Для чая"
   ],
-  "queue_size": 2,
+  "queue_size": 3,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

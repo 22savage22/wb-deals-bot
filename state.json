@@ -8050,14 +8050,14 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 52,
+   "ok": 20,
+   "rate_limited": 13,
+   "http_error": 19,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 20,
+   "worker_error": 8,
    "direct_ok": 0
   },
   "errors": [
@@ -8145,26 +8145,29 @@
   "today": "2026-10-01",
   "today_posts": 136,
   "total_posts": 1757,
-  "last_scan": 1790892259,
+  "last_scan": 1790895012,
   "last_scan_queries": [
-   "Химия",
-   "украшения женские",
+   "кроссовки мужские",
    "джинсы женские",
-   "кроссовки мужские"
+   "костюм женский",
+   "сумка женская"
   ],
   "last_scan_cats": [
    "Пробники",
    "Рамы багетные"
   ],
-  "queue_size": 6,
+  "queue_size": 4,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 1,
-   "cards": 1,
+   "found": 201,
+   "cards": 201,
+   "max_price": 198,
+   "ok": 2,
    "bad_price": 1,
    "strict": 0,
-   "fallback": 0,
-   "reserve": 0
+   "fallback": 2,
+   "reserve": 0,
+   "duplicate": 2
   },
   "last_queue": {
    "queue_before": 4,
@@ -8181,7 +8184,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "poll",
+  "last_engagement_kind": "fun_fact",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {
@@ -48577,12 +48580,8 @@
   "1245009476": {
    "price": 534,
    "basic": 3500,
-   "ts": 1790890308.058156,
+   "ts": 1790895156.3724256,
    "samples": [
-    [
-     1790875570,
-     453
-    ],
     [
      1790878073,
      495
@@ -48605,6 +48604,10 @@
     ],
     [
      1790890308,
+     534
+    ],
+    [
+     1790895156,
      534
     ]
    ],
@@ -49498,12 +49501,8 @@
   "1213989589": {
    "price": 967,
    "basic": 3170,
-   "ts": 1790891192.6522417,
+   "ts": 1790895156.3728507,
    "samples": [
-    [
-     1790878073,
-     891
-    ],
     [
      1790880193,
      891
@@ -49526,6 +49525,10 @@
     ],
     [
      1790891192,
+     967
+    ],
+    [
+     1790895156,
      967
     ]
    ],
@@ -134089,9 +134092,9 @@
   },
   "Пробники": {
    "shard": "beauty47",
-   "ts": 1790895006.4459016,
-   "runs": 84,
-   "empty": 4
+   "ts": 1790895156.3734999,
+   "runs": 85,
+   "empty": 5
   },
   "Солнечные электростанции и комплектующие": {
    "shard": "electronic59",
@@ -134347,9 +134350,9 @@
   },
   "Рамы багетные": {
    "shard": "interior30",
-   "ts": 1790895006.4459016,
-   "runs": 59,
-   "empty": 4
+   "ts": 1790895156.3734999,
+   "runs": 60,
+   "empty": 5
   },
   "Гигиена полости рта": {
    "shard": "beauty55",

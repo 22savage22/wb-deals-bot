@@ -11,6 +11,8 @@ import log
 import smart
 import state
 import tg
+import scheduler_client
+import uuid
 
 logger = logging.getLogger("wb.poller")
 
@@ -69,13 +71,23 @@ def main():
         print("Задайте TG_BOT_TOKEN и TG_ADMIN_ID")
         sys.exit(1)
     settings = config.load_settings()
+    if scheduler_client.enabled():
+        scheduler_client.refresh(settings)
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
     tg.set_commands(config.TG_BOT_TOKEN)
     last_commit = 0.0
+    last_schedule = 0.0
     start = time.time()
     while time.time() - start < LIFETIME - 60:
+        if scheduler_client.enabled() and time.time() - last_schedule >= 15:
+            try:
+                scheduler_client.refresh(settings)
+                config.apply(settings)
+                last_schedule = time.time()
+            except RuntimeError as exc:
+                logger.warning('Расписание временно недоступно: %s', exc)
         _maybe_daily_digest(config.TG_BOT_TOKEN, data)
         _maybe_week_digest(config.TG_BOT_TOKEN, data, settings)
         now = time.time()
@@ -99,6 +111,17 @@ def main():
                 logger.error("Обработка команд упала: %s", exc)
                 changed = False
             if changed:
+                if scheduler_client.enabled():
+                    if settings.get('post_now_ts'):
+                        settings['schedule_post_request'] = str(uuid.uuid4())
+                        settings.pop('post_now_ts', None)
+                        settings.pop('post_lock', None)
+                    try:
+                        scheduler_client.push(settings)
+                    except RuntimeError as exc:
+                        logger.error('Расписание не сохранено на сервере: %s', exc)
+                        tg.send_message(config.TG_BOT_TOKEN, config.TG_ADMIN_ID,
+                                        '⚠️ Сервер не сохранил расписание. Повторите изменение: ' + str(exc))
                 config.save_settings(settings)
                 commit_settings(config.SETTINGS_FILE, settings)
                 data["queue"] = deal_queue.save(
@@ -107,7 +130,7 @@ def main():
                 bot.commit_queue(config.QUEUE_FILE, data["queue"], data.get("posted") or {})
                 state.save(config.STATE_FILE, data)
                 commit_state(config.STATE_FILE, data)
-        if settings.get("post_now_ts") and not settings.get("post_lock"):
+        if not scheduler_client.enabled() and settings.get("post_now_ts") and not settings.get("post_lock"):
             settings["post_lock"] = 1
             config.save_settings(settings)
             try:

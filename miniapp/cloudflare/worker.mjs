@@ -1,5 +1,6 @@
 import {telegramUser,equal} from './auth.mjs';
 import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
+import {schedulerRoute} from './scheduler_api.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -46,6 +47,11 @@ async function route(request,env,ctx) {
     return env.ASSETS.fetch(new Request(assetURL,request));
   }
   const prepare=(sql,...args)=>env.DB.prepare(sql).bind(...args);
+  if(path.startsWith('/api/scheduler/')) {
+    const key=env.MINIAPP_SYNC_KEY||'';
+    if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    return schedulerRoute(request,env,{payload,fail,json});
+  }
   const all=async(sql,...args)=>(await prepare(sql,...args).all()).results;
   const catalog=async()=> (await all('SELECT data,overrides FROM products ORDER BY checked_at DESC LIMIT 3000')).map(product);
   let uid;
@@ -55,6 +61,7 @@ async function route(request,env,ctx) {
     if(env.RATE_LIMITER && !(await env.RATE_LIMITER.limit({key:String(uid)})).success)fail(429,'Слишком много запросов. Подождите минуту.');
   }
   const admin=()=>{if(!env.MINIAPP_ADMIN_ID||String(uid)!==String(env.MINIAPP_ADMIN_ID))fail(403,'Доступ только владельцу');};
+  if(path.startsWith('/api/admin/schedule')) {admin();return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
     await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32)});
   }

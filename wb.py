@@ -1,6 +1,8 @@
 import os
 import random
 import time
+import contextvars
+from contextlib import contextmanager
 from io import BytesIO
 
 import requests
@@ -32,6 +34,51 @@ _HOSTS = {}
 _PHOTO_URLS = {}
 FORMAT_FAILS = 0
 HTTP_STATS = {}
+_REQUEST_DEADLINE = contextvars.ContextVar("wb_request_deadline", default=None)
+
+
+@contextmanager
+def request_budget(seconds=None, deadline=None):
+    """Bound one operation's HTTP calls/retries without changing other contexts.
+
+    deadline is an absolute time.monotonic() value; nested budgets cannot extend
+    their parent's deadline. No budget preserves the existing request behavior.
+    """
+    if seconds is None and deadline is None:
+        raise ValueError("request_budget requires seconds or deadline")
+    limit = float(deadline) if deadline is not None else time.monotonic() + max(0, float(seconds))
+    parent = _REQUEST_DEADLINE.get()
+    if parent is not None:
+        limit = min(limit, parent)
+    token = _REQUEST_DEADLINE.set(limit)
+    try:
+        yield
+    finally:
+        _REQUEST_DEADLINE.reset(token)
+
+
+def _remaining():
+    deadline = _REQUEST_DEADLINE.get()
+    return None if deadline is None else max(0.0, deadline - time.monotonic())
+
+
+def _timeout(seconds):
+    remaining = _remaining()
+    if remaining is None:
+        return seconds
+    if remaining <= 0:
+        return None
+    # Separate connect/read limits together fit the remaining operation budget.
+    return (min(5, seconds / 2, remaining / 2), min(seconds - min(5, seconds / 2), remaining / 2))
+
+
+def _sleep(seconds):
+    remaining = _remaining()
+    if remaining is not None and remaining <= 0:
+        return False
+    time.sleep(seconds if remaining is None else min(seconds, remaining))
+    remaining = _remaining()
+    return remaining is None or remaining > 0
 
 
 def reset_health():
@@ -79,9 +126,12 @@ def _get(url, params=None, tries=3):
     sources.append(("direct", url, {}))
     for source, source_url, headers in sources:
         for attempt in range(tries):
+            timeout = _timeout(25)
+            if timeout is None:
+                return None
             HTTP_STATS["calls"] += 1
             try:
-                resp = SESSION.get(source_url, params=params, headers=headers, timeout=25)
+                resp = SESSION.get(source_url, params=params, headers=headers, timeout=timeout)
                 if resp.status_code == 200:
                     try:
                         data = resp.json()
@@ -99,7 +149,8 @@ def _get(url, params=None, tries=3):
                     if retry_after and str(retry_after).isdigit():
                         wait = min(60, max(wait, int(retry_after)))
                     if attempt + 1 < tries:
-                        time.sleep(wait + random.uniform(0, 4))
+                        if not _sleep(wait + random.uniform(0, 4)):
+                            return None
                     continue
                 HTTP_STATS["http_error"] += 1
                 if source == "worker":
@@ -112,7 +163,8 @@ def _get(url, params=None, tries=3):
                 if source == "worker":
                     HTTP_STATS["worker_error"] += 1
             if attempt + 1 < tries:
-                time.sleep(3 + attempt * 3)
+                if not _sleep(3 + attempt * 3):
+                    return None
     return None
 
 
@@ -148,7 +200,8 @@ def search(query, page, subject=None):
             # категория не отдала товары по subject — пробуем текстовый поиск
             products = _search_plain(query, page)
             return products or []
-        time.sleep(5 + attempt * 10)
+        if not _sleep(5 + attempt * 10):
+            return []
     FORMAT_FAILS += 1
     return []
 
@@ -250,6 +303,8 @@ def _cards_chunk(ids, dest):
 def cards(ids):
     result = []
     for i in range(0, len(ids), 20):
+        if _remaining() == 0:
+            break
         chunk = ids[i : i + 20]
         prods = _cards_chunk(chunk, config.DEST)
         missing = [p for p in prods if not _has_price(p)]
@@ -265,7 +320,8 @@ def cards(ids):
                         prods[j] = rep
                 missing = [p for p in prods if not _has_price(p)]
         result.extend(prods)
-        time.sleep(random.uniform(0.3, 0.8))
+        if not _sleep(random.uniform(0.3, 0.8)):
+            break
     return result
 
 
@@ -376,8 +432,11 @@ def deal_from_search(item, min_discount=None, min_rating=None, min_feedbacks=0):
 
 
 def _http_ok(url):
+    timeout = _timeout(3)
+    if timeout is None:
+        return False
     try:
-        with SESSION.get(url, timeout=3, stream=True) as resp:
+        with SESSION.get(url, timeout=timeout, stream=True) as resp:
             return resp.status_code == 200
     except requests.RequestException:
         return False
@@ -395,6 +454,8 @@ def _basket_host(nm):
     if cached:
         return cached
     for i in range(1, _BASKET_HOST_LIMIT + 1):
+        if _remaining() == 0:
+            break
         host = f"{i:02d}"
         probe = f"https://basket-{host}.wbbasket.ru/vol{vol}/part{part}/{nm}/info/ru/card.json"
         if _http_ok(probe):
@@ -404,8 +465,11 @@ def _basket_host(nm):
 
 
 def _fetch_photo(url):
+    timeout = _timeout(20)
+    if timeout is None:
+        return None
     try:
-        resp = SESSION.get(url, timeout=20)
+        resp = SESSION.get(url, timeout=timeout)
         if resp.status_code != 200:
             return None
         img = Image.open(BytesIO(resp.content))

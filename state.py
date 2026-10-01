@@ -16,7 +16,7 @@ PRICE_MAX = 5000
 PRICE_SAMPLES_MAX = 7
 # One post per 10 minutes needs 1008 entries for an accurate weekly report.
 RECENT_MAX = 1200
-QUEUE_MAX = 100
+QUEUE_MAX = 300
 
 
 def _empty():
@@ -142,7 +142,23 @@ def _norm_meta(raw):
     out = {}
     for key, val in raw.items():
         out[str(key)] = val
+    if "discovery_seen" in out:
+        out["discovery_seen"] = _norm_discovery(out["discovery_seen"])
     return out
+
+
+def _norm_discovery(raw):
+    """Bounded first-seen journal, separate from publishable inventory."""
+    now = time.time()
+    result = {}
+    for pid, raw_ts in (raw.items() if isinstance(raw, dict) else []):
+        try:
+            pid, ts = int(pid), int(raw_ts)
+        except (TypeError, ValueError, OverflowError):
+            continue
+        if pid > 0 and 0 < ts <= now + 300 and now - ts < PRUNE_AFTER:
+            result[pid] = ts
+    return dict(sorted(result.items(), key=lambda row: row[1], reverse=True)[:MAX_KEPT])
 
 
 def _norm_titles(raw):
@@ -292,7 +308,7 @@ def _norm_queue(raw):
             feedbacks = int(item.get("feedbacks", 0) or 0)
         except (TypeError, ValueError):
             continue
-        if not pid or not product or not queued_ts or now - queued_ts >= 48 * 3600:
+        if not pid or not product or not queued_ts or now - queued_ts >= 72 * 3600:
             continue
         clean = {
             "id": pid,
@@ -422,6 +438,8 @@ def _merge_meta(local, remote):
                 "last_scan_added",
                 "last_scan_funnel",
                 "queue_size",
+                "scan_page_cursor",
+                "scan_timezone",
             ),
         ),
     )
@@ -432,6 +450,25 @@ def _merge_meta(local, remote):
         for field in fields:
             if field in source:
                 merged[field] = source[field]
+
+    latest_scan = local if _meta_number(local, "last_scan_attempt") >= _meta_number(remote, "last_scan_attempt") else remote
+    for key in ("last_scan_attempt", "last_scan_error"):
+        if key in latest_scan:
+            merged[key] = latest_scan[key]
+    merged["last_scan_success"] = max(_meta_number(local, "last_scan_success"), _meta_number(remote, "last_scan_success"))
+    discoveries = dict(remote.get("discovery_seen") or {})
+    for pid, ts in (local.get("discovery_seen") or {}).items():
+        discoveries[pid] = min(discoveries.get(pid, ts), ts)
+    if discoveries:
+        merged["discovery_seen"] = _norm_discovery(discoveries)
+        try:
+            zone = ZoneInfo(merged.get("scan_timezone") or "Europe/Moscow")
+        except (ValueError, KeyError):
+            zone = ZoneInfo("Europe/Moscow")
+        day = datetime.fromtimestamp(time.time(), zone).strftime("%Y-%m-%d")
+        merged["new_day"] = day
+        merged["new_today"] = sum(datetime.fromtimestamp(ts, zone).strftime("%Y-%m-%d") == day
+                                  for ts in merged["discovery_seen"].values())
 
     # Notice/digest timestamps are also monotonic and protect the admin chat
     # from duplicate notifications.

@@ -2,12 +2,12 @@ name: WB Deals Bot
 
 on:
   schedule:
-    # Starts are redundant; one bounded session publishes every 10 minutes.
-    - cron: "3,13,23,33,43,53 * * * *"
+    # Redundant trigger only; persistent admin settings decide posting/search due.
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       force:
-        description: Post even if the previous post was less than 10 minutes ago
+        description: Request one immediate post (safety gap and caps still apply)
         type: boolean
         default: false
 
@@ -39,20 +39,8 @@ jobs:
       - name: Run full test suite
         run: python tests/run_all.py
 
-      - name: Post one deal every 10 minutes
-        shell: bash
-        run: |
-          for round in {1..4}; do
-            python bot.py
-            # Optional service: a failure must not interrupt channel publishing.
-            python -m miniapp.sync || echo '::warning::Mini App catalog sync failed'
-            if (( round == 1 )); then
-              WB_PAGES=1 WB_QUERIES_PER_RUN=4 WB_CATS_PER_RUN=2 \
-                timeout 8m python scanner.py || true &
-            fi
-            if (( round < 4 )); then sleep 600; fi
-          done
-          wait
+      - name: Run persistent-settings scheduler (bounded session)
+        run: python scheduler.py
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
@@ -69,8 +57,9 @@ jobs:
           WB_PAGES: "2"
           WB_QUERIES_PER_RUN: "6"
           WB_CATS_PER_RUN: "3"
-          WB_QUEUE_TARGET: "20"
-          WB_QUEUE_MAX_AGE_HOURS: "8"
+          WB_QUEUE_TARGET: "100"
+          WB_QUEUE_MAX_AGE_HOURS: "72"
+          WB_SCHEDULER_ENABLED: "1"
           WB_ACTIVE_HOUR_START: "0"
           WB_ACTIVE_HOUR_END: "23"
           WB_FORCE_POST: ${{ inputs.force && '1' || '0' }}
@@ -78,6 +67,6 @@ jobs:
 
       - name: Continue publishing
         if: success()
-        run: gh workflow run deals.yml --ref main
+        run: python -c "import scheduler; scheduler.dispatch_if_idle('deals.yml')"
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}

@@ -44,12 +44,17 @@ jobs:
           MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
           MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
           MINIAPP_LINK_MODE: ${{ vars.MINIAPP_LINK_MODE }}
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
+          WB_SCHEDULER_ENABLED: "1"
+          WB_QUEUE_MAX_AGE_HOURS: "72"
 
       - name: Continue callback polling
         if: success()
-        run: gh workflow run poller.yml --ref main
+        run: python -c "import scheduler; scheduler.dispatch_if_idle('poller.yml')"
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Notify admin if callback polling failed
         if: failure()

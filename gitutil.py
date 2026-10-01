@@ -7,7 +7,10 @@ from filelock import safe_save_json
 
 
 def _run(*args, env=None):
-    res = subprocess.run(args, capture_output=True, text=True, env=env)
+    try:
+        res = subprocess.run(args, capture_output=True, text=True, env=env, timeout=30)
+    except subprocess.TimeoutExpired:
+        return subprocess.CompletedProcess(args, 124, '', 'Git operation timed out after 30s')
     if res.returncode != 0:
         print("git error:", " ".join(args), "->", res.returncode)
         print((res.stderr or res.stdout).strip()[:400])
@@ -16,7 +19,7 @@ def _run(*args, env=None):
 
 def _load_json_ref(path, ref="origin/main"):
     res = subprocess.run(
-        ["git", "show", f"{ref}:{path}"], capture_output=True, text=True
+        ["git", "show", f"{ref}:{path}"], capture_output=True, text=True, timeout=20
     )
     if res.returncode != 0:
         return None
@@ -32,7 +35,7 @@ def commit(path, merge_fn, msg):
         return False
     _run("git", "config", "user.name", "wb-bot")
     _run("git", "config", "user.email", "actions@github.com")
-    for attempt in range(5):
+    for attempt in range(3):
         _run("git", "fetch", "origin", "main")
         remote = _load_json_ref(path)
         merged = merge_fn(remote)
@@ -67,5 +70,5 @@ def commit(path, merge_fn, msg):
             return True
         print("push не удался, попытка", attempt + 1)
         time.sleep(3 + attempt * 3)
-    print(f"{path} НЕ закоммичен после 5 попыток")
+    print(f"{path} НЕ закоммичен после 3 попыток")
     return False

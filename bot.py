@@ -17,6 +17,8 @@ import smart
 import state
 import tg
 import wb
+import scheduler_client
+import scheduling
 
 logger = logging.getLogger("wb.bot")
 
@@ -150,6 +152,10 @@ def _img_dup(img_hash, h, now, repost_secs):
 
 
 def _post_images(token, chat_id, images, caption, link, pid):
+    if scheduler_client.enabled():
+        # Never fall back to a second send after an ambiguous album timeout.
+        send = (lambda: tg.send_album(token, chat_id, images, caption, link, pid)) if config.USE_ALBUMS and len(images) > 1 else (lambda: tg.send_photo(token, chat_id, images[0], caption, link, pid))
+        return scheduler_client.send_guarded(pid, send)
     if config.USE_ALBUMS and len(images) > 1:
         if tg.send_album(token, chat_id, images, caption, link, pid):
             return True
@@ -213,7 +219,9 @@ def _publish_queued(data, limit):
     titles = data.setdefault("titles", {})
     prices = data.setdefault("prices", {})
     img_hash = data.setdefault("img_hash", {})
-    fresh_cards = wb.cards([item["id"] for item in queue])
+    # Scheduled production validates only the candidate batch, not 300 cards.
+    initial = [] if scheduler_client.enabled() else [item["id"] for item in queue]
+    fresh_cards = wb.cards(initial) if initial else []
     cards_by_id = {card.get("id"): card for card in fresh_cards if card.get("id")}
     refresh_funnel = {}
     refreshed = {
@@ -223,8 +231,12 @@ def _publish_queued(data, limit):
     for key, value in refresh_funnel.items():
         funnel["refresh_" + key] = value
     deferred = []
+    checked = set(initial)
+    deadline = time.monotonic() + 150
 
     while queue and published < limit:
+        if scheduler_client.enabled() and time.monotonic() >= deadline:
+            break
         ordered = smart.balance_audience(
             queue, data, 1, published, topic_limit=smart.DAILY_TOPIC_LIMIT
         )
@@ -233,12 +245,19 @@ def _publish_queued(data, limit):
         deal = ordered[0]
         queue.remove(deal)
         pid = deal["id"]
-        if now - deal.get("queued_ts", 0) >= config.QUEUE_MAX_AGE_HOURS * 3600:
+        max_age = max(72, config.QUEUE_MAX_AGE_HOURS) if scheduler_client.enabled() else config.QUEUE_MAX_AGE_HOURS
+        if now - deal.get("queued_ts", 0) >= max_age * 3600:
             funnel["expired"] = funnel.get("expired", 0) + 1
             continue
         if pid in posted:
             funnel["repost"] = funnel.get("repost", 0) + 1
             continue
+        if scheduler_client.enabled() and pid not in checked:
+            batch = [pid] + [d['id'] for d in queue[:4] if d['id'] not in checked]
+            latest = wb.cards(batch)
+            checked.update(batch)
+            cards_by_id.update({c['id']: c for c in latest if c.get('id')})
+            refreshed.update({d['id']: d for d in _find_deals(latest, len(batch), refresh_funnel, prices)})
         fresh = refreshed.get(pid)
         if fresh is None:
             if pid not in cards_by_id:
@@ -327,7 +346,18 @@ def _publish_queued(data, limit):
     return published, posted_deals, funnel
 
 
-def run_posting(data, settings, notify=True):
+def run_posting(data, settings, notify=True, request_id=None):
+    with scheduler_client.posting_session(settings, data, request_id) as allowed:
+        if not allowed:
+            print('POST_SKIP: schedule_or_lock', flush=True)
+            return 0
+        if scheduler_client.enabled():
+            with wb.request_budget(seconds=150):
+                return _run_posting(data, settings, notify)
+        return _run_posting(data, settings, notify)
+
+
+def _run_posting(data, settings, notify=True):
     meta = data.setdefault("meta", {})
     now = time.time()
     meta["last_run"] = int(now)
@@ -350,6 +380,12 @@ def run_posting(data, settings, notify=True):
             cats = [d.get("category") for d in queued_deals if d.get("category")]
             _notify_run(data, settings, queries, cats, published, queued_deals, notify)
             return published
+
+    if scheduler_client.enabled():
+        # Discovery belongs to the independent scanner, even during quiet hours.
+        meta['last_funnel'] = {'published': 0, 'queue_empty_or_invalid': 1}
+        print('POST_SKIP: queue_empty_or_invalid', flush=True)
+        return 0
 
     wb.reset_health()
     posted = data["posted"]
@@ -686,6 +722,8 @@ def main():
         sys.exit(1)
 
     settings = config.load_settings()
+    if scheduler_client.enabled():
+        scheduler_client.refresh(settings)
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
@@ -693,7 +731,14 @@ def main():
     paused_until = settings.get("pause_until", 0) or 0
     manual = bool(settings.get("post_now_ts"))
     forced = manual or bool(config.FORCE_POST)
-    if not active_posting_time() and not forced:
+    if scheduler_client.enabled():
+        request = settings.get('schedule_post_request') or (('dispatch-' + os.getenv('GITHUB_RUN_ID', str(int(time.time())))) if forced else None)
+        try:
+            run_posting(data, settings, request_id=request)
+        except Exception as exc:
+            state.record_error(data, f'Публикация: {exc}')
+            logger.error('Публикация: %s', exc)
+    elif not active_posting_time() and not forced:
         print(
             "Постинг вне настроенного окна:",
             f"{config.ACTIVE_HOUR_START:02d}:00–{config.ACTIVE_HOUR_END:02d}:59",

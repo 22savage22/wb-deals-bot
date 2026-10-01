@@ -103,6 +103,9 @@ def main():
     prefix = f'/accounts/{ACCOUNT}'
     verified = api(token, 'GET', '/user/tokens/verify')
     print('Temporary credential status:', verified['status'], flush=True)
+    if action == 'update':
+        # Updating an existing Worker needs Scripts:Edit, not D1:Edit/List.
+        return update_existing(token, prefix, 'https://wb-finds-miniapp.valeramyakishev000.workers.dev')
     databases = api(token, 'GET', prefix + '/d1/database')
     print('D1 databases:', [d['name'] for d in databases], flush=True)
     subdomain = api(token, 'GET', prefix + '/workers/subdomain')['subdomain']
@@ -110,8 +113,6 @@ def main():
     print('Application address:', url, flush=True)
     if action == 'inspect':
         return
-    if action == 'update':
-        return update_existing(token, prefix, url)
     if action != 'deploy':
         raise RuntimeError('Unknown action')
     # This exact credential file was explicitly supplied by the owner.

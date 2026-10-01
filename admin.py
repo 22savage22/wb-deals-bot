@@ -294,7 +294,16 @@ def _menu_view(data, settings):
     paused = _is_paused(settings)
     now = int(time.time())
     meta = data["meta"]
-    if paused > now:
+    schedule = settings.get("schedule") or {}
+    if not schedule.get("enabled", True):
+        state_line = "⛔ <b>Публикации отключены</b>"
+        pause_lbl = "▶️ Включить"
+        pause_cmd = MENU + "schedule:toggle:enabled"
+    elif schedule.get("paused", False):
+        state_line = "⏸ <b>Расписание на паузе</b>"
+        pause_lbl = "▶️ Снять"
+        pause_cmd = MENU + "schedule:toggle:paused"
+    elif paused > now:
         state_line = f"⏸ <b>Пауза</b> до {_ft(paused)} · осталось {_left(paused - now)}"
         pause_lbl = "▶️ Снять"
         pause_cmd = MENU + "resume"
@@ -340,6 +349,7 @@ def _menu_view(data, settings):
             _btn("⚙️ Настройки", MENU + "cfg"),
             _btn(pause_lbl, pause_cmd),
         ],
+        [_btn("🗓 Расписание", MENU + "schedule:menu")],
         [
             _btn("📈 Статистика", MENU + "stats:q:0"),
             _btn("❓ Помощь", MENU + "help"),
@@ -427,7 +437,12 @@ def _status_view(data, settings):
     paused = _is_paused(settings)
     meta = data["meta"]
     rows = ["📊 <b>Состояние бота</b>", ""]
-    if paused > now:
+    schedule = settings.get("schedule") or {}
+    if not schedule.get("enabled", True):
+        rows.append("⛔ <b>Публикации отключены в расписании</b>")
+    elif schedule.get("paused", False):
+        rows.append("⏸ <b>Расписание публикаций на паузе</b>")
+    elif paused > now:
         rows.append(f"⏸ Пауза до <b>{_ft(paused)}</b> · осталось {_left(paused - now)}")
     else:
         rows.append("▶️ <b>Работает</b> — постинг по расписанию")
@@ -873,7 +888,7 @@ def _help_view():
             "🚫 Чёрный список: бренды и артикулы, которые никогда не постим",
             "⚠️ Журнал ошибок — в статусе бота, если что-то сломалось",
             "",
-            "⌨️ Есть и команды: /status /last /stats /cfg /set /pause /resume /post /preview",
+            "⌨️ Есть и команды: /status /last /stats /cfg /schedule /set /pause /resume /post /preview",
             "",
             "Почти всё управляется кнопками — печатать нужно только значения.",
         ]
@@ -1069,7 +1084,11 @@ def _do_publish(token, data, chat_id, cb_id, pid, announce=True, validate=False)
         return False
     link = _link(pid)
     caption = tg.caption(deal, pid)
-    if len(images) > 1:
+    import scheduler_client
+    if scheduler_client.enabled():
+        import bot
+        ok = bot._post_images(token, config.TG_CHAT_ID, images, caption, link, pid)
+    elif len(images) > 1:
         ok = tg.send_album(token, config.TG_CHAT_ID, images, caption, link, pid)
     else:
         ok = tg.send_photo(token, config.TG_CHAT_ID, images[0], caption, link, pid)
@@ -1160,7 +1179,12 @@ def _admin_callback(token, data, settings, cb):
     cb_id = ""
     changed = False
 
-    if cmd in ("menu", "start"):
+    if cmd.startswith("schedule:"):
+        import admin_schedule
+        text, markup, changed = admin_schedule.callback(cmd, data, settings)
+        _render(token, chat_id, msg_id, text, markup)
+        return changed
+    elif cmd in ("menu", "start"):
         text, markup = _menu_view(data, settings)
         _render(token, chat_id, msg_id, text, markup)
         tg.answer_callback(token, cb_id)
@@ -1519,6 +1543,13 @@ def _admin_message(token, chat_id, data, settings, text):
             return False
         if not text:
             return False
+        if pending.startswith("schedule:"):
+            import admin_schedule
+            result = admin_schedule.message(text, data, settings)
+            if result:
+                text_view, markup, changed = result
+                tg.send_message(token, chat_id, text_view, markup=markup)
+                return changed
         if pending == "add_query":
             query = " ".join(parts).strip(" .,")
             if not query:
@@ -1619,6 +1650,10 @@ def _admin_message(token, chat_id, data, settings, text):
         tg.send_message(token, chat_id, menu_text, markup=markup)
     elif cmd == "/status":
         text, markup = _status_view(data, settings)
+        tg.send_message(token, chat_id, text, markup=markup)
+    elif cmd == "/schedule":
+        import admin_schedule
+        text, markup = admin_schedule.view(data, settings)
         tg.send_message(token, chat_id, text, markup=markup)
     elif cmd == "/last":
         n = 5

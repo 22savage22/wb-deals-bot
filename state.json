@@ -2830,6 +2830,20 @@
  },
  "recent": [
   {
+   "pid": 1012121648,
+   "image": "https://basket-41.wbbasket.ru/vol10121/part1012121/1012121648/images/big/1.webp",
+   "title": "Классические ювелирные изделия для свадебной вечеринки, серь",
+   "discount": 0,
+   "price": 581,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1012121648/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790892908,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 365870019,
    "image": "https://basket-21.wbbasket.ru/vol3658/part365870/365870019/images/big/1.webp",
    "title": "Детский набор для вышивания с пяльцами Волшебные крестики",
@@ -7970,20 +7984,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 1012121648,
-   "image": "https://basket-41.wbbasket.ru/vol10121/part1012121/1012121648/images/big/1.webp",
-   "title": "Классические ювелирные изделия для свадебной вечеринки, серь",
-   "discount": 0,
-   "price": 581,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1012121648/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790892908,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8011,14 +8011,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 31,
-   "ok": 3,
-   "rate_limited": 17,
-   "http_error": 11,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 3,
-   "worker_error": 3,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8117,7 +8117,7 @@
    "Пробники",
    "Рамы багетные"
   ],
-  "queue_size": 0,
+  "queue_size": 6,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1,

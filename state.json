@@ -2698,6 +2698,20 @@
  },
  "recent": [
   {
+   "pid": 498541308,
+   "image": "https://basket-27.wbbasket.ru/vol4985/part498541/498541308/images/big/1.webp",
+   "title": "\"Витамины группы В + С\", 120 шт",
+   "discount": 0,
+   "price": 405,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/498541308/detail.aspx",
+   "query": "Группа 1-2 (9-25 кг)",
+   "cat": "Группа 1-2 (9-25 кг)",
+   "ts": 1790840998,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 825649855,
    "image": "https://basket-37.wbbasket.ru/vol8256/part825649/825649855/images/big/1.webp",
    "title": "Платье рубашка летнее в горошек",
@@ -6959,20 +6973,6 @@
    "cat": "блузка женская",
    "ts": 1789632117,
    "drop": 0
-  },
-  {
-   "pid": 498541308,
-   "image": "https://basket-27.wbbasket.ru/vol4985/part498541/498541308/images/big/1.webp",
-   "title": "\"Витамины группы В + С\", 120 шт",
-   "discount": 0,
-   "price": 405,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/498541308/detail.aspx",
-   "query": "Группа 1-2 (9-25 кг)",
-   "cat": "Группа 1-2 (9-25 кг)",
-   "ts": 1790840998,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7105,7 +7105,7 @@
   "last_scan_cats": [
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 17,
+  "queue_size": 19,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 499,

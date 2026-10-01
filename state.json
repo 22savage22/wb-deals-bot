@@ -2429,10 +2429,10 @@
    "ts": 1790892193.9857793
   },
   "Биотуалеты и аксессуары": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790897663.2127783
   }
  },
@@ -2837,10 +2837,10 @@
    "ts": 1790892193.9857845
   },
   "Биотуалеты и аксессуары": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790897663.2127805
   }
  },
@@ -2848,6 +2848,19 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 262013582,
+   "image": "https://basket-16.wbbasket.ru/vol2620/part262013/262013582/images/big/1.webp",
+   "title": "Средство для биотуалета ФрешОК",
+   "discount": 0,
+   "price": 629,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/262013582/detail.aspx",
+   "query": "Биотуалеты и аксессуары",
+   "cat": "Биотуалеты и аксессуары",
+   "ts": 1790897663,
+   "drop": 0
+  },
   {
    "pid": 218331075,
    "image": "https://basket-14.wbbasket.ru/vol2183/part218331/218331075/images/big/1.webp",
@@ -8055,19 +8068,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 262013582,
-   "image": "https://basket-16.wbbasket.ru/vol2620/part262013/262013582/images/big/1.webp",
-   "title": "Средство для биотуалета ФрешОК",
-   "discount": 0,
-   "price": 629,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/262013582/detail.aspx",
-   "query": "Биотуалеты и аксессуары",
-   "cat": "Биотуалеты и аксессуары",
-   "ts": 1790897663,
-   "drop": 0
   }
  ],
  "meta": {
@@ -8106,14 +8106,14 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 14,
-   "rate_limited": 30,
-   "http_error": 21,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 14,
-   "worker_error": 6,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8212,7 +8212,7 @@
    "Пробники",
    "Рамы багетные"
   ],
-  "queue_size": 0,
+  "queue_size": 4,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 201,
@@ -8240,7 +8240,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

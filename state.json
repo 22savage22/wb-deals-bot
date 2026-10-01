@@ -2742,6 +2742,20 @@
  },
  "recent": [
   {
+   "pid": 22088012,
+   "image": "https://basket-02.wbbasket.ru/vol220/part22088/22088012/images/big/1.webp",
+   "title": "Худи без начеса",
+   "discount": 0,
+   "price": 856,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/22088012/detail.aspx",
+   "query": "Худи",
+   "cat": "Худи",
+   "ts": 1790853744,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 565932477,
    "image": "https://basket-29.wbbasket.ru/vol5659/part565932/565932477/images/big/1.webp",
    "title": "Серьги кольца маленькие серебро 925",
@@ -7208,20 +7222,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 22088012,
-   "image": "https://basket-02.wbbasket.ru/vol220/part22088/22088012/images/big/1.webp",
-   "title": "Худи без начеса",
-   "discount": 0,
-   "price": 856,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/22088012/detail.aspx",
-   "query": "Худи",
-   "cat": "Худи",
-   "ts": 1790853744,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7250,14 +7250,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 54,
-   "ok": 34,
-   "rate_limited": 0,
-   "http_error": 20,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 34,
-   "worker_error": 10,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7353,7 +7353,7 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [],
-  "queue_size": 15,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 400,

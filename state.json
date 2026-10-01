@@ -7786,14 +7786,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 83,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 36,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 18,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7919,7 +7919,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790876398.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

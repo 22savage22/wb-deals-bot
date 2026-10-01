@@ -2773,6 +2773,20 @@
  },
  "recent": [
   {
+   "pid": 12851366,
+   "image": "https://basket-01.wbbasket.ru/vol128/part12851/12851366/images/big/1.webp",
+   "title": "Фата свадебная для невесты, фата для девичника сувенирная",
+   "discount": 0,
+   "price": 344,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/12851366/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790865005,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 241745946,
    "image": "https://basket-16.wbbasket.ru/vol2417/part241745/241745946/images/big/1.webp",
    "title": "Постельное белье евро с принтом",
@@ -7428,20 +7442,6 @@
    "cat": "футболка женская",
    "ts": 1789660597,
    "drop": 0
-  },
-  {
-   "pid": 12851366,
-   "image": "https://basket-01.wbbasket.ru/vol128/part12851/12851366/images/big/1.webp",
-   "title": "Фата свадебная для невесты, фата для девичника сувенирная",
-   "discount": 0,
-   "price": 344,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/12851366/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790865005,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7470,14 +7470,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 45,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7575,7 +7575,7 @@
   "last_scan_cats": [
    "Свадебная фата"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 500,
@@ -13397,19 +13397,6 @@
    ],
    "posted_price": 0,
    "posted_ts": 0.0
-  },
-  "83825378": {
-   "price": 489,
-   "basic": 1590,
-   "ts": 1789655439.5748024,
-   "samples": [
-    [
-     1789655439,
-     489
-    ]
-   ],
-   "posted_price": 485,
-   "posted_ts": 1789228290.6714182
   },
   "1098323759": {
    "price": 486,

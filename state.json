@@ -2753,6 +2753,20 @@
  },
  "recent": [
   {
+   "pid": 156651232,
+   "image": "https://basket-10.wbbasket.ru/vol1566/part156651/156651232/images/big/1.webp",
+   "title": "Лонгслив базовый футболка с длинным рукавом хлопок 100%",
+   "discount": 0,
+   "price": 388,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/156651232/detail.aspx",
+   "query": "Лонгслив",
+   "cat": "Лонгслив",
+   "ts": 1790861038,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1105713732,
    "image": "https://basket-42.wbbasket.ru/vol11057/part1105713/1105713732/images/big/1.webp",
    "title": "Мягкий плед в кубик 150х200",
@@ -7361,20 +7375,6 @@
    "cat": "футболка женская",
    "ts": 1789652085,
    "drop": 1
-  },
-  {
-   "pid": 156651232,
-   "image": "https://basket-10.wbbasket.ru/vol1566/part156651/156651232/images/big/1.webp",
-   "title": "Лонгслив базовый футболка с длинным рукавом хлопок 100%",
-   "discount": 0,
-   "price": 388,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/156651232/detail.aspx",
-   "query": "Лонгслив",
-   "cat": "Лонгслив",
-   "ts": 1790861038,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7403,14 +7403,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 38,
-   "rate_limited": 0,
-   "http_error": 28,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
-   "worker_error": 14,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7506,7 +7506,7 @@
    "кроссовки женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 13,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 400,
@@ -8878,7 +8878,8 @@
   "f0f8b812316667e7": 1790859065,
   "e0e0e1c0c0c8e0d0": 1790859694,
   "bfe626fefaf8aaaa": 1790860409,
-  "60ecdcca9abcf030": 1790861038
+  "60ecdcca9abcf030": 1790861038,
+  "f1e0e03c70dccfc6": 1788269101
  },
  "learned": {
   "часы мужские": {

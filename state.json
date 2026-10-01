@@ -7967,13 +7967,13 @@
   },
   "wb_http": {
    "calls": 69,
-   "ok": 39,
-   "rate_limited": 7,
-   "http_error": 23,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 39,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -131071,7 +131071,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "307744608": {
    "price": 980,
@@ -131084,7 +131084,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "281788459": {
    "price": 284,
@@ -131097,7 +131097,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

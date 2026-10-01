@@ -2794,6 +2794,20 @@
  },
  "recent": [
   {
+   "pid": 936472659,
+   "image": "https://basket-40.wbbasket.ru/vol9364/part936472/936472659/images/big/1.webp",
+   "title": "Органайзер для хранения мелочей,косметики,кухни 10 шт",
+   "discount": 0,
+   "price": 610,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/936472659/detail.aspx",
+   "query": "органайзер для дома",
+   "cat": "органайзер для дома",
+   "ts": 1790878804,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 9941753,
    "image": "https://basket-01.wbbasket.ru/vol99/part9941/9941753/images/big/1.webp",
    "title": "Кроссовки",
@@ -7714,20 +7728,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 936472659,
-   "image": "https://basket-40.wbbasket.ru/vol9364/part936472/936472659/images/big/1.webp",
-   "title": "Органайзер для хранения мелочей,косметики,кухни 10 шт",
-   "discount": 0,
-   "price": 610,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/936472659/detail.aspx",
-   "query": "органайзер для дома",
-   "cat": "органайзер для дома",
-   "ts": 1790878804,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7756,14 +7756,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 57,
-   "ok": 35,
-   "rate_limited": 0,
-   "http_error": 22,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 35,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7859,7 +7859,7 @@
    "костюм женский"
   ],
   "last_scan_cats": [],
-  "queue_size": 7,
+  "queue_size": 8,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,
@@ -7888,7 +7888,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790876398.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

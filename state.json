@@ -7068,14 +7068,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 77,
+   "ok": 45,
+   "rate_limited": 0,
+   "http_error": 32,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 45,
+   "worker_error": 16,
    "direct_ok": 0
   },
   "errors": [
@@ -7173,7 +7173,7 @@
   "last_scan_cats": [
    "Группа 1-2 (9-25 кг)"
   ],
-  "queue_size": 30,
+  "queue_size": 27,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 500,

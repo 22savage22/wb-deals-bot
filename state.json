@@ -2747,6 +2747,20 @@
  },
  "recent": [
   {
+   "pid": 393784453,
+   "image": "https://basket-23.wbbasket.ru/vol3937/part393784/393784453/images/big/1.webp",
+   "title": "Плед флисовый тонкий 130х170 в клетку",
+   "discount": 0,
+   "price": 713,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/393784453/detail.aspx",
+   "query": "Пледы",
+   "cat": "Пледы",
+   "ts": 1790857079,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 752351852,
    "image": "https://basket-35.wbbasket.ru/vol7523/part752351/752351852/images/big/1.webp",
    "title": "Сумка через плечо маленькая черная кросс-боди",
@@ -7283,20 +7297,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 393784453,
-   "image": "https://basket-23.wbbasket.ru/vol3937/part393784/393784453/images/big/1.webp",
-   "title": "Плед флисовый тонкий 130х170 в клетку",
-   "discount": 0,
-   "price": 713,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/393784453/detail.aspx",
-   "query": "Пледы",
-   "cat": "Пледы",
-   "ts": 1790857079,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7325,14 +7325,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 83,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 36,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 18,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7430,7 +7430,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 500,

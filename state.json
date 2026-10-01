@@ -2775,6 +2775,20 @@
  },
  "recent": [
   {
+   "pid": 312815734,
+   "image": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/images/big/1.webp",
+   "title": "Серьги висячие длинные сердечки с жемчугом бижутерия",
+   "discount": 0,
+   "price": 777,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/312815734/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790866342,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 321686422,
    "image": "https://basket-19.wbbasket.ru/vol3216/part321686/321686422/images/big/1.webp",
    "title": "Постельное белье 2 спальное с европростыней однотонное",
@@ -7458,20 +7472,6 @@
    "cat": "футболка женская",
    "ts": 1789660597,
    "drop": 0
-  },
-  {
-   "pid": 312815734,
-   "image": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/images/big/1.webp",
-   "title": "Серьги висячие длинные сердечки с жемчугом бижутерия",
-   "discount": 0,
-   "price": 777,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/312815734/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790866342,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7500,14 +7500,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 38,
-   "rate_limited": 0,
-   "http_error": 28,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
-   "worker_error": 14,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7603,7 +7603,7 @@
    "костюм женский"
   ],
   "last_scan_cats": [],
-  "queue_size": 17,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 400,

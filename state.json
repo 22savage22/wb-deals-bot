@@ -2825,6 +2825,20 @@
  },
  "recent": [
   {
+   "pid": 47458979,
+   "image": "https://basket-04.wbbasket.ru/vol474/part47458/47458979/images/big/1.webp",
+   "title": "Набор для шитья гнома повар",
+   "discount": 0,
+   "price": 900,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/47458979/detail.aspx",
+   "query": "Хобби и досуг",
+   "cat": "Хобби и досуг",
+   "ts": 1790889531,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 307757077,
    "image": "https://basket-19.wbbasket.ru/vol3077/part307757/307757077/images/big/1.webp",
    "title": "Постельное белье 1.5 спальное с принтом",
@@ -7895,20 +7909,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 47458979,
-   "image": "https://basket-04.wbbasket.ru/vol474/part47458/47458979/images/big/1.webp",
-   "title": "Набор для шитья гнома повар",
-   "discount": 0,
-   "price": 900,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/47458979/detail.aspx",
-   "query": "Хобби и досуг",
-   "cat": "Хобби и досуг",
-   "ts": 1790889531,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7936,14 +7936,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 85,
-   "ok": 51,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 51,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8042,7 +8042,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 15,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 599,

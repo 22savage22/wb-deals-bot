@@ -2784,6 +2784,20 @@
  },
  "recent": [
   {
+   "pid": 138619693,
+   "image": "https://basket-10.wbbasket.ru/vol1386/part138619/138619693/images/big/1.webp",
+   "title": "Плед 150х200 однотонный плюшевый на кровать на диван",
+   "discount": 0,
+   "price": 805,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/138619693/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1790872238,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1504421759,
    "image": "https://basket-48.wbbasket.ru/vol15044/part1504421/1504421759/images/big/1.webp",
    "title": "Губки для посуды набор 5 шт, для мытья кухни, без царапин",
@@ -7581,20 +7595,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 138619693,
-   "image": "https://basket-10.wbbasket.ru/vol1386/part138619/138619693/images/big/1.webp",
-   "title": "Плед 150х200 однотонный плюшевый на кровать на диван",
-   "discount": 0,
-   "price": 805,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/138619693/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1790872238,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7624,13 +7624,13 @@
   },
   "wb_http": {
    "calls": 69,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 30,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 39,
-   "worker_error": 15,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7728,7 +7728,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 8,
+  "queue_size": 10,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

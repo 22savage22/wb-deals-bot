@@ -2339,10 +2339,10 @@
    "ts": 1790846957.3361804
   },
   "Пледы": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790851162.5302932
   }
  },
@@ -2726,10 +2726,10 @@
    "ts": 1790846957.3361862
   },
   "Пледы": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790851162.5302954
   }
  },
@@ -2737,6 +2737,20 @@
   "offset": 810944963
  },
  "recent": [
+  {
+   "pid": 353242087,
+   "image": "https://basket-21.wbbasket.ru/vol3532/part353242/353242087/images/big/1.webp",
+   "title": "Плед покрывало 200х220 евро на кровать диван большой",
+   "discount": 26,
+   "price": 860,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/353242087/detail.aspx",
+   "query": "Пледы",
+   "cat": "Пледы",
+   "ts": 1790851162,
+   "drop": 1,
+   "quality": "A"
+  },
   {
    "pid": 543800243,
    "image": "https://basket-28.wbbasket.ru/vol5438/part543800/543800243/images/big/1.webp",
@@ -7160,20 +7174,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 353242087,
-   "image": "https://basket-21.wbbasket.ru/vol3532/part353242/353242087/images/big/1.webp",
-   "title": "Плед покрывало 200х220 евро на кровать диван большой",
-   "discount": 26,
-   "price": 860,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/353242087/detail.aspx",
-   "query": "Пледы",
-   "cat": "Пледы",
-   "ts": 1790851162,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -7202,14 +7202,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 80,
-   "ok": 46,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7307,7 +7307,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 15,
+  "queue_size": 19,
   "last_scan_added": 15,
   "last_scan_funnel": {
    "found": 500,

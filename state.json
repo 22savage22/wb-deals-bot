@@ -7385,14 +7385,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
-   "ok": 38,
-   "rate_limited": 0,
-   "http_error": 28,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
-   "worker_error": 14,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7866,7 +7866,6 @@
   "лонгсливдлямальчикавсадик": 1790859694
  },
  "img_hash": {
-  "9f8f8e47ccfef6b8": 1788267845,
   "a068cc8cc4c0c08c": 1788268470,
   "f1e0e03c70dccfc6": 1788269101,
   "f1f1d9d8cae22082": 1788269767,

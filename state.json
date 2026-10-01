@@ -6586,15 +6586,12 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 23,
-   "rate_limited": 23,
-   "http_error": 18,
+   "calls": 6,
+   "ok": 0,
+   "rate_limited": 0,
+   "http_error": 6,
    "network_error": 0,
-   "json_error": 0,
-   "worker_ok": 23,
-   "worker_error": 6,
-   "direct_ok": 0
+   "json_error": 0
   },
   "errors": [
    {
@@ -6692,7 +6689,7 @@
    "Оборудование для касс",
    "Для чая"
   ],
-  "queue_size": 0,
+  "queue_size": 3,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,

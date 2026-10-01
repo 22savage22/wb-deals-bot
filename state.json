@@ -2823,6 +2823,20 @@
  },
  "recent": [
   {
+   "pid": 149489591,
+   "image": "https://basket-10.wbbasket.ru/vol1494/part149489/149489591/images/big/1.webp",
+   "title": "Набор для выжигания доски 7 штук А5",
+   "discount": 0,
+   "price": 308,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/149489591/detail.aspx",
+   "query": "Хобби и досуг",
+   "cat": "Хобби и досуг",
+   "ts": 1790888190,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 174029882,
    "image": "https://basket-12.wbbasket.ru/vol1740/part174029/174029882/images/big/1.webp",
    "title": "Постельное белье 1.5 спальное наволочки 70х70 см",
@@ -7865,20 +7879,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 149489591,
-   "image": "https://basket-10.wbbasket.ru/vol1494/part149489/149489591/images/big/1.webp",
-   "title": "Набор для выжигания доски 7 штук А5",
-   "discount": 0,
-   "price": 308,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/149489591/detail.aspx",
-   "query": "Хобби и досуг",
-   "cat": "Хобби и досуг",
-   "ts": 1790888190,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7906,14 +7906,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 77,
-   "ok": 45,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 45,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8012,7 +8012,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 10,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 500,

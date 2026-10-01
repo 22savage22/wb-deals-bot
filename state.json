@@ -2743,6 +2743,20 @@
  },
  "recent": [
   {
+   "pid": 266100519,
+   "image": "https://basket-17.wbbasket.ru/vol2661/part266100/266100519/images/big/1.webp",
+   "title": "Водолазка теплая без горла",
+   "discount": 0,
+   "price": 923,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/266100519/detail.aspx",
+   "query": "кофта женская",
+   "cat": "кофта женская",
+   "ts": 1790854474,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 22088012,
    "image": "https://basket-02.wbbasket.ru/vol220/part22088/22088012/images/big/1.webp",
    "title": "Худи без начеса",
@@ -7223,20 +7237,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 266100519,
-   "image": "https://basket-17.wbbasket.ru/vol2661/part266100/266100519/images/big/1.webp",
-   "title": "Водолазка теплая без горла",
-   "discount": 0,
-   "price": 923,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/266100519/detail.aspx",
-   "query": "кофта женская",
-   "cat": "кофта женская",
-   "ts": 1790854474,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7265,13 +7265,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 59,
-   "ok": 33,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 33,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -7368,7 +7368,7 @@
    "сумка женская"
   ],
   "last_scan_cats": [],
-  "queue_size": 14,
+  "queue_size": 17,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 301,

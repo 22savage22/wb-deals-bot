@@ -2770,6 +2770,20 @@
  },
  "recent": [
   {
+   "pid": 83974232,
+   "image": "https://basket-05.wbbasket.ru/vol839/part83974/83974232/images/big/1.webp",
+   "title": "Плед 150х200 плюшевый на диван однотонный",
+   "discount": 0,
+   "price": 682,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/83974232/detail.aspx",
+   "query": "Пледы",
+   "cat": "Пледы",
+   "ts": 1790863070,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 72049399,
    "image": "https://basket-05.wbbasket.ru/vol720/part72049/72049399/images/big/1.webp",
    "title": "Фата свадебная короткая",
@@ -7396,20 +7410,6 @@
    "ts": 1789654677,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 83974232,
-   "image": "https://basket-05.wbbasket.ru/vol839/part83974/83974232/images/big/1.webp",
-   "title": "Плед 150х200 плюшевый на диван однотонный",
-   "discount": 0,
-   "price": 682,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/83974232/detail.aspx",
-   "query": "Пледы",
-   "cat": "Пледы",
-   "ts": 1790863070,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7438,15 +7438,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 95,
-   "ok": 55,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
-   "direct_ok": 1
+   "worker_ok": 42,
+   "worker_error": 13,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -7544,7 +7544,7 @@
    "Диваны и кресла",
    "Свадебная фата"
   ],
-  "queue_size": 13,
+  "queue_size": 20,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 600,
@@ -7572,7 +7572,7 @@
    "no_photo": 1,
    "queue_after": 13
   },
-  "cats_count": 2254,
+  "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790812492.0,
   "last_engagement_kind": "poll",

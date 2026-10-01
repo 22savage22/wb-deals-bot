@@ -2793,6 +2793,19 @@
  },
  "recent": [
   {
+   "pid": 9941753,
+   "image": "https://basket-01.wbbasket.ru/vol99/part9941/9941753/images/big/1.webp",
+   "title": "Кроссовки",
+   "discount": 0,
+   "price": 766,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/9941753/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790878103,
+   "drop": 0
+  },
+  {
    "pid": 1084688290,
    "image": "https://basket-42.wbbasket.ru/vol10846/part1084688/1084688290/images/big/1.webp",
    "title": "Кроссовки текстильные изи дышащие спортивные",
@@ -7700,19 +7713,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 9941753,
-   "image": "https://basket-01.wbbasket.ru/vol99/part9941/9941753/images/big/1.webp",
-   "title": "Кроссовки",
-   "discount": 0,
-   "price": 766,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/9941753/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790878103,
-   "drop": 0
   }
  ],
  "meta": {
@@ -7754,14 +7754,14 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 267,
-   "ok": 157,
-   "rate_limited": 0,
-   "http_error": 110,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 157,
-   "worker_error": 55,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7859,7 +7859,7 @@
   "last_scan_cats": [
    "Диваны и кресла"
   ],
-  "queue_size": 0,
+  "queue_size": 2,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 401,
@@ -7885,7 +7885,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790876398.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

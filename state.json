@@ -2719,6 +2719,20 @@
  },
  "recent": [
   {
+   "pid": 449419638,
+   "image": "https://basket-25.wbbasket.ru/vol4494/part449419/449419638/images/big/1.webp",
+   "title": "Плед 150х200 на диван, кровать пушистый мягкий",
+   "discount": 0,
+   "price": 674,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/449419638/detail.aspx",
+   "query": "плед",
+   "cat": "плед",
+   "ts": 1790847584,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 664273994,
    "image": "https://basket-32.wbbasket.ru/vol6642/part664273/664273994/images/big/1.webp",
    "title": "Витамины группы B, Б комплекс, B complex",
@@ -7072,20 +7086,6 @@
    "cat": "блузка женская",
    "ts": 1789642428,
    "drop": 0
-  },
-  {
-   "pid": 449419638,
-   "image": "https://basket-25.wbbasket.ru/vol4494/part449419/449419638/images/big/1.webp",
-   "title": "Плед 150х200 на диван, кровать пушистый мягкий",
-   "discount": 0,
-   "price": 674,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/449419638/detail.aspx",
-   "query": "плед",
-   "cat": "плед",
-   "ts": 1790847584,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7113,13 +7113,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 63,
-   "ok": 37,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 37,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -7216,7 +7216,7 @@
    "кроссовки женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 4,
+  "queue_size": 9,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 400,

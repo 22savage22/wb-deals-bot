@@ -170,4 +170,3 @@ def send_guarded(pid, send):
         # Claim remains after ambiguous failure; never resend a possibly accepted post.
         runtime('complete', owner=owner, product_id=int(pid), success=success,
                 request_id=session.get('request_id'))
-

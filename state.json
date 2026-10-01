@@ -2741,6 +2741,20 @@
  },
  "recent": [
   {
+   "pid": 565932477,
+   "image": "https://basket-29.wbbasket.ru/vol5659/part565932/565932477/images/big/1.webp",
+   "title": "Серьги кольца маленькие серебро 925",
+   "discount": 0,
+   "price": 870,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/565932477/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790853124,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 196675406,
    "image": "https://basket-13.wbbasket.ru/vol1966/part196675/196675406/images/big/1.webp",
    "title": "Зип худи легкое без начеса",
@@ -7193,20 +7207,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 565932477,
-   "image": "https://basket-29.wbbasket.ru/vol5659/part565932/565932477/images/big/1.webp",
-   "title": "Серьги кольца маленькие серебро 925",
-   "discount": 0,
-   "price": 870,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/565932477/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790853124,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7235,14 +7235,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 54,
-   "ok": 34,
-   "rate_limited": 0,
-   "http_error": 20,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 34,
-   "worker_error": 10,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7338,7 +7338,7 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 4,
   "last_scan_funnel": {
    "found": 400,

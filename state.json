@@ -2407,10 +2407,10 @@
    "ts": 1790874174.4627914
   },
   "Хобби и досуг": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790886207.6014247
   }
  },
@@ -2808,10 +2808,10 @@
    "ts": 1790874174.4627964
   },
   "Хобби и досуг": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790886207.601428
   }
  },
@@ -2819,6 +2819,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 14111773,
+   "image": "https://basket-01.wbbasket.ru/vol141/part14111/14111773/images/big/1.webp",
+   "title": "Наклейки для девочек",
+   "discount": 0,
+   "price": 284,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/14111773/detail.aspx",
+   "query": "Хобби и досуг",
+   "cat": "Хобби и досуг",
+   "ts": 1790886207,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 807328636,
    "image": "https://basket-37.wbbasket.ru/vol8073/part807328/807328636/images/big/1.webp",
@@ -7820,20 +7834,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 14111773,
-   "image": "https://basket-01.wbbasket.ru/vol141/part14111/14111773/images/big/1.webp",
-   "title": "Наклейки для девочек",
-   "discount": 0,
-   "price": 284,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/14111773/detail.aspx",
-   "query": "Хобби и досуг",
-   "cat": "Хобби и досуг",
-   "ts": 1790886207,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7861,14 +7861,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 79,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 30,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 15,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7967,7 +7967,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 17,
   "last_scan_funnel": {
    "found": 600,

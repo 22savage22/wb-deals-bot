@@ -6619,12 +6619,15 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 32,
+   "ok": 6,
+   "rate_limited": 17,
+   "http_error": 9,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 6,
+   "worker_error": 2,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -6711,30 +6714,29 @@
   "today": "2026-10-01",
   "today_posts": 22,
   "total_posts": 1643,
-  "last_scan": 1790816078,
+  "last_scan": 1790818035,
   "last_scan_queries": [
-   "сумка женская",
-   "кроссовки мужские",
    "джинсы женские",
-   "кроссовки женские"
+   "товары для кухни",
+   "юбка женская",
+   "блузка женская"
   ],
   "last_scan_cats": [
-   "Оборудование для касс"
+   "Стулья и кресла",
+   "Мешки для обуви"
   ],
-  "queue_size": 4,
-  "last_scan_added": 3,
+  "queue_size": 9,
+  "last_scan_added": 8,
   "last_scan_funnel": {
-   "found": 201,
-   "cards": 201,
-   "ok": 22,
-   "max_price": 174,
-   "rating": 3,
-   "bad_price": 2,
-   "strict": 1,
-   "fallback": 21,
+   "found": 100,
+   "cards": 100,
+   "ok": 76,
+   "rating": 23,
+   "max_price": 1,
+   "strict": 0,
+   "fallback": 76,
    "reserve": 0,
-   "duplicate": 4,
-   "title_duplicate": 1
+   "title_duplicate": 20
   },
   "last_queue": {
    "queue_before": 2,
@@ -112006,6 +112008,994 @@
    ],
    "posted_price": 0,
    "posted_ts": 0.0
+  },
+  "776111562": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8163877,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "776075213": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8164163,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1229709404": {
+   "price": 115,
+   "basic": 500,
+   "ts": 1790818194.8164315,
+   "samples": [
+    [
+     1790818194,
+     115
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "909305956": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8164434,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "908198528": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8164532,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "909288169": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8164623,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "909297062": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8164706,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1098175510": {
+   "price": 138,
+   "basic": 548,
+   "ts": 1790818194.816485,
+   "samples": [
+    [
+     1790818194,
+     138
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1190829814": {
+   "price": 497,
+   "basic": 1490,
+   "ts": 1790818194.8164985,
+   "samples": [
+    [
+     1790818194,
+     497
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "446578964": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8165069,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "193551660": {
+   "price": 352,
+   "basic": 1209,
+   "ts": 1790818194.8165154,
+   "samples": [
+    [
+     1790818194,
+     352
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1431877591": {
+   "price": 244,
+   "basic": 1212,
+   "ts": 1790818194.816524,
+   "samples": [
+    [
+     1790818194,
+     244
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1292575966": {
+   "price": 896,
+   "basic": 1707,
+   "ts": 1790818194.8165324,
+   "samples": [
+    [
+     1790818194,
+     896
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "241787738": {
+   "price": 579,
+   "basic": 931,
+   "ts": 1790818194.8165402,
+   "samples": [
+    [
+     1790818194,
+     579
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "769218098": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8165472,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1218214962": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8165548,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "108698421": {
+   "price": 116,
+   "basic": 230,
+   "ts": 1790818194.816564,
+   "samples": [
+    [
+     1790818194,
+     116
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "909569596": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8165843,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "907296749": {
+   "price": 643,
+   "basic": 1723,
+   "ts": 1790818194.8165925,
+   "samples": [
+    [
+     1790818194,
+     643
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "909536028": {
+   "price": 528,
+   "basic": 1415,
+   "ts": 1790818194.8166003,
+   "samples": [
+    [
+     1790818194,
+     528
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "305453544": {
+   "price": 815,
+   "basic": 2299,
+   "ts": 1790818194.8166077,
+   "samples": [
+    [
+     1790818194,
+     815
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036444": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8166158,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036035": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8166237,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036034": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8166313,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1218214960": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8166382,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "758124851": {
+   "price": 694,
+   "basic": 1862,
+   "ts": 1790818194.8166456,
+   "samples": [
+    [
+     1790818194,
+     694
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "274316180": {
+   "price": 683,
+   "basic": 1831,
+   "ts": 1790818194.8166535,
+   "samples": [
+    [
+     1790818194,
+     683
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "326367944": {
+   "price": 162,
+   "basic": 1091,
+   "ts": 1790818194.816662,
+   "samples": [
+    [
+     1790818194,
+     162
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "763427601": {
+   "price": 465,
+   "basic": 1246,
+   "ts": 1790818194.8166695,
+   "samples": [
+    [
+     1790818194,
+     465
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "763596958": {
+   "price": 465,
+   "basic": 1246,
+   "ts": 1790818194.816677,
+   "samples": [
+    [
+     1790818194,
+     465
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "230862201": {
+   "price": 618,
+   "basic": 1988,
+   "ts": 1790818194.8166883,
+   "samples": [
+    [
+     1790818194,
+     618
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "449066043": {
+   "price": 127,
+   "basic": 300,
+   "ts": 1790818194.8166971,
+   "samples": [
+    [
+     1790818194,
+     127
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "483506927": {
+   "price": 138,
+   "basic": 1001,
+   "ts": 1790818194.8167048,
+   "samples": [
+    [
+     1790818194,
+     138
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036051": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.816717,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1274844918": {
+   "price": 450,
+   "basic": 1950,
+   "ts": 1790818194.8167279,
+   "samples": [
+    [
+     1790818194,
+     450
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1421254467": {
+   "price": 622,
+   "basic": 1250,
+   "ts": 1790818194.8167355,
+   "samples": [
+    [
+     1790818194,
+     622
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "776189527": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8167431,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "776165752": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.816798,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "776090742": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8168058,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1016309042": {
+   "price": 559,
+   "basic": 1999,
+   "ts": 1790818194.8168132,
+   "samples": [
+    [
+     1790818194,
+     559
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1016309043": {
+   "price": 746,
+   "basic": 1999,
+   "ts": 1790818194.8168206,
+   "samples": [
+    [
+     1790818194,
+     746
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "242596819": {
+   "price": 481,
+   "basic": 1229,
+   "ts": 1790818194.816834,
+   "samples": [
+    [
+     1790818194,
+     481
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1251792017": {
+   "price": 387,
+   "basic": 890,
+   "ts": 1790818194.816842,
+   "samples": [
+    [
+     1790818194,
+     387
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1343825737": {
+   "price": 450,
+   "basic": 1950,
+   "ts": 1790818194.816848,
+   "samples": [
+    [
+     1790818194,
+     450
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "280523921": {
+   "price": 743,
+   "basic": 2299,
+   "ts": 1790818194.8168542,
+   "samples": [
+    [
+     1790818194,
+     743
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1212996331": {
+   "price": 283,
+   "basic": 690,
+   "ts": 1790818194.8168638,
+   "samples": [
+    [
+     1790818194,
+     283
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "763590841": {
+   "price": 465,
+   "basic": 1246,
+   "ts": 1790818194.81687,
+   "samples": [
+    [
+     1790818194,
+     465
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "769214218": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8168766,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "296757958": {
+   "price": 643,
+   "basic": 1500,
+   "ts": 1790818194.8168826,
+   "samples": [
+    [
+     1790818194,
+     643
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1421050935": {
+   "price": 519,
+   "basic": 1194,
+   "ts": 1790818194.8168924,
+   "samples": [
+    [
+     1790818194,
+     519
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "776173762": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.8168988,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "452632272": {
+   "price": 326,
+   "basic": 700,
+   "ts": 1790818194.816905,
+   "samples": [
+    [
+     1790818194,
+     326
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1016309041": {
+   "price": 559,
+   "basic": 1999,
+   "ts": 1790818194.8169112,
+   "samples": [
+    [
+     1790818194,
+     559
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "907319384": {
+   "price": 643,
+   "basic": 1723,
+   "ts": 1790818194.8169253,
+   "samples": [
+    [
+     1790818194,
+     643
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "473041042": {
+   "price": 210,
+   "basic": 1200,
+   "ts": 1790818194.8169324,
+   "samples": [
+    [
+     1790818194,
+     210
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "313126756": {
+   "price": 430,
+   "basic": 1154,
+   "ts": 1790818194.816939,
+   "samples": [
+    [
+     1790818194,
+     430
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "28713573": {
+   "price": 473,
+   "basic": 1190,
+   "ts": 1790818194.8169487,
+   "samples": [
+    [
+     1790818194,
+     473
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "280524108": {
+   "price": 743,
+   "basic": 2299,
+   "ts": 1790818194.816955,
+   "samples": [
+    [
+     1790818194,
+     743
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "172791912": {
+   "price": 270,
+   "basic": 449,
+   "ts": 1790818194.8169615,
+   "samples": [
+    [
+     1790818194,
+     270
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1390803574": {
+   "price": 453,
+   "basic": 1194,
+   "ts": 1790818194.816974,
+   "samples": [
+    [
+     1790818194,
+     453
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "497657463": {
+   "price": 395,
+   "basic": 706,
+   "ts": 1790818194.8169796,
+   "samples": [
+    [
+     1790818194,
+     395
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1195041036": {
+   "price": 471,
+   "basic": 1223,
+   "ts": 1790818194.8169856,
+   "samples": [
+    [
+     1790818194,
+     471
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1332790924": {
+   "price": 619,
+   "basic": 1200,
+   "ts": 1790818194.8169913,
+   "samples": [
+    [
+     1790818194,
+     619
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1152672599": {
+   "price": 481,
+   "basic": 1229,
+   "ts": 1790818194.816997,
+   "samples": [
+    [
+     1790818194,
+     481
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "216969662": {
+   "price": 311,
+   "basic": 715,
+   "ts": 1790818194.8170033,
+   "samples": [
+    [
+     1790818194,
+     311
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "15809025": {
+   "price": 367,
+   "basic": 3200,
+   "ts": 1790818194.8170097,
+   "samples": [
+    [
+     1790818194,
+     367
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "482131174": {
+   "price": 361,
+   "basic": 2755,
+   "ts": 1790818194.817016,
+   "samples": [
+    [
+     1790818194,
+     361
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "313441543": {
+   "price": 743,
+   "basic": 2299,
+   "ts": 1790818194.8170245,
+   "samples": [
+    [
+     1790818194,
+     743
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1250229614": {
+   "price": 359,
+   "basic": 1000,
+   "ts": 1790818194.8170304,
+   "samples": [
+    [
+     1790818194,
+     359
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "993717366": {
+   "price": 746,
+   "basic": 1999,
+   "ts": 1790818194.8170364,
+   "samples": [
+    [
+     1790818194,
+     746
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1297229769": {
+   "price": 530,
+   "basic": 2336,
+   "ts": 1790818194.8170583,
+   "samples": [
+    [
+     1790818194,
+     530
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1152667235": {
+   "price": 497,
+   "basic": 1490,
+   "ts": 1790818194.8170643,
+   "samples": [
+    [
+     1790818194,
+     497
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "363296982": {
+   "price": 396,
+   "basic": 1451,
+   "ts": 1790818194.81707,
+   "samples": [
+    [
+     1790818194,
+     396
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036438": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.817076,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "1137036046": {
+   "price": 623,
+   "basic": 1194,
+   "ts": 1790818194.8170817,
+   "samples": [
+    [
+     1790818194,
+     623
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
+  },
+  "459037023": {
+   "price": 410,
+   "basic": 1270,
+   "ts": 1790818194.8170905,
+   "samples": [
+    [
+     1790818194,
+     410
+    ]
+   ],
+   "posted_price": 0,
+   "posted_ts": 0
   }
  },
  "cats": {
@@ -112383,9 +113373,9 @@
   },
   "Мешки для обуви": {
    "shard": "school2",
-   "ts": 1790272605.143587,
-   "runs": 65,
-   "empty": 5
+   "ts": 1790818194.8367348,
+   "runs": 66,
+   "empty": 1
   },
   "Группа 1-2 (9-25 кг)": {
    "shard": "children_things2",
@@ -112767,9 +113757,9 @@
   },
   "Стулья и кресла": {
    "shard": "furniture2",
-   "ts": 1790263141.7522655,
-   "runs": 5,
-   "empty": 5
+   "ts": 1790818194.8367348,
+   "runs": 6,
+   "empty": 1
   },
   "Оборудование для касс": {
    "shard": "rooms15",
@@ -112851,6 +113841,134 @@
   }
  },
  "queue": [
+  {
+   "id": 459037023,
+   "title": "Непромокаемый мешок для обуви в школу",
+   "brand": "DIMAKE",
+   "product": 410,
+   "basic": 410,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 2490,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 108698421,
+   "title": "Мешок для обуви с карманом",
+   "brand": "Intelligent",
+   "product": 116,
+   "basic": 116,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 564,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 326367944,
+   "title": "Мешок для обуви школьный, Nike",
+   "brand": "",
+   "product": 162,
+   "basic": 162,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.8,
+   "feedbacks": 752,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 473041042,
+   "title": "Мешок для обуви школьный, Nike в наборе 2 шт",
+   "brand": "",
+   "product": 210,
+   "basic": 210,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.8,
+   "feedbacks": 827,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 1098175510,
+   "title": "Мешок для сменной обуви",
+   "brand": "",
+   "product": 138,
+   "basic": 138,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.9,
+   "feedbacks": 295,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 15809025,
+   "title": "Мешок для сменной обуви для мальчика и для девочки в школу",
+   "brand": "Homepick",
+   "product": 367,
+   "basic": 367,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 30,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 1190829814,
+   "title": "Мешок для обуви для девочек для сменки Кот",
+   "brand": "Yumakura",
+   "product": 497,
+   "basic": 497,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 15,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
+  {
+   "id": 1229709404,
+   "title": "Мешок для обуви и одежды тёмно- синий",
+   "brand": "",
+   "product": 115,
+   "basic": 115,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 4.8,
+   "feedbacks": 67,
+   "category": "Мешки для обуви",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "Мешки для обуви",
+   "queued_ts": 1790818035
+  },
   {
    "id": 279981762,
    "title": "1K эмаль автомобильная ремонтная, (Триумф 100)",

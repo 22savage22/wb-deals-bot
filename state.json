@@ -2829,6 +2829,20 @@
  },
  "recent": [
   {
+   "pid": 365870019,
+   "image": "https://basket-21.wbbasket.ru/vol3658/part365870/365870019/images/big/1.webp",
+   "title": "Детский набор для вышивания с пяльцами Волшебные крестики",
+   "discount": 0,
+   "price": 676,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/365870019/detail.aspx",
+   "query": "Хобби и досуг",
+   "cat": "Хобби и досуг",
+   "ts": 1790892193,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 482055567,
    "image": "https://basket-26.wbbasket.ru/vol4820/part482055/482055567/images/big/1.webp",
    "title": "Постельное белье 2 спальное 50х70 полисатин",
@@ -7955,20 +7969,6 @@
    "cat": "платье женское",
    "ts": 1789695109,
    "drop": 0
-  },
-  {
-   "pid": 365870019,
-   "image": "https://basket-21.wbbasket.ru/vol3658/part365870/365870019/images/big/1.webp",
-   "title": "Детский набор для вышивания с пяльцами Волшебные крестики",
-   "discount": 0,
-   "price": 676,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/365870019/detail.aspx",
-   "query": "Хобби и досуг",
-   "cat": "Хобби и досуг",
-   "ts": 1790892193,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7996,14 +7996,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 58,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 22,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 36,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8102,7 +8102,7 @@
    "Гроубоксы",
    "Хобби и досуг"
   ],
-  "queue_size": 23,
+  "queue_size": 29,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 500,

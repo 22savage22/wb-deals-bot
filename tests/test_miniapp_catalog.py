@@ -16,6 +16,41 @@ def deal(pid, title='Платье женское', **extra):
 
 
 class CatalogRefreshTests(TestCase):
+    def test_user_credential_uses_one_verification_request(self):
+        with patch.object(cloudflare_deploy, 'api', return_value={'status': 'active'}) as api:
+            self.assertEqual(cloudflare_deploy.verify_credential('test-token', '/accounts/test'),
+                             {'status': 'active'})
+        api.assert_called_once_with('test-token', 'GET', '/user/tokens/verify')
+
+    def test_account_credential_uses_its_own_verification_endpoint(self):
+        with patch.object(cloudflare_deploy, 'api', side_effect=[
+                cloudflare_deploy.CloudflareAPIError(401, [1000]), {'status': 'active'}]) as api:
+            cloudflare_deploy.verify_credential('test-token', '/accounts/test')
+        self.assertEqual([call.args[2] for call in api.call_args_list],
+                         ['/user/tokens/verify', '/accounts/test/tokens/verify'])
+
+    def test_invalid_credential_stops_after_two_requests_without_secret_in_error(self):
+        with patch.object(cloudflare_deploy, 'api', side_effect=[
+                cloudflare_deploy.CloudflareAPIError(401),
+                cloudflare_deploy.CloudflareAPIError(403)]) as api:
+            with self.assertRaisesRegex(RuntimeError, 'both token types') as error:
+                cloudflare_deploy.verify_credential('never-print-this-token', '/accounts/test')
+        self.assertEqual(api.call_count, 2)
+        self.assertNotIn('never-print-this-token', str(error.exception))
+
+    def test_verification_does_not_retry_server_errors(self):
+        with patch.object(cloudflare_deploy, 'api', side_effect=
+                          cloudflare_deploy.CloudflareAPIError(503)) as api:
+            with self.assertRaises(cloudflare_deploy.CloudflareAPIError):
+                cloudflare_deploy.verify_credential('test-token', '/accounts/test')
+        self.assertEqual(api.call_count, 1)
+
+    def test_inactive_credential_never_falls_through_to_another_type(self):
+        with patch.object(cloudflare_deploy, 'api', return_value={'status': 'expired'}) as api:
+            with self.assertRaisesRegex(RuntimeError, 'not active'):
+                cloudflare_deploy.verify_credential('test-token', '/accounts/test')
+        self.assertEqual(api.call_count, 1)
+
     def test_code_update_inherits_secrets_and_never_changes_database_or_telegram(self):
         bindings = [{'name': name, 'type': kind} for name, kind in (
             ('DB', 'd1'), ('ASSETS', 'assets'), ('MINIAPP_BOT_TOKEN', 'secret_text'),

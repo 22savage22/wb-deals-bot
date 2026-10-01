@@ -22,6 +22,14 @@ REPO = '22savage22/wb-deals-bot'
 ROOT = Path(__file__).resolve().parent
 
 
+class CloudflareAPIError(RuntimeError):
+    """Safe error metadata; never retain request headers or token values."""
+
+    def __init__(self, status, codes=()):
+        self.status = status
+        super().__init__(f'Cloudflare HTTP {status}, codes={list(codes)}')
+
+
 def api(token, method, path, **kwargs):
     response = requests.request(method, 'https://api.cloudflare.com/client/v4' + path,
                                 headers={'Authorization': 'Bearer ' + token},
@@ -29,11 +37,30 @@ def api(token, method, path, **kwargs):
     try:
         result = response.json()
     except ValueError:
-        raise RuntimeError(f'Cloudflare HTTP {response.status_code}') from None
+        raise CloudflareAPIError(response.status_code) from None
     if not response.ok or result.get('success') is False:
         codes = [e.get('code') for e in result.get('errors', [])]
-        raise RuntimeError(f'Cloudflare HTTP {response.status_code}, codes={codes}')
+        raise CloudflareAPIError(response.status_code, codes)
     return result.get('result')
+
+
+def verify_credential(token, prefix):
+    """User and account tokens have distinct official verification endpoints.
+
+    Try each at most once, and only switch type after an authorization error.
+    Never retry transport/server errors or expand the credential's permissions.
+    """
+    for path in ('/user/tokens/verify', prefix + '/tokens/verify'):
+        try:
+            verified = api(token, 'GET', path)
+        except CloudflareAPIError as exc:
+            if exc.status not in (401, 403):
+                raise
+            continue
+        if not isinstance(verified, dict) or verified.get('status') != 'active':
+            raise RuntimeError('Cloudflare credential is not active')
+        return verified
+    raise RuntimeError('Cloudflare authorization failed for both token types (HTTP 401/403)')
 
 
 def telegram(token, method, payload=None):
@@ -101,7 +128,7 @@ def main():
                                headers={'X-Setup-Nonce': nonce}, timeout=5).json()
     token = credentials['token']
     prefix = f'/accounts/{ACCOUNT}'
-    verified = api(token, 'GET', '/user/tokens/verify')
+    verified = verify_credential(token, prefix)
     print('Temporary credential status:', verified['status'], flush=True)
     if action == 'update':
         # Updating an existing Worker needs Scripts:Edit, not D1:Edit/List.

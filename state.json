@@ -2782,6 +2782,20 @@
  },
  "recent": [
   {
+   "pid": 90451926,
+   "image": "https://basket-05.wbbasket.ru/vol904/part90451/90451926/images/big/1.webp",
+   "title": "Фата свадебная короткая на гребне",
+   "discount": 0,
+   "price": 956,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/90451926/detail.aspx",
+   "query": "Свадебная фата",
+   "cat": "Свадебная фата",
+   "ts": 1790870907,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 336322804,
    "image": "https://basket-20.wbbasket.ru/vol3363/part336322/336322804/images/big/1.webp",
    "title": "Тряпки для кухни салфетки для уборки",
@@ -7551,20 +7565,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 90451926,
-   "image": "https://basket-05.wbbasket.ru/vol904/part90451/90451926/images/big/1.webp",
-   "title": "Фата свадебная короткая на гребне",
-   "discount": 0,
-   "price": 956,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/90451926/detail.aspx",
-   "query": "Свадебная фата",
-   "cat": "Свадебная фата",
-   "ts": 1790870907,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7593,14 +7593,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 74,
-   "ok": 44,
-   "rate_limited": 0,
-   "http_error": 30,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 44,
-   "worker_error": 15,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7698,7 +7698,7 @@
   "last_scan_cats": [
    "Диваны и кресла"
   ],
-  "queue_size": 15,
+  "queue_size": 19,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 500,
@@ -17625,6 +17625,10 @@
    "samples": [
     [
      1789661398,
+     369
+    ],
+    [
+     1789661646.736033,
      369
     ]
    ],

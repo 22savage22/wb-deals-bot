@@ -2785,6 +2785,20 @@
  },
  "recent": [
   {
+   "pid": 146979850,
+   "image": "https://basket-10.wbbasket.ru/vol1469/part146979/146979850/images/big/1.webp",
+   "title": "Нож для фигурной резки овощей и фруктов нержавеющая сталь",
+   "discount": 0,
+   "price": 93,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/146979850/detail.aspx",
+   "query": "товары для кухни",
+   "cat": "товары для кухни",
+   "ts": 1790872859,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 138619693,
    "image": "https://basket-10.wbbasket.ru/vol1386/part138619/138619693/images/big/1.webp",
    "title": "Плед 150х200 однотонный плюшевый на кровать на диван",
@@ -7596,20 +7610,6 @@
    "cat": "футболка мужская",
    "ts": 1789671398,
    "drop": 0
-  },
-  {
-   "pid": 146979850,
-   "image": "https://basket-10.wbbasket.ru/vol1469/part146979/146979850/images/big/1.webp",
-   "title": "Нож для фигурной резки овощей и фруктов нержавеющая сталь",
-   "discount": 0,
-   "price": 93,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/146979850/detail.aspx",
-   "query": "товары для кухни",
-   "cat": "товары для кухни",
-   "ts": 1790872859,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7639,13 +7639,13 @@
   },
   "wb_http": {
    "calls": 69,
-   "ok": 39,
-   "rate_limited": 0,
-   "http_error": 30,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 39,
-   "worker_error": 15,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7743,7 +7743,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 6,
+  "queue_size": 10,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 400,

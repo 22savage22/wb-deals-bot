@@ -6586,12 +6586,15 @@
    "published": 1
   },
   "wb_http": {
-   "calls": 6,
-   "ok": 0,
-   "rate_limited": 0,
-   "http_error": 6,
+   "calls": 64,
+   "ok": 23,
+   "rate_limited": 23,
+   "http_error": 18,
    "network_error": 0,
-   "json_error": 0
+   "json_error": 0,
+   "worker_ok": 23,
+   "worker_error": 6,
+   "direct_ok": 0
   },
   "errors": [
    {
@@ -6689,7 +6692,7 @@
    "Оборудование для касс",
    "Для чая"
   ],
-  "queue_size": 3,
+  "queue_size": 0,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 300,
@@ -7025,7 +7028,6 @@
   "водолазкасгорломтеплая": 1790816004
  },
  "img_hash": {
-  "98981d079f8f0f07": 1788224073,
   "2e3656b61f1d3b33": 1788240508,
   "06c6c0c0d0ccccc4": 1788241108,
   "383c3e3a3e3e0ee2": 1788241708,

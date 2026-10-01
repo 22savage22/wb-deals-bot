@@ -2751,6 +2751,20 @@
  },
  "recent": [
   {
+   "pid": 317966400,
+   "image": "https://basket-19.wbbasket.ru/vol3179/part317966/317966400/images/big/1.webp",
+   "title": "Лонгслив для мальчика в садик",
+   "discount": 0,
+   "price": 513,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/317966400/detail.aspx",
+   "query": "Лонгслив",
+   "cat": "Лонгслив",
+   "ts": 1790859694,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 174827924,
    "image": "https://basket-12.wbbasket.ru/vol1748/part174827/174827924/images/big/1.webp",
    "title": "Плед для новорожденных флисовый детский 100х150 мягкий",
@@ -7343,20 +7357,6 @@
    "cat": "футболка мужская",
    "ts": 1789650276,
    "drop": 0
-  },
-  {
-   "pid": 317966400,
-   "image": "https://basket-19.wbbasket.ru/vol3179/part317966/317966400/images/big/1.webp",
-   "title": "Лонгслив для мальчика в садик",
-   "discount": 0,
-   "price": 513,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/317966400/detail.aspx",
-   "query": "Лонгслив",
-   "cat": "Лонгслив",
-   "ts": 1790859694,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7385,14 +7385,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 60,
-   "ok": 36,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 36,
-   "worker_error": 12,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -7488,7 +7488,7 @@
    "кроссовки женские"
   ],
   "last_scan_cats": [],
-  "queue_size": 15,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 399,

@@ -7340,14 +7340,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 83,
+   "ok": 47,
+   "rate_limited": 0,
+   "http_error": 36,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 47,
+   "worker_error": 18,
    "direct_ok": 0
   },
   "errors": [
@@ -7445,7 +7445,7 @@
   "last_scan_cats": [
    "Пледы"
   ],
-  "queue_size": 20,
+  "queue_size": 13,
   "last_scan_added": 6,
   "last_scan_funnel": {
    "found": 500,

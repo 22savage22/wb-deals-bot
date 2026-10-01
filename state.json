@@ -2696,6 +2696,20 @@
  },
  "recent": [
   {
+   "pid": 825649855,
+   "image": "https://basket-37.wbbasket.ru/vol8256/part825649/825649855/images/big/1.webp",
+   "title": "Платье рубашка летнее в горошек",
+   "discount": 0,
+   "price": 956,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/825649855/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790840334,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 397685775,
    "image": "https://basket-23.wbbasket.ru/vol3976/part397685/397685775/images/big/1.webp",
    "title": "Подвеска на шею с кулоном лошадь бижутерия Accessorica",
@@ -6955,20 +6969,6 @@
    "cat": "футболка мужская",
    "ts": 1789631192,
    "drop": 0
-  },
-  {
-   "pid": 825649855,
-   "image": "https://basket-37.wbbasket.ru/vol8256/part825649/825649855/images/big/1.webp",
-   "title": "Платье рубашка летнее в горошек",
-   "discount": 0,
-   "price": 956,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/825649855/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790840334,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -7454,7 +7454,6 @@
   "платьерубашкалетнеевгорошек": 1790840334
  },
  "img_hash": {
-  "6b61c0a8e4e46060": 1788248360,
   "ece8f0f0d84cc8c8": 1788249292,
   "2a787071e486d0d4": 1788250265,
   "b2baf8f8b89a8e86": 1788251435,
@@ -15963,10 +15962,6 @@
    "samples": [
     [
      1789632090,
-     306
-    ],
-    [
-     1789632090.9083812,
      306
     ]
    ],

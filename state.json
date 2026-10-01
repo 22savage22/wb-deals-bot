@@ -2638,6 +2638,20 @@
  },
  "recent": [
   {
+   "pid": 588642323,
+   "image": "https://basket-30.wbbasket.ru/vol5886/part588642/588642323/images/big/1.webp",
+   "title": "Сумка багет",
+   "discount": 19,
+   "price": 590,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/588642323/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790829806,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 988417010,
    "image": "https://basket-41.wbbasket.ru/vol9884/part988417/988417010/images/big/1.webp",
    "title": "АЛКОБРОНИКС после алкоголя, поддержка печени",
@@ -6784,20 +6798,6 @@
    "cat": "блузка женская",
    "ts": 1789620599,
    "drop": 0
-  },
-  {
-   "pid": 588642323,
-   "image": "https://basket-30.wbbasket.ru/vol5886/part588642/588642323/images/big/1.webp",
-   "title": "Сумка багет",
-   "discount": 19,
-   "price": 590,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/588642323/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790829806,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {

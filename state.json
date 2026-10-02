@@ -9198,14 +9198,14 @@
    "queue_empty_or_invalid": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 30,
+   "ok": 1,
+   "rate_limited": 19,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 1,
+   "worker_error": 2,
    "direct_ok": 0
   },
   "errors": [
@@ -9293,7 +9293,7 @@
   "today": "2026-10-02",
   "today_posts": 96,
   "total_posts": 1844,
-  "last_scan": 1790975544,
+  "last_scan": 1790976833,
   "last_scan_queries": [
    "товары для кухни",
    "джинсы женские",
@@ -9301,26 +9301,22 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [
-   "Садовые инструменты",
-   "Источники бесперебойного питания"
+   "Медиаконвертеры",
+   "Грунты, дренаж, мульча"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 902,
-   "cards": 902,
-   "already_known": 902,
+   "found": 100,
+   "cards": 100,
+   "already_known": 100,
    "new": 0,
-   "bad_price": 63,
-   "ok": 132,
-   "max_price": 686,
-   "rating": 21,
+   "max_price": 99,
+   "ok": 1,
    "strict": 0,
-   "fallback": 132,
+   "fallback": 1,
    "reserve": 0,
-   "duplicate": 14,
-   "title_duplicate": 8,
-   "electronics": 4
+   "duplicate": 1
   },
   "last_queue": {
    "queue_before": 100,
@@ -9338,10 +9334,10 @@
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790975603.0,
-  "last_scan_attempt": 1790975603,
+  "last_scan_success": 1790976995.0,
+  "last_scan_attempt": 1790976833,
   "last_scan_error": "",
-  "scan_page_cursor": 0,
+  "scan_page_cursor": 1,
   "discovery_seen": {
    "1102583808": 1790970463,
    "438738947": 1790970463,
@@ -52690,12 +52686,8 @@
   "1245009476": {
    "price": 453,
    "basic": 3500,
-   "ts": 1790974315.4461222,
+   "ts": 1790976995.608691,
    "samples": [
-    [
-     1790958871,
-     453
-    ],
     [
      1790961464,
      453
@@ -52718,6 +52710,10 @@
     ],
     [
      1790974315,
+     453
+    ],
+    [
+     1790976995,
      453
     ]
    ],
@@ -184553,15 +184549,15 @@
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
-   "ts": 1790416471.5581014,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790976995.6333187,
+   "runs": 76,
+   "empty": 1
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",
-   "ts": 1790416471.5581014,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790976995.6333187,
+   "runs": 76,
+   "empty": 1
   },
   "Зажимы и закладки": {
    "shard": "school6",

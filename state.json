@@ -3124,6 +3124,20 @@
  },
  "recent": [
   {
+   "pid": 415941058,
+   "image": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/images/big/1.webp",
+   "title": "Юбка черная миди прямая классическая",
+   "discount": 0,
+   "price": 623,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/415941058/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790948099,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1507944909,
    "image": "https://basket-48.wbbasket.ru/vol15079/part1507944/1507944909/images/big/1.webp",
    "title": "Квадратные серьги-гвоздики",
@@ -9120,20 +9134,6 @@
    "cat": "футболка женская",
    "ts": 1789738682,
    "drop": 0
-  },
-  {
-   "pid": 415941058,
-   "image": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/images/big/1.webp",
-   "title": "Юбка черная миди прямая классическая",
-   "discount": 0,
-   "price": 623,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/415941058/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790948099,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9162,14 +9162,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 13,
-   "rate_limited": 0,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 13,
-   "worker_error": 4,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -9268,7 +9268,7 @@
    "Грунты для растений",
    "Для нервной системы"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1197,
@@ -13490,7 +13490,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4182,
-  "scheduler_last_post": 1790947464
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

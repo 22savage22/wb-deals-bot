@@ -2537,10 +2537,10 @@
    "ts": 1790934003.2873018
   },
   "Творчество": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790935928.1201584
   }
  },
@@ -2994,10 +2994,10 @@
    "ts": 1790934003.2873042
   },
   "Творчество": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790935928.12016
   }
  },
@@ -3005,6 +3005,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 235004644,
+   "image": "https://basket-15.wbbasket.ru/vol2350/part235004/235004644/images/big/1.webp",
+   "title": "Цветной фетр для творчества А4 10л 10цв",
+   "discount": 0,
+   "price": 158,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/235004644/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790935928,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1274722797,
    "image": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/images/big/1.webp",
@@ -8748,20 +8762,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 235004644,
-   "image": "https://basket-15.wbbasket.ru/vol2350/part235004/235004644/images/big/1.webp",
-   "title": "Цветной фетр для творчества А4 10л 10цв",
-   "discount": 0,
-   "price": 158,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/235004644/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790935928,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8896,7 +8896,7 @@
    "Уход за одеждой",
    "Для мам и малышей"
   ],
-  "queue_size": 94,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -10945,7 +10945,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2007,
-  "scheduler_last_post": 1790935295
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

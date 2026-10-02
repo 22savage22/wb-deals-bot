@@ -9196,14 +9196,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 24,
-   "ok": 14,
-   "rate_limited": 0,
-   "http_error": 10,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 14,
-   "worker_error": 5,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -13927,7 +13927,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790949372
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

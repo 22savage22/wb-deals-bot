@@ -2922,6 +2922,20 @@
  },
  "recent": [
   {
+   "pid": 1266065726,
+   "image": "https://basket-44.wbbasket.ru/vol12660/part1266065/1266065726/images/big/1.webp",
+   "title": "Длинная тёплая вязаная юбка в стиле скимс из рибной ткани",
+   "discount": 0,
+   "price": 850,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1266065726/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790918352,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 248526944,
    "image": "https://basket-16.wbbasket.ru/vol2485/part248526/248526944/images/big/1.webp",
    "title": "Футболка однотонная оверсайз",
@@ -8548,20 +8562,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 1266065726,
-   "image": "https://basket-44.wbbasket.ru/vol12660/part1266065/1266065726/images/big/1.webp",
-   "title": "Длинная тёплая вязаная юбка в стиле скимс из рибной ткани",
-   "discount": 0,
-   "price": 850,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1266065726/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790918352,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8590,14 +8590,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 54,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8696,7 +8696,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 597,

@@ -9186,14 +9186,14 @@
    "queue_empty_or_invalid": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 28,
+   "ok": 0,
+   "rate_limited": 18,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 0,
+   "worker_error": 2,
    "direct_ok": 0
   },
   "errors": [
@@ -9281,7 +9281,7 @@
   "today": "2026-10-02",
   "today_posts": 96,
   "total_posts": 1844,
-  "last_scan": 1790981082,
+  "last_scan": 1790982503,
   "last_scan_queries": [
    "товары для кухни",
    "джинсы женские",
@@ -9292,23 +9292,16 @@
    "Медиаконвертеры",
    "Грунты, дренаж, мульча"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "already_known": 200,
+   "found": 0,
+   "cards": 0,
+   "already_known": 0,
    "new": 0,
-   "bad_price": 1,
-   "ok": 85,
-   "max_price": 112,
-   "rating": 2,
    "strict": 0,
-   "fallback": 85,
-   "reserve": 0,
-   "duplicate": 6,
-   "title_duplicate": 6,
-   "electronics": 4
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 100,
@@ -9327,9 +9320,9 @@
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
   "last_scan_success": 1790981228.0,
-  "last_scan_attempt": 1790981228,
-  "last_scan_error": "",
-  "scan_page_cursor": 0,
+  "last_scan_attempt": 1790982503,
+  "last_scan_error": "WB не вернул товары; очередь сохранена",
+  "scan_page_cursor": 1,
   "discovery_seen": {
    "1102583808": 1790970463,
    "438738947": 1790970463,
@@ -184330,15 +184323,15 @@
   },
   "Медиаконвертеры": {
    "shard": "electronic78",
-   "ts": 1790981225.3597803,
-   "runs": 79,
-   "empty": 4
+   "ts": 1790982650.5690346,
+   "runs": 80,
+   "empty": 5
   },
   "Грунты, дренаж, мульча": {
    "shard": "garden11",
-   "ts": 1790981225.3597803,
-   "runs": 79,
-   "empty": 4
+   "ts": 1790982650.5690346,
+   "runs": 80,
+   "empty": 5
   },
   "Зажимы и закладки": {
    "shard": "school6",

@@ -2944,6 +2944,20 @@
  },
  "recent": [
   {
+   "pid": 254721293,
+   "image": "https://basket-16.wbbasket.ru/vol2547/part254721/254721293/images/big/1.webp",
+   "title": "Цикорий натуральный растворимый с ароматом Капучино 3 шт",
+   "discount": 0,
+   "price": 441,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/254721293/detail.aspx",
+   "query": "Кофе и цикорий",
+   "cat": "Кофе и цикорий",
+   "ts": 1790922904,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 95731857,
    "image": "https://basket-05.wbbasket.ru/vol957/part95731/95731857/images/big/1.webp",
    "title": "Колпак медицинский шапочка",
@@ -8578,20 +8592,6 @@
    "cat": "блузка женская",
    "ts": 1789713581,
    "drop": 0
-  },
-  {
-   "pid": 254721293,
-   "image": "https://basket-16.wbbasket.ru/vol2547/part254721/254721293/images/big/1.webp",
-   "title": "Цикорий натуральный растворимый с ароматом Капучино 3 шт",
-   "discount": 0,
-   "price": 441,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/254721293/detail.aspx",
-   "query": "Кофе и цикорий",
-   "cat": "Кофе и цикорий",
-   "ts": 1790922904,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8620,14 +8620,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8726,7 +8726,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 14,
+  "queue_size": 17,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 501,

@@ -2622,10 +2622,10 @@
    "ts": 1790948749.7503605
   },
   "Машины и техника": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790949372.277781
   }
  },
@@ -3142,10 +3142,10 @@
    "ts": 1790948749.7503626
   },
   "Машины и техника": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790949372.2777827
   }
  },
@@ -3153,6 +3153,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 83280243,
+   "image": "https://basket-05.wbbasket.ru/vol832/part83280/83280243/images/big/1.webp",
+   "title": "Плакат на стену Правила пожарной безопасности в школу, А2",
+   "discount": 0,
+   "price": 201,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/83280243/detail.aspx",
+   "query": "Машины и техника",
+   "cat": "Машины и техника",
+   "ts": 1790949372,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 879876773,
    "image": "https://basket-39.wbbasket.ru/vol8798/part879876/879876773/images/big/1.webp",
@@ -9154,20 +9168,6 @@
    "ts": 1789740207,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 83280243,
-   "image": "https://basket-05.wbbasket.ru/vol832/part83280/83280243/images/big/1.webp",
-   "title": "Плакат на стену Правила пожарной безопасности в школу, А2",
-   "discount": 0,
-   "price": 201,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/83280243/detail.aspx",
-   "query": "Машины и техника",
-   "cat": "Машины и техника",
-   "ts": 1790949372,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9196,14 +9196,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 13,
-   "rate_limited": 0,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 13,
-   "worker_error": 4,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -9302,7 +9302,7 @@
    "Ширмы",
    "Машины и техника"
   ],
-  "queue_size": 94,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1002,
@@ -13927,7 +13927,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790948749
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -14375,7 +14375,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "0f0f272f2c6c6d29": 1788357376,
   "9712256d6cfcf0e2": 1788358013,
   "123b6968c8dcd0c0": 1788358649,
   "e0f0d0707071787e": 1788359297,

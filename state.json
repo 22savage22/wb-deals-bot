@@ -9328,7 +9328,7 @@
    "Сделано в Республике Бурятия",
    "Трубопроводы"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1145,
@@ -15281,7 +15281,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 5910,
-  "scheduler_last_post": 1790956164
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

@@ -2862,6 +2862,20 @@
  },
  "recent": [
   {
+   "pid": 331727734,
+   "image": "https://basket-20.wbbasket.ru/vol3317/part331727/331727734/images/big/1.webp",
+   "title": "Лонгслив женский облегающий швы наружу",
+   "discount": 0,
+   "price": 823,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/331727734/detail.aspx",
+   "query": "Лонгслив",
+   "cat": "Лонгслив",
+   "ts": 1790906521,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 998358706,
    "image": "https://basket-41.wbbasket.ru/vol9983/part998358/998358706/images/big/1.webp",
    "title": "Кроссовки черные повседневные на высокой подошве подростков",
@@ -8236,20 +8250,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 331727734,
-   "image": "https://basket-20.wbbasket.ru/vol3317/part331727/331727734/images/big/1.webp",
-   "title": "Лонгслив женский облегающий швы наружу",
-   "discount": 0,
-   "price": 823,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/331727734/detail.aspx",
-   "query": "Лонгслив",
-   "cat": "Лонгслив",
-   "ts": 1790906521,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8278,14 +8278,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 65,
-   "ok": 41,
-   "rate_limited": 0,
-   "http_error": 24,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 41,
-   "worker_error": 12,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8384,7 +8384,7 @@
    "Репринтные издания 1890 - 1899 годов",
    "Кофе и цикорий"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 10,
   "last_scan_funnel": {
    "found": 500,
@@ -8412,7 +8412,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

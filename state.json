@@ -2923,6 +2923,20 @@
  },
  "recent": [
   {
+   "pid": 430870202,
+   "image": "https://basket-24.wbbasket.ru/vol4308/part430870/430870202/images/big/1.webp",
+   "title": "Футболка хлопок с принтом больших размеров",
+   "discount": 0,
+   "price": 528,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/430870202/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1790918977,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1266065726,
    "image": "https://basket-44.wbbasket.ru/vol12660/part1266065/1266065726/images/big/1.webp",
    "title": "Длинная тёплая вязаная юбка в стиле скимс из рибной ткани",
@@ -8551,20 +8565,6 @@
    "ts": 1789709496,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 430870202,
-   "image": "https://basket-24.wbbasket.ru/vol4308/part430870/430870202/images/big/1.webp",
-   "title": "Футболка хлопок с принтом больших размеров",
-   "discount": 0,
-   "price": 528,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/430870202/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1790918977,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8593,14 +8593,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 54,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8699,7 +8699,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 597,

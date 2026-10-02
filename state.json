@@ -2951,6 +2951,20 @@
  },
  "recent": [
   {
+   "pid": 1260407959,
+   "image": "https://basket-44.wbbasket.ru/vol12604/part1260407/1260407959/images/big/1.webp",
+   "title": "Вельветовая сумка для девочки через плечо подростковая",
+   "discount": 0,
+   "price": 637,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1260407959/detail.aspx",
+   "query": "сумка женская",
+   "cat": "сумка женская",
+   "ts": 1790927449,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1259187328,
    "image": "https://basket-44.wbbasket.ru/vol12591/part1259187/1259187328/images/big/1.webp",
    "title": "Куртка медицинская на кнопках",
@@ -8622,20 +8636,6 @@
    "cat": "футболка мужская",
    "ts": 1789718304,
    "drop": 0
-  },
-  {
-   "pid": 1260407959,
-   "image": "https://basket-44.wbbasket.ru/vol12604/part1260407/1260407959/images/big/1.webp",
-   "title": "Вельветовая сумка для девочки через плечо подростковая",
-   "discount": 0,
-   "price": 637,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1260407959/detail.aspx",
-   "query": "сумка женская",
-   "cat": "сумка женская",
-   "ts": 1790927449,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8664,13 +8664,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 38,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -8770,7 +8770,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 5,
+  "queue_size": 12,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 402,

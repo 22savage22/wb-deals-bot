@@ -3157,6 +3157,20 @@
  },
  "recent": [
   {
+   "pid": 343183151,
+   "image": "https://basket-20.wbbasket.ru/vol3431/part343183/343183151/images/big/1.webp",
+   "title": "Диспенсер кухонный для моющего средства с дозатором",
+   "discount": 0,
+   "price": 785,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/343183151/detail.aspx",
+   "query": "товары для кухни",
+   "cat": "товары для кухни",
+   "ts": 1790952497,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 205957120,
    "image": "https://basket-14.wbbasket.ru/vol2059/part205957/205957120/images/big/1.webp",
    "title": "Военная техника. 16 демонстр. картинок с текстом",
@@ -9186,20 +9200,6 @@
    "cat": "футболка женская",
    "ts": 1789747204,
    "drop": 0
-  },
-  {
-   "pid": 343183151,
-   "image": "https://basket-20.wbbasket.ru/vol3431/part343183/343183151/images/big/1.webp",
-   "title": "Диспенсер кухонный для моющего средства с дозатором",
-   "discount": 0,
-   "price": 785,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/343183151/detail.aspx",
-   "query": "товары для кухни",
-   "cat": "товары для кухни",
-   "ts": 1790952497,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9334,7 +9334,7 @@
    "Машины и техника",
    "Ширмы"
   ],
-  "queue_size": 92,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1100,
@@ -13959,7 +13959,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790950639
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -14409,7 +14409,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "33116062c3838363": 1788360586,
   "98999d9d9d5fdfde": 1788361232,
   "7131e9ccc8e2c040": 1788361889,
   "d888f262e0c9c9c9": 1788363398,

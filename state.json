@@ -3038,6 +3038,20 @@
  },
  "recent": [
   {
+   "pid": 247389322,
+   "image": "https://basket-16.wbbasket.ru/vol2473/part247389/247389322/images/big/1.webp",
+   "title": "Набор для творчества из синельной проволоки",
+   "discount": 0,
+   "price": 607,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/247389322/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790938463,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 338516453,
    "image": "https://basket-20.wbbasket.ru/vol3385/part338516/338516453/images/big/1.webp",
    "title": "Сумка своими руками из фетра \"Совушка\"",
@@ -8836,20 +8850,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 247389322,
-   "image": "https://basket-16.wbbasket.ru/vol2473/part247389/247389322/images/big/1.webp",
-   "title": "Набор для творчества из синельной проволоки",
-   "discount": 0,
-   "price": 607,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/247389322/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790938463,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8984,7 +8984,7 @@
    "Венки декоративные",
    "Камни для бани"
   ],
-  "queue_size": 90,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1199,
@@ -11433,7 +11433,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2407,
-  "scheduler_last_post": 1790937835
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

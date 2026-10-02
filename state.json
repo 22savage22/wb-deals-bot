@@ -1866,7 +1866,8 @@
   "338516453": 1790937835,
   "247389322": 1790938463,
   "226659353": 1790939066,
-  "331037532": 1790939112
+  "331037532": 1790939112,
+  "178997267": 1790939745
  },
  "feedback": {
   "1244479817": {
@@ -2562,6 +2563,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790937203.2841988
+  },
+  "Другие автоинструменты": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790939745.1416857
   }
  },
  "cat_stats": {
@@ -3033,6 +3041,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790937203.2842002
+  },
+  "Другие автоинструменты": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790939745.1416874
   }
  },
  "tg": {
@@ -8866,10 +8881,24 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
+  },
+  {
+   "pid": 178997267,
+   "image": "https://basket-12.wbbasket.ru/vol1789/part178997/178997267/images/big/1.webp",
+   "title": "Ракель для пленки + нож черный + лезвия 10шт",
+   "discount": 0,
+   "price": 253,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/178997267/detail.aspx",
+   "query": "Другие автоинструменты",
+   "cat": "Другие автоинструменты",
+   "ts": 1790939745,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1790939066,
+  "last_run": 1790939714,
   "last_posts": 1,
   "last_queries": [
    "кроссовки мужские",
@@ -8987,8 +9016,8 @@
    }
   ],
   "today": "2026-10-02",
-  "today_posts": 75,
-  "total_posts": 1823,
+  "today_posts": 76,
+  "total_posts": 1824,
   "last_scan": 1790939179,
   "last_scan_queries": [
    "джинсы женские",
@@ -9000,7 +9029,7 @@
    "Серия Reno",
    "Другие автоинструменты"
   ],
-  "queue_size": 100,
+  "queue_size": 96,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 1099,
@@ -9024,19 +9053,18 @@
    "refresh_strict": 0,
    "refresh_fallback": 0,
    "refresh_reserve": 0,
-   "photo_duplicate": 1,
-   "price_changed": 3,
+   "refresh_rejected": 2,
+   "price_changed": 1,
    "refresh_missing": 1,
-   "refresh_rejected": 4,
-   "queue_after": 91
+   "queue_after": 96
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790939217.0,
-  "last_scan_attempt": 1790939179,
+  "last_scan_success": 1790939221.0,
+  "last_scan_attempt": 1790939221,
   "last_scan_error": "",
   "scan_page_cursor": 1,
   "discovery_seen": {
@@ -11839,7 +11867,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2795,
-  "scheduler_last_post": 1790932058
+  "scheduler_last_post": 1790939112
  },
  "admin_ui": {
   "pending": null
@@ -12270,7 +12298,8 @@
   "венокнаголовуизцветовженскийдетский": 1790937203,
   "сумкасвоимирукамиизфетрасовушка": 1790937835,
   "набордлятворчестваизсинельнойпроволоки": 1790938463,
-  "набордлятворчествадлядевочек": 1790939112
+  "набордлятворчествадлядевочек": 1790939112,
+  "ракельдляпленкиножчерныйлезвия10шт": 1790939745
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
@@ -13329,7 +13358,8 @@
   "22f0e4cccccccd61": 1790937203,
   "090bcdc9510b0f0f": 1790937835,
   "150529093b0587c7": 1790938463,
-  "59090f4d65676543": 1790939112
+  "59090f4d65676543": 1790939112,
+  "e6c684e4e6bed2f2": 1790939745
  },
  "learned": {
   "часы мужские": {
@@ -107445,9 +107475,9 @@
    "posted_ts": 1790813798.9181252
   },
   "1138890506": {
-   "price": 366,
+   "price": 431,
    "basic": 1068,
-   "ts": 1790939217.6305435,
+   "ts": 1790939719.051465,
    "samples": [
     [
      1790789340,
@@ -146665,9 +146695,9 @@
    "posted_ts": 0.0
   },
   "1282297024": {
-   "price": 815,
+   "price": 949,
    "basic": 1665,
-   "ts": 1790939217.6286104,
+   "ts": 1790939718.3569162,
    "samples": [
     [
      1790931630,
@@ -154423,15 +154453,15 @@
   "178997267": {
    "price": 253,
    "basic": 615,
-   "ts": 1790939217.6313324,
+   "ts": 1790939745.141661,
    "samples": [
     [
      1790939217,
      253
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 253,
+   "posted_ts": 1790939745.141661
   },
   "78558790": {
    "price": 422,
@@ -156213,22 +156243,6 @@
    "selection_mode": "good_price",
    "quality": "B",
    "query": "платье женское",
-   "queued_ts": 1790939179
-  },
-  {
-   "id": 178997267,
-   "title": "Ракель для пленки + нож черный + лезвия 10шт",
-   "brand": "Мир Карбона",
-   "product": 253,
-   "basic": 253,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 501,
-   "category": "Другие автоинструменты",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Другие автоинструменты",
    "queued_ts": 1790939179
   },
   {

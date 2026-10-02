@@ -2913,6 +2913,20 @@
  },
  "recent": [
   {
+   "pid": 1404893158,
+   "image": "https://basket-46.wbbasket.ru/vol14048/part1404893/1404893158/images/big/1.webp",
+   "title": "Худи оверсайз без начеса",
+   "discount": 0,
+   "price": 977,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/1404893158/detail.aspx",
+   "query": "Худи",
+   "cat": "Худи",
+   "ts": 1790912500,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 796434104,
    "image": "https://basket-36.wbbasket.ru/vol7964/part796434/796434104/images/big/1.webp",
    "title": "Сумка багет маленькая на плечо",
@@ -8413,20 +8427,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 1404893158,
-   "image": "https://basket-46.wbbasket.ru/vol14048/part1404893/1404893158/images/big/1.webp",
-   "title": "Худи оверсайз без начеса",
-   "discount": 0,
-   "price": 977,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/1404893158/detail.aspx",
-   "query": "Худи",
-   "cat": "Худи",
-   "ts": 1790912500,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8455,14 +8455,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 91,
-   "ok": 53,
-   "rate_limited": 0,
-   "http_error": 38,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 53,
-   "worker_error": 19,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8561,7 +8561,7 @@
    "Кофе и цикорий",
    "Репринтные издания 1890 - 1899 годов"
   ],
-  "queue_size": 17,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 600,
@@ -8590,7 +8590,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

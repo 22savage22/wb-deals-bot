@@ -2945,6 +2945,20 @@
  },
  "recent": [
   {
+   "pid": 70036853,
+   "image": "https://basket-04.wbbasket.ru/vol700/part70036/70036853/images/big/1.webp",
+   "title": "Рубашка медицинская",
+   "discount": 0,
+   "price": 837,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/70036853/detail.aspx",
+   "query": "Спецодежда медицинская",
+   "cat": "Спецодежда медицинская",
+   "ts": 1790923517,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 254721293,
    "image": "https://basket-16.wbbasket.ru/vol2547/part254721/254721293/images/big/1.webp",
    "title": "Цикорий натуральный растворимый с ароматом Капучино 3 шт",
@@ -8581,20 +8595,6 @@
    "cat": "блузка женская",
    "ts": 1789714347,
    "drop": 0
-  },
-  {
-   "pid": 70036853,
-   "image": "https://basket-04.wbbasket.ru/vol700/part70036/70036853/images/big/1.webp",
-   "title": "Рубашка медицинская",
-   "discount": 0,
-   "price": 837,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/70036853/detail.aspx",
-   "query": "Спецодежда медицинская",
-   "cat": "Спецодежда медицинская",
-   "ts": 1790923517,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8623,14 +8623,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8729,7 +8729,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 13,
+  "queue_size": 17,
   "last_scan_added": 5,
   "last_scan_funnel": {
    "found": 501,

@@ -2971,6 +2971,20 @@
  },
  "recent": [
   {
+   "pid": 1274675180,
+   "image": "https://basket-45.wbbasket.ru/vol12746/part1274675/1274675180/images/big/1.webp",
+   "title": "Кеды демисезонные спортивные на высокой платформе",
+   "discount": 0,
+   "price": 624,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/1274675180/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790931443,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 143076017,
    "image": "https://basket-10.wbbasket.ru/vol1430/part143076/143076017/images/big/1.webp",
    "title": "Крем для лица дневной, 55+",
@@ -8678,20 +8692,6 @@
    "cat": "украшения женские",
    "ts": 1789722245,
    "drop": 1
-  },
-  {
-   "pid": 1274675180,
-   "image": "https://basket-45.wbbasket.ru/vol12746/part1274675/1274675180/images/big/1.webp",
-   "title": "Кеды демисезонные спортивные на высокой платформе",
-   "discount": 0,
-   "price": 624,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/1274675180/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790931443,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8720,14 +8720,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 38,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 19,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8826,7 +8826,7 @@
    "Творчество",
    "Аптечная косметика"
   ],
-  "queue_size": 15,
+  "queue_size": 20,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 501,

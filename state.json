@@ -2925,6 +2925,20 @@
  },
  "recent": [
   {
+   "pid": 440453737,
+   "image": "https://basket-25.wbbasket.ru/vol4404/part440453/440453737/images/big/1.webp",
+   "title": "Футболка женская желтая",
+   "discount": 0,
+   "price": 758,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/440453737/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1790920311,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1129080597,
    "image": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/images/big/1.webp",
    "title": "Юбка шорты женские летние",
@@ -8542,33 +8556,6 @@
    "ts": 1789711440,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 248091474,
-   "title": "оверсайз футболка серая",
-   "discount": 0,
-   "price": 383,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/248091474/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1789710754,
-   "drop": 0,
-   "quality": "B"
-  },
-  {
-   "pid": 440453737,
-   "image": "https://basket-25.wbbasket.ru/vol4404/part440453/440453737/images/big/1.webp",
-   "title": "Футболка женская желтая",
-   "discount": 0,
-   "price": 758,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/440453737/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1790920311,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8597,14 +8584,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 46,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8703,7 +8690,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 17,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 501,
@@ -8749,7 +8736,6 @@
   "футболкасвободнаяоднотоннаябазоваяизхлопка": 1789971043,
   "футболкабазоваяспринтом": 1790741074,
   "футболкабазоваябольшихразмеров": 1790760054,
-  "оверсайзфутболкасерая": 1789710754,
   "платьелетнеекороткое": 1789711440,
   "сумкаведроженскаянаплечоиззамши": 1789712077,
   "футболкабазоваяспринтомженскаямужская": 1789712702,

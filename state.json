@@ -2946,6 +2946,20 @@
  },
  "recent": [
   {
+   "pid": 209756932,
+   "image": "https://basket-14.wbbasket.ru/vol2097/part209756/209756932/images/big/1.webp",
+   "title": "Цикорий Московский порошкообразный 100 гр",
+   "discount": 0,
+   "price": 92,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/209756932/detail.aspx",
+   "query": "Кофе и цикорий",
+   "cat": "Кофе и цикорий",
+   "ts": 1790924202,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 70036853,
    "image": "https://basket-04.wbbasket.ru/vol700/part70036/70036853/images/big/1.webp",
    "title": "Рубашка медицинская",
@@ -8584,20 +8598,6 @@
    "cat": "блузка женская",
    "ts": 1789715161,
    "drop": 0
-  },
-  {
-   "pid": 209756932,
-   "image": "https://basket-14.wbbasket.ru/vol2097/part209756/209756932/images/big/1.webp",
-   "title": "Цикорий Московский порошкообразный 100 гр",
-   "discount": 0,
-   "price": 92,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/209756932/detail.aspx",
-   "query": "Кофе и цикорий",
-   "cat": "Кофе и цикорий",
-   "ts": 1790924202,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8626,14 +8626,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 46,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8732,7 +8732,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 12,
+  "queue_size": 15,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 501,

@@ -3152,9 +3152,23 @@
   }
  },
  "tg": {
-  "offset": 810944966
+  "offset": 810944972
  },
  "recent": [
+  {
+   "pid": 205957120,
+   "image": "https://basket-14.wbbasket.ru/vol2059/part205957/205957120/images/big/1.webp",
+   "title": "Военная техника. 16 демонстр. картинок с текстом",
+   "discount": 0,
+   "price": 377,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/205957120/detail.aspx",
+   "query": "Машины и техника",
+   "cat": "Машины и техника",
+   "ts": 1790950639,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 220467294,
    "image": "https://basket-15.wbbasket.ru/vol2204/part220467/220467294/images/big/1.webp",
@@ -9171,20 +9185,6 @@
    "cat": "футболка женская",
    "ts": 1789747204,
    "drop": 0
-  },
-  {
-   "pid": 205957120,
-   "image": "https://basket-14.wbbasket.ru/vol2059/part205957/205957120/images/big/1.webp",
-   "title": "Военная техника. 16 демонстр. картинок с текстом",
-   "discount": 0,
-   "price": 377,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/205957120/detail.aspx",
-   "query": "Машины и техника",
-   "cat": "Машины и техника",
-   "ts": 1790950639,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9319,7 +9319,7 @@
    "Ширмы",
    "Машины и техника"
   ],
-  "queue_size": 92,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -13944,7 +13944,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790950006
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -14393,7 +14393,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "123b6968c8dcd0c0": 1788358649,
   "e0f0d0707071787e": 1788359297,
   "e3e3c7c35373e3e3": 1788359941,
   "33116062c3838363": 1788360586,

@@ -1856,7 +1856,8 @@
   "1274675180": 1790931443,
   "164922543": 1790932058,
   "169574961": 1790932710,
-  "1006037973": 1790933369
+  "1006037973": 1790933369,
+  "268145955": 1790934003
  },
  "feedback": {
   "1244479817": {
@@ -2524,6 +2525,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790933369.0287123
+  },
+  "Для мам и малышей": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790934003.2873018
   }
  },
  "cat_stats": {
@@ -2967,6 +2975,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790933369.0287156
+  },
+  "Для мам и малышей": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790934003.2873042
   }
  },
  "tg": {
@@ -8686,10 +8701,24 @@
    "cat": "сумка женская",
    "ts": 1789725104,
    "drop": 0
+  },
+  {
+   "pid": 268145955,
+   "image": "https://basket-17.wbbasket.ru/vol2681/part268145/268145955/images/big/1.webp",
+   "title": "Боди для малышей новорожденных Красивая как Мама",
+   "discount": 0,
+   "price": 691,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/268145955/detail.aspx",
+   "query": "Для мам и малышей",
+   "cat": "Для мам и малышей",
+   "ts": 1790934003,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1790933328,
+  "last_run": 1790933985,
   "last_posts": 1,
   "last_queries": [
    "кроссовки мужские",
@@ -8714,14 +8743,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 87,
+   "ok": 49,
+   "rate_limited": 0,
+   "http_error": 38,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 49,
+   "worker_error": 19,
    "direct_ok": 0
   },
   "errors": [
@@ -8807,8 +8836,8 @@
    }
   ],
   "today": "2026-10-02",
-  "today_posts": 66,
-  "total_posts": 1814,
+  "today_posts": 67,
+  "total_posts": 1815,
   "last_scan": 1790933420,
   "last_scan_queries": [
    "Худи",
@@ -8820,7 +8849,7 @@
    "Для мам и малышей",
    "Уход за одеждой"
   ],
-  "queue_size": 100,
+  "queue_size": 99,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -8843,18 +8872,15 @@
    "refresh_strict": 0,
    "refresh_fallback": 0,
    "refresh_reserve": 0,
-   "refresh_missing": 1,
-   "refresh_rejected": 2,
-   "price_changed": 2,
-   "queue_after": 95
+   "queue_after": 99
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790933461.0,
-  "last_scan_attempt": 1790933420,
+  "last_scan_success": 1790933464.0,
+  "last_scan_attempt": 1790933464,
   "last_scan_error": "",
   "scan_page_cursor": 0,
   "discovery_seen": {
@@ -10493,7 +10519,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 1631,
-  "scheduler_last_post": 1790932058
+  "scheduler_last_post": 1790933368
  },
  "admin_ui": {
   "pending": null
@@ -10916,7 +10942,8 @@
   "кедыдемисезонныеспортивныенавысокойплатформе": 1790931443,
   "кремзащитныйпантеноловыйрегенерирующий150мл": 1790932058,
   "бальзаммазьдляран30г": 1790932710,
-  "кремсазелаиновойкислотой20отакнепрыщейигиперпигмен": 1790933369
+  "кремсазелаиновойкислотой20отакнепрыщейигиперпигмен": 1790933369,
+  "бодидлямалышейноворожденныхкрасиваякакмама": 1790934003
  },
  "img_hash": {
   "6766e2f8f1e1e0e0": 1788342479,
@@ -11971,7 +11998,8 @@
   "ffe5686948d2d498": 1790931443,
   "1d9b9b9f9b9b1919": 1790932058,
   "21172e6854525ad0": 1790932710,
-  "69e0b3b333b3f131": 1790933369
+  "69e0b3b333b3f131": 1790933369,
+  "e6e6a2a2b2c6ced8": 1790934003
  },
  "learned": {
   "часы мужские": {
@@ -145908,11 +145936,15 @@
   "235004644": {
    "price": 158,
    "basic": 500,
-   "ts": 1790933331.9089267,
+   "ts": 1790933987.329938,
    "samples": [
     [
      1790931630,
      150
+    ],
+    [
+     1790933987,
+     158
     ]
    ],
    "posted_price": 0,
@@ -146922,11 +146954,15 @@
   "158328098": {
    "price": 207,
    "basic": 442,
-   "ts": 1790933331.9089465,
+   "ts": 1790933987.329957,
    "samples": [
     [
      1790931630,
      188
+    ],
+    [
+     1790933987,
+     207
     ]
    ],
    "posted_price": 0,
@@ -148649,17 +148685,17 @@
    "posted_ts": 0.0
   },
   "268145955": {
-   "price": 640,
+   "price": 691,
    "basic": 2000,
-   "ts": 1790933461.056368,
+   "ts": 1790934003.2872736,
    "samples": [
     [
      1790932816,
      640
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 691,
+   "posted_ts": 1790934003.2872736
   },
   "555251474": {
    "price": 865,
@@ -148792,9 +148828,9 @@
    "posted_ts": 0.0
   },
   "482583142": {
-   "price": 295,
+   "price": 348,
    "basic": 470,
-   "ts": 1790933461.0564368,
+   "ts": 1790933987.329927,
    "samples": [
     [
      1790932816,
@@ -151077,22 +151113,6 @@
   }
  },
  "queue": [
-  {
-   "id": 268145955,
-   "title": "Боди для малышей новорожденных Красивая как Мама",
-   "brand": "KidsTrend",
-   "product": 640,
-   "basic": 640,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 705,
-   "category": "Для мам и малышей",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Для мам и малышей",
-   "queued_ts": 1790933420
-  },
   {
    "id": 482583142,
    "title": "Сказки для малышей",

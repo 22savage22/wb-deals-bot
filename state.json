@@ -3073,6 +3073,20 @@
  },
  "recent": [
   {
+   "pid": 954574390,
+   "image": "https://basket-40.wbbasket.ru/vol9545/part954574/954574390/images/big/1.webp",
+   "title": "Летнее платье-рубашка больших размеров праздничное",
+   "discount": 0,
+   "price": 919,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/954574390/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790942289,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 402621776,
    "image": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/images/big/1.webp",
    "title": "Платье лапша на завязках летнее",
@@ -8955,20 +8969,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 954574390,
-   "image": "https://basket-40.wbbasket.ru/vol9545/part954574/954574390/images/big/1.webp",
-   "title": "Летнее платье-рубашка больших размеров праздничное",
-   "discount": 0,
-   "price": 919,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/954574390/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790942289,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9103,7 +9103,7 @@
    "Другие автоинструменты",
    "Серия Reno"
   ],
-  "queue_size": 96,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1001,
@@ -12141,7 +12141,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2996,
-  "scheduler_last_post": 1790941636
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

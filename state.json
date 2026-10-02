@@ -2545,10 +2545,10 @@
    "ts": 1790935928.1201584
   },
   "Камни для бани": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790936550.3116584
   }
  },
@@ -3009,10 +3009,10 @@
    "ts": 1790935928.12016
   },
   "Камни для бани": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790936550.3116598
   }
  },
@@ -3020,6 +3020,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 13749104,
+   "image": "https://basket-01.wbbasket.ru/vol137/part13749/13749104/images/big/1.webp",
+   "title": "Соль для бани гималайская кусковая крупная",
+   "discount": 0,
+   "price": 763,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/13749104/detail.aspx",
+   "query": "Камни для бани",
+   "cat": "Камни для бани",
+   "ts": 1790936550,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 235004644,
    "image": "https://basket-15.wbbasket.ru/vol2350/part235004/235004644/images/big/1.webp",
@@ -8777,20 +8791,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 13749104,
-   "image": "https://basket-01.wbbasket.ru/vol137/part13749/13749104/images/big/1.webp",
-   "title": "Соль для бани гималайская кусковая крупная",
-   "discount": 0,
-   "price": 763,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/13749104/detail.aspx",
-   "query": "Камни для бани",
-   "cat": "Камни для бани",
-   "ts": 1790936550,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8925,7 +8925,7 @@
    "Венки декоративные",
    "Камни для бани"
   ],
-  "queue_size": 97,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1101,
@@ -11374,7 +11374,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2407,
-  "scheduler_last_post": 1790935928
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

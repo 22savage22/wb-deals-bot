@@ -3071,6 +3071,20 @@
  },
  "recent": [
   {
+   "pid": 264649949,
+   "image": "https://basket-17.wbbasket.ru/vol2646/part264649/264649949/images/big/1.webp",
+   "title": "Набор бисера и бусин для рукоделия и бисероплетения",
+   "discount": 0,
+   "price": 438,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/264649949/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790941001,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 246674757,
    "image": "https://basket-16.wbbasket.ru/vol2466/part246674/246674757/images/big/1.webp",
    "title": "Связанные искушением",
@@ -8925,20 +8939,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 264649949,
-   "image": "https://basket-17.wbbasket.ru/vol2646/part264649/264649949/images/big/1.webp",
-   "title": "Набор бисера и бусин для рукоделия и бисероплетения",
-   "discount": 0,
-   "price": 438,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/264649949/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790941001,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9073,7 +9073,7 @@
    "Серия Reno",
    "Другие автоинструменты"
   ],
-  "queue_size": 90,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1099,
@@ -12111,7 +12111,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2995,
-  "scheduler_last_post": 1790940371
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

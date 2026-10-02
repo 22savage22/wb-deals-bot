@@ -21,6 +21,11 @@ the existing D1, as described in `docs/cloudflare-builds-cron.md`. No temporary
 deployment token is needed for routine operation or automatically managed builds.
 Runtime driver activation remains gated until the real end-to-end check passes.
 
+Workers Builds watch paths must cover `miniapp/*`, `package*.json` and
+`wrangler.jsonc`, not every file: queue/state commits are routine runtime data,
+not application releases. The first backend release can use the verified release
+branch temporarily; switch production back to `main` after its D1 API probe.
+
 Legacy manual setup (NOT the normal update path): tokens are never committed.
 `cloudflare_setup.py` is a one-session loopback
 handoff holding the deployment token only in RAM; stop it after setup. The token

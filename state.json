@@ -9186,14 +9186,14 @@
    "queue_empty_or_invalid": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 26,
+   "ok": 2,
+   "rate_limited": 15,
+   "http_error": 9,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 2,
+   "worker_error": 2,
    "direct_ok": 0
   },
   "errors": [
@@ -9281,7 +9281,7 @@
   "today": "2026-10-02",
   "today_posts": 96,
   "total_posts": 1844,
-  "last_scan": 1790982503,
+  "last_scan": 1790983872,
   "last_scan_queries": [
    "товары для кухни",
    "джинсы женские",
@@ -9289,16 +9289,17 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [
-   "Медиаконвертеры",
-   "Грунты, дренаж, мульча"
+   "Зажимы и закладки",
+   "Одежда и чешки"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 0,
-   "cards": 0,
-   "already_known": 0,
+   "found": 2,
+   "cards": 2,
+   "already_known": 2,
    "new": 0,
+   "bad_price": 2,
    "strict": 0,
    "fallback": 0,
    "reserve": 0
@@ -9319,10 +9320,10 @@
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790981228.0,
-  "last_scan_attempt": 1790982653,
-  "last_scan_error": "WB не вернул товары; очередь сохранена",
-  "scan_page_cursor": 1,
+  "last_scan_success": 1790983996.0,
+  "last_scan_attempt": 1790983872,
+  "last_scan_error": "",
+  "scan_page_cursor": 0,
   "discovery_seen": {
    "1102583808": 1790970463,
    "438738947": 1790970463,
@@ -16084,7 +16085,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "b8f8cccce8c97979": 1788391987,
   "727368f8f0f0f068": 1788393033,
   "6727071f0f0e92dc": 1788394033,
   "711717070f0d0d1d": 1788394684,
@@ -184334,9 +184334,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1790427477.3374805,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790983996.8963306,
+   "runs": 76,
+   "empty": 1
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -184346,9 +184346,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1790429600.8377924,
-   "runs": 75,
-   "empty": 5
+   "ts": 1790983996.8963306,
+   "runs": 76,
+   "empty": 1
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",

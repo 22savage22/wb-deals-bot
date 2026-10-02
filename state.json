@@ -2553,10 +2553,10 @@
    "ts": 1790936550.3116584
   },
   "Венки декоративные": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790937203.2841988
   }
  },
@@ -3024,10 +3024,10 @@
    "ts": 1790936550.3116598
   },
   "Венки декоративные": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790937203.2842002
   }
  },
@@ -3035,6 +3035,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 240032295,
+   "image": "https://basket-15.wbbasket.ru/vol2400/part240032/240032295/images/big/1.webp",
+   "title": "Венок на голову из цветов женский детский",
+   "discount": 0,
+   "price": 777,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/240032295/detail.aspx",
+   "query": "Венки декоративные",
+   "cat": "Венки декоративные",
+   "ts": 1790937203,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 13749104,
    "image": "https://basket-01.wbbasket.ru/vol137/part13749/13749104/images/big/1.webp",
@@ -8806,20 +8820,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 240032295,
-   "image": "https://basket-15.wbbasket.ru/vol2400/part240032/240032295/images/big/1.webp",
-   "title": "Венок на голову из цветов женский детский",
-   "discount": 0,
-   "price": 777,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/240032295/detail.aspx",
-   "query": "Венки декоративные",
-   "cat": "Венки декоративные",
-   "ts": 1790937203,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8954,7 +8954,7 @@
    "Камни для бани",
    "Венки декоративные"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1199,
@@ -11400,7 +11400,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2407,
-  "scheduler_last_post": 1790936550
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

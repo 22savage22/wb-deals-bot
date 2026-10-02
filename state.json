@@ -2950,6 +2950,20 @@
  },
  "recent": [
   {
+   "pid": 1259187328,
+   "image": "https://basket-44.wbbasket.ru/vol12591/part1259187/1259187328/images/big/1.webp",
+   "title": "Куртка медицинская на кнопках",
+   "discount": 0,
+   "price": 966,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1259187328/detail.aspx",
+   "query": "Спецодежда медицинская",
+   "cat": "Спецодежда медицинская",
+   "ts": 1790926797,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 320481668,
    "image": "https://basket-19.wbbasket.ru/vol3204/part320481/320481668/images/big/1.webp",
    "title": "Брюки медицинские универсальные",
@@ -8619,20 +8633,6 @@
    "cat": "футболка мужская",
    "ts": 1789717436,
    "drop": 0
-  },
-  {
-   "pid": 1259187328,
-   "image": "https://basket-44.wbbasket.ru/vol12591/part1259187/1259187328/images/big/1.webp",
-   "title": "Куртка медицинская на кнопках",
-   "discount": 0,
-   "price": 966,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1259187328/detail.aspx",
-   "query": "Спецодежда медицинская",
-   "cat": "Спецодежда медицинская",
-   "ts": 1790926797,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8661,13 +8661,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 64,
-   "ok": 38,
-   "rate_limited": 0,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 38,
+   "worker_ok": 42,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -8767,7 +8767,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 7,
+  "queue_size": 12,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 402,

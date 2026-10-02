@@ -2614,10 +2614,10 @@
    "ts": 1790946151.755744
   },
   "Грунты для растений": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790948749.7503605
   }
  },
@@ -3127,10 +3127,10 @@
    "ts": 1790946151.7557452
   },
   "Грунты для растений": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790948749.7503626
   }
  },
@@ -3138,6 +3138,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 879876773,
+   "image": "https://basket-39.wbbasket.ru/vol8798/part879876/879876773/images/big/1.webp",
+   "title": "Грунт для Тропических растений 1л готовый лайт",
+   "discount": 0,
+   "price": 213,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/879876773/detail.aspx",
+   "query": "Грунты для растений",
+   "cat": "Грунты для растений",
+   "ts": 1790948749,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 415941058,
    "image": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/images/big/1.webp",
@@ -9137,20 +9151,6 @@
    "cat": "блузка женская",
    "ts": 1789739516,
    "drop": 0
-  },
-  {
-   "pid": 879876773,
-   "image": "https://basket-39.wbbasket.ru/vol8798/part879876/879876773/images/big/1.webp",
-   "title": "Грунт для Тропических растений 1л готовый лайт",
-   "discount": 0,
-   "price": 213,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/879876773/detail.aspx",
-   "query": "Грунты для растений",
-   "cat": "Грунты для растений",
-   "ts": 1790948749,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9179,14 +9179,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 13,
-   "rate_limited": 0,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 13,
-   "worker_error": 4,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -9285,7 +9285,7 @@
    "Грунты для растений",
    "Для нервной системы"
   ],
-  "queue_size": 92,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -13510,7 +13510,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4182,
-  "scheduler_last_post": 1790948099
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

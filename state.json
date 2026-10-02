@@ -1881,7 +1881,8 @@
   "17775207": 1790946796,
   "1507944909": 1790947464,
   "415941058": 1790948099,
-  "879876773": 1790948749
+  "879876773": 1790948749,
+  "83280243": 1790949372
  },
  "feedback": {
   "1244479817": {
@@ -2619,6 +2620,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790948749.7503605
+  },
+  "Машины и техника": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790949372.277781
   }
  },
  "cat_stats": {
@@ -3132,6 +3140,13 @@
    "dislikes": 0.0,
    "bought": 0.0,
    "ts": 1790948749.7503626
+  },
+  "Машины и техника": {
+   "posts": 1,
+   "likes": 0,
+   "dislikes": 0,
+   "bought": 0,
+   "ts": 1790949372.2777827
   }
  },
  "tg": {
@@ -9139,10 +9154,24 @@
    "ts": 1789740207,
    "drop": 0,
    "quality": "B"
+  },
+  {
+   "pid": 83280243,
+   "image": "https://basket-05.wbbasket.ru/vol832/part83280/83280243/images/big/1.webp",
+   "title": "Плакат на стену Правила пожарной безопасности в школу, А2",
+   "discount": 0,
+   "price": 201,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/83280243/detail.aspx",
+   "query": "Машины и техника",
+   "cat": "Машины и техника",
+   "ts": 1790949372,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1790948701,
+  "last_run": 1790949352,
   "last_posts": 1,
   "last_queries": [
    "кроссовки мужские",
@@ -9167,14 +9196,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 21,
+   "ok": 13,
+   "rate_limited": 0,
+   "http_error": 8,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 13,
+   "worker_error": 4,
    "direct_ok": 0
   },
   "errors": [
@@ -9260,8 +9289,8 @@
    }
   ],
   "today": "2026-10-02",
-  "today_posts": 90,
-  "total_posts": 1838,
+  "today_posts": 91,
+  "total_posts": 1839,
   "last_scan": 1790948828,
   "last_scan_queries": [
    "джинсы женские",
@@ -9273,7 +9302,7 @@
    "Ширмы",
    "Машины и техника"
   ],
-  "queue_size": 100,
+  "queue_size": 94,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1002,
@@ -9297,18 +9326,18 @@
    "refresh_strict": 0,
    "refresh_fallback": 0,
    "refresh_reserve": 0,
-   "refresh_rejected": 5,
+   "refresh_rejected": 3,
    "price_changed": 2,
    "refresh_missing": 1,
-   "queue_after": 92
+   "queue_after": 94
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790948869.0,
-  "last_scan_attempt": 1790948828,
+  "last_scan_success": 1790948873.0,
+  "last_scan_attempt": 1790948873,
   "last_scan_error": "",
   "scan_page_cursor": 0,
   "discovery_seen": {
@@ -13898,7 +13927,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790932058
+  "scheduler_last_post": 1790948749
  },
  "admin_ui": {
   "pending": null
@@ -14341,7 +14370,8 @@
   "набордлятворчестваподелкидлядетей": 1790946796,
   "квадратныесерьгигвоздики": 1790947464,
   "юбкачернаямидипрямаяклассическая": 1790948099,
-  "грунтдлятропическихрастений1лготовыйлайт": 1790948749
+  "грунтдлятропическихрастений1лготовыйлайт": 1790948749,
+  "плакатнастенуправилапожарнойбезопасностившколуа2": 1790949372
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
@@ -15402,7 +15432,8 @@
   "a7cc6cfcb4d792b9": 1790946796,
   "c06169d938ecc141": 1790947464,
   "67e3e3e163616161": 1790948099,
-  "393d3f3b133b9985": 1790948749
+  "393d3f3b133b9985": 1790948749,
+  "1f1fb8787aa6c400": 1790949372
  },
  "learned": {
   "часы мужские": {
@@ -84168,7 +84199,7 @@
   "1113687154": {
    "price": 623,
    "basic": 2599,
-   "ts": 1790948705.38166,
+   "ts": 1790949353.7160833,
    "samples": [
     [
      1790934766,
@@ -109242,7 +109273,7 @@
   "1138890506": {
    "price": 431,
    "basic": 1068,
-   "ts": 1790948706.0731797,
+   "ts": 1790949354.6174903,
    "samples": [
     [
      1790934766,
@@ -149534,12 +149565,8 @@
   "1282297024": {
    "price": 949,
    "basic": 1665,
-   "ts": 1790946775.4719048,
+   "ts": 1790949354.61753,
    "samples": [
-    [
-     1790931630,
-     815
-    ],
     [
      1790933461,
      815
@@ -149562,6 +149589,10 @@
     ],
     [
      1790946141,
+     949
+    ],
+    [
+     1790949354,
      949
     ]
    ],
@@ -170679,17 +170710,17 @@
    "posted_ts": 0.0
   },
   "83280243": {
-   "price": 183,
-   "basic": 531,
-   "ts": 1790948869.174067,
+   "price": 201,
+   "basic": 544,
+   "ts": 1790949372.2777584,
    "samples": [
     [
      1790948869,
      183
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 201,
+   "posted_ts": 1790949372.2777584
   },
   "879571069": {
    "price": 260,
@@ -172638,22 +172669,6 @@
   }
  },
  "queue": [
-  {
-   "id": 83280243,
-   "title": "Плакат на стену Правила пожарной безопасности в школу, А2",
-   "brand": "ТМ праздник",
-   "product": 183,
-   "basic": 183,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 639,
-   "category": "Машины и техника",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Машины и техника",
-   "queued_ts": 1790948828
-  },
   {
    "id": 178799047,
    "title": "Грунт для Хвойных 50л",

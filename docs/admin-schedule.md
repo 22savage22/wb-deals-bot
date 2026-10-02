@@ -46,10 +46,10 @@ D1 lease сериализует автопостинг и ручные публ�
    публикации/поиск. Не считать локальные тесты подтверждением production.
 
 Изменение расписания через админку не требует commit, deploy, правок YAML/.env.
+
 # Cloudflare transition
 
 The normal deployment/clock target is now described in
 `cloudflare-builds-cron.md`: official Workers Builds, a native minute Cron and
-existing D1, with bounded Python execution jobs. The legacy runner below stays
+existing D1, with bounded Python execution jobs. The legacy runner above stays
 available for recovery until the managed path passes its live end-to-end gate.
-

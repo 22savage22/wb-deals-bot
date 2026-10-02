@@ -32,7 +32,11 @@ jobs:
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
           WB_SCHEDULER_ENABLED: "1"
+          WB_MIN_DISCOUNT: "50"
+          WB_MIN_RATING: "4.3"
           WB_MAX_POSTS: "1"
+          WB_ACTIVE_HOUR_START: "0"
+          WB_ACTIVE_HOUR_END: "23"
           WB_QUEUE_TARGET: "100"
           WB_QUEUE_MAX_AGE_HOURS: "72"
           GITHUB_TOKEN: ${{ github.token }}

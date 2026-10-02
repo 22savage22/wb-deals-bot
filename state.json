@@ -2893,6 +2893,20 @@
  },
  "recent": [
   {
+   "pid": 1094611075,
+   "image": "https://basket-42.wbbasket.ru/vol10946/part1094611/1094611075/images/big/1.webp",
+   "title": "Колье длинное из жемчуга бусы многослойные на шею",
+   "discount": 0,
+   "price": 741,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/1094611075/detail.aspx",
+   "query": "украшения женские",
+   "cat": "украшения женские",
+   "ts": 1790908534,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 1141466648,
    "image": "https://basket-43.wbbasket.ru/vol11414/part1141466/1141466648/images/big/1.webp",
    "title": "Самоиспытание христианина",
@@ -8309,20 +8323,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 1094611075,
-   "image": "https://basket-42.wbbasket.ru/vol10946/part1094611/1094611075/images/big/1.webp",
-   "title": "Колье длинное из жемчуга бусы многослойные на шею",
-   "discount": 0,
-   "price": 741,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/1094611075/detail.aspx",
-   "query": "украшения женские",
-   "cat": "украшения женские",
-   "ts": 1790908534,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8351,14 +8351,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 66,
+   "calls": 69,
    "ok": 42,
-   "rate_limited": 0,
-   "http_error": 24,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
    "worker_ok": 42,
-   "worker_error": 12,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8457,7 +8457,7 @@
    "Кофе и цикорий",
    "Пуфы"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 501,
@@ -8485,7 +8485,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

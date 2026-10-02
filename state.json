@@ -9186,14 +9186,14 @@
    "queue_empty_or_invalid": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 30,
+   "ok": 1,
+   "rate_limited": 19,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 1,
+   "worker_error": 2,
    "direct_ok": 0
   },
   "errors": [
@@ -9281,7 +9281,7 @@
   "today": "2026-10-02",
   "today_posts": 96,
   "total_posts": 1844,
-  "last_scan": 1790983872,
+  "last_scan": 1790985258,
   "last_scan_queries": [
    "товары для кухни",
    "джинсы женские",
@@ -9289,20 +9289,22 @@
    "кроссовки мужские"
   ],
   "last_scan_cats": [
-   "Зажимы и закладки",
-   "Одежда и чешки"
+   "Одежда и чешки",
+   "Зажимы и закладки"
   ],
   "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 2,
-   "cards": 2,
-   "already_known": 2,
+   "found": 100,
+   "cards": 100,
+   "already_known": 100,
    "new": 0,
-   "bad_price": 2,
+   "max_price": 97,
+   "ok": 3,
    "strict": 0,
-   "fallback": 0,
-   "reserve": 0
+   "fallback": 3,
+   "reserve": 0,
+   "duplicate": 3
   },
   "last_queue": {
    "queue_before": 100,
@@ -9320,10 +9322,10 @@
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790983999.0,
-  "last_scan_attempt": 1790983999,
+  "last_scan_success": 1790985420.0,
+  "last_scan_attempt": 1790985258,
   "last_scan_error": "",
-  "scan_page_cursor": 0,
+  "scan_page_cursor": 1,
   "discovery_seen": {
    "1102583808": 1790970463,
    "438738947": 1790970463,
@@ -53113,12 +53115,8 @@
   "1009806138": {
    "price": 967,
    "basic": 3714,
-   "ts": 1790975599.6102917,
+   "ts": 1790985420.1377163,
    "samples": [
-    [
-     1790960196,
-     967
-    ],
     [
      1790962744,
      967
@@ -53141,6 +53139,10 @@
     ],
     [
      1790975599,
+     967
+    ],
+    [
+     1790985420,
      967
     ]
    ],
@@ -53287,12 +53289,8 @@
   "1113903586": {
    "price": 967,
    "basic": 3714,
-   "ts": 1790975599.6105468,
+   "ts": 1790985420.1380913,
    "samples": [
-    [
-     1790960196,
-     967
-    ],
     [
      1790962744,
      967
@@ -53315,6 +53313,10 @@
     ],
     [
      1790975599,
+     967
+    ],
+    [
+     1790985420,
      967
     ]
    ],
@@ -53379,12 +53381,8 @@
   "1213989589": {
    "price": 792,
    "basic": 3170,
-   "ts": 1790975599.6104848,
+   "ts": 1790985420.1380014,
    "samples": [
-    [
-     1790960196,
-     792
-    ],
     [
      1790962744,
      792
@@ -53407,6 +53405,10 @@
     ],
     [
      1790975599,
+     792
+    ],
+    [
+     1790985420,
      792
     ]
    ],
@@ -184333,9 +184335,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1790983996.8963306,
-   "runs": 76,
-   "empty": 1
+   "ts": 1790985420.1621056,
+   "runs": 77,
+   "empty": 2
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -184345,9 +184347,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1790983996.8963306,
-   "runs": 76,
-   "empty": 1
+   "ts": 1790985420.1621056,
+   "runs": 77,
+   "empty": 2
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",

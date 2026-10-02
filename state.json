@@ -1853,7 +1853,8 @@
   "211358030": 1790929426,
   "1274642090": 1790930158,
   "143076017": 1790930782,
-  "1274675180": 1790931443
+  "1274675180": 1790931443,
+  "164922543": 1790932058
  },
  "feedback": {
   "1244479817": {
@@ -2516,11 +2517,11 @@
    "ts": 1790926797.3822408
   },
   "Аптечная косметика": {
-   "posts": 3.9927211477285405,
+   "posts": 4.986512622722154,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1790930782.6548445
+   "ts": 1790932058.7797558
   }
  },
  "cat_stats": {
@@ -2959,11 +2960,11 @@
    "ts": 1790926797.3822463
   },
   "Аптечная косметика": {
-   "posts": 3.992721147692297,
+   "posts": 4.986512622665105,
    "likes": 0.0,
    "dislikes": 0.0,
    "bought": 0.0,
-   "ts": 1790930782.6548493
+   "ts": 1790932058.7797608
   }
  },
  "tg": {
@@ -8680,10 +8681,24 @@
    "ts": 1789722959,
    "drop": 0,
    "quality": "B"
+  },
+  {
+   "pid": 164922543,
+   "image": "https://basket-11.wbbasket.ru/vol1649/part164922/164922543/images/big/1.webp",
+   "title": "Крем защитный Пантеноловый регенерирующий 150 мл",
+   "discount": 0,
+   "price": 177,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/164922543/detail.aspx",
+   "query": "Аптечная косметика",
+   "cat": "Аптечная косметика",
+   "ts": 1790932058,
+   "drop": 0,
+   "quality": "B"
   }
  ],
  "meta": {
-  "last_run": 1790931390,
+  "last_run": 1790932044,
   "last_posts": 1,
   "last_queries": [
    "кроссовки мужские",
@@ -8708,14 +8723,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 87,
+   "ok": 49,
+   "rate_limited": 0,
+   "http_error": 38,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 49,
+   "worker_error": 19,
    "direct_ok": 0
   },
   "errors": [
@@ -8801,8 +8816,8 @@
    }
   ],
   "today": "2026-10-02",
-  "today_posts": 63,
-  "total_posts": 1811,
+  "today_posts": 64,
+  "total_posts": 1812,
   "last_scan": 1790931577,
   "last_scan_queries": [
    "кроссовки мужские",
@@ -8814,7 +8829,7 @@
    "Творчество",
    "Аптечная косметика"
   ],
-  "queue_size": 100,
+  "queue_size": 98,
   "last_scan_added": 83,
   "last_scan_funnel": {
    "found": 1199,
@@ -8832,24 +8847,21 @@
    "title_duplicate": 11
   },
   "last_queue": {
-   "queue_before": 18,
+   "queue_before": 100,
    "selected": 1,
-   "refresh_bad_price": 4,
-   "refresh_ok": 13,
    "refresh_strict": 0,
-   "refresh_fallback": 13,
+   "refresh_fallback": 0,
    "refresh_reserve": 0,
-   "refresh_missing": 1,
-   "refresh_rejected": 2,
-   "queue_after": 15
+   "refresh_rejected": 1,
+   "queue_after": 98
   },
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790931630.0,
-  "last_scan_attempt": 1790931577,
+  "last_scan_success": 1790931634.0,
+  "last_scan_attempt": 1790931634,
   "last_scan_error": "",
   "scan_page_cursor": 1,
   "discovery_seen": {
@@ -10434,7 +10446,8 @@
   "ксикрем100мл": 1790929426,
   "кедыдемисезонныеспортивныекроссовкинавысокойплатформе": 1790930158,
   "кремдлялицадневной55": 1790930782,
-  "кедыдемисезонныеспортивныенавысокойплатформе": 1790931443
+  "кедыдемисезонныеспортивныенавысокойплатформе": 1790931443,
+  "кремзащитныйпантеноловыйрегенерирующий150мл": 1790932058
  },
  "img_hash": {
   "b2f0f8f0f1f9b8f8": 1788340582,
@@ -11487,7 +11500,8 @@
   "f8ccccc4c4c4c4c4": 1790929426,
   "ff6128694a82ac39": 1790930158,
   "9e9a1b1b1a1a5268": 1790930782,
-  "ffe5686948d2d498": 1790931443
+  "ffe5686948d2d498": 1790931443,
+  "1d9b9b9f9b9b1919": 1790932058
  },
  "learned": {
   "часы мужские": {
@@ -143961,9 +143975,9 @@
    "posted_ts": 0.0
   },
   "247389322": {
-   "price": 572,
+   "price": 607,
    "basic": 1001,
-   "ts": 1790931630.5480163,
+   "ts": 1790932046.0218627,
    "samples": [
     [
      1790927595,
@@ -145758,9 +145772,9 @@
    "posted_ts": 0.0
   },
   "169574961": {
-   "price": 325,
-   "basic": 980,
-   "ts": 1790931630.5496187,
+   "price": 342,
+   "basic": 982,
+   "ts": 1790932046.0218246,
    "samples": [
     [
      1790931630,
@@ -145940,17 +145954,17 @@
    "posted_ts": 0.0
   },
   "164922543": {
-   "price": 175,
+   "price": 177,
    "basic": 850,
-   "ts": 1790931630.5498424,
+   "ts": 1790932058.7797163,
    "samples": [
     [
      1790931630,
      175
     ]
    ],
-   "posted_price": 0,
-   "posted_ts": 0.0
+   "posted_price": 177,
+   "posted_ts": 1790932058.7797163
   },
   "204315772": {
    "price": 251,
@@ -146252,9 +146266,9 @@
    "posted_ts": 0.0
   },
   "158328098": {
-   "price": 188,
+   "price": 207,
    "basic": 442,
-   "ts": 1790931630.5500274,
+   "ts": 1790932046.0218375,
    "samples": [
     [
      1790931630,
@@ -147370,22 +147384,6 @@
    "selection_mode": "good_price",
    "quality": "B",
    "query": "Худи",
-   "queued_ts": 1790931577
-  },
-  {
-   "id": 164922543,
-   "title": "Крем защитный Пантеноловый регенерирующий 150 мл",
-   "brand": "ПКК ВЕСНА",
-   "product": 175,
-   "basic": 175,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 848,
-   "category": "Аптечная косметика",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Аптечная косметика",
    "queued_ts": 1790931577
   },
   {
@@ -148875,6 +148873,22 @@
    "quality": "B",
    "query": "Творчество",
    "queued_ts": 1790929246
+  },
+  {
+   "id": 1023816536,
+   "title": "Серьги кольца медицинский сплав с камнем",
+   "brand": "ZETRION",
+   "product": 632,
+   "basic": 632,
+   "discount": 0,
+   "benefit": 0,
+   "rating": 5.0,
+   "feedbacks": 24,
+   "category": "украшения женские",
+   "selection_mode": "good_price",
+   "quality": "B",
+   "query": "украшения женские",
+   "queued_ts": 1790919689
   }
  ]
 }

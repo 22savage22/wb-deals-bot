@@ -2991,6 +2991,20 @@
  },
  "recent": [
   {
+   "pid": 1274722797,
+   "image": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/images/big/1.webp",
+   "title": "Кеды демисезонные спортивные",
+   "discount": 0,
+   "price": 456,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1274722797/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790935295,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 182681880,
    "image": "https://basket-12.wbbasket.ru/vol1826/part182681/182681880/images/big/1.webp",
    "title": "Крем для лица Tolk pharm 40 мл Гиалурон",
@@ -8719,20 +8733,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 1274722797,
-   "image": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/images/big/1.webp",
-   "title": "Кеды демисезонные спортивные",
-   "discount": 0,
-   "price": 456,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1274722797/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790935295,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8867,7 +8867,7 @@
    "Уход за одеждой",
    "Для мам и малышей"
   ],
-  "queue_size": 97,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1001,
@@ -10739,7 +10739,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 1830,
-  "scheduler_last_post": 1790934645
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

@@ -3155,6 +3155,20 @@
  },
  "recent": [
   {
+   "pid": 220467294,
+   "image": "https://basket-15.wbbasket.ru/vol2204/part220467/220467294/images/big/1.webp",
+   "title": "Набор для творчества для девочек и мальчиков шитье игрушки",
+   "discount": 0,
+   "price": 747,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/220467294/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790950006,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 83280243,
    "image": "https://basket-05.wbbasket.ru/vol832/part83280/83280243/images/big/1.webp",
    "title": "Плакат на стену Правила пожарной безопасности в школу, А2",
@@ -9156,20 +9170,6 @@
    "cat": "футболка женская",
    "ts": 1789747204,
    "drop": 0
-  },
-  {
-   "pid": 220467294,
-   "image": "https://basket-15.wbbasket.ru/vol2204/part220467/220467294/images/big/1.webp",
-   "title": "Набор для творчества для девочек и мальчиков шитье игрушки",
-   "discount": 0,
-   "price": 747,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/220467294/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790950006,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9304,7 +9304,7 @@
    "Ширмы",
    "Машины и техника"
   ],
-  "queue_size": 87,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1001,
@@ -13929,7 +13929,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 4582,
-  "scheduler_last_post": 1790949372
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -14377,7 +14377,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "9712256d6cfcf0e2": 1788358013,
   "123b6968c8dcd0c0": 1788358649,
   "e0f0d0707071787e": 1788359297,
   "e3e3c7c35373e3e3": 1788359941,

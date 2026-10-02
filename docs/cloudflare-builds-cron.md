@@ -1,0 +1,74 @@
+# Managed deployment and a permanent Cloudflare clock
+
+## Selected design
+
+GitHub main → official Workers Builds → existing `wb-finds-miniapp` Worker.
+One native Cron Trigger (`* * * * *`, UTC) reads the existing D1 scheduler settings.
+Posting/search intervals, quiet hours, days, pause and limits are admin settings,
+not Cron edits. The original protected WB source Worker is unchanged.
+
+To avoid rewriting the verified Python selection/filtering/reaction pipeline,
+the clock dispatches bounded `post-once.yml` and `scanner.yml` execution jobs.
+GitHub executes work; it is no longer the primary clock or a self-restarting
+50-minute process. GitHub startup latency still means approximate timing, not a
+hard guarantee of a post at an exact minute. The runner rereads D1 and checks
+claims/quiet hours/limits immediately before sending. The publishing queue and
+history retain the established merge/deduplication path.
+
+## Why these components
+
+- Workers Builds: official Git integration and automatically created build auth.
+  No user-maintained temporary deployment key. Its automatically generated token
+  has broad default permissions: review/narrow unused KV/R2/routes permissions.
+- Native Cron Triggers: managed clock, no polling daemon, Redis or BullMQ.
+- Existing D1: atomic dispatch/execution leases, settings and successful-post
+  ledger. No replacement database or in-memory-only settings.
+- Cloudflare Queues/Workflows and cron-parser were reviewed. No new queue is
+  necessary for two existing jobs. Existing tested Python scheduling already
+  handles IANA/DST, exact times and jitter; keep it authoritative rather than
+  introducing a second calendar library. Worker does only a conservative dispatch
+  decision; it never sends Telegram posts itself.
+- Free Worker CPU limit is 10ms, 50 subrequests/invocation. Keep catalogue batches
+  in existing runners. No paid plan or new server is provisioned.
+
+## Connect the existing Worker
+
+1. Settings → Builds → GitHub: official Cloudflare Workers and Pages app, select
+   ONLY `22savage22/wb-deals-bot`. Owner approves Install & Authorize.
+2. Repository root `/`, production branch `main`; build `npm run build`, deploy
+   `npx wrangler deploy`; use Cloudflare-managed build authentication. Disable
+   non-production builds (do not let feature branches deploy to the same D1).
+3. Wrangler pins the existing account, Worker name and exact D1 ID; `keep_vars`
+   preserves dashboard variables and encrypted Worker secrets are not deleted.
+   Build copies only three public frontend files, never Python files/secrets.
+   No D1 delete, reset, remote migration or bootstrap credential rotation.
+
+## Runtime authentication is separate
+
+Cloudflare deployment tokens are NOT runtime credentials. Existing bot tokens,
+WB_SOURCE_KEY and MINIAPP_SYNC_KEY remain in their current secrets stores.
+The dispatch adapter needs `GITHUB_DISPATCH_TOKEN` in Worker Secrets: repository-
+restricted GitHub token with Actions read/write. It is not a Cloudflare token.
+Never embed any value in Wrangler config, source, logs, notes or commit history.
+Do not silently give the Worker all-repository GitHub access.
+
+## Safe activation (not yet claimed live)
+
+- Deploy/verify builds and D1 API with the Worker driver unset (fail-closed).
+- Merge verified code only after backend is ready; leave working legacy Actions
+  enabled until the new path passes a safe preview and production cycle.
+- Add runtime dispatch secret through the secret UI; activate Worker variable
+  `SCHEDULER_DRIVER=cloudflare`. Cron propagation can take up to 15 minutes.
+- Set repository variable `SCHEDULER_DRIVER=cloudflare` to disable the legacy
+  deals loop. Existing active runs must finish or be safely stopped; shared
+  `wb-deals` concurrency and D1 product claims protect transition overlap.
+- Confirm Cron event, accepted dispatch, new WB results, queue insertion, real
+  Telegram success and subsequent automatic cycles. Do not call this complete
+  on the strength of unit tests alone.
+- Recovery: unset the Worker driver, revert the repository driver variable;
+  preserve D1 and all existing secrets. Do not run old bootstrap deploy scripts.
+
+Source docs: https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
+https://developers.cloudflare.com/workers/configuration/cron-triggers/
+https://developers.cloudflare.com/workers/platform/limits/
+https://developers.cloudflare.com/workers/wrangler/configuration/

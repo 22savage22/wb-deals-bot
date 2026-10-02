@@ -54,7 +54,7 @@ def sync_git():
     # Writing them here would leave unrelated dirty files and prevent rebase.
 
 
-def tick(forced_request=None):
+def tick(forced_request=None, dispatch_search=True):
     settings = config.load_settings()
     client.refresh(settings)
     config.apply(settings)
@@ -84,7 +84,7 @@ def tick(forced_request=None):
     search_request = settings.get('schedule_search_request')
     manual_search = bool(search_request and ('search', search_request) not in consumed)
     scan_due = manual_search or scheduling.search_due(settings, data, len(data['queue']))
-    if scan_due and not snapshot.get('scan_running'):
+    if dispatch_search and scan_due and not snapshot.get('scan_running'):
         dispatch_if_idle('scanner.yml')
     schedule = scheduling.normalize(settings)
     now = int(time.time())
@@ -116,6 +116,10 @@ def main():
     if not client.enabled():
         raise RuntimeError('WB_SCHEDULER_ENABLED must be enabled explicitly')
     forced = ('dispatch-' + os.getenv('GITHUB_RUN_ID', str(int(time.time())))) if config.FORCE_POST else None
+    if '--once' in sys.argv:
+        sync_git()
+        tick(forced, dispatch_search=False)
+        return
     deadline = time.monotonic() + int(os.getenv('WB_SCHEDULER_SECONDS', '3000'))
     last_sync = 0
     while time.monotonic() < deadline:

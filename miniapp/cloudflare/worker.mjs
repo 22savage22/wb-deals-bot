@@ -1,6 +1,7 @@
 import {telegramUser,equal} from './auth.mjs';
 import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
 import {schedulerRoute} from './scheduler_api.mjs';
+import {scheduledTick} from './cron_driver.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -156,6 +157,7 @@ async function route(request,env,ctx) {
   fail(404,'Не найдено');
 }
 export default {
+  async scheduled(controller,env){return scheduledTick(env,controller.scheduledTime);},
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
     let response;
     try {response=await route(request,env,ctx);} catch(error) {

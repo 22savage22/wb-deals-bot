@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   deals:
+    if: vars.SCHEDULER_DRIVER != 'cloudflare'
     runs-on: ubuntu-latest
     timeout-minutes: 58
     steps:

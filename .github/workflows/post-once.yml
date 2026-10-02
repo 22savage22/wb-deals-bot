@@ -1,0 +1,38 @@
+name: WB Single Publication
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: wb-deals
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: One queue-only publication, persistent settings and claims
+        run: python scheduler.py --once
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          TG_ADMIN_ID: ${{ secrets.TG_ADMIN_ID }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
+          MINIAPP_ENABLED: ${{ vars.MINIAPP_ENABLED }}
+          MINIAPP_BOT_USERNAME: ${{ vars.MINIAPP_BOT_USERNAME }}
+          MINIAPP_LINK_MODE: ${{ vars.MINIAPP_LINK_MODE }}
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+          WB_SCHEDULER_ENABLED: "1"
+          WB_MAX_POSTS: "1"
+          WB_QUEUE_TARGET: "100"
+          WB_QUEUE_MAX_AGE_HOURS: "72"
+          GITHUB_TOKEN: ${{ github.token }}

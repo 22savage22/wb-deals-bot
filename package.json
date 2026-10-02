@@ -1,0 +1,12 @@
+{
+  "name": "wb-finds-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node miniapp/cloudflare/prepare-assets.mjs",
+    "test:worker": "node --test miniapp/cloudflare/*.test.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "check:deploy": "npm run build && wrangler deploy --dry-run --outdir .test-temp/worker-build"
+  },
+  "devDependencies": {"wrangler": "4.146.0"}
+}

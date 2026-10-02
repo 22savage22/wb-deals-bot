@@ -16,7 +16,13 @@ Workers plan, custom domain, external AI, or payment service is required.
 - Secret bindings: `MINIAPP_BOT_TOKEN`, `MINIAPP_SYNC_KEY`, `MINIAPP_WEBHOOK_SECRET`.
 - Plain bindings: `MINIAPP_BOT_USERNAME`, `MINIAPP_ADMIN_ID`.
 
-Tokens are never committed. `cloudflare_setup.py` is a one-session loopback
+Production updates should use official Workers Builds, native Cron Triggers and
+the existing D1, as described in `docs/cloudflare-builds-cron.md`. No temporary
+deployment token is needed for routine operation or automatically managed builds.
+Runtime driver activation remains gated until the real end-to-end check passes.
+
+Legacy manual setup (NOT the normal update path): tokens are never committed.
+`cloudflare_setup.py` is a one-session loopback
 handoff holding the deployment token only in RAM; stop it after setup. The token
 needs Workers Scripts Edit and D1 Edit for the selected account only, and can
 expire/revoke without stopping runtime traffic. Updates later require a new

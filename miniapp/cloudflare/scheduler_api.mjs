@@ -29,6 +29,11 @@ const schemas=[
   'CREATE TABLE IF NOT EXISTS scheduler_runtime (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL)',
   'CREATE INDEX IF NOT EXISTS scheduler_posts_time ON scheduler_posts(ts)'
 ];
+export async function ensureScheduler(env){
+  const q=(sql,...args)=>env.DB.prepare(sql).bind(...args);
+  await env.DB.batch(schemas.map(sql=>q(sql)));
+  await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
+}
 function dayAt(ts,zone){return new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(ts*1000));}
 function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
 const text=(v,max=120)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[\r\n]/.test(v)?v:null;
@@ -39,9 +44,8 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
   const path=new URL(request.url).pathname,method=request.method;
   if(!path.startsWith('/api/scheduler/')&&!path.startsWith('/api/admin/schedule'))return null;
   const q=(sql,...args)=>env.DB.prepare(sql).bind(...args),all=async(sql,...args)=>(await q(sql,...args).all()).results;
-  await env.DB.batch(schemas.map(sql=>q(sql)));
-  await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
-  const config=async()=>{const row=await q('SELECT * FROM scheduler_config WHERE id=1').first();const status=JSON.parse(row.status);return {schedule:JSON.parse(row.data),revision:row.revision,post_request:row.post_request,search_request:row.search_request,status:{...status,heartbeat_stale:!status.heartbeat||seconds()-status.heartbeat>180}};};
+  await ensureScheduler(env);
+  const config=async()=>{const row=await q('SELECT * FROM scheduler_config WHERE id=1').first();const status=JSON.parse(row.status),heartbeat=Math.max(status.heartbeat||0,status.clock_heartbeat||0);return {schedule:JSON.parse(row.data),revision:row.revision,post_request:row.post_request,search_request:row.search_request,status:{...status,heartbeat_stale:!heartbeat||seconds()-heartbeat>180}};};
   const save=async(data)=>{let schedule;try{schedule=validateSchedule(data.schedule);}catch(e){fail(400,e.message);}if(!Number.isInteger(data.revision))fail(400,'Нужна версия настроек');const revision=Math.max(Date.now(),data.revision+1);const r=await q('UPDATE scheduler_config SET data=?,revision=? WHERE id=1 AND revision=?',JSON.stringify(schedule),revision,data.revision).run();if(!r.meta.changes)fail(409,'Настройки уже изменились. Обновите страницу');return config();};
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='GET')return json(await config());
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='PUT')return json(await save(await payload(request)));
@@ -50,7 +54,7 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
     if(['pause','resume'].includes(action)){for(let attempt=0;attempt<3;attempt++){const current=await config();try{return json(await save({schedule:{...current.schedule,paused:action==='pause'},revision:current.revision}));}catch(e){if(e.status!==409||attempt===2)throw e;}}}
     fail(400,'Неизвестное действие');
   }
-  if(path==='/api/scheduler/status'&&method==='PUT'){const data=await payload(request);await q('UPDATE scheduler_config SET status=? WHERE id=1',JSON.stringify(sanitizedStatus(data))).run();return json({ok:true});}
+  if(path==='/api/scheduler/status'&&method==='PUT'){const data=await payload(request),status=sanitizedStatus(data);status.error=safeError(data.error);status.last_scan_error=safeError(data.last_scan_error);await q('UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1',JSON.stringify(status)).run();return json({ok:true});}
   if(path!=='/api/scheduler/runtime'||method!=='POST')fail(405,'Метод не поддерживается');
   const data=await payload(request),now=seconds(),kind=data.kind,owner=text(data.owner);
   const runtime=async()=>JSON.parse((await q('SELECT data FROM scheduler_runtime WHERE id=1').first()).data);

@@ -10,6 +10,13 @@ import scheduling
 
 
 class SchedulerTests(unittest.TestCase):
+    def test_cloudflare_job_exits_after_one_tick_without_search_dispatch_or_sleep(self):
+        with patch.object(scheduler.client, 'enabled', return_value=True), patch.object(scheduler, 'sync_git') as sync, patch.object(scheduler, 'tick') as tick, patch.object(scheduler.time, 'sleep') as sleep, patch.object(sys, 'argv', ['scheduler.py', '--once']):
+            scheduler.main()
+            sync.assert_called_once()
+            tick.assert_called_once()
+            self.assertFalse(tick.call_args.kwargs['dispatch_search'])
+            sleep.assert_not_called()
     def test_dispatch_skips_matching_queued_run_and_excludes_itself(self):
         with patch.dict(os.environ, {'GITHUB_RUN_ID': '1'}), patch.object(scheduler, 'github') as api:
             api.return_value = {'workflow_runs': [{'id': 1, 'status': 'in_progress'}, {'id': 2, 'status': 'queued'}]}

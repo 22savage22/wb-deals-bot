@@ -9340,7 +9340,7 @@
    "Зеркала детские",
    "Литературоведение и публицистика"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1199,
@@ -14947,7 +14947,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 5564,
-  "scheduler_last_post": 1790956164
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

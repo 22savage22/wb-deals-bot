@@ -2565,10 +2565,10 @@
    "ts": 1790937203.2841988
   },
   "Другие автоинструменты": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790939745.1416857
   }
  },
@@ -3043,10 +3043,10 @@
    "ts": 1790937203.2842002
   },
   "Другие автоинструменты": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790939745.1416874
   }
  },
@@ -3054,6 +3054,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 178997267,
+   "image": "https://basket-12.wbbasket.ru/vol1789/part178997/178997267/images/big/1.webp",
+   "title": "Ракель для пленки + нож черный + лезвия 10шт",
+   "discount": 0,
+   "price": 253,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/178997267/detail.aspx",
+   "query": "Другие автоинструменты",
+   "cat": "Другие автоинструменты",
+   "ts": 1790939745,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 331037532,
    "image": "https://basket-20.wbbasket.ru/vol3310/part331037/331037532/images/big/1.webp",
@@ -8881,20 +8895,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 178997267,
-   "image": "https://basket-12.wbbasket.ru/vol1789/part178997/178997267/images/big/1.webp",
-   "title": "Ракель для пленки + нож черный + лезвия 10шт",
-   "discount": 0,
-   "price": 253,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/178997267/detail.aspx",
-   "query": "Другие автоинструменты",
-   "cat": "Другие автоинструменты",
-   "ts": 1790939745,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9029,7 +9029,7 @@
    "Серия Reno",
    "Другие автоинструменты"
   ],
-  "queue_size": 96,
+  "queue_size": 100,
   "last_scan_added": 2,
   "last_scan_funnel": {
    "found": 1099,
@@ -11867,7 +11867,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2795,
-  "scheduler_last_post": 1790939112
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

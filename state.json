@@ -143841,38 +143841,6 @@
    "quality": "B",
    "query": "джинсы женские",
    "queued_ts": 1790766599
-  },
-  {
-   "id": 765080036,
-   "title": "Юбка-шорты мини с рюшечками",
-   "brand": "My Wish Collection",
-   "product": 1489,
-   "basic": 1489,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 1018,
-   "category": "юбка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "юбка женская",
-   "queued_ts": 1790750940
-  },
-  {
-   "id": 409882016,
-   "title": "Ботинки рабочие мужские летние",
-   "brand": "PROMISTRAL",
-   "product": 1280,
-   "basic": 1280,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 4308,
-   "category": "Рабочая обувь",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Рабочая обувь",
-   "queued_ts": 1790750940
   }
  ]
 }

@@ -2919,6 +2919,20 @@
  },
  "recent": [
   {
+   "pid": 137585785,
+   "image": "https://basket-10.wbbasket.ru/vol1375/part137585/137585785/images/big/1.webp",
+   "title": "Футболка летняя с принтом хлопок ткань Турция",
+   "discount": 0,
+   "price": 513,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/137585785/detail.aspx",
+   "query": "футболка женская",
+   "cat": "футболка женская",
+   "ts": 1790916392,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 243244528,
    "image": "https://basket-16.wbbasket.ru/vol2432/part243244/243244528/images/big/1.webp",
    "title": "Цикорий растворимый МКП Нежный и Насыщенный 2 шт*95 г",
@@ -8503,20 +8517,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 137585785,
-   "image": "https://basket-10.wbbasket.ru/vol1375/part137585/137585785/images/big/1.webp",
-   "title": "Футболка летняя с принтом хлопок ткань Турция",
-   "discount": 0,
-   "price": 513,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/137585785/detail.aspx",
-   "query": "футболка женская",
-   "cat": "футболка женская",
-   "ts": 1790916392,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8545,14 +8545,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 54,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8651,7 +8651,7 @@
    "Кофе и цикорий",
    "Пуфы"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 8,
   "last_scan_funnel": {
    "found": 599,
@@ -8679,7 +8679,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

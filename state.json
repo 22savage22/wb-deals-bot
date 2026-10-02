@@ -8589,14 +8589,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 81,
-   "ok": 47,
-   "rate_limited": 0,
-   "http_error": 34,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 47,
-   "worker_error": 17,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -144098,22 +144098,6 @@
    "quality": "B",
    "query": "джинсы женские",
    "queued_ts": 1790750051
-  },
-  {
-   "id": 414414547,
-   "title": "Кроссовки женские натуральная кожа белые",
-   "brand": "O`SHADE",
-   "product": 2344,
-   "basic": 2344,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1585,
-   "category": "кроссовки женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "кроссовки женские",
-   "queued_ts": 1790748963
   }
  ]
 }

@@ -8575,14 +8575,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 54,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -142030,7 +142030,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "95731857": {
    "price": 528,
@@ -142043,7 +142043,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "70036853": {
    "price": 837,
@@ -142056,7 +142056,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1259187328": {
    "price": 966,
@@ -142069,7 +142069,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "329550372": {
    "price": 762,
@@ -142082,7 +142082,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "320481668": {
    "price": 864,
@@ -142095,7 +142095,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "70037481": {
    "price": 827,
@@ -142108,7 +142108,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "761016251": {
    "price": 966,
@@ -142121,7 +142121,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {

@@ -2924,6 +2924,20 @@
  },
  "recent": [
   {
+   "pid": 1129080597,
+   "image": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/images/big/1.webp",
+   "title": "Юбка шорты женские летние",
+   "discount": 0,
+   "price": 979,
+   "rating": 4.6,
+   "link": "https://www.wildberries.ru/catalog/1129080597/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790919615,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 430870202,
    "image": "https://basket-24.wbbasket.ru/vol4308/part430870/430870202/images/big/1.webp",
    "title": "Футболка хлопок с принтом больших размеров",
@@ -8553,20 +8567,6 @@
    "ts": 1789710130,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 1129080597,
-   "image": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/images/big/1.webp",
-   "title": "Юбка шорты женские летние",
-   "discount": 0,
-   "price": 979,
-   "rating": 4.6,
-   "link": "https://www.wildberries.ru/catalog/1129080597/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790919615,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8595,14 +8595,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 94,
-   "ok": 54,
-   "rate_limited": 0,
-   "http_error": 40,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 54,
-   "worker_error": 20,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8701,7 +8701,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 16,
+  "queue_size": 20,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 597,

@@ -2511,10 +2511,10 @@
    "ts": 1790926797.3822408
   },
   "Аптечная косметика": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790928150.3249812
   }
  },
@@ -2954,10 +2954,10 @@
    "ts": 1790926797.3822463
   },
   "Аптечная косметика": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790928150.324984
   }
  },
@@ -2965,6 +2965,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 189980998,
+   "image": "https://basket-12.wbbasket.ru/vol1899/part189980/189980998/images/big/1.webp",
+   "title": "Крем-сыворотка для лица и глаз день-ночь 30+, 50 мл",
+   "discount": 0,
+   "price": 287,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/189980998/detail.aspx",
+   "query": "Аптечная косметика",
+   "cat": "Аптечная косметика",
+   "ts": 1790928150,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1260407959,
    "image": "https://basket-44.wbbasket.ru/vol12604/part1260407/1260407959/images/big/1.webp",
@@ -8639,20 +8653,6 @@
    "cat": "футболка мужская",
    "ts": 1789719932,
    "drop": 0
-  },
-  {
-   "pid": 189980998,
-   "image": "https://basket-12.wbbasket.ru/vol1899/part189980/189980998/images/big/1.webp",
-   "title": "Крем-сыворотка для лица и глаз день-ночь 30+, 50 мл",
-   "discount": 0,
-   "price": 287,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/189980998/detail.aspx",
-   "query": "Аптечная косметика",
-   "cat": "Аптечная косметика",
-   "ts": 1790928150,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8681,14 +8681,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 106,
-   "ok": 58,
-   "rate_limited": 0,
-   "http_error": 48,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 58,
-   "worker_error": 24,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8787,7 +8787,7 @@
    "Аптечная косметика",
    "Творчество"
   ],
-  "queue_size": 19,
+  "queue_size": 20,
   "last_scan_added": 14,
   "last_scan_funnel": {
    "found": 600,

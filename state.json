@@ -2973,6 +2973,20 @@
  },
  "recent": [
   {
+   "pid": 169574961,
+   "image": "https://basket-12.wbbasket.ru/vol1695/part169574/169574961/images/big/1.webp",
+   "title": "Бальзам мазь для ран 30 г",
+   "discount": 0,
+   "price": 342,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/169574961/detail.aspx",
+   "query": "Аптечная косметика",
+   "cat": "Аптечная косметика",
+   "ts": 1790932710,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 164922543,
    "image": "https://basket-11.wbbasket.ru/vol1649/part164922/164922543/images/big/1.webp",
    "title": "Крем защитный Пантеноловый регенерирующий 150 мл",
@@ -8683,20 +8697,6 @@
    "ts": 1789723571,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 169574961,
-   "image": "https://basket-12.wbbasket.ru/vol1695/part169574/169574961/images/big/1.webp",
-   "title": "Бальзам мазь для ран 30 г",
-   "discount": 0,
-   "price": 342,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/169574961/detail.aspx",
-   "query": "Аптечная косметика",
-   "cat": "Аптечная косметика",
-   "ts": 1790932710,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8725,14 +8725,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 38,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 19,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8831,7 +8831,7 @@
    "Творчество",
    "Аптечная косметика"
   ],
-  "queue_size": 96,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1199,
@@ -8864,8 +8864,8 @@
   "last_engagement_ts": 1790893757.0,
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
-  "last_scan_success": 1790932167.0,
-  "last_scan_attempt": 1790932167,
+  "last_scan_success": 1790931630.0,
+  "last_scan_attempt": 1790931577,
   "last_scan_error": "",
   "scan_page_cursor": 1,
   "discovery_seen": {

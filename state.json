@@ -3159,6 +3159,20 @@
  },
  "recent": [
   {
+   "pid": 218806590,
+   "image": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/images/big/1.webp",
+   "title": "Блузка с коротким рукавом фонариком офисная праздничная",
+   "discount": 0,
+   "price": 578,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/218806590/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1790956164,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 148317616,
    "image": "https://basket-10.wbbasket.ru/vol1483/part148317/148317616/images/big/1.webp",
    "title": "Набор для творчества барельеф \"Друзья\"",
@@ -9216,20 +9230,6 @@
    "cat": "футболка женская",
    "ts": 1789747204,
    "drop": 0
-  },
-  {
-   "pid": 218806590,
-   "image": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/images/big/1.webp",
-   "title": "Блузка с коротким рукавом фонариком офисная праздничная",
-   "discount": 0,
-   "price": 578,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/218806590/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1790956164,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9364,7 +9364,7 @@
    "Уход за телом",
    "Принтеры"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1199,
@@ -14568,7 +14568,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 5164,
-  "scheduler_last_post": 1790954332
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

@@ -3072,6 +3072,20 @@
  },
  "recent": [
   {
+   "pid": 402621776,
+   "image": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/images/big/1.webp",
+   "title": "Платье лапша на завязках летнее",
+   "discount": 0,
+   "price": 586,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/402621776/detail.aspx",
+   "query": "платье женское",
+   "cat": "платье женское",
+   "ts": 1790941636,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 264649949,
    "image": "https://basket-17.wbbasket.ru/vol2646/part264649/264649949/images/big/1.webp",
    "title": "Набор бисера и бусин для рукоделия и бисероплетения",
@@ -8940,20 +8954,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 402621776,
-   "image": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/images/big/1.webp",
-   "title": "Платье лапша на завязках летнее",
-   "discount": 0,
-   "price": 586,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/402621776/detail.aspx",
-   "query": "платье женское",
-   "cat": "платье женское",
-   "ts": 1790941636,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9088,7 +9088,7 @@
    "Другие автоинструменты",
    "Серия Reno"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1099,
@@ -12124,7 +12124,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2996,
-  "scheduler_last_post": 1790941001
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

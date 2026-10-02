@@ -2595,10 +2595,10 @@
    "ts": 1790944855.8043675
   },
   "Кабели и зарядные устройства": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790945518.642964
   }
  },
@@ -3094,10 +3094,10 @@
    "ts": 1790944855.8043692
   },
   "Кабели и зарядные устройства": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790945518.6429656
   }
  },
@@ -3105,6 +3105,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 1213113115,
+   "image": "https://basket-44.wbbasket.ru/vol12131/part1213113/1213113115/images/big/1.webp",
+   "title": "Зарядное устройство для Самсунг 25W с кабелем Type-C",
+   "discount": 0,
+   "price": 497,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1213113115/detail.aspx",
+   "query": "Кабели и зарядные устройства",
+   "cat": "Кабели и зарядные устройства",
+   "ts": 1790945518,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 171329131,
    "image": "https://basket-12.wbbasket.ru/vol1713/part171329/171329131/images/big/1.webp",
@@ -9058,20 +9072,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 1213113115,
-   "image": "https://basket-44.wbbasket.ru/vol12131/part1213113/1213113115/images/big/1.webp",
-   "title": "Зарядное устройство для Самсунг 25W с кабелем Type-C",
-   "discount": 0,
-   "price": 497,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1213113115/detail.aspx",
-   "query": "Кабели и зарядные устройства",
-   "cat": "Кабели и зарядные устройства",
-   "ts": 1790945518,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9100,14 +9100,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 13,
-   "rate_limited": 0,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 13,
-   "worker_error": 4,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -9206,7 +9206,7 @@
    "Кабели и зарядные устройства",
    "Пылевыбивалки"
   ],
-  "queue_size": 94,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -13031,7 +13031,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 3782,
-  "scheduler_last_post": 1790944855
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

@@ -8485,14 +8485,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 82,
-   "ok": 50,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 50,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8620,7 +8620,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {
@@ -143854,22 +143854,6 @@
    "quality": "B",
    "query": "Развлечения",
    "queued_ts": 1790743098
-  },
-  {
-   "id": 1038831435,
-   "title": "Кроссовки замшевые демисезонные красные",
-   "brand": "JOYCITY",
-   "product": 1063,
-   "basic": 1276,
-   "discount": 17,
-   "benefit": 213,
-   "rating": 4.9,
-   "feedbacks": 86,
-   "category": "кроссовки женские",
-   "selection_mode": "verified_drop",
-   "quality": "A",
-   "query": "кроссовки женские",
-   "queued_ts": 1790741146
   }
  ]
 }

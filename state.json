@@ -2969,6 +2969,20 @@
  },
  "recent": [
   {
+   "pid": 1274642090,
+   "image": "https://basket-45.wbbasket.ru/vol12746/part1274642/1274642090/images/big/1.webp",
+   "title": "Кеды демисезонные спортивные кроссовки на высокой платформе",
+   "discount": 0,
+   "price": 624,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/1274642090/detail.aspx",
+   "query": "кроссовки женские",
+   "cat": "кроссовки женские",
+   "ts": 1790930158,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 211358030,
    "image": "https://basket-14.wbbasket.ru/vol2113/part211358/211358030/images/big/1.webp",
    "title": "Ксикрем 100 мл",
@@ -8672,20 +8686,6 @@
    "cat": "футболка мужская",
    "ts": 1789720743,
    "drop": 0
-  },
-  {
-   "pid": 1274642090,
-   "image": "https://basket-45.wbbasket.ru/vol12746/part1274642/1274642090/images/big/1.webp",
-   "title": "Кеды демисезонные спортивные кроссовки на высокой платформе",
-   "discount": 0,
-   "price": 624,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/1274642090/detail.aspx",
-   "query": "кроссовки женские",
-   "cat": "кроссовки женские",
-   "ts": 1790930158,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8714,14 +8714,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 38,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 19,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8820,7 +8820,7 @@
    "Творчество",
    "Аптечная косметика"
   ],
-  "queue_size": 18,
+  "queue_size": 20,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 501,

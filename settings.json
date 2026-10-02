@@ -1,5 +1,5 @@
 {
- "mtime": 1790777214,
+ "mtime": 1790950719,
  "cats_per_run": 10,
  "queries_per_run": 10,
  "max_posts": 1,
@@ -29,5 +29,90 @@
   "Лонгслив"
  ],
  "min_discount": 30.0,
- "pause_until": 0
+ "pause_until": 0,
+ "schedule": {
+  "enabled": true,
+  "paused": false,
+  "mode": "interval",
+  "post_interval_minutes": 30,
+  "post_times": [],
+  "weekdays": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "quiet_enabled": false,
+  "quiet_start": "23:00",
+  "quiet_end": "07:00",
+  "search_enabled": true,
+  "search_interval_minutes": 20,
+  "min_queue": 100,
+  "natural_interval_enabled": false,
+  "jitter_minutes": 2,
+  "timezone": "Europe/Moscow",
+  "min_post_gap_minutes": 5,
+  "max_posts_hour": 12,
+  "max_posts_day": 144
+ },
+ "_schedule_base": {
+  "enabled": true,
+  "paused": false,
+  "mode": "interval",
+  "post_interval_minutes": 30,
+  "post_times": [],
+  "weekdays": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "quiet_enabled": false,
+  "quiet_start": "23:00",
+  "quiet_end": "07:00",
+  "search_enabled": true,
+  "search_interval_minutes": 20,
+  "min_queue": 100,
+  "natural_interval_enabled": false,
+  "jitter_minutes": 2,
+  "timezone": "Europe/Moscow",
+  "min_post_gap_minutes": 5,
+  "max_posts_hour": 12,
+  "max_posts_day": 144
+ },
+ "_schedule_revision": 1790950719904,
+ "_schedule_status": {
+  "heartbeat": 1790950704,
+  "last_post": 1790950639,
+  "last_scan_attempt": 1790950136,
+  "last_scan_success": 1790950136,
+  "queue_size": 99,
+  "new_today": 5420,
+  "posted_today": 93,
+  "posts_hour": 6,
+  "next_post": 1790951239,
+  "next_search": 1790950704,
+  "revision": 1,
+  "post_running": false,
+  "scan_running": false,
+  "next_posts": [
+   1790951239,
+   1790951839,
+   1790952439,
+   1790953039,
+   1790953639
+  ],
+  "error": "",
+  "last_scan_error": "",
+  "heartbeat_stale": false
+ },
+ "schedule_post_request": "",
+ "schedule_search_request": "",
+ "schedule_version": 1790950719245946018
 }

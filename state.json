@@ -8231,14 +8231,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 2,
-   "rate_limited": 18,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 2,
-   "worker_error": 1,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8337,7 +8337,7 @@
    "Гигиена полости рта",
    "Биотуалеты и аксессуары"
   ],
-  "queue_size": 9,
+  "queue_size": 14,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1,
@@ -8362,7 +8362,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

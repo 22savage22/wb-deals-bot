@@ -3037,6 +3037,20 @@
  },
  "recent": [
   {
+   "pid": 338516453,
+   "image": "https://basket-20.wbbasket.ru/vol3385/part338516/338516453/images/big/1.webp",
+   "title": "Сумка своими руками из фетра \"Совушка\"",
+   "discount": 0,
+   "price": 433,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/338516453/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790937835,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 240032295,
    "image": "https://basket-15.wbbasket.ru/vol2400/part240032/240032295/images/big/1.webp",
    "title": "Венок на голову из цветов женский детский",
@@ -8821,20 +8835,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 338516453,
-   "image": "https://basket-20.wbbasket.ru/vol3385/part338516/338516453/images/big/1.webp",
-   "title": "Сумка своими руками из фетра \"Совушка\"",
-   "discount": 0,
-   "price": 433,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/338516453/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790937835,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8969,7 +8969,7 @@
    "Венки декоративные",
    "Камни для бани"
   ],
-  "queue_size": 98,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -11416,7 +11416,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2407,
-  "scheduler_last_post": 1790937203
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

@@ -8595,14 +8595,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 94,
+   "ok": 54,
+   "rate_limited": 0,
+   "http_error": 40,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 54,
+   "worker_error": 20,
    "direct_ok": 0
   },
   "errors": [
@@ -8701,7 +8701,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 20,
+  "queue_size": 16,
   "last_scan_added": 3,
   "last_scan_funnel": {
    "found": 597,
@@ -9152,7 +9152,6 @@
   "юбкашортыженскиелетние": 1790919615
  },
  "img_hash": {
-  "c0c4071d1f8ce030": 1788327683,
   "9a92f070717070d3": 1788335739,
   "27333070e86c6c24": 1788339171,
   "d9b1b0f0b0b0b030": 1788339807,

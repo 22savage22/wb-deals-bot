@@ -2927,6 +2927,20 @@
  },
  "recent": [
   {
+   "pid": 173622215,
+   "image": "https://basket-12.wbbasket.ru/vol1736/part173622/173622215/images/big/1.webp",
+   "title": "Цикорий натуральный с ароматом Капучино 3 шт",
+   "discount": 0,
+   "price": 442,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/173622215/detail.aspx",
+   "query": "Кофе и цикорий",
+   "cat": "Кофе и цикорий",
+   "ts": 1790920954,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 440453737,
    "image": "https://basket-25.wbbasket.ru/vol4404/part440453/440453737/images/big/1.webp",
    "title": "Футболка женская желтая",
@@ -8558,20 +8572,6 @@
    "ts": 1789711440,
    "drop": 0,
    "quality": "B"
-  },
-  {
-   "pid": 173622215,
-   "image": "https://basket-12.wbbasket.ru/vol1736/part173622/173622215/images/big/1.webp",
-   "title": "Цикорий натуральный с ароматом Капучино 3 шт",
-   "discount": 0,
-   "price": 442,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/173622215/detail.aspx",
-   "query": "Кофе и цикорий",
-   "cat": "Кофе и цикорий",
-   "ts": 1790920954,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8600,14 +8600,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 78,
-   "ok": 46,
-   "rate_limited": 0,
-   "http_error": 32,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 46,
-   "worker_error": 16,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8706,7 +8706,7 @@
    "Банкетки",
    "Спецодежда медицинская"
   ],
-  "queue_size": 15,
+  "queue_size": 18,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 501,

@@ -2860,6 +2860,20 @@
  },
  "recent": [
   {
+   "pid": 687674402,
+   "image": "https://basket-33.wbbasket.ru/vol6876/part687674/687674402/images/big/1.webp",
+   "title": "Средство для септиков и выгребных ям",
+   "discount": 0,
+   "price": 891,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/687674402/detail.aspx",
+   "query": "Биотуалеты и аксессуары",
+   "cat": "Биотуалеты и аксессуары",
+   "ts": 1790904927,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 193778112,
    "image": "https://basket-13.wbbasket.ru/vol1937/part193778/193778112/images/big/1.webp",
    "title": "Органическая химия в таблицах Весь школьный курс",
@@ -8207,20 +8221,6 @@
    "cat": "футболка женская",
    "ts": 1789708850,
    "drop": 0
-  },
-  {
-   "pid": 687674402,
-   "image": "https://basket-33.wbbasket.ru/vol6876/part687674/687674402/images/big/1.webp",
-   "title": "Средство для септиков и выгребных ям",
-   "discount": 0,
-   "price": 891,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/687674402/detail.aspx",
-   "query": "Биотуалеты и аксессуары",
-   "cat": "Биотуалеты и аксессуары",
-   "ts": 1790904927,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8249,14 +8249,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 28,
-   "ok": 0,
-   "rate_limited": 18,
-   "http_error": 10,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 0,
-   "worker_error": 2,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8385,7 +8385,7 @@
   "cats_count": 2253,
   "no_post_notice_ts": 1790435214.0,
   "last_engagement_ts": 1790893757.0,
-  "last_engagement_kind": "fun_fact",
+  "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790873485.0
  },
  "admin_ui": {

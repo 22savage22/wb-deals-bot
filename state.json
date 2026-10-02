@@ -2527,10 +2527,10 @@
    "ts": 1790933369.0287123
   },
   "Для мам и малышей": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790934003.2873018
   }
  },
@@ -2977,10 +2977,10 @@
    "ts": 1790933369.0287156
   },
   "Для мам и малышей": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1790934003.2873042
   }
  },
@@ -2988,6 +2988,20 @@
   "offset": 810944966
  },
  "recent": [
+  {
+   "pid": 268145955,
+   "image": "https://basket-17.wbbasket.ru/vol2681/part268145/268145955/images/big/1.webp",
+   "title": "Боди для малышей новорожденных Красивая как Мама",
+   "discount": 0,
+   "price": 691,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/268145955/detail.aspx",
+   "query": "Для мам и малышей",
+   "cat": "Для мам и малышей",
+   "ts": 1790934003,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1006037973,
    "image": "https://basket-41.wbbasket.ru/vol10060/part1006037/1006037973/images/big/1.webp",
@@ -8701,20 +8715,6 @@
    "cat": "сумка женская",
    "ts": 1789725104,
    "drop": 0
-  },
-  {
-   "pid": 268145955,
-   "image": "https://basket-17.wbbasket.ru/vol2681/part268145/268145955/images/big/1.webp",
-   "title": "Боди для малышей новорожденных Красивая как Мама",
-   "discount": 0,
-   "price": 691,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/268145955/detail.aspx",
-   "query": "Для мам и малышей",
-   "cat": "Для мам и малышей",
-   "ts": 1790934003,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8743,14 +8743,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 87,
-   "ok": 49,
-   "rate_limited": 0,
-   "http_error": 38,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 49,
-   "worker_error": 19,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -8849,7 +8849,7 @@
    "Для мам и малышей",
    "Уход за одеждой"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1100,
@@ -10519,7 +10519,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 1631,
-  "scheduler_last_post": 1790933368
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

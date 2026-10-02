@@ -8720,14 +8720,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 54,
-   "ok": 32,
-   "rate_limited": 0,
-   "http_error": 22,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 32,
-   "worker_error": 11,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -144992,7 +144992,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "994125997": {
    "price": 938,
@@ -145005,7 +145005,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1282297024": {
    "price": 815,
@@ -145018,7 +145018,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1238759143": {
    "price": 976,
@@ -145031,7 +145031,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "266579642": {
    "price": 618,
@@ -145044,7 +145044,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "400505901": {
    "price": 332,
@@ -145057,7 +145057,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "480795799": {
    "price": 302,
@@ -145070,7 +145070,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "333094300": {
    "price": 319,
@@ -145083,7 +145083,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "263752507": {
    "price": 725,
@@ -145096,7 +145096,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1173538675": {
    "price": 627,
@@ -145109,7 +145109,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "861617771": {
    "price": 584,
@@ -145122,7 +145122,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "313315406": {
    "price": 326,
@@ -145135,7 +145135,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1134108264": {
    "price": 332,
@@ -145148,7 +145148,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "501194241": {
    "price": 655,
@@ -145161,7 +145161,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "608476687": {
    "price": 308,
@@ -145174,7 +145174,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "782503370": {
    "price": 427,
@@ -145187,7 +145187,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "550568311": {
    "price": 288,
@@ -145200,7 +145200,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "207037317": {
    "price": 691,
@@ -145213,7 +145213,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "790357721": {
    "price": 653,
@@ -145226,7 +145226,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "172336047": {
    "price": 638,
@@ -145239,7 +145239,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "790357720": {
    "price": 653,
@@ -145252,7 +145252,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "790357723": {
    "price": 653,
@@ -145265,7 +145265,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "790357719": {
    "price": 653,
@@ -145278,7 +145278,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1482216107": {
    "price": 968,
@@ -145291,7 +145291,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "850924657": {
    "price": 765,
@@ -145304,7 +145304,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "229177540": {
    "price": 370,
@@ -145317,7 +145317,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1046357214": {
    "price": 582,
@@ -145330,7 +145330,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "45403538": {
    "price": 820,
@@ -145343,7 +145343,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "235004644": {
    "price": 150,
@@ -145356,7 +145356,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "652090472": {
    "price": 651,
@@ -145369,7 +145369,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "400489536": {
    "price": 322,
@@ -145382,7 +145382,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "178852771": {
    "price": 354,
@@ -145395,7 +145395,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1335844056": {
    "price": 677,
@@ -145408,7 +145408,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "574789556": {
    "price": 584,
@@ -145421,7 +145421,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "691063278": {
    "price": 655,
@@ -145434,7 +145434,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "292900097": {
    "price": 991,
@@ -145447,7 +145447,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "533135631": {
    "price": 166,
@@ -145460,7 +145460,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "536766624": {
    "price": 581,
@@ -145473,7 +145473,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "40720489": {
    "price": 950,
@@ -145486,7 +145486,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "338516453": {
    "price": 410,
@@ -145499,7 +145499,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "687290873": {
    "price": 311,
@@ -145512,7 +145512,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "211666174": {
    "price": 531,
@@ -145525,7 +145525,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "252303613": {
    "price": 628,
@@ -145538,7 +145538,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1024356037": {
    "price": 939,
@@ -145551,7 +145551,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "418854445": {
    "price": 369,
@@ -145564,7 +145564,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "949990871": {
    "price": 134,
@@ -145577,7 +145577,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "192565692": {
    "price": 635,
@@ -145590,7 +145590,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "226742122": {
    "price": 393,
@@ -145603,7 +145603,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "109815572": {
    "price": 394,
@@ -145616,7 +145616,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "310199121": {
    "price": 993,
@@ -145629,7 +145629,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "119182523": {
    "price": 988,
@@ -145642,7 +145642,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "697377883": {
    "price": 231,
@@ -145655,7 +145655,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "904232464": {
    "price": 420,
@@ -145668,7 +145668,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "216616009": {
    "price": 330,
@@ -145681,7 +145681,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "822672118": {
    "price": 894,
@@ -145694,7 +145694,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "119182536": {
    "price": 847,
@@ -145707,7 +145707,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "321795662": {
    "price": 808,
@@ -145720,7 +145720,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "182681880": {
    "price": 220,
@@ -145733,7 +145733,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1282694990": {
    "price": 948,
@@ -145746,7 +145746,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1144444288": {
    "price": 781,
@@ -145759,7 +145759,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "450992143": {
    "price": 471,
@@ -145772,7 +145772,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "262719954": {
    "price": 679,
@@ -145785,7 +145785,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1282601677": {
    "price": 948,
@@ -145798,7 +145798,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1019218468": {
    "price": 356,
@@ -145811,7 +145811,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "460001084": {
    "price": 754,
@@ -145824,7 +145824,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "200979964": {
    "price": 297,
@@ -145837,7 +145837,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1006043723": {
    "price": 571,
@@ -145850,7 +145850,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "119182550": {
    "price": 839,
@@ -145863,7 +145863,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "169574961": {
    "price": 325,
@@ -145876,7 +145876,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "297852757": {
    "price": 657,
@@ -145889,7 +145889,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "206086611": {
    "price": 708,
@@ -145902,7 +145902,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "876989974": {
    "price": 297,
@@ -145915,7 +145915,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "317890572": {
    "price": 925,
@@ -145928,7 +145928,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "158842417": {
    "price": 475,
@@ -145941,7 +145941,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "241681357": {
    "price": 134,
@@ -145954,7 +145954,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "977850861": {
    "price": 325,
@@ -145967,7 +145967,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "615778773": {
    "price": 637,
@@ -145980,7 +145980,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "532025718": {
    "price": 281,
@@ -145993,7 +145993,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "148016148": {
    "price": 377,
@@ -146006,7 +146006,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "216616007": {
    "price": 303,
@@ -146019,7 +146019,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "551452585": {
    "price": 686,
@@ -146032,7 +146032,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "822681425": {
    "price": 188,
@@ -146045,7 +146045,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "164922543": {
    "price": 175,
@@ -146058,7 +146058,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "204315772": {
    "price": 251,
@@ -146071,7 +146071,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "260594748": {
    "price": 316,
@@ -146084,7 +146084,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "876515147": {
    "price": 302,
@@ -146097,7 +146097,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "878920181": {
    "price": 309,
@@ -146110,7 +146110,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "822678911": {
    "price": 313,
@@ -146123,7 +146123,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1023533603": {
    "price": 280,
@@ -146136,7 +146136,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "656154242": {
    "price": 687,
@@ -146149,7 +146149,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1006037973": {
    "price": 618,
@@ -146162,7 +146162,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "482654212": {
    "price": 279,
@@ -146175,7 +146175,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "267011411": {
    "price": 365,
@@ -146188,7 +146188,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1302094102": {
    "price": 207,
@@ -146201,7 +146201,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "204325461": {
    "price": 251,
@@ -146214,7 +146214,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "751610075": {
    "price": 352,
@@ -146227,7 +146227,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "168423049": {
    "price": 560,
@@ -146240,7 +146240,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "460001056": {
    "price": 487,
@@ -146253,7 +146253,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "581165231": {
    "price": 318,
@@ -146266,7 +146266,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "316944380": {
    "price": 423,
@@ -146279,7 +146279,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "87456438": {
    "price": 649,
@@ -146292,7 +146292,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "628366788": {
    "price": 357,
@@ -146305,7 +146305,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "169574963": {
    "price": 454,
@@ -146318,7 +146318,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "227708926": {
    "price": 545,
@@ -146331,7 +146331,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "182681861": {
    "price": 458,
@@ -146344,7 +146344,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "459994496": {
    "price": 440,
@@ -146357,7 +146357,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "158328098": {
    "price": 188,
@@ -146370,7 +146370,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "316944702": {
    "price": 435,
@@ -146383,7 +146383,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "420784881": {
    "price": 900,
@@ -146396,7 +146396,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "200668456": {
    "price": 350,
@@ -146409,7 +146409,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "963615960": {
    "price": 615,
@@ -146422,7 +146422,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "206585255": {
    "price": 270,
@@ -146435,7 +146435,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "191405730": {
    "price": 283,
@@ -146448,7 +146448,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "184517427": {
    "price": 378,
@@ -146461,7 +146461,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "936814682": {
    "price": 289,
@@ -146474,7 +146474,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "321595483": {
    "price": 264,
@@ -146487,7 +146487,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "285786265": {
    "price": 618,
@@ -146500,7 +146500,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "1136591372": {
    "price": 156,
@@ -146513,7 +146513,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   },
   "216745488": {
    "price": 878,
@@ -146526,7 +146526,7 @@
     ]
    ],
    "posted_price": 0,
-   "posted_ts": 0
+   "posted_ts": 0.0
   }
  },
  "cats": {
@@ -148983,1190 +148983,6 @@
    "quality": "B",
    "query": "Творчество",
    "queued_ts": 1790929246
-  },
-  {
-   "id": 1023816536,
-   "title": "Серьги кольца медицинский сплав с камнем",
-   "brand": "ZETRION",
-   "product": 632,
-   "basic": 632,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 24,
-   "category": "украшения женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "украшения женские",
-   "queued_ts": 1790919689
-  },
-  {
-   "id": 931053146,
-   "title": "Юбка мини твидовая повседневная",
-   "brand": "AnyMalls",
-   "product": 533,
-   "basic": 533,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 38,
-   "category": "юбка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "юбка женская",
-   "queued_ts": 1790917715
-  },
-  {
-   "id": 21868442,
-   "title": "Критические статьи. Пушкин Гоголь Тургенев Островски",
-   "brand": "ARCHIVE PUBLICA",
-   "product": 697,
-   "basic": 697,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "Репринтные издания 1890 - 1899 годов",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Репринтные издания 1890 - 1899 годов",
-   "queued_ts": 1790905903
-  },
-  {
-   "id": 533441534,
-   "title": "Жидкость для верхнего бачка биотуалета BT-U, 900 мл",
-   "brand": "Roetech",
-   "product": 542,
-   "basic": 542,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 34,
-   "category": "Биотуалеты и аксессуары",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Биотуалеты и аксессуары",
-   "queued_ts": 1790904725
-  },
-  {
-   "id": 168909885,
-   "title": "Химия рядом с нами",
-   "brand": "Издательство АСТ",
-   "product": 673,
-   "basic": 673,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "Химия",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Химия",
-   "queued_ts": 1790899717
-  },
-  {
-   "id": 796692099,
-   "title": "Биоактиватор для торфяных туалетов В160, 160 гр",
-   "brand": "PitEco",
-   "product": 683,
-   "basic": 683,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 31,
-   "category": "Биотуалеты и аксессуары",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Биотуалеты и аксессуары",
-   "queued_ts": 1790899717
-  },
-  {
-   "id": 251229987,
-   "title": "Набор отвердителей для туристического складного туалета",
-   "brand": "",
-   "product": 577,
-   "basic": 577,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 287,
-   "category": "Биотуалеты и аксессуары",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Биотуалеты и аксессуары",
-   "queued_ts": 1790897743
-  },
-  {
-   "id": 391675815,
-   "title": "Теплое сиденье для уличного туалета на дачу",
-   "brand": "",
-   "product": 962,
-   "basic": 962,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 253,
-   "category": "Биотуалеты и аксессуары",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Биотуалеты и аксессуары",
-   "queued_ts": 1790897743
-  },
-  {
-   "id": 175616287,
-   "title": "Жидкость для биотуалета 0,5 л-8 доз",
-   "brand": "",
-   "product": 330,
-   "basic": 330,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 238,
-   "category": "Биотуалеты и аксессуары",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Биотуалеты и аксессуары",
-   "queued_ts": 1790897743
-  },
-  {
-   "id": 157839277,
-   "title": "Химия 8 класс Рабочая тетрадь Габриелян О.С, Сладков С.А",
-   "brand": "Просвещение",
-   "product": 970,
-   "basic": 970,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 20,
-   "category": "Химия",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Химия",
-   "queued_ts": 1790891081
-  },
-  {
-   "id": 164727428,
-   "title": "Химия. 8-9 классы. Каждому учащемуся на стол",
-   "brand": "Русское Слово",
-   "product": 545,
-   "basic": 545,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 9,
-   "category": "Химия",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Химия",
-   "queued_ts": 1790891081
-  },
-  {
-   "id": 670453461,
-   "title": "Заготовки \"Гипсовые сердечки\", 20 штук, для семейного досуга",
-   "brand": "",
-   "product": 383,
-   "basic": 383,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 5,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790891081
-  },
-  {
-   "id": 444804003,
-   "title": "Набор для лепки Вертолет и Десантник летний досуг",
-   "brand": "Serpantin32",
-   "product": 532,
-   "basic": 532,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 4,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790891081
-  },
-  {
-   "id": 53545677,
-   "title": "Заготовка для поделки",
-   "brand": "FETRiA",
-   "product": 318,
-   "basic": 318,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790891081
-  },
-  {
-   "id": 299471784,
-   "title": "Детский набор для вышивания и творчества",
-   "brand": "KIDDIY",
-   "product": 916,
-   "basic": 916,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 79,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790890264
-  },
-  {
-   "id": 365870013,
-   "title": "Набор для вышивания крестиком 10х12 см Плюшевый мишка",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 226,
-   "basic": 226,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 123,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790890264
-  },
-  {
-   "id": 376596530,
-   "title": "Набор для вышивания детский подарочный",
-   "brand": "KIDDIY",
-   "product": 573,
-   "basic": 573,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 335,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790888265
-  },
-  {
-   "id": 310117573,
-   "title": "Набор для вышивания гладью",
-   "brand": "S.O.V",
-   "product": 684,
-   "basic": 684,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 229,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790888265
-  },
-  {
-   "id": 360418323,
-   "title": "Набор для вышивания гладью Лесные истории",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 356,
-   "basic": 356,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 264,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790888265
-  },
-  {
-   "id": 337333216,
-   "title": "Набор для вышивания гладью Сказочные узоры",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 581,
-   "basic": 581,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 256,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790888265
-  },
-  {
-   "id": 365870014,
-   "title": "Набор для вышивания крестиком 10х12 см Милый котик",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 188,
-   "basic": 188,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 233,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790888265
-  },
-  {
-   "id": 456495434,
-   "title": "Блузка нарядная офисная с длинным рукавом",
-   "brand": "LallyRose",
-   "product": 562,
-   "basic": 562,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 1643,
-   "category": "блузка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "блузка женская",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 28923894,
-   "title": "Блузка летняя свободная короткий рукав",
-   "brand": "A-A Awesome Apparel by Ksenia Avakyan",
-   "product": 257,
-   "basic": 257,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.6,
-   "feedbacks": 1238,
-   "category": "блузка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "блузка женская",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 1252789648,
-   "title": "Набор крюков соединений 4 шт для гроубокса 16 мм",
-   "brand": "",
-   "product": 830,
-   "basic": 830,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "Гроубоксы",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Гроубоксы",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 1252793477,
-   "title": "Набор глубоких крюков 4 шт для гроубокса 16 мм",
-   "brand": "",
-   "product": 830,
-   "basic": 830,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 1,
-   "category": "Гроубоксы",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Гроубоксы",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 203148759,
-   "title": "Набор для вышивания с пяльцами Сказка в руках",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 436,
-   "basic": 436,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1890,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 245797799,
-   "title": "Набор для вышивания крестиком рукоделие и творчество",
-   "brand": "Stefida",
-   "product": 376,
-   "basic": 376,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 2217,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 203148757,
-   "title": "Набор для вышивания с пяльцами Животные",
-   "brand": "Сима-Ленд & Школа талантов",
-   "product": 490,
-   "basic": 490,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1973,
-   "category": "Хобби и досуг",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Хобби и досуг",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 468489349,
-   "title": "Постельное белье 2 спальное 70х70 однотонное",
-   "brand": "Веселина",
-   "product": 781,
-   "basic": 781,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 615,
-   "category": "постельное белье",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "постельное белье",
-   "queued_ts": 1790884297
-  },
-  {
-   "id": 137901360,
-   "title": "Плед 150х200 на диван на кровать велсофт",
-   "brand": "Павлина",
-   "product": 788,
-   "basic": 788,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1763,
-   "category": "плед",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "плед",
-   "queued_ts": 1790871627
-  },
-  {
-   "id": 139851035,
-   "title": "Плед 200х220 пушистый на кровать на диван евро однотонный",
-   "brand": "Павлина",
-   "product": 991,
-   "basic": 991,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1327,
-   "category": "плед",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "плед",
-   "queued_ts": 1790871627
-  },
-  {
-   "id": 492296408,
-   "title": "Точилка для ножей",
-   "brand": "",
-   "product": 247,
-   "basic": 247,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 5014,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790871417
-  },
-  {
-   "id": 1154712631,
-   "title": "Фартук кухонный рабочий с карманами",
-   "brand": "MASTERSTIL",
-   "product": 539,
-   "basic": 539,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 7414,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790871417
-  },
-  {
-   "id": 1138386398,
-   "title": "Коврик для сушки посуды впитывающий",
-   "brand": "For happiness",
-   "product": 358,
-   "basic": 358,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 5734,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790871417
-  },
-  {
-   "id": 246052070,
-   "title": "Нож кухонный",
-   "brand": "RZ GROUP",
-   "product": 200,
-   "basic": 200,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 712,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790871417
-  },
-  {
-   "id": 1447978708,
-   "title": "Кухонные тряпки для уборки из микрофибры",
-   "brand": "DARVDOM",
-   "product": 275,
-   "basic": 275,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 31175,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790869671
-  },
-  {
-   "id": 181519319,
-   "title": "Полотенца кухонные вафельные в наборе 3шт, 40х60см",
-   "brand": "Letto",
-   "product": 231,
-   "basic": 231,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 11116,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790869671
-  },
-  {
-   "id": 537554851,
-   "title": "Мешки для хранения",
-   "brand": "",
-   "product": 138,
-   "basic": 138,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 8609,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790869671
-  },
-  {
-   "id": 163665276,
-   "title": "Контейнер для круп и хранения сыпучих продуктов",
-   "brand": "crafy",
-   "product": 612,
-   "basic": 612,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 3712,
-   "category": "товары для кухни",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "товары для кухни",
-   "queued_ts": 1790869671
-  },
-  {
-   "id": 236032217,
-   "title": "Плед 150х200 см на диван и кровать",
-   "brand": "Hotlo",
-   "product": 992,
-   "basic": 992,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 528,
-   "category": "Пледы",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Пледы",
-   "queued_ts": 1790855812
-  },
-  {
-   "id": 116678676,
-   "title": "Плед 200х220 пушистый на кровать на диван евро однотонный",
-   "brand": "Павлина",
-   "product": 997,
-   "basic": 997,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1534,
-   "category": "Пледы",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Пледы",
-   "queued_ts": 1790849912
-  },
-  {
-   "id": 444414540,
-   "title": "Витамины группы В комплекс, для энергии и красоты",
-   "brand": "ТОРБАД",
-   "product": 483,
-   "basic": 483,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 15750,
-   "category": "Группа 1-2 (9-25 кг)",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Группа 1-2 (9-25 кг)",
-   "queued_ts": 1790844160
-  },
-  {
-   "id": 50131675,
-   "title": "Витамины группы В. B-Basic. B1. B2. B6. B12. 100 Tabs",
-   "brand": "Haya Labs",
-   "product": 996,
-   "basic": 996,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 883,
-   "category": "Группа 1-2 (9-25 кг)",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Группа 1-2 (9-25 кг)",
-   "queued_ts": 1790844160
-  },
-  {
-   "id": 118062448,
-   "title": "Витамины для собак средних и крупных пород",
-   "brand": "ANIMIO",
-   "product": 533,
-   "basic": 533,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 11992,
-   "category": "Группа 1-2 (9-25 кг)",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Группа 1-2 (9-25 кг)",
-   "queued_ts": 1790841694
-  },
-  {
-   "id": 483506927,
-   "title": "Сумка мешок для обуви и формы в школу",
-   "brand": "Avocado life",
-   "product": 138,
-   "basic": 138,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.7,
-   "feedbacks": 464,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790825888
-  },
-  {
-   "id": 193551660,
-   "title": "Мешок для обуви AC-BS03 40x50",
-   "brand": "Alpha Caprice",
-   "product": 352,
-   "basic": 352,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790823933
-  },
-  {
-   "id": 776165752,
-   "title": "Мешок для сменной обуви и одежды",
-   "brand": "Оникс",
-   "product": 430,
-   "basic": 430,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 4,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790821953
-  },
-  {
-   "id": 1390803574,
-   "title": "Мешок для сменной обуви Пушин",
-   "brand": "ClickTee",
-   "product": 453,
-   "basic": 453,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 28,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790820000
-  },
-  {
-   "id": 1137036444,
-   "title": "Мешок для обуви для девочки папоротник",
-   "brand": "Capybarroom",
-   "product": 623,
-   "basic": 623,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 6,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790820000
-  },
-  {
-   "id": 1137036035,
-   "title": "Мешок для обуви для девочки лиса",
-   "brand": "Capybarroom",
-   "product": 623,
-   "basic": 623,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 6,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790820000
-  },
-  {
-   "id": 1137036051,
-   "title": "Мешок для обуви для девочки уточки",
-   "brand": "Capybarroom",
-   "product": 623,
-   "basic": 623,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 6,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790820000
-  },
-  {
-   "id": 1137036438,
-   "title": "Мешок для обуви для девочки гоблинкор",
-   "brand": "Capybarroom",
-   "product": 623,
-   "basic": 623,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 6,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790820000
-  },
-  {
-   "id": 1137036046,
-   "title": "Мешок для обуви для девочки котики",
-   "brand": "Capybarroom",
-   "product": 623,
-   "basic": 623,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 6,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790819964
-  },
-  {
-   "id": 473041042,
-   "title": "Мешок для обуви школьный, Nike в наборе 2 шт",
-   "brand": "",
-   "product": 210,
-   "basic": 210,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 827,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790818035
-  },
-  {
-   "id": 1098175510,
-   "title": "Мешок для сменной обуви",
-   "brand": "",
-   "product": 138,
-   "basic": 138,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 295,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790818035
-  },
-  {
-   "id": 15809025,
-   "title": "Мешок для сменной обуви для мальчика и для девочки в школу",
-   "brand": "Homepick",
-   "product": 367,
-   "basic": 367,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 30,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790818035
-  },
-  {
-   "id": 1190829814,
-   "title": "Мешок для обуви для девочек для сменки Кот",
-   "brand": "Yumakura",
-   "product": 497,
-   "basic": 497,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 15,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790818035
-  },
-  {
-   "id": 1229709404,
-   "title": "Мешок для обуви и одежды тёмно- синий",
-   "brand": "",
-   "product": 115,
-   "basic": 115,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 67,
-   "category": "Мешки для обуви",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Мешки для обуви",
-   "queued_ts": 1790818035
-  },
-  {
-   "id": 279981762,
-   "title": "1K эмаль автомобильная ремонтная, (Триумф 100)",
-   "brand": "KUDO",
-   "product": 557,
-   "basic": 557,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 3,
-   "category": "Эмали автомобильные",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Эмали автомобильные",
-   "queued_ts": 1790804574
-  },
-  {
-   "id": 275362044,
-   "title": "Трос буксировочный РБ-7,0т 5м (масса автомобиля 10тн)",
-   "brand": "ПКФ СВАРКОМ",
-   "product": 333,
-   "basic": 333,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 51,
-   "category": "Тросики",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Тросики",
-   "queued_ts": 1790792682
-  },
-  {
-   "id": 275362194,
-   "title": "Трос буксировочный РБ-9,0т 6м (масса автомобиля 13,5тн)",
-   "brand": "ПКФ СВАРКОМ",
-   "product": 446,
-   "basic": 446,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 35,
-   "category": "Тросики",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Тросики",
-   "queued_ts": 1790792682
-  },
-  {
-   "id": 448548338,
-   "title": "Пояс цепочка для платья",
-   "brand": "",
-   "product": 374,
-   "basic": 374,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 309,
-   "category": "Ремни и пояса",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Ремни и пояса",
-   "queued_ts": 1790792682
-  },
-  {
-   "id": 500294744,
-   "title": "Юбка клеш кожаная",
-   "brand": "A&A Forever",
-   "product": 681,
-   "basic": 681,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 5070,
-   "category": "юбка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "юбка женская",
-   "queued_ts": 1790782454
-  },
-  {
-   "id": 13727217,
-   "title": "Мурманская область. Автодор. и турист. карта, складная",
-   "brand": "Карта ТД",
-   "product": 584,
-   "basic": 584,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 163,
-   "category": "Туризм и страноведение",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Туризм и страноведение",
-   "queued_ts": 1790780476
-  },
-  {
-   "id": 676345650,
-   "title": "Платье длинное офисное осеннее с длинным рукавом",
-   "brand": "FreeSelf",
-   "product": 1544,
-   "basic": 1544,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 558,
-   "category": "платье женское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "платье женское",
-   "queued_ts": 1790776473
-  },
-  {
-   "id": 252157511,
-   "title": "Худи мужское с капюшоном без начеса кофта черная y2k",
-   "brand": "Макс-Экстрим",
-   "product": 1621,
-   "basic": 1621,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 3408,
-   "category": "худи мужское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "худи мужское",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 447587441,
-   "title": "Развивающие игрушки книжка шуршалка для новорожденных малыш",
-   "brand": "FergoKids",
-   "product": 559,
-   "basic": 559,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 5.0,
-   "feedbacks": 1227,
-   "category": "Книжки-игрушки",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "Книжки-игрушки",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 994072091,
-   "title": "Спортивный костюм",
-   "brand": "Сити Текс",
-   "product": 2131,
-   "basic": 2131,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 197,
-   "category": "костюм женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "костюм женский",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 252157479,
-   "title": "Худи мужское с капюшоном без начеса серое кофта у2к",
-   "brand": "Макс-Экстрим",
-   "product": 1621,
-   "basic": 1621,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1093,
-   "category": "худи мужское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "худи мужское",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 551855435,
-   "title": "Зип худи оверсайз замшевая молния",
-   "brand": "DreamFit",
-   "product": 2498,
-   "basic": 2498,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 1138,
-   "category": "худи мужское",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "худи мужское",
-   "queued_ts": 1790775247
-  },
-  {
-   "id": 1570919925,
-   "title": "костюм брючный осенний с капюшоном",
-   "brand": "STUDIO312",
-   "product": 2575,
-   "basic": 2575,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 2129,
-   "category": "костюм женский",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "костюм женский",
-   "queued_ts": 1790774525
-  },
-  {
-   "id": 718399258,
-   "title": "Сумка багет на плечо Old Money",
-   "brand": "SABY BAGS",
-   "product": 1182,
-   "basic": 1182,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 694,
-   "category": "сумка женская",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "сумка женская",
-   "queued_ts": 1790772519
-  },
-  {
-   "id": 532228579,
-   "title": "Кроссовки женские демисезонные на высокой подошве коричневые",
-   "brand": "O`SHADE",
-   "product": 1506,
-   "basic": 1506,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.9,
-   "feedbacks": 6207,
-   "category": "кроссовки женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "кроссовки женские",
-   "queued_ts": 1790772519
-  },
-  {
-   "id": 924611861,
-   "title": "Джинсы широкие со средней посадкой",
-   "brand": "ТВОЕ",
-   "product": 1639,
-   "basic": 1639,
-   "discount": 0,
-   "benefit": 0,
-   "rating": 4.8,
-   "feedbacks": 3712,
-   "category": "джинсы женские",
-   "selection_mode": "good_price",
-   "quality": "B",
-   "query": "джинсы женские",
-   "queued_ts": 1790766599
   }
  ]
 }

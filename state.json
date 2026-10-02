@@ -2968,6 +2968,20 @@
  },
  "recent": [
   {
+   "pid": 211358030,
+   "image": "https://basket-14.wbbasket.ru/vol2113/part211358/211358030/images/big/1.webp",
+   "title": "Ксикрем 100 мл",
+   "discount": 0,
+   "price": 595,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/211358030/detail.aspx",
+   "query": "Аптечная косметика",
+   "cat": "Аптечная косметика",
+   "ts": 1790929426,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 148562891,
    "image": "https://basket-10.wbbasket.ru/vol1485/part148562/148562891/images/big/1.webp",
    "title": "Крем для лица антивозрастной, 50 мл",
@@ -8669,20 +8683,6 @@
    "cat": "футболка мужская",
    "ts": 1789719932,
    "drop": 0
-  },
-  {
-   "pid": 211358030,
-   "image": "https://basket-14.wbbasket.ru/vol2113/part211358/211358030/images/big/1.webp",
-   "title": "Ксикрем 100 мл",
-   "discount": 0,
-   "price": 595,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/211358030/detail.aspx",
-   "query": "Аптечная косметика",
-   "cat": "Аптечная косметика",
-   "ts": 1790929426,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -8711,14 +8711,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 106,
-   "ok": 58,
-   "rate_limited": 0,
-   "http_error": 48,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 58,
-   "worker_error": 24,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [

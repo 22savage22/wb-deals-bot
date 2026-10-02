@@ -8711,14 +8711,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 106,
+   "ok": 58,
+   "rate_limited": 0,
+   "http_error": 48,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 58,
+   "worker_error": 24,
    "direct_ok": 0
   },
   "errors": [

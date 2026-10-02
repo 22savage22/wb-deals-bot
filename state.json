@@ -3076,6 +3076,20 @@
  },
  "recent": [
   {
+   "pid": 806862064,
+   "image": "https://basket-37.wbbasket.ru/vol8068/part806862/806862064/images/big/1.webp",
+   "title": "Юбка короткая карандаш мини",
+   "discount": 0,
+   "price": 442,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/806862064/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1790944216,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 848758256,
    "image": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/images/big/1.webp",
    "title": "Худи легкое",
@@ -9000,20 +9014,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 806862064,
-   "image": "https://basket-37.wbbasket.ru/vol8068/part806862/806862064/images/big/1.webp",
-   "title": "Юбка короткая карандаш мини",
-   "discount": 0,
-   "price": 442,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/806862064/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1790944216,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9042,14 +9042,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 21,
-   "ok": 13,
-   "rate_limited": 0,
-   "http_error": 8,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 13,
-   "worker_error": 4,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -9148,7 +9148,7 @@
    "Пылевыбивалки",
    "Кабели и зарядные устройства"
   ],
-  "queue_size": 99,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1098,
@@ -12775,7 +12775,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 3587,
-  "scheduler_last_post": 1790943572
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

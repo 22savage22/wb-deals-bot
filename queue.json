@@ -1,5 +1,21 @@
 [
  {
+  "id": 343183151,
+  "title": "Диспенсер кухонный для моющего средства с дозатором",
+  "brand": "Raygood",
+  "product": 728,
+  "basic": 728,
+  "discount": 0,
+  "benefit": 0,
+  "rating": 5.0,
+  "feedbacks": 1816,
+  "category": "товары для кухни",
+  "selection_mode": "good_price",
+  "quality": "B",
+  "query": "товары для кухни",
+  "queued_ts": 1790950712
+ },
+ {
   "id": 1097989569,
   "title": "Сумка шоппер из экокожи на плечо хобо",
   "brand": "JOYCITY",
@@ -14,22 +30,6 @@
   "quality": "B",
   "query": "сумка женская",
   "queued_ts": 1790950091
- },
- {
-  "id": 205957120,
-  "title": "Военная техника. 16 демонстр. картинок с текстом",
-  "brand": "ТЦ СФЕРА",
-  "product": 355,
-  "basic": 355,
-  "discount": 0,
-  "benefit": 0,
-  "rating": 5.0,
-  "feedbacks": 113,
-  "category": "Машины и техника",
-  "selection_mode": "good_price",
-  "quality": "B",
-  "query": "Машины и техника",
-  "queued_ts": 1790949439
  },
  {
   "id": 178799047,

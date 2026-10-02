@@ -3075,6 +3075,20 @@
  },
  "recent": [
   {
+   "pid": 848758256,
+   "image": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/images/big/1.webp",
+   "title": "Худи легкое",
+   "discount": 0,
+   "price": 925,
+   "rating": 4.5,
+   "link": "https://www.wildberries.ru/catalog/848758256/detail.aspx",
+   "query": "Худи",
+   "cat": "Худи",
+   "ts": 1790943572,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 227760261,
    "image": "https://basket-15.wbbasket.ru/vol2277/part227760/227760261/images/big/1.webp",
    "title": "Платье летнее праздничное с разрезом y2k",
@@ -8985,20 +8999,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 848758256,
-   "image": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/images/big/1.webp",
-   "title": "Худи легкое",
-   "discount": 0,
-   "price": 925,
-   "rating": 4.5,
-   "link": "https://www.wildberries.ru/catalog/848758256/detail.aspx",
-   "query": "Худи",
-   "cat": "Худи",
-   "ts": 1790943572,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9133,7 +9133,7 @@
    "Кабели и зарядные устройства",
    "Пылевыбивалки"
   ],
-  "queue_size": 92,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1197,
@@ -12763,7 +12763,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 3587,
-  "scheduler_last_post": 1790942921
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -13205,7 +13205,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "1a82d6c68e0e8e96": 1788351657,
   "1f39317169e8d87a": 1788352446,
   "dabc3cb66b6671f5": 1788353086,
   "e0711b1b470f9b9f": 1788353734,

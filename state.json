@@ -15281,7 +15281,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 5910,
-  "scheduler_last_post": 1790956164
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null
@@ -15730,7 +15730,6 @@
  },
  "img_hash": {
   "78290e36367fcc8c": 1790841636,
-  "f0f0f0f0ec6c9696": 1788375511,
   "c5c6a2a282e07868": 1788376313,
   "8b8b8f8f4e626362": 1788377057,
   "1f1e3696f0e8f0b0": 1788377856,

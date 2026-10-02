@@ -8664,13 +8664,13 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
+   "calls": 64,
+   "ok": 38,
+   "rate_limited": 0,
    "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
+   "worker_ok": 38,
    "worker_error": 13,
    "direct_ok": 0
   },
@@ -8770,7 +8770,7 @@
    "Спецодежда медицинская",
    "Банкетки"
   ],
-  "queue_size": 12,
+  "queue_size": 5,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 402,

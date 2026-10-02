@@ -3040,6 +3040,20 @@
  },
  "recent": [
   {
+   "pid": 331037532,
+   "image": "https://basket-20.wbbasket.ru/vol3310/part331037/331037532/images/big/1.webp",
+   "title": "Набор для творчества для девочек",
+   "discount": 0,
+   "price": 307,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/331037532/detail.aspx",
+   "query": "Творчество",
+   "cat": "Творчество",
+   "ts": 1790939112,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 247389322,
    "image": "https://basket-16.wbbasket.ru/vol2473/part247389/247389322/images/big/1.webp",
    "title": "Набор для творчества из синельной проволоки",
@@ -8852,20 +8866,6 @@
    "cat": "футболка мужская",
    "ts": 1789736984,
    "drop": 1
-  },
-  {
-   "pid": 331037532,
-   "image": "https://basket-20.wbbasket.ru/vol3310/part331037/331037532/images/big/1.webp",
-   "title": "Набор для творчества для девочек",
-   "discount": 0,
-   "price": 307,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/331037532/detail.aspx",
-   "query": "Творчество",
-   "cat": "Творчество",
-   "ts": 1790939112,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9000,7 +9000,7 @@
    "Камни для бани",
    "Венки декоративные"
   ],
-  "queue_size": 91,
+  "queue_size": 100,
   "last_scan_added": 1,
   "last_scan_funnel": {
    "found": 1198,
@@ -11538,7 +11538,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-02",
   "new_today": 2495,
-  "scheduler_last_post": 1790938463
+  "scheduler_last_post": 1790932058
  },
  "admin_ui": {
   "pending": null

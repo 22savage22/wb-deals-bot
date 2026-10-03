@@ -113,15 +113,17 @@ async function publish(env,state,fetcher){
     if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     const manual=current.row.post_request;
     if(manual)await runtime(env,{op:'consume',kind:'post',owner,request_id:manual});
-    for(let attempt=0;attempt<3;attempt++){
+    // One candidate per minute bounds the Free plan CPU/D1 budget even when
+    // several cards fail. The next Cron selects the next non-deferred product.
+    for(let attempt=0;attempt<1;attempt++){
       const item=choose(current.ready,current.recent,current.policy.total_posts+current.recent.length);
       if(!item)return {result:'no_eligible_product'};
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
-      const saved=JSON.parse(item.data),now=sec();let card;
+      const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
       await status(env,{last_post_attempt:now,selected_product:item.pid});
       try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>p.id===item.pid);}
-      catch{if(now-item.checked_at<=6*3600&&saved.image){card=null;}else{await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',now+300,item.pid).run();continue;}}
-      let deal=card?cardDeal(card,current.policy):now-item.checked_at<=6*3600?saved:null;
+      catch{unavailable=true;if(now-item.checked_at<=6*3600&&saved.image){card=null;}else{await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',now+300,item.pid).run();continue;}}
+      let deal=card?cardDeal(card,current.policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
       if(!deal||deal.product>saved.product*1.1){await q(env,"UPDATE scheduler_inventory SET state='rejected' WHERE pid=?",item.pid).run();continue;}
       deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
       const photo=await imageFor(env,deal,fetcher);deal={...deal,...photo};

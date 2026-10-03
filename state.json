@@ -2656,10 +2656,10 @@
    "ts": 1791012356.6957033
   },
   "Аксессуары для водителя": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1791017491.9009833
   }
  },
@@ -3190,10 +3190,10 @@
    "ts": 1791012356.6957095
   },
   "Аксессуары для водителя": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1791017491.900985
   }
  },
@@ -3201,6 +3201,20 @@
   "offset": 810944992
  },
  "recent": [
+  {
+   "pid": 74586809,
+   "image": "https://basket-05.wbbasket.ru/vol745/part74586/74586809/images/big/1.webp",
+   "title": "Обложка для автодокументов мужская Hyundai Хендай",
+   "discount": 0,
+   "price": 873,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/74586809/detail.aspx",
+   "query": "Аксессуары для водителя",
+   "cat": "Аксессуары для водителя",
+   "ts": 1791017491,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 1006043723,
    "image": "https://basket-41.wbbasket.ru/vol10060/part1006043/1006043723/images/big/1.webp",
@@ -9059,20 +9073,6 @@
    "cat": "постельное белье",
    "ts": 1789810196,
    "drop": 0
-  },
-  {
-   "pid": 74586809,
-   "image": "https://basket-05.wbbasket.ru/vol745/part74586/74586809/images/big/1.webp",
-   "title": "Обложка для автодокументов мужская Hyundai Хендай",
-   "discount": 0,
-   "price": 873,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/74586809/detail.aspx",
-   "query": "Аксессуары для водителя",
-   "cat": "Аксессуары для водителя",
-   "ts": 1791017491,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9207,7 +9207,7 @@
    "Аксессуары для водителя",
    "Подметальные машины"
   ],
-  "queue_size": 86,
+  "queue_size": 87,
   "last_scan_added": 0,
   "last_scan_funnel": {
    "found": 1100,
@@ -18319,7 +18319,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-03",
   "new_today": 2762,
-  "scheduler_last_post": 1791015674
+  "scheduler_last_post": 1790956164
  },
  "admin_ui": {
   "pending": null

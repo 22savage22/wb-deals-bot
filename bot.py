@@ -1,4 +1,5 @@
 import html
+import json
 import logging
 import os
 import random
@@ -241,6 +242,7 @@ def _publish_queued(data, limit):
             queue, data, 1, published, topic_limit=smart.DAILY_TOPIC_LIMIT
         )
         if not ordered:
+            funnel["topic_cap_blocked"] = len(queue)
             break
         deal = ordered[0]
         queue.remove(deal)
@@ -283,7 +285,7 @@ def _publish_queued(data, limit):
             funnel["electronics"] = funnel.get("electronics", 0) + 1
             continue
         images = wb.photos(pid)
-        if len(images) < 2:
+        if not images:
             funnel["no_photo"] = funnel.get("no_photo", 0) + 1
             state.record_error(data, f"Мало фото ({len(images)}): {pid}")
             print("Мало фото:", pid, len(images))
@@ -343,6 +345,7 @@ def _publish_queued(data, limit):
 
     data["queue"] = queue + deferred
     funnel["queue_after"] = len(data["queue"])
+    print('POST_FILTERS:', json.dumps(funnel, ensure_ascii=False), flush=True)
     return published, posted_deals, funnel
 
 

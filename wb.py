@@ -388,7 +388,7 @@ def evaluate(card, min_discount=None, min_rating=None, min_feedbacks=0, max_pric
     if (
         not d["id"]
         or d["product"] <= 0
-        or d["basic"] <= d["product"]
+        or d["basic"] < d["product"]
     ):
         return None, "bad_price"
     if _out_of_stock(card):

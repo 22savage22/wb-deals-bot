@@ -10,6 +10,26 @@ import scheduling
 
 
 class SchedulerTests(unittest.TestCase):
+    def test_discarded_queue_ids_are_not_resurrected_by_remote_merge(self):
+        settings = {'schedule': dict(scheduling.DEFAULTS), '_schedule_revision': 1}
+        data = {'posted': {}, 'recent': [], 'meta': {}, 'queue': []}
+        def publish(data, *args, **kwargs):
+            data['queue'] = [data['queue'][1]]
+            data['meta']['last_run'] = int(time.time())
+            return 0
+        with patch.object(scheduler.config, 'load_settings', return_value=settings), \
+             patch.object(scheduler.config, 'apply'), patch.object(scheduler.client, 'refresh'), \
+             patch.object(scheduler.state, 'load', return_value=data), \
+             patch.object(scheduler.deal_queue, 'load', return_value=[{'id': 1}, {'id': 2}]), \
+             patch.object(scheduler.client, 'runtime', return_value={}), \
+             patch.object(scheduler.client, 'api'), patch.object(scheduler.scheduling, 'post_due', return_value=True), \
+             patch.object(scheduler.bot, 'run_posting', side_effect=publish), \
+             patch.object(scheduler.deal_queue, 'save', side_effect=lambda p,q,s:q), \
+             patch.object(scheduler.bot, 'commit_queue') as commit, \
+             patch.object(scheduler.bot, 'commit_state'), patch.object(scheduler.state, 'save'):
+            scheduler.tick(dispatch_search=False)
+        self.assertEqual(commit.call_args.args[3], {1})
+
     def test_cloudflare_job_exits_after_one_tick_without_search_dispatch_or_sleep(self):
         with patch.object(scheduler.client, 'enabled', return_value=True), patch.object(scheduler, 'sync_git') as sync, patch.object(scheduler, 'tick') as tick, patch.object(scheduler.time, 'sleep') as sleep, patch.object(sys, 'argv', ['scheduler.py', '--once']):
             scheduler.main()

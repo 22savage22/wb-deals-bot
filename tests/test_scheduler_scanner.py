@@ -57,6 +57,18 @@ class RetryBudgetTests(unittest.TestCase):
 
 
 class ScannerRuntimeTests(unittest.TestCase):
+    def test_full_single_topic_buffer_is_pruned_before_full_queue_shortcut(self):
+        now = int(scanner.time.time())
+        data = state._empty()
+        data['queue'] = [dict(id=i+1, query='Аптечная косметика', queued_ts=now) for i in range(100)]
+        with patch.object(scanner.scheduler_client, 'enabled', return_value=True), \
+             patch.object(scanner.smart, 'pick_queries', return_value=[]), \
+             patch.object(scanner.smart, 'pick_categories', return_value=[]), \
+             patch.object(scanner.wb, 'menu', return_value=[]):
+            scanner.fill_queue(data, {}, target=100)
+        self.assertEqual(len(data['queue']), scanner.smart.DAILY_TOPIC_LIMIT)
+        self.assertLess(len(data['queue']), 100)
+
     def _run(self, *, snapshot=None, request="", due=False, failure=False):
         cfg = {"schedule": dict(scheduling.DEFAULTS), "schedule_search_request": request}
         data = state._empty()

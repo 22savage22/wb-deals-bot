@@ -7,6 +7,23 @@ import requests
 
 API = "https://api.telegram.org/bot{token}/{method}"
 LAST_ERROR = ""
+LAST_MESSAGE_ID = None
+
+
+def _remember_delivery(resp):
+    """Record only the non-secret receipt, never the Telegram request URL."""
+    global LAST_MESSAGE_ID
+    LAST_MESSAGE_ID = None
+    if not resp.ok:
+        return
+    try:
+        result = resp.json().get('result')
+        message = result[0] if isinstance(result, list) and result else result
+        if isinstance(message, dict) and isinstance(message.get('message_id'), int):
+            LAST_MESSAGE_ID = message['message_id']
+            print('TELEGRAM_SEND: SUCCESS message_id=' + str(LAST_MESSAGE_ID), flush=True)
+    except (ValueError, AttributeError, IndexError):
+        pass
 
 
 def _remember_error(resp=None, exc=None):
@@ -228,6 +245,7 @@ def send_photo(token, chat_id, photo, text, link=None, pid=None, markup=None):
             timeout=90,
         )
         _remember_error(resp)
+        _remember_delivery(resp)
         return resp.ok
     except requests.RequestException as exc:
         _remember_error(exc=exc)
@@ -255,6 +273,7 @@ def send_album(token, chat_id, photos, text, link=None, pid=None, markup=None):
             timeout=90,
         )
         _remember_error(resp)
+        _remember_delivery(resp)
         if not resp.ok:
             return False
         keyboard = _kb(markup) if markup is not None else (_buttons(link, pid) if link and pid else None)

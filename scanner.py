@@ -61,8 +61,10 @@ def fill_queue(data, settings, target=None, force_scan=False, deadline=None):
         and now - item.get("queued_ts", 0) < (72 if scheduled else config.QUEUE_MAX_AGE_HOURS) * 3600
         and smart._topic(item) not in disabled
     ]
-    if len(queue) > target and not scheduled:
-        queue = _limit_topics(queue, smart.DAILY_TOPIC_LIMIT)
+    # A nominally full buffer can be entirely unpublishable after daily caps.
+    # Bound EACH topic even in scheduled mode, before the early-return check.
+    queue = _limit_topics(queue, smart.DAILY_TOPIC_LIMIT)
+    if len(queue) > target:
         queue = smart.balance_audience(queue, data, target, allow_fallback=False)
     data["queue"] = queue
     if len(queue) >= target and not force_scan:
@@ -194,7 +196,18 @@ def fill_queue(data, settings, target=None, force_scan=False, deadline=None):
         eligible.append(deal)
 
     # Diversity selection avoids a buffer filled with near-identical products.
-    ranked = smart.pick_deals(eligible, data, max(need * 3, need))
+    topic_counts = {}
+    for item in queue:
+        topic = smart._topic(item)
+        topic_counts[topic] = topic_counts.get(topic, 0) + 1
+    diverse = []
+    for item in eligible:
+        topic = smart._topic(item)
+        if topic_counts.get(topic, 0) >= smart.DAILY_TOPIC_LIMIT:
+            continue
+        topic_counts[topic] = topic_counts.get(topic, 0) + 1
+        diverse.append(item)
+    ranked = smart.pick_deals(diverse, data, max(need * 3, need))
     # Daily posting caps must not prevent a multi-day inventory from filling.
     selected = smart.balance_audience(ranked, data, need,
                                      topic_limit=0 if scheduled else smart.DAILY_TOPIC_LIMIT)

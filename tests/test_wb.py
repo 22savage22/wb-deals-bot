@@ -80,6 +80,7 @@ def main():
     config.MAX_PRICE = 0
     c = card(product=11000, basic=11000)
     assert wb.deal(c) is None  # скидки нет
+    assert wb.deal(c, min_discount=0)['product'] == 110  # honest current-price listing
     c = card(product=22000, basic=11000)
     assert wb.deal(c) is None  # product > basic
     print("5. price edges OK")

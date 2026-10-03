@@ -60,6 +60,7 @@ def tick(forced_request=None, dispatch_search=True):
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data['queue'] = deal_queue.load(config.QUEUE_FILE)
+    before_ids = {item['id'] for item in data['queue']}
     snapshot = client.runtime('snapshot')
     client.merge_runtime(data, snapshot)
     consumed = {(r['kind'], r['request_id']) for r in snapshot.get('consumed_requests') or []}
@@ -74,7 +75,8 @@ def tick(forced_request=None, dispatch_search=True):
         published = bot.run_posting(data, settings, request_id=request)
         if published or data.get('meta', {}).get('last_run'):
             data['queue'] = deal_queue.save(config.QUEUE_FILE, data['queue'], data['posted'])
-            bot.commit_queue(config.QUEUE_FILE, data['queue'], data['posted'])
+            removed = before_ids - {item['id'] for item in data['queue']}
+            bot.commit_queue(config.QUEUE_FILE, data['queue'], data['posted'], removed)
             state.save(config.STATE_FILE, data)
             bot.commit_state(config.STATE_FILE, data)
         print('TELEGRAM_CYCLE:', 'SUCCESS' if published else 'SKIPPED', published, flush=True)

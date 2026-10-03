@@ -2635,10 +2635,10 @@
    "ts": 1790950639.904646
   },
   "Основные части двигателя": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1791011840.158464
   }
  },
@@ -3162,10 +3162,10 @@
    "ts": 1790950639.9046495
   },
   "Основные части двигателя": {
-   "posts": 1,
-   "likes": 0,
-   "dislikes": 0,
-   "bought": 0,
+   "posts": 1.0,
+   "likes": 0.0,
+   "dislikes": 0.0,
+   "bought": 0.0,
    "ts": 1791011840.1584663
   }
  },
@@ -3173,6 +3173,20 @@
   "offset": 810944991
  },
  "recent": [
+  {
+   "pid": 183679264,
+   "image": "https://basket-12.wbbasket.ru/vol1836/part183679/183679264/images/big/1.webp",
+   "title": "Корм для морских свинок основной 400 гр",
+   "discount": 0,
+   "price": 196,
+   "rating": 5,
+   "link": "https://www.wildberries.ru/catalog/183679264/detail.aspx",
+   "query": "Основные части двигателя",
+   "cat": "Основные части двигателя",
+   "ts": 1791011840,
+   "drop": 0,
+   "quality": "B"
+  },
   {
    "pid": 218806590,
    "image": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/images/big/1.webp",
@@ -9037,20 +9051,6 @@
    "cat": "футболка мужская",
    "ts": 1789802681,
    "drop": 0
-  },
-  {
-   "pid": 183679264,
-   "image": "https://basket-12.wbbasket.ru/vol1836/part183679/183679264/images/big/1.webp",
-   "title": "Корм для морских свинок основной 400 гр",
-   "discount": 0,
-   "price": 196,
-   "rating": 5,
-   "link": "https://www.wildberries.ru/catalog/183679264/detail.aspx",
-   "query": "Основные части двигателя",
-   "cat": "Основные части двигателя",
-   "ts": 1791011840,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9185,7 +9185,7 @@
    "Насосное оборудование",
    "Основные части двигателя"
   ],
-  "queue_size": 126,
+  "queue_size": 57,
   "last_scan_added": 27,
   "last_scan_funnel": {
    "found": 1199,

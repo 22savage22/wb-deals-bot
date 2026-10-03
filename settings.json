@@ -1,5 +1,5 @@
 {
- "mtime": 1791002624,
+ "mtime": 1791006797,
  "cats_per_run": 10,
  "queries_per_run": 10,
  "max_posts": 1,
@@ -88,31 +88,31 @@
  },
  "_schedule_revision": 1790950719904,
  "_schedule_status": {
-  "heartbeat": 1791002625,
+  "heartbeat": 1791006770,
   "last_post": 1790956164,
-  "last_scan_attempt": 1791001413,
-  "last_scan_success": 1791001413,
+  "last_scan_attempt": 1791006649,
+  "last_scan_success": 1791006649,
   "queue_size": 82,
-  "new_today": 1164,
+  "new_today": 1564,
   "posted_today": 0,
   "posts_hour": 0,
-  "next_post": 1791002625,
-  "next_search": 1791002625,
+  "next_post": 1791006770,
+  "next_search": 1791006949,
   "revision": 1790950719904,
   "post_running": false,
   "scan_running": false,
   "next_posts": [
-   1791002625,
-   1791004425,
-   1791006225,
-   1791008025,
-   1791009825
+   1791006770,
+   1791008570,
+   1791010370,
+   1791012170,
+   1791013970
   ],
   "error": "Мало фото (1): 168909885",
   "last_scan_error": "",
   "heartbeat_stale": false
  },
- "schedule_post_request": "563ecd2a-c12c-4e66-b9b9-b8e31bfafe2d",
+ "schedule_post_request": "d1f36599-5255-491f-9073-28d5104d73d6",
  "schedule_search_request": "",
- "schedule_version": 1791002624785786470
+ "schedule_version": 1791006797301543550
 }

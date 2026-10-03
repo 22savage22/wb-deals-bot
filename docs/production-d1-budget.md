@@ -148,3 +148,14 @@ settings, ready queue, real message_id and next automatic tick. Do NOT run a
 series of public tests; a normal Cron receipt is sufficient. `/api/health`
 exposes optimization version and Cloudflare runtime version for DEPLOYMENT
 verification only; HTTP 200 is NOT scheduler health. No River/Admin UI changes.
+
+### Deployment evidence
+
+Fix commit `a3e5c5e0`, pushed main merge `3a0b9157` after preserving remote
+`state.json` updates. GitHub CI run **37140337592 SUCCESS** (78 Worker tests plus
+Python/build checks). Managed Workers Build
+**43aaee00-4cfb-4e36-9bcf-a1cdd9176ae6 SUCCESS**. Actual public health identifies
+`d1_optimization_version=3`, production runtime
+`f2580b20-8114-4629-962c-895b906be0be`. One read-only post-deployment check
+**37140541805** dispatched with no parallel native check, no Telegram send.
+Actual scheduler/database recovery still requires the already-spent quota reset.

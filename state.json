@@ -3203,6 +3203,20 @@
  },
  "recent": [
   {
+   "pid": 993514951,
+   "image": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/images/big/1.webp",
+   "title": "Блузка вечерняя прозрачная летняя",
+   "discount": 0,
+   "price": 870,
+   "rating": 4.8,
+   "link": "https://www.wildberries.ru/catalog/993514951/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1791019340,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 74586809,
    "image": "https://basket-05.wbbasket.ru/vol745/part74586/74586809/images/big/1.webp",
    "title": "Обложка для автодокументов мужская Hyundai Хендай",
@@ -9074,20 +9088,6 @@
    "cat": "постельное белье",
    "ts": 1789810196,
    "drop": 0
-  },
-  {
-   "pid": 993514951,
-   "image": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/images/big/1.webp",
-   "title": "Блузка вечерняя прозрачная летняя",
-   "discount": 0,
-   "price": 870,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/993514951/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1791019340,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9222,7 +9222,7 @@
    "Колготки и носки",
    "Образование"
   ],
-  "queue_size": 88,
+  "queue_size": 100,
   "last_scan_added": 13,
   "last_scan_funnel": {
    "found": 1100,
@@ -18735,7 +18735,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-03",
   "new_today": 3161,
-  "scheduler_last_post": 1791017491
+  "scheduler_last_post": 1790956164
  },
  "admin_ui": {
   "pending": null

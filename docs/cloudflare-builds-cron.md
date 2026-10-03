@@ -39,6 +39,13 @@ that is a buffer count, not a claim that every row has just passed live checks.
 Cards are rechecked before sending, and stale buffer rows are checked between
 posts without sending. Previously published rows cannot poison selection.
 The PC and deployment OAuth are not needed for runtime Cron execution.
+An ordinary autonomous Cron then published product 87456438 around 12:59:55,
+message_id 2464, about ten minutes after the test post; run 37114978443 records
+this receipt and a following independent Cron heartbeat at 13:00:54. There was
+no second manual post request. Tests: 59 Worker checks, four migration-helper
+checks, and GitHub CI 37114731700 all passed. Stale lease takeover, uncertain
+Telegram outcome isolation and cold Free-plan D1 query budgets are covered by
+tests; the live receipts are recorded separately from those simulated tests.
 
 Build 383766c3 subsequently succeeded for main 3ac09c9; the earlier build
 initialization failures were temporary. Workers Builds remains connected for

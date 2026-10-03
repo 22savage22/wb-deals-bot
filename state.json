@@ -9041,18 +9041,6 @@
    "cat": "футболка мужская",
    "ts": 1789805123,
    "drop": 0
-  },
-  {
-   "pid": 272794883,
-   "title": "Футболка хлопок однотонная",
-   "discount": 0,
-   "price": 239,
-   "rating": 4.8,
-   "link": "https://www.wildberries.ru/catalog/272794883/detail.aspx",
-   "query": "футболка мужская",
-   "cat": "футболка мужская",
-   "ts": 1789804346,
-   "drop": 0
   }
  ],
  "meta": {
@@ -9081,14 +9069,14 @@
    "selected": 1
   },
   "wb_http": {
-   "calls": 36,
-   "ok": 22,
-   "rate_limited": 0,
-   "http_error": 14,
+   "calls": 69,
+   "ok": 42,
+   "rate_limited": 1,
+   "http_error": 26,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 22,
-   "worker_error": 7,
+   "worker_ok": 42,
+   "worker_error": 13,
    "direct_ok": 0
   },
   "errors": [
@@ -17503,7 +17491,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-03",
   "new_today": 1964,
-  "scheduler_last_post": 1791013815
+  "scheduler_last_post": 1790956164
  },
  "admin_ui": {
   "pending": null
@@ -17513,7 +17501,6 @@
   "футболкаоверсайзснадписью": 1789920604,
   "футболкамужская": 1789846062,
   "футболкаплотнаяизхлопка": 1789898480,
-  "футболкахлопокоднотонная": 1789804346,
   "футболкабазоваяоднотоннаяхлопок": 1789824039,
   "футболкахлопковаясвободная": 1789884621,
   "футболкахлопокоднотоннаялетняя": 1789978033,

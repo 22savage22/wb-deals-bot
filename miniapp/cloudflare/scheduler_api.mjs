@@ -3,6 +3,7 @@ export const DEFAULT_SCHEDULE=Object.freeze({enabled:true,paused:false,mode:'int
 const time=/^(?:[01]\d|2[0-3]):[0-5]\d$/;
 const seconds=()=>Math.floor(Date.now()/1000);
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
+const validZones=new Set();
 export function validateSchedule(input){
   if(!object(input))throw new Error('Некорректное расписание');
   const s={...DEFAULT_SCHEDULE,...input};
@@ -16,10 +17,14 @@ export function validateSchedule(input){
   s.weekdays=[...new Set(s.weekdays)].sort();
   if(!time.test(s.quiet_start)||!time.test(s.quiet_end)||s.quiet_enabled&&s.quiet_start===s.quiet_end)throw new Error('Проверьте часы тишины');
   if(typeof s.timezone!=='string'||s.timezone.length>80)throw new Error('Некорректный часовой пояс');
-  try{new Intl.DateTimeFormat('en',{timeZone:s.timezone}).format();}catch{throw new Error('Неизвестный часовой пояс');}
+  if(!validZones.has(s.timezone)){try{new Intl.DateTimeFormat('en',{timeZone:s.timezone}).format();validZones.add(s.timezone);}catch{throw new Error('Неизвестный часовой пояс');}}
   return Object.fromEntries(Object.keys(DEFAULT_SCHEDULE).map(k=>[k,s[k]]));
 }
 const schemas=[
+  'CREATE TABLE IF NOT EXISTS scheduler_inventory (pid INTEGER PRIMARY KEY,data TEXT NOT NULL,topic TEXT NOT NULL,title_key TEXT NOT NULL,queued_at INTEGER NOT NULL,checked_at INTEGER NOT NULL,expires INTEGER NOT NULL,state TEXT NOT NULL DEFAULT \'ready\',retry_at INTEGER NOT NULL DEFAULT 0)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_ready ON scheduler_inventory(state,retry_at,expires)',
+  'CREATE TABLE IF NOT EXISTS scheduler_policy (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL)',
+  'CREATE TABLE IF NOT EXISTS scheduler_deliveries (pid INTEGER NOT NULL,ts INTEGER NOT NULL,message_id INTEGER,topic TEXT NOT NULL,title_key TEXT NOT NULL,data TEXT NOT NULL,PRIMARY KEY(pid,ts))',
   'CREATE TABLE IF NOT EXISTS scheduler_config (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL,revision INTEGER NOT NULL,post_request TEXT,search_request TEXT,status TEXT NOT NULL DEFAULT \'{}\')',
   'CREATE TABLE IF NOT EXISTS scheduler_leases (kind TEXT PRIMARY KEY,owner TEXT NOT NULL,expires INTEGER NOT NULL)',
   'CREATE TABLE IF NOT EXISTS scheduler_claims (pid INTEGER PRIMARY KEY,owner TEXT NOT NULL,ts INTEGER NOT NULL,status TEXT NOT NULL,request_id TEXT)',
@@ -29,12 +34,19 @@ const schemas=[
   'CREATE TABLE IF NOT EXISTS scheduler_runtime (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL)',
   'CREATE INDEX IF NOT EXISTS scheduler_posts_time ON scheduler_posts(ts)'
 ];
+const initialized=new WeakMap();
 export async function ensureScheduler(env){
+  if(initialized.has(env.DB))return initialized.get(env.DB);
+  const pending=initialize(env);initialized.set(env.DB,pending);
+  try{await pending;}catch(e){initialized.delete(env.DB);throw e;}
+}
+async function initialize(env){
   const q=(sql,...args)=>env.DB.prepare(sql).bind(...args);
   await env.DB.batch(schemas.map(sql=>q(sql)));
   await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
 }
-function dayAt(ts,zone){return new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(ts*1000));}
+const dayFormatters=new Map();
+function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
 function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
 const text=(v,max=120)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[\r\n]/.test(v)?v:null;
 const safeError=v=>typeof v==='string'?v.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[скрыто]').slice(0,180):'';

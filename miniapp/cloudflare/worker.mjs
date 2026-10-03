@@ -2,6 +2,7 @@ import {telegramUser,equal} from './auth.mjs';
 import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
 import {schedulerRoute} from './scheduler_api.mjs';
 import {scheduledTick} from './cron_driver.mjs';
+import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -51,6 +52,14 @@ async function route(request,env,ctx) {
   if(path.startsWith('/api/scheduler/')) {
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    if(path==='/api/scheduler/bootstrap'&&method==='POST') {
+      try{return json(await bootstrap(env,await payload(request,2*1024*1024)));}catch{fail(400,'Некорректные данные переноса');}
+    }
+    if(path==='/api/scheduler/check'&&method==='GET')return json(await checkAutopost(env));
+    if(path==='/api/scheduler/tick'&&method==='POST') {
+      if(env.SCHEDULER_DRIVER!=='cloudflare-native')fail(409,'Прямой scheduler ещё не включён');
+      return json(await nativeTick(env));
+    }
     return schedulerRoute(request,env,{payload,fail,json});
   }
   const all=async(sql,...args)=>(await prepare(sql,...args).all()).results;
@@ -62,7 +71,7 @@ async function route(request,env,ctx) {
     if(env.RATE_LIMITER && !(await env.RATE_LIMITER.limit({key:String(uid)})).success)fail(429,'Слишком много запросов. Подождите минуту.');
   }
   const admin=()=>{if(!env.MINIAPP_ADMIN_ID||String(uid)!==String(env.MINIAPP_ADMIN_ID))fail(403,'Доступ только владельцу');};
-  if(path.startsWith('/api/admin/schedule')) {admin();return schedulerRoute(request,env,{payload,fail,json,admin:true});}
+  if(path.startsWith('/api/admin/schedule')) {admin();if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
     await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32)});
   }
@@ -157,7 +166,7 @@ async function route(request,env,ctx) {
   fail(404,'Не найдено');
 }
 export default {
-  async scheduled(controller,env){return scheduledTick(env,controller.scheduledTime);},
+  async scheduled(controller,env){return env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(env,controller.scheduledTime):scheduledTick(env,controller.scheduledTime);},
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
     let response;
     try {response=await route(request,env,ctx);} catch(error) {

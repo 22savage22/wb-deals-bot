@@ -1,0 +1,34 @@
+name: Native Cloudflare runtime migration and checks
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: Prepare D1, safely check, or execute one due tick
+        type: choice
+        options: [prepare, check, tick]
+        default: check
+permissions:
+  contents: read
+concurrency:
+  group: wb-native-migration
+  cancel-in-progress: false
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -B -m miniapp.native_bootstrap
+        env:
+          NATIVE_ACTION: ${{ inputs.action }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+          WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
+          WB_MIN_RATING: '4.3'

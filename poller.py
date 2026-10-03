@@ -71,23 +71,34 @@ def main():
         print("Задайте TG_BOT_TOKEN и TG_ADMIN_ID")
         sys.exit(1)
     settings = config.load_settings()
+    schedule_retry = 120
+    schedule_checked = 0.0
     if scheduler_client.enabled():
-        scheduler_client.refresh(settings)
+        try:
+            scheduler_client.refresh(settings)
+        except RuntimeError as exc:
+            # D1 outage must not stop Telegram reactions. Keep the last settings;
+            # this process is not the native production publisher.
+            logger.warning('Начальное расписание недоступно: %s', exc)
+        schedule_checked = time.time()
     config.apply(settings)
     data = state.load(config.STATE_FILE)
     data["queue"] = deal_queue.load(config.QUEUE_FILE)
     tg.set_commands(config.TG_BOT_TOKEN)
     last_commit = 0.0
-    last_schedule = 0.0
+    last_schedule = schedule_checked
     start = time.time()
     while time.time() - start < LIFETIME - 60:
-        if scheduler_client.enabled() and time.time() - last_schedule >= 15:
+        if scheduler_client.enabled() and time.time() - last_schedule >= schedule_retry:
             try:
                 scheduler_client.refresh(settings)
                 config.apply(settings)
-                last_schedule = time.time()
+                schedule_retry = 120
             except RuntimeError as exc:
                 logger.warning('Расписание временно недоступно: %s', exc)
+                schedule_retry = min(900, schedule_retry * 2)
+            finally:
+                last_schedule = time.time()
         _maybe_daily_digest(config.TG_BOT_TOKEN, data)
         _maybe_week_digest(config.TG_BOT_TOKEN, data, settings)
         now = time.time()

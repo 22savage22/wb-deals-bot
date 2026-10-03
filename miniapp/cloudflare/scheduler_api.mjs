@@ -35,6 +35,17 @@ const schemas=[
   'CREATE INDEX IF NOT EXISTS scheduler_posts_time ON scheduler_posts(ts)'
 ];
 const initialized=new WeakMap();
+// The daily Free budget counts scanned rows, not just the number of queries.
+// In particular, a topic check for each queued card must not scan all history.
+export const SCHEDULER_INDEXES=[
+  'CREATE INDEX IF NOT EXISTS scheduler_deliveries_topic_time ON scheduler_deliveries(topic,ts)',
+  'CREATE INDEX IF NOT EXISTS scheduler_deliveries_time ON scheduler_deliveries(ts)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_title ON scheduler_inventory(title_key)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_topic_ready ON scheduler_inventory(state,topic,expires)',
+  'CREATE INDEX IF NOT EXISTS scheduler_claims_time ON scheduler_claims(ts)',
+  'CREATE INDEX IF NOT EXISTS scheduler_claims_status_time ON scheduler_claims(status,ts)',
+  'CREATE INDEX IF NOT EXISTS scheduler_requests_time ON scheduler_requests(ts DESC)'
+];
 export async function ensureScheduler(env){
   if(initialized.has(env.DB))return initialized.get(env.DB);
   const pending=initialize(env);initialized.set(env.DB,pending);
@@ -42,8 +53,20 @@ export async function ensureScheduler(env){
 }
 async function initialize(env){
   const q=(sql,...args)=>env.DB.prepare(sql).bind(...args);
-  await env.DB.batch(schemas.map(sql=>q(sql)));
-  await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
+  let existing;
+  try{existing=await q('SELECT status FROM scheduler_config WHERE id=1').first();}
+  catch(error){
+    // A quota/network failure is NOT an empty database: never retry DDL then.
+    if(!/no such table.*scheduler_config/i.test(String(error.message)))throw error;
+  }
+  if(Number(JSON.parse(existing?.status||'{}').schema_version||0)>=2)return;
+  if(!existing){
+    await env.DB.batch(schemas.map(sql=>q(sql)));
+    await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
+  }
+  // Additive migration; settings, runtime secrets and existing records survive.
+  await env.DB.batch(SCHEDULER_INDEXES.map(sql=>q(sql)));
+  await q("UPDATE scheduler_config SET status=json_set(status,'$.schema_version',2) WHERE id=1").run();
 }
 const dayFormatters=new Map();
 function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}

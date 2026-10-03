@@ -208,7 +208,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch){
     // Retain these real cards separately and reactivate when the cap expires.
     await q(env,"UPDATE scheduler_inventory SET state='ready' WHERE state='cooldown' AND retry_at<=? AND expires>?",now,now).run();
     await q(env,`UPDATE scheduler_inventory SET state='cooldown',retry_at=COALESCE((SELECT MIN(ts)+86401 FROM scheduler_deliveries d WHERE d.topic=scheduler_inventory.topic AND ts>?),?)
-      WHERE state='ready' AND (SELECT COUNT(*) FROM scheduler_deliveries d WHERE d.topic=scheduler_inventory.topic AND ts>?)>=8`,now-86400,now+3600,now-86400).run();
+      WHERE state='ready' AND topic IN (SELECT topic FROM scheduler_deliveries INDEXED BY scheduler_deliveries_time WHERE ts>? GROUP BY topic HAVING COUNT(*)>=8)`,now-86400,now+3600,now-86400).run();
     let state=await readState(env),previous=JSON.parse(state.row.status||'{}'),wall=postingWindow(state.s,now);
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id)});

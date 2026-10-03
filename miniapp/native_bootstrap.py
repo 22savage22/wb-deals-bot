@@ -84,5 +84,8 @@ if __name__ == '__main__':
     try:
         main()
     except Exception as exc:
-        print('NATIVE_ERROR', type(exc).__name__, flush=True)
+        # These messages come from our bounded client, not raw request errors.
+        message = str(exc)
+        safe = message if message.startswith('Scheduler HTTP ') else type(exc).__name__
+        print('NATIVE_ERROR', safe, flush=True)
         sys.exit(1)

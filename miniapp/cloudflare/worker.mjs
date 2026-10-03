@@ -3,6 +3,7 @@ import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
 import {schedulerRoute} from './scheduler_api.mjs';
 import {scheduledTick} from './cron_driver.mjs';
 import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
+import {observeD1,d1QuotaFailure} from './d1_budget.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -166,12 +167,19 @@ async function route(request,env,ctx) {
   fail(404,'Не найдено');
 }
 export default {
-  async scheduled(controller,env){return env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(env,controller.scheduledTime):scheduledTick(env,controller.scheduledTime);},
+  async scheduled(controller,env){
+    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB};
+    try{return await (env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(runtimeEnv,controller.scheduledTime):scheduledTick(runtimeEnv,controller.scheduledTime));}
+    catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',quota?{retry_at:quota.retry_at}:{});throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
+    finally{console.log('D1_BUDGET',JSON.stringify(meter.metrics));}
+  },
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
     let response;
     try {response=await route(request,env,ctx);} catch(error) {
       // Never include database errors, request headers or secrets in public responses/logs.
-      response=json({error:error instanceof HttpError?error.message:'Сервис временно недоступен. Попробуйте позже.'},error instanceof HttpError?error.status:503);
+      const quota=d1QuotaFailure(error);
+      response=json(quota||{error:error instanceof HttpError?error.message:'Сервис временно недоступен. Попробуйте позже.'},error instanceof HttpError?error.status:503);
+      if(quota)response.headers.set('Retry-After',String(Math.max(1,quota.retry_at-second())));
     }
     const secured=new Response(response.body,response);
     for(const [key,value] of Object.entries(headers))secured.headers.set(key,value);

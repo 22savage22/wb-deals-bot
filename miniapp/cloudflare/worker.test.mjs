@@ -16,7 +16,9 @@ function signed(id=11,date=now) {
 }
 function environment() {
   const db=new DatabaseSync(':memory:');db.exec(readFileSync(new URL('./schema.sql',import.meta.url),'utf8'));
-  const wrap=(sql,args=[])=>({bind(...values){return wrap(sql,values);},async first(){return db.prepare(sql).get(...args)??null;},async all(){return {results:db.prepare(sql).all(...args)};},async run(){const result=db.prepare(sql).run(...args);return {meta:{changes:Number(result.changes)}};}});
+  // Budget tests below use explicit synthetic metadata; real scan measurements
+  // live in d1_benchmark.mjs using Miniflare, not this SQLite adapter.
+  const wrap=(sql,args=[])=>({bind(...values){return wrap(sql,values);},async first(){return db.prepare(sql).get(...args)??null;},async all(){return {results:db.prepare(sql).all(...args),meta:{rows_read:1,rows_written:0}};},async run(){const result=db.prepare(sql).run(...args);return {meta:{changes:Number(result.changes),rows_read:1,rows_written:Number(result.changes)}};}});
   return {db,MINIAPP_BOT_TOKEN:token,MINIAPP_SYNC_KEY:'s'.repeat(40),MINIAPP_ADMIN_ID:'11',MINIAPP_BOT_USERNAME:'test_bot',DB:{prepare:wrap,async batch(statements){db.exec('BEGIN');try{const result=[];for(const s of statements)result.push(await s.run());db.exec('COMMIT');return result;}catch(e){db.exec('ROLLBACK');throw e;}}},ASSETS:{fetch:async r=>new Response(new URL(r.url).pathname)},RATE_LIMITER:{limit:async()=>({success:true})}};
 }
 async function request(env,path,method='GET',body=undefined,id=11,headers={}) {
@@ -29,6 +31,18 @@ test('Telegram HMAC validates independently signed data and rejects spoof/expiry
   assert.equal(await telegramUser(signed(),token,now),11);
   for(const input of [signed().replace('Test','Evil'),signed(11,now-3601),signed(11,now+31),signed()+'&auth_date=1',signed(true)])await assert.rejects(()=>telegramUser(input,token,now));
   await assert.rejects(()=>telegramUser(signed(),'wrong',now));
+});
+test('public edge cache serves repeated opens without D1 reads/writes and never caches private endpoints',async()=>{
+  const env=environment(),pending=[],entries=new Map();let puts=0;
+  const original=globalThis.caches;
+  globalThis.caches={default:{async match(key){return entries.get(key.url)?.clone();},async put(key,response){puts++;entries.set(key.url,response.clone());}}};
+  try{
+    await sync(env,[raw(1)]);
+    const first=await worker.fetch(new Request('https://test.example/api/catalog'),env,{waitUntil:p=>pending.push(p)});assert.equal(first.status,200);await Promise.all(pending);
+    const cachedEnv={...env,DB:{prepare(){assert.fail('Cache hit must not touch D1');}}};
+    const hit=await worker.fetch(new Request('https://test.example/api/catalog?ignored=1'),cachedEnv);assert.equal(hit.status,200);assert.equal((await hit.json()).products.length,1);
+    await request(env,'/api/me');assert.equal(puts,1);assert.equal(entries.size,1);
+  }finally{globalThis.caches=original;env.db.close();}
 });
 test('catalogue allowlist sanitizes image URLs and derives categories',()=>{
   const p=normalize(raw(1,'Ремень для платья',500,{category:'Ремни',user_id:8,token:'secret',image:'https://evil.example/x'}));
@@ -48,7 +62,7 @@ test('outfits enforce budget, owned, replacement, freshness and genuine variants
 test('sync set-based upsert preserves images/newer checks/owner overrides and skips identical writes',async()=>{
   const env=environment(),p=raw(1,'Платье женское',1000,{image:'https://basket-01.wbbasket.ru/x'});
   await sync(env,[p]);let changes=env.db.prepare('SELECT total_changes() AS n').get().n;
-  await sync(env,[p]);assert.equal(env.db.prepare('SELECT total_changes() AS n').get().n-changes,1); // metadata only
+  await sync(env,[p]);assert.equal(env.db.prepare('SELECT total_changes() AS n').get().n-changes,3); // sync metadata + two budget ledger writes, no product rewrite
   assert.equal((await request(env,'/api/admin/products/1','PUT',{slot:'top',audience:'women',enabled:false})).status,200);
   await sync(env,[{...p,price:900,image:'',checked_at:now+1}]);await sync(env,[{...p,price:1,checked_at:now-1}]);
   const stored=env.db.prepare('SELECT data,overrides FROM products WHERE id=1').get();assert.equal(JSON.parse(stored.data).price,900);assert.ok(JSON.parse(stored.data).image);assert.equal(JSON.parse(stored.overrides).enabled,false);

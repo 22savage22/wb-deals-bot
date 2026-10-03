@@ -44,7 +44,18 @@ export const SCHEDULER_INDEXES=[
   'CREATE INDEX IF NOT EXISTS scheduler_inventory_topic_ready ON scheduler_inventory(state,topic,expires)',
   'CREATE INDEX IF NOT EXISTS scheduler_claims_time ON scheduler_claims(ts)',
   'CREATE INDEX IF NOT EXISTS scheduler_claims_status_time ON scheduler_claims(status,ts)',
-  'CREATE INDEX IF NOT EXISTS scheduler_requests_time ON scheduler_requests(ts DESC)'
+  'CREATE INDEX IF NOT EXISTS scheduler_requests_time ON scheduler_requests(ts DESC)',
+  'CREATE INDEX IF NOT EXISTS scheduler_actions_time ON scheduler_actions(ts)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_expiry ON scheduler_inventory(state,expires)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_order ON scheduler_inventory(state,queued_at,pid)',
+  'CREATE INDEX IF NOT EXISTS scheduler_inventory_preflight ON scheduler_inventory(state,checked_at)'
+];
+export const QUEUE_COUNTER_SCHEMA=[
+  'CREATE TABLE IF NOT EXISTS scheduler_counts (id INTEGER PRIMARY KEY CHECK(id=1),ready INTEGER NOT NULL)',
+  "INSERT OR IGNORE INTO scheduler_counts SELECT 1,COUNT(*) FROM scheduler_inventory WHERE state='ready'",
+  "CREATE TRIGGER IF NOT EXISTS inventory_count_insert AFTER INSERT ON scheduler_inventory WHEN NEW.state='ready' BEGIN UPDATE scheduler_counts SET ready=ready+1 WHERE id=1; END",
+  "CREATE TRIGGER IF NOT EXISTS inventory_count_delete AFTER DELETE ON scheduler_inventory WHEN OLD.state='ready' BEGIN UPDATE scheduler_counts SET ready=ready-1 WHERE id=1; END",
+  "CREATE TRIGGER IF NOT EXISTS inventory_count_update AFTER UPDATE OF state ON scheduler_inventory WHEN OLD.state<>NEW.state BEGIN UPDATE scheduler_counts SET ready=ready+(NEW.state='ready')-(OLD.state='ready') WHERE id=1; END"
 ];
 export async function ensureScheduler(env){
   if(initialized.has(env.DB))return initialized.get(env.DB);
@@ -59,14 +70,15 @@ async function initialize(env){
     // A quota/network failure is NOT an empty database: never retry DDL then.
     if(!/no such table.*scheduler_config/i.test(String(error.message)))throw error;
   }
-  if(Number(JSON.parse(existing?.status||'{}').schema_version||0)>=2)return;
+  if(Number(JSON.parse(existing?.status||'{}').schema_version||0)>=3)return;
   if(!existing){
     await env.DB.batch(schemas.map(sql=>q(sql)));
     await env.DB.batch([q('INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,?,1)',JSON.stringify(DEFAULT_SCHEDULE)),q("INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}')")]);
   }
   // Additive migration; settings, runtime secrets and existing records survive.
   await env.DB.batch(SCHEDULER_INDEXES.map(sql=>q(sql)));
-  await q("UPDATE scheduler_config SET status=json_set(status,'$.schema_version',2) WHERE id=1").run();
+  await env.DB.batch(QUEUE_COUNTER_SCHEMA.map(sql=>q(sql)));
+  await q("UPDATE scheduler_config SET status=json_set(status,'$.schema_version',3) WHERE id=1").run();
 }
 const dayFormatters=new Map();
 function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
@@ -83,6 +95,7 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
   const config=async()=>{const row=await q('SELECT * FROM scheduler_config WHERE id=1').first();const status=JSON.parse(row.status),heartbeat=Math.max(status.heartbeat||0,status.clock_heartbeat||0),cron_configured=['cloudflare','cloudflare-native'].includes(env.SCHEDULER_DRIVER);return {schedule:JSON.parse(row.data),revision:row.revision,post_request:row.post_request,search_request:row.search_request,status:{...status,driver:env.SCHEDULER_DRIVER||'github-actions',cron_configured,cron_active:cron_configured&&seconds()-Number(status.clock_heartbeat||0)<=180,heartbeat_stale:!heartbeat||seconds()-heartbeat>180}};};
   const save=async(data)=>{let schedule;try{schedule=validateSchedule(data.schedule);}catch(e){fail(400,e.message);}if(!Number.isInteger(data.revision))fail(400,'Нужна версия настроек');const revision=Math.max(Date.now(),data.revision+1);const r=await q('UPDATE scheduler_config SET data=?,revision=? WHERE id=1 AND revision=?',JSON.stringify(schedule),revision,data.revision).run();if(!r.meta.changes)fail(409,'Настройки уже изменились. Обновите страницу');return config();};
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='GET')return json(await config());
+  if(path==='/api/scheduler/budget'&&method==='GET')return json({day:new Date().toISOString().slice(0,10),rows:await all('SELECT lane,reads,writes FROM worker_read_budget WHERE day=? LIMIT 2',new Date().toISOString().slice(0,10)),limits:{core:1500000,optional:1500000},write_limits:{core:35000,optional:45000},includes_read_ledger_overhead:false});
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='PUT')return json(await save(await payload(request)));
   if((path==='/api/admin/schedule/action'&&admin||path==='/api/scheduler/action')&&method==='POST'){
     const data=await payload(request),action=data.action;if(['post_now','search_now'].includes(action)){const key=action==='post_now'?'post_request':'search_request',id=data.request_id??crypto.randomUUID();if(!text(id))fail(400,'Некорректный запрос');await env.DB.batch([q(`UPDATE scheduler_config SET ${key}=? WHERE id=1 AND NOT EXISTS(SELECT 1 FROM scheduler_actions WHERE request_id=?)`,id,id),q('INSERT OR IGNORE INTO scheduler_actions(request_id,ts) VALUES(?,?)',id,seconds())]);return json(await config());}
@@ -95,7 +108,7 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
   const runtime=async()=>JSON.parse((await q('SELECT data FROM scheduler_runtime WHERE id=1').first()).data);
   const updateRuntime=async(value)=>q('UPDATE scheduler_runtime SET data=? WHERE id=1',JSON.stringify(value)).run();
   if(data.op==='snapshot'){
-    const [stored,posts,leases,consumed]=await Promise.all([runtime(),all('SELECT pid,ts FROM scheduler_posts WHERE ts>? ORDER BY ts',now-14*86400),all('SELECT kind,expires FROM scheduler_leases WHERE expires>?',now),all('SELECT kind,request_id FROM scheduler_requests ORDER BY ts DESC LIMIT 200')]);
+    const [stored,posts,leases,consumed]=await Promise.all([runtime(),all('SELECT pid,ts FROM scheduler_posts WHERE ts>? ORDER BY ts DESC LIMIT 4032',now-14*86400),all('SELECT kind,expires FROM scheduler_leases WHERE expires>? LIMIT 2',now),all('SELECT kind,request_id FROM scheduler_requests ORDER BY ts DESC LIMIT 200')]);posts.reverse();
     return json({...stored,last_post:posts.at(-1)?.ts||0,posts,scan_running:leases.some(x=>x.kind==='search'),post_running:leases.some(x=>x.kind==='post'),consumed_requests:consumed});
   }
   if(['acquire','renew','release'].includes(data.op)){

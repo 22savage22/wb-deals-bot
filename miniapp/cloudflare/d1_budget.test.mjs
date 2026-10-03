@@ -37,7 +37,7 @@ test('existing database upgrades once without changing legacy schedule revision'
   e.db.prepare("UPDATE scheduler_config SET status=json_remove(status,'$.schema_version')").run();
   await ensureScheduler({...e,DB:{...e.DB}});
   const after=e.db.prepare('SELECT revision,data,status FROM scheduler_config').get();
-  assert.equal(after.revision,before.revision);assert.equal(after.data,before.data);assert.equal(JSON.parse(after.status).schema_version,2);
+  assert.equal(after.revision,before.revision);assert.equal(after.data,before.data);assert.equal(JSON.parse(after.status).schema_version,3);
 });
 test('real result metadata is counted without logging SQL, rows or credentials',async()=>{
   const original={bind(){return this;},async all(){return {results:[{value:7}],meta:{rows_read:4,rows_written:0}};},async run(){return {meta:{rows_read:2,rows_written:1}};}};
@@ -55,12 +55,12 @@ test('quota API response is actionable, secret-free, and specifies midnight UTC'
   const failure=d1QuotaFailure(error,Date.parse('2026-10-03T15:00:00Z'));
   assert.equal(failure.retry_at,Date.parse('2026-10-04T00:00:00Z')/1000);
   assert.equal(d1QuotaFailure(new Error('secret database failure')),null);
-  const e={MINIAPP_SYNC_KEY:'s'.repeat(40),DB:{prepare(){return {bind(){return this;},async first(){throw error;}};}}};
+  const e={MINIAPP_SYNC_KEY:'s'.repeat(40),DB:{prepare(){return {bind(){return this;},async all(){throw error;},async run(){throw error;}};}}};
   const response=await worker.fetch(new Request('https://test.example/api/scheduler/config',{headers:{Authorization:'Bearer '+e.MINIAPP_SYNC_KEY}}),e);
   assert.equal(response.status,503);assert.ok(Number(response.headers.get('Retry-After'))>0);
   const data=await response.json();assert.equal(data.code,'D1_DAILY_QUOTA_EXCEEDED');assert.equal(JSON.stringify(data).includes('private'),false);
 });
 test('quota keeps Cron visibly failed and never attempts WB or Telegram without D1 safety',async()=>{
-  const e={SCHEDULER_DRIVER:'cloudflare-native',DB:{prepare(){return {bind(){return this;},async all(){throw new Error("D1_ERROR: Your account has exceeded D1's free tier daily row read limit.");}};}}};
+  const e={SCHEDULER_DRIVER:'cloudflare-native',DB:{prepare(){return {bind(){return this;},async all(){throw new Error("D1_ERROR: Your account has exceeded D1's free tier daily row read limit.");},async run(){throw new Error("D1_ERROR: Your account has exceeded D1's free tier daily row read limit.");}};}}};
   await assert.rejects(worker.scheduled({scheduledTime:Date.now()},e),/D1_DAILY_QUOTA_EXCEEDED/);
 });

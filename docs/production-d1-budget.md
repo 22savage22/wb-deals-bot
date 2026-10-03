@@ -44,3 +44,107 @@ or performed. Code optimization cannot refund an already exhausted daily quota.
 
 Sources: https://developers.cloudflare.com/d1/platform/pricing/
 and https://developers.cloudflare.com/d1/best-practices/use-indexes/.
+
+## 2026-10-03 deeper optimization (production recovery still pending)
+
+The account has already hit its **5,000,000 reads/day** limit. The exact
+historical per-query attribution is unavailable: previous executions did not
+record per-query rows_read. Do NOT label synthetic fixture measurements as
+production billing or claim quota has been refunded.
+
+### Reproducible measurements
+
+Run `node miniapp/cloudflare/d1_benchmark.mjs` with project-local TEMP/TMP.
+It uses the already installed official Miniflare/workerd D1, its actual
+`meta.rows_read`, an ephemeral LOCAL database, 10,000 synthetic catalogue
+cards, 10,000 delivery records, 300 active candidates, and 143 recent deliveries.
+No real WB requests or Telegram messages are made by this benchmark.
+
+| Operation, same fixture | Before | After |
+| --- | ---: | ---: |
+| Original correlated topic-cap UPDATE, before missing indexes were added | 3,000,301 | 288 grouped/indexed |
+| Same correlated query with the previous patch's indexes | 1,674 | 288 grouped/indexed |
+| Two queue counts + two queue loads + two history loads (partial idle tick only) | 2,086 | removed on idle |
+| Complete idle tick including new budget ledger | not instrumented historically | 10 |
+| Catalogue read per open | 3,000 | 14 on D1 snapshot hit; 0 on edge cache hit |
+| 1,000 catalogue opens within one refresh window, no edge cache | 3,000,000 | 16,987 |
+| Snapshot rebuild, at most every 5 minutes except explicit owner edits | 3,000 | 3,001 including migration marker |
+
+Forecast from the fixture: approximately **1.41 million reads/day (28% of Free)**
+for 144 posts, 288 cleanup ticks, 72 searches, worst-case 288 catalogue rebuilds,
+1,000 uncached catalogue opens, all 1,440 heartbeats, and 100,000 spare reads.
+This deliberately overcounts idle work already included in heavy ticks and does
+not credit edge cache hits. It is an estimate, not a measured production day.
+Actual failed-candidate frequency, visitor traffic and initial index construction
+can change it; inspect real telemetry after reset.
+
+### Query audit and changes
+
+- `native_scheduler.mjs`: header reads config/policy by id, latest post via ts
+  index, queue count via singleton counter. Does not load candidates/history on
+  idle minutes or empty queue. Candidate LIMIT 300; delivery history LIMIT 4032
+  via timestamp index, only for selection/check. Cleanup every 5 minutes, expiry
+  batch LIMIT 500, cooldown inspection LIMIT 300, reactivation limited to remaining
+  capacity below 300. Posted reconciliation scans only active ready candidates.
+  Preflight at most every 5 minutes. Empty searches and blocked publishing back
+  off for 5 minutes. Search topic aggregates run only on a due search, not every
+  minute. Insertion uses the persistent count and available-capacity LIMIT.
+  Photo lookup skips D1 for an observed image, otherwise uses exact PK + a
+  bounded 8-row PK range; no OR/computed catalogue sort.
+- `scheduler_api.mjs`: additive schema version 3 and ready counter triggers
+  preserve settings/revision/history. New state/expiry, state/queue order,
+  state/check timestamp and action timestamp indexes. History snapshot returns
+  at most 4032 latest rows in ascending compatibility order. nmId duplicate
+  checks remain PK `(pid,ts)` probes, never complete publication-history loads.
+  Atomic claim's hourly/day counts use ts indexes and run ONLY on an actual
+  send attempt. Two-row lease table is intentionally not over-indexed.
+- `worker.mjs` / `catalog_cache.mjs`: Cloudflare Cache API for PUBLIC catalogue
+  only, 60 seconds; persistent shared snapshot at 5-minute intervals. Atomic
+  expiring refresh lease prevents multiple isolates from rebuilding together.
+  Six bounded metadata pages prevent an oversized single D1 JSON row. Private
+  saves, initData, preferences and outfits are never placed in shared caches.
+  Owner edits explicitly invalidate the persistent snapshot. Saved queries use
+  `(user_id,created_at)` / `(user_id,owned,product_id)`, LIMIT 1000. Outfits use
+  existing `(user_id,id)` index and cap 50; product lookups use PK.
+- `cron_driver.mjs`: legacy driver is not production. Its latest-post lookup is
+  indexed, config/runtime are singleton reads and leases have two kinds. No new
+  GitHub deployment credential or token is needed.
+- `d1_budget.mjs`: both Cron and API report actual rows_read/rows_written plus
+  top-three query fingerprints. No SQL text, bound values, tokens or personal
+  data is logged. Missing metadata is not claimed as a zero-cost query.
+- `read_guard.mjs`: atomic UTC-day budget shared across isolates: 1.5M reads
+  reserved for runtime/control, separate 1.5M for catalogue/user traffic. Each
+  operation reserves a conservative maximum and settles real D1 metadata.
+  Failed/unknown executions retain reservations. Optional traffic cannot spend
+  core funds. Separate write guards (35k core + 45k optional) prevent replacing
+  the read-limit incident with a bookkeeping write-limit incident. Edge hits
+  don't touch either ledger. Budget guards reject expensive work before SQL,
+  leave the Cron configured, and reset by a new UTC-date primary key.
+
+These are THIS Worker's protection limits, not an account-wide Cloudflare billing
+counter. Ledger overhead, one-time migrations and unrelated account/database
+traffic are outside the read aggregate. A reservation-overrun log is actionable;
+do not assert an absolute account-wide guarantee under unknown other workloads.
+
+### Reset verification and safe single-post recovery
+
+Reset: **2026-10-04 00:00 UTC = 03:00 Europe/Moscow**. Existing minute Cron stays
+ON; it retries without the PC. On the next independent Cron after a Telegram
+receipt it persists `last_automatic_tick`, `production_chain_verified_at` and
+`production_chain_message_id`, without another query.
+
+Follow-up in this chat is scheduled for 03:15 Moscow (`wb-d1` heartbeat); that
+agent follow-up needs the desktop app running, unlike production Cron.
+The native workflow has `action=recovery`: it first reuses any ordinary receipt
+after reset. Only if none exists does it create fixed action id
+`d1-recovery-20261004` and execute one tick. Its bounded wait only reads state,
+never sends repeatedly. Retry cannot create a second manual owner request.
+It respects enabled/pause, quiet hours, gap and caps. Failed candidate validation
+does not justify inventing a successful post; keep the task open until receipt
+and following automatic tick are confirmed.
+
+After reset check deployment version, schema_version=3, actual budget metrics,
+settings, ready queue, real message_id and next automatic tick. Do NOT run a
+series of public tests; a normal Cron receipt is sufficient. `/api/health`
+exposes optimization version and Cloudflare runtime version for DEPLOYMENT
+verification only; HTTP 200 is NOT scheduler health. No River/Admin UI changes.

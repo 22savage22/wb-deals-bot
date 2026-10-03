@@ -16,6 +16,34 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'recovery':
+        # Exactly one durable owner request across workflow retries/agent wakeups.
+        after = 1791072000  # D1 reset 2026-10-04 00:00 UTC, not a runtime schedule.
+        if time.time() < after:
+            raise RuntimeError('Quota reset has not happened yet')
+        current = client.api('config')
+        status = current['status']
+        if not (status.get('last_post_success', 0) >= after and status.get('last_message_id')):
+            schedule = current['schedule']
+            if not schedule['enabled'] or schedule['paused']:
+                raise RuntimeError('Autopost is paused; recovery does not override owner settings')
+            client.api('action', 'POST', {'action': 'post_now', 'request_id': 'd1-recovery-20261004'})
+            print('RECOVERY_TICK', json.dumps(client.api('tick', 'POST', {}), ensure_ascii=False))
+        # Observe ordinary Cron, never repeat a Telegram send from this loop.
+        for attempt in range(5):
+            current = client.api('config')
+            status = current['status']
+            sent = status.get('last_post_success', 0)
+            if sent >= after and status.get('last_message_id') and status.get('last_automatic_tick', 0) > sent:
+                print('RECOVERY_CONFIRMED', json.dumps({
+                    'message_id': status['last_message_id'], 'last_post_success': sent,
+                    'next_automatic_tick': status['last_automatic_tick'],
+                    'queue_size': status.get('queue_size'), 'schedule': current['schedule'],
+                    'budget': client.api('budget')}, ensure_ascii=False))
+                return
+            if attempt < 4:
+                time.sleep(20)
+        raise RuntimeError('Recovery receipt or next automatic tick not confirmed')
     if action == 'post_now':
         client.api('action', 'POST', {'action': 'post_now', 'request_id': str(uuid.uuid4())})
         print(json.dumps(client.api('tick', 'POST', {}), ensure_ascii=False))
@@ -23,7 +51,7 @@ def main():
     if action == 'check':
         result = client.api('check')
         current = client.api('config')
-        result.update(schedule=current['schedule'], status=current['status'])
+        result.update(schedule=current['schedule'], status=current['status'], budget=client.api('budget'))
         print(json.dumps(result, ensure_ascii=False))
         return
     if action == 'configure':

@@ -39,10 +39,46 @@ class NativeBootstrapTests(unittest.TestCase):
         with patch.dict(os.environ, {'NATIVE_ACTION': 'check'}), \
              patch.object(migration.client, 'api', side_effect=[
                  {'dry_run': True, 'telegram_posts_created': 0},
-                 {'schedule': {'enabled': True}, 'status': {'queue_size': 12}}]) as api, \
+                 {'schedule': {'enabled': True}, 'status': {'queue_size': 12}}, {'rows': []}]) as api, \
              patch('builtins.print'):
             migration.main()
-        self.assertEqual([c.args for c in api.call_args_list], [('check',), ('config',)])
+        self.assertEqual([c.args for c in api.call_args_list], [('check',), ('config',), ('budget',)])
+
+    def test_recovery_uses_existing_automatic_receipt_without_new_post(self):
+        current = {'schedule': {'enabled': True, 'paused': False}, 'status': {
+            'last_post_success': 1791072010, 'last_message_id': 2465,
+            'last_automatic_tick': 1791072070, 'queue_size': 100}}
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'recovery'}), \
+             patch.object(migration.time, 'time', return_value=1791072100), \
+             patch.object(migration.client, 'api', side_effect=[current, current, {'rows': []}]) as api, \
+             patch('builtins.print'):
+            migration.main()
+        self.assertEqual([c.args[0] for c in api.call_args_list], ['config', 'config', 'budget'])
+
+    def test_recovery_uses_fixed_idempotency_request_and_waits_without_repeated_send(self):
+        pending = {'schedule': {'enabled': True, 'paused': False}, 'status': {}}
+        sent = {'schedule': pending['schedule'], 'status': {
+            'last_post_success': 1791072010, 'last_message_id': 2465,
+            'last_automatic_tick': 1791072070}}
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'recovery'}), \
+             patch.object(migration.time, 'time', return_value=1791072100), \
+             patch.object(migration.time, 'sleep') as sleep, \
+             patch.object(migration.client, 'api', side_effect=[pending, {}, {}, pending, sent, {}]) as api, \
+             patch('builtins.print'):
+            migration.main()
+        actions = [c for c in api.call_args_list if c.args[0] == 'action']
+        self.assertEqual(len(actions), 1)
+        self.assertEqual(actions[0].args[2]['request_id'], 'd1-recovery-20261004')
+        self.assertEqual(sum(c.args[0] == 'tick' for c in api.call_args_list), 1)
+        sleep.assert_called_once_with(20)
+
+    def test_recovery_before_reset_never_touches_production(self):
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'recovery'}), \
+             patch.object(migration.time, 'time', return_value=1791071999), \
+             patch.object(migration.client, 'api') as api:
+            with self.assertRaises(RuntimeError):
+                migration.main()
+        api.assert_not_called()
 
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
   "preview_urls": false,
+  "version_metadata": {"binding": "CF_VERSION"},
   "keep_vars": true,
   "send_metrics": false,
   "assets": {

@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS saved (
   owned INTEGER NOT NULL DEFAULT 0, created_at INTEGER NOT NULL, PRIMARY KEY(user_id,product_id)
 );
 CREATE TABLE IF NOT EXISTS preferences (user_id INTEGER PRIMARY KEY, data TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS saved_user_created ON saved(user_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS saved_user_owned ON saved(user_id,owned,product_id);
 CREATE TABLE IF NOT EXISTS outfits (
   id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, data TEXT NOT NULL, created_at INTEGER NOT NULL
 );

@@ -4,6 +4,8 @@ import {schedulerRoute} from './scheduler_api.mjs';
 import {scheduledTick} from './cron_driver.mjs';
 import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
 import {observeD1,d1QuotaFailure} from './d1_budget.mjs';
+import {catalogSnapshot,ensureCatalog,invalidateCatalog} from './catalog_cache.mjs';
+import {withReadBudget,ReadBudgetError} from './read_guard.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -59,12 +61,12 @@ async function route(request,env,ctx) {
     if(path==='/api/scheduler/check'&&method==='GET')return json(await checkAutopost(env));
     if(path==='/api/scheduler/tick'&&method==='POST') {
       if(env.SCHEDULER_DRIVER!=='cloudflare-native')fail(409,'Прямой scheduler ещё не включён');
-      return json(await nativeTick(env));
+      return json(await nativeTick(env,Date.now(),fetch,'api'));
     }
     return schedulerRoute(request,env,{payload,fail,json});
   }
   const all=async(sql,...args)=>(await prepare(sql,...args).all()).results;
-  const catalog=async()=> (await all('SELECT data,overrides FROM products ORDER BY checked_at DESC LIMIT 3000')).map(product);
+  const catalog=()=>catalogSnapshot(env.DB);
   let uid;
   if(!['/api/catalog','/api/sync','/api/health'].includes(path)) {
     try{uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);}catch{fail(401,'Откройте приложение заново через Telegram');}
@@ -74,7 +76,7 @@ async function route(request,env,ctx) {
   const admin=()=>{if(!env.MINIAPP_ADMIN_ID||String(uid)!==String(env.MINIAPP_ADMIN_ID))fail(403,'Доступ только владельцу');};
   if(path.startsWith('/api/admin/schedule')) {admin();if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
-    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32)});
+    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,runtime_version:env.CF_VERSION?.id||null});
   }
   if(path==='/api/catalog'&&method==='GET') {
     const [products,meta]=await Promise.all([catalog(),prepare("SELECT value FROM metadata WHERE key='synced_at'").first()]);
@@ -101,9 +103,10 @@ async function route(request,env,ctx) {
     return json({imported:cleaned.length});
   }
   if(path==='/api/me'&&method==='GET') {
+    await ensureCatalog(env.DB);
     const [pref,saved,rows,privateRows]=await Promise.all([
       prepare('SELECT data FROM preferences WHERE user_id=?',uid).first(),
-      all('SELECT product_id,folder,owned FROM saved WHERE user_id=? ORDER BY created_at DESC',uid),
+      all('SELECT product_id,folder,owned FROM saved WHERE user_id=? ORDER BY created_at DESC LIMIT 1000',uid),
       all('SELECT id,data FROM outfits WHERE user_id=? ORDER BY id DESC LIMIT 50',uid),
       all(`SELECT data,overrides FROM products WHERE id IN (
         SELECT product_id FROM saved WHERE user_id=? UNION
@@ -138,7 +141,7 @@ async function route(request,env,ctx) {
     const data=await payload(request),{anchor,budget}=data,excluded=data.exclude??[];
     if(!integer(anchor)||!integer(budget)||budget<100||budget>100000)fail(400,'Выберите вещь и бюджет от 100 до 100 000 ₽');
     if(!Array.isArray(excluded)||excluded.length>100||!excluded.every(integer))fail(400,'Некорректный список замен');
-    const [products,owned]=await Promise.all([catalog(),all('SELECT product_id FROM saved WHERE user_id=? AND owned=1',uid)]);
+    const [products,owned]=await Promise.all([catalog(),all('SELECT product_id FROM saved WHERE user_id=? AND owned=1 LIMIT 1000',uid)]);
     let outfits;try{outfits=build(products,anchor,budget,data.occasion??'everyday',owned.map(r=>r.product_id),excluded);}catch(e){fail(400,e.message);}
     return json({outfits,message:outfits.length?'':'Пока мало свежих вещей для полного образа в этом бюджете. Попробуйте другую вещь или увеличьте бюджет.'});
   }
@@ -162,25 +165,44 @@ async function route(request,env,ctx) {
     admin();const pid=Number(match[1]),data=await payload(request),{slot,audience}=data,enabled=data.enabled??true;
     if(!integer(pid)||typeof slot!=='string'||!Object.hasOwn(SLOTS,slot)||!['women','men','unknown'].includes(audience)||typeof enabled!=='boolean')fail(400,'Некорректные настройки товара');
     const result=await prepare('UPDATE products SET overrides=? WHERE id=?',JSON.stringify({slot,audience,enabled}),pid).run();
-    if(!result.meta.changes)fail(404,'Не найдено');return json({ok:true});
+    if(!result.meta.changes)fail(404,'Не найдено');await invalidateCatalog(env.DB);return json({ok:true});
   }
   fail(404,'Не найдено');
 }
 export default {
   async scheduled(controller,env){
     const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB};
-    try{return await (env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(runtimeEnv,controller.scheduledTime):scheduledTick(runtimeEnv,controller.scheduledTime));}
+    try{return await withReadBudget(runtimeEnv,'core',25000,e=>env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime):scheduledTick(e,controller.scheduledTime));}
     catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',quota?{retry_at:quota.retry_at}:{});throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
-    finally{console.log('D1_BUDGET',JSON.stringify(meter.metrics));}
+    finally{console.log('D1_BUDGET',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));}
   },
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
+    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB};
+    const url=new URL(request.url),publicCatalog=request.method==='GET'&&url.pathname==='/api/catalog';
+    const cache=globalThis.caches?.default,cacheKey=new Request(new URL('/api/catalog',url.origin));
     let response;
-    try {response=await route(request,env,ctx);} catch(error) {
+    try {
+      const hit=publicCatalog&&cache?await cache.match(cacheKey).catch(()=>null):null;
+      if(hit)response=hit;
+      else {
+      const path=new URL(request.url).pathname;
+      // Reject unauthenticated requests before touching the budget ledger.
+      let budgeted=path==='/api/catalog',lane='optional';
+      if(path.startsWith('/api/scheduler/')||path==='/api/sync'){
+        const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'?'optional':'core';
+      }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
+        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=true;if(path.startsWith('/api/admin/schedule')&&String(uid)===String(env.MINIAPP_ADMIN_ID))lane='core';}catch{}
+      }
+      response=budgeted?await withReadBudget(runtimeEnv,lane,lane==='core'?25000:15000,e=>route(request,e,ctx)):await route(request,runtimeEnv,ctx);
+      if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
+      }
+    } catch(error) {
       // Never include database errors, request headers or secrets in public responses/logs.
       const quota=d1QuotaFailure(error);
-      response=json(quota||{error:error instanceof HttpError?error.message:'Сервис временно недоступен. Попробуйте позже.'},error instanceof HttpError?error.status:503);
+      response=json(quota||{error:error instanceof HttpError||error instanceof ReadBudgetError?error.message:'Сервис временно недоступен. Попробуйте позже.'},error instanceof HttpError||error instanceof ReadBudgetError?error.status:503);
       if(quota)response.headers.set('Retry-After',String(Math.max(1,quota.retry_at-second())));
     }
+    if(meter.metrics.queries)console.log('D1_BUDGET_HTTP',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));
     const secured=new Response(response.body,response);
     for(const [key,value] of Object.entries(headers))secured.headers.set(key,value);
     secured.headers.set('Cache-Control',new URL(request.url).pathname.startsWith('/api/')?'no-store':'no-cache');

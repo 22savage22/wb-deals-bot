@@ -9186,14 +9186,14 @@
    "queue_empty_or_invalid": 1
   },
   "wb_http": {
-   "calls": 69,
-   "ok": 42,
-   "rate_limited": 1,
-   "http_error": 26,
+   "calls": 28,
+   "ok": 0,
+   "rate_limited": 18,
+   "http_error": 10,
    "network_error": 0,
    "json_error": 0,
-   "worker_ok": 42,
-   "worker_error": 13,
+   "worker_ok": 0,
+   "worker_error": 2,
    "direct_ok": 0
   },
   "errors": [
@@ -9281,7 +9281,7 @@
   "today": "2026-10-02",
   "today_posts": 96,
   "total_posts": 1844,
-  "last_scan": 1790988090,
+  "last_scan": 1790989523,
   "last_scan_queries": [
    "товары для кухни",
    "джинсы женские",
@@ -9292,19 +9292,16 @@
    "Одежда и чешки",
    "Зажимы и закладки"
   ],
-  "queue_size": 82,
+  "queue_size": 100,
   "last_scan_added": 0,
   "last_scan_funnel": {
-   "found": 200,
-   "cards": 200,
-   "already_known": 200,
+   "found": 0,
+   "cards": 0,
+   "already_known": 0,
    "new": 0,
-   "max_price": 196,
-   "ok": 4,
    "strict": 0,
-   "fallback": 4,
-   "reserve": 0,
-   "duplicate": 4
+   "fallback": 0,
+   "reserve": 0
   },
   "last_queue": {
    "queue_before": 100,
@@ -9323,9 +9320,9 @@
   "last_engagement_kind": "poll",
   "queue_low_notice_ts": 1790927449.0,
   "last_scan_success": 1790988283.0,
-  "last_scan_attempt": 1790988283,
-  "last_scan_error": "",
-  "scan_page_cursor": 1,
+  "last_scan_attempt": 1790989523,
+  "last_scan_error": "WB не вернул товары; очередь сохранена",
+  "scan_page_cursor": 0,
   "discovery_seen": {
    "1564959234": 1790986638,
    "565799947": 1790986638,
@@ -186058,9 +186055,9 @@
   },
   "Зажимы и закладки": {
    "shard": "school6",
-   "ts": 1790988279.7743175,
-   "runs": 79,
-   "empty": 4
+   "ts": 1790989680.135948,
+   "runs": 80,
+   "empty": 5
   },
   "Изготовление кукол и игрушек": {
    "shard": "creativity15",
@@ -186070,9 +186067,9 @@
   },
   "Одежда и чешки": {
    "shard": "sport32",
-   "ts": 1790988279.7743175,
-   "runs": 79,
-   "empty": 4
+   "ts": 1790989680.135948,
+   "runs": 80,
+   "empty": 5
   },
   "Основные части двигателя": {
    "shard": "autoproduct29",

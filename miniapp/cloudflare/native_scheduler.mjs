@@ -68,10 +68,15 @@ export function cardDeal(card,policy={}){
   return p;
 }
 async function imageFor(env,p,fetcher){
-  const stored=await q(env,'SELECT data FROM products WHERE id=?',p.id).first();
-  const known=safeImage(p.image)||safeImage(stored?JSON.parse(stored.data).image:'');
+  const vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
+  // Reuse a genuinely observed shard for this volume, but verify this product's
+  // image with a real GET. This is a hint, never evidence that an image exists.
+  const stored=await q(env,"SELECT id,data FROM products WHERE (id=? OR (id>=? AND id<?)) AND json_extract(data,'$.image')!='' ORDER BY id=? DESC LIMIT 1",p.id,vol*100000,(vol+1)*100000,p.id).first();
+  const storedImage=safeImage(stored?JSON.parse(stored.data).image:'');
+  const hint=storedImage?.match(/^https:\/\/(basket-\d+\.wbbasket\.ru)\//)?.[1];
+  const known=safeImage(p.image)||(stored?.id===p.id?storedImage:hint?`https://${hint}/vol${vol}/part${part}/${p.id}/images/big/1.webp`:'');
   const urls=known?[known]:[];
-  const start=Math.max(1,Number(p.photo_probe||1)),vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
+  const start=Math.max(1,Number(p.photo_probe||1));
   for(let host=start;host<Math.min(start+6,51);host++)urls.push(`https://basket-${String(host).padStart(2,'0')}.wbbasket.ru/vol${vol}/part${part}/${p.id}/images/big/1.webp`);
   for(const url of urls){
     try{const r=await fetcher(url,{signal:AbortSignal.timeout(3000)});const okay=r.ok&&r.headers.get('content-type')?.startsWith('image/');await r.body?.cancel();if(okay)return {image:url};}catch{}
@@ -109,6 +114,17 @@ export async function bootstrap(env,data){
   ]);
   await status(env,{bootstrap_at:now,native_configured:true});return {ok:true,queue_size:(await readState(env)).count};
 }
+async function validateQueued(env,item,policy,fetcher){
+  const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
+  try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>p.id===item.pid);}
+  catch{unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',now+300,item.pid).run();return null;}}
+  let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
+  if(!deal||deal.product>saved.product*1.1){await q(env,"UPDATE scheduler_inventory SET state='rejected' WHERE pid=?",item.pid).run();return null;}
+  deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
+  deal={...deal,...await imageFor(env,deal,fetcher)};
+  if(!deal.image){await q(env,'UPDATE scheduler_inventory SET data=?,retry_at=? WHERE pid=?',JSON.stringify(deal),now+60,item.pid).run();return null;}
+  await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
+}
 async function publish(env,state,fetcher){
   const owner=crypto.randomUUID(),lock=await runtime(env,{op:'acquire',kind:'post',owner,ttl:120});
   if(!lock.ok)return {result:'lock_busy'};
@@ -124,16 +140,9 @@ async function publish(env,state,fetcher){
       const item=choose(current.ready,current.recent,current.policy.total_posts+current.recent.length);
       if(!item)return {result:'no_eligible_product'};
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
-      const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
+      const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid});
-      try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>p.id===item.pid);}
-      catch{unavailable=true;if(now-item.checked_at<=6*3600&&saved.image){card=null;}else{await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',now+300,item.pid).run();continue;}}
-      let deal=card?cardDeal(card,current.policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
-      if(!deal||deal.product>saved.product*1.1){await q(env,"UPDATE scheduler_inventory SET state='rejected' WHERE pid=?",item.pid).run();continue;}
-      deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
-      const photo=await imageFor(env,deal,fetcher);deal={...deal,...photo};
-      if(!deal.image){await q(env,'UPDATE scheduler_inventory SET data=?,retry_at=? WHERE pid=?',JSON.stringify(deal),now+60,item.pid).run();continue;}
-      await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();
+      const deal=await validateQueued(env,item,current.policy,fetcher);if(!deal)continue;
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
@@ -193,6 +202,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch){
   await status(env,{last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true});
   try{
     await q(env,"DELETE FROM scheduler_leases WHERE expires<=?",now).run();
+    await q(env,"UPDATE scheduler_inventory SET state='posted' WHERE state IN ('ready','cooldown') AND EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=scheduler_inventory.pid AND ts>?)",now-7*86400).run();
     await q(env,"UPDATE scheduler_inventory SET state='expired' WHERE state IN ('ready','cooldown') AND expires<=?",now).run();
     // Daily topic caps must free the ACTIVE buffer, not poison a full queue.
     // Retain these real cards separately and reactivate when the cap expires.
@@ -203,11 +213,17 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch){
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id)});
     if(postDue(state.s,state.last,now,Boolean(state.row.post_request)))try{results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});}catch(error){const safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe});results.post={result:'error'};}
+    // Verify stale inventory between posts, instead of discovering a poisoned
+    // buffer only when the next publication is due. A scan uses a separate tick.
+    if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
+      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length);
+      if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
+    }
     state=await readState(env);
     const noEligible=!choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),interval=state.count<state.s.min_queue||noEligible?60:state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
     // keeps even a cold-isolate invocation inside the Free D1 query budget.
-    if(results.post?.result!=='success'&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
+    if(results.post?.result!=='success'&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
     const count=await q(env,"SELECT COUNT(*) AS n FROM scheduler_inventory WHERE state='ready' AND expires>?",sec()).first();
     await status(env,{queue_size:count.n,next_post:state.last+state.s.post_interval_minutes*60,post_running:false,scan_running:false});
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count.n,JSON.stringify(results));return {enabled:true,results,queue_size:count.n};

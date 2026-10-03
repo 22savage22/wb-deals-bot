@@ -28,8 +28,21 @@ and Workers Scripts write with automatic refresh, keep its credential under
 ignored project-local configuration. It is never a bot runtime credential.
 No new temporary Cloudflare API token, paid plan, Redis or server is needed.
 
-Native activation is not yet verified; see production logs before treating this
-document as a claim of successful migration.
+Production migration was verified on 2026-10-03: native Worker sent product
+32293087 at 12:49:37 Europe/Moscow, Telegram message_id 2463. Run 37114337157
+contains the live receipt, not a mocked test receipt. Run 37114436564 confirms
+an independent minute Cron at 12:50:50 after that send. D1 settings: enabled,
+not paused, interval 10 minutes, search 20 minutes, quiet hours OFF, Moscow.
+Repository driver is now cloudflare-native; the competing legacy run was
+cancelled only after the native receipt. The inventory had 118 ready rows then;
+that is a buffer count, not a claim that every row has just passed live checks.
+Cards are rechecked before sending, and stale buffer rows are checked between
+posts without sending. Previously published rows cannot poison selection.
+The PC and deployment OAuth are not needed for runtime Cron execution.
+
+Build 383766c3 subsequently succeeded for main 3ac09c9; the earlier build
+initialization failures were temporary. Workers Builds remains connected for
+future code deployment, while interval changes use D1, not new deployments.
 
 ## Selected design
 

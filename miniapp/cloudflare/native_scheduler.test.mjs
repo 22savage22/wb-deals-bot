@@ -125,3 +125,21 @@ test('manual request publishes one item after safety gap and stays consumed',asy
   assert.equal(env.db.prepare('SELECT post_request FROM scheduler_config').get().post_request,null);
   await nativeTick(env,Date.now(),fetcher(counts));assert.equal(counts.send,1);
 });
+test('stale price is rejected between posts without sending or exceeding Free query budget',async t=>{
+  const env=environment(t),counts={send:0,wb:0},now=Math.floor(Date.now()/1000);
+  await seed(env,[{...item(),product:500}],[{pid:1234,ts:now-60,title:'Other',query:'other'}]);
+  env.db.prepare("UPDATE scheduler_config SET data=json_set(data,'$.min_queue',1)").run();
+  env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.last_scan_attempt',?)").run(now);
+  env.DB={...env.DB};env.counter.queries=0;
+  const result=await nativeTick(env,Date.now(),fetcher(counts));
+  assert.ok(env.counter.queries<=50,'Preflight cold query budget: '+env.counter.queries);
+  assert.equal(result.results.preflight.valid,false);assert.equal(counts.send,0);
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory').get().state,'rejected');
+});
+test('cards published by legacy after migration cannot poison native selection',async t=>{
+  const env=environment(t),counts={send:0,wb:0},now=Math.floor(Date.now()/1000);await seed(env);
+  env.db.prepare('INSERT INTO scheduler_posts VALUES(?,?)').run(1000,now-60);
+  await nativeTick(env,Date.now(),fetcher(counts));
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory').get().state,'posted');
+  assert.equal(counts.send,0);
+});

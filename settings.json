@@ -1,5 +1,5 @@
 {
- "mtime": 1790777214,
+ "mtime": 1791006814,
  "cats_per_run": 10,
  "queries_per_run": 10,
  "max_posts": 1,
@@ -29,5 +29,90 @@
   "Лонгслив"
  ],
  "min_discount": 30.0,
- "pause_until": 0
+ "pause_until": 0,
+ "schedule": {
+  "enabled": true,
+  "paused": false,
+  "mode": "interval",
+  "post_interval_minutes": 30,
+  "post_times": [],
+  "weekdays": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "quiet_enabled": false,
+  "quiet_start": "23:00",
+  "quiet_end": "07:00",
+  "search_enabled": true,
+  "search_interval_minutes": 20,
+  "min_queue": 100,
+  "natural_interval_enabled": false,
+  "jitter_minutes": 2,
+  "timezone": "Europe/Moscow",
+  "min_post_gap_minutes": 5,
+  "max_posts_hour": 12,
+  "max_posts_day": 144
+ },
+ "_schedule_base": {
+  "enabled": true,
+  "paused": false,
+  "mode": "interval",
+  "post_interval_minutes": 30,
+  "post_times": [],
+  "weekdays": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "quiet_enabled": false,
+  "quiet_start": "23:00",
+  "quiet_end": "07:00",
+  "search_enabled": true,
+  "search_interval_minutes": 20,
+  "min_queue": 100,
+  "natural_interval_enabled": false,
+  "jitter_minutes": 2,
+  "timezone": "Europe/Moscow",
+  "min_post_gap_minutes": 5,
+  "max_posts_hour": 12,
+  "max_posts_day": 144
+ },
+ "_schedule_revision": 1790950719904,
+ "_schedule_status": {
+  "heartbeat": 1791006770,
+  "last_post": 1790956164,
+  "last_scan_attempt": 1791006649,
+  "last_scan_success": 1791006649,
+  "queue_size": 82,
+  "new_today": 1564,
+  "posted_today": 0,
+  "posts_hour": 0,
+  "next_post": 1791006770,
+  "next_search": 1791006949,
+  "revision": 1790950719904,
+  "post_running": false,
+  "scan_running": false,
+  "next_posts": [
+   1791006770,
+   1791008570,
+   1791010370,
+   1791012170,
+   1791013970
+  ],
+  "error": "Мало фото (1): 168909885",
+  "last_scan_error": "",
+  "heartbeat_stale": false
+ },
+ "schedule_post_request": "05b13ab1-9b57-4552-a85e-b2e8d66b8d08",
+ "schedule_search_request": "",
+ "schedule_version": 1791006814474050055
 }

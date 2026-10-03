@@ -3204,6 +3204,20 @@
  },
  "recent": [
   {
+   "pid": 541418448,
+   "image": "https://basket-28.wbbasket.ru/vol5414/part541418/541418448/images/big/1.webp",
+   "title": "Школьная юбка синяя повседневная",
+   "discount": 0,
+   "price": 419,
+   "rating": 4.9,
+   "link": "https://www.wildberries.ru/catalog/541418448/detail.aspx",
+   "query": "юбка женская",
+   "cat": "юбка женская",
+   "ts": 1791019985,
+   "drop": 0,
+   "quality": "B"
+  },
+  {
    "pid": 993514951,
    "image": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/images/big/1.webp",
    "title": "Блузка вечерняя прозрачная летняя",
@@ -9077,20 +9091,6 @@
    "cat": "футболка мужская",
    "ts": 1789811020,
    "drop": 0
-  },
-  {
-   "pid": 541418448,
-   "image": "https://basket-28.wbbasket.ru/vol5414/part541418/541418448/images/big/1.webp",
-   "title": "Школьная юбка синяя повседневная",
-   "discount": 0,
-   "price": 419,
-   "rating": 4.9,
-   "link": "https://www.wildberries.ru/catalog/541418448/detail.aspx",
-   "query": "юбка женская",
-   "cat": "юбка женская",
-   "ts": 1791019985,
-   "drop": 0,
-   "quality": "B"
   }
  ],
  "meta": {
@@ -9225,7 +9225,7 @@
    "Образование",
    "Колготки и носки"
   ],
-  "queue_size": 96,
+  "queue_size": 100,
   "last_scan_added": 12,
   "last_scan_funnel": {
    "found": 1098,
@@ -18737,7 +18737,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-03",
   "new_today": 3161,
-  "scheduler_last_post": 1791019340
+  "scheduler_last_post": 1790956164
  },
  "admin_ui": {
   "pending": null

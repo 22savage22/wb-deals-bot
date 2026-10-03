@@ -3186,6 +3186,20 @@
  },
  "recent": [
   {
+   "pid": 791365839,
+   "image": "https://basket-36.wbbasket.ru/vol7913/part791365/791365839/images/big/1.webp",
+   "title": "Блузка нарядная офисная летняя больших размеров",
+   "discount": 26,
+   "price": 722,
+   "rating": 4.7,
+   "link": "https://www.wildberries.ru/catalog/791365839/detail.aspx",
+   "query": "блузка женская",
+   "cat": "блузка женская",
+   "ts": 1791013815,
+   "drop": 1,
+   "quality": "A"
+  },
+  {
    "pid": 183679264,
    "image": "https://basket-12.wbbasket.ru/vol1836/part183679/183679264/images/big/1.webp",
    "title": "Корм для морских свинок основной 400 гр",
@@ -9039,20 +9053,6 @@
    "cat": "футболка мужская",
    "ts": 1789804346,
    "drop": 0
-  },
-  {
-   "pid": 791365839,
-   "image": "https://basket-36.wbbasket.ru/vol7913/part791365/791365839/images/big/1.webp",
-   "title": "Блузка нарядная офисная летняя больших размеров",
-   "discount": 26,
-   "price": 722,
-   "rating": 4.7,
-   "link": "https://www.wildberries.ru/catalog/791365839/detail.aspx",
-   "query": "блузка женская",
-   "cat": "блузка женская",
-   "ts": 1791013815,
-   "drop": 1,
-   "quality": "A"
   }
  ],
  "meta": {
@@ -9187,7 +9187,7 @@
    "Насосное оборудование",
    "Основные части двигателя"
   ],
-  "queue_size": 59,
+  "queue_size": 63,
   "last_scan_added": 7,
   "last_scan_funnel": {
    "found": 1001,
@@ -17503,7 +17503,7 @@
   "scan_timezone": "Europe/Moscow",
   "new_day": "2026-10-03",
   "new_today": 1964,
-  "scheduler_last_post": 1791011839
+  "scheduler_last_post": 1790956164
  },
  "admin_ui": {
   "pending": null

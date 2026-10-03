@@ -5,8 +5,12 @@ on:
       action:
         description: Prepare D1, safely check, or execute one due tick
         type: choice
-        options: [prepare, check, tick]
+        options: [prepare, check, tick, configure]
         default: check
+      post_interval_minutes:
+        description: Posting interval used only by configure; preserves all other D1 settings
+        type: string
+        default: '10'
 permissions:
   contents: read
 concurrency:
@@ -27,6 +31,7 @@ jobs:
       - run: python -B -m miniapp.native_bootstrap
         env:
           NATIVE_ACTION: ${{ inputs.action }}
+          NATIVE_POST_INTERVAL: ${{ inputs.post_interval_minutes }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}

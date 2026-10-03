@@ -16,8 +16,24 @@ import wb
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
     if action == 'check':
-        print(json.dumps(client.api('check'), ensure_ascii=False))
+        result = client.api('check')
+        current = client.api('config')
+        result.update(schedule=current['schedule'], status=current['status'])
+        print(json.dumps(result, ensure_ascii=False))
         return
+    if action == 'configure':
+        interval = int(os.getenv('NATIVE_POST_INTERVAL', '10'))
+        if not 5 <= interval <= 10080:
+            raise ValueError('Posting interval out of range')
+        for attempt in range(3):
+            current = client.api('config')
+            desired = {**current['schedule'], 'post_interval_minutes': interval}
+            result = client.api('config', 'PUT', {
+                'schedule': desired, 'revision': current['revision']})
+            if not result.get('conflict'):
+                print('NATIVE_CONFIG', json.dumps(result, ensure_ascii=False))
+                return
+        raise RuntimeError('Schedule changed concurrently; retry configuration')
     if action == 'tick':
         print(json.dumps(client.api('tick', 'POST', {}), ensure_ascii=False))
         return

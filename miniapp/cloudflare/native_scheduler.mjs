@@ -19,8 +19,9 @@ export function postingWindow(schedule,now=sec()){
   const quiet=s.quiet_enabled&&(s.quiet_start<s.quiet_end?s.quiet_start<=clock&&clock<s.quiet_end:clock>=s.quiet_start||clock<s.quiet_end);
   return {allowed:s.enabled&&!s.paused&&s.weekdays.includes(weekday)&&!quiet,clock,date:p.year+'-'+p.month+'-'+p.day,timezone:key,quiet};
 }
-export function postDue(s,last,now){
+export function postDue(s,last,now,manual=false){
   if(!postingWindow(s,now).allowed||now<last+s.min_post_gap_minutes*60)return false;
+  if(manual)return true; // Owner request, never bypasses safety gap/quiet hours/caps.
   if(s.mode==='times'){
     const wall=postingWindow(s,now).clock;
     // Catch a delayed minute execution without treating every later tick as due.
@@ -96,8 +97,10 @@ export async function bootstrap(env,data){
     q(env,'INSERT OR REPLACE INTO scheduler_policy(id,data) VALUES(1,?)',JSON.stringify(policy)),
     q(env,"INSERT OR IGNORE INTO scheduler_posts(pid,ts) SELECT json_extract(value,'$.pid'),json_extract(value,'$.ts') FROM json_each(?)",JSON.stringify(posts)),
     q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
-      SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,0,?
-      FROM json_each(?) WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id') AND ts>?)`,now,now+72*3600,JSON.stringify(queue.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}))),now-7*86400),
+      SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,json_extract(value,'$.checked_at'),?
+      FROM json_each(?) WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id') AND ts>?)
+      ON CONFLICT(pid) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at
+      WHERE scheduler_inventory.state='ready' AND excluded.checked_at>scheduler_inventory.checked_at`,now,now+72*3600,JSON.stringify(queue.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p),checked_at:p.image&&Number.isSafeInteger(p.checked_at)&&p.checked_at<=now&&p.checked_at>now-300?p.checked_at:0}))),now-7*86400),
     q(env,`INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,topic,title_key,data)
       SELECT json_extract(value,'$.pid'),json_extract(value,'$.ts'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),json_extract(value,'$.data') FROM json_each(?)`,JSON.stringify(posts.map(p=>({...p,topic:topic(p),title_key:titleKey(p),data:JSON.stringify(p)}))))
   ]);
@@ -109,10 +112,9 @@ async function publish(env,state,fetcher){
   try{
     const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
     let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
-    if(!postDue(current.s,current.last,sec()))return {result:'not_due'};
-    if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     const manual=current.row.post_request;
-    if(manual)await runtime(env,{op:'consume',kind:'post',owner,request_id:manual});
+    if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+    if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     // One candidate per minute bounds the Free plan CPU/D1 budget even when
     // several cards fail. The next Cron selects the next non-deferred product.
     for(let attempt=0;attempt<1;attempt++){
@@ -131,8 +133,9 @@ async function publish(env,state,fetcher){
       await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
-      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec()))return {result:'not_due'};
-      const claim=await runtime(env,{op:'claim',owner,product_id:item.pid});if(!claim.ok)return {result:claim.reason};
+      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+      const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok)return {result:claim.reason};
+      if(manual&&!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}
       const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
@@ -196,7 +199,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch){
     let state=await readState(env),previous=JSON.parse(state.row.status||'{}'),wall=postingWindow(state.s,now);
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id)});
-    if(postDue(state.s,state.last,now))try{results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});}catch(error){const safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe});results.post={result:'error'};}
+    if(postDue(state.s,state.last,now,Boolean(state.row.post_request)))try{results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});}catch(error){const safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe});results.post={result:'error'};}
     state=await readState(env);
     const noEligible=!choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),interval=state.count<state.s.min_queue||noEligible?60:state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
@@ -211,6 +214,6 @@ export async function checkAutopost(env,fetcher=fetch){
   await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),status=JSON.parse(state.row.status||'{}');
   const result={ok:true,dry_run:true,telegram_posts_created:0,cron:env.SCHEDULER_DRIVER==='cloudflare-native',last_scheduler_tick:status.last_scheduler_tick||0,heartbeat_stale:now-Number(status.last_scheduler_tick||0)>180,queue_size:state.count,eligible_products:state.ready.filter(p=>(state.recent.filter(r=>r.topic===p.topic).length)<8).length,next_product:item?.pid||null,posting_allowed:window.allowed,timezone:window.timezone,current_local_time:window.clock,quiet_hours:state.s.quiet_enabled?state.s.quiet_start+'–'+state.s.quiet_end:'OFF',telegram_configured:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),last_post:state.last,last_message_id:status.last_message_id||null};
   if(result.telegram_configured)try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getMe`,{signal:AbortSignal.timeout(5000)});result.telegram_auth=(await r.json()).ok===true;}catch{result.telegram_auth=false;}
-  if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy);result.live_card=Boolean(deal);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...JSON.parse(item.data)},fetcher)).image;}}catch{result.live_card=false;}
-  result.ok=result.cron&&!result.heartbeat_stale&&result.telegram_configured&&result.telegram_auth&&result.queue_size>0&&result.live_card&&Boolean(result.image);return result;
+  if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy),saved=JSON.parse(item.data);result.live_card=Boolean(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...saved},fetcher)).image;}}catch{result.live_card=false;}
+  result.ok=result.cron&&!result.heartbeat_stale&&result.telegram_configured&&result.telegram_auth&&result.queue_size>0&&result.live_card&&result.price_increase_ok&&Boolean(result.image);return result;
 }

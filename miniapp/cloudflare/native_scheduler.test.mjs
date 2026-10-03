@@ -95,3 +95,29 @@ test('diagnostic checks never publish; missing main-bot secret cannot substitute
   const check=await checkAutopost(env,fetcher(counts));assert.equal(check.telegram_configured,false);assert.equal(check.telegram_posts_created,0);assert.equal(counts.send,0);
   await nativeTick(env,Date.now(),fetcher(counts));assert.equal(counts.send,0);
 });
+test('safe check rejects a card exceeding the queued price increase guard',async t=>{
+  const env=environment(t),counts={send:0,wb:0};await seed(env,[{...item(),product:500}]);
+  const result=await checkAutopost(env,fetcher(counts));
+  assert.equal(result.live_card,true);assert.equal(result.price_increase_ok,false);
+  assert.equal(result.ok,false);assert.equal(counts.send,0);
+});
+test('verified migration refreshes ready inventory without resurrecting rejected cards',async t=>{
+  const env=environment(t);await seed(env,[{...item(),product:500}]);
+  const fresh={...item(),checked_at:Math.floor(Date.now()/1000)};await seed(env,[fresh]);
+  assert.equal(JSON.parse(env.db.prepare('SELECT data FROM scheduler_inventory').get().data).product,700);
+  env.db.prepare("UPDATE scheduler_inventory SET state='rejected'").run();
+  await seed(env,[fresh]);assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory').get().state,'rejected');
+});
+test('manual request publishes one item after safety gap and stays consumed',async t=>{
+  const env=environment(t),counts={send:0,wb:0},now=Math.floor(Date.now()/1000);
+  await seed(env,[item()],[{pid:1234,ts:now-360,title:'Other',query:'other'}]);
+  env.db.prepare("UPDATE scheduler_config SET post_request='owner-test'").run();
+  assert.equal(postDue(DEFAULT_SCHEDULE,now-360,now),false);
+  assert.equal(postDue(DEFAULT_SCHEDULE,now-60,now,true),false);
+  env.DB={...env.DB};env.counter.queries=0;
+  const result=await nativeTick(env,Date.now(),fetcher(counts));
+  assert.ok(env.counter.queries<=50,'Manual cold request query budget: '+env.counter.queries);
+  assert.equal(result.results.post.result,'success');assert.equal(counts.send,1);
+  assert.equal(env.db.prepare('SELECT post_request FROM scheduler_config').get().post_request,null);
+  await nativeTick(env,Date.now(),fetcher(counts));assert.equal(counts.send,1);
+});

@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import time
+import uuid
 
 import bot
 import config
@@ -15,6 +16,10 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'post_now':
+        client.api('action', 'POST', {'action': 'post_now', 'request_id': str(uuid.uuid4())})
+        print(json.dumps(client.api('tick', 'POST', {}), ensure_ascii=False))
+        return
     if action == 'check':
         result = client.api('check')
         current = client.api('config')
@@ -51,11 +56,13 @@ def main():
         for item in candidates:
             cards = wb.cards([item['id']])
             deal = wb.deal(cards[0], min_discount=0) if cards else None
-            if not deal or deal['product'] > item['product'] * 1.1:
+            if not deal:
                 continue
             images = wb.photos(item['id'], limit=1)
             if images:
-                item.update(deal, image=wb.photo_url(item['id']))
+                # Migration establishes a new verified current-price baseline;
+                # the publisher's subsequent 10% increase guard is unchanged.
+                item.update(deal, image=wb.photo_url(item['id']), checked_at=int(time.time()))
                 print('BOOTSTRAP_VALID_PRODUCT', item['id'], 'PRICE', item['product'], 'PHOTO OK', flush=True)
                 break
     queries = settings.get('queries') or config.DEFAULT_QUERIES

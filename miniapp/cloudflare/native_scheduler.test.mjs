@@ -49,6 +49,10 @@ test('topic caps and equal accessory rotation are retained, alternative topic is
   assert.equal(choose(rows,[],0).pid,1);
   const recent=Array.from({length:8},()=>({topic:'сумка женская'}));assert.equal(choose(rows,recent,0).pid,2);
 });
+test('within the same audience slot a verified photo/price is preferred over stale inventory',()=>{
+  const rows=[item(1),item(2)].map(p=>({pid:p.id,data:JSON.stringify(p),topic:p.query,title_key:String(p.id),checked_at:p.id===2?Math.floor(Date.now()/1000):0}));
+  assert.equal(choose(rows,[],2).pid,2);
+});
 test('one native Cron cycle obtains live card, sends once, records message ID; next tick is safe',async t=>{
   const env=environment(t),counts={send:0,wb:0};await seed(env);
   env.DB={...env.DB};env.counter.queries=0; // Include cold-isolate schema setup.

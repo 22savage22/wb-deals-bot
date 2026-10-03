@@ -37,7 +37,10 @@ export function choose(rows,recent,total=0){
   const target=pattern[total%pattern.length],fallback={women:['women','neutral','men'],men:['men','women','neutral'],neutral:['neutral','women','men']}[target]||[target,'women','neutral','men'];
   for(const group of [...fallback,'any']){
     const matches=eligible.filter(row=>{const p=groups(JSON.parse(row.data));return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
-    if(matches.length)return matches.find(p=>p.topic!==recent.at(-1)?.topic)||matches[0];
+    if(matches.length){
+      const verified=matches.filter(p=>p.checked_at>0&&safeImage(JSON.parse(p.data).image));
+      return verified.find(p=>p.topic!==recent.at(-1)?.topic)||verified[0]||matches.find(p=>p.topic!==recent.at(-1)?.topic)||matches[0];
+    }
   }return null;
 }
 async function runtime(env,body){

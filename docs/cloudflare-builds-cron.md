@@ -1,5 +1,36 @@
 # Managed deployment and a permanent Cloudflare clock
 
+## Native runtime migration — 2026-10-03
+
+The following older dispatch design is historical. The new opt-in driver is
+`SCHEDULER_DRIVER=cloudflare-native` in Worker runtime variables: minute Cron
+executes WB card verification, D1 inventory selection and Telegram directly.
+The main bot token is the existing `TG_BOT_TOKEN` Worker secret, not the mini-app
+token or any Cloudflare deployment credential. Intervals remain D1 settings.
+
+Deploy source from main first. Run `native-runtime.yml` with `action=prepare`
+once to copy queue/history and non-secret channel policy using existing Actions
+secrets; `action=check` is a safe no-post chain check. Only enable the native
+driver after verified migration and checks. Then prove a Telegram receipt and a
+subsequent autonomous Cron execution. The admin panel exposes a no-send check,
+actual driver/heartbeat and overdue warning; unit tests are not production proof.
+
+Keep the legacy `deals.yml` path ON until native runtime is verified. Set the
+repository `SCHEDULER_DRIVER=cloudflare-native` only after that checkpoint; the
+workflow excludes both Cloudflare drivers. Preserve callbacks/poller and all
+existing secrets. Expiring D1 leases and atomic product claims protect overlap.
+
+Workers Builds is connected to the existing repository, but builds b382c556
+and c72d7037 could not initialise their environment, before repository cloning.
+Do not repeatedly retry this platform failure. An owner-authorized official
+Wrangler OAuth deployment is a recovery option: request only account/user read
+and Workers Scripts write with automatic refresh, keep its credential under
+ignored project-local configuration. It is never a bot runtime credential.
+No new temporary Cloudflare API token, paid plan, Redis or server is needed.
+
+Native activation is not yet verified; see production logs before treating this
+document as a claim of successful migration.
+
 ## Selected design
 
 GitHub main → official Workers Builds → existing `wb-finds-miniapp` Worker.

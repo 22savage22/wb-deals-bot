@@ -20,6 +20,15 @@ function harness(stored=null,{blockedStorage=false}={}) {
 }
 const sample=(id,extra={})=>({id,title:`Вещь ${id}`,category:'',slot:'top',audience:'women',price:1000,checked_at:1700000000+id,rating:4.8,image:'https://basket-01.wbbasket.ru/a.webp',url:'https://www.wildberries.ru/catalog/'+id+'/detail.aspx',...extra});
 
+test('UI scheduler diagnostics expose heartbeat, real driver and safe check without sending',async()=>{
+  const h=harness();h.inject('state.schedule',{schedule:{enabled:true,paused:false,timezone:'Europe/Moscow',search_enabled:true},status:{heartbeat_stale:false,last_scheduler_tick:1791016000,cron_active:true,driver:'cloudflare-native',queue_size:100,watchdog_overdue:true,last_error:'<bad>'}});
+  h.run('renderScheduleStatus()');const html=h.node('#schedule-dashboard').innerHTML;
+  assert.match(html,/🔴 Автопостинг не работает/);assert.match(html,/Cloudflare Worker/);assert.match(html,/Последний tick/);assert.match(html,/Проверить автопостинг/);
+  h.run('api=async(path,opts)=>{if(path!=="admin/schedule/check"||opts)throw Error("No publication allowed");return {ok:true,cron:true,heartbeat_stale:false,queue_size:100,telegram_auth:true,live_card:true,image:"photo",telegram_posts_created:0};}');
+  await h.listeners.get('click')({target:{closest:()=>({disabled:false,dataset:{scheduleCheck:'1'},classList:{contains:()=>false}})}});
+  assert.match(h.node('#schedule-check-result').innerHTML,/Цепочка готова/);assert.match(h.node('#schedule-check-result').innerHTML,/Создано постов<\/dt><dd>0/);
+});
+
 test('UI category interleave is deterministic, complete and does not mutate input',()=>{
   const h=harness(),items=[sample(1),sample(2),sample(3,{slot:'shoes'}),sample(4,{slot:'bag'}),sample(5,{slot:'shoes'})];
   h.inject('state.products',items);

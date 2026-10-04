@@ -59,7 +59,7 @@ async function runtime(env,body){
 async function status(env,patch){await q(env,"UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1",JSON.stringify(patch)).run();}
 async function source(url,fetcher){
   const r=await fetcher(url,{headers:{Accept:'application/json','Accept-Language':'ru-RU,ru;q=0.9'},redirect:'manual',signal:AbortSignal.timeout(10000)});
-  if(!r.ok)throw new Error('WB HTTP '+r.status);return r.json();
+  if(!r.ok){const error=new Error('WB HTTP '+r.status);error.status=r.status;error.retry_after=Math.min(3600,Math.max(300,Number(r.headers.get('Retry-After'))||300));throw error;}return r.json();
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
@@ -93,6 +93,20 @@ async function imageFor(env,p,fetcher){
   const hint=storedImage?.match(/^https:\/\/(basket-\d+\.wbbasket\.ru)\//)?.[1];
   const known=safeImage(p.image)||(stored?.id===p.id?storedImage:hint?`https://${hint}/vol${vol}/part${part}/${p.id}/images/big/1.webp`:'');
   const urls=known?[known]:[];
+  if(!known){
+    // Sparse catalogue: another nmId in this exact 100k volume usually does
+    // not exist. Probe a few genuinely observed neighbouring shards first.
+    // Four PK range seeks, LIMIT 8 each; never scan/sort the whole catalogue.
+    const neighbours=(await q(env,`SELECT id,data FROM (SELECT id,data FROM products WHERE id<=? ORDER BY id DESC LIMIT 8)
+      UNION ALL SELECT id,data FROM (SELECT id,data FROM products WHERE id>? ORDER BY id LIMIT 8)
+      UNION ALL SELECT pid,data FROM (SELECT pid,data FROM scheduler_deliveries WHERE pid<=? ORDER BY pid DESC LIMIT 8)
+      UNION ALL SELECT pid,data FROM (SELECT pid,data FROM scheduler_deliveries WHERE pid>? ORDER BY pid LIMIT 8)`,p.id,p.id,p.id,p.id).all()).results;
+    const hosts=[];for(const row of neighbours.sort((a,b)=>Math.abs(a.id-p.id)-Math.abs(b.id-p.id))){
+      const host=safeImage(JSON.parse(row.data).image)?.match(/^https:\/\/(basket-\d+\.wbbasket\.ru)\//)?.[1];
+      if(host&&!hosts.includes(host))hosts.push(host);if(hosts.length===3)break;
+    }
+    for(const host of hosts)urls.push(`https://${host}/vol${vol}/part${part}/${p.id}/images/big/1.webp`);
+  }
   const start=Math.max(1,Number(p.photo_probe||1));
   for(let host=start;host<Math.min(start+6,51);host++)urls.push(`https://basket-${String(host).padStart(2,'0')}.wbbasket.ru/vol${vol}/part${part}/${p.id}/images/big/1.webp`);
   for(const url of urls){
@@ -253,7 +267,8 @@ async function search(env,state,fetcher){
     let experiment=null;if(old.learning_initialized)try{experiment=await explorationQuery(env,queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
     const query=experiment||queries[(cursor+offset)%queries.length];
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
-    let response;try{response=await source(wbURL('search',{query,page:String(1+Math.floor(cursor/state.policy.queries.length)%5),sort:cursor%2?'popular':'newly',resultset:'catalog'}),fetcher);}catch{
+    let response;try{response=await source(wbURL('search',{query,page:String(1+Math.floor(cursor/state.policy.queries.length)%5),sort:cursor%2?'popular':'newly',resultset:'catalog'}),fetcher);}catch(error){
+      if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
       response=await source(wbURL('search',{query,page:'1',sort:'popular',dest:'123585633',resultset:'catalog'}),fetcher);
     }
@@ -330,7 +345,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const interval=state.count<state.s.min_queue||noEligible?(emptySearch?300:60):state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
     // keeps even a cold-isolate invocation inside the Free D1 query budget.
-    if(!results.post&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch(error){const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);await status(env,{last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code});results.search={result:'error',code};}
+    if(!results.post&&!results.preflight&&now>=Number(previous.search_retry_at||0)&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch(error){const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);await status(env,{last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code,search_retry_at:now+Number(error.retry_after||300)});results.search={result:'error',code};}
     // Repairs are bounded and run ONLY on otherwise idle ticks. Never add
     // reaction work to the near-50-query posting/search Free-plan invocation.
     if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}

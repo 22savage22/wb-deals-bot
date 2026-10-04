@@ -101,3 +101,22 @@ Cloudflare Dashboard DOM timed out. No security bypass was attempted. Phone visu
 verification and historical 28.6% error-rate attribution are NOT claimed from
 these failed browser checks. Fresh production receipts/automatic ticks are the
 runtime evidence; deployment/learning/owner invite evidence is recorded separately.
+
+### Production blocker discovered after deployment
+
+Read-only production runs showed real Cron continued but no post after message
+2479. Indexed diagnostic run **37198425510** proved selected nmId **875043740**
+had a `scheduler_claims.status=error` tombstone (ts1791077086), no corresponding
+successful post, yet inventory remained `ready`, retry_at1791077392 already past.
+The chooser preferred its verified photo repeatedly, and each claim was rejected
+by seven-day duplicate protection. This pre-existing ready/tombstone mismatch
+predates the new admin deployment; it is not a new D1 daily-quota outage.
+
+A regression reproduced the loop. On claim conflict the publisher now performs
+one primary-key lookup: a recent prior product claim moves that card to
+`uncertain` (or `posted` for successful delivery) while retaining the tombstone.
+The NEXT normal minute can choose a different product; no blind duplicate retry.
+Global hourly/daily limits and safety-gap failures do not evict unclaimed cards.
+New Telegram rejections also cannot return a tombstoned card to the ready pool.
+90 Worker tests pass including this case. Live post + subsequent independent
+Cron after this repair still require explicit production evidence below.

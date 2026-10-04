@@ -14,6 +14,19 @@ const image='https://basket-01.wbbasket.ru/vol0/part1/1000/images/big/1.webp';
 const item=(id=1000,query='платье женское')=>({id,title:'Платье женское '+id,product:700,basic:700,rating:4.8,feedbacks:100,query,category:'Платья',image,queued_ts:Math.floor(Date.now()/1000)});
 const card=(id=1000)=>({id,name:'Платье женское '+id,reviewRating:4.8,feedbacks:100,subjectName:'Платья',sizes:[{qty:10,price:{product:70000,basic:70000}}]});
 const seed=(env,queue=[item()],posts=[])=>bootstrap(env,{queue,posts,policy:{chat_id:'-100123456789',queries:['платье женское','сумка женская'],max_price:1000,min_rating:4.3}});
+test('prior failed claim cannot monopolize ready queue; next Cron safely publishes another ID',async t=>{
+  const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001)]);
+  env.db.prepare("INSERT INTO scheduler_claims(pid,owner,ts,status) VALUES(1000,'old',?,'error')").run(now-600);
+  let sends=0;
+  const live=async url=>{
+    if(url.includes('sendPhoto')){sends++;return Response.json({ok:true,result:{message_id:222}});}
+    if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/webp'}});
+    const id=Number(new URL(url).searchParams.get('nm')||1000);return Response.json({products:[card(id)]});
+  };
+  const first=await nativeTick(env,Date.now(),live);assert.equal(first.results.post.result,'product_claim_quarantined');
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'uncertain');assert.equal(sends,0);
+  const second=await nativeTick(env,Date.now(),live);assert.equal(second.results.post.product_id,1001);assert.equal(sends,1);
+});
 function fetcher(counts,{failSend=false,failWB=false}={}){return async(url,options)=>{
   if(url.includes('wbbasket.ru'))return new Response('photo',{headers:{'content-type':'image/webp'}});
   if(url.includes('sendPhoto')){counts.send++;if(failSend)throw new Error('Do not leak credential URL');return Response.json({ok:true,result:{message_id:321}});}

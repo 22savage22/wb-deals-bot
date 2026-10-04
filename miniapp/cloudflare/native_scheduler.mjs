@@ -170,7 +170,18 @@ async function publish(env,state,fetcher){
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
-      const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok)return {result:claim.reason};
+      const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok){
+        // A prior delivery claim (including uncertain/error) is a per-product
+        // tombstone. Never delete it or blindly resend, but don't let that card
+        // remain the preferred ready candidate and freeze the entire channel.
+        // Hour/day caps, a live lease or a global safety gap must NOT evict cards.
+        const previousClaim=await q(env,'SELECT status,ts FROM scheduler_claims WHERE pid=?',item.pid).first();
+        if(previousClaim&&previousClaim.ts>=sec()-7*86400){
+          await q(env,"UPDATE scheduler_inventory SET state=? WHERE pid=? AND state='ready'",previousClaim.status==='success'?'posted':'uncertain',item.pid).run();
+          return {result:'product_claim_quarantined',product_id:item.pid};
+        }
+        return {result:claim.reason};
+      }
       if(manual&&!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}
       const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
@@ -178,7 +189,7 @@ async function publish(env,state,fetcher){
       let result;
       try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendPhoto`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();}
       catch{await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain' WHERE pid=?",item.pid).run();throw new Error('Telegram send outcome unknown; automatic duplicate retry suppressed');}
-      if(!result.ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();throw new Error('Telegram rejected publication');}
+      if(!result.ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain',retry_at=? WHERE pid=?",sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();throw new Error('Telegram rejected publication');}
       const message_id=result.result?.message_id;if(!Number.isInteger(message_id))throw new Error('Telegram receipt missing');
       // If persistence fails after send, pending claim still prevents duplicates.
       await runtime(env,{op:'complete',owner,product_id:item.pid,success:true});
@@ -187,7 +198,7 @@ async function publish(env,state,fetcher){
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
         q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
       ]);
-      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',error:'',next_post:sent+current.s.post_interval_minutes*60});
+      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60});
       console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id};
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}

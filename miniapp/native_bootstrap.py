@@ -23,14 +23,25 @@ def main():
             print('FEEDBACK_SEED', json.dumps(client.api('feedback/seed', 'POST', {'rows': rows[offset:offset+100]})))
         if not rows:
             client.api('feedback/seed', 'POST', {'rows': []})
-        print('FEEDBACK_WEBHOOK', json.dumps(client.api('feedback/activate', 'POST', {})))
+        result = client.api('feedback/activate', 'POST', {})
+        print('FEEDBACK_WEBHOOK', json.dumps(result))
+        if not result.get('webhook_ok'):
+            raise RuntimeError('Webhook not confirmed')
         return
     if action == 'feedback_check':
-        print('FEEDBACK_STATUS', json.dumps(client.api('feedback/status'), ensure_ascii=False))
+        result = client.api('feedback/status')
+        print('FEEDBACK_STATUS', json.dumps(result, ensure_ascii=False))
+        if not result.get('webhook_ok'):
+            raise RuntimeError('Webhook not confirmed')
+        current = client.api('config')
+        print('FEEDBACK_PRODUCTION', json.dumps({'schedule': current['schedule'],
+              'status': {k: current['status'].get(k) for k in ('last_automatic_tick', 'last_post_success', 'last_message_id', 'production_chain_message_id', 'queue_size', 'last_error')},
+              'budget': client.api('budget')}, ensure_ascii=False))
         return
     if action == 'feedback_test':
         request_id = 'feedback-e2e-20261004-v1'
-        print('FEEDBACK_TEST_INITIAL', json.dumps(client.api('feedback/test/create', 'POST', {'request_id': request_id}), ensure_ascii=False))
+        initial = client.api('feedback/test/create', 'POST', {'request_id': request_id})
+        print('FEEDBACK_TEST_INITIAL', json.dumps({k: v for k, v in initial.items() if k != 'chat'}, ensure_ascii=False))
         for step in (1, 2, 3):
             result = client.api('feedback/test/step', 'POST', {'request_id': request_id, 'step': step})
             expected = ({'likes': 1, 'dislikes': 0, 'bought': 0}, {'likes': 2, 'dislikes': 0, 'bought': 0}, {'likes': 1, 'dislikes': 1, 'bought': 0})[step-1]
@@ -39,7 +50,8 @@ def main():
             if actual != expected or texts != [f"👍 {expected['likes']}", f"👎 {expected['dislikes']}", f"🛒 Купил {expected['bought']}"]:
                 raise RuntimeError('Feedback real markup mismatch')
             print('FEEDBACK_TEST_STEP', json.dumps(result, ensure_ascii=False))
-        print('FEEDBACK_TEST_FINAL', json.dumps(client.api('feedback/test/status', 'POST', {'request_id': request_id}), ensure_ascii=False))
+        final = client.api('feedback/test/status', 'POST', {'request_id': request_id})
+        print('FEEDBACK_TEST_FINAL', json.dumps({k: v for k, v in final.items() if k != 'chat'}, ensure_ascii=False))
         print('CHANNEL_MARKUP_REPAIRED', json.dumps(client.api('feedback/repair_latest', 'POST', {}), ensure_ascii=False))
         return
     if action in ('admin_check', 'admin_invite'):

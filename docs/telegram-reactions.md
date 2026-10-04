@@ -50,4 +50,31 @@ It also repairs the last existing channel message using actual totals, without
 creating a new channel post. Real webhook acknowledgement latency requires an
 actual Telegram click and is exposed by feedback_check, not fabricated by probes.
 
-Verification results and deployment links are appended after the real probe.
+## Verified live probe, 2026-10-04
+
+Managed Workers Builds deployed main 0c867dc2; setup workflow37202133997
+confirmed the main-bot webhook and imported28 historical aggregate entries.
+Feedback workflow37202287615 succeeded with a real private Telegram message2266,
+WB nmId272145163. Controlled test actors produced these D1 / actual Telegram
+reply_markup values on the SAME message:
+
+| Step | Likes | Dislikes | Bought |
+| --- | ---: | ---: | ---: |
+| Initial | 0 | 0 | 0 |
+| A likes | 1 | 0 | 0 |
+| B likes | 2 | 0 | 0 |
+| A switches to dislike | 1 | 1 | 0 |
+
+Final persisted message dirty=0, error empty, reply_markup labels
+`👍 1`, `👎 1`, `🛒 Купил 0`. Existing channel post2483 was repaired using
+its actual zero totals; no synthetic channel votes or new channel posts.
+This controlled integration test is NOT a measurement of real human callback
+latency. That requires an actual user click; feedback_check reports its ACK
+measurement and the original channel message's persisted edit receipt.
+
+CI: https://github.com/22savage22/wb-deals-bot/actions/runs/37202005681
+Live probe: https://github.com/22savage22/wb-deals-bot/actions/runs/37202287615
+
+Old poller37201513732 cancellation is confirmed. Restart of the owner-command
+bridge requires approval because its existing digest behavior is retained.
+Production Cloudflare Cron and channel reaction webhook do not depend on it.

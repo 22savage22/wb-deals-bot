@@ -60,12 +60,13 @@ export async function vote(e,{scope='channel',pid,voter,action,event_id}){
  const totals=await q(e,'SELECT likes,dislikes,bought,revision FROM reaction_totals WHERE scope=? AND pid=?',scope,pid).first();
  const row=await q(e,'SELECT revision,last_changed_event FROM reaction_votes WHERE scope=? AND pid=? AND voter=?',scope,pid,key).first();
  const changed=!!result[1].meta.changes&&row.last_changed_event===event_id;
- if(changed&&scope==='channel')try{
+ const event_current=row.last_changed_event===event_id;
+ if(event_current&&scope==='channel')try{
    await recordEvent(e,{key:`reaction:${pid}:${key}:${row.revision}`,pid,kind:{l:'like',d:'dislike',b:'buy'}[action]});
    // The legacy importer must not learn this same native signal a second time.
    await q(e,`INSERT INTO learning_feedback(pid,likes,dislikes,bought) VALUES(?,?,?,?) ON CONFLICT(pid) DO UPDATE SET likes=MAX(likes,excluded.likes),dislikes=MAX(dislikes,excluded.dislikes),bought=MAX(bought,excluded.bought)`,pid,totals.likes,totals.dislikes,totals.bought).run();
  }catch{console.log('REACTION_LEARNING deferred; vote retained');}
- return {changed,totals};
+ return {changed,event_current,totals};
 }
 export async function refreshMessage(e,chat,message_id,fetcher=fetch){
  chat=String(chat);
@@ -117,7 +118,7 @@ export async function processCallback(e,cb,fetcher=fetch,defer=null){
  await registerMessage(e,{chat,message_id:msg.message_id,pid,markup:msg.reply_markup,scope});
  const saved=await vote(e,{scope,pid,voter:String(cb.from.id),action:match[1],event_id:cb.update_id});
  console.log('FEEDBACK_TOTALS',JSON.stringify({pid,...saved.totals}));
- if(saved.changed&&scope==='channel'){
+ if(saved.event_current&&scope==='channel'){
    const card=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=? UNION ALL SELECT data FROM products WHERE id=? LIMIT 1',pid,pid).first();
    const p=card?JSON.parse(card.data):{};
    await q(e,'INSERT OR IGNORE INTO reaction_admin_updates VALUES(?,?,?)',cb.update_id,JSON.stringify({update_id:cb.update_id,feedback_event:{pid,query:p.query||null,cat:p.category||p.cat||null,action:{l:'likes',d:'dislikes',b:'bought'}[match[1]],totals:saved.totals,ts:now()}}),now()).run();
@@ -162,7 +163,13 @@ export async function feedbackRoute(request,e,{payload,json,fail},fetcher=fetch)
  }
  if(path.endsWith('/status')&&!path.includes('/test/')&&request.method==='GET'){
    const result=await telegram(e,'getWebhookInfo',{},fetcher),row=await q(e,"SELECT value FROM metadata WHERE key='reaction_last_callback'").first();
-   return json({webhook_ok:result.ok&&result.result.url===new URL('/telegram/main/webhook',request.url).href,pending_updates:result.result?.pending_update_count||0,webhook_error:result.result?.last_error_message?'Telegram delivery error':'',last_callback:row?JSON.parse(row.value):null});
+   const last_callback=row?JSON.parse(row.value):null;
+   let message=null;
+   if(last_callback){
+     const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
+     message=await q(e,'SELECT dirty,error,receipt FROM reaction_messages WHERE chat=? AND message_id=?',String(policy.chat_id),last_callback.message_id).first();
+   }
+   return json({webhook_ok:result.ok&&result.result.url===new URL('/telegram/main/webhook',request.url).href,pending_updates:result.result?.pending_update_count||0,webhook_error:result.result?.last_error_message?'Telegram delivery error':'',last_callback,message});
  }
  if(path.endsWith('/repair_latest')&&request.method==='POST'){
    const row=await q(e,'SELECT pid,message_id FROM scheduler_deliveries WHERE message_id IS NOT NULL ORDER BY ts DESC LIMIT 1').first();

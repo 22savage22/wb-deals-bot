@@ -77,6 +77,18 @@ test('owner commands survive webhook transition, other users are not retained',a
  await handleMainUpdate(e,{update_id:11,message:{chat:{id:43},from:{id:43},text:'/status'}});
  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates').get().n,1);
 });
+test('redelivery repairs an interrupted legacy event without doubling the vote',async t=>{
+ const e=await env(t);
+ const cb={data:'l123',from:{id:9},update_id:501,message:{message_id:88,chat:{id:-1001},reply_markup:markup}};
+ const first=await processCallback(e,cb,good);
+ e.db.prepare('DELETE FROM reaction_admin_updates WHERE update_id=501').run();
+ const retry=await processCallback({...e},cb,good);
+ assert.equal(first.changed,true);assert.equal(retry.changed,false);assert.equal(retry.event_current,true);
+ assert.equal(retry.totals.likes,1);
+ assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates WHERE update_id=501').get().n,1);
+ await processCallback(e,cb,good);
+ assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates WHERE update_id=501').get().n,1);
+});
 test('irrelevant subscriber messages consume no database budget or storage',async t=>{
  const e=await env(t),before=e.meter.queries;
  const request=new Request('https://test/telegram/main/webhook',{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Bot-Api-Secret-Token':await webhookSecret(e)},body:JSON.stringify({update_id:51,message:{chat:{id:77},from:{id:77},text:'/start'}})});

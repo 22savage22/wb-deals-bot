@@ -267,7 +267,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     if(results.post?.result!=='success'&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
     const count=(results.post||results.preflight||results.search)?(await q(env,'SELECT ready AS n FROM scheduler_counts WHERE id=1').first()).n:state.count;
     const last=results.post?.result==='success'?sec():state.last;
-    await status(env,{queue_size:count,next_post:last+state.s.post_interval_minutes*60,post_running:false,scan_running:false});
+    await status(env,{queue_size:count,next_post:last+state.s.post_interval_minutes*60,post_running:false,scan_running:false,...(results.post?{last_post_result:results.post.result}:{})});
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count,JSON.stringify(results));return {enabled:true,results,queue_size:count};
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }

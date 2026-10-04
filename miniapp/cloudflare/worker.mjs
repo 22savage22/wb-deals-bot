@@ -69,7 +69,9 @@ async function route(request,env,ctx) {
     if(path==='/api/scheduler/admin'&&method==='GET'){
       const overview=await (await adminRoute(new Request('https://internal/api/admin/overview'),env,{payload,fail,json,ctx})).json();
       const learning=await (await learningRoute(new Request('https://internal/api/admin/learning'),env,{payload,fail,json})).json();
-      return json({admin_version:1,...overview,learning,link:`https://t.me/${env.MINIAPP_BOT_USERNAME}?start=admin`});
+      const pid=Number(overview.status.selected_product||0);
+      const posting_debug={pid,claim:await prepare('SELECT status,ts FROM scheduler_claims WHERE pid=?',pid).first(),inventory:await prepare('SELECT state,retry_at,checked_at FROM scheduler_inventory WHERE pid=?',pid).first(),prior_post:await prepare('SELECT ts FROM scheduler_posts WHERE pid=? ORDER BY ts DESC LIMIT 1',pid).first()};
+      return json({admin_version:1,...overview,learning,posting_debug,link:`https://t.me/${env.MINIAPP_BOT_USERNAME}?start=admin`});
     }
     if(path==='/api/scheduler/admin/invite'&&method==='POST'){
       if(!/^\d+$/.test(String(env.MINIAPP_ADMIN_ID))||!env.MINIAPP_BOT_TOKEN)fail(503,'Не настроен владелец');

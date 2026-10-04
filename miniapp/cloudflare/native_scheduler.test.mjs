@@ -29,6 +29,18 @@ test('known first eight search cards do not hide fresh products later in the res
   const r=await nativeTick(env,Date.now(),async()=>Response.json({products:Array.from({length:16},(_,i)=>card(1000+i))}));
   assert.equal(r.results.search.added,8);assert.equal(env.db.prepare('SELECT MIN(pid) AS id FROM scheduler_inventory').get().id,1008);
 });
+test('search reports only admitted products, excluding aggregate trigger changes',async t=>{
+  const env=environment(t);await seed(env,[]);
+  env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true,min_queue:2}));
+  const original=env.DB.prepare;
+  const inflate=s=>({bind(...values){return inflate(s.bind(...values));},first:()=>s.first(),run:()=>s.run(),async all(){return {...await s.all(),meta:{changes:999}};}});
+  env.DB.prepare=sql=>inflate(original(sql));
+  const r=await nativeTick(env,Date.now(),async()=>Response.json({products:Array.from({length:8},(_,i)=>card(4000+i))}));
+  assert.equal(r.results.search.added,2);
+  const status=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
+  assert.equal(status.last_scan_valid,8);assert.equal(status.last_scan_added,2);
+  assert.deepEqual(status.last_scan_new_ids,[4000,4001]);
+});
 test('prior failed claim cannot monopolize ready queue; next Cron safely publishes another ID',async t=>{
   const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001)]);
   env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.last_maintenance',?)").run(now);

@@ -90,7 +90,7 @@ Cold pre-learning v2 migration + post remains within the Free 50-query limit.
 
 ## Verification
 
-93 Worker tests, three real-River Python tests, existing legacy tests and deploy
+94 Worker tests, three real-River Python tests, existing legacy tests and deploy
 dry-run passed locally before publication. Coverage includes owner auth, durable
 settings, double-click/offline idempotency, slow checks, no channel posts during
 diagnostics, quiet overnight/quarter-hour timezone, Shadow no-selection-change,
@@ -170,3 +170,12 @@ the browser blocked the local preview; historical Dashboard28.6% cannot be
 attributed precisely without accessible Observability. A fresh real runtime
 fault was independently proven and repaired rather than dismissed as history.
 Recovery automationwb-d1 staysPAUSED; production Cron/autopost stayON.
+
+Second ordinary post confirmed by **37200003030 SUCCESS**: nmId205640869,
+message2481 at14:47:19Moscow; following automatic tick14:49:13 with matching
+chain2481, errors empty, queue100. A real scan found100/known34/valid8 and
+refilled the buffer. Its old `meta.changes=14` included aggregate-trigger writes,
+so must NOT be quoted as14 new products. Search now uses INSERT RETURNING pid
+to count actual admitted products and stores bounded new IDs, without another
+SQL query. Regression injects inflated D1 metadata and verifies cap2 means2
+new products despite8 valid candidates;94 tests pass.

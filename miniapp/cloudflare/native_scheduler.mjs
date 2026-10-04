@@ -259,9 +259,12 @@ async function search(env,state,fetcher){
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM products WHERE id=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_inventory WHERE title_key=json_extract(value,'$.title_key'))
-      AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ?`,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).run();
-    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:valid.length,last_scan_added:inserted.meta.changes,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
-    console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',valid.length,'ADDED_TO_QUEUE',inserted.meta.changes);return {result:'success',found:found.length,added:inserted.meta.changes};
+      AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ? RETURNING pid`,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).all();
+    // D1 meta.changes includes aggregate-trigger writes, not just new products.
+    // RETURNING counts only the inventory rows actually admitted, no extra query.
+    const newIDs=inserted.results.map(p=>Number(p.pid));
+    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:valid.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
+    console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',valid.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }
 export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron'){

@@ -90,7 +90,7 @@ Cold pre-learning v2 migration + post remains within the Free 50-query limit.
 
 ## Verification
 
-89 Worker tests, three real-River Python tests, existing legacy tests and deploy
+93 Worker tests, three real-River Python tests, existing legacy tests and deploy
 dry-run passed locally before publication. Coverage includes owner auth, durable
 settings, double-click/offline idempotency, slow checks, no channel posts during
 diagnostics, quiet overnight/quarter-hour timezone, Shadow no-selection-change,
@@ -133,3 +133,40 @@ items later on the same page, producing ADDED_TO_QUEUE=0 despite100 results.
 No new WB endpoint or policy change. This adds one indexed query per due scan,
 not per minute. 92 Worker tests cover URL rejection/upload and known-first-eight
 refill without modifying real Legacy selection or queue deduplication.
+
+### Verified production recovery and owner launch (2026-10-04)
+
+Commit `6e0ccdb17d8ead4eacc01ba5fe082dd98d4a3463` reconciles old failed/pending
+claim tombstones in the existing five-minute maintenance statement. It adds no
+maintenance SQL calls; active-buffer indexed probes replace one-card-per-minute
+recovery. Its CI **37199426224 SUCCESS** and managed Workers Build
+**62e33293-b122-4aca-8a5f-98531140e842 SUCCESS** are confirmed.
+
+Ordinary Cloudflare Cron published real nmId **240582207**, Telegram message
+**2480**, at **11:36:22 UTC / 14:36:22 Moscow**. Read-only run **37199655115**
+confirms successful claim, posted inventory and matching publication record.
+Following independent automatic tick **11:43:13 UTC** is AFTER this post and
+`production_chain_message_id=2480`; no manual publication was needed.
+
+Safe check **37199721825 SUCCESS** at 11:44 UTC confirms Telegram auth, a live
+next WB card205640869 with name/price809/photo/link, queue94 eligible94,
+autopostON/notpaused, CronON, interval10, search20, Moscow, quietOFF.
+Actual Worker ledger at this check: core166249 reads/18631 writes and
+optional4566 reads/715 writes. These are not whole-account billing figures.
+Refill remains automatic and accelerated below100; the sampled last search
+found100, known19, valid0, added0. Do not describe every search as adding items
+or the current queue as100 already-verified products.
+
+Owner private invitation **37197425035 SUCCESS**, private message20, link
+`https://t.me/WbPodborr_bot?start=admin`. Server validates Telegram initData and
+the existing allowed owner ID. Actual safe-button acceptance measured843ms
+(later check862ms); no Telegram channel posts were created by diagnostics.
+
+River job **37197344325 SUCCESS** trained on20 real aggregate event records
+(21 feedback signals). ModeSHADOW, exploration10%, Legacy remains publication
+authority/fallback. Comparison samples0: no uplift claim and LEARNING blocked.
+Public app sources unchanged. Visual phone preview remains unverified because
+the browser blocked the local preview; historical Dashboard28.6% cannot be
+attributed precisely without accessible Observability. A fresh real runtime
+fault was independently proven and repaired rather than dismissed as history.
+Recovery automationwb-d1 staysPAUSED; production Cron/autopost stayON.

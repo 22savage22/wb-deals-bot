@@ -16,6 +16,18 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action in ('admin_check', 'admin_invite'):
+        if action == 'admin_check':
+            started = time.perf_counter()
+            accepted = client.api('admin/check', 'POST', {'request_id': 'admin-safe-check-20261004-v1'})
+            print('ADMIN_BUTTON_ACCEPTED', json.dumps({**accepted,
+                  'roundtrip_ms': round((time.perf_counter() - started) * 1000, 1),
+                  'telegram_posts_created': 0}, ensure_ascii=False))
+        result = client.api('admin' if action == 'admin_check' else 'admin/invite',
+                            'GET' if action == 'admin_check' else 'POST',
+                            None if action == 'admin_check' else {})
+        print('ADMIN_VERIFIED', json.dumps(result, ensure_ascii=False))
+        return
     if action == 'recovery':
         # Exactly one durable owner request across workflow retries/agent wakeups.
         after = 1791072000  # D1 reset 2026-10-04 00:00 UTC, not a runtime schedule.

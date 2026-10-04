@@ -1,11 +1,13 @@
-import {telegramUser,equal} from './auth.mjs';
+import {telegramUser,equal,hmac} from './auth.mjs';
 import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
-import {schedulerRoute} from './scheduler_api.mjs';
+import {schedulerRoute,ensureScheduler} from './scheduler_api.mjs';
 import {scheduledTick} from './cron_driver.mjs';
 import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
 import {observeD1,d1QuotaFailure} from './d1_budget.mjs';
 import {catalogSnapshot,ensureCatalog,invalidateCatalog} from './catalog_cache.mjs';
 import {withReadBudget,ReadBudgetError} from './read_guard.mjs';
+import {adminRoute} from './admin_api.mjs';
+import {learningRoute,recordEvent} from './learning.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -35,10 +37,14 @@ async function route(request,env,ctx) {
     if(secret.length<32||!equal(request.headers.get('X-Telegram-Bot-Api-Secret-Token'),secret))fail(403,'Нет доступа');
     const update=await payload(request),message=update.message;
     if(message?.chat?.type==='private'&&integer(message.chat.id)&&typeof message.text==='string') {
-      const command=/^\/start(?:@[A-Za-z0-9_]+)?(?:\s+((?:save|look)_\d{1,12}))?\s*$/.exec(message.text);
+      const command=/^\/(?:start|admin)(?:@[A-Za-z0-9_]+)?(?:\s+((?:save|look)_\d{1,12}|admin))?\s*$/.exec(message.text);
       if(command) {
+        const owner=String(message.from?.id)===String(env.MINIAPP_ADMIN_ID);
+        const wantsAdmin=message.text.startsWith('/admin')||command[1]==='admin';
+        if(wantsAdmin&&!owner)return json({ok:true});
         const app=new URL('/',url.origin);if(command[1])app.searchParams.set('tgWebAppStartParam',command[1]);
-        const send=fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:message.chat.id,text:'Добро пожаловать в «Находки»! Сохраняйте понравившиеся вещи и собирайте образы в своём бюджете.',reply_markup:{inline_keyboard:[[{text:'Открыть находки ✨',web_app:{url:app.href}}]]}})}).then(r=>{if(!r.ok)throw new Error('Telegram delivery failed');});
+        if(wantsAdmin){app.pathname='/admin';app.search='';}
+        const send=fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:message.chat.id,text:wantsAdmin?'Управление каналом — только для владельца.':'Добро пожаловать в «Находки»! Сохраняйте понравившиеся вещи и собирайте образы в своём бюджете.',reply_markup:{inline_keyboard:[[{text:wantsAdmin?'Открыть управление ⚙️':'Открыть находки ✨',web_app:{url:app.href}}]]}})}).then(r=>{if(!r.ok)throw new Error('Telegram delivery failed');});
         // No callback work blocks Telegram's acknowledgement; no credentials are logged.
         ctx.waitUntil(send.catch(()=>{}));
       }
@@ -47,14 +53,35 @@ async function route(request,env,ctx) {
   }
   if(!path.startsWith('/api/')) {
     if(!['GET','HEAD'].includes(method)) fail(405,'Метод не поддерживается');
-    if(!['/','/index.html','/static/app.js','/static/app.css'].includes(path))fail(404,'Не найдено');
+    if(!['/','/index.html','/static/app.js','/static/app.css','/admin','/admin/','/admin/index.html','/admin/app.js','/admin/app.css'].includes(path))fail(404,'Не найдено');
     const assetURL=new URL(url);assetURL.pathname=path==='/'?'/index.html':path;
+    if(['/admin','/admin/'].includes(path))assetURL.pathname='/admin/index.html';
     return env.ASSETS.fetch(new Request(assetURL,request));
   }
   const prepare=(sql,...args)=>env.DB.prepare(sql).bind(...args);
   if(path.startsWith('/api/scheduler/')) {
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    if(path==='/api/scheduler/admin/check'&&method==='POST'){
+      const response=await adminRoute(new Request('https://internal/api/admin/check',request),env,{payload,fail,json,ctx});
+      return json(await response.json()); // CLI compatibility; UI receives HTTP 202.
+    }
+    if(path==='/api/scheduler/admin'&&method==='GET'){
+      const overview=await (await adminRoute(new Request('https://internal/api/admin/overview'),env,{payload,fail,json,ctx})).json();
+      const learning=await (await learningRoute(new Request('https://internal/api/admin/learning'),env,{payload,fail,json})).json();
+      return json({admin_version:1,...overview,learning,link:`https://t.me/${env.MINIAPP_BOT_USERNAME}?start=admin`});
+    }
+    if(path==='/api/scheduler/admin/invite'&&method==='POST'){
+      if(!/^\d+$/.test(String(env.MINIAPP_ADMIN_ID))||!env.MINIAPP_BOT_TOKEN)fail(503,'Не настроен владелец');
+      const claimed=await prepare("INSERT OR IGNORE INTO metadata(key,value) VALUES('admin_invite_v1',?)",JSON.stringify({state:'attempted',ts:second()})).run();
+      if(claimed.meta.changes){
+        let result;try{result=await (await fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(5000),body:JSON.stringify({chat_id:env.MINIAPP_ADMIN_ID,text:'Управление каналом готово. Расписание, поиск и наблюдение за обучением — в одном месте.',reply_markup:{inline_keyboard:[[{text:'Открыть управление ⚙️',web_app:{url:new URL('/admin',url.origin).href}}]]}})})).json();}catch{fail(503,'Статус доставки неизвестен. Используйте /admin в боте');}
+        if(!result.ok)fail(503,'Не удалось отправить владельцу; используйте /admin в боте');
+        await prepare("UPDATE metadata SET value=? WHERE key='admin_invite_v1'",JSON.stringify({state:'sent',message_id:result.result.message_id,ts:second()})).run();
+      }
+      return json(JSON.parse((await prepare("SELECT value FROM metadata WHERE key='admin_invite_v1'").first()).value));
+    }
+    if(path.startsWith('/api/scheduler/learning')){await ensureScheduler(env);return learningRoute(request,env,{payload,fail,json});}
     if(path==='/api/scheduler/bootstrap'&&method==='POST') {
       try{return json(await bootstrap(env,await payload(request,2*1024*1024)));}catch{fail(400,'Некорректные данные переноса');}
     }
@@ -74,9 +101,10 @@ async function route(request,env,ctx) {
     if(env.RATE_LIMITER && !(await env.RATE_LIMITER.limit({key:String(uid)})).success)fail(429,'Слишком много запросов. Подождите минуту.');
   }
   const admin=()=>{if(!env.MINIAPP_ADMIN_ID||String(uid)!==String(env.MINIAPP_ADMIN_ID))fail(403,'Доступ только владельцу');};
+  if(path.startsWith('/api/admin/')&&!path.startsWith('/api/admin/schedule')&&!path.startsWith('/api/admin/products')){admin();const result=await adminRoute(request,env,{payload,fail,json,ctx});if(result)return result;}
   if(path.startsWith('/api/admin/schedule')) {admin();if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
-    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,runtime_version:env.CF_VERSION?.id||null});
+    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,admin_version:1,runtime_version:env.CF_VERSION?.id||null});
   }
   if(path==='/api/catalog'&&method==='GET') {
     const [products,meta]=await Promise.all([catalog(),prepare("SELECT value FROM metadata WHERE key='synced_at'").first()]);
@@ -135,7 +163,10 @@ async function route(request,env,ctx) {
       SELECT ?,?,?,?,? WHERE (SELECT count(*) FROM saved WHERE user_id=?)<1000
         OR EXISTS(SELECT 1 FROM saved WHERE user_id=? AND product_id=?)
       ON CONFLICT(user_id,product_id) DO UPDATE SET folder=excluded.folder,owned=excluded.owned`,uid,pid,folder,owned?1:0,second(),uid,uid,pid).run();
-    if(!result.meta.changes)fail(400,'Сохранено 1000 вещей. Удалите ненужные, чтобы добавить новую');return json({ok:true});
+    if(!result.meta.changes)fail(400,'Сохранено 1000 вещей. Удалите ненужные, чтобы добавить новую');
+    // De-duplicate without storing user IDs/names in ML data. Never block saving.
+    try{const kind=owned?'buy':'save',digest=await hmac(env.MINIAPP_BOT_TOKEN,`${uid}:${pid}:${kind}`),key=Array.from(digest,b=>b.toString(16).padStart(2,'0')).join('');await recordEvent(env,{key,pid,kind});}catch{}
+    return json({ok:true});
   }
   if(path==='/api/outfits'&&method==='POST') {
     const data=await payload(request),{anchor,budget}=data,excluded=data.exclude??[];
@@ -189,9 +220,9 @@ export default {
       // Reject unauthenticated requests before touching the budget ledger.
       let budgeted=path==='/api/catalog',lane='optional';
       if(path.startsWith('/api/scheduler/')||path==='/api/sync'){
-        const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'?'optional':'core';
+        const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'||path.startsWith('/api/scheduler/learning')?'optional':'core';
       }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
-        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=true;if(path.startsWith('/api/admin/schedule')&&String(uid)===String(env.MINIAPP_ADMIN_ID))lane='core';}catch{}
+        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
       }
       response=budgeted?await withReadBudget(runtimeEnv,lane,lane==='core'?25000:15000,e=>route(request,e,ctx)):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
@@ -205,6 +236,9 @@ export default {
     if(meter.metrics.queries)console.log('D1_BUDGET_HTTP',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));
     const secured=new Response(response.body,response);
     for(const [key,value] of Object.entries(headers))secured.headers.set(key,value);
+    // Telegram UI uses React style props; relax styles ONLY for the admin shell.
+    // Script policy and the public application's policy remain unchanged.
+    if(url.pathname==='/admin'||url.pathname.startsWith('/admin/'))secured.headers.set('Content-Security-Policy',headers['Content-Security-Policy'].replace("style-src 'self'","style-src 'self' 'unsafe-inline'"));
     secured.headers.set('Cache-Control',new URL(request.url).pathname.startsWith('/api/')?'no-store':'no-cache');
     return secured;
   }

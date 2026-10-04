@@ -1,6 +1,7 @@
 // Native runtime: D1 bindings, existing claims and expiring leases; no CI token.
 import {ensureScheduler,validateSchedule,schedulerRoute} from './scheduler_api.mjs';
 import {safeImage,normalize} from './domain.mjs';
+import {shadowChoice,explorationQuery} from './learning.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -154,6 +155,8 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<1;attempt++){
       const item=choose(current.ready,current.recent,current.policy.total_posts+current.recent.length);
       if(!item)return {result:'no_eligible_product'};
+      // Non-critical observer: any ML/store failure keeps the original chooser.
+      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid});
@@ -193,7 +196,8 @@ async function search(env,state,fetcher){
     while(offset<queries.length){const t=queries[(cursor+offset)%queries.length].toLowerCase();if(!state.policy.disabled_topics?.includes(t)&&(dailyCounts.get(t)||0)<8)break;offset++;}
     await status(env,{last_scan_attempt:now,search_cursor:cursor+offset+1});
     if(offset===queries.length)return {result:'daily_topics_at_cap'};
-    const query=queries[(cursor+offset)%queries.length];
+    let experiment=null;if(old.learning_initialized)try{experiment=await explorationQuery(env,queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
+    const query=experiment||queries[(cursor+offset)%queries.length];
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
     let response;try{response=await source(wbURL('search',{query,page:String(1+Math.floor(cursor/state.policy.queries.length)%5),sort:cursor%2?'popular':'newly',resultset:'catalog'}),fetcher);}catch{
       // One bounded alternative destination; no endless retries on a blocked IP.
@@ -209,7 +213,7 @@ async function search(env,state,fetcher){
       AND NOT EXISTS(SELECT 1 FROM products WHERE id=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_inventory WHERE title_key=json_extract(value,'$.title_key'))
       AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ?`,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).run();
-    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_added:inserted.meta.changes,next_search:now+state.s.search_interval_minutes*60});
+    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_added:inserted.meta.changes,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',valid.length,'ADDED_TO_QUEUE',inserted.meta.changes);return {result:'success',found:found.length,added:inserted.meta.changes};
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }

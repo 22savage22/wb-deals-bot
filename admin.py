@@ -117,7 +117,13 @@ def poll(token, data):
     events = []
     for u in updates:
         if "callback_query" in u:
-            events.append(("callback", u["callback_query"]))
+            cb = u["callback_query"]
+            # Acknowledge the entire fetched batch before processing slow admin
+            # commands. Later callbacks must not wait for earlier WB/git work.
+            acknowledgement = {"l": "Лайк отправлен 👍", "d": "Дизлайк отправлен 👎",
+                               "b": "Покупка отмечена 🛒"}.get(str(cb.get("data", ""))[:1], "")
+            tg.answer_callback(token, cb.get("id", ""), acknowledgement)
+            events.append(("callback", dict(cb, id="")))
         elif "message" in u:
             msg = u["message"]
             if msg.get("chat", {}).get("type") == "private":

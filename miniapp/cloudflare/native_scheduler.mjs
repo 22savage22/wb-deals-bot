@@ -7,6 +7,12 @@ const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
 const titleKey=p=>String(p.title||'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
 const escape=s=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function runtimeError(error){
+  const message=String(error?.message||'');
+  // Whitelisted error classes only: never persist URLs, tokens or payloads.
+  const code=/too many|maximum.*quer|query.*limit/i.test(message)?'D1_QUERY_LIMIT':/D1.*daily|free tier/i.test(message)?'D1_DAILY_LIMIT':/D1_ERROR|SQLITE|no such|constraint/i.test(message)?'D1_SQL_ERROR':/CPU|execution time/i.test(message)?'WORKER_EXECUTION_LIMIT':/Telegram send outcome/i.test(message)?'TELEGRAM_UNKNOWN':/Missing Telegram/i.test(message)?'TELEGRAM_SECRET_MISSING':/Telegram rejected/i.test(message)?'TELEGRAM_REJECTED':'RUNTIME_UNEXPECTED';
+  console.error('NATIVE_RUNTIME_ERROR',JSON.stringify({code,type:String(error?.name||'Error').slice(0,60),...(code==='D1_SQL_ERROR'?{detail:message.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[hidden]').slice(0,160)}:{})}));return code;
+}
 const pattern=['bags','men','women','women','neutral','belts','women','men','women','women','caps','men','women','women','neutral','jewelry','women','men','women','women'];
 const women=/женск|плать|юбк|блуз|сумк|космет|макияж|серьг|кольц|туфл|колгот|леггин|бюстг|купальник/;
 const accessories={bags:/сумк|рюкзак|клатч|кошел/,belts:/ремн|реме|пояс/,caps:/кепк|бейсбол|панам|шляп/,jewelry:/украшен|серьг|кольц|брасл|цепоч|ожерел|кулон|брош/};
@@ -245,7 +251,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});
-    if(due&&state.count>0&&now>=Number(previous.post_retry_at||0))try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product'].includes(results.post.result))await status(env,{post_retry_at:now+300});}catch(error){const safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,post_retry_at:now+300});results.post={result:'error'};}
+    if(due&&state.count>0&&now>=Number(previous.post_retry_at||0))try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product'].includes(results.post.result))await status(env,{post_retry_at:now+300});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
     // Verify stale inventory between posts, instead of discovering a poisoned
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
@@ -263,7 +269,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const last=results.post?.result==='success'?sec():state.last;
     await status(env,{queue_size:count,next_post:last+state.s.post_interval_minutes*60,post_running:false,scan_running:false});
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count,JSON.stringify(results));return {enabled:true,results,queue_size:count};
-  }catch{await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues'});return {enabled:true,error:'scheduler_error'};}
+  }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
 export async function checkAutopost(env,fetcher=fetch){
   await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),status=JSON.parse(state.row.status||'{}');

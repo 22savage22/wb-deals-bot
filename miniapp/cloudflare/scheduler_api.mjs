@@ -133,12 +133,12 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
     if(!Number.isInteger(gap)||gap<5||gap>1440||!Number.isInteger(hour)||hour<1||hour>12||!Number.isInteger(day)||day<1||day>288||!Number.isInteger(repost)||repost<7||repost>365)fail(400,'Некорректные ограничения публикации');let start;try{start=dayStart(now,zone);}catch{fail(400,'Некорректный часовой пояс');}
     // Unknown send outcomes also reserve capacity: lost Telegram responses must
     // not allow a restarted runner to exceed hourly/daily limits.
-    const r=await q(`INSERT INTO scheduler_claims(pid,owner,ts,status,request_id) SELECT ?,?,?,'pending',? WHERE EXISTS(SELECT 1 FROM scheduler_leases WHERE kind='post' AND owner=? AND expires>?) AND NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE ts>?) AND (SELECT count(*) FROM scheduler_claims WHERE ts>?)<? AND (SELECT count(*) FROM scheduler_claims WHERE ts>=?)<? AND NOT EXISTS(SELECT 1 FROM scheduler_claims WHERE status IN ('pending','error') AND ts>?) ON CONFLICT(pid) DO UPDATE SET owner=excluded.owner,ts=excluded.ts,status='pending',request_id=excluded.request_id WHERE scheduler_claims.ts<?`,data.product_id,owner,now,text(data.request_id),owner,now,now-gap*60,now-3600,hour,start,day,now-gap*60,now-repost*86400).run();
+    const r=await q(`INSERT INTO scheduler_claims(pid,owner,ts,status,request_id) SELECT ?,?,?,'pending',? WHERE EXISTS(SELECT 1 FROM scheduler_leases WHERE kind='post' AND owner=? AND expires>?) AND NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE ts>?) AND (SELECT count(*) FROM scheduler_claims WHERE ts>? AND status<>'rejected')<? AND (SELECT count(*) FROM scheduler_claims WHERE ts>=? AND status<>'rejected')<? AND NOT EXISTS(SELECT 1 FROM scheduler_claims WHERE status IN ('pending','error') AND ts>?) ON CONFLICT(pid) DO UPDATE SET owner=excluded.owner,ts=excluded.ts,status='pending',request_id=excluded.request_id WHERE scheduler_claims.ts<?`,data.product_id,owner,now,text(data.request_id),owner,now,now-gap*60,now-3600,hour,start,day,now-gap*60,now-repost*86400).run();
     return json({ok:!!r.meta.changes,...(!r.meta.changes?{reason:'duplicate_or_limit_or_no_lease'}:{})});
   }
   if(data.op==='complete'){
     if(!owner||!Number.isInteger(data.product_id)||typeof data.success!=='boolean')fail(400,'Некорректный результат');
-    const status=data.success?'success':'error';
+    const status=data.success?'success':data.rejected===true?'rejected':'error';
     // Both writes share one atomic D1 batch; retries cannot record a second successful post.
     await env.DB.batch([q(`INSERT OR IGNORE INTO scheduler_posts(pid,ts) SELECT pid,? FROM scheduler_claims WHERE pid=? AND owner=? AND status='pending' AND ?=1`,now,data.product_id,owner,data.success?1:0),q("UPDATE scheduler_claims SET status=? WHERE pid=? AND owner=? AND status='pending'",status,data.product_id,owner)]);return json({ok:true});
   }

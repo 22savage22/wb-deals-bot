@@ -6,6 +6,30 @@ from miniapp import native_bootstrap as migration
 
 
 class NativeBootstrapTests(unittest.TestCase):
+    def test_incident_recovery_reuses_post_and_independent_cron_without_send(self):
+        current = {'schedule': {'enabled': True, 'paused': False}, 'status': {
+            'last_post_success': 1791153100, 'last_message_id': 2500,
+            'last_automatic_tick': 1791153160, 'production_chain_message_id': 2500},
+            'queue_size': 99, 'active_leases': [], 'deliveries': [{'message_id': 2500}]}
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'production_recovery'}), \
+             patch.object(migration.client, 'api', return_value=current) as api, \
+             patch('builtins.print'):
+            migration.main()
+        self.assertEqual([c.args for c in api.call_args_list], [('diagnostic',), ('diagnostic',)])
+
+    def test_incident_recovery_creates_only_one_durable_request_and_never_retries_send(self):
+        old = {'schedule': {'enabled': True, 'paused': False}, 'status': {'last_message_id': 2493}}
+        current = {'schedule': old['schedule'], 'status': {
+            'last_post_success': 1791153100, 'last_message_id': 2500,
+            'last_automatic_tick': 1791153160, 'production_chain_message_id': 2500},
+            'queue_size': 99, 'active_leases': [], 'deliveries': [{'message_id': 2500}]}
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'production_recovery'}), \
+             patch.object(migration.client, 'api', side_effect=[old, {}, {}, old, current]) as api, \
+             patch.object(migration.time, 'sleep'), patch('builtins.print'):
+            migration.main()
+        self.assertEqual(api.call_args_list[1].args[2]['request_id'], 'production-recovery-20261005')
+        self.assertEqual(sum(c.args[0] == 'tick' for c in api.call_args_list), 1)
+
     def test_configure_changes_only_interval_and_uses_revision(self):
         schedule = {'enabled': True, 'paused': False, 'timezone': 'Europe/Moscow',
                     'quiet_enabled': True, 'post_interval_minutes': 30}

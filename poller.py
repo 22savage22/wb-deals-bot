@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 import time
 
@@ -68,6 +69,9 @@ def _maybe_week_digest(token, data, settings):
 
 def main():
     log.setup()
+    if os.getenv('WB_SCHEDULER_DRIVER') in ('cloudflare', 'cloudflare-native'):
+        logger.info('Cloudflare owns production; legacy Poller is not started')
+        return
     if not config.TG_BOT_TOKEN or not config.TG_ADMIN_ID:
         print("Задайте TG_BOT_TOKEN и TG_ADMIN_ID")
         sys.exit(1)

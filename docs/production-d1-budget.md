@@ -1,5 +1,28 @@
 # Production gate before Admin / River modernization
 
+## 2026-10-05 incident: false write admission failure
+
+Production evidence (Actions 37239914220): last delivery 2493 / nmId 306447205
+at 2026-10-04 17:49:02 Moscow; last completed Cron 18:07:57; queue 96,
+autopost ON, quiet hours OFF, no live lease. Core ledger: 293505 reads /
+31526 writes. The old guard required another 5000 writes against a 35000
+ceiling, rejecting every subsequent Cron/status call with HTTP 429.
+This was the application's write guard, not the account's 5M read quota.
+
+Fix: ordinary core operations reserve 512 writes; bounded read-only probes 4.
+Official D1 metadata is charged even after an application/network failure;
+unknown database execution/missing metadata keeps a conservative reservation.
+Daily core/optional ceilings remain unchanged. A separate authenticated,
+read-only diagnostic lane is limited to 15000 reads / 500 writes per day.
+
+Posting tries up to three candidates, bounded by 45 seconds and a query-count
+gate. Definitively rejected photos are skipped; uncertain sends retain their
+deduplication tombstone. Maintenance/search use separate ticks, including an
+idle recovery tick after failed validation. Poller cannot run in native mode.
+Incident recovery uses fixed request_id production-recovery-20261005 and reuses
+any already successful autonomous delivery rather than sending a second post.
+Tests do not replace the required live Telegram receipt and next automatic Cron.
+
 2026-10-03: the current production gate FAILED; do not claim RUNNING.
 
 ## Confirmed evidence

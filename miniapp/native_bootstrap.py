@@ -19,6 +19,34 @@ def main():
     if action == 'diagnostic':
         print('PRODUCTION_DIAGNOSTIC', json.dumps(client.api('diagnostic'), ensure_ascii=False))
         return
+    if action == 'production_recovery':
+        # This incident only; repeat dispatches cannot create a second manual
+        # request. Reuse a normal Cron delivery after the fix when available.
+        after = 1791153000  # 2026-10-04 22:30 UTC; before this fix deployment.
+        request_id = 'production-recovery-20261005'
+        current = client.api('diagnostic')
+        status = current['status']
+        schedule = current['schedule']
+        if not schedule['enabled'] or schedule['paused']:
+            raise RuntimeError('Autopost is paused; owner settings preserved')
+        if not (status.get('last_post_success', 0) >= after and status.get('last_message_id')):
+            client.api('action', 'POST', {'action': 'post_now', 'request_id': request_id})
+            print('PRODUCTION_ONE_TICK', json.dumps(client.api('tick', 'POST', {}), ensure_ascii=False))
+        # Never call tick/send again. This loop reads only independent Cron.
+        for attempt in range(6):
+            current = client.api('diagnostic')
+            status = current['status']
+            sent = status.get('last_post_success', 0)
+            receipt = next((r for r in current['deliveries']
+                            if r['message_id'] == status.get('last_message_id')), None)
+            if (sent >= after and receipt and status.get('last_automatic_tick', 0) > sent
+                    and status.get('production_chain_message_id') == receipt['message_id']
+                    and current['queue_size'] > 0 and not current['active_leases']):
+                print('PRODUCTION_RECOVERY_CONFIRMED', json.dumps(current, ensure_ascii=False))
+                return
+            if attempt < 5:
+                time.sleep(15)
+        raise RuntimeError('Real post and next independent Cron not yet confirmed')
     if action == 'feedback_setup':
         data = state.load(config.STATE_FILE)
         rows = [{'pid': int(pid), **{k: fb.get(k, 0) for k in ('likes', 'dislikes', 'bought')}} for pid, fb in data.get('feedback', {}).items()]

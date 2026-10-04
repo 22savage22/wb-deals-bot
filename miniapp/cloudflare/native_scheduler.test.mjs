@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {bootstrap,nativeTick,postingWindow,postDue,choose,cardDeal,checkAutopost} from './native_scheduler.mjs';
 import {DEFAULT_SCHEDULE} from './scheduler_api.mjs';
+import {withReadBudget} from './read_guard.mjs';
 function environment(t){
   const db=new DatabaseSync(':memory:');t.after(()=>db.close());
   db.exec("CREATE TABLE products(id INTEGER PRIMARY KEY,data TEXT,overrides TEXT DEFAULT '{}',checked_at INTEGER)");
@@ -14,6 +15,45 @@ const image='https://basket-01.wbbasket.ru/vol0/part1/1000/images/big/1.webp';
 const item=(id=1000,query='платье женское')=>({id,title:'Платье женское '+id,product:700,basic:700,rating:4.8,feedbacks:100,query,category:'Платья',image,queued_ts:Math.floor(Date.now()/1000)});
 const card=(id=1000)=>({id,name:'Платье женское '+id,reviewRating:4.8,feedbacks:100,subjectName:'Платья',sizes:[{qty:10,price:{product:70000,basic:70000}}]});
 const seed=(env,queue=[item()],posts=[])=>bootstrap(env,{queue,posts,policy:{chat_id:'-100123456789',queries:['платье женское','сумка женская'],max_price:1000,min_rating:4.3}});
+
+test('bad price then valid next candidate posts in the SAME guarded cold invocation',async t=>{
+  const env=environment(t);await seed(env,[{...item(1000),product:500},item(1001)]);let sent=0;
+  env.DB={...env.DB};env.counter.queries=0;
+  const r=await withReadBudget(env,'core',25000,e=>nativeTick(e,Date.now(),async url=>{
+    if(url.includes('sendPhoto')){sent++;return Response.json({ok:true,result:{message_id:901}});}
+    if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/jpeg'}});
+    return Response.json({products:[card(Number(new URL(url).searchParams.get('nm')||1000))]});
+  }));
+  assert.equal(r.results.post.product_id,1001);assert.equal(sent,1);
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'rejected');
+  assert.ok(env.counter.queries<=50,'guard+failover+send queries: '+env.counter.queries);
+});
+
+test('photo exhaustion rejects the card; next candidate succeeds without resetting shard loop',async t=>{
+  const env=environment(t);await seed(env,[{...item(1000),photo_probe:49},item(1001)]);let sends=0;
+  const r=await nativeTick(env,Date.now(),async url=>{
+    if(url.includes('sendPhoto')){sends++;return Response.json({ok:true,result:{message_id:902}});}
+    if(url.includes('wbbasket'))return url.includes('/1001/')?new Response('fixture',{headers:{'content-type':'image/jpeg'}}):new Response('',{status:404});
+    return Response.json({products:[card(Number(new URL(url).searchParams.get('nm')||1000))]});
+  });
+  assert.equal(r.results.post.product_id,1001);assert.equal(sends,1);
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'rejected');
+});
+
+test('definitively rejected Telegram photo skips to next product in same guarded request',async t=>{
+  const env=environment(t);await seed(env,[item(1000),item(1001)]);let attempts=0,accepted=0;
+  env.db.prepare("UPDATE scheduler_config SET post_request='one-real-owner-request'").run();
+  env.DB={...env.DB};env.counter.queries=0;
+  const r=await withReadBudget(env,'core',25000,e=>nativeTick(e,Date.now(),async url=>{
+    if(url.includes('sendPhoto')){attempts++;if(attempts<=2)return Response.json({ok:false,error_code:400,description:'Bad Request: failed to get HTTP URL content'});accepted++;return Response.json({ok:true,result:{message_id:903}});}
+    if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/jpeg'}});
+    return Response.json({products:[card(Number(new URL(url).searchParams.get('nm')||1000))]});
+  }));
+  assert.equal(r.results.post.product_id,1001);assert.equal(accepted,1);
+  assert.equal(env.db.prepare('SELECT status FROM scheduler_claims WHERE pid=1000').get().status,'rejected');
+  assert.equal(env.db.prepare('SELECT post_request FROM scheduler_config').get().post_request,null);
+  assert.ok(env.counter.queries<=50,'guard+photo rejection+fallback queries: '+env.counter.queries);
+});
 test('definitive Telegram URL rejection falls back to bounded upload; exactly one accepted message',async t=>{
   const env=environment(t);await seed(env);let attempts=0,accepted=0;
   const r=await nativeTick(env,Date.now(),async(url,options)=>{
@@ -51,9 +91,10 @@ test('prior failed claim cannot monopolize ready queue; next Cron safely publish
     if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/webp'}});
     const id=Number(new URL(url).searchParams.get('nm')||1000);return Response.json({products:[card(id)]});
   };
-  const first=await nativeTick(env,Date.now(),live);assert.equal(first.results.post.result,'product_claim_quarantined');
-  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'uncertain');assert.equal(sends,0);
-  const second=await nativeTick(env,Date.now(),live);assert.equal(second.results.post.product_id,1001);assert.equal(sends,1);
+  const first=await nativeTick(env,Date.now(),live);assert.equal(first.results.post.product_id,1001);assert.equal(sends,1);
+  env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.last_maintenance',?)").run(now-301);
+  await nativeTick(env,Date.now(),live);
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'uncertain');assert.equal(sends,1);
 });
 test('maintenance reconciles multiple old claim tombstones before choosing a valid card',async t=>{
   const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001),item(1002)]);
@@ -62,7 +103,9 @@ test('maintenance reconciles multiple old claim tombstones before choosing a val
     if(url.includes('sendPhoto'))return Response.json({ok:true,result:{message_id:333}});
     if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/jpeg'}});
     return Response.json({products:[card(1002)]});
-  });assert.equal(r.results.post.product_id,1002);assert.equal(env.db.prepare("SELECT COUNT(*) n FROM scheduler_inventory WHERE state='uncertain'").get().n,2);
+  });assert.equal(r.results.post.product_id,1002);
+  await nativeTick(env,Date.now(),()=>assert.fail('Maintenance tick does not send'));
+  assert.equal(env.db.prepare("SELECT COUNT(*) n FROM scheduler_inventory WHERE state='uncertain'").get().n,2);
 });
 function fetcher(counts,{failSend=false,failWB=false}={}){return async(url,options)=>{
   if(url.includes('wbbasket.ru'))return new Response('photo',{headers:{'content-type':'image/webp'}});
@@ -119,6 +162,7 @@ test('daily-capped inventory moves to timed reserve and cannot block refill',asy
   const posts=Array.from({length:8},(_,i)=>({pid:2000+i,ts:now-1000+i,query:'платье женское',title:'Другая вещь '+i}));
   await seed(env,[item()],posts);
   await nativeTick(env,Date.now(),fetcher(counts));
+  await nativeTick(env,Date.now(),fetcher(counts));
   const row=env.db.prepare('SELECT state,retry_at FROM scheduler_inventory WHERE pid=1000').get();
   assert.equal(row.state,'cooldown');assert.ok(row.retry_at>now);assert.ok(row.retry_at<now+86401);
   const status=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
@@ -141,6 +185,7 @@ test('Telegram timeout has bounded uncertain quarantine, no blind retry and leas
 test('WB 403 does not stop heartbeat or disable next tick; search fallback is bounded',async t=>{
   const env=environment(t),counts={send:0,wb:0};await seed(env);
   const first=await nativeTick(env,Date.now(),fetcher(counts,{failWB:true}));assert.equal(first.enabled,true);assert.equal(counts.send,0);assert.ok(counts.wb<=3);
+  await nativeTick(env,Date.now(),fetcher(counts,{failWB:true}));
   const s=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);assert.ok(s.last_scheduler_tick);assert.ok(s.last_scan_error);
   assert.equal(JSON.parse(env.db.prepare('SELECT data FROM scheduler_config').get().data).enabled,true);
 });

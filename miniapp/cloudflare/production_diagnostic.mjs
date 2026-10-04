@@ -8,7 +8,7 @@ export async function productionDiagnostic(env){
   const row=await q('SELECT data,revision,status,post_request,search_request FROM scheduler_config WHERE id=1').first();
   const schedule=JSON.parse(row.data),status=JSON.parse(row.status),window=postingWindow(schedule,now);
   const budget=(await q('SELECT day,lane,reads,writes FROM worker_read_budget WHERE day IN (?,?) LIMIT 6',day,new Date(Date.now()-86400000).toISOString().slice(0,10)).all()).results;
-  const deliveries=(await q('SELECT pid,ts,message_id,topic FROM scheduler_deliveries INDEXED BY scheduler_deliveries_time ORDER BY ts DESC LIMIT 5').all()).results;
+  const deliveries=(await q("SELECT pid,ts,message_id,topic,json_extract(data,'$.title') AS title,json_extract(data,'$.product') AS price,json_extract(data,'$.image') AS image FROM scheduler_deliveries INDEXED BY scheduler_deliveries_time ORDER BY ts DESC LIMIT 5").all()).results;
   const leases=(await q('SELECT kind,expires FROM scheduler_leases LIMIT 2').all()).results;
   const claims=(await q("SELECT pid,ts,status,request_id FROM scheduler_claims INDEXED BY scheduler_claims_time ORDER BY ts DESC LIMIT 5").all()).results;
   const count=await q('SELECT ready FROM scheduler_counts WHERE id=1').first();

@@ -56,14 +56,34 @@ test('budget reports observed rows, and unknown metadata retains conservative re
   const e=environment(t);await withReadBudget(e,'optional',15000,async env=>{await env.DB.prepare('SELECT 1').all();});
   assert.equal(e.db.prepare('SELECT reads FROM worker_read_budget').get().reads,1);
   await withReadBudget(e,'optional',15000,async()=>{});
-  assert.equal(e.db.prepare('SELECT reads FROM worker_read_budget').get().reads,15001);
+  assert.equal(e.db.prepare('SELECT reads FROM worker_read_budget').get().reads,1);
+  await withReadBudget(e,'optional',15000,async env=>{await env.DB.prepare('SELECT 1').run();});
+  assert.equal(e.db.prepare('SELECT reads FROM worker_read_budget').get().reads,2);
+  const original=e.DB.prepare;
+  e.DB.prepare=sql=>sql==='SELECT 2'?{bind(){return this;},async all(){return {results:[]};}}:original(sql);
+  await withReadBudget(e,'optional',15000,async env=>env.DB.prepare('SELECT 2').all());
+  assert.equal(e.db.prepare('SELECT reads FROM worker_read_budget').get().reads,15002);
+});
+test('production 31526 writes is not falsely denied by a 5000-write reservation',async t=>{
+  const e=environment(t),day=new Date().toISOString().slice(0,10);
+  await withReadBudget(e,'core',25000,async()=>{});
+  e.db.prepare("UPDATE worker_read_budget SET reads=?,writes=? WHERE day=? AND lane='core'").run(293505,31526,day);
+  await withReadBudget(e,'core',25000,async env=>env.DB.prepare('SELECT 1').all());
+  const row=e.db.prepare("SELECT reads,writes FROM worker_read_budget WHERE lane='core'").get();
+  assert.equal(row.reads,293506);assert.equal(row.writes,31528);
+  await withReadBudget(e,'diagnostic',1500,async env=>env.DB.prepare('SELECT 1').all());
+});
+test('network/app failure retains actual D1 costs, not worst-case fake usage',async t=>{
+  const e=environment(t);
+  await assert.rejects(withReadBudget(e,'core',25000,async env=>{await env.DB.prepare('SELECT 1').all();throw new Error('Network unavailable');}),/Network unavailable/);
+  const row=e.db.prepare('SELECT reads,writes FROM worker_read_budget').get();assert.equal(row.reads,1);assert.equal(row.writes,2);
 });
 test('write guard prevents bookkeeping from exhausting the write quota; failed operations retain reservation',async t=>{
   const e=environment(t);await withReadBudget(e,'optional',15000,async env=>env.DB.prepare('SELECT 1').all());
   e.db.prepare("UPDATE worker_read_budget SET writes=? WHERE lane='optional'").run(WRITE_LIMITS.optional-1);
   await assert.rejects(withReadBudget(e,'optional',15000,()=>assert.fail('No work when write allowance is spent')),/защитный бюджет/);
   await assert.rejects(withReadBudget(e,'core',25000,()=>{throw new Error('Fixture failure');}),/Fixture failure/);
-  const row=e.db.prepare("SELECT reads,writes FROM worker_read_budget WHERE lane='core'").get();assert.equal(row.reads,25000);assert.equal(row.writes,5000);
+  const row=e.db.prepare("SELECT reads,writes FROM worker_read_budget WHERE lane='core'").get();assert.equal(row.reads,0);assert.equal(row.writes,2);
 });
 test('owner validation errors do not consume worst-case scheduler funds',async t=>{
   const e=environment(t);class HttpError extends Error{constructor(){super('Owner typo');this.status=400;}}

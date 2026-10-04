@@ -16,6 +16,9 @@ concurrency:
 
 jobs:
   poller:
+    # Native Cron owns publication/leases/settings; callbacks use its webhook.
+    # Keep the legacy workflow available only when deliberately migrated back.
+    if: ${{ vars.SCHEDULER_DRIVER != 'cloudflare-native' && vars.SCHEDULER_DRIVER != 'cloudflare' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -49,6 +52,7 @@ jobs:
           WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
           TG_CALLBACK_TRANSPORT: worker
           WB_SCHEDULER_ENABLED: "1"
+          WB_SCHEDULER_DRIVER: ${{ vars.SCHEDULER_DRIVER }}
           WB_QUEUE_MAX_AGE_HOURS: "72"
 
       - name: Continue callback polling

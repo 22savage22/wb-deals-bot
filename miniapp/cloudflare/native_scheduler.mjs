@@ -98,7 +98,7 @@ async function imageFor(env,p,fetcher){
   for(const url of urls){
     try{const r=await fetcher(url,{signal:AbortSignal.timeout(3000)});const okay=r.ok&&r.headers.get('content-type')?.startsWith('image/');await r.body?.cancel();if(okay)return {image:url};}catch{}
   }
-  return {image:'',photo_probe:start+6>50?1:start+6};
+  return {image:'',photo_probe:start+6,photo_exhausted:start+6>50};
 }
 export async function readHeader(env){
   const row=await q(env,`SELECT c.*,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,
@@ -108,7 +108,10 @@ export async function readHeader(env){
 }
 async function selectionState(env,header,preflight=false){
   const [ready,recent]=await Promise.all([
-    q(env,`SELECT * FROM scheduler_inventory WHERE state='ready' AND expires>? AND retry_at<=? ${preflight?'AND checked_at<?':''} ORDER BY queued_at,pid LIMIT 300`,sec(),sec(),...(preflight?[sec()-1800]:[])).all(),
+    q(env,`SELECT * FROM scheduler_inventory WHERE state='ready' AND expires>? AND retry_at<=? ${preflight?'AND checked_at<?':''}
+      AND NOT EXISTS(SELECT 1 FROM scheduler_claims c WHERE c.pid=scheduler_inventory.pid AND c.ts>? AND c.status IN ('pending','error','success'))
+      AND NOT EXISTS(SELECT 1 FROM scheduler_posts p WHERE p.pid=scheduler_inventory.pid AND p.ts>?)
+      ORDER BY queued_at,pid LIMIT 300`,sec(),sec(),...(preflight?[sec()-1800]:[]),sec()-7*86400,sec()-7*86400).all(),
     q(env,'SELECT topic,title_key,ts FROM scheduler_deliveries WHERE ts>? ORDER BY ts DESC LIMIT 4032',sec()-86400).all()]);recent.results.reverse();
   return {...header,ready:ready.results,recent:recent.results};
 }
@@ -145,7 +148,7 @@ async function validateQueued(env,item,policy,fetcher){
   if(!deal||deal.product>saved.product*1.1){await q(env,"UPDATE scheduler_inventory SET state='rejected' WHERE pid=?",item.pid).run();return null;}
   deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
   deal={...deal,...await imageFor(env,deal,fetcher)};
-  if(!deal.image){await q(env,'UPDATE scheduler_inventory SET data=?,retry_at=? WHERE pid=?',JSON.stringify(deal),now+60,item.pid).run();return null;}
+  if(!deal.image){await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
   await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
 }
 async function publish(env,state,fetcher){
@@ -157,13 +160,13 @@ async function publish(env,state,fetcher){
     const manual=current.row.post_request;
     if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
     if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
-    // One candidate per minute bounds the Free plan CPU/D1 budget even when
-    // several cards fail. The next Cron selects the next non-deferred product.
-    for(let attempt=0;attempt<1;attempt++){
+    // A bad card cannot monopolize a due tick. Bound both work and wall time;
+    // discovery/maintenance use a different invocation, not this publication.
+    const started=Date.now();let consumed=false;
+    for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
+      if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const item=choose(current.ready,current.recent,current.policy.total_posts+current.recent.length);
       if(!item)return {result:'no_eligible_product'};
-      // Non-critical observer: any ML/store failure keeps the original chooser.
-      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid});
@@ -179,11 +182,13 @@ async function publish(env,state,fetcher){
         const previousClaim=await q(env,'SELECT status,ts FROM scheduler_claims WHERE pid=?',item.pid).first();
         if(previousClaim&&previousClaim.ts>=sec()-7*86400){
           await q(env,"UPDATE scheduler_inventory SET state=? WHERE pid=? AND state='ready'",previousClaim.status==='success'?'posted':'uncertain',item.pid).run();
-          return {result:'product_claim_quarantined',product_id:item.pid};
+          continue;
         }
         return {result:claim.reason};
       }
-      if(manual&&!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}
+      if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
+      // Observe only the final valid selection, never every rejected candidate.
+      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
@@ -211,7 +216,13 @@ async function publish(env,state,fetcher){
         }
       }
       catch{await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain' WHERE pid=?",item.pid).run();throw new Error('Telegram send outcome unknown; automatic duplicate retry suppressed');}
-      if(!result.ok){await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180)});await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain',retry_at=? WHERE pid=?",sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();throw new Error('Telegram rejected publication');}
+      if(!result.ok){
+        const rejectedPhoto=result.error_code===400&&/http|webpage|image|photo|file identifier/i.test(String(result.description||''));
+        await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180)});
+        await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:rejectedPhoto});
+        await q(env,"UPDATE scheduler_inventory SET state=?,retry_at=? WHERE pid=?",rejectedPhoto?'rejected':'uncertain',sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();
+        if(rejectedPhoto)continue;throw new Error('Telegram rejected publication');
+      }
       const message_id=result.result?.message_id;if(!Number.isInteger(message_id))throw new Error('Telegram receipt missing');
       // If persistence fails after send, pending claim still prevents duplicates.
       await runtime(env,{op:'complete',owner,product_id:item.pid,success:true});
@@ -274,10 +285,11 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   try{
     let state=await readHeader(env),previous=JSON.parse(state.row.status||'{}');
     const due=postDue(state.s,state.last,now,Boolean(state.row.post_request));
+    const canPublish=due&&state.count>0&&now>=Number(previous.post_retry_at||0);
     // Idle minute executions never load the inventory/history. Cleanup is
     // bounded by active-state/time indexes and runs every five minutes.
     // Expired leases are also safe on acquire between maintenance ticks.
-    if(now>=Number(previous.last_maintenance||0)+300){
+    if(!canPublish&&now>=Number(previous.last_maintenance||0)+300){
     await q(env,"DELETE FROM scheduler_leases WHERE expires<=?",now).run();
     // Reconcile old delivery tombstones in one EXISTING maintenance query.
     // PK probes only, active ready buffer only; no full publication history.
@@ -301,7 +313,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});
-    if(due&&state.count>0&&now>=Number(previous.post_retry_at||0))try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product'].includes(results.post.result))await status(env,{post_retry_at:now+300});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
+    if(canPublish)try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
     // Verify stale inventory between posts, instead of discovering a poisoned
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
@@ -314,7 +326,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const interval=state.count<state.s.min_queue||noEligible?(emptySearch?300:60):state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
     // keeps even a cold-isolate invocation inside the Free D1 query budget.
-    if(results.post?.result!=='success'&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
+    if(!results.post&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
     // Repairs are bounded and run ONLY on otherwise idle ticks. Never add
     // reaction work to the near-50-query posting/search Free-plan invocation.
     if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}

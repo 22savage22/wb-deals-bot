@@ -187,9 +187,30 @@ async function publish(env,state,fetcher){
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
       let result;
-      try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendPhoto`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();}
+      try{
+        const endpoint=`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendPhoto`;
+        const r=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();
+        if(!result.ok){
+          const description=String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180);
+          await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:description});
+          // A definitive URL/photo rejection means NO message was created.
+          // Upload the checked bytes instead of asking Telegram to fetch WB's
+          // CDN. Never retry an ambiguous timeout or permission/rate-limit error.
+          if(result.error_code===400&&/http|webpage|image|photo|file identifier/i.test(description)){
+            const photo=await fetcher(deal.image,{signal:AbortSignal.timeout(5000)});
+            if(photo.ok&&photo.headers.get('content-type')?.startsWith('image/')){
+              const reader=photo.body.getReader(),chunks=[];let bytes=0;
+              while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>5*1024*1024){await reader.cancel();throw new Error('Photo exceeds upload cap');}chunks.push(value);}
+              const form=new FormData();form.set('chat_id',current.policy.chat_id);form.set('caption',caption);form.set('parse_mode','HTML');form.set('reply_markup',JSON.stringify(reply_markup));
+              form.set('photo',new Blob(chunks,{type:photo.headers.get('content-type')}),'product-image');
+              result=await (await fetcher(endpoint,{method:'POST',body:form,signal:AbortSignal.timeout(15000)})).json();
+              await status(env,{last_photo_delivery:'multipart',last_photo_fallback_reason:description});
+            }
+          }
+        }
+      }
       catch{await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain' WHERE pid=?",item.pid).run();throw new Error('Telegram send outcome unknown; automatic duplicate retry suppressed');}
-      if(!result.ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain',retry_at=? WHERE pid=?",sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();throw new Error('Telegram rejected publication');}
+      if(!result.ok){await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180)});await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain',retry_at=? WHERE pid=?",sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();throw new Error('Telegram rejected publication');}
       const message_id=result.result?.message_id;if(!Number.isInteger(message_id))throw new Error('Telegram receipt missing');
       // If persistence fails after send, pending claim still prevents duplicates.
       await runtime(env,{op:'complete',owner,product_id:item.pid,success:true});
@@ -198,7 +219,7 @@ async function publish(env,state,fetcher){
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
         q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
       ]);
-      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60});
+      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60});
       console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id};
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}
@@ -220,9 +241,18 @@ async function search(env,state,fetcher){
       // One bounded alternative destination; no endless retries on a blocked IP.
       response=await source(wbURL('search',{query,page:'1',sort:'popular',dest:'123585633',resultset:'catalog'}),fetcher);
     }
-    const found=response.products||response.data?.products||[],counts=new Map();
+    const found=(response.products||response.data?.products||[]).slice(0,100),counts=new Map();
+    // Filter known IDs/titles BEFORE the eight-card cap. Otherwise the first
+    // eight already-known popular cards can hide every fresh result behind them.
+    // All four probes use existing PK/title indexes; never load whole history.
+    const ids=JSON.stringify(found.map(p=>Number(p.id))),titles=JSON.stringify(found.map(p=>titleKey({title:p.name})));
+    const known=(await q(env,`SELECT CAST(pid AS TEXT) AS key,'pid' AS kind FROM scheduler_inventory WHERE pid IN (SELECT value FROM json_each(?))
+      UNION SELECT CAST(id AS TEXT),'pid' FROM products WHERE id IN (SELECT value FROM json_each(?))
+      UNION SELECT CAST(pid AS TEXT),'pid' FROM scheduler_posts WHERE pid IN (SELECT value FROM json_each(?))
+      UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
+    const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
     const existing=(await q(env,"SELECT topic,COUNT(*) AS n FROM scheduler_inventory WHERE state='ready' AND expires>? GROUP BY topic",now).all()).results;for(const r of existing)counts.set(r.topic,r.n);
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(!p)continue;p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)continue;counts.set(t,(counts.get(t)||0)+1);valid.push(p);if(valid.length>=8)break;}
+    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(!p||knownIDs.has(String(p.id))||knownTitles.has(titleKey(p)))continue;p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)continue;counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     const records=valid.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
       SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,0,? FROM json_each(?)
@@ -230,7 +260,7 @@ async function search(env,state,fetcher){
       AND NOT EXISTS(SELECT 1 FROM products WHERE id=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_inventory WHERE title_key=json_extract(value,'$.title_key'))
       AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ?`,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).run();
-    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_added:inserted.meta.changes,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
+    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:valid.length,last_scan_added:inserted.meta.changes,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',valid.length,'ADDED_TO_QUEUE',inserted.meta.changes);return {result:'success',found:found.length,added:inserted.meta.changes};
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }

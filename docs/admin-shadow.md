@@ -120,3 +120,16 @@ Global hourly/daily limits and safety-gap failures do not evict unclaimed cards.
 New Telegram rejections also cannot return a tombstoned card to the ready pool.
 90 Worker tests pass including this case. Live post + subsequent independent
 Cron after this repair still require explicit production evidence below.
+
+Run37198818489 then proved the old preferred card no longer monopolized selection;
+a DIFFERENT card1044841984 reached Telegram, which explicitly rejected that send
+(`TELEGRAM_REJECTED`). A bounded multipart photo fallback is provided only for
+explicit HTTP/photo URL error400; ambiguous outcomes/403/429 are not blindly
+retried. Telegram's final sanitized description is persisted for diagnosis.
+
+Search also now filters known nmIds/title keys using existing indexes BEFORE
+the eight-card cap. Previously eight known popular results could hide all new
+items later on the same page, producing ADDED_TO_QUEUE=0 despite100 results.
+No new WB endpoint or policy change. This adds one indexed query per due scan,
+not per minute. 92 Worker tests cover URL rejection/upload and known-first-eight
+refill without modifying real Legacy selection or queue deduplication.

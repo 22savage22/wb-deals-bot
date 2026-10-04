@@ -142,13 +142,17 @@ export async function bootstrap(env,data){
 }
 async function validateQueued(env,item,policy,fetcher){
   const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
-  try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>p.id===item.pid);}
-  catch{unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,'UPDATE scheduler_inventory SET retry_at=? WHERE pid=?',now+300,item.pid).run();return null;}}
+  try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
+  catch(error){unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
   let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
-  if(!deal||deal.product>saved.product*1.1){await q(env,"UPDATE scheduler_inventory SET state='rejected' WHERE pid=?",item.pid).run();return null;}
+  if(!deal||deal.product>saved.product*1.1){
+    const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
+    const reason=!card&&!unavailable?'WB_CARD_MISSING':!deal?'CARD_FILTER':'PRICE_INCREASE';
+    await q(env,"UPDATE scheduler_inventory SET state='rejected',data=json_set(data,'$.validation_error',?,'$.validation_price',?) WHERE pid=?",reason,raw?.product??null,item.pid).run();return null;
+  }
   deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
   deal={...deal,...await imageFor(env,deal,fetcher)};
-  if(!deal.image){await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
+  if(!deal.image){deal.validation_error=deal.photo_exhausted?'PHOTO_EXHAUSTED':'PHOTO_SHARD_PENDING';await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
   await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
 }
 async function publish(env,state,fetcher){
@@ -326,7 +330,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const interval=state.count<state.s.min_queue||noEligible?(emptySearch?300:60):state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
     // keeps even a cold-isolate invocation inside the Free D1 query budget.
-    if(!results.post&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch{await status(env,{last_scan_error:'WB search unavailable; ready queue retained'});results.search={result:'error'};}
+    if(!results.post&&!results.preflight&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch(error){const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);await status(env,{last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code});results.search={result:'error',code};}
     // Repairs are bounded and run ONLY on otherwise idle ticks. Never add
     // reaction work to the near-50-query posting/search Free-plan invocation.
     if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}

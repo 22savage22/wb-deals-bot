@@ -14,7 +14,7 @@ export async function productionDiagnostic(env){
   const count=await q('SELECT ready FROM scheduler_counts WHERE id=1').first();
   const ready=(await q("SELECT pid,topic,retry_at,checked_at FROM scheduler_inventory WHERE state='ready' AND retry_at<=? AND expires>? ORDER BY queued_at,pid LIMIT 5",now,now).all()).results;
   const selected=Number(status.selected_product||0);
-  const selected_state=await q('SELECT pid,state,retry_at,checked_at FROM scheduler_inventory WHERE pid=?',selected).first();
+  const selected_state=await q("SELECT pid,state,retry_at,checked_at,json_extract(data,'$.title') AS title,json_extract(data,'$.product') AS queued_price,json_extract(data,'$.validation_price') AS validation_price,json_extract(data,'$.validation_error') AS validation_error,json_extract(data,'$.photo_probe') AS photo_probe FROM scheduler_inventory WHERE pid=?",selected).first();
   return {now,day,runtime_version:env.CF_VERSION?.id||null,driver:env.SCHEDULER_DRIVER,
     schedule,revision:row.revision,status,posting_window:window,post_request:row.post_request,search_request:row.search_request,
     queue_size:count?.ready||0,ready_sample:ready,selected_state,deliveries,leases,

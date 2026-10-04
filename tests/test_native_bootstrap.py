@@ -18,7 +18,7 @@ class NativeBootstrapTests(unittest.TestCase):
         self.assertEqual([c.args for c in api.call_args_list], [('diagnostic',), ('diagnostic',)])
 
     def test_incident_recovery_creates_only_one_durable_request_and_never_retries_send(self):
-        old = {'schedule': {'enabled': True, 'paused': False}, 'status': {'last_message_id': 2493}}
+        old = {'schedule': {'enabled': True, 'paused': False}, 'status': {'last_message_id': 2493}, 'deliveries': []}
         current = {'schedule': old['schedule'], 'status': {
             'last_post_success': 1791153100, 'last_message_id': 2500,
             'last_automatic_tick': 1791153160, 'production_chain_message_id': 2500},

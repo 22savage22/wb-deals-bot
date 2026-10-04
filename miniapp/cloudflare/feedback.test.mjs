@@ -77,3 +77,8 @@ test('owner commands survive webhook transition, other users are not retained',a
  await handleMainUpdate(e,{update_id:11,message:{chat:{id:43},from:{id:43},text:'/status'}});
  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates').get().n,1);
 });
+test('irrelevant subscriber messages consume no database budget or storage',async t=>{
+ const e=await env(t),before=e.meter.queries;
+ const request=new Request('https://test/telegram/main/webhook',{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Bot-Api-Secret-Token':await webhookSecret(e)},body:JSON.stringify({update_id:51,message:{chat:{id:77},from:{id:77},text:'/start'}})});
+ assert.equal((await worker.fetch(request,e)).status,200);assert.equal(e.meter.queries,before);
+});

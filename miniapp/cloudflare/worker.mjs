@@ -41,6 +41,12 @@ async function route(request,env,ctx) {
     const ackStart=Date.now();let ackOK=false;
     if(update.callback_query?.id)try{ackOK=(await telegram(env,'answerCallbackQuery',{callback_query_id:update.callback_query.id,text:'✓'},fetch,900)).ok===true;}catch{}
     const ackMS=Date.now()-ackStart;
+    const cb=update.callback_query,actor=cb?.from||update.message?.from,message=cb?.message||update.message;
+    const isOwner=String(actor?.id)===String(env.MINIAPP_ADMIN_ID)&&String(message?.chat?.id)===String(env.MINIAPP_ADMIN_ID);
+    const isReaction=/^[ldb][1-9]\d{0,11}$/.test(cb?.data||'')&&Number.isSafeInteger(update.update_id)&&update.update_id>=0&&Number.isSafeInteger(cb?.from?.id)&&cb.from.id>0&&Number.isSafeInteger(message?.message_id)&&Array.isArray(message.reply_markup?.inline_keyboard)&&message.reply_markup.inline_keyboard.flat().some(b=>b.callback_data===cb.data);
+    // Unrelated subscriber private messages are acknowledged, not retained or
+    // charged a conservative "unknown" D1 reservation for a zero-query path.
+    if(!isOwner&&!isReaction)return json({ok:true});
     if(update.callback_query?.from?.id&&env.RATE_LIMITER&&!(await env.RATE_LIMITER.limit({key:'channel-reaction:'+String(update.callback_query.from.id)})).success)return json({ok:true});
     // Persist BEFORE webhook HTTP200: D1 failure gets503 and Telegram redelivers.
     // Only markup rendering is asynchronous; idempotent votes survive retries.

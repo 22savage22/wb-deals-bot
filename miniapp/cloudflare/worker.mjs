@@ -6,6 +6,7 @@ import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
 import {observeD1,d1QuotaFailure} from './d1_budget.mjs';
 import {catalogSnapshot,ensureCatalog,invalidateCatalog} from './catalog_cache.mjs';
 import {withReadBudget,ReadBudgetError} from './read_guard.mjs';
+import {productionDiagnostic} from './production_diagnostic.mjs';
 import {adminRoute} from './admin_api.mjs';
 import {learningRoute,recordEvent} from './learning.mjs';
 import {feedbackRoute,webhookSecret,telegram,handleMainUpdate} from './feedback.mjs';
@@ -89,6 +90,7 @@ async function route(request,env,ctx) {
   if(path.startsWith('/api/scheduler/')) {
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    if(path==='/api/scheduler/diagnostic'&&method==='GET')return json(await productionDiagnostic(env));
     if(path.startsWith('/api/scheduler/feedback')){const result=await feedbackRoute(request,env,{payload,json,fail});if(result)return result;}
     if(path==='/api/scheduler/admin/check'&&method==='POST'){
       const response=await adminRoute(new Request('https://internal/api/admin/check',request),env,{payload,fail,json,ctx});
@@ -254,7 +256,9 @@ export default {
       }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
         try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
       }
-      response=budgeted?await withReadBudget(runtimeEnv,lane,lane==='core'?25000:15000,e=>route(request,e,ctx)):await route(request,runtimeEnv,ctx);
+      const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
+      if(diagnostic)lane='diagnostic';
+      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx)):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }
     } catch(error) {

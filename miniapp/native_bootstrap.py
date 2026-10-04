@@ -16,6 +16,9 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'diagnostic':
+        print('PRODUCTION_DIAGNOSTIC', json.dumps(client.api('diagnostic'), ensure_ascii=False))
+        return
     if action == 'feedback_setup':
         data = state.load(config.STATE_FILE)
         rows = [{'pid': int(pid), **{k: fb.get(k, 0) for k in ('likes', 'dislikes', 'bought')}} for pid, fb in data.get('feedback', {}).items()]

@@ -1,12 +1,14 @@
 // Account quota protection for THIS Worker. Atomic UTC-day reservations are
 // shared by all isolates. Catalogue/user traffic cannot spend scheduler funds.
 import {observeD1} from './d1_budget.mjs';
-export const READ_LIMITS={core:1500000,optional:1500000};
-export const WRITE_LIMITS={core:35000,optional:45000};
+export const READ_LIMITS={core:1500000,optional:1500000,diagnostic:15000};
+export const WRITE_LIMITS={core:35000,optional:45000,diagnostic:500};
 export class ReadBudgetError extends Error {constructor(){super('Дневной защитный бюджет базы исчерпан; повторите после 03:00 по Москве');this.status=429;}}
 export async function withReadBudget(env,lane,ceiling,operation){
   const day=new Date().toISOString().slice(0,10),q=(sql,...args)=>env.DB.prepare(sql).bind(...args);
-  const writeCeiling=5000;
+  // A separate, strictly bounded read-only owner lane remains observable when
+  // application funds are exhausted. It cannot publish or change settings.
+  const writeCeiling=lane==='diagnostic'?4:5000;
   const reserve=()=>q(`INSERT INTO worker_read_budget(day,lane,reads,writes) VALUES(?,?,?,?)
     ON CONFLICT(day,lane) DO UPDATE SET reads=reads+excluded.reads,writes=writes+excluded.writes
     WHERE reads+excluded.reads<=? AND writes+excluded.writes<=?`,day,lane,ceiling,writeCeiling,READ_LIMITS[lane],WRITE_LIMITS[lane]).run();

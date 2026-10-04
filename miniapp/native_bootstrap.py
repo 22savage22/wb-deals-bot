@@ -16,6 +16,32 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'feedback_setup':
+        data = state.load(config.STATE_FILE)
+        rows = [{'pid': int(pid), **{k: fb.get(k, 0) for k in ('likes', 'dislikes', 'bought')}} for pid, fb in data.get('feedback', {}).items()]
+        for offset in range(0, len(rows), 100):
+            print('FEEDBACK_SEED', json.dumps(client.api('feedback/seed', 'POST', {'rows': rows[offset:offset+100]})))
+        if not rows:
+            client.api('feedback/seed', 'POST', {'rows': []})
+        print('FEEDBACK_WEBHOOK', json.dumps(client.api('feedback/activate', 'POST', {})))
+        return
+    if action == 'feedback_check':
+        print('FEEDBACK_STATUS', json.dumps(client.api('feedback/status'), ensure_ascii=False))
+        return
+    if action == 'feedback_test':
+        request_id = 'feedback-e2e-20261004-v1'
+        print('FEEDBACK_TEST_INITIAL', json.dumps(client.api('feedback/test/create', 'POST', {'request_id': request_id}), ensure_ascii=False))
+        for step in (1, 2, 3):
+            result = client.api('feedback/test/step', 'POST', {'request_id': request_id, 'step': step})
+            expected = ({'likes': 1, 'dislikes': 0, 'bought': 0}, {'likes': 2, 'dislikes': 0, 'bought': 0}, {'likes': 1, 'dislikes': 1, 'bought': 0})[step-1]
+            actual = {k: result['totals'][k] for k in expected}
+            texts = [b['text'] for row in result['receipt']['reply_markup']['inline_keyboard'] for b in row if b.get('callback_data')]
+            if actual != expected or texts != [f"👍 {expected['likes']}", f"👎 {expected['dislikes']}", f"🛒 Купил {expected['bought']}"]:
+                raise RuntimeError('Feedback real markup mismatch')
+            print('FEEDBACK_TEST_STEP', json.dumps(result, ensure_ascii=False))
+        print('FEEDBACK_TEST_FINAL', json.dumps(client.api('feedback/test/status', 'POST', {'request_id': request_id}), ensure_ascii=False))
+        print('CHANNEL_MARKUP_REPAIRED', json.dumps(client.api('feedback/repair_latest', 'POST', {}), ensure_ascii=False))
+        return
     if action in ('admin_check', 'admin_invite'):
         if action == 'admin_check':
             started = time.perf_counter()

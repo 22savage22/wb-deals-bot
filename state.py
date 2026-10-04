@@ -82,6 +82,9 @@ def _norm_feedback(raw):
             "ts": ts,
             "query": fb.get("query"),
             "cat": fb.get("cat"),
+            "choices": {str(k): {'sentiment': v.get('sentiment', ''), 'bought': bool(v.get('bought'))}
+                        for k, v in (fb.get('choices') or {}).items()
+                        if isinstance(v, dict) and v.get('sentiment', '') in ('', 'likes', 'dislikes')},
             "voters": {
                 str(k): float(v or 0)
                 for k, v in (fb.get("voters") or {}).items()
@@ -114,7 +117,11 @@ def _norm_tg(raw):
         offset = int(raw.get("offset", 0) or 0)
     except (TypeError, ValueError):
         offset = 0
-    return {"offset": offset}
+    try:
+        worker_offset = max(0, int(raw.get('worker_offset', 0) or 0))
+    except (ValueError, TypeError):
+        worker_offset = 0
+    return {"offset": offset, 'worker_offset': worker_offset}
 
 
 def _norm_recent(raw):
@@ -553,6 +560,7 @@ def merge(local, remote):
         ):
             m["cat_stats"][key] = st
     m["tg"]["offset"] = max(m["tg"]["offset"], local["tg"]["offset"])
+    m['tg']['worker_offset'] = max(m['tg'].get('worker_offset', 0), local['tg'].get('worker_offset', 0))
     for r in local["recent"]:
         pid = r.get("pid")
         if pid is None:

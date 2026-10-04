@@ -47,6 +47,7 @@ jobs:
           MINIAPP_API_URL: ${{ vars.MINIAPP_API_URL }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
           WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
+          TG_CALLBACK_TRANSPORT: worker
           WB_SCHEDULER_ENABLED: "1"
           WB_QUEUE_MAX_AGE_HOURS: "72"
 

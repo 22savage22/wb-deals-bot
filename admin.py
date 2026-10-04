@@ -6,6 +6,7 @@ import smart
 import state
 import tg
 import wb
+import feedback_client
 
 ACTIONS = {"l": "likes", "d": "dislikes", "b": "bought"}
 MIN_GAP = 1800
@@ -109,13 +110,16 @@ BOUNDS = {
 
 def poll(token, data):
     offset = data["tg"].get("offset", 0)
-    updates = tg.get_updates(token, offset)
+    updates = feedback_client.poll_updates(data) if feedback_client.webhook_enabled() else tg.get_updates(token, offset)
     if not updates:
         return []
     new_offset = max(u["update_id"] for u in updates) + 1
-    data["tg"]["offset"] = new_offset
+    data["tg"]["worker_offset" if feedback_client.webhook_enabled() else "offset"] = new_offset
     events = []
     for u in updates:
+        if 'feedback_event' in u:
+            events.append(('remote_feedback', u['feedback_event']))
+            continue
         if "callback_query" in u:
             cb = u["callback_query"]
             # Acknowledge the entire fetched batch before processing slow admin
@@ -123,7 +127,7 @@ def poll(token, data):
             acknowledgement = {"l": "Лайк отправлен 👍", "d": "Дизлайк отправлен 👎",
                                "b": "Покупка отмечена 🛒"}.get(str(cb.get("data", ""))[:1], "")
             tg.answer_callback(token, cb.get("id", ""), acknowledgement)
-            events.append(("callback", dict(cb, id="")))
+            events.append(("callback", dict(cb, id="", update_id=u['update_id'])))
         elif "message" in u:
             msg = u["message"]
             if msg.get("chat", {}).get("type") == "private":
@@ -154,22 +158,44 @@ def _feedback(token, data, cb):
         return
     cb_id = cb.get("id", "")
     tg.answer_callback(token, cb_id, "✓")
+    if feedback_client.enabled():
+        # Never increment RAM counters when D1 fails, nor overwrite server totals.
+        result = feedback_client.save(cb)
+        if result.get('totals'):
+            query, cat = _lookup(data, pid)
+            data['feedback'][pid] = {**result['totals'], 'query': query, 'cat': cat,
+                                     'ts': time.time(), 'voters': {}}
+        return
     now = time.time()
     user_id = str(cb.get("from", {}).get("id"))
     fb = data["feedback"].get(pid)
-    voters = (fb or {}).get("voters", {})
-    if user_id and now - voters.get(user_id, 0) < MIN_GAP:
+    if user_id in ('None', ''):
         return
     query, cat = _lookup(data, pid)
     if fb is None:
         fb = {"likes": 0, "dislikes": 0, "bought": 0, "ts": 0, "query": query, "cat": cat, "voters": {}}
-    fb[action] += 1
+    choices = fb.setdefault('choices', {})
+    previous = choices.get(user_id, {'sentiment': '', 'bought': False})
+    changed = False
+    if action == 'bought' and not previous['bought']:
+        fb['bought'] += 1
+        previous['bought'] = True
+        changed = True
+    elif action != 'bought' and previous['sentiment'] != action:
+        if previous['sentiment']:
+            fb[previous['sentiment']] = max(0, fb[previous['sentiment']] - 1)
+        fb[action] += 1
+        previous['sentiment'] = action
+        changed = True
+    choices[user_id] = previous
     fb["ts"] = now
-    if user_id:
-        fb["voters"] = dict(voters)
-        fb["voters"][user_id] = now
     data["feedback"][pid] = fb
-    smart.record_feedback(data, query, cat, action)
+    if changed:
+        smart.record_feedback(data, query, cat, action)
+    message = cb.get('message', {})
+    if message.get('message_id') and message.get('reply_markup'):
+        tg.edit_message_reply_markup(token, message['chat']['id'], message['message_id'],
+                                     tg.feedback_markup(message['reply_markup'], pid, fb))
 
 
 def _reply(token, chat_id, *lines):
@@ -181,6 +207,13 @@ def handle_events(token, admin_id, data, settings, events):
         return False
     changed = False
     for kind, ev in events:
+        if kind == 'remote_feedback':
+            pid = int(ev['pid'])
+            query, cat = _lookup(data, pid)
+            query, cat = ev.get('query') or query, ev.get('cat') or cat
+            data['feedback'][pid] = {**ev['totals'], 'query': query, 'cat': cat, 'ts': ev['ts'], 'voters': {}}
+            smart.record_feedback(data, query, cat, ev['action'])
+            continue
         if kind == "callback":
             # Stop Telegram's spinner before routing or doing any other work.
             raw = str(ev.get("data", ""))

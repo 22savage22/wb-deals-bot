@@ -8,6 +8,7 @@ import {catalogSnapshot,ensureCatalog,invalidateCatalog} from './catalog_cache.m
 import {withReadBudget,ReadBudgetError} from './read_guard.mjs';
 import {adminRoute} from './admin_api.mjs';
 import {learningRoute,recordEvent} from './learning.mjs';
+import {feedbackRoute,webhookSecret,telegram,handleMainUpdate} from './feedback.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -32,6 +33,23 @@ async function payload(request,max=32768) {
 }
 async function route(request,env,ctx) {
   const url=new URL(request.url),path=url.pathname,method=request.method;
+  if(path==='/telegram/main/webhook'&&method==='POST'){
+    if(!env.TG_BOT_TOKEN||!env.MINIAPP_SYNC_KEY||!equal(request.headers.get('X-Telegram-Bot-Api-Secret-Token'),await webhookSecret(env)))fail(403,'Нет доступа');
+    const update=await payload(request);
+    // FIRST network operation is the bounded Telegram acknowledgement. Never
+    // reserve/read D1 or process another command before acknowledging this one.
+    const ackStart=Date.now();let ackOK=false;
+    if(update.callback_query?.id)try{ackOK=(await telegram(env,'answerCallbackQuery',{callback_query_id:update.callback_query.id,text:'✓'},fetch,900)).ok===true;}catch{}
+    const ackMS=Date.now()-ackStart;
+    if(update.callback_query?.from?.id&&env.RATE_LIMITER&&!(await env.RATE_LIMITER.limit({key:'channel-reaction:'+String(update.callback_query.from.id)})).success)return json({ok:true});
+    // Persist BEFORE webhook HTTP200: D1 failure gets503 and Telegram redelivers.
+    // Only markup rendering is asynchronous; idempotent votes survive retries.
+    await withReadBudget(env,'optional',1500,async e=>{
+      const result=await handleMainUpdate(e,update,fetch,operation=>ctx.waitUntil(withReadBudget(env,'optional',500,operation).catch(()=>console.log('REACTION_MARKUP pending Cron repair'))));
+      if(result.totals)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_callback',?)").bind(JSON.stringify({message_id:update.callback_query.message.message_id,pid:Number(update.callback_query.data.slice(1)),totals:result.totals,ack_ms:ackMS,ack_ok:ackOK,ts:second()})).run();
+    });
+    return json({ok:true});
+  }
   if(path==='/telegram/webhook'&&method==='POST') {
     const secret=env.MINIAPP_WEBHOOK_SECRET||'';
     if(secret.length<32||!equal(request.headers.get('X-Telegram-Bot-Api-Secret-Token'),secret))fail(403,'Нет доступа');
@@ -62,6 +80,7 @@ async function route(request,env,ctx) {
   if(path.startsWith('/api/scheduler/')) {
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    if(path.startsWith('/api/scheduler/feedback')){const result=await feedbackRoute(request,env,{payload,json,fail});if(result)return result;}
     if(path==='/api/scheduler/admin/check'&&method==='POST'){
       const response=await adminRoute(new Request('https://internal/api/admin/check',request),env,{payload,fail,json,ctx});
       return json(await response.json()); // CLI compatibility; UI receives HTTP 202.
@@ -222,7 +241,7 @@ export default {
       // Reject unauthenticated requests before touching the budget ledger.
       let budgeted=path==='/api/catalog',lane='optional';
       if(path.startsWith('/api/scheduler/')||path==='/api/sync'){
-        const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'||path.startsWith('/api/scheduler/learning')?'optional':'core';
+        const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'||path.startsWith('/api/scheduler/learning')||path.startsWith('/api/scheduler/feedback')?'optional':'core';
       }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
         try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
       }

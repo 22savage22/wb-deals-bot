@@ -198,14 +198,15 @@ def _kb(markup):
     return {"inline_keyboard": markup}
 
 
-def _buttons(link, pid):
+def _buttons(link, pid, totals=None):
+    totals = totals or {}
     markup = {
         "inline_keyboard": [
             [{"text": "Купить", "url": link}],
             [
-                {"text": "👍", "callback_data": f"l{pid}"},
-                {"text": "👎", "callback_data": f"d{pid}"},
-                {"text": "🛒 Купил", "callback_data": f"b{pid}"},
+                {"text": f"👍 {totals.get('likes', 0)}", "callback_data": f"l{pid}"},
+                {"text": f"👎 {totals.get('dislikes', 0)}", "callback_data": f"d{pid}"},
+                {"text": f"🛒 Купил {totals.get('bought', 0)}", "callback_data": f"b{pid}"},
             ],
         ]
     }
@@ -341,6 +342,20 @@ def send_poll(token, chat_id, question, options, is_anonymous=True):
         _remember_error(exc=exc)
         return False
 
+
+def feedback_markup(markup, pid, totals):
+    labels = {f'l{pid}': f"👍 {totals['likes']}", f'd{pid}': f"👎 {totals['dislikes']}", f'b{pid}': f"🛒 Купил {totals['bought']}"}
+    return {'inline_keyboard': [[{**b, 'text': labels[b['callback_data']]} if b.get('callback_data') in labels else dict(b)
+                                for b in row] for row in markup['inline_keyboard']]}
+
+def edit_message_reply_markup(token, chat_id, message_id, markup):
+    try:
+        response = requests.post(API.format(token=token, method='editMessageReplyMarkup'),
+                                 json={'chat_id': chat_id, 'message_id': message_id, 'reply_markup': _kb(markup)}, timeout=8)
+        result = response.json()
+        return bool(result.get('ok') or 'message is not modified' in result.get('description', ''))
+    except (requests.RequestException, ValueError):
+        return False
 
 def edit_message_text(token, chat_id, message_id, text, markup=None):
     payload = {

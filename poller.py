@@ -13,6 +13,7 @@ import state
 import tg
 import scheduler_client
 import uuid
+import feedback_client
 
 logger = logging.getLogger("wb.poller")
 
@@ -172,7 +173,7 @@ def main():
                 data["queue"] = deal_queue.load(config.QUEUE_FILE)
             last_commit = time.time()
             logger.info("poller alive | posted: %d", len(data["posted"]))
-        time.sleep(CYCLE)
+        time.sleep(1 if feedback_client.webhook_enabled() else CYCLE)
     state.save(config.STATE_FILE, data)
     commit_state(config.STATE_FILE, data)
     print("Poller session finished; the next scheduled run will continue polling")

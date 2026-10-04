@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 import {ensureScheduler} from './scheduler_api.mjs';
-import {ensureReactions,seedLegacy,vote,registerMessage,refreshMessage,repairReactions,processCallback,handleMainUpdate,webhookSecret} from './feedback.mjs';
+import {ensureReactions,seedLegacy,vote,registerMessage,refreshMessage,repairReactions,processCallback,handleMainUpdate,webhookSecret,reactionChannel} from './feedback.mjs';
 import worker from './worker.mjs';
 const markup={inline_keyboard:[[{text:'WB',url:'https://www.wildberries.ru/catalog/123/detail.aspx'}],[{text:'👍 0',callback_data:'l123'},{text:'👎 0',callback_data:'d123'},{text:'🛒 Купил 0',callback_data:'b123'}],[{text:'Сохранить',url:'https://t.me/test_bot?start=save_123'}]]};
 async function env(t){
@@ -18,6 +18,18 @@ const cast=r=>({...r});
 async function send(e,voter,action,event_id){return vote(e,{scope:'test:x',pid:123,voter,action,event_id});}
 async function saved(e){await registerMessage(e,{chat:'42',message_id:50,scope:'test:x',pid:123,markup});}
 const good=async(url,options)=>Response.json({ok:true,result:{message_id:50,reply_markup:JSON.parse(options.body).reply_markup}});
+test('channel username resolves to persistent numeric identity without changing scheduler policy or sending votes',async t=>{
+ const e=await env(t);
+ e.db.prepare('UPDATE scheduler_policy SET data=? WHERE id=1').run(JSON.stringify({chat_id:'@example_channel'}));
+ e.db.prepare('INSERT INTO reaction_messages(chat,message_id,scope,pid,markup) VALUES(?,?,?,?,?)').run('@example_channel',88,'channel',123,JSON.stringify(markup));
+ let calls=0;
+ const getChat=async(u,o)=>{calls++;assert.ok(u.endsWith('/getChat'));assert.equal(JSON.parse(o.body).chat_id,'@example_channel');return Response.json({ok:true,result:{id:-1001,type:'channel'}});};
+ assert.equal(await reactionChannel(e,getChat),'-1001');
+ assert.equal(await reactionChannel({...e},getChat),'-1001');assert.equal(calls,1);
+ assert.equal(e.db.prepare('SELECT chat FROM reaction_messages WHERE message_id=88').get().chat,'-1001');
+ assert.equal(JSON.parse(e.db.prepare('SELECT data FROM scheduler_policy WHERE id=1').get().data).chat_id,'@example_channel');
+ assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_votes').get().n,0);
+});
 test('A like, B like, A switches; repeated votes and bought are idempotent across isolates',async t=>{
  const e=await env(t);await saved(e);
  await send(e,'A','l',1);assert.deepEqual(cast(counts(e)),{likes:1,dislikes:0,bought:0});

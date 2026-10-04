@@ -30,6 +30,24 @@ export async function telegram(e,method,body,fetcher=fetch,ms=8000){
  const response=await fetcher(`https://api.telegram.org/bot${e.TG_BOT_TOKEN}/${method}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(ms)});
  return response.json();
 }
+// Telegram send accepts @channel, but callback messages always carry a numeric
+// chat.id. Cache the canonical identity in D1, not RAM; never change the policy.
+export async function reactionChannel(e,fetcher=fetch){
+ const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
+ const ref=String(policy.chat_id);
+ if(/^-?\d+$/.test(ref))return ref;
+ const row=await q(e,"SELECT value FROM metadata WHERE key='reaction_channel'").first();
+ const cached=row?JSON.parse(row.value):null;
+ if(cached?.ref===ref&&/^-?\d+$/.test(cached.id))return cached.id;
+ const result=await telegram(e,'getChat',{chat_id:ref},fetcher);
+ if(!result.ok||!Number.isSafeInteger(result.result?.id)||result.result.type!=='channel')throw Error('Channel identity unavailable');
+ const id=String(result.result.id);
+ await e.DB.batch([
+   q(e,'UPDATE OR IGNORE reaction_messages SET chat=? WHERE chat=?',id,ref),
+   q(e,"INSERT OR REPLACE INTO metadata VALUES('reaction_channel',?)",JSON.stringify({ref,id}))
+ ]);
+ return id;
+}
 export async function registerMessage(e,{chat,message_id,pid,markup,scope='channel'}){
  await q(e,`INSERT INTO reaction_messages(chat,message_id,scope,pid,markup) VALUES(?,?,?,?,?)
  ON CONFLICT(chat,message_id) DO UPDATE SET dirty=1 WHERE reaction_messages.pid=excluded.pid AND reaction_messages.scope=excluded.scope`,String(chat),message_id,scope,pid,JSON.stringify(markup)).run();
@@ -107,8 +125,8 @@ export async function processCallback(e,cb,fetcher=fetch,defer=null){
  if(!msg.reply_markup.inline_keyboard.flat().some(b=>b.callback_data===cb.data))return {ignored:true};
  await ensureReactions(e);
  const existing=await q(e,'SELECT scope,pid FROM reaction_messages WHERE chat=? AND message_id=?',chat,msg.message_id).first();
- const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
- if(chat!==String(policy.chat_id)&&!(existing?.scope.startsWith('test:')&&chat===String(e.MINIAPP_ADMIN_ID)))return {ignored:true};
+ const channel=await reactionChannel(e,fetcher);
+ if(chat!==channel&&!(existing?.scope.startsWith('test:')&&chat===String(e.MINIAPP_ADMIN_ID)))return {ignored:true,reason:'channel_mismatch'};
  const scope=existing?.scope||'channel';if(existing&&existing.pid!==pid)return {ignored:true};
  if(scope==='channel')try{
    // Old D1 aggregate totals also survive when the JSON record was pruned.
@@ -166,10 +184,9 @@ export async function feedbackRoute(request,e,{payload,json,fail},fetcher=fetch)
    const last_callback=row?JSON.parse(row.value):null;
    let message=null;
    if(last_callback){
-     const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
-     message=await q(e,'SELECT dirty,error,receipt FROM reaction_messages WHERE chat=? AND message_id=?',String(policy.chat_id),last_callback.message_id).first();
+     message=await q(e,'SELECT dirty,error,receipt FROM reaction_messages WHERE chat=? AND message_id=?',await reactionChannel(e,fetcher),last_callback.message_id).first();
    }
-   return json({webhook_ok:result.ok&&result.result.url===new URL('/telegram/main/webhook',request.url).href,pending_updates:result.result?.pending_update_count||0,webhook_error:result.result?.last_error_message?'Telegram delivery error':'',last_callback,message});
+   return json({webhook_ok:result.ok&&result.result.url===new URL('/telegram/main/webhook',request.url).href,webhook_url:result.result?.url,pending_updates:result.result?.pending_update_count||0,last_error_message:result.result?.last_error_message||'',allowed_updates:result.result?.allowed_updates,last_callback,message});
  }
  if(path.endsWith('/diagnostic')&&request.method==='GET'){
    const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
@@ -184,8 +201,10 @@ export async function feedbackRoute(request,e,{payload,json,fail},fetcher=fetch)
      messages.push({...row,totals,votes,message,callback_data:['l','d','b'].map(a=>a+row.pid)});
    }
    const received=await q(e,"SELECT value FROM metadata WHERE key='reaction_last_received'").first();
-   return json({last_received:received?JSON.parse(received.value):null,runtime_version:e.CF_VERSION?.id||null,bot:me.ok?{id:me.result.id,username:me.result.username}:null,configured_chat:policy.chat_id,resolved_chat:chat.ok?{id:chat.result.id,username:chat.result.username,type:chat.result.type}:null,channel_identity_matches:String(policy.chat_id)===String(chat.result?.id),bot_member:member?.ok?{status:member.result.status,can_edit_messages:member.result.can_edit_messages,can_post_messages:member.result.can_post_messages}:null,messages});
+   const canonical=await q(e,"SELECT value FROM metadata WHERE key='reaction_channel'").first();
+   return json({last_received:received?JSON.parse(received.value):null,reaction_channel:canonical?JSON.parse(canonical.value).id:null,runtime_version:e.CF_VERSION?.id||null,bot:me.ok?{id:me.result.id,username:me.result.username}:null,configured_chat:policy.chat_id,resolved_chat:chat.ok?{id:chat.result.id,username:chat.result.username,type:chat.result.type}:null,channel_identity_matches:String(policy.chat_id)===String(chat.result?.id),bot_member:member?.ok?{status:member.result.status,can_edit_messages:member.result.can_edit_messages,can_post_messages:member.result.can_post_messages}:null,messages});
  }
+ if(path.endsWith('/resolve_channel')&&request.method==='POST')return json({channel_id:await reactionChannel(e,fetcher)});
  if(path.endsWith('/repair_latest')&&request.method==='POST'){
    const row=await q(e,'SELECT pid,message_id FROM scheduler_deliveries WHERE message_id IS NOT NULL ORDER BY ts DESC LIMIT 1').first();
    if(!row)fail(404,'Нет опубликованного сообщения');
@@ -193,8 +212,9 @@ export async function feedbackRoute(request,e,{payload,json,fail},fetcher=fetch)
    const launch=e.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',link=`https://t.me/${e.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
    const markup={inline_keyboard:[[{text:'Открыть на WB',url:`https://www.wildberries.ru/catalog/${row.pid}/detail.aspx`}],[{text:'👍 0',callback_data:'l'+row.pid},{text:'👎 0',callback_data:'d'+row.pid},{text:'🛒 Купил 0',callback_data:'b'+row.pid}],[{text:'🔖 Сохранить',url:link+'save_'+row.pid},{text:'✨ Собрать образ',url:link+'look_'+row.pid}]]};
    await q(e,"INSERT OR IGNORE INTO reaction_totals(scope,pid) VALUES('channel',?)",row.pid).run();
-   await registerMessage(e,{chat:policy.chat_id,message_id:row.message_id,pid:row.pid,markup});
-   return json(await refreshMessage(e,policy.chat_id,row.message_id,fetcher));
+   const channel=await reactionChannel(e,fetcher);
+   await registerMessage(e,{chat:channel,message_id:row.message_id,pid:row.pid,markup});
+   return json(await refreshMessage(e,channel,row.message_id,fetcher));
  }
  if(path.includes('/test/')&&request.method==='POST'){
    const data=await payload(request),id=data.request_id;

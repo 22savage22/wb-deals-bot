@@ -28,7 +28,9 @@ def main():
         if not result.get('webhook_ok'):
             raise RuntimeError('Webhook not confirmed')
         return
-    if action == 'feedback_check':
+    if action in ('feedback_check', 'feedback_resolve'):
+        if action == 'feedback_resolve':
+            print('FEEDBACK_CHANNEL_RESOLVED', json.dumps(client.api('feedback/resolve_channel', 'POST', {})))
         result = client.api('feedback/status')
         print('FEEDBACK_STATUS', json.dumps(result, ensure_ascii=False))
         print('FEEDBACK_DIAGNOSTIC', json.dumps(client.api('feedback/diagnostic'), ensure_ascii=False))

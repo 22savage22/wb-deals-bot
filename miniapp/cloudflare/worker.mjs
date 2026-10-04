@@ -54,7 +54,8 @@ async function route(request,env,ctx) {
     await withReadBudget(env,'optional',1500,async e=>{
       if(isReaction)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_received',?)").bind(JSON.stringify({update_id:update.update_id,message_id:message.message_id,chat:String(message.chat.id),pid:Number(cb.data.slice(1)),ack_ok:ackOK,ack_ms:ackMS,ts:second()})).run();
       const result=await handleMainUpdate(e,update,fetch,operation=>ctx.waitUntil(withReadBudget(env,'optional',500,operation).catch(()=>console.log('REACTION_MARKUP pending Cron repair'))));
-      if(result.totals)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_callback',?)").bind(JSON.stringify({message_id:update.callback_query.message.message_id,pid:Number(update.callback_query.data.slice(1)),totals:result.totals,ack_ms:ackMS,ack_ok:ackOK,ts:second()})).run();
+      if(result.ignored)console.log('REAL_CALLBACK_IGNORED',result.reason||'invalid_callback');
+      if(result.totals)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_callback',?)").bind(JSON.stringify({update_id:update.update_id,callback_id:cb.id,message_id:cb.message.message_id,chat:String(cb.message.chat.id),pid:Number(cb.data.slice(1)),totals:result.totals,ack_ms:ackMS,ack_ok:ackOK,ts:second()})).run();
     });
     return json({ok:true});
   }

@@ -1,5 +1,27 @@
 # Persistent live reaction counters
 
+## Production correction: channel alias is not callback chat.id
+
+2026-10-04 user reported actual channel buttons remained zero. Read-only
+diagnostic37204860947 proved current bot WBmarket22_bot(id8840929072), channel
+numeric id-1004467869274, can_edit_messages=true, webhook delivery error empty
+and pending0, BUT channel_identity_matches=false. Six latest channel deliveries
+2481–2486 had no new per-person votes; last_callback was null. The handler
+compared the policy's channel alias literally against callback message.chat.id,
+silently rejecting the channel. The earlier private controlled probe missed
+this production identity check and must not be called real-user proof.
+
+Reaction path now resolves the policy alias with Telegram getChat and caches
+the canonical numeric id in D1. Existing alias reaction_messages migrate to that
+id without changing scheduler policy, token or posting settings. Status and
+keyboard repairs use the same canonical identity. Signed callbacks log minimal
+message/update identifiers and ACK timing, never tokens or raw subscriber IDs.
+last_received and last_callback distinguish receipt from persistence.
+
+No further synthetic actors/private messages are used as production proof.
+Completion requires owner's real channel click, D1 totals and actual Telegram
+edit receipt, plus owner confirmation that the number visibly changed.
+
 Root cause: admin._feedback incremented JSON feedback and called smart, but
 never editMessageReplyMarkup. _buttons also ignored totals. A 30-minute timestamp
 gap was not a persistent per-person selection and could not switch votes.

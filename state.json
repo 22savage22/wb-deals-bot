@@ -2239,30 +2239,30 @@
    "likes": 0,
    "dislikes": 2,
    "bought": 0,
-   "revision": 2,
+   "ts": 1791121461,
    "query": "Основные части двигателя",
    "cat": "другое",
-   "ts": 1791121461,
+   "choices": {},
    "voters": {}
   },
   "286097941": {
    "likes": 2,
    "dislikes": 0,
    "bought": 0,
-   "revision": 2,
+   "ts": 1791121460,
    "query": "кроссовки мужские",
    "cat": "другое",
-   "ts": 1791121460,
+   "choices": {},
    "voters": {}
   },
   "479411545": {
    "likes": 0,
    "dislikes": 1,
    "bought": 0,
-   "revision": 1,
+   "ts": 1791122547,
    "query": "блузка женская",
    "cat": "другое",
-   "ts": 1791122547,
+   "choices": {},
    "voters": {}
   }
  },

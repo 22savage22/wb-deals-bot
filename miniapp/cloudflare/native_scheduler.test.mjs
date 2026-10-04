@@ -31,6 +31,7 @@ test('known first eight search cards do not hide fresh products later in the res
 });
 test('prior failed claim cannot monopolize ready queue; next Cron safely publishes another ID',async t=>{
   const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001)]);
+  env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.last_maintenance',?)").run(now);
   env.db.prepare("INSERT INTO scheduler_claims(pid,owner,ts,status) VALUES(1000,'old',?,'error')").run(now-600);
   let sends=0;
   const live=async url=>{
@@ -41,6 +42,15 @@ test('prior failed claim cannot monopolize ready queue; next Cron safely publish
   const first=await nativeTick(env,Date.now(),live);assert.equal(first.results.post.result,'product_claim_quarantined');
   assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1000').get().state,'uncertain');assert.equal(sends,0);
   const second=await nativeTick(env,Date.now(),live);assert.equal(second.results.post.product_id,1001);assert.equal(sends,1);
+});
+test('maintenance reconciles multiple old claim tombstones before choosing a valid card',async t=>{
+  const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001),item(1002)]);
+  for(const id of [1000,1001])env.db.prepare("INSERT INTO scheduler_claims(pid,owner,ts,status) VALUES(?,'old',?,'error')").run(id,now-600);
+  const r=await nativeTick(env,Date.now(),async url=>{
+    if(url.includes('sendPhoto'))return Response.json({ok:true,result:{message_id:333}});
+    if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/jpeg'}});
+    return Response.json({products:[card(1002)]});
+  });assert.equal(r.results.post.product_id,1002);assert.equal(env.db.prepare("SELECT COUNT(*) n FROM scheduler_inventory WHERE state='uncertain'").get().n,2);
 });
 function fetcher(counts,{failSend=false,failWB=false}={}){return async(url,options)=>{
   if(url.includes('wbbasket.ru'))return new Response('photo',{headers:{'content-type':'image/webp'}});

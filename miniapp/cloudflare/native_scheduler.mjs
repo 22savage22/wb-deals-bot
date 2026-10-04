@@ -275,7 +275,12 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // Expired leases are also safe on acquire between maintenance ticks.
     if(now>=Number(previous.last_maintenance||0)+300){
     await q(env,"DELETE FROM scheduler_leases WHERE expires<=?",now).run();
-    await q(env,"UPDATE scheduler_inventory SET state='posted' WHERE state='ready' AND EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=scheduler_inventory.pid AND ts>?)",now-7*86400).run();
+    // Reconcile old delivery tombstones in one EXISTING maintenance query.
+    // PK probes only, active ready buffer only; no full publication history.
+    // Bulk recovery avoids spending one minute per historical failed card.
+    await q(env,`UPDATE scheduler_inventory SET state=CASE WHEN EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=scheduler_inventory.pid AND ts>?) THEN 'posted' ELSE 'uncertain' END
+      WHERE state='ready' AND (EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=scheduler_inventory.pid AND ts>?)
+        OR EXISTS(SELECT 1 FROM scheduler_claims WHERE pid=scheduler_inventory.pid AND status IN ('pending','error') AND ts>?))`,now-7*86400,now-7*86400,now-7*86400).run();
     await q(env,"UPDATE scheduler_inventory SET state='expired' WHERE pid IN (SELECT pid FROM scheduler_inventory WHERE state IN ('ready','cooldown') AND expires<=? LIMIT 500)",now).run();
     // Daily topic caps must free the ACTIVE buffer, not poison a full queue.
     // Retain these real cards separately and reactivate when the cap expires.

@@ -42,6 +42,7 @@ async function route(request,env,ctx) {
     if(update.callback_query?.id)try{ackOK=(await telegram(env,'answerCallbackQuery',{callback_query_id:update.callback_query.id,text:'✓'},fetch,900)).ok===true;}catch{}
     const ackMS=Date.now()-ackStart;
     const cb=update.callback_query,actor=cb?.from||update.message?.from,message=cb?.message||update.message;
+    if(cb)console.log('REAL_CALLBACK_RECEIVED',JSON.stringify({update_id:update.update_id,message_id:message?.message_id,chat:message?.chat?.id,data:String(cb.data||'').slice(0,30),has_markup:Array.isArray(message?.reply_markup?.inline_keyboard),ack_ok:ackOK,ack_ms:ackMS}));
     const isOwner=String(actor?.id)===String(env.MINIAPP_ADMIN_ID)&&String(message?.chat?.id)===String(env.MINIAPP_ADMIN_ID);
     const isReaction=/^[ldb][1-9]\d{0,11}$/.test(cb?.data||'')&&Number.isSafeInteger(update.update_id)&&update.update_id>=0&&Number.isSafeInteger(cb?.from?.id)&&cb.from.id>0&&Number.isSafeInteger(message?.message_id)&&Array.isArray(message.reply_markup?.inline_keyboard)&&message.reply_markup.inline_keyboard.flat().some(b=>b.callback_data===cb.data);
     // Unrelated subscriber private messages are acknowledged, not retained or
@@ -51,6 +52,7 @@ async function route(request,env,ctx) {
     // Persist BEFORE webhook HTTP200: D1 failure gets503 and Telegram redelivers.
     // Only markup rendering is asynchronous; idempotent votes survive retries.
     await withReadBudget(env,'optional',1500,async e=>{
+      if(isReaction)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_received',?)").bind(JSON.stringify({update_id:update.update_id,message_id:message.message_id,chat:String(message.chat.id),pid:Number(cb.data.slice(1)),ack_ok:ackOK,ack_ms:ackMS,ts:second()})).run();
       const result=await handleMainUpdate(e,update,fetch,operation=>ctx.waitUntil(withReadBudget(env,'optional',500,operation).catch(()=>console.log('REACTION_MARKUP pending Cron repair'))));
       if(result.totals)await e.DB.prepare("INSERT OR REPLACE INTO metadata VALUES('reaction_last_callback',?)").bind(JSON.stringify({message_id:update.callback_query.message.message_id,pid:Number(update.callback_query.data.slice(1)),totals:result.totals,ack_ms:ackMS,ack_ok:ackOK,ts:second()})).run();
     });

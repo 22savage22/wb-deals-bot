@@ -171,6 +171,21 @@ export async function feedbackRoute(request,e,{payload,json,fail},fetcher=fetch)
    }
    return json({webhook_ok:result.ok&&result.result.url===new URL('/telegram/main/webhook',request.url).href,pending_updates:result.result?.pending_update_count||0,webhook_error:result.result?.last_error_message?'Telegram delivery error':'',last_callback,message});
  }
+ if(path.endsWith('/diagnostic')&&request.method==='GET'){
+   const policy=JSON.parse((await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
+   const [me,chat]=await Promise.all([telegram(e,'getMe',{},fetcher),telegram(e,'getChat',{chat_id:policy.chat_id},fetcher)]);
+   const member=me.ok&&chat.ok?await telegram(e,'getChatMember',{chat_id:chat.result.id,user_id:me.result.id},fetcher):null;
+   const recent=(await q(e,'SELECT pid,message_id,ts FROM scheduler_deliveries WHERE message_id IS NOT NULL ORDER BY ts DESC LIMIT 6').all()).results;
+   const messages=[];
+   for(const row of recent){
+     const totals=await q(e,"SELECT likes,dislikes,bought,revision FROM reaction_totals WHERE scope='channel' AND pid=?",row.pid).first();
+     const votes=(await q(e,"SELECT sentiment,bought,last_event,last_changed_event FROM reaction_votes WHERE scope='channel' AND pid=? ORDER BY last_event DESC LIMIT 3",row.pid).all()).results;
+     const message=await q(e,'SELECT chat,pid,dirty,error,receipt,lease_until,retry_at FROM reaction_messages WHERE chat=? AND message_id=?',String(chat.result?.id||policy.chat_id),row.message_id).first();
+     messages.push({...row,totals,votes,message,callback_data:['l','d','b'].map(a=>a+row.pid)});
+   }
+   const received=await q(e,"SELECT value FROM metadata WHERE key='reaction_last_received'").first();
+   return json({last_received:received?JSON.parse(received.value):null,runtime_version:e.CF_VERSION?.id||null,bot:me.ok?{id:me.result.id,username:me.result.username}:null,configured_chat:policy.chat_id,resolved_chat:chat.ok?{id:chat.result.id,username:chat.result.username,type:chat.result.type}:null,channel_identity_matches:String(policy.chat_id)===String(chat.result?.id),bot_member:member?.ok?{status:member.result.status,can_edit_messages:member.result.can_edit_messages,can_post_messages:member.result.can_post_messages}:null,messages});
+ }
  if(path.endsWith('/repair_latest')&&request.method==='POST'){
    const row=await q(e,'SELECT pid,message_id FROM scheduler_deliveries WHERE message_id IS NOT NULL ORDER BY ts DESC LIMIT 1').first();
    if(!row)fail(404,'Нет опубликованного сообщения');

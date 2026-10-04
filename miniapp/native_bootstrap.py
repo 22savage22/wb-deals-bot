@@ -31,6 +31,7 @@ def main():
     if action == 'feedback_check':
         result = client.api('feedback/status')
         print('FEEDBACK_STATUS', json.dumps(result, ensure_ascii=False))
+        print('FEEDBACK_DIAGNOSTIC', json.dumps(client.api('feedback/diagnostic'), ensure_ascii=False))
         if not result.get('webhook_ok'):
             raise RuntimeError('Webhook not confirmed')
         current = client.api('config')

@@ -23,6 +23,33 @@ Incident recovery uses fixed request_id production-recovery-20261005 and reuses
 any already successful autonomous delivery rather than sending a second post.
 Tests do not replace the required live Telegram receipt and next automatic Cron.
 
+### Live recovery CONFIRMED
+
+Managed build dc59f250 / runtime a88791d1-e67a-4a79-8e83-211a09eb2d1f.
+Exactly one incident delivery: message_id **2495**, nmId **537554851**,
+«Мешки для хранения», checked price **149 RUB**, checked image basket-28.
+Fresh card checked 2026-10-05 **01:48:58 Moscow**; Telegram receipt **01:49:03**.
+Claim request_id production-recovery-20261005 = success; inventory state posted;
+no repeat manual tick/send. The earlier manual tick only returned lock_busy.
+
+Read-only proof Actions **37241589907**: next autonomous tick **01:50:57**,
+last_automatic_tick=1791154257 > last_post_success=1791154143,
+production_chain_message_id=2495, matching D1 delivery; queue **87**,
+post_request null, leases empty, errors empty, watchdog overdue false.
+Autopost remains ON / interval 10 minutes, timezone Europe/Moscow, quiet OFF;
+next scheduled post 01:59:03, no PC/poller required.
+
+Actions **37241468915** additionally checked the next real card 438510224:
+title «обложка на автодокументы», fresh price 268 RUB, verified basket-25 image,
+Telegram getMe OK, no test messages. Core ledger after settlement: reads 298130,
+writes 31803; read-only diagnostic itself measured 194 real rows_read.
+Ledger snapshots can include in-flight reservations, not just completed usage.
+
+Remaining source warning: WB search temporarily returns HTTP 429. It now respects
+a bounded retry delay and does not try another destination immediately on 403/429.
+Already verified/valid queue publication is not disabled by this search error.
+109 Worker tests and GitHub full Tests/Workers Builds passed on dc59f250.
+
 2026-10-03: the current production gate FAILED; do not claim RUNNING.
 
 ## Confirmed evidence

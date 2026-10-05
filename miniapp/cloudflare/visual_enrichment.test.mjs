@@ -6,6 +6,7 @@ import {ensureScheduler} from './scheduler_api.mjs';
 import {ensureLearning,recordEvent,shadowChoice,learningRoute} from './learning.mjs';
 import {ensureVisual,visualRun,visualStatus,maintainVisualEvents,photoURLs,VISUAL_DAILY_CALLS} from './visual_enrichment.mjs';
 import {normalizeAnalysis,mergeAnalyses,profileFeatures} from './visual_features.mjs';
+import {visualErrorText} from '../admin/view.mjs';
 const raw=(view='front')=>({group:'apparel',view,fields:{color:{value:'black',confidence:.95,evidence:'Black garment body'},fit:{value:'oversize',confidence:.9,evidence:'Dropped shoulder wide silhouette'},pattern:{value:'graphic',confidence:.9,evidence:'Large printed graphic'},print_location:{value:view,confidence:.9,evidence:'Printed graphic on visible '+view}}});
 async function env(){
   const db=new DatabaseSync(':memory:');db.exec(readFileSync(new URL('schema.sql',import.meta.url),'utf8'));
@@ -78,4 +79,9 @@ test('Workers-compatible manual redirects reject an image redirect without calli
   const e=await env();insert(e);let fetches=0;
   const result=await visualRun(e,{force:true,fetcher:async(url,options)=>{fetches++;assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{Location:'https://attacker.example/image.jpg'}});}});
   assert.equal(result.error,'VISUAL_IMAGE_UNAVAILABLE');assert.equal(fetches,1);assert.equal(e.calls,0);e.db.close();
+});
+
+test('owner sees an honest human-readable license gate, not a successful vision claim',()=>{
+  assert.match(visualErrorText('VISUAL_MODEL_TERMS_REQUIRED'),/разрешение владельца/);assert.match(visualErrorText('VISUAL_MODEL_TERMS_REQUIRED'),/выключен/);
+  assert.match(visualErrorText('VISUAL_FREE_QUOTA'),/Бесплатный/);assert.match(visualErrorText('unknown'),/Публикации продолжаются/);
 });

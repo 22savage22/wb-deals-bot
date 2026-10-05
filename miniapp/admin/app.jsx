@@ -4,7 +4,7 @@ import {AppRoot,Button,Input,Switch,Placeholder,Spinner} from '@telegram-apps/te
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import './style.css';
 import {createClient} from './client.mjs';
-import {days,stamp,queueHealth,searchState,mainProblem,insightText} from './view.mjs';
+import {days,stamp,queueHealth,searchState,mainProblem,insightText,visualErrorText} from './view.mjs';
 import {visualLabel} from '../cloudflare/visual_features.mjs';
 const tg=window.Telegram?.WebApp,client=createClient(tg?.initData||'');
 const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
@@ -120,8 +120,8 @@ function App(){
       {learning.training_delayed&&<div className="notice yellow">Обучение задержалось. Автопостинг продолжает работать с Legacy.</div>}
       <Panel title="Что нравится аудитории визуально" description="Только подтверждённые фото-признаки и реальные реакции. Не выводим предпочтения из названия товара.">
         {learning.visual?.insights?.filter(i=>i.direction!=='insufficient').length?learning.visual.insights.filter(i=>i.direction!=='insufficient').map(i=><article className="observation" key={i.key}><strong>{i.direction==='positive'?'↑':'↓'} {i.label}</strong><p>Наблюдений: {i.observations} · товаров: {i.products} · 👍 {i.likes} · 👎 {i.dislikes} · 🛒 {i.bought}</p><small>95% интервал доли лайков: {Math.round(i.interval[0]*100)}–{Math.round(i.interval[1]*100)}%. Это наблюдение, не рост продаж.</small></article>):<p>Недостаточно данных: нужны минимум20 реальных наблюдений и5 разных товаров для признака.</p>}
-        <p className="subtle">Vision: {learning.visual?.enabled?'включён, отдельная очередь':'ожидает проверку/включение'} · изображений сегодня {learning.visual?.calls_today||0}/{learning.visual?.daily_call_limit||40}. Пропущенный анализ не мешает публикациям.</p>
-        {learning.visual?.last_error&&<div className="notice yellow">Анализ ожидает восстановления: {learning.visual.last_error}</div>}
+        <p className="subtle">Анализ фото: {learning.visual?.enabled?'включён, отдельная очередь':'ожидает проверку/включение'} · попыток сегодня {learning.visual?.calls_today||0}/{learning.visual?.daily_call_limit||40}. Пропущенный анализ не мешает публикациям.</p>
+        {learning.visual?.last_error&&<div className="notice yellow">{visualErrorText(learning.visual.last_error)}</div>}
         <details><summary>Посмотреть реальные visual profiles</summary>{learning.visual?.examples?.length?learning.visual.examples.map(p=><article className="observation" key={p.pid}>{p.images?.[0]?.url&&<img src={p.images[0].url} alt={p.title} loading="lazy" style={{width:120,height:160,objectFit:'contain'}}/>}<strong>{p.title} · nmId{p.pid}</strong>{Object.entries(p.fields).map(([k,f])=><p key={k}>{visualLabel('visual.'+k+'='+f.value)} · уверенность модели {Math.round(f.confidence*100)}%<small>{f.evidence}</small></p>)}<small>Не определено: {p.unknown.join(', ')}. Состав материала по фото не утверждаем.</small></article>):<p>Профили ещё не получены.</p>}</details>
       </Panel>
       <div className="reactions"><span>👍 {votes?.likes??'—'}</span><span>👎 {votes?.dislikes??'—'}</span><span>🛒 Купил {votes?.bought??'—'}</span></div>

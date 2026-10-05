@@ -84,10 +84,51 @@ warning, not a false promise of exact execution. Production Cron independent.
 
 ## Verification
 
-142Worker tests/build pass including8new visual pipeline tests;4real River Python
+145Worker tests/build pass including11new visual pipeline tests;4real River Python
 tests pass locally using existing repo-local environment. Tests cover unknown
 fields/category schemas/front/back/conflicts/interactions, durable cache/restart,
 future enqueue, racing jobs/stale lease, quota/license gates, unchanged30min,
 real-event idempotency/index plan, frozen shadow comparison and Legacy selected.
 These fixtures are NOT real WB/vision receipts or synthetic Telegram actors.
-Real profiles, activation, production continuation and deployment receipts pending.
+Real visual profiles and activation are PENDING OWNER LICENSE APPROVAL, not DONE.
+
+## Real production receipts / license gate
+
+Code through `3ca98935` pushed existing main; managed production build
+`38f60526-c06f-4ce2-bded-2acbc983dc14` and full CI37343940060 SUCCESS.
+No API management token, manual Telegram post or fabricated feedback was used.
+
+Bounded probes:37341974220 missing observed photo;37343634507 established a real
+Workers TypeError (redirect:error unsupported), corrected to manual+explicit
+non-2xx rejection. Redirects never followed, tested before any AI call.
+Probe https://github.com/22savage22/wb-deals-bot/actions/runs/37344157345 successfully
+loaded the REAL photo for NEW nmId1018929124, then Workers AI returned AiError5016:
+model agreement required. No agreement request has been sent. Automatic visual
+enrichment remains disabled; profile cache is empty. Model license and AUP must
+be approved explicitly by the owner before sending the documented agree request.
+https://developers.cloudflare.com/workers-ai/platform/errors/
+https://developers.cloudflare.com/workers-ai/models/llama-3.2-11b-vision-instruct/
+Its actual D1 subtotal31reads/9writes (before ledger settlement), not billing.
+
+Readonly admin snapshot37344352509 confirms unchanged30min/revision1791202121046,
+enabled/unpaused/Cronactive, automatic real message2562/nmId237526454 at1791218301,
+independent tick1791219256>post and matching chain2562; queue42/post_retry0/error
+empty. WB Cron search1791218423 found100/added3 NEW ids1018929124,987817659,852361305,
+queue39→42/no backoff. Visual enabledfalse/last_errorMODEL_TERMS_REQUIRED.
+https://github.com/22savage22/wb-deals-bot/actions/runs/37344352509
+
+Real feedback check37344769893: main webhookOK/pending0/error empty; real update
+810945058/message2561/nmId82035034 ACK66ms, D1 dislike1/dirty0/error empty, actual
+edit receipt markup👍0/👎1/🛒0. No new reaction actor or test message.
+https://github.com/22savage22/wb-deals-bot/actions/runs/37344769893
+Existing River workflow active07/27/47 UTC but real execution history is delayed.
+One dispatch returned GitHub500; active-run check confirmed not accepted before
+retry. Existing job37344853563 SUCCESS processed the already-present REAL next
+event: cursor/trained67, comparisons41, publication_controlfalse. This was a
+manual verification, NOT proof that scheduled GitHub runs execute on time.
+https://github.com/22savage22/wb-deals-bot/actions/runs/37344853563
+
+Next step: explicit owner approval for Meta license/AUP; then authorize a guarded
+one-time agreement operation, obtain2–3real profiles, verify visible evidence,
+activate the independent enrichment and prove its next automatic run. Keep
+RiverSHADOW, LegacyACTIVE, publication30min and current production settings.

@@ -42,6 +42,9 @@ No repeated main-image inference if secondary/retry fails; no vision for a
 completed nmId on cron. New inventory INSERT triggers enqueue, existing inventory
 seed is bounded100, not a new source of WB products. This
 free bounded rate does NOT promise immediate analysis of all newly found cards.
+Newest eligible products are prioritized with an explicit queue index. Legacy
+cards with no observed photo are skipped, not repeatedly analyzed; a sidecar
+trigger can requeue them if normal card validation later repairs their photo.
 
 ## Evidence, features, combinations
 

@@ -5,7 +5,14 @@ export const VISUAL_MODEL='@cf/meta/llama-3.2-11b-vision-instruct';
 export const VISUAL_DAILY_CALLS=40;
 const missing=e=>/no such table.*visual_/i.test(String(e?.message));
 export async function ensureVisual(e){
-  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first())return;
+  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v2'").first())return;
+  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first()){
+    await e.DB.batch([
+      q(e,'CREATE INDEX IF NOT EXISTS visual_queue_latest ON visual_queue(state,retry_at,queued_at DESC,pid)'),
+      q(e,`CREATE TRIGGER IF NOT EXISTS visual_photo_repaired AFTER UPDATE OF data ON scheduler_inventory WHEN COALESCE(json_extract(NEW.data,'$.image'),'')<>'' AND NOT EXISTS(SELECT 1 FROM visual_profiles WHERE pid=NEW.pid) BEGIN INSERT INTO visual_queue(pid,queued_at) VALUES(NEW.pid,NEW.queued_at) ON CONFLICT(pid) DO UPDATE SET state='pending',retry_at=0,error='' WHERE visual_queue.error='VISUAL_NO_IMAGE'; END`),
+      q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v2','1')")
+    ]);return;
+  }
   await e.DB.batch([
     q(e,"CREATE TABLE IF NOT EXISTS visual_queue(pid INTEGER PRIMARY KEY,state TEXT NOT NULL DEFAULT 'pending',retry_at INTEGER NOT NULL DEFAULT 0,attempts INTEGER NOT NULL DEFAULT 0,queued_at INTEGER NOT NULL,error TEXT NOT NULL DEFAULT '')"),
     q(e,'CREATE INDEX IF NOT EXISTS visual_queue_due ON visual_queue(state,retry_at,queued_at,pid)'),
@@ -31,6 +38,7 @@ export async function ensureVisual(e){
     q(e,`INSERT OR IGNORE INTO visual_queue(pid,queued_at) SELECT pid,queued_at FROM scheduler_inventory WHERE state='ready' ORDER BY queued_at DESC LIMIT 100`),
     q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v1','1')")
   ]);
+  await ensureVisual(e);
 }
 export async function cachedProfiles(e,ids){
   if(!ids.length)return new Map();
@@ -84,14 +92,14 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
     await maintainVisualEvents(e);
     const replay=await q(e,'SELECT pid FROM visual_profiles WHERE backfill_pending=1 ORDER BY pid LIMIT 1').first();
     if(replay)await maintainVisualEvents(e,replay.pid);
-    const row=await q(e,"SELECT * FROM visual_queue WHERE state='pending' AND retry_at<=? ORDER BY retry_at,queued_at,pid LIMIT 1",ts).first();
+    const row=await q(e,"SELECT * FROM visual_queue WHERE state='pending' AND retry_at<=? ORDER BY retry_at,queued_at DESC,pid LIMIT 1",ts).first();
     if(!row)return {state:'idle'};
     if((await cachedProfiles(e,[row.pid])).has(row.pid)){await q(e,"UPDATE visual_queue SET state='complete',error='' WHERE pid=?",row.pid).run();return {state:'cached',pid:row.pid};}
     const stored=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',row.pid).first();
     if(!stored){await q(e,"UPDATE visual_queue SET state='skipped',error='VISUAL_NO_PRODUCT' WHERE pid=?",row.pid).run();return {state:'skipped',pid:row.pid};}
     const p=JSON.parse(stored.data),urls=photoURLs(p),analyses=[];
     try{
-      if(!urls.length)throw new Error('VISUAL_NO_IMAGE');
+      if(!urls.length){await q(e,"UPDATE visual_queue SET state='skipped',error='VISUAL_NO_IMAGE' WHERE pid=?",row.pid).run();return {state:'skipped',pid:row.pid,error:'VISUAL_NO_IMAGE'};}
       for(const [index,url] of urls.entries()){
         const cached=await q(e,'SELECT analysis FROM visual_images WHERE pid=? AND image_index=? AND url=?',row.pid,index,url).first();
         if(cached){analyses.push(JSON.parse(cached.analysis));continue;}
@@ -125,8 +133,9 @@ export async function visualStatus(e){
     const state=await q(e,'SELECT * FROM visual_state WHERE id=1').first();if(!state)return {initialized:false};
     const day=new Date().toISOString().slice(0,10),usage=await q(e,'SELECT calls FROM visual_usage WHERE day=?',day).first();
     const examples=(await q(e,'SELECT v.pid,v.profile,i.data FROM visual_profiles v JOIN scheduler_inventory i ON i.pid=v.pid ORDER BY v.analyzed_at DESC LIMIT 3').all()).results.map(r=>({pid:r.pid,title:JSON.parse(r.data).title,...JSON.parse(r.profile)}));
+    const next=(await q(e,"SELECT v.pid,i.data FROM visual_queue v JOIN scheduler_inventory i ON i.pid=v.pid WHERE v.state='pending' AND v.retry_at<=? ORDER BY v.retry_at,v.queued_at DESC,v.pid LIMIT 3",now()).all()).results.map(r=>{const p=JSON.parse(r.data);return {pid:r.pid,title:p.title,image:safeImage(p.image)?p.image:'',image_present:!!p.image};});
     const stats=(await q(e,'SELECT * FROM visual_stats ORDER BY observations DESC LIMIT 30').all()).results.map(r=>{const interval=confidenceInterval(r.likes,r.dislikes),enough=r.observations>=20&&r.products>=5&&r.likes+r.dislikes>=20;return {...r,label:visualLabel(r.key),interval,sufficient:enough,direction:enough&&interval[0]>.5?'positive':enough&&interval[1]<.5?'negative':'insufficient'};});
-    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,examples,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
+    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
   }catch(error){if(missing(error))return {initialized:false,enabled:false,examples:[],insights:[]};throw error;}
 }
 export async function visualRoute(request,e,{json,fail}){

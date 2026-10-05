@@ -188,6 +188,14 @@ export async function visualRoute(request,e,{json,fail}){
   const path=new URL(request.url).pathname;
   const response=data=>json({...data,d1:e.D1_METER?{...e.D1_METER,before_ledger_settlement:true}:null});
   if(path.endsWith('/status')&&request.method==='GET')return response(await visualStatus(e));
+  if(path.endsWith('/photo')&&request.method==='GET'){
+    const url=new URL(request.url),pid=Number(url.searchParams.get('pid')),index=Number(url.searchParams.get('index'));
+    const sample=await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first();
+    if(!sample||!JSON.parse(sample.value).products.some(p=>p.pid===pid)||!Number.isInteger(index)||index<0||index>1)fail(403,'Фото доступно только для выбранного теста');
+    const cached=await q(e,'SELECT url,hash FROM visual_images WHERE pid=? AND image_index=?',pid,index).first();if(!cached||!safeImage(cached.url))fail(404,'Фото ещё не анализировалось');
+    const image=await imageBytes(cached.url,fetch);if(image.hash!==cached.hash)fail(409,'Исходное фото изменилось после анализа');
+    return new Response(image.bytes,{headers:{'Content-Type':cached.url.endsWith('.png')?'image/png':cached.url.endsWith('.jpg')?'image/jpeg':'image/webp','Cache-Control':'no-store','X-Visual-Image-Hash':image.hash}});
+  }
   if(path.endsWith('/accept-terms')&&request.method==='POST'){
     const data=await request.json();if(data.approval!==TERMS_APPROVAL)fail(400,'Нужно прямое разрешение владельца на конкретную модель');
     await ensureVisual(e);const accepted=await q(e,"SELECT value FROM metadata WHERE key='visual_meta_terms'").first();if(accepted)return response(JSON.parse(accepted.value));

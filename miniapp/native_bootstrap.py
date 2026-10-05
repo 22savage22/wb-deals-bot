@@ -30,7 +30,14 @@ def main():
                 print('VISUAL_RESULT', json.dumps(result, ensure_ascii=False))
                 if result.get('state') != 'partial':
                     break
-        print('VISUAL_STATUS', json.dumps(visual_api('status', 'GET'), ensure_ascii=False))
+        status = visual_api('status', 'GET')
+        print('VISUAL_STATUS', json.dumps(status, ensure_ascii=False))
+        profiles = [p for p in status['examples'] if p['pid'] in {r['pid'] for r in sample['products']}]
+        if len(profiles) != 3:
+            raise RuntimeError('Three real visual profiles not yet complete; resume the same frozen sample')
+        from miniapp.visual_probe import download_profile_photos
+        for profile in profiles:
+            download_profile_photos(profile)
         return
     if action in ('visual_probe', 'visual_status', 'visual_activate'):
         from miniapp.visual_probe import api as visual_api

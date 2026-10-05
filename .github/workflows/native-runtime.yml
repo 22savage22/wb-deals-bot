@@ -37,3 +37,10 @@ jobs:
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
           WB_SOURCE_KEY: ${{ secrets.WB_SOURCE_KEY }}
           WB_MIN_RATING: '4.3'
+      - uses: actions/upload-artifact@v4
+        if: inputs.action == 'visual_sample_test'
+        with:
+          name: visual-sample-photos
+          path: .test-temp/visual-photos/
+          retention-days: 2
+          if-no-files-found: ignore

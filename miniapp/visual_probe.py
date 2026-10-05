@@ -3,15 +3,15 @@ import os
 import requests
 
 
-def api(path, method):
-    if path not in ('run', 'status', 'activate'):
+def api(path, method, body=None):
+    if path not in ('run', 'status', 'activate', 'accept-terms', 'sample'):
         raise ValueError('Invalid visual operation')
     root = os.environ['MINIAPP_API_URL'].rstrip('/')
     key = os.environ['MINIAPP_SYNC_KEY']
     try:
         r = requests.request(method, root + '/api/scheduler/learning/visual/' + path,
                              headers={'Authorization': 'Bearer ' + key},
-                             json={} if method == 'POST' else None, timeout=(5, 40))
+                             json=(body or {}) if method == 'POST' else None, timeout=(5, 40))
         if r.status_code != 200:
             raise RuntimeError('Visual HTTP ' + str(r.status_code))
         result = r.json()

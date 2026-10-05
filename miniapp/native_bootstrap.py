@@ -16,6 +16,22 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'visual_sample_test':
+        from miniapp.visual_probe import api as visual_api
+        # Explicit owner approval in this task; exact model, no plan/token changes.
+        receipt = visual_api('accept-terms', 'POST', {'approval': 'meta-llama-3.2-11b-vision-20261005'})
+        print('META_TERMS', json.dumps(receipt, ensure_ascii=False))
+        sample = visual_api('sample', 'POST')
+        print('VISUAL_SAMPLE', json.dumps(sample, ensure_ascii=False))
+        for product in sample['products']:
+            # One inference/request, durable partial cache; no retry on errors.
+            for _ in range(2):
+                result = visual_api('run', 'POST', {'pid': product['pid']})
+                print('VISUAL_RESULT', json.dumps(result, ensure_ascii=False))
+                if result.get('state') != 'partial':
+                    break
+        print('VISUAL_STATUS', json.dumps(visual_api('status', 'GET'), ensure_ascii=False))
+        return
     if action in ('visual_probe', 'visual_status', 'visual_activate'):
         from miniapp.visual_probe import api as visual_api
         path = {'visual_probe': 'run', 'visual_status': 'status', 'visual_activate': 'activate'}[action]

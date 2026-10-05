@@ -4,14 +4,24 @@ const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/100
 export const VISUAL_MODEL='@cf/meta/llama-3.2-11b-vision-instruct';
 export const VISUAL_DAILY_CALLS=40;
 const missing=e=>/no such table.*visual_/i.test(String(e?.message));
+const TERMS_APPROVAL='meta-llama-3.2-11b-vision-20261005',TEST_KEY='visual_test_20261005';
+async function ensureMeter(e){
+  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v3'").first())return;
+  await e.DB.batch([
+    q(e,"CREATE TABLE IF NOT EXISTS visual_inference_usage(id TEXT PRIMARY KEY,ts INTEGER NOT NULL,day TEXT NOT NULL,pid INTEGER NOT NULL,image_index INTEGER NOT NULL,kind TEXT NOT NULL,outcome TEXT NOT NULL,usage TEXT NOT NULL)"),
+    q(e,'CREATE INDEX IF NOT EXISTS visual_inference_day ON visual_inference_usage(day,ts DESC)'),
+    q(e,'CREATE INDEX IF NOT EXISTS visual_inference_pid ON visual_inference_usage(pid,ts DESC)'),
+    q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v3','1')")
+  ]);
+}
 export async function ensureVisual(e){
-  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v2'").first())return;
+  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v2'").first()){await ensureMeter(e);return;}
   if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first()){
     await e.DB.batch([
       q(e,'CREATE INDEX IF NOT EXISTS visual_queue_latest ON visual_queue(state,retry_at,queued_at DESC,pid)'),
       q(e,`CREATE TRIGGER IF NOT EXISTS visual_photo_repaired AFTER UPDATE OF data ON scheduler_inventory WHEN COALESCE(json_extract(NEW.data,'$.image'),'')<>'' AND NOT EXISTS(SELECT 1 FROM visual_profiles WHERE pid=NEW.pid) BEGIN INSERT INTO visual_queue(pid,queued_at) VALUES(NEW.pid,NEW.queued_at) ON CONFLICT(pid) DO UPDATE SET state='pending',retry_at=0,error='' WHERE visual_queue.error='VISUAL_NO_IMAGE'; END`),
       q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v2','1')")
-    ]);return;
+    ]);await ensureMeter(e);return;
   }
   await e.DB.batch([
     q(e,"CREATE TABLE IF NOT EXISTS visual_queue(pid INTEGER PRIMARY KEY,state TEXT NOT NULL DEFAULT 'pending',retry_at INTEGER NOT NULL DEFAULT 0,attempts INTEGER NOT NULL DEFAULT 0,queued_at INTEGER NOT NULL,error TEXT NOT NULL DEFAULT '')"),
@@ -75,12 +85,30 @@ function errorCode(err){
   if(/^VISUAL_(FREE_QUOTA|IMAGE_UNAVAILABLE|IMAGE_TOO_LARGE|MODEL_TIMEOUT|INVALID_JSON|INVALID_PROFILE)$/.test(internal))return internal;
   const {detail:s,codes}=providerError(err);if(codes.includes('5016')||/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(codes.includes('5035')||/paid plan/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(codes.includes('3040'))return 'VISUAL_MODEL_CAPACITY';if(codes.includes('3036')||/allocation|neurons|quota/i.test(s))return 'VISUAL_FREE_QUOTA';return 'VISUAL_MODEL_UNAVAILABLE';
 }
-async function infer(e,bytes){
+export function inferenceUsage(result,headers=null){
+  const u=result?.usage||{},numeric=v=>typeof v==='number'&&Number.isFinite(v)&&v>=0?v:null;
+  const input=numeric(u.prompt_tokens??u.input_tokens),output=numeric(u.completion_tokens??u.output_tokens);
+  // Only provider envelope/headers, NEVER model-generated JSON, are metering.
+  const direct=numeric(u.neurons??result?.neurons),header=headers?.get('cf-ai-neurons');
+  const neurons=direct??(header&&/^\d+(\.\d+)?$/.test(header)?Number(header):null);
+  return {input_tokens:input,output_tokens:output,total_tokens:numeric(u.total_tokens),provider_neurons:neurons,
+    tokens_calculated_neurons:input!==null&&output!==null?(input*4410+output*61493)/1e6:null,
+    source:neurons!==null?'provider':input!==null&&output!==null?'provider_tokens_pricing_estimate':'not_returned'};
+}
+async function infer(e,inputs,{pid=0,index=-1,kind='vision'}={}){
   // Account Free plan is a hard no-billing boundary; never upgrade/enable paid models.
   const day=new Date().toISOString().slice(0,10);
   const charged=await q(e,`INSERT INTO visual_usage(day,calls) VALUES(?,1) ON CONFLICT(day) DO UPDATE SET calls=calls+1 WHERE calls<?`,day,VISUAL_DAILY_CALLS).run();
   if(!charged.meta.changes)throw new Error('VISUAL_FREE_QUOTA');
-  let timer;try{return await Promise.race([e.AI.run(VISUAL_MODEL,{image:[...bytes],prompt:visualPrompt(),max_tokens:600,temperature:0}),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('VISUAL_MODEL_TIMEOUT')),22000);})]);}finally{clearTimeout(timer);}
+  const id=crypto.randomUUID(),started=Date.now();
+  await q(e,'INSERT INTO visual_inference_usage VALUES(?,?,?,?,?,?,?,?)',id,now(),day,pid,index,kind,'attempt','{}').run();
+  let timer;try{
+    let result=await Promise.race([e.AI.run(VISUAL_MODEL,inputs,{returnRawResponse:true,signal:AbortSignal.timeout(22000)}),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('VISUAL_MODEL_TIMEOUT')),22000);})]);
+    let headers=null;if(result instanceof Response){headers=result.headers;const raw=await result.json();if(!result.ok)throw new Error(String(raw.internalCode||raw.errors?.[0]?.code||result.status)+': '+String(raw.description||raw.errors?.[0]?.message||'AI unavailable'));result=raw.result||raw;}
+    const usage={...inferenceUsage(result,headers),request_id:e.AI.lastRequestId||null,elapsed_ms:Date.now()-started,provider_keys:Object.keys(result||{}).slice(0,20),meter_header_names:headers?[...headers.keys()].filter(n=>/neurons|usage|tokens|cf-ai/.test(n)).slice(0,20):[]};
+    await q(e,"UPDATE visual_inference_usage SET outcome='success',usage=? WHERE id=?",JSON.stringify(usage),id).run();
+    return {...result,visual_usage:usage};
+  }catch(error){await q(e,'UPDATE visual_inference_usage SET outcome=?,usage=? WHERE id=?',errorCode(error),JSON.stringify({request_id:e.AI.lastRequestId||null,elapsed_ms:Date.now()-started}),id).run();throw error;}finally{clearTimeout(timer);}
 }
 export async function maintainVisualEvents(e,pid=null){
   // Real feedback only. Unique event_id and trigger atomically deduplicate replay.
@@ -94,7 +122,7 @@ export async function maintainVisualEvents(e,pid=null){
     ...(pid===null?[q(e,'UPDATE visual_state SET event_cursor=MAX(event_cursor,?) WHERE id=1',end)]:[q(e,'UPDATE visual_profiles SET feedback_cursor=MAX(feedback_cursor,?),backfill_pending=? WHERE pid=?',end,rows.length===5?1:0,pid)])
   ]);
 }
-export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
+export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null}={}){
   await ensureVisual(e);
   const state=await q(e,'SELECT * FROM visual_state WHERE id=1').first();
   if(!state.enabled&&!force)return {state:'disabled'};
@@ -106,7 +134,8 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
     await maintainVisualEvents(e);
     const replay=await q(e,'SELECT pid FROM visual_profiles WHERE backfill_pending=1 ORDER BY pid LIMIT 1').first();
     if(replay)await maintainVisualEvents(e,replay.pid);
-    const row=await q(e,"SELECT * FROM visual_queue WHERE state='pending' AND retry_at<=? ORDER BY retry_at,queued_at DESC,pid LIMIT 1",ts).first();
+    if(pid!==null&&(await cachedProfiles(e,[pid])).has(pid))return {state:'cached',pid};
+    const row=pid===null?await q(e,"SELECT * FROM visual_queue WHERE state='pending' AND retry_at<=? ORDER BY retry_at,queued_at DESC,pid LIMIT 1",ts).first():await q(e,"SELECT * FROM visual_queue WHERE pid=? AND state='pending' AND retry_at<=?",pid,ts).first();
     if(!row)return {state:'idle'};
     if((await cachedProfiles(e,[row.pid])).has(row.pid)){await q(e,"UPDATE visual_queue SET state='complete',error='' WHERE pid=?",row.pid).run();return {state:'cached',pid:row.pid};}
     const stored=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',row.pid).first();
@@ -119,8 +148,9 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
         if(cached){analyses.push(JSON.parse(cached.analysis));continue;}
         let image;try{image=await imageBytes(url,fetcher);}catch(error){if(index)continue;throw error;}
         try{
-          const result=await infer(e,image.bytes),text=result?.response??result?.description;
+          const result=await infer(e,{image:[...image.bytes],prompt:visualPrompt(),max_tokens:600,temperature:0},{pid:row.pid,index}),text=result?.response??result?.description;
           const analysis=normalizeAnalysis(text,{url,hash:image.hash,image_index:index});
+          analysis.image.usage=result.visual_usage;
           await q(e,'INSERT OR REPLACE INTO visual_images VALUES(?,?,?,?,?)',row.pid,index,url,image.hash,JSON.stringify(analysis)).run();analyses.push(analysis);
           // One inference/execution fits waitUntil's 30s grace. Resume a second
           // view next time using the durable first-image cache, never reinfer it.
@@ -149,19 +179,50 @@ export async function visualStatus(e){
     const examples=(await q(e,'SELECT v.pid,v.profile,i.data FROM visual_profiles v JOIN scheduler_inventory i ON i.pid=v.pid ORDER BY v.analyzed_at DESC LIMIT 3').all()).results.map(r=>({pid:r.pid,title:JSON.parse(r.data).title,...JSON.parse(r.profile)}));
     const next=(await q(e,"SELECT v.pid,i.data FROM visual_queue v JOIN scheduler_inventory i ON i.pid=v.pid WHERE v.state='pending' AND v.retry_at<=? ORDER BY v.retry_at,v.queued_at DESC,v.pid LIMIT 3",now()).all()).results.map(r=>{const p=JSON.parse(r.data);return {pid:r.pid,title:p.title,image:safeImage(p.image)?p.image:'',image_present:!!p.image};});
     const stats=(await q(e,'SELECT * FROM visual_stats ORDER BY observations DESC LIMIT 30').all()).results.map(r=>{const interval=confidenceInterval(r.likes,r.dislikes),enough=r.observations>=20&&r.products>=5&&r.likes+r.dislikes>=20;return {...r,label:visualLabel(r.key),interval,sufficient:enough,direction:enough&&interval[0]>.5?'positive':enough&&interval[1]<.5?'negative':'insufficient'};});
-    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
+    const terms=await q(e,"SELECT value FROM metadata WHERE key='visual_meta_terms'").first(),sample=await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first();
+    let meter=[];try{meter=(await q(e,'SELECT ts,pid,image_index,kind,outcome,usage FROM visual_inference_usage WHERE day=? ORDER BY ts DESC LIMIT 20',day).all()).results.map(r=>({...r,usage:JSON.parse(r.usage)}));}catch(error){if(!missing(error))throw error;}
+    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,terms:terms?JSON.parse(terms.value):null,sample:sample?JSON.parse(sample.value):null,meter,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
   }catch(error){if(missing(error))return {initialized:false,enabled:false,examples:[],insights:[]};throw error;}
 }
 export async function visualRoute(request,e,{json,fail}){
   const path=new URL(request.url).pathname;
   const response=data=>json({...data,d1:e.D1_METER?{...e.D1_METER,before_ledger_settlement:true}:null});
   if(path.endsWith('/status')&&request.method==='GET')return response(await visualStatus(e));
+  if(path.endsWith('/accept-terms')&&request.method==='POST'){
+    const data=await request.json();if(data.approval!==TERMS_APPROVAL)fail(400,'Нужно прямое разрешение владельца на конкретную модель');
+    await ensureVisual(e);const accepted=await q(e,"SELECT value FROM metadata WHERE key='visual_meta_terms'").first();if(accepted)return response(JSON.parse(accepted.value));
+    const lease=crypto.randomUUID(),ts=now(),acquired=await q(e,'UPDATE visual_state SET lease=?,expires=? WHERE id=1 AND expires<=?',lease,ts+180,ts).run();if(!acquired.meta.changes)fail(409,'Анализ уже выполняется');
+    try{
+      const result=await infer(e,{prompt:'agree'},{kind:'agreement'}),receipt={state:'accepted',model:VISUAL_MODEL,at:ts,approval:TERMS_APPROVAL,usage:result.visual_usage};
+      await e.DB.batch([q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_meta_terms',?)",JSON.stringify(receipt)),q(e,"UPDATE visual_state SET last_error='' WHERE id=1 AND last_error='VISUAL_MODEL_TERMS_REQUIRED'")]);
+      return response(receipt);
+    }finally{await q(e,'UPDATE visual_state SET expires=0,lease=NULL WHERE id=1 AND lease=?',lease).run();}
+  }
+  if(path.endsWith('/sample')&&request.method==='POST'){
+    await ensureVisual(e);const existing=await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first();if(existing)return response(JSON.parse(existing.value));
+    // Freeze exactly THREE existing ready products. Retry never expands the sample.
+    const candidates=(await q(e,"SELECT pid,data,queued_at FROM scheduler_inventory WHERE state='ready' ORDER BY queued_at DESC LIMIT 60").all()).results.map(r=>({...r,p:JSON.parse(r.data)})).filter(r=>photoURLs(r.p).length);
+    const selected=[],take=predicate=>{const r=candidates.find(r=>!selected.includes(r)&&predicate(r.p));if(r)selected.push(r);};
+    take(p=>/футбол|плать|блуз|джинс|брюк|свит|куртк|dress|shirt/i.test(p.title||''));
+    take(p=>/кроссов|кед|ботин|туфл|sneaker|shoe|сумк|рюкзак/i.test(p.title||''));
+    while(selected.length<3){const n=candidates.find(r=>!selected.includes(r));if(!n)break;selected.push(n);}
+    if(selected.length!==3)fail(409,'Нужны три реальные карточки с фото в текущей очереди');
+    const sample={id:TEST_KEY,at:now(),products:selected.map(r=>({pid:r.pid,title:r.p.title,category:r.p.category||null,price:r.p.price,image:r.p.image,url:r.p.url||`https://www.wildberries.ru/catalog/${r.pid}/detail.aspx`}))};
+    await e.DB.batch([q(e,'INSERT OR IGNORE INTO metadata VALUES(?,?)',TEST_KEY,JSON.stringify(sample)),...selected.map(r=>q(e,'INSERT OR IGNORE INTO visual_queue(pid,queued_at) VALUES(?,?)',r.pid,r.queued_at))]);
+    return response(JSON.parse((await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first()).value));
+  }
   if(path.endsWith('/run')&&request.method==='POST'){
     // Keep first-run DDL separate from inference under the Free subrequest cap.
     if(!await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first()){await ensureVisual(e);return response({state:'initialized',enabled:false});}
-    return response(await visualRun(e,{force:true}));
+    const data=await request.json(),sample=await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first();
+    if(sample){if(!Number.isSafeInteger(data.pid)||!JSON.parse(sample.value).products.some(p=>p.pid===data.pid))fail(409,'Тест ограничен тремя выбранными товарами');}
+    return response(await visualRun(e,{force:true,pid:Number.isSafeInteger(data.pid)?data.pid:null}));
   }
   if(path.endsWith('/activate')&&request.method==='POST'){
+    // The owner explicitly required real sample review + free-budget evidence
+    // BEFORE mass enrichment. No default, Cron or successful model call unlocks it.
+    const verified=await q(e,"SELECT value FROM metadata WHERE key='visual_free_verification'").first();
+    if(!verified||!JSON.parse(verified.value).ok)fail(409,'Сначала проверьте три реальных профиля и фактический бесплатный расход');
     await ensureVisual(e);if(!await q(e,"SELECT pid FROM visual_profiles WHERE json_array_length(json_extract(profile,'$.feature_keys'))>=3 LIMIT 1").first())fail(409,'Сначала подтвердите полезный реальный visual profile');
     await q(e,'UPDATE visual_state SET enabled=1 WHERE id=1').run();return response({enabled:true});
   }

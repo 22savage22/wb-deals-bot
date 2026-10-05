@@ -4,7 +4,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 import {ensureScheduler} from './scheduler_api.mjs';
 import {ensureLearning,recordEvent,shadowChoice,learningRoute} from './learning.mjs';
-import {ensureVisual,visualRun,visualStatus,maintainVisualEvents,photoURLs,VISUAL_DAILY_CALLS} from './visual_enrichment.mjs';
+import {ensureVisual,visualRun,visualStatus,maintainVisualEvents,photoURLs,VISUAL_DAILY_CALLS,visualRoute,inferenceUsage} from './visual_enrichment.mjs';
 import {normalizeAnalysis,mergeAnalyses,profileFeatures} from './visual_features.mjs';
 import {visualErrorText} from '../admin/view.mjs';
 const raw=(view='front')=>({group:'apparel',view,fields:{color:{value:'black',confidence:.95,evidence:'Black garment body'},fit:{value:'oversize',confidence:.9,evidence:'Dropped shoulder wide silhouette'},pattern:{value:'graphic',confidence:.9,evidence:'Large printed graphic'},print_location:{value:view,confidence:.9,evidence:'Printed graphic on visible '+view}}});
@@ -84,4 +84,28 @@ test('Workers-compatible manual redirects reject an image redirect without calli
 test('owner sees an honest human-readable license gate, not a successful vision claim',()=>{
   assert.match(visualErrorText('VISUAL_MODEL_TERMS_REQUIRED'),/разрешение владельца/);assert.match(visualErrorText('VISUAL_MODEL_TERMS_REQUIRED'),/выключен/);
   assert.match(visualErrorText('VISUAL_FREE_QUOTA'),/Бесплатный/);assert.match(visualErrorText('unknown'),/Публикации продолжаются/);
+});
+
+test('frozen real-inventory sample is only three IDs, retry never expands it, cache never reinfers',async()=>{
+  const e=await env();for(const id of [200,201,202,203,204])insert(e,id);
+  const helpers={json:Response.json,fail(status,message){throw Object.assign(new Error(message),{status});}},call=(path,data={})=>visualRoute(new Request('https://internal/api/scheduler/learning/visual/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}),e,helpers);
+  const before=e.db.prepare('SELECT * FROM scheduler_config').get();const a=await (await call('sample')).json();assert.equal(a.products.length,3);insert(e,205);
+  assert.deepEqual((await (await call('sample')).json()).products,a.products);assert.deepEqual(e.db.prepare('SELECT * FROM scheduler_config').get(),before);
+  await assert.rejects(call('run',{pid:205}),error=>error.status===409);await assert.rejects(call('activate'),error=>error.status===409);
+  for(const p of a.products){let r=await visualRun(e,{force:true,pid:p.pid,fetcher:picture});if(r.state==='partial')r=await visualRun(e,{force:true,pid:p.pid,fetcher:picture});assert.equal(r.state,'complete');}
+  const calls=e.calls;assert.equal((await visualRun(e,{force:true,pid:a.products[0].pid,fetcher:()=>{throw new Error('no download');}})).state,'cached');assert.equal(e.calls,calls);assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);e.db.close();
+});
+
+test('specific authorized terms operation is receipt-idempotent and does not activate enrichment',async()=>{
+  const e=await env();const before=e.db.prepare('SELECT * FROM scheduler_config').get();e.AI.run=async(model,inputs)=>{e.calls++;assert.equal(model,'@cf/meta/llama-3.2-11b-vision-instruct');assert.deepEqual(inputs,{prompt:'agree'});return new Response(JSON.stringify({response:'Accepted',usage:{prompt_tokens:1,completion_tokens:1}}),{headers:{'Content-Type':'application/json'}});};
+  const helpers={json:Response.json,fail(status,message){throw Object.assign(new Error(message),{status});}},call=data=>visualRoute(new Request('https://internal/api/scheduler/learning/visual/accept-terms',{method:'POST',body:JSON.stringify(data)}),e,helpers);
+  await assert.rejects(call({approval:'wrong'}),error=>error.status===400);assert.equal(e.calls,0);
+  const receipt=await (await call({approval:'meta-llama-3.2-11b-vision-20261005'})).json();assert.equal(receipt.state,'accepted');assert.equal(receipt.usage.provider_neurons,null);assert.equal(receipt.usage.source,'provider_tokens_pricing_estimate');
+  await call({approval:'meta-llama-3.2-11b-vision-20261005'});assert.equal(e.calls,1);assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);assert.deepEqual(e.db.prepare('SELECT * FROM scheduler_config').get(),before);e.db.close();
+});
+
+test('missing or model-invented metering is unknown, not falsely called measured neurons',()=>{
+  assert.equal(inferenceUsage({response:'{"neurons":7}'}).provider_neurons,null);assert.equal(inferenceUsage({response:'text'}).tokens_calculated_neurons,null);
+  assert.deepEqual(inferenceUsage({usage:{prompt_tokens:100,completion_tokens:10}}),{input_tokens:100,output_tokens:10,total_tokens:null,provider_neurons:null,tokens_calculated_neurons:.1*4.410+.01*61.493,source:'provider_tokens_pricing_estimate'});
+  assert.equal(inferenceUsage({usage:{neurons:7}}).provider_neurons,7);
 });

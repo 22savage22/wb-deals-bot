@@ -92,13 +92,53 @@ UI 4, instead of reserving 5,000 writes for an ordinary read.
 indexed paging, tombstones/dedup, live-lease rejection, specific-card validation,
 atomic reaction summaries/restart, bounded historical import, normal backoff,
 slow-network async check and ambiguous-response request reuse. Build passes.
-Native bootstrap Python tests pass. Local Python lacks River; real River tests
-must pass in existing GitHub CI before handoff.
+Native bootstrap Python tests pass. Local Python lacks River; the three real
+River tests passed in existing GitHub CI run 37334544568 (full Tests SUCCESS).
 
 Computer Use local-only preview: 390 light, 320 dark, no horizontal overflow;
 selected 30/Save disabled on open; temporary selection 5 caused **0 saves**, stored
 interval remained 30. No production reactions or messages simulated.
 `miniapp/admin/preview.mjs` binds only loopback and is not a deployed asset/auth path.
 
-Production deploy and real owner acceptance receipts: pending. Do not call DONE
-until the owner reopens the updated /admin from WBmarket and confirms the screens.
+## Verified production and owner acceptance
+
+Code commit `a60efe8e26b3f06bcb4554c53c1d0c7d0c828e8e` pushed to existing main.
+Managed Workers Build `5986e65c-721d-4ef8-b802-5bec5b5c2aaf` succeeded;
+runtime `ddc6eef1-90d3-47b8-b2eb-0fb9b9c0d5ac`, admin version 3.
+Production admin bundle matches the local build exactly.
+
+Owner personally reopened /admin in WBmarket and confirmed all six sections,
+30-minute selection and SHADOW. Read-only owner check run 37335893821 confirms
+`owner_admin_open.at=1791215174`, bot=main, owner_verified=true, new runtime.
+Webhook OK, pending updates 0, last_error empty. Subscriber auth remains separate.
+
+Final read-only snapshot run 37336536547 (SUCCESS):
+
+- Settings: enabled=true, paused=false, interval=30, revision=1791202121046
+  **unchanged**; search enabled, configured interval 20; Cron active.
+- Real automatic Telegram delivery message_id=2560, nmId=1175578179,
+  last_post_success=1791214588; subsequent independent automatic Cron
+  last_automatic_tick=1791215596, matching production_chain_message_id=2560.
+- Queue 41; post_running=false, post_retry_at=0, watchdog_overdue=false,
+  current scheduler error empty. No manual post/tick was issued for this task.
+- WB search success=1791215540, origin=cron, HTTP result successful,
+  search_retry_at=0, failures=0, error/code empty. Latest admission receipt
+  at1791213924 added two NEW nmIds 168162157 / 217502165, queue40→42; current
+  filtered-zero search does not mean the search process stopped.
+- Real reaction check run 37335191959: update810945057 on message2560,
+  pid1175578179, immediate ACK16ms; D1 dislike1, dirty0, error empty, Telegram
+  edit receipt shows 👍0 / 👎1 / 🛒0. No simulated users or feedback inserted.
+- Existing SHADOW training run 37335738711 succeeded: cursor66, trained_events66,
+  comparison_samples40, publication_control=false; model update1791215307.
+  Actual current channel votes:19 likes /48 dislikes /0 bought. Paired observations
+  25, minimum200 not met; uplift remains null, learning_allowed=false,
+  legacy_fallback=true. No LEARNING switch or new training infrastructure.
+
+Read-only combined snapshot RTT was 2442.2ms in run37335747173; this includes
+learning/diagnostics and is **not** proof of sub-second production button latency.
+Quick action endpoints return durable acknowledgements without WB/Telegram work;
+slow-network/double-click safety is covered by tests, not a fabricated timing claim.
+No settings save/default initialization occurred during owner opening or QA.
+
+Production left ON; no recovery automation, old poller, token or manual Telegram
+message was created. Owner acceptance gate is satisfied; use the existing /admin.

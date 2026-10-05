@@ -33,6 +33,23 @@ def train(batch):
         shadow = shadows.get(event['pid'])
         if shadow and event['ts'] >= shadow['ts'] and event['kind'] in ('like', 'dislike'):
             n = min(1000, event['weight'])
+            legacy_error = (shadow['legacy_p'] - int(y)) ** 2
+            river_error = (shadow['river_p'] - int(y)) ** 2
+            # New paired observations only; do not invent missing old metrics.
+            for key in ('paired_observations', 'positive', 'negative', 'wins',
+                        'losses', 'ties', 'legacy_sum', 'river_sum'):
+                comparison.setdefault(key, 0)
+            comparison['paired_observations'] += n
+            comparison['positive' if y else 'negative'] += n
+            verdict = ('ties' if abs(legacy_error - river_error) < 1e-9 else
+                       'wins' if river_error < legacy_error else 'losses')
+            comparison[verdict] += n
+            comparison['legacy_sum'] += n * shadow['legacy_p']
+            comparison['river_sum'] += n * shadow['river_p']
+            comparison['last_observation'] = {
+                'pid': event['pid'], 'ts': event['ts'],
+                'legacy': shadow['legacy_p'], 'river': shadow['river_p'],
+                'actual': 'like' if y else 'dislike'}
             comparison['n'] += n
             comparison['legacy_brier'] += n * (shadow['legacy_p'] - int(y)) ** 2
             comparison['river_brier'] += n * (shadow['river_p'] - int(y)) ** 2

@@ -2,6 +2,8 @@ import {schedulerRoute,ensureScheduler,validateSchedule,DEFAULT_SCHEDULE} from '
 import {postingWindow,postDue,checkAutopost} from './native_scheduler.mjs';
 import {withReadBudget} from './read_guard.mjs';
 import {learningRoute} from './learning.mjs';
+import {queueRoute} from './admin_queue.mjs';
+import {nextSearchDelay} from './search_backoff.mjs';
 export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
   if(!s.enabled||s.paused)return null;
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
@@ -21,6 +23,12 @@ export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
 }
 export async function adminRoute(request,e,helpers){
   const {json,fail,payload,ctx}=helpers,path=new URL(request.url).pathname;
+  if(path==='/api/admin/queue')return queueRoute(request,e,helpers);
+  if(path==='/api/admin/schedule/preview'&&request.method==='POST'){
+    const input=await payload(request);let s;try{s=validateSchedule(input.schedule);}catch(error){fail(400,error.message);}
+    const row=await e.DB.prepare('SELECT MAX(ts) AS last FROM scheduler_posts').first();
+    return json({next_post:nextPost(s,row.last||0),preview:true});
+  }
   if(path.startsWith('/api/admin/learning')){await ensureScheduler(e);return learningRoute(request,e,helpers);}
   if(path==='/api/admin/check'&&request.method==='POST'){
     const data=await payload(request),id=data.request_id;
@@ -38,8 +46,9 @@ export async function adminRoute(request,e,helpers){
   if(path==='/api/admin/diagnostics'){
     const config=await schedulerRoute(new Request('https://internal/api/admin/schedule'),e,{...helpers,admin:true});
     const c=await config.json(),s=c.status;
-    const budget=await e.DB.prepare('SELECT lane,reads,writes FROM worker_read_budget WHERE day=? LIMIT 2').bind(new Date().toISOString().slice(0,10)).all();
-    return json({worker:true,d1:true,cron:s.cron_active,telegram:s.native_credentials_ok,wb_source:!s.last_scan_error,last_search:s.last_search_success||s.last_scan_success,queue_size:s.queue_size,heartbeat:s.last_automatic_tick||s.clock_heartbeat,last_error:s.last_error||s.error||s.last_scan_error||'',budget:budget.results,budget_note:'Счётчик Worker, не полный биллинг аккаунта'});
+    const budget=await e.DB.prepare('SELECT lane,reads,writes FROM worker_read_budget WHERE day=? LIMIT 3').bind(new Date().toISOString().slice(0,10)).all();
+    const webhook=await e.DB.prepare("SELECT value FROM metadata WHERE key='reaction_last_received'").first();
+    return json({worker:true,d1:true,cron:s.cron_active,telegram:s.native_credentials_ok,wb_source:!s.last_scan_error,last_search:s.last_search_success||s.last_scan_success,queue_size:s.queue_size,heartbeat:s.last_automatic_tick||s.clock_heartbeat,last_error:s.last_error||s.error||s.last_scan_error||'',webhook: webhook?JSON.parse(webhook.value):null,search_retry_at:s.search_retry_at||0,budget:budget.results,budget_note:'Счётчик Worker, не полный биллинг аккаунта'});
   }
   if(path==='/api/admin/overview'){
     // A first admin view is read-only even if the scheduler was never provisioned.
@@ -51,8 +60,9 @@ export async function adminRoute(request,e,helpers){
     // Admin must never display an invented default and later write it back over D1.
     if(Object.keys(DEFAULT_SCHEDULE).some(key=>!Object.hasOwn(stored,key)))fail(503,'Настройки расписания в D1 неполные. Сохранение заблокировано.');
     const s=validateSchedule(stored),status=JSON.parse(row.status),now=Math.floor(Date.now()/1000),wall=postingWindow(s,now);
-    const lastSearch=Number(status.last_scan_attempt||0),searchInterval=(row.ready<s.min_queue?(status.last_scan_error||status.last_scan_added===0?5:1):s.search_interval_minutes)*60;
-    return json({schedule:s,revision:row.revision,status:{...status,queue_size:row.ready,last_post_success:Math.max(row.latest||0,status.last_post_success||0),next_post:nextPost(s,row.latest||0,now),next_search:s.search_enabled||row.search_request?Math.max(now,lastSearch+searchInterval):null,posting_allowed:wall.allowed,cron_active:e.SCHEDULER_DRIVER==='cloudflare-native'&&now-Number(status.last_automatic_tick||0)<=180},operations:{post:row.post_request?{state:'queued',id:row.post_request}:null,search:row.search_request?{state:'queued',id:row.search_request}:null}});
+    const lastSearch=Number(status.last_scan_attempt||0),delay=nextSearchDelay(s,status.search_receipt?.added);
+    const nextSearch=Math.max(now,Number(status.search_retry_at||0),Number(status.next_search||0)||lastSearch+delay);
+    return json({schedule:s,revision:row.revision,status:{...status,queue_size:row.ready,last_post_success:Math.max(row.latest||0,status.last_post_success||0),next_post:nextPost(s,row.latest||0,now),next_search:s.search_enabled||row.search_request?nextSearch:null,posting_allowed:wall.allowed,cron_active:e.SCHEDULER_DRIVER==='cloudflare-native'&&now-Number(status.last_automatic_tick||0)<=180},operations:{post:row.post_request?{state:'queued',id:row.post_request}:null,search:row.search_request?{state:'queued',id:row.search_request}:null}});
   }
   return null;
 }

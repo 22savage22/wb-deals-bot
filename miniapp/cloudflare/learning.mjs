@@ -1,5 +1,6 @@
 // River trains in Python; the edge only evaluates its bounded, data-only weights.
 // No pickle, credentials or Telegram user identities enter the learning store.
+import {adminInsights,maintainAdminSummaries} from './admin_insights.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/1000);
 export const LEARNING_DEFAULT={mode:'SHADOW',exploration_percent:10};
 const schema=[
@@ -100,7 +101,10 @@ export async function learningRoute(request,e,{payload,fail,json}){
   if(path.endsWith('/train')&&method==='PUT'){
     const data=await payload(request,1024*1024),m=data.model;
     if(!m||m.version!==1||!Number.isSafeInteger(m.cursor)||m.cursor<model.cursor||Object.keys(m.weights||{}).length>8192||!Object.values(m.weights||{}).every(Number.isFinite)||!Number.isFinite(m.intercept)||!Number.isSafeInteger(m.trained_events)||m.trained_events<0||!m.comparison||!['n','legacy_brier','river_brier'].every(k=>Number.isFinite(m.comparison[k])&&m.comparison[k]>=0)||!Array.isArray(m.comparison.posts)||m.comparison.posts.length>1000||!m.comparison.posts.every(Number.isSafeInteger))fail(400,'Некорректная модель');
-    const r=await q(e,"UPDATE learning_state SET model=? WHERE id=1 AND json_extract(model,'$.cursor')=?",JSON.stringify({...m,updated_at:m.cursor>model.cursor?now():Number(model.updated_at||0),checked_at:now()}),data.previous_cursor).run();if(!r.meta.changes)fail(409,'Модель уже обновлена');return json({ok:true,cursor:m.cursor});
+    const r=await q(e,"UPDATE learning_state SET model=? WHERE id=1 AND json_extract(model,'$.cursor')=?",JSON.stringify({...m,updated_at:m.cursor>model.cursor?now():Number(model.updated_at||0),checked_at:now()}),data.previous_cursor).run();if(!r.meta.changes)fail(409,'Модель уже обновлена');
+    // Additive analytics upkeep only; even failure cannot revert a trained model.
+    try{await maintainAdminSummaries(e);}catch{console.log('ADMIN_INSIGHTS historical summaries deferred');}
+    return json({ok:true,cursor:m.cursor});
   }
   if(method==='PUT'){
     const data=await payload(request);if(!['LEGACY','SHADOW'].includes(data.mode))fail(409,'LEARNING пока закрыт: требуется независимая оценка, не хуже Legacy');
@@ -110,5 +114,6 @@ export async function learningRoute(request,e,{payload,fail,json}){
   if(method!=='GET')fail(405,'Метод не поддерживается');
   const all=await q(e,"SELECT * FROM learning_stats WHERE scope='all' AND key='all'").first(),today=await q(e,"SELECT * FROM learning_stats WHERE scope='day' AND key=?",new Date().toISOString().slice(0,10)).first(),categories=(await q(e,"SELECT * FROM learning_stats WHERE scope='category' ORDER BY events DESC LIMIT 30").all()).results;
   const comparison=model.comparison||{},enough=comparison.n>=200&&(comparison.posts||[]).length>=20&&now()-Number(comparison.first_ts||now())>=7*86400;
-  return json({config,feedback_events:all?.events||0,feedback_weight:(all?.positive||0)+(all?.negative||0),today_events:today?.events||0,last_feedback:all?.last||0,model_updated_at:model.updated_at||0,trained_events:model.trained_events||0,categories:categories.map(c=>({...c,rate:(c.positive+1)/(c.positive+c.negative+2),reason:c.events<5?'Пока мало наблюдений':c.positive>=c.negative?'Больше положительных сигналов':'Больше отрицательных сигналов'})),comparison:{samples:comparison.n||0,minimum:200,minimum_posts:20,minimum_days:7,sufficient:enough,legacy_brier:enough?comparison.legacy_brier/comparison.n:null,river_brier:enough?comparison.river_brier/comparison.n:null,uplift:null,explanation:'River не публикует в SHADOW. Сравниваем его прогноз с исторической долей позитивных сигналов категории для товара, выбранного Legacy. Эффект публикаций River ещё неизвестен.'},legacy_fallback:true,learning_allowed:false});
+  const insights=await adminInsights(e);
+  return json({config,...insights,feedback_events:all?.events||0,feedback_weight:(all?.positive||0)+(all?.negative||0),today_events:today?.events||0,last_feedback:all?.last||0,model_updated_at:model.updated_at||0,trained_events:model.trained_events||0,categories:categories.map(c=>({...c,rate:(c.positive+1)/(c.positive+c.negative+2),reason:c.events<5?'Пока мало наблюдений':c.positive>=c.negative?'Больше положительных сигналов':'Больше отрицательных сигналов'})),comparison:{paired_observations:comparison.paired_observations||0,positive:comparison.positive??null,negative:comparison.negative??null,wins:comparison.wins??null,losses:comparison.losses??null,ties:comparison.ties??null,last_observation:comparison.last_observation||null,legacy_mean:comparison.paired_observations?comparison.legacy_sum/comparison.paired_observations:null,river_mean:comparison.paired_observations?comparison.river_sum/comparison.paired_observations:null,samples:comparison.n||0,minimum:200,minimum_posts:20,minimum_days:7,sufficient:enough,legacy_brier:enough?comparison.legacy_brier/comparison.n:null,river_brier:enough?comparison.river_brier/comparison.n:null,uplift:null,explanation:'River не публикует в SHADOW. Сравниваем его прогноз с исторической долей позитивных сигналов категории для товара, выбранного Legacy. Эффект публикаций River ещё неизвестен.'},legacy_fallback:true,learning_allowed:false});
 }

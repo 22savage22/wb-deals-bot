@@ -22,6 +22,23 @@ test('server-side price budget and reviewed discovery preserve categories/pages 
   assert.equal(cardDeal(card(),{max_price:600}),null);
 });
 
+test('owner queue selection uses the existing validation/send path for only the chosen card',async t=>{
+  const env=environment(t);await seed(env,[item(1000),item(1001)]);
+  env.db.prepare("UPDATE scheduler_config SET post_request='queue:post:1001:one',status=json_patch(status,?)").run(JSON.stringify({admin_product_request:'queue:post:1001:one',admin_product_id:1001}));
+  let sends=0;const r=await nativeTick(env,Date.now(),async(url,options)=>{
+    if(url.includes('sendPhoto')){sends++;assert.match(options.body,/1001/);return Response.json({ok:true,result:{message_id:940}});}
+    if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/jpeg'}});
+    return Response.json({products:[card(Number(new URL(url).searchParams.get('nm')))]});
+  });assert.equal(r.results.post.product_id,1001);assert.equal(sends,1);
+});
+test('invalid requested card cancels the request instead of sending a different card',async t=>{
+  const env=environment(t);await seed(env,[{...item(1000),product:500},item(1001)]);
+  env.db.prepare("UPDATE scheduler_config SET post_request='queue:post:1000:invalid',status=json_patch(status,?)").run(JSON.stringify({admin_product_request:'queue:post:1000:invalid',admin_product_id:1000}));
+  const r=await nativeTick(env,Date.now(),async url=>{assert.ok(!url.includes('sendPhoto'));return Response.json({products:[card(1000)]});});
+  assert.equal(r.results.post.result,'requested_product_invalid');assert.equal(env.db.prepare('SELECT post_request FROM scheduler_config').get().post_request,null);
+  assert.equal(env.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1001').get().state,'ready');
+});
+
 test('bad price then valid next candidate posts in the SAME guarded cold invocation',async t=>{
   const env=environment(t);await seed(env,[{...item(1000),product:500},item(1001)]);let sent=0;
   env.DB={...env.DB};env.counter.queries=0;

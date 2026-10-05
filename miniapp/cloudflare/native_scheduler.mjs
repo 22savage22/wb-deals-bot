@@ -195,6 +195,9 @@ async function publish(env,state,fetcher){
     const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
     let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
     const manual=current.row.post_request;
+    const requested=JSON.parse(current.row.status||'{}');
+    const preferred=manual&&requested.admin_product_request===manual?Number(requested.admin_product_id):0;
+    const cancelPreferred=async()=>{await runtime(env,{op:'consume',kind:'post',owner,request_id:manual});await status(env,{admin_product_result:'Товар не прошёл проверку или уже выбыл. Другая вещь вместо него не отправлена.',admin_product_id:null,admin_product_request:null});};
     if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
     if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     // A bad card cannot monopolize a due tick. Bound both work and wall time;
@@ -202,12 +205,13 @@ async function publish(env,state,fetcher){
     const started=Date.now();let consumed=false;
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
-      const item=choose(current.ready,current.recent,current.policy.total_posts+current.recent.length);
-      if(!item)return {result:'no_eligible_product'};
+      const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
+      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length);
+      if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid});
-      const deal=await validateQueued(env,item,current.policy,fetcher);if(!deal)continue;
+      const deal=await validateQueued(env,item,current.policy,fetcher);if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
@@ -268,7 +272,7 @@ async function publish(env,state,fetcher){
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
         q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
       ]);
-      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60});
+      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})});
       console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id};
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}

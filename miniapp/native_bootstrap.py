@@ -16,6 +16,13 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action == 'admin_snapshot':
+        # No commands, menu changes, test actors, Telegram sends or setting writes.
+        started = time.perf_counter()
+        snapshot = client.api('admin')
+        print('ADMIN_SNAPSHOT', json.dumps(snapshot, ensure_ascii=False))
+        print('ADMIN_SNAPSHOT_RTT_MS', round((time.perf_counter() - started) * 1000, 1))
+        return
     if action in ('owner_setup', 'owner_check'):
         if action == 'owner_setup':
             print('OWNER_MENU', json.dumps(client.api('owner/setup', 'POST', {}), ensure_ascii=False))

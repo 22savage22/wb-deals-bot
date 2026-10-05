@@ -5,7 +5,7 @@ on:
       action:
         description: Prepare D1, safely check, or execute one due tick
         type: choice
-        options: [prepare, diagnostic, production_recovery, check, tick, configure, post_now, recovery, admin_check, admin_invite, owner_setup, owner_check, feedback_setup, feedback_check, feedback_resolve, feedback_test]
+        options: [prepare, diagnostic, production_recovery, check, tick, configure, post_now, recovery, admin_check, admin_snapshot, admin_invite, owner_setup, owner_check, feedback_setup, feedback_check, feedback_resolve, feedback_test]
         default: check
       post_interval_minutes:
         description: Posting interval used only by configure; preserves all other D1 settings

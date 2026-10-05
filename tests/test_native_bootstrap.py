@@ -6,6 +6,13 @@ from miniapp import native_bootstrap as migration
 
 
 class NativeBootstrapTests(unittest.TestCase):
+    def test_admin_snapshot_does_not_dispatch_post_or_change_settings(self):
+        with patch.dict(os.environ, {'NATIVE_ACTION': 'admin_snapshot'}), \
+             patch.object(migration.client, 'api', return_value={'admin_version': 3}) as api, \
+             patch('builtins.print'):
+            migration.main()
+        self.assertEqual([c.args for c in api.call_args_list], [('admin',)])
+
     def test_incident_recovery_reuses_post_and_independent_cron_without_send(self):
         current = {'schedule': {'enabled': True, 'paused': False}, 'status': {
             'last_post_success': 1791153100, 'last_message_id': 2500,

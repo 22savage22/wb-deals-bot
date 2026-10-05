@@ -20,6 +20,10 @@ class RiverShadowTests(unittest.TestCase):
         result = train(batch)
         self.assertGreater(result['weights']['category=dress'], 0)
         self.assertEqual(result['comparison']['n'], 2)
+        self.assertEqual(result['comparison']['paired_observations'], 2)
+        self.assertEqual(result['comparison']['positive'], 2)
+        self.assertEqual(result['comparison']['losses'], 2)
+        self.assertEqual(result['comparison']['last_observation']['actual'], 'like')
         next_batch = {**batch, 'model': json.loads(json.dumps(result)), 'events': []}
         self.assertEqual(train(next_batch)['weights'], result['weights'])
         code = "import {predict} from './miniapp/cloudflare/learning.mjs'; console.log(predict(JSON.parse(process.argv[1]),{category:'dress',price:.6}));"

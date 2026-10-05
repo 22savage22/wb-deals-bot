@@ -117,7 +117,7 @@ async function route(request,env,ctx) {
       const pid=Number(overview.status.selected_product||0);
       const posting_debug={pid,claim:await prepare('SELECT status,ts FROM scheduler_claims WHERE pid=?',pid).first(),inventory:await prepare('SELECT state,retry_at,checked_at FROM scheduler_inventory WHERE pid=?',pid).first(),prior_post:await prepare('SELECT ts FROM scheduler_posts WHERE pid=? ORDER BY ts DESC LIMIT 1',pid).first()};
       const identity=await prepare("SELECT value FROM metadata WHERE key='owner_bot'").first(),username=identity?JSON.parse(identity.value).username:null;
-      return json({admin_version:2,...overview,learning,posting_debug,link:username?`https://t.me/${username}?start=admin`:null});
+      return json({admin_version:3,...overview,learning,posting_debug,link:username?`https://t.me/${username}?start=admin`:null});
     }
     if(path==='/api/scheduler/admin/invite'&&method==='POST'){
       if(!/^\d+$/.test(String(env.MINIAPP_ADMIN_ID))||!env.TG_BOT_TOKEN)fail(503,'Не настроен владелец');
@@ -154,9 +154,9 @@ async function route(request,env,ctx) {
     return json({ok:true});
   }
   if(path.startsWith('/api/admin/')&&!path.startsWith('/api/admin/schedule')&&!path.startsWith('/api/admin/products')){admin();const result=await adminRoute(request,env,{payload,fail,json,ctx});if(result)return result;}
-  if(path.startsWith('/api/admin/schedule')) {admin();if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
+  if(path.startsWith('/api/admin/schedule')) {admin();if(path.endsWith('/preview'))return adminRoute(request,env,{payload,fail,json,ctx});if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
-    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,admin_version:2,runtime_version:env.CF_VERSION?.id||null});
+    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,admin_version:3,runtime_version:env.CF_VERSION?.id||null});
   }
   if(path==='/api/catalog'&&method==='GET') {
     const [products,meta]=await Promise.all([catalog(),prepare("SELECT value FROM metadata WHERE key='synced_at'").first()]);
@@ -278,8 +278,8 @@ export default {
       }
       const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
       if(diagnostic)lane='diagnostic';
-      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status'].includes(path);
-      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
+      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status','/api/admin/overview','/api/admin/diagnostics','/api/admin/queue'].includes(path);
+      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }
     } catch(error) {

@@ -9,6 +9,8 @@ import {ensureLearning,importFeedback,recordEvent,shadowChoice,predict,features,
 import {nextPost} from './admin_api.mjs';
 import {createClient} from '../admin/client.mjs';
 import {nativeTick} from './native_scheduler.mjs';
+import {ensureReactions,vote} from './feedback.mjs';
+import {queueHealth,searchState,mainProblem} from '../admin/view.mjs';
 const now=()=>Math.floor(Date.now()/1000);
 function environment(){
   const db=new DatabaseSync(':memory:');db.exec(readFileSync(new URL('./schema.sql',import.meta.url),'utf8'));
@@ -175,4 +177,64 @@ test('LEARNING is blocked; exploration bounded 0–30; CAS prevents overwriting 
 });
 test('edge vector prediction is finite and product features do not collect personal data',()=>{
   const f=features({...product(1),user_id:100});assert.equal(f.user_id,undefined);assert.ok(f.price>0);assert.equal(predict({intercept:0,weights:{}},f),.5);assert.equal(predict({intercept:1000,weights:{}},f)<1,true);
+});
+
+test('overview honors persisted WB backoff; preview does not change 30-minute production settings',async()=>{
+  const e=environment();await prepared(e);const s={...DEFAULT_SCHEDULE,post_interval_minutes:30};
+  const retry=now()+7200;e.db.prepare('UPDATE scheduler_config SET data=?,revision=17,status=?').run(JSON.stringify(s),JSON.stringify({search_retry_at:retry,last_scan_attempt:now(),next_search:retry}));
+  const before=e.db.prepare('SELECT data,revision,status FROM scheduler_config').get();
+  const overview=await(await req(e,'/api/admin/overview')).json();assert.equal(overview.status.next_search,retry);
+  const preview=await(await req(e,'/api/admin/schedule/preview','POST',{schedule:{...s,post_interval_minutes:5}})).json();assert.equal(preview.preview,true);
+  assert.deepEqual(e.db.prepare('SELECT data,revision,status FROM scheduler_config').get(),before);e.db.close();
+});
+function inventory(e,n=15){for(let i=1;i<=n;i++)e.db.prepare('INSERT INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires) VALUES(?,?,?,?,?,?,?)').run(i,JSON.stringify(product(i)),'платья','dress'+i,100,now(),now()+86400);}
+test('queue pages are indexed and bounded; read/open never changes settings',async()=>{
+  const e=environment();await prepared(e);inventory(e);const before=e.db.prepare('SELECT data,revision FROM scheduler_config').get();
+  const calls=e.calls;assert.equal((await req(e,'/api/admin/queue','GET',null,22)).status,403);assert.equal(e.calls,calls);
+  assert.equal((await req(e,'/api/admin/schedule/preview','POST',{schedule:DEFAULT_SCHEDULE},22)).status,403);assert.equal(e.calls,calls);
+  const a=await(await req(e,'/api/admin/queue')).json();assert.equal(a.items.length,6);
+  const b=await(await req(e,'/api/admin/queue?cursor='+a.next_cursor)).json();assert.equal(b.items.length,6);assert.equal(b.items[0].pid,7);
+  assert.deepEqual(e.db.prepare('SELECT data,revision FROM scheduler_config').get(),before);
+  assert.match(JSON.stringify(e.db.prepare("EXPLAIN QUERY PLAN SELECT pid FROM scheduler_inventory WHERE state='ready' AND (queued_at,pid)>(100,6) ORDER BY queued_at,pid LIMIT 7").all()),/scheduler_inventory_order/);
+  assert.equal((await req(e,'/api/admin/queue?cursor=bad')).status,400);e.db.close();
+});
+test('queue actions are idempotent, preserve tombstones and reject active publication leases',async()=>{
+  const e=environment();await prepared(e);inventory(e);
+  const skip={action:'skip',pid:1,request_id:'real-fixture-id'};
+  assert.equal((await req(e,'/api/admin/queue','POST',skip)).status,202);
+  assert.equal(e.db.prepare('SELECT state FROM scheduler_inventory WHERE pid=1').get().state,'admin_skipped');
+  assert.equal((await(await req(e,'/api/admin/queue','POST',skip)).json()).duplicate,true);
+  assert.equal(e.db.prepare('SELECT ready FROM scheduler_counts').get().ready,14);
+  e.db.prepare("INSERT INTO scheduler_leases VALUES('post','running',?)").run(now()+60);
+  assert.equal((await req(e,'/api/admin/queue','POST',{action:'delete',pid:2,request_id:'blocked'})).status,409);
+  e.db.prepare('DELETE FROM scheduler_leases').run();
+  const before=e.db.prepare('SELECT data,revision FROM scheduler_config').get();
+  assert.equal((await req(e,'/api/admin/queue','POST',{action:'post',pid:2,request_id:'chosen-card'})).status,202);
+  const config=e.db.prepare('SELECT * FROM scheduler_config').get();assert.equal(JSON.parse(config.status).admin_product_id,2);assert.match(config.post_request,/chosen-card/);
+  assert.deepEqual({data:config.data,revision:config.revision},{...before});e.db.close();
+});
+test('materialized real totals survive vote changes/restart and exclude non-channel actors',async()=>{
+  const e=environment();await prepared(e);await ensureReactions(e);card(e,1);
+  await vote(e,{pid:1,voter:'local-only-A',action:'l',event_id:1});
+  const first=await(await req(e,'/api/admin/learning')).json();assert.equal(first.current_votes.likes,1);
+  await vote(e,{pid:1,voter:'local-only-A',action:'l',event_id:2});
+  await vote(e,{pid:1,voter:'local-only-A',action:'d',event_id:3});
+  await vote(e,{scope:'test',pid:1,voter:'local-only-B',action:'l',event_id:4});
+  const view=await(await req({...e},'/api/admin/learning')).json();assert.deepEqual(view.current_votes,{likes:0,dislikes:1,bought:0});
+  assert.equal(view.today_reactions,2,'two sentiment events, one current real vote');
+  assert.equal(view.config.mode,'SHADOW');assert.equal(view.learning_allowed,false);e.db.close();
+});
+test('bounded historical summary backfill is not repeated and live event triggers aggregate once',async()=>{
+  const e=environment();await prepared(e);card(e,1);
+  for(let i=0;i<120;i++)e.db.prepare('INSERT INTO learning_events(event_key,ts,pid,kind,weight,features) VALUES(?,?,?,?,?,?)').run('local'+i,now(),1,i%2?'like':'dislike',1,JSON.stringify(features(product(1))));
+  let view=await(await req(e,'/api/admin/learning')).json();assert.equal(view.backfill_complete,false);
+  view=await(await req(e,'/api/admin/learning')).json();assert.equal(view.backfill_complete,true);assert.equal(view.today_reactions,120);
+  await recordEvent(e,{key:'local-late',pid:1,kind:'buy'});
+  view=await(await req(e,'/api/admin/learning')).json();assert.equal(view.today_reactions,121);
+  assert.equal((await(await req(e,'/api/admin/learning')).json()).today_reactions,121);e.db.close();
+});
+test('human UI queue thresholds and backoff do not claim an ordinary 429 waiting period stops posting',()=>{
+  assert.deepEqual([50,49,29,9].map(n=>queueHealth(n).tone),['green','yellow','orange','red']);
+  const waiting=searchState(DEFAULT_SCHEDULE,{search_retry_at:1600,last_scan_error:'WB HTTP 429'},1000);assert.equal(waiting.tone,'yellow');assert.match(waiting.detail,/10 мин/);
+  assert.equal(mainProblem({cron_active:true,last_scan_error:'WB HTTP 429'}),'');
 });

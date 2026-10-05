@@ -66,3 +66,10 @@ test('shadow chooses visually but never controls Legacy; existing features and f
 test('photo URL allowlist does not permit arbitrary fetch or unrelated shards',()=>{
   assert.equal(photoURLs({image:'https://attacker.example/a.jpg'}).length,0);assert.equal(photoURLs({image:'https://basket-01.wbbasket.ru/vol1/part1/123/images/big/1.webp'}).length,2);
 });
+
+test('provider diagnostics redact credentials and distinguish capacity from daily quota',async()=>{
+  const e=await env();insert(e);e.AI.run=async()=>{throw new Error('3040 Capacity temporarily exceeded Bearer do-not-log-this-credential');};
+  const capacity=await visualRun(e,{force:true,fetcher:picture});assert.equal(capacity.error,'VISUAL_MODEL_CAPACITY');assert.deepEqual(capacity.provider.codes,['3040']);assert.ok(!capacity.provider.detail.includes('do-not-log'));
+  e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{const err=new Error('AI upstream failure');err.cause={code:5016};throw err;};
+  const terms=await visualRun(e,{force:true,fetcher:picture});assert.equal(terms.error,'VISUAL_MODEL_TERMS_REQUIRED');assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);e.db.close();
+});

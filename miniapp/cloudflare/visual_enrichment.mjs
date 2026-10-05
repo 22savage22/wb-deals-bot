@@ -60,7 +60,15 @@ async function imageBytes(url,fetcher){
   const bytes=new Uint8Array(size);let at=0;for(const part of parts){bytes.set(part,at);at+=part.length;}
   return {bytes,hash:Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),n=>n.toString(16).padStart(2,'0')).join('')};
 }
-function errorCode(err){const s=String(err?.message||'');if(/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(/3036|allocation|neurons|429|quota/i.test(s))return 'VISUAL_FREE_QUOTA';if(/paid plan|5035/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(/VISUAL_[A-Z_]+/.test(s))return s.match(/VISUAL_[A-Z_]+/)[0];return 'VISUAL_MODEL_UNAVAILABLE';}
+function providerError(err){
+  // The AI binding has no credential in its input. Still never expose a raw
+  // exception/stack: bound output and redact URLs, auth fields and opaque IDs.
+  const source=[err?.message,err?.code,err?.cause?.message,err?.cause?.code].filter(v=>typeof v==='string'||typeof v==='number').join(' ');
+  const codes=[...new Set(source.match(/\b(?:30\d{2}|50\d{2})\b/g)||[])].slice(0,3);
+  const detail=source.replace(/https?:\/\/\S+/gi,'[url]').replace(/(?:Bearer|token|secret|authorization|cookie)\s*[:=]?\s*\S+/gi,'[redacted]').replace(/[A-Za-z0-9_+\/=-]{24,}/g,'[opaque]').slice(0,300);
+  return {type:String(err?.name||'Error').replace(/[^A-Za-z0-9_]/g,'').slice(0,60),codes,detail};
+}
+function errorCode(err){const {detail:s,codes}=providerError(err);if(codes.includes('5016')||/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(codes.includes('5035')||/paid plan/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(codes.includes('3040'))return 'VISUAL_MODEL_CAPACITY';if(codes.includes('3036')||/allocation|neurons|quota/i.test(s))return 'VISUAL_FREE_QUOTA';if(/VISUAL_[A-Z_]+/.test(s))return s.match(/VISUAL_[A-Z_]+/)[0];return 'VISUAL_MODEL_UNAVAILABLE';}
 async function infer(e,bytes){
   // Account Free plan is a hard no-billing boundary; never upgrade/enable paid models.
   const day=new Date().toISOString().slice(0,10);
@@ -123,7 +131,7 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
       const tomorrow=new Date();tomorrow.setUTCHours(24,1,0,0);
       const retry=quota?Math.floor(tomorrow.getTime()/1000):ts+Math.min(21600,300*2**Math.min(6,row.attempts))+Math.floor(Math.random()*61);
       await e.DB.batch([q(e,"UPDATE visual_queue SET attempts=attempts+1,retry_at=?,error=?,state=? WHERE pid=?",retry,code,row.attempts>=4&&!quota&&!blocked?'skipped':'pending',row.pid),q(e,'UPDATE visual_state SET last_error=?,enabled=CASE WHEN ? THEN 0 ELSE enabled END WHERE id=1',code,blocked?1:0)]);
-      console.log('VISUAL_DEFERRED',code);return {state:'deferred',pid:row.pid,error:code,retry_at:retry};
+      const provider=providerError(err);console.log('VISUAL_DEFERRED',code,JSON.stringify({type:provider.type,codes:provider.codes}));return {state:'deferred',pid:row.pid,error:code,retry_at:retry,provider};
     }
   }finally{await q(e,'UPDATE visual_state SET expires=0,lease=NULL WHERE id=1 AND lease=?',lease).run();}
 }

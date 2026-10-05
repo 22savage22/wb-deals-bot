@@ -133,6 +133,13 @@ test('no image/card means no admission, and incomplete queue does not shorten co
   assert.equal(searches,1);assert.equal(s.search_receipt.added,0);assert.equal(s.search_receipt.rejected.photo,1);
   assert.ok(s.next_search>=s.last_scan_attempt+1200);
 });
+
+test('guarded cold discovery plus THREE detailed cards/photos stays under 50 D1 calls',async t=>{
+  const env=environment(t);await seed(env,[]);env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true}));
+  const raw=env.DB;env.DB={...raw};env.counter.queries=0;
+  const r=await withReadBudget({...env,DISCOVERY_DB:raw},'core',25000,e=>nativeTick(e,Date.now(),async url=>url.includes('wbbasket')?new Response('photo',{headers:{'content-type':'image/webp'}}):Response.json({products:[card(9000),card(9001),card(9002)]})));
+  assert.equal(r.results.search.added,3);assert.ok(env.counter.queries<=50,'All guards + cold schema + photos: '+env.counter.queries);
+});
 test('prior failed claim cannot monopolize ready queue; next Cron safely publishes another ID',async t=>{
   const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001)]);
   env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.last_maintenance',?)").run(now);

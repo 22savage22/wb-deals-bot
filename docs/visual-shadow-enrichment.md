@@ -35,10 +35,12 @@ yet been freshly verified through that UI. Do not call this confirmed billing.
 If provider requires new license/paid permission, stop visual activation at that
 gate; do not accept a new binding legal agreement silently.
 
+One inference/execution; durable partial view resumes in a later execution,
+within waitUntil grace. CLI vision timeout40s is isolated from posting client12s.
 Persist profile per nmId and separately each successful photo analysis/hash.
 No repeated main-image inference if secondary/retry fails; no vision for a
 completed nmId on cron. New inventory INSERT triggers enqueue, existing inventory
-seed is bounded100, not a new source of WB products. Backlog is visible; this
+seed is bounded100, not a new source of WB products. This
 free bounded rate does NOT promise immediate analysis of all newly found cards.
 
 ## Evidence, features, combinations

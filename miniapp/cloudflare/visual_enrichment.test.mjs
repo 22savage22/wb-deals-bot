@@ -16,6 +16,7 @@ async function env(){
 }
 function insert(e,pid=123){const p={id:pid,title:'Футболка мужская',category:'Футболки',price:800,product:800,image:`https://basket-01.wbbasket.ru/vol1/part123/${pid}/images/big/1.webp`};e.db.prepare("INSERT INTO scheduler_inventory(pid,state,topic,title_key,data,queued_at,expires,checked_at) VALUES(?,'ready','shirt',?,?,1,9999999999,1)").run(pid,String(pid),JSON.stringify(p));return p;}
 const picture=async()=>new Response(new Uint8Array([1,2,3]),{headers:{'Content-Type':'image/webp'}});
+async function complete(e){let r=await visualRun(e,{force:true,fetcher:picture});if(r.state==='partial')r=await visualRun(e,{force:true,fetcher:picture});return r;}
 test('closed category vocab, visible evidence and unknowns: no title-only oversize/back/material',()=>{
   const a=normalizeAnalysis({group:'apparel',view:'front',fields:{fit:{value:'oversize',confidence:.95},color:{value:'black',confidence:.9,evidence:'Visible black body'},print_location:{value:'back',confidence:.99,evidence:'Title mentions back'},material:{value:'cotton',confidence:.99,evidence:'Looks soft'},sole:{value:'thick',confidence:.95,evidence:'unrelated'}}});
   assert.deepEqual(Object.keys(a.fields),['color']);
@@ -29,7 +30,7 @@ test('bounded interactions survive front/back merging; conflicting colors stay u
 });
 test('real photo pipeline, persistent cache/restart and future inventory enqueue do not change schedule',async()=>{
   const e=await env();insert(e);const before=e.db.prepare('SELECT * FROM scheduler_config').get();
-  const r=await visualRun(e,{force:true,fetcher:picture});assert.equal(r.state,'complete');assert.equal(e.calls,2);assert.equal(r.profile.images.length,2);assert.ok(r.profile.images[0].hash);assert.equal(r.profile.material,'unknown');
+  const r=await complete(e);assert.equal(r.state,'complete');assert.equal(e.calls,2);assert.equal(r.profile.images.length,2);assert.ok(r.profile.images[0].hash);assert.equal(r.profile.material,'unknown');
   assert.deepEqual(e.db.prepare('SELECT * FROM scheduler_config').get(),before);
   e.db.prepare("UPDATE visual_queue SET state='pending'").run();assert.equal((await visualRun({...e},{force:true,fetcher:()=>{throw new Error('must not refetch');}})).state,'cached');assert.equal(e.calls,2);
   insert(e,124);assert.equal(e.db.prepare('SELECT state FROM visual_queue WHERE pid=124').get().state,'pending');e.db.close();
@@ -37,7 +38,7 @@ test('real photo pipeline, persistent cache/restart and future inventory enqueue
 test('parallel jobs are serialized by persistent expiring lease',async()=>{
   const e=await env();insert(e);let release;const waiting=new Promise(r=>{release=r;});
   const first=visualRun(e,{force:true,fetcher:async()=>{await waiting;return picture();}});
-  await new Promise(r=>setImmediate(r));assert.equal((await visualRun(e,{force:true,fetcher:picture})).state,'busy');release();await first;
+  await new Promise(r=>setImmediate(r));assert.equal((await visualRun(e,{force:true,fetcher:picture})).state,'busy');release();await first;await complete(e);
   assert.equal(e.db.prepare('SELECT expires FROM visual_state').get().expires,0);
   e.db.prepare("UPDATE visual_state SET expires=1,lease='stale'").run();assert.equal((await visualRun(e,{force:true,fetcher:picture})).state,'idle');e.db.close();
 });
@@ -49,14 +50,14 @@ test('free quota, AI 429 and missing photo back off without changing real queue/
   assert.equal(JSON.parse(e.db.prepare('SELECT data FROM scheduler_config').get().data).post_interval_minutes,30);e.db.close();
 });
 test('visual feedback statistics are real, replay-safe, sparse and insufficient without five products',async()=>{
-  const e=await env();insert(e);await visualRun(e,{force:true,fetcher:picture});
+  const e=await env();insert(e);await complete(e);
   await recordEvent(e,{key:'actual-event-fixture',pid:123,kind:'like',ts:100});const event=e.db.prepare('SELECT features FROM learning_events').get();assert.equal(JSON.parse(event.features)['visual.fit=oversize'],1);
   await maintainVisualEvents(e,123);await maintainVisualEvents(e);await maintainVisualEvents(e,123);
   assert.equal(e.db.prepare('SELECT COUNT(*) AS n FROM visual_events').get().n,1);const s=await visualStatus(e);assert.equal(s.insights[0].likes,1);assert.equal(s.insights[0].products,1);assert.equal(s.insights[0].direction,'insufficient');
   assert.ok(e.db.prepare('EXPLAIN QUERY PLAN SELECT id FROM learning_events WHERE pid=123 AND id>0 ORDER BY id LIMIT 5').all().some(r=>r.detail.includes('learning_events_pid_id')));e.db.close();
 });
 test('shadow chooses visually but never controls Legacy; existing features and frozen comparison remain',async()=>{
-  const e=await env();const p=insert(e);await visualRun(e,{force:true,fetcher:picture});
+  const e=await env();const p=insert(e);await complete(e);
   const row=e.db.prepare('SELECT pid,data FROM scheduler_inventory WHERE pid=123').get();await shadowChoice(e,[row],row,100);
   const shadow=e.db.prepare('SELECT * FROM learning_shadow').get();assert.equal(JSON.parse(shadow.features)['visual.fit=oversize'],1);assert.equal(shadow.legacy_pid,123);
   await recordEvent(e,{key:'real-fixture',pid:123,kind:'dislike',ts:110});

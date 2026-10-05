@@ -100,6 +100,9 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now()}={}){
           const result=await infer(e,image.bytes),text=result?.response??result?.description;
           const analysis=normalizeAnalysis(text,{url,hash:image.hash,image_index:index});
           await q(e,'INSERT OR REPLACE INTO visual_images VALUES(?,?,?,?,?)',row.pid,index,url,image.hash,JSON.stringify(analysis)).run();analyses.push(analysis);
+          // One inference/execution fits waitUntil's 30s grace. Resume a second
+          // view next time using the durable first-image cache, never reinfer it.
+          if(index===0&&urls.length>1)return {state:'partial',pid:row.pid,images_cached:1};
         }catch(error){if(index&&analyses.length)break;throw error;}
       }
       const profile=mergeAnalyses(analyses,ts,VISUAL_MODEL);
@@ -128,15 +131,16 @@ export async function visualStatus(e){
 }
 export async function visualRoute(request,e,{json,fail}){
   const path=new URL(request.url).pathname;
-  if(path.endsWith('/status')&&request.method==='GET')return json(await visualStatus(e));
+  const response=data=>json({...data,d1:e.D1_METER?{...e.D1_METER,before_ledger_settlement:true}:null});
+  if(path.endsWith('/status')&&request.method==='GET')return response(await visualStatus(e));
   if(path.endsWith('/run')&&request.method==='POST'){
     // Keep first-run DDL separate from inference under the Free subrequest cap.
-    if(!await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first()){await ensureVisual(e);return json({state:'initialized',enabled:false});}
-    return json(await visualRun(e,{force:true}));
+    if(!await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v1'").first()){await ensureVisual(e);return response({state:'initialized',enabled:false});}
+    return response(await visualRun(e,{force:true}));
   }
   if(path.endsWith('/activate')&&request.method==='POST'){
     await ensureVisual(e);if(!await q(e,"SELECT pid FROM visual_profiles WHERE json_array_length(json_extract(profile,'$.feature_keys'))>=3 LIMIT 1").first())fail(409,'Сначала подтвердите полезный реальный visual profile');
-    await q(e,'UPDATE visual_state SET enabled=1 WHERE id=1').run();return json({enabled:true});
+    await q(e,'UPDATE visual_state SET enabled=1 WHERE id=1').run();return response({enabled:true});
   }
   fail(405,'Метод не поддерживается');
 }

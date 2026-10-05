@@ -52,7 +52,9 @@ export function photoURLs(p){
   return [first,extra||first.replace(/\/1\.(webp|jpg|png)$/,'/2.$1')].filter((v,i,a)=>a.indexOf(v)===i).slice(0,2);
 }
 async function imageBytes(url,fetcher){
-  const r=await fetcher(url,{signal:AbortSignal.timeout(5000),redirect:'error'});
+  // Workers supports follow/manual only. Manual never follows redirects;
+  // the non-2xx check below rejects them before any secondary host is fetched.
+  const r=await fetcher(url,{signal:AbortSignal.timeout(5000),redirect:'manual'});
   if(!r.ok||!r.headers.get('content-type')?.startsWith('image/'))throw new Error('VISUAL_IMAGE_UNAVAILABLE');
   if(Number(r.headers.get('content-length'))>512000)throw new Error('VISUAL_IMAGE_TOO_LARGE');
   const reader=r.body.getReader(),parts=[];let size=0;
@@ -68,7 +70,11 @@ function providerError(err){
   const detail=source.replace(/https?:\/\/\S+/gi,'[url]').replace(/(?:Bearer|token|secret|authorization|cookie)\s*[:=]?\s*\S+/gi,'[redacted]').replace(/[A-Za-z0-9_+\/=-]{24,}/g,'[opaque]').slice(0,300);
   return {type:String(err?.name||'Error').replace(/[^A-Za-z0-9_]/g,'').slice(0,60),codes,detail};
 }
-function errorCode(err){const {detail:s,codes}=providerError(err);if(codes.includes('5016')||/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(codes.includes('5035')||/paid plan/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(codes.includes('3040'))return 'VISUAL_MODEL_CAPACITY';if(codes.includes('3036')||/allocation|neurons|quota/i.test(s))return 'VISUAL_FREE_QUOTA';if(/VISUAL_[A-Z_]+/.test(s))return s.match(/VISUAL_[A-Z_]+/)[0];return 'VISUAL_MODEL_UNAVAILABLE';}
+function errorCode(err){
+  const internal=String(err?.message||'');
+  if(/^VISUAL_(FREE_QUOTA|IMAGE_UNAVAILABLE|IMAGE_TOO_LARGE|MODEL_TIMEOUT|INVALID_JSON|INVALID_PROFILE)$/.test(internal))return internal;
+  const {detail:s,codes}=providerError(err);if(codes.includes('5016')||/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(codes.includes('5035')||/paid plan/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(codes.includes('3040'))return 'VISUAL_MODEL_CAPACITY';if(codes.includes('3036')||/allocation|neurons|quota/i.test(s))return 'VISUAL_FREE_QUOTA';return 'VISUAL_MODEL_UNAVAILABLE';
+}
 async function infer(e,bytes){
   // Account Free plan is a hard no-billing boundary; never upgrade/enable paid models.
   const day=new Date().toISOString().slice(0,10);

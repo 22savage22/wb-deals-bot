@@ -15,7 +15,7 @@ async function env(){
   await ensureVisual(e);return e;
 }
 function insert(e,pid=123){const p={id:pid,title:'Футболка мужская',category:'Футболки',price:800,product:800,image:`https://basket-01.wbbasket.ru/vol1/part123/${pid}/images/big/1.webp`};e.db.prepare("INSERT INTO scheduler_inventory(pid,state,topic,title_key,data,queued_at,expires,checked_at) VALUES(?,'ready','shirt',?,?,1,9999999999,1)").run(pid,String(pid),JSON.stringify(p));return p;}
-const picture=async()=>new Response(new Uint8Array([1,2,3]),{headers:{'Content-Type':'image/webp'}});
+const picture=async(url,options)=>{assert.equal(options?.redirect,'manual');return new Response(new Uint8Array([1,2,3]),{headers:{'Content-Type':'image/webp'}});};
 async function complete(e){let r=await visualRun(e,{force:true,fetcher:picture});if(r.state==='partial')r=await visualRun(e,{force:true,fetcher:picture});return r;}
 test('closed category vocab, visible evidence and unknowns: no title-only oversize/back/material',()=>{
   const a=normalizeAnalysis({group:'apparel',view:'front',fields:{fit:{value:'oversize',confidence:.95},color:{value:'black',confidence:.9,evidence:'Visible black body'},print_location:{value:'back',confidence:.99,evidence:'Title mentions back'},material:{value:'cotton',confidence:.99,evidence:'Looks soft'},sole:{value:'thick',confidence:.95,evidence:'unrelated'}}});
@@ -37,7 +37,7 @@ test('real photo pipeline, persistent cache/restart and future inventory enqueue
 });
 test('parallel jobs are serialized by persistent expiring lease',async()=>{
   const e=await env();insert(e);let release;const waiting=new Promise(r=>{release=r;});
-  const first=visualRun(e,{force:true,fetcher:async()=>{await waiting;return picture();}});
+  const first=visualRun(e,{force:true,fetcher:async(url,options)=>{await waiting;return picture(url,options);}});
   await new Promise(r=>setImmediate(r));assert.equal((await visualRun(e,{force:true,fetcher:picture})).state,'busy');release();await first;await complete(e);
   assert.equal(e.db.prepare('SELECT expires FROM visual_state').get().expires,0);
   e.db.prepare("UPDATE visual_state SET expires=1,lease='stale'").run();assert.equal((await visualRun(e,{force:true,fetcher:picture})).state,'idle');e.db.close();
@@ -72,4 +72,10 @@ test('provider diagnostics redact credentials and distinguish capacity from dail
   const capacity=await visualRun(e,{force:true,fetcher:picture});assert.equal(capacity.error,'VISUAL_MODEL_CAPACITY');assert.deepEqual(capacity.provider.codes,['3040']);assert.ok(!capacity.provider.detail.includes('do-not-log'));
   e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{const err=new Error('AI upstream failure');err.cause={code:5016};throw err;};
   const terms=await visualRun(e,{force:true,fetcher:picture});assert.equal(terms.error,'VISUAL_MODEL_TERMS_REQUIRED');assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);e.db.close();
+});
+
+test('Workers-compatible manual redirects reject an image redirect without calling AI',async()=>{
+  const e=await env();insert(e);let fetches=0;
+  const result=await visualRun(e,{force:true,fetcher:async(url,options)=>{fetches++;assert.equal(options.redirect,'manual');return new Response(null,{status:302,headers:{Location:'https://attacker.example/image.jpg'}});}});
+  assert.equal(result.error,'VISUAL_IMAGE_UNAVAILABLE');assert.equal(fetches,1);assert.equal(e.calls,0);e.db.close();
 });

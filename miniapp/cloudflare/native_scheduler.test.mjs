@@ -66,8 +66,8 @@ test('known first eight search cards do not hide fresh products later in the res
   const env=environment(t);await seed(env,[]);
   env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true}));
   for(let id=1000;id<1008;id++)env.db.prepare('INSERT INTO products(id,data,checked_at) VALUES(?,?,?)').run(id,JSON.stringify(item(id)),Math.floor(Date.now()/1000));
-  const r=await nativeTick(env,Date.now(),async()=>Response.json({products:Array.from({length:16},(_,i)=>card(1000+i))}));
-  assert.equal(r.results.search.added,8);assert.equal(env.db.prepare('SELECT MIN(pid) AS id FROM scheduler_inventory').get().id,1008);
+  const r=await nativeTick(env,Date.now(),async url=>url.includes('wbbasket')?new Response('photo',{headers:{'content-type':'image/webp'}}):Response.json({products:Array.from({length:16},(_,i)=>card(1000+i))}));
+  assert.equal(r.results.search.added,3);assert.equal(env.db.prepare('SELECT MIN(pid) AS id FROM scheduler_inventory').get().id,1008);
 });
 test('search reports only admitted products, excluding aggregate trigger changes',async t=>{
   const env=environment(t);await seed(env,[]);
@@ -75,11 +75,63 @@ test('search reports only admitted products, excluding aggregate trigger changes
   const original=env.DB.prepare;
   const inflate=s=>({bind(...values){return inflate(s.bind(...values));},first:()=>s.first(),run:()=>s.run(),async all(){return {...await s.all(),meta:{changes:999}};}});
   env.DB.prepare=sql=>inflate(original(sql));
-  const r=await nativeTick(env,Date.now(),async()=>Response.json({products:Array.from({length:8},(_,i)=>card(4000+i))}));
+  const r=await nativeTick(env,Date.now(),async url=>url.includes('wbbasket')?new Response('photo',{headers:{'content-type':'image/webp'}}):Response.json({products:Array.from({length:8},(_,i)=>card(4000+i))}));
   assert.equal(r.results.search.added,2);
   const status=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
-  assert.equal(status.last_scan_valid,8);assert.equal(status.last_scan_added,2);
+  assert.equal(status.last_scan_valid,3);assert.equal(status.last_scan_added,2);
   assert.deepEqual(status.last_scan_new_ids,[4000,4001]);
+});
+
+test('429 persists provenance/backoff; minute and owner retries cannot burst; success resets stale errors',async t=>{
+  const env=environment(t);await seed(env,[]);
+  env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true}));
+  let calls=0;
+  const blocked=async()=>{calls++;return new Response('',{status:429,headers:{'Retry-After':'600','server':'WB-test'}});};
+  await nativeTick(env,Date.now(),blocked);
+  let s=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
+  assert.equal(s.last_scan_error_code,'WB HTTP 429');assert.equal(s.search_upstream_error.host,'search.wb.ru');
+  assert.equal(s.search_failures,1);assert.ok(s.search_retry_at>=s.last_scan_attempt+600);
+  for(let i=0;i<4;i++)await nativeTick(env,Date.now(),blocked);
+  env.db.prepare("UPDATE scheduler_config SET search_request='owner-click'").run();
+  await nativeTick(env,Date.now(),blocked);assert.equal(calls,1);
+  env.db.prepare("UPDATE scheduler_config SET status=json_set(status,'$.search_retry_at',0,'$.next_search',0,'$.last_scan_attempt',0)").run();
+  await nativeTick(env,Date.now(),async url=>url.includes('wbbasket')?new Response('photo',{headers:{'content-type':'image/webp'}}):Response.json({products:[card(5000)]}));
+  s=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
+  assert.equal(s.search_failures,0);assert.equal(s.search_retry_at,0);assert.equal(s.last_scan_error_code,'');assert.equal(s.search_upstream_error,undefined);
+  assert.equal(s.last_search_add_receipt.origin,'cron');assert.deepEqual(s.last_scan_new_ids,[5000]);
+  assert.ok(env.db.prepare('SELECT checked_at FROM scheduler_inventory WHERE pid=5000').get().checked_at>0);
+});
+
+test('concurrent cold isolates issue ONE search; three validated images/cards fit Free query ceiling',async t=>{
+  const env=environment(t);await seed(env,[]);env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true}));
+  const env2={...env,DB:{...env.DB}};let searches=0,details=0,active=0,maxActive=0;env.counter.queries=0;
+  const live=async url=>{
+    active++;maxActive=Math.max(maxActive,active);
+    await new Promise(resolve=>setTimeout(resolve,1));active--;
+    if(url.includes('wbbasket'))return new Response('photo',{headers:{'content-type':'image/webp'}});
+    if(url.includes('search.wb.ru'))searches++;else details++;
+    return Response.json({products:[card(6000),card(6001),card(6002)]});
+  };
+  await Promise.all([nativeTick(env,Date.now(),live),nativeTick(env2,Date.now(),live)]);
+  assert.equal(searches,1);assert.equal(details,1);assert.equal(maxActive,1);
+  assert.equal(env.db.prepare('SELECT ready FROM scheduler_counts').get().ready,3);
+  assert.ok(env.counter.queries<=75,'Two concurrent ticks combined query ceiling: '+env.counter.queries);
+  env.db.prepare("UPDATE scheduler_config SET status=json_remove(status,'$.last_scan_attempt','$.next_search')").run();
+  env.counter.queries=0;await nativeTick(env,Date.now(),live);assert.ok(env.counter.queries<=50,'One discovery tick: '+env.counter.queries);
+  assert.equal(env.db.prepare('SELECT ready FROM scheduler_counts').get().ready,3,'known IDs never re-admitted');
+});
+
+test('no image/card means no admission, and incomplete queue does not shorten configured search interval',async t=>{
+  const env=environment(t);await seed(env,[]);env.db.prepare('UPDATE scheduler_config SET data=?').run(JSON.stringify({...DEFAULT_SCHEDULE,paused:true}));
+  let searches=0;const live=async url=>{
+    if(url.includes('wbbasket'))return new Response('',{status:404});
+    if(url.includes('search.wb.ru'))searches++;
+    return Response.json({products:[card(8000)]});
+  };
+  await nativeTick(env,Date.now(),live);await nativeTick(env,Date.now(),live);
+  const s=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
+  assert.equal(searches,1);assert.equal(s.search_receipt.added,0);assert.equal(s.search_receipt.rejected.photo,1);
+  assert.ok(s.next_search>=s.last_scan_attempt+1200);
 });
 test('prior failed claim cannot monopolize ready queue; next Cron safely publishes another ID',async t=>{
   const env=environment(t),now=Math.floor(Date.now()/1000);await seed(env,[item(1000),item(1001)]);

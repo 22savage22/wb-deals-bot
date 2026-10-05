@@ -3,6 +3,8 @@ import {ensureScheduler,validateSchedule,schedulerRoute} from './scheduler_api.m
 import {safeImage,normalize} from './domain.mjs';
 import {shadowChoice,explorationQuery} from './learning.mjs';
 import {repairReactions} from './feedback.mjs';
+import {searchDue,searchBackoff,retryAfter} from './search_backoff.mjs';
+import {withReadBudget} from './read_guard.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -59,7 +61,9 @@ async function runtime(env,body){
 async function status(env,patch){await q(env,"UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1",JSON.stringify(patch)).run();}
 async function source(url,fetcher){
   const r=await fetcher(url,{headers:{Accept:'application/json','Accept-Language':'ru-RU,ru;q=0.9'},redirect:'manual',signal:AbortSignal.timeout(10000)});
-  if(!r.ok){const error=new Error('WB HTTP '+r.status);error.status=r.status;error.retry_after=Math.min(3600,Math.max(300,Number(r.headers.get('Retry-After'))||300));throw error;}return r.json();
+  if(!r.ok){const error=new Error('WB HTTP '+r.status);error.status=r.status;error.retry_after=retryAfter(r.headers.get('Retry-After'),sec());
+    // Provenance only: never persist response bodies, cookies or credentials.
+    error.upstream={host:new URL(url).hostname,path:new URL(url).pathname,status:r.status,retry_after:error.retry_after,server:String(r.headers.get('server')||'').slice(0,80),content_type:String(r.headers.get('content-type')||'').slice(0,80),cf_ray:Boolean(r.headers.get('cf-ray'))};throw error;}return r.json();
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
@@ -75,7 +79,7 @@ export function cardDeal(card,policy={}){
   if((policy.blacklist||[]).some(w=>String(w)===String(p.id)||p.brand.toLowerCase().includes(String(w).toLowerCase())))return null;
   return p;
 }
-async function imageFor(env,p,fetcher){
+async function imageFor(env,p,fetcher,options={}){
   const vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
   // Reuse a genuinely observed shard for this volume, but verify this product's
   // image with a real GET. This is a hint, never evidence that an image exists.
@@ -109,7 +113,8 @@ async function imageFor(env,p,fetcher){
   }
   const start=Math.max(1,Number(p.photo_probe||1));
   for(let host=start;host<Math.min(start+6,51);host++)urls.push(`https://basket-${String(host).padStart(2,'0')}.wbbasket.ru/vol${vol}/part${part}/${p.id}/images/big/1.webp`);
-  for(const url of urls){
+  let probes=0;for(const url of urls){
+    if(options.deadline&&Date.now()>=options.deadline||options.maxProbes&&probes>=options.maxProbes)break;probes++;
     try{const r=await fetcher(url,{signal:AbortSignal.timeout(3000)});const okay=r.ok&&r.headers.get('content-type')?.startsWith('image/');await r.body?.cancel();if(okay)return {image:url};}catch{}
   }
   return {image:'',photo_probe:start+6,photo_exhausted:start+6>50};
@@ -258,21 +263,31 @@ async function search(env,state,fetcher){
   if(!state.policy.queries?.length)return {result:'not_configured'};
   const owner=crypto.randomUUID();if(!(await runtime(env,{op:'acquire',kind:'search',owner,ttl:90})).ok)return {result:'lock_busy'};
   try{
+    // Re-read AFTER taking the global lease: stale or owner requests cannot
+    // bypass a persistent cooldown in another isolate.
+    state=await readHeader(env);
     const now=sec(),old=JSON.parse(state.row.status||'{}'),cursor=Number(old.search_cursor||0),queries=state.policy.queries;
+    if(!searchDue(state.s,old,now,Boolean(state.row.search_request)))return {result:'backoff_or_not_due',next_search:Math.max(Number(old.next_search||0),Number(old.search_retry_at||0))};
+    if(state.count>=state.s.min_queue&&!state.row.search_request)return {result:'queue_full'};
+    // Admission before I/O also spaces retries after a killed invocation.
+    await status(env,{last_scan_attempt:now,next_search:now+state.s.search_interval_minutes*60,search_origin:env.SEARCH_ORIGIN||'cron'});
     const daily=(await q(env,'SELECT topic,COUNT(*) AS n FROM scheduler_deliveries INDEXED BY scheduler_deliveries_time WHERE ts>? GROUP BY topic',now-86400).all()).results;
+    const existing=(await q(env,"SELECT topic,COUNT(*) AS n FROM scheduler_inventory WHERE state='ready' AND expires>? GROUP BY topic",now).all()).results;
+    const counts=new Map(existing.map(r=>[r.topic,r.n]));
     const dailyCounts=new Map(daily.map(r=>[r.topic,r.n]));let offset=0;
-    while(offset<queries.length){const t=queries[(cursor+offset)%queries.length].toLowerCase();if(!state.policy.disabled_topics?.includes(t)&&(dailyCounts.get(t)||0)<8)break;offset++;}
-    await status(env,{last_scan_attempt:now,search_cursor:cursor+offset+1});
+    while(offset<queries.length){const t=queries[(cursor+offset)%queries.length].toLowerCase();if(!state.policy.disabled_topics?.includes(t)&&(dailyCounts.get(t)||0)<8&&(counts.get(t)||0)<8)break;offset++;}
+    await status(env,{search_cursor:cursor+offset+1});
     if(offset===queries.length)return {result:'daily_topics_at_cap'};
     let experiment=null;if(old.learning_initialized)try{experiment=await explorationQuery(env,queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
-    const query=experiment||queries[(cursor+offset)%queries.length];
+    const query=experiment&&(counts.get(experiment.toLowerCase())||0)<8?experiment:queries[(cursor+offset)%queries.length];
+    await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
     let response;try{response=await source(wbURL('search',{query,page:String(1+Math.floor(cursor/state.policy.queries.length)%5),sort:cursor%2?'popular':'newly',resultset:'catalog'}),fetcher);}catch(error){
       if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
       response=await source(wbURL('search',{query,page:'1',sort:'popular',dest:'123585633',resultset:'catalog'}),fetcher);
     }
-    const found=(response.products||response.data?.products||[]).slice(0,100),counts=new Map();
+    const found=(response.products||response.data?.products||[]).slice(0,100);
     // Filter known IDs/titles BEFORE the eight-card cap. Otherwise the first
     // eight already-known popular cards can hide every fresh result behind them.
     // All four probes use existing PK/title indexes; never load whole history.
@@ -282,20 +297,39 @@ async function search(env,state,fetcher){
       UNION SELECT CAST(pid AS TEXT),'pid' FROM scheduler_posts WHERE pid IN (SELECT value FROM json_each(?))
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
-    const existing=(await q(env,"SELECT topic,COUNT(*) AS n FROM scheduler_inventory WHERE state='ready' AND expires>? GROUP BY topic",now).all()).results;for(const r of existing)counts.set(r.topic,r.n);
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(!p||knownIDs.has(String(p.id))||knownTitles.has(titleKey(p)))continue;p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)continue;counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
-    const records=valid.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
+    const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0};
+    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;continue;}if(!p){rejected.filter++;continue;}if(knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    // Sequential verified-image batch, bounded independently of posting.
+    const verified=[],deadline=Date.now()+28000;
+    const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
+    const live=new Map((details.products||details.data?.products||[]).map(p=>[Number(p.id),p]));
+    for(const candidate of valid.slice(0,3)){
+      if(Date.now()>=deadline)break;
+      const p=cardDeal(live.get(candidate.id),state.policy);
+      if(!p){rejected.card_missing++;continue;}p.query=query;
+      const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
+      if(photo.image)verified.push({...p,image:photo.image,checked_at:now});else rejected.photo++;
+    }
+    const records=verified.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
-      SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,0,? FROM json_each(?)
+      SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,?,? FROM json_each(?)
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM products WHERE id=json_extract(value,'$.id'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_inventory WHERE title_key=json_extract(value,'$.title_key'))
-      AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ? RETURNING pid`,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).all();
+      AND (SELECT ready FROM scheduler_counts WHERE id=1)<? LIMIT ? RETURNING pid`,now,now,now+72*3600,JSON.stringify(records),state.s.min_queue,Math.max(0,state.s.min_queue-state.count)).all();
     // D1 meta.changes includes aggregate-trigger writes, not just new products.
     // RETURNING counts only the inventory rows actually admitted, no extra query.
     const newIDs=inserted.results.map(p=>Number(p.pid));
-    await status(env,{last_search_success:now,last_scan_success:now,last_scan_error:'',last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:valid.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:now+state.s.search_interval_minutes*60});
-    console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',valid.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
+    const finished=sec(),queueAfter=(await q(env,'SELECT ready FROM scheduler_counts WHERE id=1').first()).ready;
+    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',query,found:found.length,already_known:rejected.known,new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,products:verified.filter(p=>newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
+    await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:rejected.known,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+state.s.search_interval_minutes*60,search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
+    console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',verified.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
+  }catch(error){
+    const current=JSON.parse((await q(env,'SELECT status FROM scheduler_config WHERE id=1').first()).status);
+    const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);
+    const backoff=searchBackoff(current,error,sec());
+    await status(env,{...backoff,last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code,search_upstream_error:error.upstream||null});
+    console.log('WB_SEARCH_BACKOFF',JSON.stringify({code,...backoff,upstream:error.upstream||null}));return {result:'error',code,...backoff};
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }
 export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron'){
@@ -341,11 +375,21 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
       if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
       await status(env,{last_preflight:now});
     }
-    const noEligible=results.post?.result==='no_eligible_product',emptySearch=previous.last_scan_error||previous.last_scan_added===0;
-    const interval=state.count<state.s.min_queue||noEligible?(emptySearch?300:60):state.s.search_interval_minutes*60;
     // A successful send and a catalogue scan use separate minute ticks. This
     // keeps even a cold-isolate invocation inside the Free D1 query budget.
-    if(!results.post&&!results.preflight&&now>=Number(previous.search_retry_at||0)&&(state.row.search_request||state.s.search_enabled&&now>=Number(previous.last_scan_attempt||0)+interval))try{results.search=await search(env,state,fetcher);}catch(error){const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);await status(env,{last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code,search_retry_at:now+Number(error.retry_after||300)});results.search={result:'error',code};}
+    if(!results.post&&!results.preflight&&(state.count<state.s.min_queue||state.row.search_request)&&searchDue(state.s,previous,now,Boolean(state.row.search_request)))try{
+      // Separate accounting: discovery cannot spend the posting budget. The raw
+      // binding bypasses only the outer meter, never its own atomic admission.
+      results.search=await withReadBudget({...env,DB:env.DISCOVERY_DB||env.DB,SEARCH_ORIGIN:origin},'optional',15000,async e=>{
+        const result=await search(e,state,fetcher);
+        if(!['backoff_or_not_due','lock_busy','queue_full'].includes(result.result)){
+          // Official metadata of the completed discovery queries BEFORE this
+          // single receipt write, no database scanning for instrumentation.
+          const measured={...e.D1_METER,before_receipt_write:true};
+          await status(e,{last_search_d1:measured});console.log('WB_SEARCH_D1',JSON.stringify(measured));
+        }return result;
+      },{writes:256});
+    }catch(error){console.log('WB_SEARCH_DEFERRED',error.status===429?'DISCOVERY_BUDGET':'DISCOVERY_UNAVAILABLE');results.search={result:'deferred'};}
     // Repairs are bounded and run ONLY on otherwise idle ticks. Never add
     // reaction work to the near-50-query posting/search Free-plan invocation.
     if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}

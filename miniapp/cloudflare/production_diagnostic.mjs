@@ -15,9 +15,11 @@ export async function productionDiagnostic(env){
   const ready=(await q("SELECT pid,topic,retry_at,checked_at FROM scheduler_inventory WHERE state='ready' AND retry_at<=? AND expires>? ORDER BY queued_at,pid LIMIT 5",now,now).all()).results;
   const selected=Number(status.selected_product||0);
   const selected_state=await q("SELECT pid,state,retry_at,checked_at,json_extract(data,'$.title') AS title,json_extract(data,'$.product') AS queued_price,json_extract(data,'$.validation_price') AS validation_price,json_extract(data,'$.validation_error') AS validation_error,json_extract(data,'$.photo_probe') AS photo_probe FROM scheduler_inventory WHERE pid=?",selected).first();
+  const discovery_ids=(status.last_search_add_receipt?.new_ids||[]).slice(0,3);
+  const discovery_products=discovery_ids.length?(await q("SELECT pid,state,queued_at,checked_at,json_extract(data,'$.title') AS title,json_extract(data,'$.product') AS price,json_extract(data,'$.image') AS image FROM scheduler_inventory WHERE pid IN (SELECT value FROM json_each(?)) LIMIT 3",JSON.stringify(discovery_ids)).all()).results:[];
   return {now,day,runtime_version:env.CF_VERSION?.id||null,driver:env.SCHEDULER_DRIVER,
     schedule,revision:row.revision,status,posting_window:window,post_request:row.post_request,search_request:row.search_request,
-    queue_size:count?.ready||0,ready_sample:ready,selected_state,deliveries,leases,
+    queue_size:count?.ready||0,ready_sample:ready,selected_state,discovery_products,deliveries,leases,
     active_leases:leases.filter(r=>r.expires>now),recent_claims:claims,budget,
     measured_d1:{...meter.metrics,top_queries:meter.topQueries()}};
 }

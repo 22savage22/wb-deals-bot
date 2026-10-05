@@ -234,13 +234,13 @@ async function route(request,env,ctx) {
 }
 export default {
   async scheduled(controller,env){
-    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB};
+    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
     try{return await withReadBudget(runtimeEnv,'core',25000,e=>env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime):scheduledTick(e,controller.scheduledTime));}
     catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',quota?{retry_at:quota.retry_at}:{});throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
     finally{console.log('D1_BUDGET',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));}
   },
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
-    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB};
+    const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
     const url=new URL(request.url),publicCatalog=request.method==='GET'&&url.pathname==='/api/catalog';
     const cache=globalThis.caches?.default,cacheKey=new Request(new URL('/api/catalog',url.origin));
     let response;

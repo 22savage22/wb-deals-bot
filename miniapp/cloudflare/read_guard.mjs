@@ -1,8 +1,10 @@
 // Account quota protection for THIS Worker. Atomic UTC-day reservations are
 // shared by all isolates. Catalogue/user traffic cannot spend scheduler funds.
 import {observeD1} from './d1_budget.mjs';
-export const READ_LIMITS={core:1500000,optional:1500000,diagnostic:15000};
-export const WRITE_LIMITS={core:35000,optional:45000,diagnostic:500};
+// Same aggregate ceilings (3M reads / 80k writes), but discovery now uses
+// optional. Preserve headroom for 1440 unattended scheduler executions/day.
+export const READ_LIMITS={core:2000000,optional:1000000,diagnostic:15000};
+export const WRITE_LIMITS={core:50000,optional:30000,diagnostic:500};
 export class ReadBudgetError extends Error {constructor(){super('Дневной защитный бюджет базы исчерпан; повторите после 03:00 по Москве');this.status=429;}}
 export async function withReadBudget(env,lane,ceiling,operation,options={}){
   const day=new Date().toISOString().slice(0,10),q=(sql,...args)=>env.DB.prepare(sql).bind(...args);

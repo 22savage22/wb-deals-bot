@@ -9,21 +9,22 @@ const days=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
 const stamp=(ts,zone='Europe/Moscow')=>ts?new Intl.DateTimeFormat('ru-RU',{timeZone:zone,day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(ts*1000)):'Пока нет';
 function App(){
   const [screen,setScreen]=useState('home'),[data,setData]=useState(null),[schedule,setSchedule]=useState(null),[learning,setLearning]=useState(null),[diagnostic,setDiagnostic]=useState(null),[busy,setBusy]=useState(''),[message,setMessage]=useState(''),[error,setError]=useState('');
-  const lock=useRef(false),dirty=useRef(false),mounted=useRef(true);
+  const lock=useRef(false),dirty=useRef(false),baseRevision=useRef(null),mounted=useRef(true);
+  const [changed,setChanged]=useState(false);
   const zone=schedule?.timezone||'Europe/Moscow';
-  async function refresh(){const result=await client.api('/api/admin/overview');if(!mounted.current)return;setData(result);if(!dirty.current)setSchedule(result.schedule);return result;}
+  async function refresh(){const result=await client.api('/api/admin/overview');if(!mounted.current)return;setData(result);if(!dirty.current){baseRevision.current=result.revision;setSchedule(result.schedule);}return result;}
   useEffect(()=>{tg?.ready();tg?.expand();mounted.current=true;
     if(!tg?.initData){setError('Откройте управление через Telegram-бота. Доступ есть только у владельца.');return;}
     refresh().catch(e=>setError(e.message));
     const timer=setInterval(()=>{if(document.visibilityState==='visible'&&!lock.current)refresh().catch(()=>setError('Нет связи. Повторите после восстановления сети.'));},30000);
     return()=>{mounted.current=false;clearInterval(timer);};},[]);
   async function run(name,operation){if(lock.current)return;lock.current=true;setBusy(name);setError('');setMessage('');try{await operation();if(name!=='load')setMessage(name==='save'?'Настройки сохранены':name==='check'?'Проверка начата отдельно. Результат появится здесь; посты не создаются.':'Заявка принята. Выполнение — ближайшим Cron с учётом ограничений.');await refresh();}catch(e){setError(e.name==='TimeoutError'?'Ответ задержался. Повтор безопасен: заявка не задублируется.':e.message);}finally{lock.current=false;setBusy('');}}
-  function change(key,value){dirty.current=true;setSchedule(s=>({...s,[key]:value}));}
-  async function save(){await client.api('/api/admin/schedule','PUT',{schedule,revision:data.revision});dirty.current=false;}
+  function change(key,value){if(!schedule)return;dirty.current=true;setChanged(true);setSchedule(s=>({...s,[key]:value}));}
+  async function save(){if(!dirty.current||!Number.isInteger(baseRevision.current))return;await client.api('/api/admin/schedule','PUT',{schedule,revision:baseRevision.current});dirty.current=false;setChanged(false);}
   async function open(page){setScreen(page);setError('');if(page==='learn')await run('load',async()=>setLearning(await client.api('/api/admin/learning')));if(page==='diag')await run('load',async()=>setDiagnostic(await client.api('/api/admin/diagnostics')));}
   const action=(value)=>run(value,()=>client.action(value));
-  const button=(label,fn,mode='filled',pending=false)=><Button size="l" mode={mode} stretched disabled={!!busy||pending} onClick={fn}>{label}</Button>;
-  const presets=(key,values)=> <div className="presets">{values.map(n=><Button key={n} mode={schedule[key]===n?'filled':'gray'} disabled={!!busy} onClick={()=>change(key,n)}>{n===60?'1 час':n+' мин'}</Button>)}</div>;
+  const button=(label,fn,mode='filled',pending=false)=><Button size="l" mode={mode} stretched disabled={!!busy||pending||(label==='Сохранить расписание'&&!changed)} onClick={fn}>{label}</Button>;
+  const presets=(key,values)=> <div className="presets">{values.map(n=><Button key={n} mode={schedule[key]===n?'filled':'gray'} aria-pressed={schedule[key]===n} disabled={!!busy} onClick={()=>change(key,n)}>{n===60?'1 час':n+' мин'}</Button>)}</div>;
   const status=data?.status||{},problem=status.last_error||status.error||(!status.cron_active?'Планировщик не отвечает':status.watchdog_overdue?'Пост задерживается':null);
   const nav=<nav>{['home','schedule','learn','diag'].map((p,i)=><button key={p} aria-current={screen===p?'page':undefined} onClick={()=>open(p)}>{['Главная','Расписание','🧠 Обучение','Диагностика'][i]}</button>)}</nav>;
   if(!data)return <AppRoot><main><Placeholder header="Управление каналом" description={error||'Проверяем доступ…'}>{error?null:<Spinner size="l"/>}</Placeholder></main></AppRoot>;

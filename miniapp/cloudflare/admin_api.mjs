@@ -1,4 +1,4 @@
-import {schedulerRoute,ensureScheduler,validateSchedule} from './scheduler_api.mjs';
+import {schedulerRoute,ensureScheduler,validateSchedule,DEFAULT_SCHEDULE} from './scheduler_api.mjs';
 import {postingWindow,postDue,checkAutopost} from './native_scheduler.mjs';
 import {withReadBudget} from './read_guard.mjs';
 import {learningRoute} from './learning.mjs';
@@ -42,9 +42,15 @@ export async function adminRoute(request,e,helpers){
     return json({worker:true,d1:true,cron:s.cron_active,telegram:s.native_credentials_ok,wb_source:!s.last_scan_error,last_search:s.last_search_success||s.last_scan_success,queue_size:s.queue_size,heartbeat:s.last_automatic_tick||s.clock_heartbeat,last_error:s.last_error||s.error||s.last_scan_error||'',budget:budget.results,budget_note:'Счётчик Worker, не полный биллинг аккаунта'});
   }
   if(path==='/api/admin/overview'){
-    await ensureScheduler(e);
-    const row=await e.DB.prepare('SELECT c.*,(SELECT ready FROM scheduler_counts WHERE id=1) AS ready,(SELECT MAX(ts) FROM scheduler_posts) AS latest FROM scheduler_config c WHERE id=1').first();
-    const s=validateSchedule(JSON.parse(row.data)),status=JSON.parse(row.status),now=Math.floor(Date.now()/1000),wall=postingWindow(s,now);
+    // A first admin view is read-only even if the scheduler was never provisioned.
+    let row;
+    try{row=await e.DB.prepare('SELECT c.*,(SELECT ready FROM scheduler_counts WHERE id=1) AS ready,(SELECT MAX(ts) FROM scheduler_posts) AS latest FROM scheduler_config c WHERE id=1').first();}
+    catch(error){if(/no such table/i.test(String(error.message)))fail(503,'Настройки расписания в D1 не созданы. Сохранение заблокировано.');throw error;}
+    if(!row)fail(503,'Настройки расписания в D1 не созданы. Сохранение заблокировано.');
+    const stored=JSON.parse(row.data);
+    // Admin must never display an invented default and later write it back over D1.
+    if(Object.keys(DEFAULT_SCHEDULE).some(key=>!Object.hasOwn(stored,key)))fail(503,'Настройки расписания в D1 неполные. Сохранение заблокировано.');
+    const s=validateSchedule(stored),status=JSON.parse(row.status),now=Math.floor(Date.now()/1000),wall=postingWindow(s,now);
     const lastSearch=Number(status.last_scan_attempt||0),searchInterval=(row.ready<s.min_queue?(status.last_scan_error||status.last_scan_added===0?5:1):s.search_interval_minutes)*60;
     return json({schedule:s,revision:row.revision,status:{...status,queue_size:row.ready,last_post_success:Math.max(row.latest||0,status.last_post_success||0),next_post:nextPost(s,row.latest||0,now),next_search:s.search_enabled||row.search_request?Math.max(now,lastSearch+searchInterval):null,posting_allowed:wall.allowed,cron_active:e.SCHEDULER_DRIVER==='cloudflare-native'&&now-Number(status.last_automatic_tick||0)<=180},operations:{post:row.post_request?{state:'queued',id:row.post_request}:null,search:row.search_request?{state:'queued',id:row.search_request}:null}});
   }

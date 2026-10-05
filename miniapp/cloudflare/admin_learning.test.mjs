@@ -36,6 +36,48 @@ test('public frontend CSP remains unchanged; admin shell does not expose private
   assert.equal(await admin.text(),'/admin/index.html');assert.match(admin.headers.get('content-security-policy'),/style-src 'self' 'unsafe-inline'/);
   assert.doesNotMatch(publicApp.headers.get('content-security-policy'),/unsafe-inline/);assert.equal(e.calls,0);e.db.close();
 });
+test('admin first open reads the exact D1 schedule without writing defaults or changing 30 minutes',async()=>{
+  const e=environment();await ensureScheduler(e);
+  const original=e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get();
+  const stored={...JSON.parse(original.data),post_interval_minutes:30,search_interval_minutes:60};
+  e.db.prepare('UPDATE scheduler_config SET data=?,revision=? WHERE id=1').run(JSON.stringify(stored),12345);
+  const before=e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get();
+  const overview=await(await req(e,'/api/admin/overview')).json();
+  assert.equal(overview.schedule.post_interval_minutes,30);
+  assert.equal(overview.schedule.search_interval_minutes,60);
+  assert.equal(overview.revision,12345);
+  assert.deepEqual(e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get(),before);
+  const direct=await(await req(e,'/api/admin/schedule')).json();
+  assert.equal(direct.schedule.post_interval_minutes,30);
+  assert.deepEqual(e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get(),before);
+  e.db.close();
+});
+test('first admin open cannot initialize a missing production scheduler with defaults',async()=>{
+  const e=environment();
+  assert.equal((await req(e,'/api/admin/overview')).status,503);
+  assert.equal(e.db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='scheduler_config'").get(),undefined);
+  e.db.close();
+});
+test('admin refuses an incomplete D1 schedule instead of showing and persisting a default',async()=>{
+  const e=environment();await ensureScheduler(e);
+  const row=e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get(),stored=JSON.parse(row.data);
+  delete stored.post_interval_minutes;
+  e.db.prepare('UPDATE scheduler_config SET data=? WHERE id=1').run(JSON.stringify(stored));
+  assert.equal((await req(e,'/api/admin/overview')).status,503);
+  const after=e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get();
+  assert.equal(after.data,JSON.stringify(stored));assert.equal(after.revision,row.revision);
+  e.db.close();
+});
+test('explicit interval change uses revision CAS and cannot overwrite a newer admin edit',async()=>{
+  const e=environment();await ensureScheduler(e);
+  const saved=await(await req(e,'/api/admin/overview')).json();
+  assert.equal((await req(e,'/api/admin/schedule','PUT',{schedule:{...saved.schedule,post_interval_minutes:30},revision:saved.revision})).status,200);
+  const current=await(await req(e,'/api/admin/overview')).json();
+  assert.equal(current.schedule.post_interval_minutes,30);
+  assert.equal((await req(e,'/api/admin/schedule','PUT',{schedule:{...saved.schedule,post_interval_minutes:5},revision:saved.revision})).status,409);
+  assert.equal((await(await req(e,'/api/admin/overview')).json()).schedule.post_interval_minutes,30);
+  e.db.close();
+});
 test('queued buttons return without any WB/Telegram fetch, coalesce devices and survive runtime restart',async()=>{
   const e=environment();await ensureScheduler(e);const original=globalThis.fetch;globalThis.fetch=()=>assert.fail('Button must not call the network');
   try{

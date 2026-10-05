@@ -5,6 +5,7 @@ import {readFileSync} from 'node:fs';
 import {ensureScheduler} from './scheduler_api.mjs';
 import {ensureReactions,seedLegacy,vote,registerMessage,refreshMessage,repairReactions,processCallback,handleMainUpdate,webhookSecret,reactionChannel} from './feedback.mjs';
 import worker from './worker.mjs';
+import {handleOwnerCommand,setupOwnerMenu} from './owner_commands.mjs';
 const markup={inline_keyboard:[[{text:'WB',url:'https://www.wildberries.ru/catalog/123/detail.aspx'}],[{text:'👍 0',callback_data:'l123'},{text:'👎 0',callback_data:'d123'},{text:'🛒 Купил 0',callback_data:'b123'}],[{text:'Сохранить',url:'https://t.me/test_bot?start=save_123'}]]};
 async function env(t){
  const db=new DatabaseSync(':memory:');t.after(()=>db.close());db.exec(readFileSync(new URL('./schema.sql',import.meta.url),'utf8'));
@@ -18,6 +19,35 @@ const cast=r=>({...r});
 async function send(e,voter,action,event_id){return vote(e,{scope:'test:x',pid:123,voter,action,event_id});}
 async function saved(e){await registerMessage(e,{chat:'42',message_id:50,scope:'test:x',pid:123,markup});}
 const good=async(url,options)=>Response.json({ok:true,result:{message_id:50,reply_markup:JSON.parse(options.body).reply_markup}});
+test('main webhook replies to owner help/status/admin directly, deduplicates and preserves production schedule',async t=>{
+ const e=await env(t),ts=Math.floor(Date.now()/1000),sent=[];
+ e.db.prepare("UPDATE scheduler_config SET data=json_set(data,'$.post_interval_minutes',30),status=json_set(status,'$.last_post_success',?,'$.last_search_success',?,'$.search_retry_at',?)").run(ts-60,ts-120,ts+300);
+ const before=e.db.prepare('SELECT data,revision FROM scheduler_config').get(),secret=await webhookSecret(e),original=globalThis.fetch;
+ globalThis.fetch=async(url,o)=>{assert.ok(url.endsWith('/sendMessage'));assert.ok(url.includes('/bot'+e.TG_BOT_TOKEN+'/'));sent.push(JSON.parse(o.body));return Response.json({ok:true,result:{message_id:100+sent.length}});};
+ const update=(id,text,user=42)=>({update_id:id,message:{message_id:id,from:{id:user},chat:{id:user,type:'private'},text}});
+ const invoke=u=>worker.fetch(new Request('https://example.test/telegram/main/webhook',{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Bot-Api-Secret-Token':secret},body:JSON.stringify(u)}),e,{waitUntil:()=>assert.fail('basic commands need no poller or background jobs')});
+ try{
+  for(const [i,command] of ['help','status','admin'].entries())assert.equal((await invoke(update(200+i,'/'+command))).status,200);
+  assert.equal(sent.length,3);assert.match(sent[1].text,/Интервал публикации: 30 мин/);assert.match(sent[1].text,/WB backoff: до/);
+  assert.equal(sent[2].reply_markup.inline_keyboard[0][0].web_app.url,'https://example.test/admin');
+  await invoke(update(202,'/admin'));assert.equal(sent.length,3);
+  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates').get().n,0);
+  assert.deepEqual(e.db.prepare('SELECT data,revision FROM scheduler_config').get(),before);
+  for(const command of ['help','status','admin'])assert.equal(JSON.parse(e.db.prepare('SELECT value FROM metadata WHERE key=?').get('owner_command_'+command).value).state,'sent');
+  await invoke(update(203,'/admin',43));assert.match(sent.at(-1).text,/только у владельца/);assert.equal(sent.at(-1).reply_markup,undefined);
+ }finally{globalThis.fetch=original;}
+});
+test('owner menu is scoped to owner; ambiguous send never duplicates on redelivery',async t=>{
+ const e=await env(t),calls=[];
+ const fetcher=async(url,o)=>{const method=url.split('/').at(-1),body=JSON.parse(o.body);calls.push({method,body});return Response.json({ok:true,result:method==='getMe'?{id:1,username:'WBmarket'}:method==='getChatMenuButton'?{web_app:{url:'https://example.test/admin'}}:true});};
+ assert.equal((await setupOwnerMenu(e,'https://example.test',fetcher)).menu_ok,true);
+ assert.equal(calls.find(c=>c.method==='setChatMenuButton').body.chat_id,42);
+ assert.deepEqual(calls.find(c=>c.method==='setMyCommands').body.scope,{type:'chat',chat_id:42});
+ const update={update_id:600,message:{from:{id:42},chat:{id:42,type:'private'},text:'/admin'}};let sends=0;
+ const timeout=async()=>{sends++;throw Error('timeout');};
+ assert.equal((await handleOwnerCommand(e,update,'https://example.test',timeout)).uncertain,true);
+ assert.equal((await handleOwnerCommand({...e},update,'https://example.test',timeout)).duplicate,true);assert.equal(sends,1);
+});
 test('channel username resolves to persistent numeric identity without changing scheduler policy or sending votes',async t=>{
  const e=await env(t);
  e.db.prepare('UPDATE scheduler_policy SET data=? WHERE id=1').run(JSON.stringify({chat_id:'@example_channel'}));
@@ -83,9 +113,9 @@ test('main webhook acknowledges before ANY D1 call and persists before HTTP200',
  assert.deepEqual(methods,['answerCallbackQuery','editMessageReplyMarkup']);
  const noauth=await worker.fetch(new Request('https://test/telegram/main/webhook',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}),e);assert.equal(noauth.status,403);
 });
-test('owner commands survive webhook transition, other users are not retained',async t=>{
+test('extended legacy commands remain queued, other users are not retained',async t=>{
  const e=await env(t);
- await handleMainUpdate(e,{update_id:10,message:{chat:{id:42},from:{id:42},text:'/status'}});
+ await handleMainUpdate(e,{update_id:10,message:{chat:{id:42},from:{id:42},text:'/cfg'}});
  await handleMainUpdate(e,{update_id:11,message:{chat:{id:43},from:{id:43},text:'/status'}});
  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM reaction_admin_updates').get().n,1);
 });

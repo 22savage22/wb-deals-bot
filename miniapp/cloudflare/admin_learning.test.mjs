@@ -13,10 +13,10 @@ const now=()=>Math.floor(Date.now()/1000);
 function environment(){
   const db=new DatabaseSync(':memory:');db.exec(readFileSync(new URL('./schema.sql',import.meta.url),'utf8'));
   let calls=0;const wrap=(sql,args=[])=>({bind(...v){return wrap(sql,v);},async first(){calls++;return db.prepare(sql).get(...args)||null;},async all(){calls++;return {results:db.prepare(sql).all(...args),meta:{rows_read:1,rows_written:0}};},async run(){calls++;const changes=Number(db.prepare(sql).run(...args).changes);return {meta:{changes,rows_read:1,rows_written:changes}};}});
-  return {db,get calls(){return calls;},MINIAPP_BOT_TOKEN:'123:test-only',MINIAPP_ADMIN_ID:'11',MINIAPP_SYNC_KEY:'s'.repeat(40),MINIAPP_BOT_USERNAME:'test_bot',SCHEDULER_DRIVER:'cloudflare-native',DB:{prepare:wrap,async batch(statements){db.exec('BEGIN');try{const result=[];for(const s of statements)result.push(await s.run());db.exec('COMMIT');return result;}catch(e){db.exec('ROLLBACK');throw e;}}},ASSETS:{fetch:async r=>new Response(new URL(r.url).pathname)}};
+  return {db,get calls(){return calls;},TG_BOT_TOKEN:'456:main-test-only',MINIAPP_BOT_TOKEN:'123:test-only',MINIAPP_ADMIN_ID:'11',MINIAPP_SYNC_KEY:'s'.repeat(40),MINIAPP_BOT_USERNAME:'test_bot',SCHEDULER_DRIVER:'cloudflare-native',DB:{prepare:wrap,async batch(statements){db.exec('BEGIN');try{const result=[];for(const s of statements)result.push(await s.run());db.exec('COMMIT');return result;}catch(e){db.exec('ROLLBACK');throw e;}}},ASSETS:{fetch:async r=>new Response(new URL(r.url).pathname)}};
 }
-function signed(e,id=11,date=now()){
-  const fields={auth_date:String(date),user:JSON.stringify({id})},check=Object.keys(fields).sort().map(k=>k+'='+fields[k]).join('\n'),secret=createHmac('sha256','WebAppData').update(e.MINIAPP_BOT_TOKEN).digest();
+function signed(e,id=11,date=now(),token=e.TG_BOT_TOKEN){
+  const fields={auth_date:String(date),user:JSON.stringify({id})},check=Object.keys(fields).sort().map(k=>k+'='+fields[k]).join('\n'),secret=createHmac('sha256','WebAppData').update(token).digest();
   return new URLSearchParams({...fields,hash:createHmac('sha256',secret).update(check).digest('hex')}).toString();
 }
 const req=(e,path,method='GET',body,id=11,ctx)=>worker.fetch(new Request('https://test.example'+path,{method,headers:{'Content-Type':'application/json',...(id?{'X-Telegram-Init-Data':signed(e,id)}:{})},...(body?{body:JSON.stringify(body)}:{})}),e,ctx);
@@ -30,6 +30,22 @@ test('admin APIs reject non-owner, missing/expired/tampered initData BEFORE D1',
   for(const data of [signed(e,11,now()-4000),signed(e).replace('11','22')]){
     const before=e.calls,r=await worker.fetch(new Request('https://test.example/api/admin/learning',{headers:{'X-Telegram-Init-Data':data}}),e);assert.equal(r.status,401);assert.equal(e.calls,before);
   }e.db.close();
+});
+test('main-bot owner auth is isolated from public-bot sessions, including forged owner IDs',async()=>{
+  const e=environment();await ensureScheduler(e);
+  const call=(path,raw,method='GET')=>worker.fetch(new Request('https://test.example'+path,{method,headers:{'X-Telegram-Init-Data':raw}}),e);
+  const before=e.calls;
+  for(const id of [11,22])assert.equal((await call('/api/admin/overview',signed(e,id,now(),e.MINIAPP_BOT_TOKEN))).status,401);
+  assert.equal((await call('/api/admin/session',signed(e,22),'POST')).status,403);
+  assert.equal((await call('/api/admin/session',signed(e).replace('11','22'),'POST')).status,401);
+  assert.equal(e.calls,before,'denied users must not reach D1');
+  assert.equal((await call('/api/me',signed(e))).status,401,'main bot cannot authenticate public user endpoints');
+  assert.equal((await call('/api/me',signed(e,22,now(),e.MINIAPP_BOT_TOKEN))).status,200);
+  const settings=e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get();
+  assert.equal((await call('/api/admin/session',signed(e),'POST')).status,200);
+  assert.equal(JSON.parse(e.db.prepare("SELECT value FROM metadata WHERE key='owner_admin_open'").get().value).owner_verified,true);
+  assert.deepEqual(e.db.prepare('SELECT data,revision FROM scheduler_config WHERE id=1').get(),settings);
+  e.db.close();
 });
 test('public frontend CSP remains unchanged; admin shell does not expose private data',async()=>{
   const e=environment(),admin=await req(e,'/admin'),publicApp=await req(e,'/');

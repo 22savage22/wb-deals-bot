@@ -16,6 +16,11 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action in ('owner_setup', 'owner_check'):
+        if action == 'owner_setup':
+            print('OWNER_MENU', json.dumps(client.api('owner/setup', 'POST', {}), ensure_ascii=False))
+        print('OWNER_EVIDENCE', json.dumps(client.api('owner/status'), ensure_ascii=False))
+        return
     if action == 'diagnostic':
         print('PRODUCTION_DIAGNOSTIC', json.dumps(client.api('diagnostic'), ensure_ascii=False))
         return

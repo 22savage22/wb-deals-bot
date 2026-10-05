@@ -14,8 +14,8 @@ function App(){
   const zone=schedule?.timezone||'Europe/Moscow';
   async function refresh(){const result=await client.api('/api/admin/overview');if(!mounted.current)return;setData(result);if(!dirty.current){baseRevision.current=result.revision;setSchedule(result.schedule);}return result;}
   useEffect(()=>{tg?.ready();tg?.expand();mounted.current=true;
-    if(!tg?.initData){setError('Откройте управление через Telegram-бота. Доступ есть только у владельца.');return;}
-    refresh().catch(e=>setError(e.message));
+    if(!tg?.initData){setError('Откройте /admin в основном боте WBmarket. Доступ есть только у владельца.');return;}
+    client.api('/api/admin/session','POST',{}).then(refresh).catch(e=>setError(e.message));
     const timer=setInterval(()=>{if(document.visibilityState==='visible'&&!lock.current)refresh().catch(()=>setError('Нет связи. Повторите после восстановления сети.'));},30000);
     return()=>{mounted.current=false;clearInterval(timer);};},[]);
   async function run(name,operation){if(lock.current)return;lock.current=true;setBusy(name);setError('');setMessage('');try{await operation();if(name!=='load')setMessage(name==='save'?'Настройки сохранены':name==='check'?'Проверка начата отдельно. Результат появится здесь; посты не создаются.':'Заявка принята. Выполнение — ближайшим Cron с учётом ограничений.');await refresh();}catch(e){setError(e.name==='TimeoutError'?'Ответ задержался. Повтор безопасен: заявка не задублируется.':e.message);}finally{lock.current=false;setBusy('');}}

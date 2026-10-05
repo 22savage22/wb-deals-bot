@@ -8,10 +8,10 @@ import {telegramUser} from './auth.mjs';
 import {normalize,safeImage,build} from './domain.mjs';
 
 const token='123456789:test-token-not-real',now=Math.floor(Date.now()/1000);
-function signed(id=11,date=now) {
+function signed(id=11,date=now,signingToken=token) {
   const fields={auth_date:String(date),query_id:'test',user:JSON.stringify({id,first_name:'Test'})};
   const check=Object.keys(fields).sort().map(k=>`${k}=${fields[k]}`).join('\n');
-  const secret=createHmac('sha256','WebAppData').update(token).digest();
+  const secret=createHmac('sha256','WebAppData').update(signingToken).digest();
   return new URLSearchParams({...fields,hash:createHmac('sha256',secret).update(check).digest('hex')}).toString();
 }
 function environment() {
@@ -22,7 +22,7 @@ function environment() {
   return {db,MINIAPP_BOT_TOKEN:token,MINIAPP_SYNC_KEY:'s'.repeat(40),MINIAPP_ADMIN_ID:'11',MINIAPP_BOT_USERNAME:'test_bot',DB:{prepare:wrap,async batch(statements){db.exec('BEGIN');try{const result=[];for(const s of statements)result.push(await s.run());db.exec('COMMIT');return result;}catch(e){db.exec('ROLLBACK');throw e;}}},ASSETS:{fetch:async r=>new Response(new URL(r.url).pathname)},RATE_LIMITER:{limit:async()=>({success:true})}};
 }
 async function request(env,path,method='GET',body=undefined,id=11,headers={}) {
-  return worker.fetch(new Request('https://test.example'+path,{method,headers:{'Content-Type':'application/json',...(id?{'X-Telegram-Init-Data':signed(id)}:{}),...headers},...(body===undefined?{}:{body:JSON.stringify(body)})}),env);
+  return worker.fetch(new Request('https://test.example'+path,{method,headers:{'Content-Type':'application/json',...(id?{'X-Telegram-Init-Data':signed(id,now,path.startsWith('/api/admin/')?(env.TG_BOT_TOKEN='main:fixture'):token)}:{}),...headers},...(body===undefined?{}:{body:JSON.stringify(body)})}),env);
 }
 const raw=(id,title='Платье женское',price=1000,extras={})=>({id,title,price,checked_at:now,rating:4.8,image:'https://basket-01.wbbasket.ru/image.webp',...extras});
 async function sync(env,products){const r=await request(env,'/api/sync','POST',{products},null,{Authorization:'Bearer '+env.MINIAPP_SYNC_KEY});assert.equal(r.status,200,await r.clone().text());return r;}
@@ -76,7 +76,7 @@ test('user isolation, hidden saved products, preferences, outfits and scoped del
   assert.equal((await request(env,'/api/preferences','PUT',{budget:2000,occasion:'office'})).status,200);
   assert.equal((await request(env,'/api/outfits/saved','POST',{ids:[1,2],title:'Office'})).status,200);
   await request(env,'/api/admin/products/1','PUT',{slot:'dress',audience:'women',enabled:false});
-  let own=await(await request(env,'/api/me')).json();assert.equal(own.saved.length,1);assert.equal(own.products.length,2);assert.equal(own.preferences.budget,2000);assert.equal(own.is_admin,true);
+  let own=await(await request(env,'/api/me')).json();assert.equal(own.saved.length,1);assert.equal(own.products.length,2);assert.equal(own.preferences.budget,2000);assert.equal(own.is_admin,false);
   const other=await(await request(env,'/api/me','GET',undefined,22)).json();assert.deepEqual(other.saved,[]);assert.deepEqual(other.products,[]);assert.equal(other.is_admin,false);
   assert.equal((await request(env,'/api/admin/products','GET',undefined,22)).status,403);
   await request(env,'/api/outfits/saved/'+own.outfits[0].id,'DELETE',undefined,22);

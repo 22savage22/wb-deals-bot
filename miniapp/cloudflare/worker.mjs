@@ -10,11 +10,13 @@ import {productionDiagnostic} from './production_diagnostic.mjs';
 import {adminRoute} from './admin_api.mjs';
 import {learningRoute,recordEvent} from './learning.mjs';
 import {feedbackRoute,webhookSecret,telegram,handleMainUpdate} from './feedback.mjs';
+import {ownerCommand,handleOwnerCommand,setupOwnerMenu,ownerEvidence} from './owner_commands.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
 const json=(data,status=200)=>Response.json(data,{status});
 const second=()=>Math.floor(Date.now()/1000);
+const appToken=(env,path)=>path.startsWith('/api/admin/')?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN;
 const product=row=>({...JSON.parse(row.data),...JSON.parse(row.overrides)});
 const headers={
   'X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',
@@ -45,6 +47,14 @@ async function route(request,env,ctx) {
     const cb=update.callback_query,actor=cb?.from||update.message?.from,message=cb?.message||update.message;
     if(cb)console.log('REAL_CALLBACK_RECEIVED',JSON.stringify({update_id:update.update_id,message_id:message?.message_id,chat:message?.chat?.id,data:String(cb.data||'').slice(0,30),has_markup:Array.isArray(message?.reply_markup?.inline_keyboard),ack_ok:ackOK,ack_ms:ackMS}));
     const isOwner=String(actor?.id)===String(env.MINIAPP_ADMIN_ID)&&String(message?.chat?.id)===String(env.MINIAPP_ADMIN_ID);
+    if(ownerCommand(update)){
+      if(!isOwner){
+        if(!env.RATE_LIMITER||(await env.RATE_LIMITER.limit({key:'owner-denied:'+String(actor.id)})).success)await telegram(env,'sendMessage',{chat_id:message.chat.id,text:'Доступ к управлению только у владельца.'},fetch,4000).catch(()=>{});
+        return json({ok:true});
+      }
+      await withReadBudget(env,'core',100,e=>handleOwnerCommand(e,update,url.origin),{writes:24});
+      return json({ok:true});
+    }
     const isReaction=/^[ldb][1-9]\d{0,11}$/.test(cb?.data||'')&&Number.isSafeInteger(update.update_id)&&update.update_id>=0&&Number.isSafeInteger(cb?.from?.id)&&cb.from.id>0&&Number.isSafeInteger(message?.message_id)&&Array.isArray(message.reply_markup?.inline_keyboard)&&message.reply_markup.inline_keyboard.flat().some(b=>b.callback_data===cb.data);
     // Unrelated subscriber private messages are acknowledged, not retained or
     // charged a conservative "unknown" D1 reservation for a zero-query path.
@@ -70,9 +80,12 @@ async function route(request,env,ctx) {
         const owner=String(message.from?.id)===String(env.MINIAPP_ADMIN_ID);
         const wantsAdmin=message.text.startsWith('/admin')||command[1]==='admin';
         if(wantsAdmin&&!owner)return json({ok:true});
+        if(wantsAdmin){
+          ctx.waitUntil(fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(4000),body:JSON.stringify({chat_id:message.chat.id,text:'Админка открывается в основном боте WBmarket. Отправьте ему /admin.'})}).catch(()=>{}));
+          return json({ok:true});
+        }
         const app=new URL('/',url.origin);if(command[1])app.searchParams.set('tgWebAppStartParam',command[1]);
-        if(wantsAdmin){app.pathname='/admin';app.search='';}
-        const send=fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:message.chat.id,text:wantsAdmin?'Управление каналом — только для владельца.':'Добро пожаловать в «Находки»! Сохраняйте понравившиеся вещи и собирайте образы в своём бюджете.',reply_markup:{inline_keyboard:[[{text:wantsAdmin?'Открыть управление ⚙️':'Открыть находки ✨',web_app:{url:app.href}}]]}})}).then(r=>{if(!r.ok)throw new Error('Telegram delivery failed');});
+        const send=fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:message.chat.id,text:'Добро пожаловать в «Находки»! Сохраняйте понравившиеся вещи и собирайте образы в своём бюджете.',reply_markup:{inline_keyboard:[[{text:'Открыть находки ✨',web_app:{url:app.href}}]]}})}).then(r=>{if(!r.ok)throw new Error('Telegram delivery failed');});
         // No callback work blocks Telegram's acknowledgement; no credentials are logged.
         ctx.waitUntil(send.catch(()=>{}));
       }
@@ -90,6 +103,8 @@ async function route(request,env,ctx) {
   if(path.startsWith('/api/scheduler/')) {
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))fail(403,'Нет доступа');
+    if(path==='/api/scheduler/owner/setup'&&method==='POST')return json(await setupOwnerMenu(env,url.origin));
+    if(path==='/api/scheduler/owner/status'&&method==='GET')return json(await ownerEvidence(env,url.origin));
     if(path==='/api/scheduler/diagnostic'&&method==='GET')return json(await productionDiagnostic(env));
     if(path.startsWith('/api/scheduler/feedback')){const result=await feedbackRoute(request,env,{payload,json,fail});if(result)return result;}
     if(path==='/api/scheduler/admin/check'&&method==='POST'){
@@ -101,17 +116,18 @@ async function route(request,env,ctx) {
       const learning=await (await learningRoute(new Request('https://internal/api/admin/learning'),env,{payload,fail,json})).json();
       const pid=Number(overview.status.selected_product||0);
       const posting_debug={pid,claim:await prepare('SELECT status,ts FROM scheduler_claims WHERE pid=?',pid).first(),inventory:await prepare('SELECT state,retry_at,checked_at FROM scheduler_inventory WHERE pid=?',pid).first(),prior_post:await prepare('SELECT ts FROM scheduler_posts WHERE pid=? ORDER BY ts DESC LIMIT 1',pid).first()};
-      return json({admin_version:1,...overview,learning,posting_debug,link:`https://t.me/${env.MINIAPP_BOT_USERNAME}?start=admin`});
+      const identity=await prepare("SELECT value FROM metadata WHERE key='owner_bot'").first(),username=identity?JSON.parse(identity.value).username:null;
+      return json({admin_version:2,...overview,learning,posting_debug,link:username?`https://t.me/${username}?start=admin`:null});
     }
     if(path==='/api/scheduler/admin/invite'&&method==='POST'){
-      if(!/^\d+$/.test(String(env.MINIAPP_ADMIN_ID))||!env.MINIAPP_BOT_TOKEN)fail(503,'Не настроен владелец');
-      const claimed=await prepare("INSERT OR IGNORE INTO metadata(key,value) VALUES('admin_invite_v1',?)",JSON.stringify({state:'attempted',ts:second()})).run();
+      if(!/^\d+$/.test(String(env.MINIAPP_ADMIN_ID))||!env.TG_BOT_TOKEN)fail(503,'Не настроен владелец');
+      const claimed=await prepare("INSERT OR IGNORE INTO metadata(key,value) VALUES('admin_invite_main_v2',?)",JSON.stringify({state:'attempted',ts:second()})).run();
       if(claimed.meta.changes){
-        let result;try{result=await (await fetch(`https://api.telegram.org/bot${env.MINIAPP_BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},signal:AbortSignal.timeout(5000),body:JSON.stringify({chat_id:env.MINIAPP_ADMIN_ID,text:'Управление каналом готово. Расписание, поиск и наблюдение за обучением — в одном месте.',reply_markup:{inline_keyboard:[[{text:'Открыть управление ⚙️',web_app:{url:new URL('/admin',url.origin).href}}]]}})})).json();}catch{fail(503,'Статус доставки неизвестен. Используйте /admin в боте');}
+        let result;try{result=await telegram(env,'sendMessage',{chat_id:env.MINIAPP_ADMIN_ID,text:'⚙️ Управление каналом',reply_markup:{inline_keyboard:[[{text:'⚙️ Открыть админку',web_app:{url:new URL('/admin',url.origin).href}}]]}},fetch,4000);}catch{fail(503,'Статус доставки неизвестен. Используйте /admin в WBmarket');}
         if(!result.ok)fail(503,'Не удалось отправить владельцу; используйте /admin в боте');
-        await prepare("UPDATE metadata SET value=? WHERE key='admin_invite_v1'",JSON.stringify({state:'sent',message_id:result.result.message_id,ts:second()})).run();
+        await prepare("UPDATE metadata SET value=? WHERE key='admin_invite_main_v2'",JSON.stringify({state:'sent',message_id:result.result.message_id,ts:second()})).run();
       }
-      return json(JSON.parse((await prepare("SELECT value FROM metadata WHERE key='admin_invite_v1'").first()).value));
+      return json(JSON.parse((await prepare("SELECT value FROM metadata WHERE key='admin_invite_main_v2'").first()).value));
     }
     if(path.startsWith('/api/scheduler/learning')){await ensureScheduler(env);return learningRoute(request,env,{payload,fail,json});}
     if(path==='/api/scheduler/bootstrap'&&method==='POST') {
@@ -128,15 +144,19 @@ async function route(request,env,ctx) {
   const catalog=()=>catalogSnapshot(env.DB);
   let uid;
   if(!['/api/catalog','/api/sync','/api/health'].includes(path)) {
-    try{uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);}catch{fail(401,'Откройте приложение заново через Telegram');}
+    try{uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));}catch{fail(401,path.startsWith('/api/admin/')?'Откройте /admin в основном боте WBmarket':'Откройте приложение заново через Telegram');}
     // Optional Cloudflare rate-limiter binding. Identity comes only from verified Telegram data.
     if(env.RATE_LIMITER && !(await env.RATE_LIMITER.limit({key:String(uid)})).success)fail(429,'Слишком много запросов. Подождите минуту.');
   }
   const admin=()=>{if(!env.MINIAPP_ADMIN_ID||String(uid)!==String(env.MINIAPP_ADMIN_ID))fail(403,'Доступ только владельцу');};
+  if(path==='/api/admin/session'&&method==='POST'){
+    admin();await prepare("INSERT OR REPLACE INTO metadata VALUES('owner_admin_open',?)",JSON.stringify({at:second(),bot:'main',owner_verified:true,runtime_version:env.CF_VERSION?.id||null})).run();
+    return json({ok:true});
+  }
   if(path.startsWith('/api/admin/')&&!path.startsWith('/api/admin/schedule')&&!path.startsWith('/api/admin/products')){admin();const result=await adminRoute(request,env,{payload,fail,json,ctx});if(result)return result;}
   if(path.startsWith('/api/admin/schedule')) {admin();if(path==='/api/admin/schedule/check'&&method==='GET')return json(await checkAutopost(env));return schedulerRoute(request,env,{payload,fail,json,admin:true});}
   if(path==='/api/health'&&method==='GET') {
-    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,admin_version:1,runtime_version:env.CF_VERSION?.id||null});
+    await prepare('SELECT 1').first();return json({ok:true,configured:Boolean(env.MINIAPP_BOT_TOKEN&&env.MINIAPP_SYNC_KEY?.length>=32),d1_optimization_version:3,admin_version:2,runtime_version:env.CF_VERSION?.id||null});
   }
   if(path==='/api/catalog'&&method==='GET') {
     const [products,meta]=await Promise.all([catalog(),prepare("SELECT value FROM metadata WHERE key='synced_at'").first()]);
@@ -172,7 +192,7 @@ async function route(request,env,ctx) {
         SELECT product_id FROM saved WHERE user_id=? UNION
         SELECT CAST(j.value AS INTEGER) FROM outfits o,json_each(o.data,'$.ids') j WHERE o.user_id=?)`,uid,uid)
     ]);
-    return json({saved,outfits:rows.map(r=>({id:r.id,...JSON.parse(r.data)})),products:privateRows.map(product),preferences:pref?JSON.parse(pref.data):{},plan:'free',is_admin:Boolean(env.MINIAPP_ADMIN_ID)&&String(uid)===String(env.MINIAPP_ADMIN_ID)});
+    return json({saved,outfits:rows.map(r=>({id:r.id,...JSON.parse(r.data)})),products:privateRows.map(product),preferences:pref?JSON.parse(pref.data):{},plan:'free',is_admin:false});
   }
   if(path==='/api/me'&&method==='DELETE') {
     await env.DB.batch(['saved','outfits','preferences'].map(table=>prepare(`DELETE FROM ${table} WHERE user_id=?`,uid)));return json({ok:true});
@@ -254,11 +274,11 @@ export default {
       if(path.startsWith('/api/scheduler/')||path==='/api/sync'){
         const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'||path.startsWith('/api/scheduler/learning')||path.startsWith('/api/scheduler/feedback')?'optional':'core';
       }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
-        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),env.MINIAPP_BOT_TOKEN);budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
+        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
       }
       const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
       if(diagnostic)lane='diagnostic';
-      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic'].includes(path);
+      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status'].includes(path);
       response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }

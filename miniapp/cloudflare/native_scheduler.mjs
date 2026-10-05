@@ -3,7 +3,7 @@ import {ensureScheduler,validateSchedule,schedulerRoute} from './scheduler_api.m
 import {safeImage,normalize} from './domain.mjs';
 import {shadowChoice,explorationQuery} from './learning.mjs';
 import {repairReactions} from './feedback.mjs';
-import {searchDue,searchBackoff,retryAfter} from './search_backoff.mjs';
+import {searchDue,searchBackoff,retryAfter,nextSearchDelay} from './search_backoff.mjs';
 import {withReadBudget} from './read_guard.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
@@ -71,7 +71,7 @@ export function discoveryParams(policy,query,cursor){
   // "New to our database" does not mean an unrated, just-created WB listing.
   // Rotate pages/queries but search established goods, then apply the unchanged
   // local quality filters and independently re-check detailed current prices.
-  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'benefit',resultset:'catalog',...(policy.max_price>0?{priceU:`0;${Math.floor(policy.max_price*100)}`}:{})};
+  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'priceup',resultset:'catalog',...(policy.max_price>0?{priceU:`0;${Math.floor(policy.max_price*100)}`}:{})};
 }
 function rejectedCardReason(card,policy){
   const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
@@ -337,7 +337,7 @@ async function search(env,state,fetcher){
     const newIDs=inserted.results.map(p=>Number(p.pid));
     const finished=sec(),queueAfter=(await q(env,'SELECT ready FROM scheduler_counts WHERE id=1').first()).ready;
     const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',query,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
-    await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+state.s.search_interval_minutes*60,search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
+    await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+nextSearchDelay(state.s,newIDs.length),search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',verified.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
   }catch(error){
     const current=JSON.parse((await q(env,'SELECT status FROM scheduler_config WHERE id=1').first()).status);

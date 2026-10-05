@@ -22,7 +22,9 @@ the native D1 search lease and was not disabled on speculation.
 
 - Cron Trigger, posting selection/claims/send/retry and schedule data unchanged.
 - One search globally under a TTL lease; re-read state after acquisition.
-- Honor configured 20 minutes even when the queue is under target. Manual search
+- Honor configured 20 minutes after replenishment even when queue is under target.
+  A healthy zero-admission response rotates one query after 5 minutes (never 1).
+  Error backoff takes priority over this bounded recovery. Manual search
   retains a five-minute minimum gap and cannot bypass upstream cooldown.
 - Persist admission before network I/O so killed executions cannot retry each minute.
 - Exponential 300-second base (900 for 403), positive 0–25% jitter, six-hour cap;
@@ -30,9 +32,11 @@ the native D1 search lease and was not disabled on speculation.
   destination on 403/429. Auto resume after cooldown; success clears old error/code.
 - Skip saturated topics, preserve existing rotation, policy, history and SHADOW.
 - Pass the owner's existing price ceiling as search `priceU` (kopecks), keep
-  the local price/quality filter authoritative; rotate popular/benefit instead
+  the local price/quality filter authoritative; rotate popular/priceup instead
   of unrated newly-created listings. New means absent from our three databases,
   not necessarily newly listed on WB. Log separate filter rejection reasons.
+  Live run37302763677 proved old WB v9 ignored priceU (71 over-budget/2 rating/
+  27 known); never trust the request filter without rechecking actual card prices.
 - At most three newly found products: live detail batch, current real price,
   sequential verified image GETs, 28-second image deadline / six probes per card.
   Known IDs and title duplicates checked with existing indexed keys.

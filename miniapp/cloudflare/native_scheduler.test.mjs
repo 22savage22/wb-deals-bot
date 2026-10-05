@@ -18,7 +18,7 @@ const seed=(env,queue=[item()],posts=[])=>bootstrap(env,{queue,posts,policy:{cha
 test('server-side price budget and reviewed discovery preserve categories/pages and local filters',()=>{
   assert.deepEqual(discoveryParams({queries:['a','b'],max_price:1000},'b',3),{query:'b',page:'2',sort:'popular',resultset:'catalog',priceU:'0;100000'});
   assert.equal(discoveryParams({queries:['a'],max_price:0},'a',2).priceU,undefined);
-  assert.equal(discoveryParams({queries:['a'],max_price:1000},'a',2).sort,'benefit');
+  assert.equal(discoveryParams({queries:['a'],max_price:1000},'a',2).sort,'priceup');
   assert.equal(cardDeal(card(),{max_price:600}),null);
 });
 
@@ -137,7 +137,7 @@ test('no image/card means no admission, and incomplete queue does not shorten co
   await nativeTick(env,Date.now(),live);await nativeTick(env,Date.now(),live);
   const s=JSON.parse(env.db.prepare('SELECT status FROM scheduler_config').get().status);
   assert.equal(searches,1);assert.equal(s.search_receipt.added,0);assert.equal(s.search_receipt.rejected.photo,1);
-  assert.ok(s.next_search>=s.last_scan_attempt+1200);
+  assert.ok(s.next_search>=s.last_scan_attempt+300);
 });
 
 test('guarded cold discovery plus THREE detailed cards/photos stays under 50 D1 calls',async t=>{

@@ -1,5 +1,6 @@
 // Persistent admission/backoff; no RAM-only cooldown or sleeping retry loops.
 export const SEARCH_MIN_GAP=300;
+export function nextSearchDelay(schedule,added){return added===0?Math.min(schedule.search_interval_minutes*60,SEARCH_MIN_GAP):schedule.search_interval_minutes*60;}
 export function retryAfter(value,now){
   if(!value)return 0;
   const seconds=/^\d+$/.test(value.trim())?Number(value):Math.ceil(Date.parse(value)/1000)-now;
@@ -16,5 +17,8 @@ export function searchDue(schedule,status,now,manual=false){
   if(Number(status.search_failures||0)>0)return (schedule.search_enabled||manual)&&now>=Number(status.next_search||0);
   const interval=Math.max(SEARCH_MIN_GAP,schedule.search_interval_minutes*60);
   const last=Number(status.last_scan_attempt||0);
+  // A healthy but empty/filtered result rotates one query after FIVE minutes,
+  // not a burst per minute. Error cooldown always takes precedence above.
+  if(!manual&&status.search_receipt?.added===0&&Number(status.last_scan_success||0)>=last)return schedule.search_enabled&&now>=Number(status.last_scan_success||last)+nextSearchDelay(schedule,0);
   return manual?now>=last+SEARCH_MIN_GAP:schedule.search_enabled&&now>=Math.max(last+interval,Number(status.next_search||0));
 }

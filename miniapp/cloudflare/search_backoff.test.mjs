@@ -18,6 +18,11 @@ test('normal configured 20 minutes not shortened when queue needs refill',()=>{
   const s={search_enabled:true,search_interval_minutes:20},v={last_scan_attempt:1000,next_search:2200};
   assert.equal(searchDue(s,v,1060),false);assert.equal(searchDue(s,v,2199),false);assert.equal(searchDue(s,v,2200),true);
 });
+test('empty healthy result rotates after 5m, never minute bursts and never bypasses 429',()=>{
+  const s={search_enabled:true,search_interval_minutes:20},v={last_scan_attempt:1000,last_scan_success:1002,search_receipt:{added:0},next_search:2202};
+  assert.equal(searchDue(s,v,1060),false);assert.equal(searchDue(s,v,1301),false);assert.equal(searchDue(s,v,1302),true);
+  assert.equal(searchDue(s,{...v,search_retry_at:1800},1302),false);
+});
 test('manual request cannot bypass 429, minute ticks never retry during backoff; automatic recovery',()=>{
   const s={search_enabled:true,search_interval_minutes:20},v={last_scan_attempt:1000,...searchBackoff({}, {status:429},1000,()=>0)};
   for(const t of [1060,1120,1180,1240]){assert.equal(searchDue(s,v,t),false);assert.equal(searchDue(s,v,t,true),false);}

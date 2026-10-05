@@ -110,6 +110,34 @@ https://developers.cloudflare.com/workers-ai/platform/errors/
 https://developers.cloudflare.com/workers-ai/models/llama-3.2-11b-vision-instruct/
 Its actual D1 subtotal31reads/9writes (before ledger settlement), not billing.
 
+### Owner-approved three-product verification: license gate remains
+
+Owner explicitly approved Meta terms on 2026-10-05, with no paid plan, no
+payment method and no paid external Vision API. Commits `6299d08e` / `9d9572b8`
+add an idempotent agreement receipt, a frozen three-product sample, provider-only
+metering and hash-matched photos for human review. Managed build
+`3438cb0a-3de5-4ef5-9f29-8545d23a8d4c` and CI37348592183 succeeded;
+148 Worker tests and 14 Python unit tests passed.
+
+Live sample run37348900079 sent the documented `prompt: "agree"` via the AI
+binding but failed before accepting/storing a receipt or selecting the sample.
+Read-only run37349120184 confirms agreement outcome
+`VISUAL_MODEL_TERMS_REQUIRED`, request_id
+`c58099fb-3558-421d-812a-c5f4c9808774`, elapsed1457ms, terms=null,
+sample=null, profiles empty and automatic enrichment disabled. Do NOT claim
+terms accepted, tested profiles or actual Neurons from this failed request.
+Dashboard page observations (DOM and screenshot) timed out; no UI agreement,
+plan change, payment method or new token was created. Do not loop agreement
+requests; finish the account-level agreement in the official dashboard first.
+
+Fresh read-only production snapshot37349993925 succeeded at17:39UTC:
+30min/revision1791202121046 unchanged, real message2563/nmId325766592 at
+1791220161, following automatic tick1791221896 and matching chain2563.
+Queue44, last WB search1791221303 found100/added2 NEW IDs10961167,1331848233,
+backoff0/error empty. RiverSHADOW, real feedback70events. No manual post.
+Bulk activation is gated pending three real profiles plus actual free-budget
+verification; missing Neurons must stay unknown, not be replaced by an estimate.
+
 Readonly admin snapshot37344352509 confirms unchanged30min/revision1791202121046,
 enabled/unpaused/Cronactive, automatic real message2562/nmId237526454 at1791218301,
 independent tick1791219256>post and matching chain2562; queue42/post_retry0/error

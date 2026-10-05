@@ -31,9 +31,32 @@ Local checks: separate bot-token signatures, forged/non-owner denial before D1,
 direct webhook responses, duplicate/timeout protection, owner-scoped menu, and
 unchanged scheduler configuration. 126 Worker tests passed; asset build passed.
 
-Production acceptance is pending until the owner sends the three commands and
-personally opens the button in WBmarket. Do not treat fixture tests or a public
-HTTP health response as this acceptance.
+Production acceptance on 2026-10-05: the owner confirmed all three replies and
+personally opened the Admin Mini App from WBmarket showing 30 minutes.
+Worker build for commit da593264 succeeded; runtime
+`96c7b143-53d9-40b3-9dc2-8bb9bf957471`. Owner setup run 37323786401 verified
+`@WBmarket22_bot`, the chat-scoped menu, commands and existing main webhook.
+Read-only receipt run 37324406444 confirmed:
+
+| Command | Real Telegram update_id | Reply message_id | Handler latency |
+| --- | ---: | ---: | ---: |
+| /help | 810945046 | 2275 | 265 ms |
+| /status | 810945047 | 2277 | 164 ms |
+| /admin | 810945048 | 2279 | 117 ms |
+
+Authenticated admin open: at=1791210143, bot=main, owner_verified=true.
+Webhook pending updates=0, last_error empty. Production unsigned admin request
+returns 401; separate valid non-owner and public-bot signatures are denied in
+the automated authorization tests. No synthetic production commands or votes
+were used as acceptance evidence.
+
+Post-deployment diagnostic run 37324141205: interval=30, the unchanged revision
+1791202121046, enabled=true, paused=false, Cron active, automatic tick=1791210136,
+last post=2557, search_success=1791210019 (after deployment), search_retry_at=0,
+last_scan_error empty, queue=38. No manual publication was requested.
+Read-only feedback run 37324579396 also confirmed the existing real callback on
+channel message 2557: acknowledgement 23 ms, dirty=0, error empty, receipt present,
+webhook pending updates=0. No test reactions were sent.
 
 Official references:
 - https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app

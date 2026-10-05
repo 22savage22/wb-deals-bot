@@ -42,6 +42,18 @@ class RiverShadowTests(unittest.TestCase):
         batch['shadows'] = []
         self.assertEqual(train(batch)['comparison']['n'], 0)
 
+    def test_real_river_trains_visual_interactions_without_duplicate_events(self):
+        batch = self.batch()
+        f = json.loads(batch['events'][0]['features'])
+        f.update({'visual.color=black': 1, 'visual.fit=oversize': 1,
+                  'visual.combo=color:black+fit:oversize+print_location:back': 1})
+        batch['events'][0]['features'] = json.dumps(f)
+        result = train(batch)
+        self.assertGreater(result['weights']['visual.color=black'], 0)
+        self.assertGreater(result['weights']['visual.combo=color:black+fit:oversize+print_location:back'], 0)
+        self.assertEqual(result['trained_events'], 1)
+        self.assertEqual(result['cursor'], 1)
+
     def test_poll_acknowledges_entire_batch_before_handling_slow_commands(self):
         data = state._empty()
         updates = [{'update_id': i, 'callback_query': {'id': str(i), 'data': 'l123'}} for i in (1, 2)]

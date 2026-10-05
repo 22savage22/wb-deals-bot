@@ -8,6 +8,7 @@
   "preview_urls": false,
   "version_metadata": {"binding": "CF_VERSION"},
   "keep_vars": true,
+  "ai": {"binding": "AI"},
   "send_metrics": false,
   "assets": {
     "directory": "miniapp/public",

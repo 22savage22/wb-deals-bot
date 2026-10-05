@@ -1,6 +1,8 @@
 // River trains in Python; the edge only evaluates its bounded, data-only weights.
 // No pickle, credentials or Telegram user identities enter the learning store.
 import {adminInsights,maintainAdminSummaries} from './admin_insights.mjs';
+import {cachedProfiles,visualStatus} from './visual_enrichment.mjs';
+import {profileFeatures} from './visual_features.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/1000);
 export const LEARNING_DEFAULT={mode:'SHADOW',exploration_percent:10};
 const schema=[
@@ -45,9 +47,10 @@ export async function shadowChoice(e,rows,legacy,ts=now(),zone='Europe/Moscow'){
   const priors=new Map(stats.map(s=>[s.key,(s.positive+1)/(s.positive+s.negative+2)]));
   const prior=p=>priors.get(String(p.category||p.cat||p.query||'другое'))??.5;
   const candidates=rows.slice(0,300).map(r=>({row:r,p:JSON.parse(r.data)}));
-  const actual=JSON.parse(legacy.data),f=features(actual,ts,prior(actual),zone);
+  const profiles=await cachedProfiles(e,candidates.map(c=>c.row.pid)),actual=JSON.parse(legacy.data);
+  const visual=p=>profileFeatures(profiles.get(p.id)),f={...features(actual,ts,prior(actual),zone),...visual(actual)};
   // SHADOW NEVER changes the selected product, diversity or publication gates.
-  const best=candidates.map(c=>({...c,score:predict(model,features(c.p,ts,prior(c.p),zone))})).sort((a,b)=>b.score-a.score)[0];
+  const best=candidates.map(c=>({...c,score:predict(model,{...features(c.p,ts,prior(c.p),zone),...visual(c.p)})})).sort((a,b)=>b.score-a.score)[0];
   await q(e,'INSERT OR REPLACE INTO learning_shadow VALUES(?,?,?,?,?,?,?)',legacy.pid,ts,legacy.pid,best?.row.pid||legacy.pid,prior(actual),predict(model,f),JSON.stringify(f)).run();
 }
 export async function recordEvent(e,{key,pid,kind,ts=now(),weight=1}){
@@ -56,6 +59,7 @@ export async function recordEvent(e,{key,pid,kind,ts=now(),weight=1}){
   const shadow=await q(e,'SELECT features FROM learning_shadow WHERE pid=?',pid).first();
   let f=shadow?JSON.parse(shadow.features):null;
   if(!f){const row=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',pid).first()||await q(e,'SELECT data FROM products WHERE id=?',pid).first();if(!row)return {ignored:true};f=features(JSON.parse(row.data),ts);}
+  const cached=await cachedProfiles(e,[pid]);f={...f,...profileFeatures(cached.get(pid))};
   const r=await q(e,'INSERT OR IGNORE INTO learning_events(event_key,ts,pid,kind,weight,features) VALUES(?,?,?,?,?,?)',key,ts,pid,kind,weight,JSON.stringify(f)).run();return {added:!!r.meta.changes};
 }
 export async function importFeedback(e,rows){
@@ -96,7 +100,11 @@ export async function learningRoute(request,e,{payload,fail,json}){
   if(path.endsWith('/train')&&method==='GET'){
     const events=(await q(e,'SELECT * FROM learning_events WHERE id>? ORDER BY id LIMIT 500',model.cursor||0).all()).results;
     const ids=events.map(r=>r.pid);const shadows=(await q(e,'SELECT * FROM learning_shadow WHERE pid IN (SELECT value FROM json_each(?)) LIMIT 500',JSON.stringify(ids)).all()).results;
-    return json({config,model,events,shadows});
+    const profiles=await cachedProfiles(e,ids);
+    // Enrich only the still-untrained real events. No duplicate event/replay or
+    // retroactive change to the stored pre-delivery probability for comparison.
+    const enriched=events.map(row=>({...row,features:JSON.stringify({...JSON.parse(row.features),...profileFeatures(profiles.get(row.pid))})}));
+    return json({config,model,events:enriched,shadows});
   }
   if(path.endsWith('/train')&&method==='PUT'){
     const data=await payload(request,1024*1024),m=data.model;
@@ -115,5 +123,6 @@ export async function learningRoute(request,e,{payload,fail,json}){
   const all=await q(e,"SELECT * FROM learning_stats WHERE scope='all' AND key='all'").first(),today=await q(e,"SELECT * FROM learning_stats WHERE scope='day' AND key=?",new Date().toISOString().slice(0,10)).first(),categories=(await q(e,"SELECT * FROM learning_stats WHERE scope='category' ORDER BY events DESC LIMIT 30").all()).results;
   const comparison=model.comparison||{},enough=comparison.n>=200&&(comparison.posts||[]).length>=20&&now()-Number(comparison.first_ts||now())>=7*86400;
   const insights=await adminInsights(e);
-  return json({config,...insights,feedback_events:all?.events||0,feedback_weight:(all?.positive||0)+(all?.negative||0),today_events:today?.events||0,last_feedback:all?.last||0,model_updated_at:model.updated_at||0,trained_events:model.trained_events||0,categories:categories.map(c=>({...c,rate:(c.positive+1)/(c.positive+c.negative+2),reason:c.events<5?'Пока мало наблюдений':c.positive>=c.negative?'Больше положительных сигналов':'Больше отрицательных сигналов'})),comparison:{paired_observations:comparison.paired_observations||0,positive:comparison.positive??null,negative:comparison.negative??null,wins:comparison.wins??null,losses:comparison.losses??null,ties:comparison.ties??null,last_observation:comparison.last_observation||null,legacy_mean:comparison.paired_observations?comparison.legacy_sum/comparison.paired_observations:null,river_mean:comparison.paired_observations?comparison.river_sum/comparison.paired_observations:null,samples:comparison.n||0,minimum:200,minimum_posts:20,minimum_days:7,sufficient:enough,legacy_brier:enough?comparison.legacy_brier/comparison.n:null,river_brier:enough?comparison.river_brier/comparison.n:null,uplift:null,explanation:'River не публикует в SHADOW. Сравниваем его прогноз с исторической долей позитивных сигналов категории для товара, выбранного Legacy. Эффект публикаций River ещё неизвестен.'},legacy_fallback:true,learning_allowed:false});
+  const visual=await visualStatus(e),next_training=Math.floor(now()/1200)*1200+420+(now()%1200>=420?1200:0);
+  return json({config,...insights,visual,next_training,training_checked_at:model.checked_at||0,training_delayed:now()-Number(model.checked_at||model.updated_at||0)>3600,training_note:'План GitHub: каждые20 минут (07/27/47 UTC). Возможны задержки Actions; это не гарантия времени. Публикации от него не зависят.',feedback_events:all?.events||0,feedback_weight:(all?.positive||0)+(all?.negative||0),today_events:today?.events||0,last_feedback:all?.last||0,model_updated_at:model.updated_at||0,trained_events:model.trained_events||0,categories:categories.map(c=>({...c,rate:(c.positive+1)/(c.positive+c.negative+2),reason:c.events<5?'Пока мало наблюдений':c.positive>=c.negative?'Больше положительных сигналов':'Больше отрицательных сигналов'})),comparison:{paired_observations:comparison.paired_observations||0,positive:comparison.positive??null,negative:comparison.negative??null,wins:comparison.wins??null,losses:comparison.losses??null,ties:comparison.ties??null,last_observation:comparison.last_observation||null,legacy_mean:comparison.paired_observations?comparison.legacy_sum/comparison.paired_observations:null,river_mean:comparison.paired_observations?comparison.river_sum/comparison.paired_observations:null,samples:comparison.n||0,minimum:200,minimum_posts:20,minimum_days:7,sufficient:enough,legacy_brier:enough?comparison.legacy_brier/comparison.n:null,river_brier:enough?comparison.river_brier/comparison.n:null,uplift:null,explanation:'River не публикует в SHADOW. Сравниваем его прогноз с исторической долей позитивных сигналов категории для товара, выбранного Legacy. Эффект публикаций River ещё неизвестен.'},legacy_fallback:true,learning_allowed:false});
 }

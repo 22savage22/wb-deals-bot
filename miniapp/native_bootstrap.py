@@ -16,6 +16,11 @@ import wb
 
 def main():
     action = os.getenv('NATIVE_ACTION', 'prepare')
+    if action in ('visual_probe', 'visual_status', 'visual_activate'):
+        path = {'visual_probe': 'run', 'visual_status': 'status', 'visual_activate': 'activate'}[action]
+        result = client.api('learning/visual/' + path, 'GET' if path == 'status' else 'POST', None if path == 'status' else {})
+        print('VISUAL_RESULT', json.dumps(result, ensure_ascii=False))
+        return
     if action == 'admin_snapshot':
         # No commands, menu changes, test actors, Telegram sends or setting writes.
         started = time.perf_counter()

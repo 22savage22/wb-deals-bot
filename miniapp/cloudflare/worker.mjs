@@ -11,6 +11,7 @@ import {adminRoute} from './admin_api.mjs';
 import {learningRoute,recordEvent} from './learning.mjs';
 import {feedbackRoute,webhookSecret,telegram,handleMainUpdate} from './feedback.mjs';
 import {ownerCommand,handleOwnerCommand,setupOwnerMenu,ownerEvidence} from './owner_commands.mjs';
+import {visualRoute,visualRun} from './visual_enrichment.mjs';
 
 class HttpError extends Error {constructor(status,message){super(message);this.status=status;}}
 const fail=(status,message)=>{throw new HttpError(status,message);};
@@ -129,6 +130,7 @@ async function route(request,env,ctx) {
       }
       return json(JSON.parse((await prepare("SELECT value FROM metadata WHERE key='admin_invite_main_v2'").first()).value));
     }
+    if(path.startsWith('/api/scheduler/learning/visual/'))return visualRoute(request,env,{json,fail});
     if(path.startsWith('/api/scheduler/learning')){await ensureScheduler(env);return learningRoute(request,env,{payload,fail,json});}
     if(path==='/api/scheduler/bootstrap'&&method==='POST') {
       try{return json(await bootstrap(env,await payload(request,2*1024*1024)));}catch{fail(400,'Некорректные данные переноса');}
@@ -253,11 +255,17 @@ async function route(request,env,ctx) {
   fail(404,'Не найдено');
 }
 export default {
-  async scheduled(controller,env){
+  async scheduled(controller,env,ctx){
     const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
     try{return await withReadBudget(runtimeEnv,'core',25000,e=>env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime):scheduledTick(e,controller.scheduledTime));}
     catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',quota?{retry_at:quota.retry_at}:{});throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
-    finally{console.log('D1_BUDGET',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));}
+    finally{
+      console.log('D1_BUDGET',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));
+      // Independent optional work AFTER posting. Same minute trigger, no change
+      // to the owner's schedule. Disabled until a real vision probe succeeds.
+      if(env.AI&&ctx&&Math.floor(controller.scheduledTime/60000)%20===3)
+        ctx.waitUntil(withReadBudget(env,'optional',6000,e=>visualRun(e),{writes:2048}).catch(()=>console.log('VISUAL_OPTIONAL deferred; posting unaffected')));
+    }
   },
   async fetch(request,env,ctx={waitUntil:()=>{}}) {
     const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
@@ -279,7 +287,7 @@ export default {
       const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
       if(diagnostic)lane='diagnostic';
       const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status','/api/admin/overview','/api/admin/diagnostics','/api/admin/queue'].includes(path);
-      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
+      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path.startsWith('/api/scheduler/learning/visual/')?{writes:request.method==='GET'?4:2048}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }
     } catch(error) {

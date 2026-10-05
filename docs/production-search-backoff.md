@@ -29,6 +29,10 @@ the native D1 search lease and was not disabled on speculation.
   honor Retry-After seconds or HTTP date (up to one day). No immediate alternate
   destination on 403/429. Auto resume after cooldown; success clears old error/code.
 - Skip saturated topics, preserve existing rotation, policy, history and SHADOW.
+- Pass the owner's existing price ceiling as search `priceU` (kopecks), keep
+  the local price/quality filter authoritative; rotate popular/benefit instead
+  of unrated newly-created listings. New means absent from our three databases,
+  not necessarily newly listed on WB. Log separate filter rejection reasons.
 - At most three newly found products: live detail batch, current real price,
   sequential verified image GETs, 28-second image deadline / six probes per card.
   Known IDs and title duplicates checked with existing indexed keys.

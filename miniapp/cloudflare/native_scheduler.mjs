@@ -67,6 +67,20 @@ async function source(url,fetcher){
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
+export function discoveryParams(policy,query,cursor){
+  // "New to our database" does not mean an unrated, just-created WB listing.
+  // Rotate pages/queries but search established goods, then apply the unchanged
+  // local quality filters and independently re-check detailed current prices.
+  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'benefit',resultset:'catalog',...(policy.max_price>0?{priceU:`0;${Math.floor(policy.max_price*100)}`}:{})};
+}
+function rejectedCardReason(card,policy){
+  const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
+  if(!raw)return 'missing_price_or_stock';
+  if(policy.max_price&&raw.product>policy.max_price)return 'price';
+  if(raw.rating<Number(policy.min_rating??4.3))return 'rating';
+  if(raw.feedbacks<Number(policy.min_feedbacks??20))return 'reviews';
+  return 'blocked';
+}
 export function cardDeal(card,policy={}){
   const prices=(card?.sizes||[]).map(s=>s.price).filter(p=>p?.product>0&&p?.basic>=p.product);
   if(!card?.id||!card.name||!prices.length)return null;
@@ -282,10 +296,11 @@ async function search(env,state,fetcher){
     const query=experiment&&(counts.get(experiment.toLowerCase())||0)<8?experiment:queries[(cursor+offset)%queries.length];
     await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
-    let response;try{response=await source(wbURL('search',{query,page:String(1+Math.floor(cursor/state.policy.queries.length)%5),sort:cursor%2?'popular':'newly',resultset:'catalog'}),fetcher);}catch(error){
+    const params=discoveryParams(state.policy,query,cursor);
+    let response;try{response=await source(wbURL('search',params),fetcher);}catch(error){
       if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
-      response=await source(wbURL('search',{query,page:'1',sort:'popular',dest:'123585633',resultset:'catalog'}),fetcher);
+      response=await source(wbURL('search',{...params,page:'1',sort:'popular',dest:'123585633'}),fetcher);
     }
     const found=(response.products||response.data?.products||[]).slice(0,100);
     // Filter known IDs/titles BEFORE the eight-card cap. Otherwise the first
@@ -297,8 +312,8 @@ async function search(env,state,fetcher){
       UNION SELECT CAST(pid AS TEXT),'pid' FROM scheduler_posts WHERE pid IN (SELECT value FROM json_each(?))
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
-    const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0};
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;continue;}if(!p){rejected.filter++;continue;}if(knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0},filter_reasons={};
+    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     // Sequential verified-image batch, bounded independently of posting.
     const verified=[],deadline=Date.now()+28000;
     const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
@@ -321,7 +336,7 @@ async function search(env,state,fetcher){
     // RETURNING counts only the inventory rows actually admitted, no extra query.
     const newIDs=inserted.results.map(p=>Number(p.pid));
     const finished=sec(),queueAfter=(await q(env,'SELECT ready FROM scheduler_counts WHERE id=1').first()).ready;
-    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',query,found:found.length,already_known:knownIDs.size,new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,products:verified.filter(p=>newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
+    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',query,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
     await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+state.s.search_interval_minutes*60,search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',verified.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
   }catch(error){

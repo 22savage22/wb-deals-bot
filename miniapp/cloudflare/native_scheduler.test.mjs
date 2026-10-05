@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
-import {bootstrap,nativeTick,postingWindow,postDue,choose,cardDeal,checkAutopost} from './native_scheduler.mjs';
+import {bootstrap,nativeTick,postingWindow,postDue,choose,cardDeal,checkAutopost,discoveryParams} from './native_scheduler.mjs';
 import {DEFAULT_SCHEDULE} from './scheduler_api.mjs';
 import {withReadBudget} from './read_guard.mjs';
 function environment(t){
@@ -15,6 +15,12 @@ const image='https://basket-01.wbbasket.ru/vol0/part1/1000/images/big/1.webp';
 const item=(id=1000,query='платье женское')=>({id,title:'Платье женское '+id,product:700,basic:700,rating:4.8,feedbacks:100,query,category:'Платья',image,queued_ts:Math.floor(Date.now()/1000)});
 const card=(id=1000)=>({id,name:'Платье женское '+id,reviewRating:4.8,feedbacks:100,subjectName:'Платья',sizes:[{qty:10,price:{product:70000,basic:70000}}]});
 const seed=(env,queue=[item()],posts=[])=>bootstrap(env,{queue,posts,policy:{chat_id:'-100123456789',queries:['платье женское','сумка женская'],max_price:1000,min_rating:4.3}});
+test('server-side price budget and reviewed discovery preserve categories/pages and local filters',()=>{
+  assert.deepEqual(discoveryParams({queries:['a','b'],max_price:1000},'b',3),{query:'b',page:'2',sort:'popular',resultset:'catalog',priceU:'0;100000'});
+  assert.equal(discoveryParams({queries:['a'],max_price:0},'a',2).priceU,undefined);
+  assert.equal(discoveryParams({queries:['a'],max_price:1000},'a',2).sort,'benefit');
+  assert.equal(cardDeal(card(),{max_price:600}),null);
+});
 
 test('bad price then valid next candidate posts in the SAME guarded cold invocation',async t=>{
   const env=environment(t);await seed(env,[{...item(1000),product:500},item(1001)]);let sent=0;

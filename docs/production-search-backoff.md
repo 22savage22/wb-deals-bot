@@ -57,3 +57,38 @@ Normal Cloudflare Cron must create `last_search_add_receipt.origin=cron` with
 insertion, verified prices/images, matching D1 inventory rows, queue > 0 and a
 future next_search. Local fixtures, manual ticks and HTTP health are not proof.
 Do not create manual Telegram posts for this task.
+
+## Verified production acceptance (2026-10-05 14:31:37 Europe/Moscow)
+
+Read-only Actions https://github.com/22savage22/wb-deals-bot/actions/runs/37303717920
+SUCCESS, source-code commit88c853e23736cecd91207ef05c7393f9b8216205,
+Workerf829319b-c42a-4a52-87e7-ec3a75e30c73. Ordinary automatic Cron, no manual
+search request, tick or Telegram publication was used in this task.
+
+- WB SEARCH SUCCESS: `украшения женские`, `popular`, found100, already-known24.
+- Eight new policy-approved candidates; three independently detailed and
+  image-GET verified; INSERT RETURNING admitted3 genuinely new IDs.
+- Queue41 →44; all three persisted inventory rows `ready`, queued_at and
+  checked_at1791199891; search receipt1791199897, origin`cron`.
+- 1175578179, «Подвеска бижутерная крылья ангела на цепочке»,153₽.
+- 1161397082, «Женское ожерелье из нержавеющей стали D White-Necklace»,623₽.
+- 1141501376, «Серьги каффы без прокола на уши бижутерия»,546₽.
+- All verified images: basket-43.wbbasket.ru, each nmId's own
+  `/vol.../part.../<nmId>/images/big/1.webp`; links use those same IDs on WB.
+- Next search1791201097 (14:51:37 Moscow); search_retry_at0, error empty,
+  active leases empty; next ordinary tick1791199996 (14:33:16) > receipt.
+- Official D1 metadata for completed discovery before receipt-write:22queries,
+  1387rows_read/31rows_written (not mocked metadata or a whole-history scan).
+  This representative cycle×72 =99864reads/day for discovery, far below its1M
+  guard; this is an estimate, not a claim every query has identical cost.
+- Posting remained autonomous: ordinary posts2549/2550/2551 verified during
+  work; no posting branch/config/Cron trigger/reaction/UI/River changes.
+- 119 Worker tests passed, full CI37303181476SUCCESS, Workers Builds managed
+  deployment03a7cbba-911d-4f14-8d09-89acd869598fSUCCESS.
+
+The historical429 was an upstream HTTP response, not the Mini App private
+limiter. Its exact server-side threshold cannot be reconstructed from absent
+historical headers. Main verified local faults were stale429 status after
+success, overly frequent refill requests, fixed retry, and over-budget results
+that WB v9 did not exclude despite priceU. Do not claim the remote market will
+never throttle again: cooldown/persistent queue preserve normal operation.

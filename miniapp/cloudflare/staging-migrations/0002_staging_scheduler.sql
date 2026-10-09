@@ -1,0 +1,33 @@
+-- STAGING ONLY: wb-finds-visual-staging / 5779987d-1100-45ad-8cd4-9df9c1436a20
+-- Exported from the existing runtime init phase; live runner applies that phase.
+CREATE TABLE IF NOT EXISTS scheduler_inventory (pid INTEGER PRIMARY KEY,data TEXT NOT NULL,topic TEXT NOT NULL,title_key TEXT NOT NULL,queued_at INTEGER NOT NULL,checked_at INTEGER NOT NULL,expires INTEGER NOT NULL,state TEXT NOT NULL DEFAULT 'ready',retry_at INTEGER NOT NULL DEFAULT 0);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_ready ON scheduler_inventory(state,retry_at,expires);
+CREATE TABLE IF NOT EXISTS scheduler_policy (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS scheduler_deliveries (pid INTEGER NOT NULL,ts INTEGER NOT NULL,message_id INTEGER,topic TEXT NOT NULL,title_key TEXT NOT NULL,data TEXT NOT NULL,PRIMARY KEY(pid,ts));
+CREATE TABLE IF NOT EXISTS scheduler_config (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL,revision INTEGER NOT NULL,post_request TEXT,search_request TEXT,status TEXT NOT NULL DEFAULT '{}');
+CREATE TABLE IF NOT EXISTS scheduler_leases (kind TEXT PRIMARY KEY,owner TEXT NOT NULL,expires INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS scheduler_claims (pid INTEGER PRIMARY KEY,owner TEXT NOT NULL,ts INTEGER NOT NULL,status TEXT NOT NULL,request_id TEXT);
+CREATE TABLE IF NOT EXISTS scheduler_posts (pid INTEGER NOT NULL,ts INTEGER NOT NULL,PRIMARY KEY(pid,ts));
+CREATE TABLE IF NOT EXISTS scheduler_requests (kind TEXT NOT NULL,request_id TEXT NOT NULL,ts INTEGER NOT NULL,PRIMARY KEY(kind,request_id));
+CREATE TABLE IF NOT EXISTS scheduler_actions (request_id TEXT PRIMARY KEY,ts INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS scheduler_runtime (id INTEGER PRIMARY KEY CHECK(id=1),data TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS scheduler_posts_time ON scheduler_posts(ts);
+INSERT OR IGNORE INTO scheduler_config(id,data,revision) VALUES(1,'{"enabled":true,"paused":false,"mode":"interval","post_interval_minutes":10,"post_times":[],"weekdays":[0,1,2,3,4,5,6],"quiet_enabled":false,"quiet_start":"23:00","quiet_end":"07:00","search_enabled":true,"search_interval_minutes":20,"min_queue":100,"natural_interval_enabled":false,"jitter_minutes":2,"timezone":"Europe/Moscow","min_post_gap_minutes":5,"max_posts_hour":12,"max_posts_day":144}',1);
+INSERT OR IGNORE INTO scheduler_runtime(id,data) VALUES(1,'{}');
+CREATE INDEX IF NOT EXISTS scheduler_deliveries_topic_time ON scheduler_deliveries(topic,ts);
+CREATE INDEX IF NOT EXISTS scheduler_deliveries_time ON scheduler_deliveries(ts);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_title ON scheduler_inventory(title_key);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_topic_ready ON scheduler_inventory(state,topic,expires);
+CREATE INDEX IF NOT EXISTS scheduler_claims_time ON scheduler_claims(ts);
+CREATE INDEX IF NOT EXISTS scheduler_claims_status_time ON scheduler_claims(status,ts);
+CREATE INDEX IF NOT EXISTS scheduler_requests_time ON scheduler_requests(ts DESC);
+CREATE INDEX IF NOT EXISTS scheduler_actions_time ON scheduler_actions(ts);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_expiry ON scheduler_inventory(state,expires);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_order ON scheduler_inventory(state,queued_at,pid);
+CREATE INDEX IF NOT EXISTS scheduler_inventory_preflight ON scheduler_inventory(state,checked_at);
+CREATE TABLE IF NOT EXISTS scheduler_counts (id INTEGER PRIMARY KEY CHECK(id=1),ready INTEGER NOT NULL);
+INSERT OR IGNORE INTO scheduler_counts SELECT 1,COUNT(*) FROM scheduler_inventory WHERE state='ready';
+CREATE TRIGGER IF NOT EXISTS inventory_count_insert AFTER INSERT ON scheduler_inventory WHEN NEW.state='ready' BEGIN UPDATE scheduler_counts SET ready=ready+1 WHERE id=1; END;
+CREATE TRIGGER IF NOT EXISTS inventory_count_delete AFTER DELETE ON scheduler_inventory WHEN OLD.state='ready' BEGIN UPDATE scheduler_counts SET ready=ready-1 WHERE id=1; END;
+CREATE TRIGGER IF NOT EXISTS inventory_count_update AFTER UPDATE OF state ON scheduler_inventory WHEN OLD.state<>NEW.state BEGIN UPDATE scheduler_counts SET ready=ready+(NEW.state='ready')-(OLD.state='ready') WHERE id=1; END;
+UPDATE scheduler_config SET status=json_set(status,'$.schema_version',3) WHERE id=1;

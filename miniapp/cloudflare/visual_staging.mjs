@@ -8,15 +8,14 @@ import {withReadBudget} from './read_guard.mjs';
 import {observeD1} from './d1_budget.mjs';
 import samples from './visual_staging_samples.json' with {type:'json'};
 
-const productionDB='d73d252d-3948-425b-b7c3-b65d0f5c6e5f';
 // These ten reviewed byte versions are intentionally replayed once to verify
 // native binding, isolated D1 and measured accuracy. Re-runs use the D1 cache.
 export const STAGING_PRODUCTS=samples.products;
 export default {
   async fetch(request,env){
-    if(env.VISUAL_STAGING!=='isolated'||!/^[a-f0-9-]{36}$/.test(env.VISUAL_STAGING_DB_ID||'')||env.VISUAL_STAGING_DB_ID===productionDB)return new Response('Staging isolation required',{status:503});
+    if(env.VISUAL_STAGING!=='isolated'||env.VISUAL_STAGING_DB_ID!==samples.database.id)return new Response('Staging isolation required',{status:503});
     const path=new URL(request.url).pathname;
-    if(path==='/api/health')return Response.json({ok:true,staging:true,scheduled:false,deployment_id:env.CF_VERSION?.id||null});
+    if(path==='/api/health')return Response.json({ok:true,staging:true,scheduled:false,database_id:samples.database.id,deployment_id:env.CF_VERSION?.id||null});
     const key=env.MINIAPP_SYNC_KEY||'';
     if(key.length<32||!equal(request.headers.get('Authorization'),'Bearer '+key))return new Response('Unauthorized',{status:403});
     const meter=observeD1(env.DB),e={...env,DB:meter.DB};
@@ -43,7 +42,10 @@ export default {
         await e.DB.batch(STAGING_PRODUCTS.map(p=>e.DB.prepare("INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires,state) VALUES(?,?,'visual-staging',?,?,?,?,'ready')").bind(p.id,JSON.stringify({id:p.id,title:p.title,image:p.image,visual_group:p.visual_group}),String(p.id),ts,ts,ts+86400)));
         return json({products:STAGING_PRODUCTS.map(p=>p.id)});
       }
-      if(request.method==='GET'&&path==='/staging/status')return json(await visualStatus(e));
+      if(request.method==='GET'&&path==='/staging/status'){
+        const learning=await e.DB.prepare('SELECT config FROM learning_state WHERE id=1').first();
+        return json({...await visualStatus(e),database_id:samples.database.id,river_mode:JSON.parse(learning?.config||'{}').mode});
+      }
       if(request.method==='POST'&&path==='/staging/run'){
         const data=await request.json();if(!STAGING_PRODUCTS.some(p=>p.id===data.pid))return new Response('Fixed real sample only',{status:403});
         const result=await withReadBudget(e,'optional',6000,runtime=>visualRun(runtime,{force:true,pid:data.pid,maxImages:1}),{writes:2048});

@@ -90,7 +90,7 @@ def main():
         return result
 
     health = call('/api/health')
-    if not health.get('staging') or health.get('scheduled') is not False:
+    if not health.get('staging') or health.get('scheduled') is not False or health.get('database_id') != samples['database']['id']:
         raise RuntimeError('Wrong staging deployment')
     for phase in ('base', 'scheduler', 'learning', 'visual'):
         call('/staging/init/' + phase, {})
@@ -98,6 +98,8 @@ def main():
     if len(selected) != 10 or set(selected) != set(fixtures):
         raise RuntimeError('Exact ten-product staging fixture required')
     before = call('/staging/status')
+    if before.get('river_mode') != 'SHADOW' or before.get('database_id') != samples['database']['id']:
+        raise RuntimeError('Pinned staging database and River SHADOW required before AI')
     profiles = []
     format_retry_used = False
     for pid in selected:
@@ -133,7 +135,7 @@ def main():
     actual = [r['usage']['provider_neurons'] for r in metered]
     if not actual or any(n is None for n in actual) or len(metered) != status['calls_today']:
         raise RuntimeError('Native binding did not return measured Neurons')
-    if status['neurons_charged'] > 5000 or status['products_today'] > 10 or status['enabled']:
+    if status['neurons_charged'] > 5000 or status['products_today'] > 10 or status['enabled'] or status.get('river_mode') != 'SHADOW':
         raise RuntimeError('Free budget or inactive staging boundary failed')
     checks = [check for row in profiles for check in row['checks']]
     returned = sum(check['returned'] for check in checks)
@@ -151,6 +153,7 @@ def main():
                'new_calls': status['calls_today'] - before['calls_today'],
                'products': selected, 'profiles': profiles,
                'neurons_charged': status['neurons_charged'], 'accuracy': accuracy,
+               'database_id': status['database_id'], 'river_mode': status['river_mode'],
                'format_retry_used': format_retry_used, 'staging_enabled': status['enabled'],
                'scope': 'Isolated native binding + D1 ten-product test. Production unchanged; owner confirmation still required.'}
     save_receipt(receipt)

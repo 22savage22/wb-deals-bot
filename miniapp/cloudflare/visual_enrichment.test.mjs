@@ -168,7 +168,8 @@ test('staging refuses production D1, missing auth, posting and search; fixed rea
   const e=await env();const request=(path,body)=>new Request('https://preview'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+e.MINIAPP_SYNC_KEY,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});
   assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
   e.VISUAL_STAGING='isolated';e.VISUAL_STAGING_DB_ID='d73d252d-3948-425b-b7c3-b65d0f5c6e5f';assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
-  e.VISUAL_STAGING_DB_ID='11111111-1111-4111-8111-111111111111';e.MINIAPP_SYNC_KEY='test-only-'.repeat(5);
+  e.VISUAL_STAGING_DB_ID='11111111-1111-4111-8111-111111111111';assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
+  e.VISUAL_STAGING_DB_ID='5779987d-1100-45ad-8cd4-9df9c1436a20';e.MINIAPP_SYNC_KEY='test-only-'.repeat(5);
   assert.equal((await staging.fetch(new Request('https://preview/staging/status'),e)).status,403);
   for(const path of ['/api/scheduler/tick','/api/scheduler/action','/api/scheduler/search','/telegram/webhook'])assert.equal((await staging.fetch(request(path,{}),e)).status,404);
   await staging.fetch(request('/staging/seed',{}),e);

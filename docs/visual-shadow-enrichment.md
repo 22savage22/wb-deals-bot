@@ -270,16 +270,18 @@ does not permit bulk processing. The native AI binding needs no local AI token.
 
 ### Isolated native staging path
 
-1. Reuse the existing Workers Builds credential/integration. In Cloudflare it
-   needs Account → D1 Edit (for listing/creating the separate database) and
-   Account → Workers Scripts Edit (for uploading the preview version), scoped
-   to the existing account. The default managed build token does not include
-   D1 permissions. Never recover the old WB Vision AI token or create a new AI
-   token. An account member allowed to edit Builds must enable this preview path.
+1. The owner created `wb-finds-visual-staging` and supplied database UUID
+   `5779987d-1100-45ad-8cd4-9df9c1436a20`. This is the only accepted staging
+   binding; another UUID or the production database fails closed. Reuse the
+   existing Workers Builds credential/integration with Account → Workers Scripts
+   Edit for this account. The bootstrap no longer lists or creates databases and
+   does not require D1 API permissions. Never recover the old WB Vision AI token
+   or create a new AI token. An account member allowed to edit Builds must enable
+   this preview path. The owner-supplied creation is not remotely verified yet.
 2. `bootstrap-visual-staging.mjs` runs only inside managed Workers Builds on
-   `codex/visual-enrichment-v2`. It lists D1 once, reuses the exact staging name
-   or creates `wb-finds-visual-staging` once, and generates the isolated config.
-   Ambiguous names, transport failures and the production UUID fail closed.
+   `codex/visual-enrichment-v2`. It generates the isolated config from that pinned
+   database UUID. Transport failures, an unexpected branch and another database
+   fail closed. No D1 control-plane API is called.
    No raw CLI/provider error, credential, headers or auth file is printed/saved.
    First enable Worker Settings → Domains & Routes → Version URLs for preview
    access. The bootstrap checks this flag and stops if disabled; it never changes
@@ -288,12 +290,21 @@ does not permit bulk processing. The native AI binding needs no local AI token.
    `node miniapp/cloudflare/bootstrap-visual-staging.mjs`.
    Preserve the existing production branch/build/deploy command. This uploads a
    version; it does not promote it. The returned immutable version URL is checked
-   against the exact uploaded version ID to refuse a stale alias. The generated config uses isolated D1/native
-   AI and preserves existing secret bindings without reading their values.
+   against the exact uploaded version ID to refuse a stale alias. It reads back
+   the uploaded version and checks its actual D1 UUID, native AI binding and
+   fetch-only handler before accepting health. The generated config preserves
+   existing secret bindings without reading their values.
 4. The staging entry point exports no Cron handler or Telegram/search/feedback
    operation. Only existing-sync-key-authorized initialization, fixed public-photo
-   seed/run/status routes exist. It refuses a production database marker. Four
-   separate initialization requests keep DDL below the Free subrequest ceiling.
+   seed/run/status routes exist. Health and status identify the pinned database;
+   the runner also verifies the actual learning configuration is River SHADOW.
+   Four separate initialization requests keep DDL below the Free subrequest
+   ceiling. Four SQL exports in `miniapp/cloudflare/staging-migrations/` are
+   generated offline from those same initialization handlers and tested twice
+   against an empty SQLite database. Regenerate them with
+   `node miniapp/cloudflare/prepare-visual-staging-migrations.mjs`.
+   The live runner initializes through the protected binding routes, not a D1
+   API token or a manually selected Dashboard database.
 5. Dispatch existing `test.yml` on the release branch with `visual_staging_url`
    set to the version URL. The runner uses the existing encrypted sync secret,
    analyses all ten reviewed byte versions to verify the native execution path,
@@ -334,15 +345,17 @@ overhead. This is not a full-account usage or storage measurement.
 - Current local Wrangler reports `loggedIn:false`; no Cloudflare API connector
   or Cloudflare deployment credential is available in the GitHub repository.
   The existing managed Builds credential cannot be exported through GitHub.
-- Separate D1 creation, live version upload and native ten-product results are
-  therefore PENDING, not passed. Local adapter tests and CI do not substitute
-  for actual native AI outputs or measured account usage.
-- Required next action: enable the exact preview branch/command above and allow
-  D1 Edit on the existing managed build credential, or provide an existing
-  authorized Cloudflare deployment connection with D1 Edit + Workers Scripts
-  Edit. Do not put any credential in chat. Production stays pending confirmation.
+- Separate D1 creation was reported by the owner; its UUID is pinned in source
+  and migrations. Remote binding verification, live initialization, version
+  upload and native ten-product results are PENDING. Local adapter tests and CI
+  do not substitute for actual native AI outputs or measured account usage.
+- Required next action: enable Version URLs and the exact preview branch/command
+  using the existing managed build credential with Workers Scripts Edit. No new
+  token or D1 API permission is required by this bootstrap. See
+  [Dashboard setup steps](visual-staging-setup.md). Production stays pending NEW
+  owner confirmation after live staging and photo review.
 
 Official scope/build references:
 https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
-https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/create/
 https://developers.cloudflare.com/api/resources/workers/subresources/scripts/subresources/versions/methods/create/
+https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/

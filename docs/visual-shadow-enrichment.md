@@ -160,3 +160,202 @@ Next step: explicit owner approval for Meta license/AUP; then authorize a guarde
 one-time agreement operation, obtain2–3real profiles, verify visible evidence,
 activate the independent enrichment and prove its next automatic run. Keep
 RiverSHADOW, LegacyACTIVE, publication30min and current production settings.
+# Isolated quality revision — 2026-10-09
+
+This section describes prepared version 2, not deployed production. Production
+remains Visual OFF, posting every 30 minutes, WB Search enabled, Telegram reactions
+active and River SHADOW. No deployment, workflow/config edits or mass processing.
+
+## Real evidence and model choice
+
+- Previous Llama output: arrays without evidence/confidence plus trailing period;
+  a second response omitted its root closing brace and confused turquoise with
+  blue. 35/196 completion tokens against a 600-token request do not indicate the
+  requested output ceiling was reached; provider finish reasons were absent.
+- New isolated experiment: 10 real WB photographs across shirts, polo, sneakers,
+  bags, earrings, dresses and tights. Gemma 4 JSON Mode produced 9/10 usable first
+  responses after vocabulary normalization. One format retry fixed an object in
+  the earrings' `group`. One additional coverage check recovered the dress's
+  print size/location. Final useful profiles: 10/10.
+- Manual reference check: 39/39 returned control attributes matched the photos;
+  39/42 reference attributes were returned. Color 10/10; unseen-back guesses 0.
+  This is a small photo review, not calibrated or broad-category accuracy. Style
+  remains a labelled hypothesis. Additional unlisted fields were not scored.
+- Three shared photographs: Llama yielded no profile with two useful attributes;
+  its output was prose or only a color. Gemma yielded useful structured profiles.
+  Gemma 3's former catalog page redirects; Gemma 4 is currently listed as Free
+  plan eligible. Paid-only models and AI Gateway billing are not used.
+- Actual provider meter: 12 Gemma calls = 141.21817588806152 Neurons;
+  4 Llama calls = 160.639774749625; new total 301.85795063768654.
+  Known same-day total including the previous test/agreement is 428.9449778260615
+  of 10,000. Other account usage is unknown. No repeat `agree` was sent.
+
+## Reliability and native operation
+
+- Full JSON parsing: no substring extraction, Markdown stripping, brace guessing
+  or prose acceptance. Validate root/category/view/field types and vocabulary;
+  arrays are format failures. Keep only numerical confidence >=0.8 plus visible
+  evidence; missing, weak or contradictory evidence stays unknown.
+- Synonyms normalize spelling only; never manufacture confidence or evidence.
+  Navy, turquoise and metallic appearance colors have explicit values. A side
+  view is valid. No claims about actual metal/composition, comfort or centimetres.
+- Print placement is limited to shown panels. `all_over` on a front-only photo
+  becomes `front`; `front_and_back` needs both views or separate known views.
+  An unseen back always stays unknown. Conflicting views lose the feature.
+- At most one format retry per product/image SHA-256/model/schema version,
+  persisted in `visual_format_failures` across restarts. Each execution has at
+  most one inference. Exhausted/empty profiles cannot become successful cache
+  records. An absent second photo never creates a back claim.
+- Cache identity: product + actual image bytes + model + version; inventory URL
+  and explicit image-version changes requeue verification. Same-byte images are
+  reused, including duplicate panels. Fresh profile cache needs no image fetch;
+  after 24h an explicit run verifies bytes again. A changed version with unchanged
+  bytes adds no AI call. Persistent cache replay in a fresh process without a
+  credential confirmed 10 hits and zero provider calls.
+- Native `env.AI.run` already exists in wrangler.jsonc; v2 selects Gemma 4,
+  encodes the public image, requests JSON Mode, caps output at 900 tokens and
+  disables thinking. It contains no Cloudflare API token and needs no local
+  handoff form. Existing Meta acceptance route still names Llama explicitly;
+  ongoing Gemma inference does not call that route. Live v2 binding deployment
+  was not performed; binding inputs and response parsing are verified locally.
+
+## Free budget and release gate
+
+- Sidecar cap: 5,000 Neurons per UTC day, plus existing 40-call cap. Atomically
+  reserve 2,500 before dispatch, a conservative upper bound from Gemma's 256k
+  context and <=900 output-token pricing. Settle only actual provider Neurons.
+  Missing metering, transport errors and timeouts retain the reservation.
+- Provider quota error 3036 blocks the whole sidecar for the rest of the UTC day;
+  the next day uses a new budget row. Model Paid/terms errors disable enrichment.
+  Account Free plan remains the hard no-billing boundary; this local ledger does
+  not measure other account consumers and never upgrades the plan.
+- Initial experiment separately capped at 2,500 Neurons and 25 requests/10 IDs.
+  The token existed only in the RAM-only session, then the process exited and
+  confirmed credential clearing. Cache/receipts contain no credentials.
+- Keep the existing bulk activation gate locked. Photo review and an explicitly
+  approved staged release are needed before deploying or enabling production.
+  The old fixed-three sample workflow is not a ten-product quality experiment;
+  do not run it to repeat agreement or overwrite the isolated test.
+
+Primary references: https://developers.cloudflare.com/workers-ai/platform/pricing/
+and https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/ .
+
+## Owner-authorized staging and prepared limited release — 2026-10-09
+
+The owner reviewed the real ten-product gallery. The latest instruction authorizes
+a separate free D1, a GitHub branch and a draft PR, plus full isolated staging.
+It explicitly requires a NEW owner confirmation before production deployment or
+activation. Live staging success by itself is not that confirmation. This release
+does not permit bulk processing. The native AI binding needs no local AI token.
+
+- `visual_daily_products` admits at most ten distinct products per UTC day in
+  one atomic statement. Failed calls count; retries and a second view retain the
+  same slot. A fresh UTC day creates new admission rows. Cache hits need no slot.
+- A hash/model/version index reuses identical image bytes across products.
+  Explicit image changes still verify the real bytes before accepting a cache.
+- Retain the 5,000-Neuron daily cap, 2,500 pre-call reserve and 40-call ceiling.
+  Unmetered calls retain their reserve. The `/review` operation charges measured
+  external staging/REST consumption to the production budget exactly once for
+  its receipt, so a staging test is not ignored by the initial production cap.
+- `/review` requires the explicit reviewed-ten-photo approval, report SHA-256,
+  measured native staging receipt, zero extra cache calls and actual D1 metadata.
+  `/activate` additionally requires River SHADOW and a useful current profile.
+  Both use the existing protected scheduler authorization. Neither edits posting,
+  search, reactions or admin settings. An absent proof cannot activate the sidecar.
+- The Learning page shows profile coverage, real reaction-event/product counts,
+  daily product admission and conservative Neuron charge. Preference conclusions
+  require at least 20 observations, 20 likes/dislikes and five products per feature,
+  plus a Wilson interval showing direction. Unknowns and unconfirmed backs stay
+  unknown; model style confidence remains a hypothesis, not calibrated accuracy.
+
+### Isolated native staging path
+
+1. The owner created `wb-finds-visual-staging` and supplied database UUID
+   `5779987d-1100-45ad-8cd4-9df9c1436a20`. This is the only accepted staging
+   binding; another UUID or the production database fails closed. Reuse the
+   existing Workers Builds credential/integration with Account → Workers Scripts
+   Edit for this account. The bootstrap no longer lists or creates databases and
+   does not require D1 API permissions. Never recover the old WB Vision AI token
+   or create a new AI token. An account member allowed to edit Builds must enable
+   this preview path. The owner-supplied creation is not remotely verified yet.
+2. `bootstrap-visual-staging.mjs` runs only inside managed Workers Builds on
+   `codex/visual-enrichment-v2`. It generates the isolated config from that pinned
+   database UUID. Transport failures, an unexpected branch and another database
+   fail closed. No D1 control-plane API is called.
+   No raw CLI/provider error, credential, headers or auth file is printed/saved.
+   First enable Worker Settings → Domains & Routes → Version URLs for preview
+   access. The bootstrap checks this flag and stops if disabled; it never changes
+   that shared service setting itself. Root production config remains unchanged.
+3. Allow preview builds only for the release branch. Its preview command is
+   `node miniapp/cloudflare/bootstrap-visual-staging.mjs`.
+   Preserve the existing production branch/build/deploy command. This uploads a
+   version; it does not promote it. The returned immutable version URL is checked
+   against the exact uploaded version ID to refuse a stale alias. It reads back
+   the uploaded version and checks its actual D1 UUID, native AI binding and
+   fetch-only handler before accepting health. The generated config preserves
+   existing secret bindings without reading their values.
+4. The staging entry point exports no Cron handler or Telegram/search/feedback
+   operation. Only existing-sync-key-authorized initialization, fixed public-photo
+   seed/run/status routes exist. Health and status identify the pinned database;
+   the runner also verifies the actual learning configuration is River SHADOW.
+   Four separate initialization requests keep DDL below the Free subrequest
+   ceiling. Four SQL exports in `miniapp/cloudflare/staging-migrations/` are
+   generated offline from those same initialization handlers and tested twice
+   against an empty SQLite database. Regenerate them with
+   `node miniapp/cloudflare/prepare-visual-staging-migrations.mjs`.
+   The live runner initializes through the protected binding routes, not a D1
+   API token or a manually selected Dashboard database.
+5. Dispatch existing `test.yml` on the release branch with `visual_staging_url`
+   set to the version URL. The runner uses the existing encrypted sync secret,
+   analyses all ten reviewed byte versions to verify the native execution path,
+   immediately repeats each to prove durable cache, and records provider
+   Neurons + D1 row metadata. Already useful staging profiles are never reinferred
+   by an ordinary repeat. Known prior same-day experiment usage is charged once
+   before staging inference; other account consumers remain unknown.
+   It rejects the production URL, redirects, incomplete profiles, missing meter
+   and enabled staging. One workflow format retry honors the recorded backoff;
+   quota, transport and second format failures stop the workflow. It compares
+   42 visible reference attributes, requires every returned reference attribute
+   to match, >=85% coverage and all ten colors. Style is excluded; unseen backs
+   and composition remain unknown. Changed image bytes invalidate the reference.
+   JSON receipt and photo/profile gallery are saved even if that quality gate
+   fails. This small sample is not a broad model-accuracy claim. No agreement is
+   repeated, posting route exposed or synthetic reactions recorded.
+6. Review those actual photos and returned profiles and obtain NEW explicit
+   owner confirmation. Only then deploy the identical enrichment modules with the normal root config
+   and existing managed main build; preserve all runtime settings/secrets/cron.
+   Record reviewed proof and known current-day external cost, confirm a current
+   useful profile, then activate the ten-product sidecar. Never run production bootstrap or
+   the historical three-sample license workflow for this release.
+7. Observe a new autonomous Telegram message and a later independent Cron tick,
+   unchanged interval/revision/search/SHADOW/reactions, current AI ledger and D1
+   daily row/storage metrics. Test output alone is not deployment evidence.
+
+Current pre-deployment evidence: read-only runs 37937367016 and 37938590525
+confirm real message2742 and a subsequent automatic tick, interval30, unchanged
+revision1791202121046, WB Search healthy, reactions initialized, River SHADOW,
+Visual disabled. On 2026-10-09 the measured Worker ledger reports core112770 +
+optional107245 reads and core5921 + optional2135 writes, excluding read-ledger
+overhead. This is not a full-account usage or storage measurement.
+
+### Connection audit and current release status
+
+- GitHub branch `codex/visual-enrichment-v2` and draft PR
+  https://github.com/22savage22/wb-deals-bot/pull/7 exist; main is unchanged.
+- Current local Wrangler reports `loggedIn:false`; no Cloudflare API connector
+  or Cloudflare deployment credential is available in the GitHub repository.
+  The existing managed Builds credential cannot be exported through GitHub.
+- Separate D1 creation was reported by the owner; its UUID is pinned in source
+  and migrations. Remote binding verification, live initialization, version
+  upload and native ten-product results are PENDING. Local adapter tests and CI
+  do not substitute for actual native AI outputs or measured account usage.
+- Required next action: enable Version URLs and the exact preview branch/command
+  using the existing managed build credential with Workers Scripts Edit. No new
+  token or D1 API permission is required by this bootstrap. See
+  [Dashboard setup steps](visual-staging-setup.md). Production stays pending NEW
+  owner confirmation after live staging and photo review.
+
+Official scope/build references:
+https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
+https://developers.cloudflare.com/api/resources/workers/subresources/scripts/subresources/versions/methods/create/
+https://developers.cloudflare.com/workers/versions-and-deployments/version-urls/

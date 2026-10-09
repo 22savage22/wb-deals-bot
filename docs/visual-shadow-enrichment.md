@@ -240,12 +240,13 @@ active and River SHADOW. No deployment, workflow/config edits or mass processing
 Primary references: https://developers.cloudflare.com/workers-ai/platform/pricing/
 and https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/ .
 
-## Owner-authorized limited release — 2026-10-09
+## Owner-authorized staging and prepared limited release — 2026-10-09
 
-The owner reviewed the real ten-product gallery and approved staging, followed
-by a limited production rollout. This approval does not permit bulk processing.
-Production remains disabled until the live staging receipt exists and its new
-photographs have been reviewed. The native AI binding needs no local AI token.
+The owner reviewed the real ten-product gallery. The latest instruction authorizes
+a separate free D1, a GitHub branch and a draft PR, plus full isolated staging.
+It explicitly requires a NEW owner confirmation before production deployment or
+activation. Live staging success by itself is not that confirmation. This release
+does not permit bulk processing. The native AI binding needs no local AI token.
 
 - `visual_daily_products` admits at most ten distinct products per UTC day in
   one atomic statement. Failed calls count; retries and a second view retain the
@@ -269,15 +270,25 @@ photographs have been reviewed. The native AI binding needs no local AI token.
 
 ### Isolated native staging path
 
-1. Reuse the existing Workers Builds credential/integration. Provision one free
-   D1 named `wb-finds-visual-staging`; retain its public Database ID. No production
-   database reset, secret rotation, new AI token or paid plan is needed.
-2. Set build environment `VISUAL_STAGING_DB_ID` to that separate UUID. The
-   configuration generator rejects missing/invalid IDs and the production UUID.
+1. Reuse the existing Workers Builds credential/integration. In Cloudflare it
+   needs Account → D1 Edit (for listing/creating the separate database) and
+   Account → Workers Scripts Edit (for uploading the preview version), scoped
+   to the existing account. The default managed build token does not include
+   D1 permissions. Never recover the old WB Vision AI token or create a new AI
+   token. An account member allowed to edit Builds must enable this preview path.
+2. `bootstrap-visual-staging.mjs` runs only inside managed Workers Builds on
+   `codex/visual-enrichment-v2`. It lists D1 once, reuses the exact staging name
+   or creates `wb-finds-visual-staging` once, and generates the isolated config.
+   Ambiguous names, transport failures and the production UUID fail closed.
+   No raw CLI/provider error, credential, headers or auth file is printed/saved.
+   First enable Worker Settings → Domains & Routes → Version URLs for preview
+   access. The bootstrap checks this flag and stops if disabled; it never changes
+   that shared service setting itself. Root production config remains unchanged.
 3. Allow preview builds only for the release branch. Its preview command is
-   `node miniapp/cloudflare/prepare-visual-staging.mjs && npx wrangler versions upload --config .test-temp/visual-staging/wrangler.jsonc --preview-alias visual-stage`.
+   `node miniapp/cloudflare/bootstrap-visual-staging.mjs`.
    Preserve the existing production branch/build/deploy command. This uploads a
-   version; it does not promote it. The generated config uses isolated D1/native
+   version; it does not promote it. The returned immutable version URL is checked
+   against the exact uploaded version ID to refuse a stale alias. The generated config uses isolated D1/native
    AI and preserves existing secret bindings without reading their values.
 4. The staging entry point exports no Cron handler or Telegram/search/feedback
    operation. Only existing-sync-key-authorized initialization, fixed public-photo
@@ -285,15 +296,25 @@ photographs have been reviewed. The native AI binding needs no local AI token.
    separate initialization requests keep DDL below the Free subrequest ceiling.
 5. Dispatch existing `test.yml` on the release branch with `visual_staging_url`
    set to the version URL. The runner uses the existing encrypted sync secret,
-   analyses only three previously unprocessed second views, immediately repeats
-   each to prove durable cache, and records provider Neurons + D1 row metadata.
+   analyses all ten reviewed byte versions to verify the native execution path,
+   immediately repeats each to prove durable cache, and records provider
+   Neurons + D1 row metadata. Already useful staging profiles are never reinferred
+   by an ordinary repeat. Known prior same-day experiment usage is charged once
+   before staging inference; other account consumers remain unknown.
    It rejects the production URL, redirects, incomplete profiles, missing meter
-   and enabled staging. It does not skip format backoff or accept terms again.
-6. Review those actual photos and returned profiles. Only after successful native
-   staging, deploy the identical enrichment modules with the normal root config
+   and enabled staging. One workflow format retry honors the recorded backoff;
+   quota, transport and second format failures stop the workflow. It compares
+   42 visible reference attributes, requires every returned reference attribute
+   to match, >=85% coverage and all ten colors. Style is excluded; unseen backs
+   and composition remain unknown. Changed image bytes invalidate the reference.
+   JSON receipt and photo/profile gallery are saved even if that quality gate
+   fails. This small sample is not a broad model-accuracy claim. No agreement is
+   repeated, posting route exposed or synthetic reactions recorded.
+6. Review those actual photos and returned profiles and obtain NEW explicit
+   owner confirmation. Only then deploy the identical enrichment modules with the normal root config
    and existing managed main build; preserve all runtime settings/secrets/cron.
    Record reviewed proof and known current-day external cost, confirm a current
-   useful profile, then activate the ten-product sidecar. Never run bootstrap or
+   useful profile, then activate the ten-product sidecar. Never run production bootstrap or
    the historical three-sample license workflow for this release.
 7. Observe a new autonomous Telegram message and a later independent Cron tick,
    unchanged interval/revision/search/SHADOW/reactions, current AI ledger and D1
@@ -305,3 +326,23 @@ revision1791202121046, WB Search healthy, reactions initialized, River SHADOW,
 Visual disabled. On 2026-10-09 the measured Worker ledger reports core112770 +
 optional107245 reads and core5921 + optional2135 writes, excluding read-ledger
 overhead. This is not a full-account usage or storage measurement.
+
+### Connection audit and current release status
+
+- GitHub branch `codex/visual-enrichment-v2` and draft PR
+  https://github.com/22savage22/wb-deals-bot/pull/7 exist; main is unchanged.
+- Current local Wrangler reports `loggedIn:false`; no Cloudflare API connector
+  or Cloudflare deployment credential is available in the GitHub repository.
+  The existing managed Builds credential cannot be exported through GitHub.
+- Separate D1 creation, live version upload and native ten-product results are
+  therefore PENDING, not passed. Local adapter tests and CI do not substitute
+  for actual native AI outputs or measured account usage.
+- Required next action: enable the exact preview branch/command above and allow
+  D1 Edit on the existing managed build credential, or provide an existing
+  authorized Cloudflare deployment connection with D1 Edit + Workers Scripts
+  Edit. Do not put any credential in chat. Production stays pending confirmation.
+
+Official scope/build references:
+https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
+https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/create/
+https://developers.cloudflare.com/api/resources/workers/subresources/scripts/subresources/versions/methods/create/

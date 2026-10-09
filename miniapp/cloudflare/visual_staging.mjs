@@ -3,18 +3,15 @@
 import {equal} from './auth.mjs';
 import {ensureScheduler} from './scheduler_api.mjs';
 import {ensureLearning} from './learning.mjs';
-import {ensureVisual,visualRun,visualStatus} from './visual_enrichment.mjs';
+import {ensureVisual,visualRun,visualStatus,cachedProfiles} from './visual_enrichment.mjs';
 import {withReadBudget} from './read_guard.mjs';
 import {observeD1} from './d1_budget.mjs';
+import samples from './visual_staging_samples.json' with {type:'json'};
 
 const productionDB='d73d252d-3948-425b-b7c3-b65d0f5c6e5f';
-// Previously unanalysed second views of three real products. No first-view
-// repeat is required to prove a native binding and persistent D1 cache.
-export const STAGING_PRODUCTS=[
-  {id:163106569,title:'Поло · второе фото',image:'https://basket-11.wbbasket.ru/vol1631/part163106/163106569/images/big/2.webp'},
-  {id:742502965,title:'Кроссовки · второе фото',image:'https://basket-35.wbbasket.ru/vol7425/part742502/742502965/images/big/2.webp'},
-  {id:812988272,title:'Сумка · второе фото',image:'https://basket-37.wbbasket.ru/vol8129/part812988/812988272/images/big/2.webp'}
-];
+// These ten reviewed byte versions are intentionally replayed once to verify
+// native binding, isolated D1 and measured accuracy. Re-runs use the D1 cache.
+export const STAGING_PRODUCTS=samples.products;
 export default {
   async fetch(request,env){
     if(env.VISUAL_STAGING!=='isolated'||!/^[a-f0-9-]{36}$/.test(env.VISUAL_STAGING_DB_ID||'')||env.VISUAL_STAGING_DB_ID===productionDB)return new Response('Staging isolation required',{status:503});
@@ -36,13 +33,21 @@ export default {
       }
       if(request.method==='POST'&&path==='/staging/seed'){
         const ts=Math.floor(Date.now()/1000);
-        await e.DB.batch(STAGING_PRODUCTS.map(p=>e.DB.prepare("INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires,state) VALUES(?,?,'visual-staging',?,?,?,?,'ready')").bind(p.id,JSON.stringify(p),String(p.id),ts,ts,ts+86400)));
+        // Charge the known prior experiment on its UTC day, atomically once.
+        // Never credit back other account usage or replace an existing ledger.
+        const day=new Date().toISOString().slice(0,10),prior=samples.prior_usage,marker='visual_staging_prior:'+day;
+        if(day===prior.day)await e.DB.batch([
+          e.DB.prepare('INSERT INTO visual_neuron_budget(day,charged) SELECT ?,? WHERE NOT EXISTS(SELECT 1 FROM metadata WHERE key=?) ON CONFLICT(day) DO UPDATE SET charged=charged+excluded.charged').bind(day,prior.neurons,marker),
+          e.DB.prepare('INSERT OR IGNORE INTO metadata(key,value) VALUES(?,?)').bind(marker,String(prior.neurons))
+        ]);
+        await e.DB.batch(STAGING_PRODUCTS.map(p=>e.DB.prepare("INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires,state) VALUES(?,?,'visual-staging',?,?,?,?,'ready')").bind(p.id,JSON.stringify({id:p.id,title:p.title,image:p.image,visual_group:p.visual_group}),String(p.id),ts,ts,ts+86400)));
         return json({products:STAGING_PRODUCTS.map(p=>p.id)});
       }
       if(request.method==='GET'&&path==='/staging/status')return json(await visualStatus(e));
       if(request.method==='POST'&&path==='/staging/run'){
         const data=await request.json();if(!STAGING_PRODUCTS.some(p=>p.id===data.pid))return new Response('Fixed real sample only',{status:403});
-        return json(await withReadBudget(e,'optional',6000,runtime=>visualRun(runtime,{force:true,pid:data.pid}),{writes:2048}));
+        const result=await withReadBudget(e,'optional',6000,runtime=>visualRun(runtime,{force:true,pid:data.pid,maxImages:1}),{writes:2048});
+        return json({...result,profile:result.profile||(await cachedProfiles(e,[data.pid])).get(data.pid)||null});
       }
       return new Response('Not found',{status:404});
     }catch{return json({ok:false,error:'STAGING_CHECK_FAILED'});}

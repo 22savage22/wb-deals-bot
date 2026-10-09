@@ -19,7 +19,7 @@ jobs:
   visual_staging:
     if: github.event_name == 'workflow_dispatch' && inputs.visual_staging_url != ''
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 16
     concurrency:
       group: wb-visual-staging
       cancel-in-progress: false
@@ -34,10 +34,14 @@ jobs:
           VISUAL_STAGING_URL: ${{ inputs.visual_staging_url }}
           MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: visual-staging-receipt
-          path: .test-temp/visual-staging-receipt.json
+          path: |
+            .test-temp/visual-staging-receipt.json
+            .test-temp/visual-staging-gallery.html
           retention-days: 2
+          if-no-files-found: ignore
   wb_worker_smoke:
     if: github.event_name == 'push' && github.ref == 'refs/heads/fix/wb-source-resilience-20260929'
     runs-on: ubuntu-latest
@@ -84,6 +88,7 @@ jobs:
       - run: python -B -m unittest discover -s tests -p 'test_schedul*.py' -v
       - run: python -B -m unittest discover -s tests -p 'test_admin_schedule.py' -v
       - run: python -m unittest discover -s tests -p 'test_miniapp*.py' -v
+      - run: python -B -m unittest discover -s tests -p 'test_visual_staging.py' -v
       - run: pip install -r miniapp/learning-requirements.txt
       - run: python -B -m unittest discover -s tests -p 'test_learning*.py' -v
       - run: node --check miniapp/static/app.js

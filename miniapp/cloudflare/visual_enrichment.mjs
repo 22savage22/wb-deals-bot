@@ -155,7 +155,7 @@ export async function maintainVisualEvents(e,pid=null){
     ...(pid===null?[q(e,'UPDATE visual_state SET event_cursor=MAX(event_cursor,?) WHERE id=1',end)]:[q(e,'UPDATE visual_profiles SET feedback_cursor=MAX(feedback_cursor,?),backfill_pending=? WHERE pid=?',end,rows.length===5?1:0,pid)])
   ]);
 }
-export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null}={}){
+export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null,maxImages=2}={}){
   await ensureVisual(e);
   const state=await q(e,'SELECT * FROM visual_state WHERE id=1').first();
   if(!state.enabled&&!force)return {state:'disabled'};
@@ -174,7 +174,7 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null}=
     if(previous&&ts-(previous.image_verified_at||previous.analyzed_at)<86400){await q(e,"UPDATE visual_queue SET state='complete',error='' WHERE pid=?",row.pid).run();return {state:'cached',pid:row.pid};}
     const stored=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',row.pid).first();
     if(!stored){await q(e,"UPDATE visual_queue SET state='skipped',error='VISUAL_NO_PRODUCT' WHERE pid=?",row.pid).run();return {state:'skipped',pid:row.pid};}
-    const p=JSON.parse(stored.data),urls=photoURLs(p),analyses=[];
+    const p=JSON.parse(stored.data),urls=photoURLs(p).slice(0,maxImages===1?1:2),analyses=[];
     try{
       if(!urls.length){await q(e,"UPDATE visual_queue SET state='skipped',error='VISUAL_NO_IMAGE' WHERE pid=?",row.pid).run();return {state:'skipped',pid:row.pid,error:'VISUAL_NO_IMAGE'};}
       for(const [index,url] of urls.entries()){

@@ -171,9 +171,15 @@ test('staging refuses production D1, missing auth, posting and search; fixed rea
   e.VISUAL_STAGING_DB_ID='11111111-1111-4111-8111-111111111111';e.MINIAPP_SYNC_KEY='test-only-'.repeat(5);
   assert.equal((await staging.fetch(new Request('https://preview/staging/status'),e)).status,403);
   for(const path of ['/api/scheduler/tick','/api/scheduler/action','/api/scheduler/search','/telegram/webhook'])assert.equal((await staging.fetch(request(path,{}),e)).status,404);
-  await staging.fetch(request('/staging/seed',{}),e);const original=globalThis.fetch;globalThis.fetch=picture;
+  await staging.fetch(request('/staging/seed',{}),e);
+  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM scheduler_inventory').get().n,10);
+  const charged=e.db.prepare('SELECT SUM(charged) n FROM visual_neuron_budget').get().n;
+  await staging.fetch(request('/staging/seed',{}),e);
+  assert.equal(e.db.prepare('SELECT SUM(charged) n FROM visual_neuron_budget').get().n,charged);
+  assert.equal(staging.scheduled,undefined);
+  const original=globalThis.fetch;globalThis.fetch=picture;
   try{const first=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(first.state,'complete');assert.equal(e.calls,1);assert.ok(first.d1.queries>0);
-    const repeat=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(repeat.state,'cached');assert.equal(e.calls,1);assert.equal((await staging.fetch(request('/staging/run',{pid:999}),e)).status,403);
+    const repeat=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(repeat.state,'cached');assert.deepEqual(repeat.profile,first.profile);assert.equal(e.calls,1);assert.equal((await staging.fetch(request('/staging/run',{pid:999}),e)).status,403);
   }finally{globalThis.fetch=original;e.db.close();}
 });
 test('explicit reviewed staging receipt seeds external daily usage once, activation stays SHADOW with fixed limits',async()=>{

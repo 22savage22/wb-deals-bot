@@ -9,9 +9,35 @@ on:
         description: Run bounded, read-only source diagnostics
         type: boolean
         default: false
+      visual_staging_url:
+        description: Optional isolated Visual Enrichment preview URL; production is rejected
+        type: string
+        default: ''
 permissions:
   contents: read
 jobs:
+  visual_staging:
+    if: github.event_name == 'workflow_dispatch' && inputs.visual_staging_url != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: wb-visual-staging
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -B -m miniapp.visual_staging_check
+        env:
+          VISUAL_STAGING_URL: ${{ inputs.visual_staging_url }}
+          MINIAPP_SYNC_KEY: ${{ secrets.MINIAPP_SYNC_KEY }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: visual-staging-receipt
+          path: .test-temp/visual-staging-receipt.json
+          retention-days: 2
   wb_worker_smoke:
     if: github.event_name == 'push' && github.ref == 'refs/heads/fix/wb-source-resilience-20260929'
     runs-on: ubuntu-latest

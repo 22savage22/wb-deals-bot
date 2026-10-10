@@ -5,6 +5,9 @@ import {shadowChoice,explorationQuery} from './learning.mjs';
 import {repairReactions} from './feedback.mjs';
 import {searchDue,searchBackoff,retryAfter,nextSearchDelay} from './search_backoff.mjs';
 import {withReadBudget} from './read_guard.mjs';
+import {queryRules,discoveryQueries} from './query_control.mjs';
+import {recordDiscovery} from './admin_history.mjs';
+import {selectionReason,diverseChoice} from './selection_policy.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -41,9 +44,10 @@ export function postDue(s,last,now,manual=false){
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
-export function choose(rows,recent,total=0){
+export function choose(rows,recent,total=0,policy={}){
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
-  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key));
+  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
+  const custom=diverseChoice(eligible,recent,policy);if(custom!==undefined)return custom;
   const target=pattern[total%pattern.length],fallback={women:['women','neutral','men'],men:['men','women','neutral'],neutral:['neutral','women','men']}[target]||[target,'women','neutral','men'];
   for(const group of [...fallback,'any']){
     const matches=eligible.filter(row=>{const p=groups(JSON.parse(row.data));return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
@@ -91,7 +95,7 @@ export function cardDeal(card,policy={}){
   if(price<=0||policy.max_price&&price>policy.max_price||rating<Number(policy.min_rating??4.3)||p.feedbacks<Number(policy.min_feedbacks??20))return null;
   if((policy.blocked_words||[]).some(w=>text.includes(String(w).toLowerCase())))return null;
   if((policy.blacklist||[]).some(w=>String(w)===String(p.id)||p.brand.toLowerCase().includes(String(w).toLowerCase())))return null;
-  return p;
+  return selectionReason(p,policy)?null:p;
 }
 async function imageFor(env,p,fetcher,options={}){
   const vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
@@ -145,7 +149,7 @@ async function selectionState(env,header,preflight=false){
       AND NOT EXISTS(SELECT 1 FROM scheduler_claims c WHERE c.pid=scheduler_inventory.pid AND c.ts>? AND c.status IN ('pending','error','success'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_posts p WHERE p.pid=scheduler_inventory.pid AND p.ts>?)
       ORDER BY queued_at,pid LIMIT 300`,sec(),sec(),...(preflight?[sec()-1800]:[]),sec()-7*86400,sec()-7*86400).all(),
-    q(env,'SELECT topic,title_key,ts FROM scheduler_deliveries WHERE ts>? ORDER BY ts DESC LIMIT 4032',sec()-86400).all()]);recent.results.reverse();
+    q(env,'SELECT topic,title_key,ts,data FROM scheduler_deliveries WHERE ts>? ORDER BY ts DESC LIMIT 4032',sec()-86400).all()]);recent.results.reverse();
   return {...header,ready:ready.results,recent:recent.results};
 }
 async function readState(env){
@@ -206,7 +210,7 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length);
+      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
@@ -278,13 +282,17 @@ async function publish(env,state,fetcher){
   }finally{await runtime(env,{op:'release',kind:'post',owner});}
 }
 async function search(env,state,fetcher){
-  if(!state.policy.queries?.length)return {result:'not_configured'};
   const owner=crypto.randomUUID();if(!(await runtime(env,{op:'acquire',kind:'search',owner,ttl:90})).ok)return {result:'lock_busy'};
+  let attempted=null;
   try{
     // Re-read AFTER taking the global lease: stale or owner requests cannot
     // bypass a persistent cooldown in another isolate.
     state=await readHeader(env);
-    const now=sec(),old=JSON.parse(state.row.status||'{}'),cursor=Number(old.search_cursor||0),queries=state.policy.queries;
+    const now=sec(),old=JSON.parse(state.row.status||'{}'),cursor=Number(old.search_cursor||0),queries=discoveryQueries(state.policy),rules=queryRules(state.policy);
+    const requested=state.row.search_request&&old.admin_search_request===state.row.search_request;
+    const manual=requested?rules.find(r=>r.id===old.admin_search_query_id&&!r.archived&&r.text===old.admin_search_query):null;
+    if(requested&&!manual){await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});return {result:'query_changed_or_archived'};}
+    if(!queries.length){if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});return {result:'not_configured'};}
     if(!searchDue(state.s,old,now,Boolean(state.row.search_request)))return {result:'backoff_or_not_due',next_search:Math.max(Number(old.next_search||0),Number(old.search_retry_at||0))};
     if(state.count>=state.s.min_queue&&!state.row.search_request)return {result:'queue_full'};
     // Admission before I/O also spaces retries after a killed invocation.
@@ -295,9 +303,11 @@ async function search(env,state,fetcher){
     const dailyCounts=new Map(daily.map(r=>[r.topic,r.n]));let offset=0;
     while(offset<queries.length){const t=queries[(cursor+offset)%queries.length].toLowerCase();if(!state.policy.disabled_topics?.includes(t)&&(dailyCounts.get(t)||0)<8&&(counts.get(t)||0)<8)break;offset++;}
     await status(env,{search_cursor:cursor+offset+1});
-    if(offset===queries.length)return {result:'daily_topics_at_cap'};
-    let experiment=null;if(old.learning_initialized)try{experiment=await explorationQuery(env,queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
-    const query=experiment&&(counts.get(experiment.toLowerCase())||0)<8?experiment:queries[(cursor+offset)%queries.length];
+    if(offset===queries.length&&!manual){if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});return {result:'daily_topics_at_cap'};}
+    let experiment=null;if(!manual&&old.learning_initialized)try{experiment=await explorationQuery(env,state.policy.queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
+    const query=manual?.text||(experiment&&(counts.get(experiment.toLowerCase())||0)<8?experiment:queries[(cursor+offset)%queries.length]);
+    const test=Boolean(manual&&old.admin_search_test===true);
+    attempted={query,query_id:rules.find(r=>r.text===query)?.id||'existing:'+query,test,experiment:!!experiment};
     await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
     const params=discoveryParams(state.policy,query,cursor);
@@ -317,7 +327,7 @@ async function search(env,state,fetcher){
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
     const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0},filter_reasons={};
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     // Sequential verified-image batch, bounded independently of posting.
     const verified=[],deadline=Date.now()+28000;
     const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
@@ -329,7 +339,7 @@ async function search(env,state,fetcher){
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
       if(photo.image)verified.push({...p,image:photo.image,checked_at:now});else rejected.photo++;
     }
-    const records=verified.map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
+    const records=(test?[]:verified).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
       SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,?,? FROM json_each(?)
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))
@@ -340,17 +350,21 @@ async function search(env,state,fetcher){
     // RETURNING counts only the inventory rows actually admitted, no extra query.
     const newIDs=inserted.results.map(p=>Number(p.pid));
     const finished=sec(),queueAfter=(await q(env,'SELECT ready FROM scheduler_counts WHERE id=1').first()).ready;
-    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',query,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
+    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',...attempted,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_found:Math.max(0,new Set(found.map(p=>String(p.id))).size-knownIDs.size),new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>test||newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,rating:p.rating,feedbacks:p.feedbacks,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
+    // Optional history cannot turn a successful discovery into another WB retry.
+    await recordDiscovery(env,receipt).catch(()=>{});
     await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+nextSearchDelay(state.s,newIDs.length),search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',verified.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
   }catch(error){
     const current=JSON.parse((await q(env,'SELECT status FROM scheduler_config WHERE id=1').first()).status);
     const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);
     const backoff=searchBackoff(current,error,sec());
+    if(attempted)await recordDiscovery(env,{...attempted,at:sec(),error:code,retry_at:backoff.search_retry_at,origin:env.SEARCH_ORIGIN||'cron'}).catch(()=>{});
     await status(env,{...backoff,last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code,search_upstream_error:error.upstream||null});
     console.log('WB_SEARCH_BACKOFF',JSON.stringify({code,...backoff,upstream:error.upstream||null}));return {result:'error',code,...backoff};
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }
+export {search as runDiscovery};
 export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron'){
   await ensureScheduler(env);const now=sec(),results={};
   await status(env,{last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true,...(origin==='cron'?{last_automatic_tick:now}:{})});
@@ -390,7 +404,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
       state=await selectionState(env,state,true);
-      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length);
+      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
       if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
       await status(env,{last_preflight:now});
     }
@@ -419,7 +433,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
 export async function checkAutopost(env,fetcher=fetch){
-  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),status=JSON.parse(state.row.status||'{}');
+  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length,state.policy),status=JSON.parse(state.row.status||'{}');
   const result={ok:true,dry_run:true,telegram_posts_created:0,cron:env.SCHEDULER_DRIVER==='cloudflare-native',last_scheduler_tick:status.last_scheduler_tick||0,heartbeat_stale:now-Number(status.last_scheduler_tick||0)>180,queue_size:state.count,eligible_products:state.ready.filter(p=>(state.recent.filter(r=>r.topic===p.topic).length)<8).length,next_product:item?.pid||null,posting_allowed:window.allowed,timezone:window.timezone,current_local_time:window.clock,quiet_hours:state.s.quiet_enabled?state.s.quiet_start+'–'+state.s.quiet_end:'OFF',telegram_configured:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),last_post:state.last,last_message_id:status.last_message_id||null};
   if(result.telegram_configured)try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getMe`,{signal:AbortSignal.timeout(5000)});result.telegram_auth=(await r.json()).ok===true;}catch{result.telegram_auth=false;}
   if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy),saved=JSON.parse(item.data);result.live_card=Boolean(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...saved},fetcher)).image;}}catch{result.live_card=false;}

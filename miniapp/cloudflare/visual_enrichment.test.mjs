@@ -201,6 +201,7 @@ test('staging refuses production D1, missing auth, posting and search; fixed rea
   await staging.fetch(request('/staging/seed',{}),e);
   assert.equal(e.db.prepare('SELECT SUM(charged) n FROM visual_neuron_budget').get().n,charged);
   assert.equal(staging.scheduled,undefined);
+  assert.equal((await (await staging.fetch(request('/staging/init/experiment',{}),e)).json()).initialized,'experiment');
   const original=globalThis.fetch;globalThis.fetch=picture;
   try{const first=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(first.state,'complete');assert.equal(e.calls,1);assert.ok(first.d1.queries>0);
     const repeat=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(repeat.state,'cached');assert.deepEqual(repeat.profile,first.profile);assert.equal(e.calls,1);assert.equal((await staging.fetch(request('/staging/run',{pid:999}),e)).status,403);

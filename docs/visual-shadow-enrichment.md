@@ -1,5 +1,30 @@
 # Visual audience learning — 2026-10-05
 
+## Current isolated-agent boundary — 2026-10-10
+
+The independent `codex/visual-staging-agent-20261010` branch continues PR #7 in
+`D:\WB-Vision-Agent`. Its separate `wb-finds-visual-staging` Worker contains no
+production assets/Cron/Telegram credentials and binds only the pinned staging
+D1. See `visual-staging-setup.md`; the historical shared-preview instructions
+below are not this agent's deployment route. No production deployment or merge
+is authorized. Model remains the already-compared Gemma; River stays SHADOW.
+
+Unknown inference cost now creates an indexed durable daily budget hold. This
+also detects a crashed unsettled attempt and migrates existing unmetered calls
+for the current day. New products/force/restarted isolates cannot spend further
+until a new UTC day; automatic processing remains OFF. Cache hits still work.
+Provider usage beside a native `result` envelope is retained rather than lost.
+An AI allocation/timeout error retains its reserve; it never triggers an
+unbounded retry. Staging refuses new inference unless a freshly observed actual
+Free-account remainder covers the entire reserved 5000-Neuron test budget.
+`/activate` refuses even a reviewed historical receipt while account-wide
+remaining usage is unknown. This supersedes the activation steps below.
+
+Local tests/dry-run are not native AI receipts. This independent run has not
+yet deployed staging, migrated remote D1, or spent AI Neurons. OAuth owner
+authorization and actual account usage observation remain pending. Previous
+ten-photo REST quality/cost results are historical, not fresh native evidence.
+
 ## Production boundary
 
 Baseline read-only run37337857101: interval30, revision1791202121046,

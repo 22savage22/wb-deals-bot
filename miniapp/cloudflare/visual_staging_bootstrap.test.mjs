@@ -5,6 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {readFileSync} from 'node:fs';
 import {DatabaseSync} from 'node:sqlite';
 import {stagingMigrations} from './prepare-visual-staging-migrations.mjs';
+import {isolatedEnvironment,absentWorker,WORKER,verifyStandaloneBindings} from './deploy-visual-standalone.mjs';
 const id='11111111-1111-4111-8111-111111111111';
 test('owner-provided D1 is pinned in the generated binding and another/production database is refused',()=>{
   assert.equal(pinnedDatabaseId(),STAGING_DB_ID);
@@ -29,6 +30,31 @@ test('uploaded binding/handler checks refuse production D1, absent AI, scheduled
   assert.deepEqual(uploadReceipt(JSON.stringify({type:'version-upload',version_id:id,preview_url:preview})),{version_id:id,preview_url:preview});
   assert.throws(()=>uploadReceipt(JSON.stringify({type:'version-upload',version_id:id,preview_url:'https://wb-finds-miniapp.valeramyakishev000.workers.dev'})),/production not deployed/);
 });
+
+test('standalone staging deployment never targets the production Worker or its configuration',()=>{
+  const root=readFileSync('wrangler.jsonc','utf8');
+  const result=spawnSync(process.execPath,['miniapp/cloudflare/prepare-visual-staging.mjs','--standalone'],{encoding:'utf8'});
+  assert.equal(result.status,0);
+  const config=JSON.parse(readFileSync('.test-temp/visual-staging-standalone/wrangler.jsonc','utf8'));
+  assert.equal(config.name,'wb-finds-visual-staging');assert.equal(config.d1_databases[0].database_id,STAGING_DB_ID);
+  assert.equal(config.ai.binding,'AI');assert.equal(config.triggers,undefined);assert.equal(config.assets,undefined);
+  assert.equal(config.keep_vars,false);assert.equal(config.vars.TG_BOT_TOKEN,undefined);
+  assert.equal(readFileSync('wrangler.jsonc','utf8'),root);
+});
+
+test('standalone helper never imports deployment/runtime credentials from another agent',()=>{
+  const env=isolatedEnvironment({CLOUDFLARE_API_TOKEN:'synthetic',CLOUDFLARE_API_KEY:'synthetic',TG_BOT_TOKEN:'synthetic',MINIAPP_BOT_TOKEN:'synthetic',MINIAPP_SYNC_KEY:'synthetic',PATH:process.env.PATH});
+  for(const key of ['CLOUDFLARE_API_TOKEN','CLOUDFLARE_API_KEY','TG_BOT_TOKEN','MINIAPP_BOT_TOKEN','MINIAPP_SYNC_KEY'])assert.equal(env[key],undefined);
+  assert.equal(WORKER,'wb-finds-visual-staging');assert.match(env.XDG_CONFIG_HOME,/\.test-temp[\\/]config$/);
+  assert.equal(absentWorker({status:1,stderr:'Worker does not exist [code: 10007]'}),true);
+  for(const result of [{status:0,stdout:'[]'},{status:1,stderr:'Authentication failed [code: 10000]'},{status:1,stderr:'timeout'}])assert.equal(absentWorker(result),false);
+  const version={id,resources:{bindings:[{type:'d1',name:'DB',id:STAGING_DB_ID},{type:'ai',name:'AI'}],script:{handlers:['fetch']}}};
+  verifyStandaloneBindings(version,id);
+  for(const secret of ['TG_BOT_TOKEN','MINIAPP_BOT_TOKEN','CLOUDFLARE_API_TOKEN']){
+    const unsafe=structuredClone(version);unsafe.resources.bindings.push({type:'secret_text',name:secret});
+    assert.throws(()=>verifyStandaloneBindings(unsafe,id),/unexpected binding or credential/);
+  }
+});
 test('bootstrap error output never contains raw provider/credential details',()=>{
   assert.doesNotMatch(safeBuildError(new Error('Bearer synthetic-secret; url and headers')),/synthetic-secret|Bearer|headers/);
   assert.equal(safeBuildError(new Error('Worker API HTTP 403; required Account → Workers Scripts Edit')),'Worker API HTTP 403; required Account → Workers Scripts Edit');
@@ -45,6 +71,7 @@ test('four staged migrations initialize an empty database idempotently with SHAD
     assert.equal(db.prepare('SELECT COUNT(*) n FROM scheduler_inventory').get().n,0);
     assert.ok(db.prepare("SELECT name FROM sqlite_master WHERE name='visual_daily_products'").get());
     assert.ok(db.prepare("SELECT name FROM sqlite_master WHERE name='visual_neuron_budget'").get());
+    assert.ok(db.prepare("SELECT name FROM sqlite_master WHERE name='visual_budget_holds'").get());
     assert.equal(db.prepare("SELECT name FROM sqlite_master WHERE name='products'").get(),undefined);
   }finally{db.close();}
 });

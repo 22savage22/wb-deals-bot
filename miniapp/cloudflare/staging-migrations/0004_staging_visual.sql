@@ -29,8 +29,11 @@ INSERT OR IGNORE INTO metadata VALUES('visual_schema_v2','1');
 CREATE TABLE IF NOT EXISTS visual_inference_usage(id TEXT PRIMARY KEY,ts INTEGER NOT NULL,day TEXT NOT NULL,pid INTEGER NOT NULL,image_index INTEGER NOT NULL,kind TEXT NOT NULL,outcome TEXT NOT NULL,usage TEXT NOT NULL);
 CREATE INDEX IF NOT EXISTS visual_inference_day ON visual_inference_usage(day,ts DESC);
 CREATE INDEX IF NOT EXISTS visual_inference_pid ON visual_inference_usage(pid,ts DESC);
+CREATE INDEX IF NOT EXISTS visual_inference_pending ON visual_inference_usage(day,outcome,ts);
 INSERT OR IGNORE INTO metadata VALUES('visual_schema_v3','1');
 CREATE TABLE IF NOT EXISTS visual_neuron_budget(day TEXT PRIMARY KEY,charged REAL NOT NULL);
+CREATE TABLE IF NOT EXISTS visual_budget_holds(day TEXT PRIMARY KEY,reason TEXT NOT NULL,request_id TEXT NOT NULL,ts INTEGER NOT NULL);
+INSERT OR IGNORE INTO visual_budget_holds SELECT day,'historical_cost_unknown',id,ts FROM visual_inference_usage WHERE day='2026-10-10' AND json_extract(usage,'$.provider_neurons') IS NULL ORDER BY ts LIMIT 1;
 CREATE TABLE IF NOT EXISTS visual_daily_products(day TEXT NOT NULL,pid INTEGER NOT NULL,PRIMARY KEY(day,pid));
 CREATE INDEX IF NOT EXISTS visual_images_hash ON visual_images(hash);
 INSERT OR IGNORE INTO visual_daily_products SELECT DISTINCT day,pid FROM visual_inference_usage WHERE pid>0 AND kind='vision';
@@ -39,3 +42,4 @@ CREATE TABLE IF NOT EXISTS visual_format_failures(pid INTEGER NOT NULL,image_ind
 CREATE TRIGGER IF NOT EXISTS visual_image_changed AFTER UPDATE OF data ON scheduler_inventory WHEN COALESCE(json_extract(NEW.data,'$.image'),'')<>COALESCE(json_extract(OLD.data,'$.image'),'') OR COALESCE(json_extract(NEW.data,'$.image_version'),'')<>COALESCE(json_extract(OLD.data,'$.image_version'),'') OR COALESCE(json_extract(NEW.data,'$.image_updated_at'),'')<>COALESCE(json_extract(OLD.data,'$.image_updated_at'),'') OR COALESCE(json_extract(NEW.data,'$.images'),'')<>COALESCE(json_extract(OLD.data,'$.images'),'') OR COALESCE(json_extract(NEW.data,'$.photos'),'')<>COALESCE(json_extract(OLD.data,'$.photos'),'') BEGIN INSERT INTO visual_queue(pid,queued_at) VALUES(NEW.pid,NEW.queued_at) ON CONFLICT(pid) DO UPDATE SET state='pending',retry_at=0,attempts=0,error=''; END;
 INSERT OR IGNORE INTO metadata VALUES('visual_schema_v4','1');
 INSERT OR IGNORE INTO metadata VALUES('visual_schema_v5','1');
+INSERT OR IGNORE INTO metadata VALUES('visual_schema_v6','1');

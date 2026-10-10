@@ -4,6 +4,7 @@ import {withReadBudget} from './read_guard.mjs';
 import {learningRoute} from './learning.mjs';
 import {queueRoute} from './admin_queue.mjs';
 import {nextSearchDelay} from './search_backoff.mjs';
+import {queryRoute} from './query_control.mjs';
 export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
   if(!s.enabled||s.paused)return null;
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
@@ -23,6 +24,7 @@ export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
 }
 export async function adminRoute(request,e,helpers){
   const {json,fail,payload,ctx}=helpers,path=new URL(request.url).pathname;
+  if(path.startsWith('/api/admin/search')||path.startsWith('/api/admin/config/'))return queryRoute(request,e,helpers);
   if(path==='/api/admin/queue')return queueRoute(request,e,helpers);
   if(path==='/api/admin/schedule/preview'&&request.method==='POST'){
     const input=await payload(request);let s;try{s=validateSchedule(input.schedule);}catch(error){fail(400,error.message);}

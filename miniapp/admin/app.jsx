@@ -6,6 +6,7 @@ import './style.css';
 import {createClient} from './client.mjs';
 import {days,stamp,queueHealth,searchState,mainProblem,insightText,visualErrorText} from './view.mjs';
 import {visualLabel} from '../cloudflare/visual_features.mjs';
+import {QueryManager} from './query-manager.jsx';
 const tg=window.Telegram?.WebApp,client=createClient(tg?.initData||'');
 const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
 function Panel({title,description,children}){return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>;}
@@ -13,6 +14,7 @@ function Metric({label,value,note,tone}){return <div className={'metric '+(tone|
 function Toggle({label,value,onChange}){return <label className="toggle"><span>{label}</span><Switch checked={value} onChange={e=>onChange(e.target.checked)}/></label>;}
 function Field({header,...props}){return <div className="field"><label>{header}<Input aria-label={header} {...props}/></label></div>;}
 function App(){
+  const [controlDirty,setControlDirty]=useState(false);
   const [screen,setScreen]=useState('home'),[data,setData]=useState(null),[schedule,setSchedule]=useState(null),[learning,setLearning]=useState(null),[diagnostic,setDiagnostic]=useState(null),[queue,setQueue]=useState(null);
   const [busy,setBusy]=useState(''),[message,setMessage]=useState(''),[error,setError]=useState(''),[changed,setChanged]=useState(false),[preview,setPreview]=useState(null),[appearance,setAppearance]=useState(tg?.colorScheme||'light'),[learningChanged,setLearningChanged]=useState(false);
   const lock=useRef(false),dirty=useRef(false),baseRevision=useRef(null),mounted=useRef(true),pageRef=useRef('home'),dataRef=useRef(null),requestEpoch=useRef(0);
@@ -59,6 +61,7 @@ function App(){
   function discard(){dirty.current=false;setChanged(false);setPreview(null);baseRevision.current=data.revision;setSchedule(data.schedule);}
   async function open(page){
     if(lock.current)return;
+    if(controlDirty&&page!==screen)return setError('Сначала сохраните или отмените изменения в текущем разделе.');
     if(learningChanged&&page!==screen)return setError('Сначала сохраните изменения экспериментов.');
     setScreen(page);pageRef.current=page;setError('');setMessage('');
     if(['learn','diag','queue'].includes(page))await run('load',()=>loadPage(page),'');
@@ -105,6 +108,7 @@ function App(){
       <details className="panel"><summary>Дополнительно</summary>{[['max_posts_hour','Постов в час, максимум'],['max_posts_day','Постов в сутки, максимум'],['min_post_gap_minutes','Безопасный промежуток, минут']].map(([key,label])=><Field key={key} type="number" header={label} value={schedule[key]} onChange={e=>change(key,Number(e.target.value))}/>)}<Toggle label="Небольшой разброс интервала" value={schedule.natural_interval_enabled} onChange={v=>change('natural_interval_enabled',v)}/>{schedule.natural_interval_enabled&&<Field type="number" header="Разброс, минут" value={schedule.jitter_minutes} onChange={e=>change('jitter_minutes',Number(e.target.value))}/>}</details>{saveBar}
     </>}
     {screen==='search'&&<>
+      <QueryManager client={client} zone={zone} onDirty={setControlDirty}/>
       <section className={'hero compact '+search.tone}><h2>🔍 {search.title}</h2><p>{search.detail}</p></section>
       <div className="metrics"><Metric label="Последний поиск" value={stamp(status.last_search_success||status.last_scan_success,zone)}/><Metric label="Следующий поиск" value={schedule.search_enabled?stamp(status.next_search,zone):'На паузе'}/><Metric label="Найдено" value={latest.found??status.last_scan_found??'—'}/><Metric label="Новых в очереди" value={latest.added??status.last_scan_added??'—'}/></div>
       <Panel title="Пополнение запаса" description={'Сейчас '+status.queue_size+' товаров. Во время ожидания WB продолжаем публиковать из очереди.'}>

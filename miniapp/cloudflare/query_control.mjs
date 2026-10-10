@@ -1,5 +1,6 @@
 import {ensureControl,optionalRows,auditStatement,pruneChanges,changes} from './admin_history.mjs';
 import {searchDue,SEARCH_MIN_GAP} from './search_backoff.mjs';
+import {querySuggestions,fold} from './selection_policy.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/1000);
 export const queryKey=s=>s.normalize('NFKC').trim().replace(/\s+/gu,' ').toLocaleLowerCase('ru');
 export function queryRules(policy){
@@ -10,7 +11,7 @@ export function queryRules(policy){
 export function discoveryQueries(policy){const rules=queryRules(policy).filter(r=>!r.archived);return rules.flatMap(r=>Array(Math.max(1,Math.min(5,r.priority))).fill(r.text));}
 export async function fingerprint(raw){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)))].map(n=>n.toString(16).padStart(2,'0')).join('');}
 export async function policyState(e){const row=await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first();if(!row){const er=new Error('Подбор товаров ещё не настроен. Сохранение недоступно.');er.status=503;throw er;}return {raw:row.data,policy:JSON.parse(row.data),revision:await fingerprint(row.data)};}
-export function validateQueries(input,previous=[]){
+export function validateQueries(input,previous=[],suggestions=new Set()){
   if(!Array.isArray(input)||input.length>100)throw new Error('Можно сохранить до 100 поисковых фраз');
   const seen=new Set(),ids=new Set(),old=new Map(previous.map(r=>[r.id,r]));
   return input.map(r=>{
@@ -19,12 +20,13 @@ export function validateQueries(input,previous=[]){
     if(text.length<2||text.length>100||/[\u0000-\u001f\u007f]/.test(text)||seen.has(key))throw new Error('Фраза должна быть уникальной и содержать 2–100 символов');seen.add(key);
     if(typeof r.enabled!=='boolean'||typeof r.archived!=='boolean'||!Number.isInteger(r.priority)||r.priority<1||r.priority>5)throw new Error('Проверьте переключатели и приоритет от 1 до 5');
     const prev=old.get(r.id)||previous.find(x=>queryKey(x.text)===key),id=prev?.id||crypto.randomUUID();if(ids.has(id))throw new Error('Повторяющийся идентификатор запроса');ids.add(id);
-    return {id,text,enabled:r.enabled,archived:r.archived,priority:r.priority,origin:prev?.origin||'manual'};
+    return {id,text,enabled:r.enabled,archived:r.archived,priority:r.priority,origin:prev?.origin||(r.origin==='algorithm'&&suggestions.has(fold(text))?'algorithm':'manual')};
   });
 }
 export async function saveQueries(e,input,fail){
   const current=await policyState(e);if(input.revision!==current.revision)fail(409,'Список уже изменился. Обновите страницу перед сохранением');
-  let rules;try{rules=validateQueries(input.queries,queryRules(current.policy));}catch(er){fail(400,er.message);}
+  let suggestions=new Set();if(Array.isArray(input.queries)&&input.queries.some(r=>r?.origin==='algorithm'&&!queryRules(current.policy).some(p=>p.id===r.id))){const products=(await q(e,"SELECT data FROM scheduler_inventory WHERE state='ready' ORDER BY queued_at,pid LIMIT 120").all()).results.map(r=>JSON.parse(r.data));suggestions=new Set(querySuggestions(queryRules(current.policy),products).map(r=>fold(r.text)));}
+  let rules;try{rules=validateQueries(input.queries,queryRules(current.policy),suggestions);}catch(er){fail(400,er.message);}
   // Preserve channel, posting counters and unrelated filters. Removal is archival.
   const absent=queryRules(current.policy).filter(r=>!rules.some(x=>x.id===r.id)).map(r=>({...r,archived:true,enabled:false}));
   rules=[...rules,...absent];if(rules.length>100)fail(400,'Всего с архивом можно сохранить до 100 запросов');

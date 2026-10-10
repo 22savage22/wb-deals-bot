@@ -1,4 +1,4 @@
-import {selectionSettings,validateSelection,similarity,fold} from './selection_policy.mjs';
+import {selectionSettings,validateSelection,similarity,querySuggestions} from './selection_policy.mjs';
 import {policyState,queryRules} from './query_control.mjs';
 import {ensureControl,auditStatement,pruneChanges} from './admin_history.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a);
@@ -14,10 +14,7 @@ export async function selectionRoute(request,e,{json,fail,payload}){
     const pid=Number(u.searchParams.get('pid'));if(!Number.isSafeInteger(pid)||pid<=0)fail(400,'Укажите артикул WB');const row=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',pid).first()||await q(e,'SELECT data FROM products WHERE id=?',pid).first();if(!row)fail(404,'Товар пока неизвестен каталогу. Сначала найдите его обычным поиском');const source=JSON.parse(row.data),items=products.filter(p=>p.id!==pid).map(p=>({...p,...similarity(source,p)})).filter(p=>p.score>=.25).sort((a,b)=>b.score-a.score).slice(0,8);return json({source,items,scope:'До 120 ближайших товаров очереди. Сходство текста и категории, не фотографий; цена не является признаком качества.'});
   }
   if(u.pathname==='/api/admin/selection/suggestions'){
-    const existing=new Set(queryRules(current.policy).map(r=>fold(r.text))),seen=new Set(),items=[];
-    const add=(text,reason)=>{text=String(text||'').trim();const key=fold(text);if(text.length>=3&&text.length<=100&&!existing.has(key)&&!seen.has(key)&&items.length<12){seen.add(key);items.push({text,reason});}};
-    for(const p of products){add(p.category,'Категория реального товара очереди');if(p.brand)add(p.category+' '+p.brand,'Категория и бренд реального товара');}
-    const synonyms=[['толстовка','худи'],['кеды','кроссовки'],['сумка','сумка через плечо']];for(const r of queryRules(current.policy).filter(r=>!r.archived))for(const [a,b] of synonyms)if(fold(r.text).includes(a))add(fold(r.text).replace(a,b),'Вариант запроса — проверьте соответствие; это не характеристика товара');
+    const items=querySuggestions(queryRules(current.policy),products);
     return json({items,note:'Подсказки не запускают WB и не меняют поиск. Выберите вариант, затем сохраните в разделе запросов.'});
   }fail(404,'Раздел не найден');
 }

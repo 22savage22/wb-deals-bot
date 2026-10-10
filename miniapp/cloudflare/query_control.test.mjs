@@ -10,6 +10,11 @@ test('imported query IDs from another copy reuse matching local identity and do 
   const imported=old.queries.map(r=>({...r,id:'foreign:'+r.id,priority:4}));const response=await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries:imported});assert.equal(response.status,200);
   const saved=await(await adminRequest(e,'/api/admin/search')).json();assert.equal(saved.queries.length,3);assert.deepEqual(saved.queries.map(r=>r.id),old.queries.map(r=>r.id));assert.ok(saved.queries.every(r=>r.priority===4));
 });
+test('accepted algorithm suggestion has verified provenance; arbitrary imported labels do not invent it',async t=>{
+  const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json(),suggestions=await(await adminRequest(e,'/api/admin/selection/suggestions')).json();assert.ok(suggestions.items.length);
+  const proposed={text:suggestions.items[0].text,priority:1,enabled:true,archived:false,origin:'algorithm'},arbitrary={...proposed,text:'совсем другой ручной запрос'};
+  const r=await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries:[...old.queries,proposed,arbitrary]});assert.equal(r.status,200);const result=await r.json();assert.equal(result.queries.at(-2).origin,'algorithm');assert.equal(result.queries.at(-1).origin,'manual');
+});
 
 test('query editor reads actual D1 without config/schema writes and rejects non-owner before D1',async t=>{
   const e=await adminEnvironment(t),before=rawPolicy(e),schedule=e.db.prepare('SELECT data FROM scheduler_config').get().data;

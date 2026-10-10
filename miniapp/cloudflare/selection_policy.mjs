@@ -40,3 +40,9 @@ export function diverseChoice(rows,recent,policy){
   const deficit=k=>(sum?s.weights[k]/sum:1/present.length)*(history.length+1)-counts[k];
   return [...pool].sort((a,b)=>deficit(productGroup(JSON.parse(b.data)))-deficit(productGroup(JSON.parse(a.data)))||Number(b.checked_at>0)-Number(a.checked_at>0)||a.queued_at-b.queued_at||a.pid-b.pid)[0];
 }
+export function querySuggestions(rules,products){
+  const existing=new Set(rules.map(r=>fold(r.text))),seen=new Set(),items=[];
+  const add=(text,reason)=>{text=String(text||'').trim();const key=fold(text);if(text.length>=3&&text.length<=100&&!existing.has(key)&&!seen.has(key)&&items.length<12){seen.add(key);items.push({text,reason});}};
+  for(const p of products){add(p.category,'Категория реального товара очереди');if(p.brand)add(p.category+' '+p.brand,'Категория и бренд реального товара');}
+  const synonyms=[['толстовка','худи'],['кеды','кроссовки'],['сумка','сумка через плечо']];for(const r of rules.filter(r=>!r.archived))for(const [a,b] of synonyms)if(fold(r.text).includes(a))add(fold(r.text).replace(a,b),'Вариант запроса — проверьте соответствие; это не характеристика товара');return items;
+}

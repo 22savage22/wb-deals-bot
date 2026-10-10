@@ -8,6 +8,8 @@ import {days,stamp,queueHealth,searchState,mainProblem,insightText,visualErrorTe
 import {visualLabel} from '../cloudflare/visual_features.mjs';
 import {QueryManager} from './query-manager.jsx';
 import {SelectionManager} from './selection-manager.jsx';
+import {QueueManager} from './queue-manager.jsx';
+import {ConfigHistory} from './config-history.jsx';
 const tg=window.Telegram?.WebApp,client=createClient(tg?.initData||'');
 const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['selection','◎','Подбор'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
 function Panel({title,description,children}){return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>;}
@@ -27,7 +29,7 @@ function App(){
     if(!dirty.current){baseRevision.current=result.revision;setSchedule(result.schedule);}
     return result;
   }
-  async function loadPage(page){if(page==='learn')setLearning(await client.api('/api/admin/learning'));if(page==='diag')setDiagnostic(await client.api('/api/admin/diagnostics'));if(page==='queue')setQueue(await client.api('/api/admin/queue'));}
+  async function loadPage(page){if(page==='learn')setLearning(await client.api('/api/admin/learning'));if(page==='diag')setDiagnostic(await client.api('/api/admin/diagnostics'));}
   useEffect(()=>{
     tg?.ready();tg?.expand();mounted.current=true;
     const theme=()=>setAppearance(tg?.colorScheme||'light');tg?.onEvent?.('themeChanged',theme);
@@ -43,11 +45,11 @@ function App(){
     return()=>{mounted.current=false;clearInterval(timer);tg?.offEvent?.('themeChanged',theme);document.removeEventListener('visibilitychange',visible);};
   },[]);
   useEffect(()=>{
-    if(!changed||!schedule)return;
+    if(screen!=='schedule'||!schedule)return;
     const version=++requestEpoch.current;
-    const timer=setTimeout(()=>client.api('/api/admin/schedule/preview','POST',{schedule}).then(r=>{if(version===requestEpoch.current)setPreview({time:r.next_post});}).catch(e=>{if(version===requestEpoch.current)setPreview({error:e.message});}),650);
+    const timer=setTimeout(()=>client.api('/api/admin/schedule/preview','POST',{schedule}).then(r=>{if(version===requestEpoch.current)setPreview({...r,time:r.next_post});}).catch(e=>{if(version===requestEpoch.current)setPreview({error:e.message});}),650);
     return()=>{clearTimeout(timer);requestEpoch.current++;};
-  },[schedule,changed]);
+  },[schedule,changed,screen]);
   async function run(name,operation,success){
     if(lock.current)return;lock.current=true;setBusy(name);setError('');setMessage('');
     try{const result=await operation();setMessage(name==='load'?'':success||'✅ Заявка принята. Cron выполнит её отдельно с учётом расписания и ограничений.');await refresh();return result;}
@@ -62,7 +64,7 @@ function App(){
   function discard(){dirty.current=false;setChanged(false);setPreview(null);baseRevision.current=data.revision;setSchedule(data.schedule);}
   async function open(page){
     if(lock.current)return;
-    if(controlDirty&&page!==screen)return setError('Сначала сохраните или отмените изменения в текущем разделе.');
+    if((controlDirty||changed)&&page!==screen)return setError('Сначала сохраните или отмените изменения в текущем разделе.');
     if(learningChanged&&page!==screen)return setError('Сначала сохраните изменения экспериментов.');
     setScreen(page);pageRef.current=page;setError('');setMessage('');
     if(['learn','diag','queue'].includes(page))await run('load',()=>loadPage(page),'');
@@ -74,7 +76,7 @@ function App(){
   const presets=(key,values)=><div className="presets">{values.map(n=><Button key={n} mode={schedule[key]===n?'filled':'gray'} aria-pressed={schedule[key]===n} disabled={!!busy} onClick={()=>change(key,n)}>{n===60?'1 час':n+' мин'}</Button>)}</div>;
   const saveBar=<div className="savebar">{button('Сохранить',()=>run('save',save,'✅ Расписание сохранено. Следующее время пересчитано.'),{disabled:!changed})}{changed&&button('Отменить изменения',discard,{mode:'plain'})}<p>{changed?'Изменения пока только на экране. Нажмите «Сохранить».':'Загружены действующие настройки из D1. Ничего не перезаписываем.'}</p></div>;
   const latest=status.last_search_add_receipt||status.search_receipt||{};
-  const nextPreview=changed?preview?.time:status.next_post;
+  const nextPreview=preview?.time??status.next_post;
   const votes=learning?.current_votes;
   const positive=learning?.insights?.filter(x=>x.rate>=.65)||[],negative=learning?.insights?.filter(x=>x.rate<=.35)||[];
   const insightCards=items=>items.map((i,index)=>{const text=insightText(i);return <article className="observation" key={index}><strong>{text.title}</strong><p>{text.description}</p><small>{text.detail}</small></article>;});
@@ -97,17 +99,18 @@ function App(){
     </>}
     {screen==='selection'&&<SelectionManager client={client} onDirty={setControlDirty}/>}
     {screen==='schedule'&&<>
+      <div className="metrics"><Metric label="Сейчас сохранено" value={live.mode==='interval'?live.post_interval_minutes+' мин':live.post_times.join(', ')}/><Metric label="Постов сегодня" value={status.posted_today??'Нет данных'}/><Metric label="Последний пост" value={stamp(status.last_post_success,zone)}/><Metric label="Следующий поиск WB" value={stamp(status.next_search,zone)}/></div>
       <Panel title="Расписание публикаций" description="Настройте удобный ритм. Изменения применяются только после сохранения.">
         <Toggle label="Автопостинг включён" value={schedule.enabled} onChange={v=>change('enabled',v)}/>
         <div className="segments">{button('Через интервал',()=>change('mode','interval'),{mode:schedule.mode==='interval'?'filled':'gray'})}{button('По времени',()=>change('mode','times'),{mode:schedule.mode==='times'?'filled':'gray'})}</div>
-        {schedule.mode==='interval'?<>{presets('post_interval_minutes',[5,10,20,30])}<Field type="number" min="5" max="10080" header="Свой интервал, минут" value={schedule.post_interval_minutes} onChange={e=>change('post_interval_minutes',Number(e.target.value))}/></>:<div className="times">{schedule.post_times.map((time,i)=><label key={i}><input aria-label={'Время публикации '+(i+1)} type="time" value={time} onChange={e=>change('post_times',schedule.post_times.map((t,j)=>j===i?e.target.value:t))}/><button aria-label="Удалить время" onClick={()=>change('post_times',schedule.post_times.filter((_,j)=>j!==i))}>×</button></label>)}{button('+ Добавить время',()=>change('post_times',[...schedule.post_times,'08:00']),{mode:'gray',disabled:schedule.post_times.length>=24})}</div>}
+        {schedule.mode==='interval'?<>{presets('post_interval_minutes',[5,10,20,30,60])}<Field type="number" min="5" max="10080" header="Свой интервал, минут" value={schedule.post_interval_minutes} onChange={e=>change('post_interval_minutes',Number(e.target.value))}/></>:<div className="times">{schedule.post_times.map((time,i)=><label key={i}><input aria-label={'Время публикации '+(i+1)} type="time" value={time} onChange={e=>change('post_times',schedule.post_times.map((t,j)=>j===i?e.target.value:t))}/><button aria-label="Удалить время" onClick={()=>change('post_times',schedule.post_times.filter((_,j)=>j!==i))}>×</button></label>)}{button('+ Добавить время',()=>change('post_times',[...schedule.post_times,'08:00']),{mode:'gray',disabled:schedule.post_times.length>=24})}</div>}
         <h3>Дни недели</h3><div className="presets days">{days.map((label,i)=><Button key={i} aria-pressed={schedule.weekdays.includes(i)} mode={schedule.weekdays.includes(i)?'filled':'gray'} disabled={!!busy} onClick={()=>change('weekdays',schedule.weekdays.includes(i)?schedule.weekdays.filter(d=>d!==i):[...schedule.weekdays,i])}>{label}</Button>)}</div>
         <Toggle label="Не публиковать в тихие часы" value={schedule.quiet_enabled} onChange={v=>change('quiet_enabled',v)}/>
         {schedule.quiet_enabled&&<div className="times"><label>С <input type="time" value={schedule.quiet_start} onChange={e=>change('quiet_start',e.target.value)}/></label><label>До <input type="time" value={schedule.quiet_end} onChange={e=>change('quiet_end',e.target.value)}/></label></div>}
         <Field header="Часовой пояс" value={schedule.timezone} onChange={e=>change('timezone',e.target.value)}/>
         <div className="preview"><span>{changed?'Предпросмотр, не сохранено':'Ближайший пост'}</span><strong>{preview?.error||nextPreview?preview?.error||stamp(nextPreview,zone):changed?'Пересчитываем…':'На паузе'}</strong></div>
       </Panel>
-      <details className="panel"><summary>Дополнительно</summary>{[['max_posts_hour','Постов в час, максимум'],['max_posts_day','Постов в сутки, максимум'],['min_post_gap_minutes','Безопасный промежуток, минут']].map(([key,label])=><Field key={key} type="number" header={label} value={schedule[key]} onChange={e=>change(key,Number(e.target.value))}/>)}<Toggle label="Небольшой разброс интервала" value={schedule.natural_interval_enabled} onChange={v=>change('natural_interval_enabled',v)}/>{schedule.natural_interval_enabled&&<Field type="number" header="Разброс, минут" value={schedule.jitter_minutes} onChange={e=>change('jitter_minutes',Number(e.target.value))}/>}</details>{saveBar}
+      <div className="panel"><h3>Будущие публикации</h3>{preview?.error?<p role="alert">{preview.error}</p>:<><p>Ожидается за ближайшие 24 часа: {preview?.expected_24h??'Пересчитываем…'}</p><ol>{preview?.next_posts?.map(t=><li key={t}>{stamp(t,zone)}</li>)}</ol><p className="subtle">{preview?.forecast_note}</p></>}</div><ConfigHistory client={client} zone={zone} scope="schedule" onRestored={refresh} disabled={changed}/><details className="panel"><summary>Дополнительно</summary>{[['max_posts_hour','Постов в час, максимум'],['max_posts_day','Постов в сутки, максимум'],['min_post_gap_minutes','Безопасный промежуток, минут']].map(([key,label])=><Field key={key} type="number" header={label} value={schedule[key]} onChange={e=>change(key,Number(e.target.value))}/>)}<Toggle label="Небольшой разброс интервала" value={schedule.natural_interval_enabled} onChange={v=>change('natural_interval_enabled',v)}/>{schedule.natural_interval_enabled&&<Field type="number" header="Разброс, минут" value={schedule.jitter_minutes} onChange={e=>change('jitter_minutes',Number(e.target.value))}/>}</details>{saveBar}
     </>}
     {screen==='search'&&<>
       <QueryManager client={client} zone={zone} onDirty={setControlDirty}/>
@@ -144,11 +147,7 @@ function App(){
       </Panel>
       <Panel title="Эксперименты" description="Часть товаров — новые темы для изучения интересов аудитории."><label className="range-label"><strong>{learning.config.exploration_percent}%</strong><input aria-label="Эксперименты" type="range" min="0" max="30" value={learning.config.exploration_percent} onChange={e=>{setLearningChanged(true);setLearning({...learning,config:{...learning.config,exploration_percent:Number(e.target.value)}});}}/><span>0% — знакомые темы · 30% — больше нового</span></label><p>В SHADOW эта настройка влияет только на исследование тем в текущем Legacy-поиске, не передаёт выбор публикаций River.</p>{button('Сохранить эксперименты',()=>run('save',async()=>{await client.api('/api/admin/learning','PUT',learning.config);setLearningChanged(false);await loadPage('learn');},'✅ Эксперименты сохранены. River остаётся в SHADOW.'),{disabled:!learningChanged})}</Panel>
     </>:<p>Загружаем реальные сигналы…</p>)}
-    {screen==='queue'&&(queue?<>
-      <Panel title={'В запасе '+status.queue_size+' товаров'} description={queue.note}><span className={'badge '+health.tone}>{health.label}</span></Panel>
-      {queue.items.length?queue.items.map(p=><article className="product-card" key={p.pid}><div className="product-summary">{p.image?<img src={p.image} alt="" loading="lazy" onError={e=>{e.target.style.display='none';}}/>:<span className="photo-empty">▦</span>}<div><span className="eyebrow">{p.category}</span><h2>{p.title}</h2><strong className="price">{p.price?.toLocaleString('ru-RU')} ₽</strong><small>nmId {p.pid}</small></div></div><p>{p.reason}</p>{p.retry_at>Date.now()/1000&&<div className="notice yellow">Ожидает повторной проверки. Не отправим непроверенный товар.</div>}<div className="product-actions">{button('Опубликовать',()=>confirm('Опубликовать именно «'+p.title+'»? Cron повторно проверит товар.',()=>run('queue-post',()=>client.action('post',{pid:p.pid}))),{disabled:!!data.operations.post})}{button('Пропустить',()=>run('queue-skip',async()=>{await client.action('skip',{pid:p.pid});await loadPage('queue');},'✅ Товар пропущен.'),{mode:'gray'})}{button('Удалить из очереди',()=>confirm('Убрать товар из запаса? История и защита от дублей сохранятся.',()=>run('queue-delete',async()=>{await client.action('delete',{pid:p.pid});await loadPage('queue');},'✅ Удалено только из очереди.')),{mode:'plain'})}<a href={p.url} target="_blank" rel="noopener noreferrer">Открыть WB ↗</a></div></article>):<Panel title="На этой странице нет товаров"><p>Поиск пополнит запас автоматически.</p></Panel>}
-      <div className="actions">{button('В начало',()=>run('load',()=>loadPage('queue'),''),{mode:'gray'})}{queue.next_cursor&&button('Следующие товары →',()=>run('load',async()=>setQueue(await client.api('/api/admin/queue?cursor='+encodeURIComponent(queue.next_cursor))),''),{mode:'gray'})}</div>
-    </>:<p>Загрузка очереди…</p>)}
+    {screen==='queue'&&<QueueManager client={client} zone={zone} onRefresh={refresh} postPending={!!data.operations.post}/>}
     {screen==='diag'&&(diagnostic?<>
       <Panel title="Диагностика" description="Технические детали отдельно от главного экрана.">
         {[['Worker',diagnostic.worker],['Cloudflare Cron',status.cron_active],['D1',diagnostic.d1],['Telegram',diagnostic.telegram],['WB source',diagnostic.wb_source]].map(([name,ok])=><div className="diag-row" key={name}><span>{name}</span><strong>{ok?'🟢 OK':'🟠 Проверить'}</strong></div>)}

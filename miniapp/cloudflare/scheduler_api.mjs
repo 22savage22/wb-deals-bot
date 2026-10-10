@@ -1,5 +1,6 @@
 // Scheduling metadata is deliberately separate from catalogue/user tables.
 import {READ_LIMITS,WRITE_LIMITS} from './read_guard.mjs';
+import {ensureControl,auditStatement,pruneChanges} from './admin_history.mjs';
 export const DEFAULT_SCHEDULE=Object.freeze({enabled:true,paused:false,mode:'interval',post_interval_minutes:10,post_times:[],weekdays:[0,1,2,3,4,5,6],quiet_enabled:false,quiet_start:'23:00',quiet_end:'07:00',search_enabled:true,search_interval_minutes:20,min_queue:100,natural_interval_enabled:false,jitter_minutes:2,timezone:'Europe/Moscow',min_post_gap_minutes:5,max_posts_hour:12,max_posts_day:144});
 const time=/^(?:[01]\d|2[0-3]):[0-5]\d$/;
 const seconds=()=>Math.floor(Date.now()/1000);
@@ -83,7 +84,7 @@ async function initialize(env){
 }
 const dayFormatters=new Map();
 function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
-function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
+export function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
 const text=(v,max=120)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[\r\n]/.test(v)?v:null;
 const safeError=v=>typeof v==='string'?v.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[скрыто]').slice(0,180):'';
 const number=v=>Number.isFinite(v)&&v>=0?Math.floor(v):0;
@@ -94,7 +95,7 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
   const q=(sql,...args)=>env.DB.prepare(sql).bind(...args),all=async(sql,...args)=>(await q(sql,...args).all()).results;
   await ensureScheduler(env);
   const config=async()=>{const row=await q('SELECT * FROM scheduler_config WHERE id=1').first();const status=JSON.parse(row.status),heartbeat=Math.max(status.heartbeat||0,status.clock_heartbeat||0),cron_configured=['cloudflare','cloudflare-native'].includes(env.SCHEDULER_DRIVER);return {schedule:JSON.parse(row.data),revision:row.revision,post_request:row.post_request,search_request:row.search_request,status:{...status,driver:env.SCHEDULER_DRIVER||'github-actions',cron_configured,cron_active:cron_configured&&seconds()-Number(status.clock_heartbeat||0)<=180,heartbeat_stale:!heartbeat||seconds()-heartbeat>180}};};
-  const save=async(data)=>{let schedule;try{schedule=validateSchedule(data.schedule);}catch(e){fail(400,e.message);}if(!Number.isInteger(data.revision))fail(400,'Нужна версия настроек');const revision=Math.max(Date.now(),data.revision+1);const r=await q('UPDATE scheduler_config SET data=?,revision=? WHERE id=1 AND revision=?',JSON.stringify(schedule),revision,data.revision).run();if(!r.meta.changes)fail(409,'Настройки уже изменились. Обновите страницу');return config();};
+  const save=async(data)=>{let schedule;try{schedule=validateSchedule(data.schedule);}catch(e){fail(400,e.message);}if(!Number.isInteger(data.revision))fail(400,'Нужна версия настроек');const before=await config();if(before.revision!==data.revision)fail(409,'Настройки уже изменились. Обновите страницу');const revision=Math.max(Date.now(),data.revision+1);await ensureControl(env);const results=await env.DB.batch([q('UPDATE scheduler_config SET data=?,revision=? WHERE id=1 AND revision=?',JSON.stringify(schedule),revision,data.revision),auditStatement(env,'schedule',before.schedule,schedule)]);if(!results[0].meta.changes)fail(409,'Настройки уже изменились. Обновите страницу');await pruneChanges(env);return config();};
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='GET')return json(await config());
   if(path==='/api/scheduler/budget'&&method==='GET')return json({day:new Date().toISOString().slice(0,10),rows:await all('SELECT lane,reads,writes FROM worker_read_budget WHERE day=? LIMIT 3',new Date().toISOString().slice(0,10)),limits:READ_LIMITS,write_limits:WRITE_LIMITS,includes_read_ledger_overhead:false});
   if((path==='/api/scheduler/config'||path==='/api/admin/schedule')&&method==='PUT')return json(await save(await payload(request)));

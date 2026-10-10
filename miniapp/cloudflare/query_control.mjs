@@ -46,6 +46,7 @@ export async function queryRoute(request,e,{json,fail,payload}){
     const data=await payload(request);if(!Number.isSafeInteger(data.id)||data.id<=0)fail(400,'Некорректная запись');
     const rows=await optionalRows(e,'SELECT scope,before_data FROM admin_changes WHERE id=?',data.id),row=rows?.[0];if(!row)fail(404,'Версия уже удалена из ограниченной истории');
     if(row.scope==='selection'){const {saveSelection}=await import('./selection_control.mjs');return json(await saveSelection(e,{revision:data.revision,...JSON.parse(row.before_data)},fail));}
+    if(row.scope==='schedule'){const {schedulerRoute}=await import('./scheduler_api.mjs');return schedulerRoute(new Request('https://internal/api/admin/schedule',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.revision,schedule:JSON.parse(row.before_data)})}),e,{json,fail,payload,admin:true});}
     if(row.scope!=='queries')fail(400,'Эта версия восстанавливается в своём разделе');
     return json(await saveQueries(e,{revision:data.revision,queries:JSON.parse(row.before_data)},fail));
   }

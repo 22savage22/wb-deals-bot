@@ -16,3 +16,5 @@ button:disabled{opacity:.5}button:focus-visible,a:focus-visible,input:focus-visi
  .ui-controls{border:0;padding:0;margin:0;min-width:0}.product-actions button:nth-child(3){grid-column:1 / -1}
 
 .control-label textarea{font:inherit;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px;resize:vertical;max-width:100%;box-sizing:border-box;min-height:76px} nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+.control-label select{font:inherit;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px;min-height:48px;width:100%} .panel ol{padding-left:24px;line-height:2}

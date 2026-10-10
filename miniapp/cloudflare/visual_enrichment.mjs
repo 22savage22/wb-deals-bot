@@ -13,13 +13,16 @@ export const visualSourceVersion=p=>JSON.stringify([photoURLs(p),p.image_version
 const missing=e=>/no such table.*visual_/i.test(String(e?.message));
 const TERMS_APPROVAL='meta-llama-3.2-11b-vision-20261005',TEST_KEY='visual_test_20261005';
 async function ensureMeter(e){
-  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v5'").first())return;
+  if(await q(e,"SELECT value FROM metadata WHERE key='visual_schema_v6'").first())return;
   await e.DB.batch([
     q(e,"CREATE TABLE IF NOT EXISTS visual_inference_usage(id TEXT PRIMARY KEY,ts INTEGER NOT NULL,day TEXT NOT NULL,pid INTEGER NOT NULL,image_index INTEGER NOT NULL,kind TEXT NOT NULL,outcome TEXT NOT NULL,usage TEXT NOT NULL)"),
     q(e,'CREATE INDEX IF NOT EXISTS visual_inference_day ON visual_inference_usage(day,ts DESC)'),
     q(e,'CREATE INDEX IF NOT EXISTS visual_inference_pid ON visual_inference_usage(pid,ts DESC)'),
+    q(e,'CREATE INDEX IF NOT EXISTS visual_inference_pending ON visual_inference_usage(day,outcome,ts)'),
     q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v3','1')"),
     q(e,'CREATE TABLE IF NOT EXISTS visual_neuron_budget(day TEXT PRIMARY KEY,charged REAL NOT NULL)'),
+    q(e,'CREATE TABLE IF NOT EXISTS visual_budget_holds(day TEXT PRIMARY KEY,reason TEXT NOT NULL,request_id TEXT NOT NULL,ts INTEGER NOT NULL)'),
+    q(e,"INSERT OR IGNORE INTO visual_budget_holds SELECT day,'historical_cost_unknown',id,ts FROM visual_inference_usage WHERE day=? AND json_extract(usage,'$.provider_neurons') IS NULL ORDER BY ts LIMIT 1",new Date().toISOString().slice(0,10)),
     q(e,'CREATE TABLE IF NOT EXISTS visual_daily_products(day TEXT NOT NULL,pid INTEGER NOT NULL,PRIMARY KEY(day,pid))'),
     q(e,'CREATE INDEX IF NOT EXISTS visual_images_hash ON visual_images(hash)'),
     q(e,"INSERT OR IGNORE INTO visual_daily_products SELECT DISTINCT day,pid FROM visual_inference_usage WHERE pid>0 AND kind='vision'"),
@@ -27,7 +30,8 @@ async function ensureMeter(e){
     q(e,'CREATE TABLE IF NOT EXISTS visual_format_failures(pid INTEGER NOT NULL,image_index INTEGER NOT NULL,hash TEXT NOT NULL,model TEXT NOT NULL,version INTEGER NOT NULL,failures INTEGER NOT NULL,PRIMARY KEY(pid,image_index,hash,model,version))'),
     q(e,`CREATE TRIGGER IF NOT EXISTS visual_image_changed AFTER UPDATE OF data ON scheduler_inventory WHEN COALESCE(json_extract(NEW.data,'$.image'),'')<>COALESCE(json_extract(OLD.data,'$.image'),'') OR COALESCE(json_extract(NEW.data,'$.image_version'),'')<>COALESCE(json_extract(OLD.data,'$.image_version'),'') OR COALESCE(json_extract(NEW.data,'$.image_updated_at'),'')<>COALESCE(json_extract(OLD.data,'$.image_updated_at'),'') OR COALESCE(json_extract(NEW.data,'$.images'),'')<>COALESCE(json_extract(OLD.data,'$.images'),'') OR COALESCE(json_extract(NEW.data,'$.photos'),'')<>COALESCE(json_extract(OLD.data,'$.photos'),'') BEGIN INSERT INTO visual_queue(pid,queued_at) VALUES(NEW.pid,NEW.queued_at) ON CONFLICT(pid) DO UPDATE SET state='pending',retry_at=0,attempts=0,error=''; END`),
     q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v4','1')"),
-    q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v5','1')")
+    q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v5','1')"),
+    q(e,"INSERT OR IGNORE INTO metadata VALUES('visual_schema_v6','1')")
   ]);
 }
 export async function ensureVisual(e){
@@ -99,7 +103,7 @@ function providerError(err){
 }
 function errorCode(err){
   const internal=String(err?.message||'');
-  if(/^VISUAL_(DAILY_PRODUCTS|FREE_QUOTA|IMAGE_UNAVAILABLE|IMAGE_TOO_LARGE|MODEL_TIMEOUT|INVALID_JSON|INVALID_PROFILE|FORMAT_RETRY_EXHAUSTED|EMPTY_PROFILE)$/.test(internal))return internal;
+  if(/^VISUAL_(BUDGET_UNKNOWN|DAILY_PRODUCTS|FREE_QUOTA|IMAGE_UNAVAILABLE|IMAGE_TOO_LARGE|MODEL_TIMEOUT|INVALID_JSON|INVALID_PROFILE|FORMAT_RETRY_EXHAUSTED|EMPTY_PROFILE)$/.test(internal))return internal;
   const {detail:s,codes}=providerError(err);if(codes.includes('5016')||/agree|license|terms|5020/i.test(s))return 'VISUAL_MODEL_TERMS_REQUIRED';if(codes.includes('5035')||/paid plan/i.test(s))return 'VISUAL_PAID_MODEL_REFUSED';if(codes.includes('3040'))return 'VISUAL_MODEL_CAPACITY';if(codes.includes('3036')||/allocation|neurons|quota/i.test(s))return 'VISUAL_FREE_QUOTA';return 'VISUAL_MODEL_UNAVAILABLE';
 }
 export function inferenceUsage(result,headers=null,model=VISUAL_TERMS_MODEL){
@@ -115,6 +119,11 @@ export function inferenceUsage(result,headers=null,model=VISUAL_TERMS_MODEL){
 async function infer(e,inputs,{pid=0,index=-1,kind='vision',model=VISUAL_MODEL}={}){
   // Account Free plan is a hard no-billing boundary; never upgrade/enable paid models.
   const day=new Date().toISOString().slice(0,10);
+  // Unknown cost is a durable circuit breaker, not permission to spend a
+  // second reservation. Forced/manual runs and new isolates obey it too.
+  const pending=await q(e,"SELECT id FROM visual_inference_usage WHERE day=? AND outcome='attempt' ORDER BY ts LIMIT 1",day).first();
+  if(pending)await e.DB.batch([q(e,'INSERT OR IGNORE INTO visual_budget_holds VALUES(?,?,?,?)',day,'unsettled_inference',pending.id,now()),q(e,'UPDATE visual_state SET enabled=0 WHERE id=1')]);
+  if(await q(e,'SELECT reason FROM visual_budget_holds WHERE day=?',day).first())throw new Error('VISUAL_BUDGET_UNKNOWN');
   if(kind==='vision'){
     // One atomic statement admits a product. Retries/second views keep its slot;
     // failures still count. Separate requests/isolates cannot admit product 11.
@@ -127,15 +136,22 @@ async function infer(e,inputs,{pid=0,index=-1,kind='vision',model=VISUAL_MODEL}=
   if(!reserve.meta.changes)throw new Error('VISUAL_FREE_QUOTA');
   const id=crypto.randomUUID(),started=Date.now();
   await q(e,'INSERT INTO visual_inference_usage VALUES(?,?,?,?,?,?,?,?)',id,now(),day,pid,index,kind,'attempt','{}').run();
-  let timer;try{
+  let timer,settled=false;try{
     let result=await Promise.race([e.AI.run(model,inputs,{returnRawResponse:true,signal:AbortSignal.timeout(22000)}),new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('VISUAL_MODEL_TIMEOUT')),22000);})]);
-    let headers=null;if(result instanceof Response){headers=result.headers;const raw=await result.json();if(!result.ok)throw new Error(String(raw.internalCode||raw.errors?.[0]?.code||result.status)+': '+String(raw.description||raw.errors?.[0]?.message||'AI unavailable'));result=raw.result||raw;}
+    let headers=null,envelope=null;if(result instanceof Response){headers=result.headers;const raw=await result.json();if(!result.ok)throw new Error(String(raw.internalCode||raw.errors?.[0]?.code||result.status)+': '+String(raw.description||raw.errors?.[0]?.message||'AI unavailable'));envelope=raw;result=raw.result||raw;}
     const usage={...inferenceUsage(result,headers,model),model,request_id:e.AI.lastRequestId||null,elapsed_ms:Date.now()-started,provider_keys:Object.keys(result||{}).slice(0,20),meter_header_names:headers?[...headers.keys()].filter(n=>/neurons|usage|tokens|cf-ai/.test(n)).slice(0,20):[]};
+    // Some native responses put metering beside `result`, not inside it.
+    if(usage.provider_neurons===null&&envelope){const outer=inferenceUsage(envelope,headers,model);if(outer.provider_neurons!==null)Object.assign(usage,outer);}
     const measured=usage.provider_neurons;
-    if(measured!==null)await q(e,'UPDATE visual_neuron_budget SET charged=charged+? WHERE day=?',measured-VISUAL_REQUEST_RESERVE,day).run();
+    if(measured!==null){await q(e,'UPDATE visual_neuron_budget SET charged=charged+? WHERE day=?',measured-VISUAL_REQUEST_RESERVE,day).run();settled=true;}
+    else await e.DB.batch([q(e,'INSERT OR IGNORE INTO visual_budget_holds VALUES(?,?,?,?)',day,'provider_meter_not_returned',id,now()),q(e,"UPDATE visual_state SET enabled=0,last_error='VISUAL_BUDGET_UNKNOWN' WHERE id=1")]);
     await q(e,"UPDATE visual_inference_usage SET outcome='success',usage=? WHERE id=?",JSON.stringify(usage),id).run();
     return {...result,visual_usage:usage};
-  }catch(error){if(errorCode(error)==='VISUAL_FREE_QUOTA')await q(e,'UPDATE visual_neuron_budget SET charged=MAX(charged,?) WHERE day=?',VISUAL_DAILY_NEURONS,day).run();await q(e,'UPDATE visual_inference_usage SET outcome=?,usage=? WHERE id=?',errorCode(error),JSON.stringify({request_id:e.AI.lastRequestId||null,elapsed_ms:Date.now()-started}),id).run();throw error;}finally{clearTimeout(timer);}
+  }catch(error){
+    if(!settled)await e.DB.batch([q(e,'INSERT OR IGNORE INTO visual_budget_holds VALUES(?,?,?,?)',day,'inference_cost_unknown',id,now()),q(e,'UPDATE visual_state SET enabled=0 WHERE id=1')]);
+    if(errorCode(error)==='VISUAL_FREE_QUOTA')await q(e,'UPDATE visual_neuron_budget SET charged=MAX(charged,?) WHERE day=?',VISUAL_DAILY_NEURONS,day).run();
+    await q(e,'UPDATE visual_inference_usage SET outcome=?,usage=? WHERE id=?',errorCode(error),JSON.stringify({request_id:e.AI.lastRequestId||null,elapsed_ms:Date.now()-started}),id).run();throw error;
+  }finally{clearTimeout(timer);}
 }
 export function visualInputs(bytes,group=null,{retry=false,mime='image/webp'}={}){
   // Only public photo bytes cross this binding; no API token or product title.
@@ -203,12 +219,12 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null,m
       }
       const profile=mergeAnalyses(analyses,ts,VISUAL_MODEL);
       profile.source_version=visualSourceVersion(p);profile.image_verified_at=ts;
-      await e.DB.batch([q(e,'INSERT INTO visual_profiles(pid,version,analyzed_at,profile) VALUES(?,?,?,?) ON CONFLICT(pid) DO UPDATE SET version=excluded.version,analyzed_at=excluded.analyzed_at,profile=excluded.profile',row.pid,VISUAL_VERSION,ts,JSON.stringify(profile)),q(e,"UPDATE visual_queue SET state='complete',error='' WHERE pid=?",row.pid),q(e,"UPDATE visual_state SET last_success=?,last_error='' WHERE id=1",ts)]);
+      await e.DB.batch([q(e,'INSERT INTO visual_profiles(pid,version,analyzed_at,profile) VALUES(?,?,?,?) ON CONFLICT(pid) DO UPDATE SET version=excluded.version,analyzed_at=excluded.analyzed_at,profile=excluded.profile',row.pid,VISUAL_VERSION,ts,JSON.stringify(profile)),q(e,"UPDATE visual_queue SET state='complete',error='' WHERE pid=?",row.pid),q(e,"UPDATE visual_state SET last_success=?,last_error=CASE WHEN EXISTS(SELECT 1 FROM visual_budget_holds WHERE day=?) THEN 'VISUAL_BUDGET_UNKNOWN' ELSE '' END WHERE id=1",ts,new Date().toISOString().slice(0,10))]);
       await maintainVisualEvents(e,row.pid);
       console.log('VISUAL_CACHED',JSON.stringify({pid:row.pid,images:profile.images.length,features:profile.feature_keys.length}));
       return {state:'complete',pid:row.pid,title:p.title,profile};
     }catch(err){
-      const code=errorCode(err),blocked=['VISUAL_MODEL_TERMS_REQUIRED','VISUAL_PAID_MODEL_REFUSED'].includes(code),quota=['VISUAL_FREE_QUOTA','VISUAL_DAILY_PRODUCTS'].includes(code);
+      const code=errorCode(err),blocked=['VISUAL_BUDGET_UNKNOWN','VISUAL_MODEL_TERMS_REQUIRED','VISUAL_PAID_MODEL_REFUSED'].includes(code),quota=['VISUAL_BUDGET_UNKNOWN','VISUAL_FREE_QUOTA','VISUAL_DAILY_PRODUCTS'].includes(code);
       const tomorrow=new Date();tomorrow.setUTCHours(24,1,0,0);
       const retry=quota?Math.floor(tomorrow.getTime()/1000):ts+Math.min(21600,300*2**Math.min(6,row.attempts))+Math.floor(Math.random()*61);
       const exhausted=['VISUAL_FORMAT_RETRY_EXHAUSTED','VISUAL_EMPTY_PROFILE'].includes(code);
@@ -228,10 +244,11 @@ export async function visualStatus(e){
     const terms=await q(e,"SELECT value FROM metadata WHERE key='visual_meta_terms'").first(),sample=await q(e,'SELECT value FROM metadata WHERE key=?',TEST_KEY).first();
     let meter=[];try{meter=(await q(e,'SELECT ts,pid,image_index,kind,outcome,usage FROM visual_inference_usage WHERE day=? ORDER BY ts DESC LIMIT 20',day).all()).results.map(r=>({...r,usage:JSON.parse(r.usage)}));}catch(error){if(!missing(error))throw error;}
     const budget=await q(e,'SELECT charged FROM visual_neuron_budget WHERE day=?',day).first();
+    const budget_hold=await q(e,'SELECT reason,request_id,ts FROM visual_budget_holds WHERE day=?',day).first();
     const admitted=await q(e,'SELECT COUNT(*) n FROM visual_daily_products WHERE day=?',day).first();
     const coverage=await q(e,'SELECT COUNT(*) profiles FROM visual_profiles WHERE version=? AND json_extract(profile,\'$.model\')=?',VISUAL_VERSION,VISUAL_MODEL).first();
     const feedback=await q(e,"SELECT COUNT(*) events,COUNT(DISTINCT pid) products FROM visual_events WHERE kind IN ('like','dislike')").first();
-    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,terms:terms?JSON.parse(terms.value):null,sample:sample?JSON.parse(sample.value):null,meter,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,daily_product_limit:VISUAL_DAILY_PRODUCTS,products_today:admitted?.n||0,profiles:coverage?.profiles||0,real_feedback:feedback,daily_neuron_limit:VISUAL_DAILY_NEURONS,neurons_charged:budget?.charged||0,request_reserve:VISUAL_REQUEST_RESERVE,other_account_usage:'unknown',examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров и20 лайков/дизлайков. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
+    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,terms:terms?JSON.parse(terms.value):null,sample:sample?JSON.parse(sample.value):null,meter,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,daily_product_limit:VISUAL_DAILY_PRODUCTS,products_today:admitted?.n||0,profiles:coverage?.profiles||0,real_feedback:feedback,daily_neuron_limit:VISUAL_DAILY_NEURONS,neurons_charged:budget?.charged||0,budget_hold,request_reserve:VISUAL_REQUEST_RESERVE,other_account_usage:'unknown',automatic_analysis_allowed:false,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров и20 лайков/дизлайков. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
   }catch(error){if(missing(error))return {initialized:false,enabled:false,examples:[],insights:[]};throw error;}
 }
 export async function visualRoute(request,e,{json,fail}){
@@ -284,7 +301,9 @@ export async function visualRoute(request,e,{json,fail}){
     if(!proof?.ok||proof.version!==VISUAL_VERSION||proof.model!==VISUAL_MODEL||!Number.isSafeInteger(proof.products_reviewed)||proof.products_reviewed<10||proof.owner_reviewed!==true||proof.staging_verified!==true||proof.usage_source!=='provider'||!Number.isFinite(proof.neurons)||proof.neurons<0||proof.neurons>VISUAL_DAILY_NEURONS)fail(409,'Сначала подтвердите качество десяти реальных профилей, staging и измеренный бесплатный расход');
     const learning=await q(e,'SELECT config FROM learning_state WHERE id=1').first();if(!learning||JSON.parse(learning.config).mode!=='SHADOW')fail(409,'Ограниченное внедрение требует River SHADOW');
     await ensureVisual(e);if(!await q(e,"SELECT pid FROM visual_profiles WHERE version=? AND json_extract(profile,'$.model')=? AND json_array_length(json_extract(profile,'$.feature_keys'))>=3 LIMIT 1",VISUAL_VERSION,VISUAL_MODEL).first())fail(409,'Сначала подтвердите полезный реальный visual profile');
-    await q(e,'UPDATE visual_state SET enabled=1 WHERE id=1').run();return response({enabled:true,daily_product_limit:VISUAL_DAILY_PRODUCTS,daily_neuron_limit:VISUAL_DAILY_NEURONS,river_mode:'SHADOW'});
+    // A reviewed staging receipt measures our calls, not the remaining budget
+    // of the entire account. Do not unlock automatic spending on that basis.
+    fail(409,'Автоматический анализ выключен: точный остаток бесплатной квоты аккаунта не подтверждён');
   }
   if(path.endsWith('/review')&&request.method==='POST'){
     // Protected by the existing scheduler sync/owner authorization in worker.mjs.

@@ -1,7 +1,7 @@
 """Photo-reference gates; no API call or synthetic quality success claim."""
 import unittest
 
-from miniapp.visual_staging_check import assess_profile
+from miniapp.visual_staging_check import assess_profile, require_free_budget
 
 
 class PhotoReferenceTests(unittest.TestCase):
@@ -28,3 +28,16 @@ class PhotoReferenceTests(unittest.TestCase):
                 bad = {**self.profile, field: value}
                 with self.assertRaisesRegex(RuntimeError, 'claim refused'):
                     assess_profile(self.sample, bad)
+
+    def test_unknown_stale_paid_or_insufficient_account_budget_stops_before_ai(self):
+        from datetime import datetime, timezone
+        now = 1791583200
+        good = {'source': 'cloudflare-dashboard', 'account_id': 'a4f7cbd9ad379d4b18087b99e9839205',
+                'plan': 'free', 'observed_at': now, 'day': datetime.fromtimestamp(now, timezone.utc).date().isoformat(),
+                'total_neurons': 100}
+        self.assertEqual(require_free_budget(good, now), 9900)
+        for bad in (None, {**good, 'plan': 'paid'}, {**good, 'source': 'estimate'},
+                    {**good, 'observed_at': now - 61}, {**good, 'day': '2000-01-01'},
+                    {**good, 'total_neurons': 5001}, {**good, 'total_neurons': True}):
+            with self.subTest(bad=bad), self.assertRaises(RuntimeError):
+                require_free_budget(bad, now)

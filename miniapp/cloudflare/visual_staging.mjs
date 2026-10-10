@@ -4,9 +4,9 @@ import {equal} from './auth.mjs';
 import {ensureScheduler} from './scheduler_api.mjs';
 import {ensureLearning} from './learning.mjs';
 import {ensureVisual,visualRun,visualStatus,cachedProfiles} from './visual_enrichment.mjs';
-import {withReadBudget} from './read_guard.mjs';
 import {observeD1} from './d1_budget.mjs';
 import samples from './visual_staging_samples.json' with {type:'json'};
+import {initExperiment,experimentStatus,experimentalAI,EXPERIMENT_RESERVE} from './visual_staging_experiment.mjs';
 
 // These ten reviewed byte versions are intentionally replayed once to verify
 // native binding, isolated D1 and measured accuracy. Re-runs use the D1 cache.
@@ -27,6 +27,7 @@ export default {
         else if(phase==='scheduler')await ensureScheduler(e);
         else if(phase==='learning')await ensureLearning(e);
         else if(phase==='visual')await ensureVisual(e);
+        else if(phase==='experiment')await initExperiment(e);
         else return new Response('Unknown phase',{status:404});
         return json({initialized:phase});
       }
@@ -46,12 +47,23 @@ export default {
         const learning=await e.DB.prepare('SELECT config FROM learning_state WHERE id=1').first();
         return json({...await visualStatus(e),database_id:samples.database.id,river_mode:JSON.parse(learning?.config||'{}').mode});
       }
+      if(request.method==='GET'&&path==='/staging/experiment')return json({experiment:await experimentStatus(e)});
       if(request.method==='POST'&&path==='/staging/run'){
         const data=await request.json();if(!STAGING_PRODUCTS.some(p=>p.id===data.pid))return new Response('Fixed real sample only',{status:403});
-        const result=await withReadBudget(e,'optional',6000,runtime=>visualRun(runtime,{force:true,pid:data.pid,maxImages:1}),{writes:2048});
+        // This explicit experiment is ten pinned products, not a scheduler.
+        // Meter actual D1 calls; avoid an extra eight budget queries consuming
+        // the Free per-request subrequest ceiling during profile persistence.
+        const old=(await cachedProfiles(e,[data.pid])).get(data.pid);
+        if(!old){const budget=await experimentStatus(e);if(budget.hold||budget.charged+EXPERIMENT_RESERVE>budget.limit||budget.calls>=10)return json({ok:false,error:'STAGING_BUDGET_REFUSED',experiment:budget});}
+        const result=await visualRun({...e,AI:experimentalAI(e)},{force:true,pid:data.pid,maxImages:1});
         return json({...result,profile:result.profile||(await cachedProfiles(e,[data.pid])).get(data.pid)||null});
       }
       return new Response('Not found',{status:404});
-    }catch{return json({ok:false,error:'STAGING_CHECK_FAILED'});}
+    }catch(error){
+      const s=String(error?.message||'');
+      // Allow only stable codes, never raw provider/auth details.
+      const error_code=/subrequest|too many queries/i.test(s)?'STAGING_SUBREQUEST_LIMIT':/^STAGING_[A-Z_]+$/.test(s)?s:'STAGING_CHECK_FAILED';
+      return json({ok:false,error:error_code});
+    }
   }
 };

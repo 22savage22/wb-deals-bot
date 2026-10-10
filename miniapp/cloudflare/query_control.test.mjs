@@ -5,6 +5,12 @@ import {ensureControl,recordDiscovery} from './admin_history.mjs';
 import {discoveryQueries} from './query_control.mjs';
 import {runDiscovery,readHeader} from './native_scheduler.mjs';
 
+test('imported query IDs from another copy reuse matching local identity and do not shadow it with an archive',async t=>{
+  const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json();
+  const imported=old.queries.map(r=>({...r,id:'foreign:'+r.id,priority:4}));const response=await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries:imported});assert.equal(response.status,200);
+  const saved=await(await adminRequest(e,'/api/admin/search')).json();assert.equal(saved.queries.length,3);assert.deepEqual(saved.queries.map(r=>r.id),old.queries.map(r=>r.id));assert.ok(saved.queries.every(r=>r.priority===4));
+});
+
 test('query editor reads actual D1 without config/schema writes and rejects non-owner before D1',async t=>{
   const e=await adminEnvironment(t),before=rawPolicy(e),schedule=e.db.prepare('SELECT data FROM scheduler_config').get().data;
   for(const id of [null,22]){const c=e.calls;assert.equal((await adminRequest(e,'/api/admin/search','GET',null,id)).status,id?403:401);assert.equal(e.calls,c);}

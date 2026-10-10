@@ -8,7 +8,7 @@ export function queryRules(policy){
   return [...active,...saved.filter(r=>r.archived&&!active.some(x=>x.id===r.id))];
 }
 export function discoveryQueries(policy){const rules=queryRules(policy).filter(r=>!r.archived);return rules.flatMap(r=>Array(Math.max(1,Math.min(5,r.priority))).fill(r.text));}
-async function fingerprint(raw){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)))].map(n=>n.toString(16).padStart(2,'0')).join('');}
+export async function fingerprint(raw){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)))].map(n=>n.toString(16).padStart(2,'0')).join('');}
 export async function policyState(e){const row=await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first();if(!row){const er=new Error('Подбор товаров ещё не настроен. Сохранение недоступно.');er.status=503;throw er;}return {raw:row.data,policy:JSON.parse(row.data),revision:await fingerprint(row.data)};}
 export function validateQueries(input,previous=[]){
   if(!Array.isArray(input)||input.length>100)throw new Error('Можно сохранить до 100 поисковых фраз');
@@ -47,6 +47,7 @@ export async function queryRoute(request,e,{json,fail,payload}){
     const rows=await optionalRows(e,'SELECT scope,before_data FROM admin_changes WHERE id=?',data.id),row=rows?.[0];if(!row)fail(404,'Версия уже удалена из ограниченной истории');
     if(row.scope==='selection'){const {saveSelection}=await import('./selection_control.mjs');return json(await saveSelection(e,{revision:data.revision,...JSON.parse(row.before_data)},fail));}
     if(row.scope==='schedule'){const {schedulerRoute}=await import('./scheduler_api.mjs');return schedulerRoute(new Request('https://internal/api/admin/schedule',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.revision,schedule:JSON.parse(row.before_data)})}),e,{json,fail,payload,admin:true});}
+    if(row.scope==='learning'){const {learningRoute}=await import('./learning.mjs');return learningRoute(new Request('https://internal/api/admin/learning',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.revision,...JSON.parse(row.before_data)})}),e,{json,fail,payload});}
     if(row.scope!=='queries')fail(400,'Эта версия восстанавливается в своём разделе');
     return json(await saveQueries(e,{revision:data.revision,queries:JSON.parse(row.before_data)},fail));
   }

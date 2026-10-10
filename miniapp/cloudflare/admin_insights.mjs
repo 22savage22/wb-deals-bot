@@ -46,11 +46,11 @@ export async function adminInsights(e){
   const summary=await summaries(e),day=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Moscow',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   const signals=(await q(e,"SELECT kind,weight,events,last FROM admin_event_stats WHERE scope='all' AND key='all' LIMIT 5").all()).results;
   const today=(await q(e,"SELECT kind,weight FROM admin_event_stats WHERE scope='day' AND key=? LIMIT 5",day).all()).results;
-  const rows=(await q(e,`SELECT scope,key,kind,weight FROM admin_event_stats WHERE scope='category' AND key IN (SELECT key FROM learning_stats WHERE scope='category' ORDER BY events DESC LIMIT 20)
-    UNION ALL SELECT scope,key,kind,weight FROM admin_event_stats WHERE scope='price'
-    UNION ALL SELECT scope,key,kind,weight FROM admin_event_stats WHERE scope='hour' LIMIT 150`).all()).results;
-  const groups=new Map();for(const r of rows){const key=r.scope+':'+r.key,g=groups.get(key)||{scope:r.scope,key:r.key,positive:0,negative:0};if(['like','buy'].includes(r.kind))g.positive+=r.weight;if(r.kind==='dislike')g.negative+=r.weight;groups.set(key,g);}
-  const observations=[...groups.values()].filter(x=>x.key!=='нет данных'&&x.positive+x.negative>=10).map(x=>({...x,samples:x.positive+x.negative,rate:x.positive/(x.positive+x.negative)}));
+  const rows=(await q(e,`SELECT scope,key,kind,weight,events FROM admin_event_stats WHERE scope='category' AND key IN (SELECT key FROM learning_stats WHERE scope='category' ORDER BY events DESC LIMIT 20)
+    UNION ALL SELECT scope,key,kind,weight,events FROM admin_event_stats WHERE scope='price'
+    UNION ALL SELECT scope,key,kind,weight,events FROM admin_event_stats WHERE scope='hour' LIMIT 150`).all()).results;
+  const groups=new Map();for(const r of rows){const key=r.scope+':'+r.key,g=groups.get(key)||{scope:r.scope,key:r.key,positive:0,negative:0,observations:0};if(['like','buy','dislike'].includes(r.kind))g.observations+=r.events;if(['like','buy'].includes(r.kind))g.positive+=r.weight;if(r.kind==='dislike')g.negative+=r.weight;groups.set(key,g);}
+  const observations=[...groups.values()].filter(x=>x.key!=='нет данных'&&x.observations>=10&&x.positive+x.negative>0).map(x=>({...x,samples:x.observations,rate:x.positive/(x.positive+x.negative)}));
   return {current_votes:summary.votes,backfill_complete:summary.complete,signals,today_reactions:today.filter(x=>['like','dislike','buy'].includes(x.kind)).reduce((n,x)=>n+x.weight,0),today_timezone:'Europe/Moscow',insights:summary.complete?observations.sort((a,b)=>b.samples-a.samples).slice(0,12):[],insight_note:'Наблюдения по реакциям, не доказанная конверсия. Переходы/сохранения не считаем лайками. Смена голоса — новый сигнал, но не второй текущий голос.'};
 }
 export const maintainAdminSummaries=summaries;

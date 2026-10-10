@@ -48,10 +48,10 @@ export async function startControlPreview({path=':memory:',port=0}={}){
       if(['/api/admin/check','/api/admin/schedule/check'].includes(url.pathname)||url.pathname.includes('/visual/')||data?.action==='post_now'||url.pathname==='/api/admin/queue'&&data?.action==='post')return send({error:'Внешние проверки и Telegram-публикации отключены в тестовой админке'},409);
       const result=await worker.fetch(new Request(url,{method:req.method,headers:req.headers,...(body.length?{body}:{})}),e,{waitUntil});
       res.writeHead(result.status,Object.fromEntries(result.headers));res.end(Buffer.from(await result.arrayBuffer()));
-      if(url.pathname==='/api/admin/search/test'&&result.status===202)waitUntil(runDiscovery(e,await readHeader(e),fixtureFetch));
+      if((url.pathname==='/api/admin/search/test'||url.pathname==='/api/admin/schedule/action'&&data?.action==='search_now')&&result.status===202)waitUntil(runDiscovery(e,await readHeader(e),fixtureFetch));
     }catch{if(!res.headersSent)send({error:'Локальная проверка не завершилась; production не затронут'},500);else res.end();}
   });
   await new Promise(resolve=>server.listen(port,'127.0.0.1',resolve));origin='http://127.0.0.1:'+server.address().port;
   return {origin,env:e,async close(){await Promise.allSettled([...tasks]);await new Promise(resolve=>server.close(resolve));e.db.close();}};
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){await mkdir('.test-temp',{recursive:true});const app=await startControlPreview({path:'.test-temp/admin-preview.sqlite'});console.log('ISOLATED_ADMIN_PREVIEW '+app.origin+'/admin');}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){await mkdir('.test-temp',{recursive:true});const port=Number(process.argv.find(x=>x.startsWith('--port='))?.slice(7)||0);const app=await startControlPreview({path:'.test-temp/admin-preview.sqlite',port});console.log('ISOLATED_ADMIN_PREVIEW '+app.origin+'/admin');}

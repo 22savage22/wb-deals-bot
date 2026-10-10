@@ -18,3 +18,5 @@ button:disabled{opacity:.5}button:focus-visible,a:focus-visible,input:focus-visi
 .control-label textarea{font:inherit;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px;resize:vertical;max-width:100%;box-sizing:border-box;min-height:76px} nav{grid-template-columns:repeat(4,minmax(0,1fr))}
 
 .control-label select{font:inherit;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px;min-height:48px;width:100%} .panel ol{padding-left:24px;line-height:2}
+
+.control-label input,.control-label select,.control-label textarea,.query-settings select{font-size:16px}nav button{min-width:0;padding:8px 4px;overflow-wrap:anywhere}@media(max-width:380px){nav{grid-template-columns:repeat(3,minmax(0,1fr))}}

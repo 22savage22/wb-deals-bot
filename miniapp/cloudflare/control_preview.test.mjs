@@ -8,7 +8,8 @@ test('isolated HTTP preview persists real handler saves and refuses publication,
   const app=await startControlPreview();t.after(()=>app.close());
   const headers={'X-Telegram-Init-Data':signedAdmin(app.env),'Content-Type':'application/json'};
   const html=await(await fetch(app.origin+'/admin')).text();assert.match(html,/Изолированная тестовая админка/);assert.doesNotMatch(html,/telegram-web-app.js/);
-  const context={window:{}};vm.runInNewContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);assert.ok(context.window.Telegram.WebApp.initData);assert.equal(typeof context.window.Telegram.WebApp.ready,'function');
+  const cssVars={};const context={window:{},document:{documentElement:{style:{setProperty:(k,v)=>{cssVars[k]=v;}}}}};vm.runInNewContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);assert.ok(context.window.Telegram.WebApp.initData);assert.equal(typeof context.window.Telegram.WebApp.ready,'function');assert.equal(cssVars['--tg-theme-bg-color'],'#f4f7fb');
+  const darkHTML=await(await fetch(app.origin+'/admin?theme=dark')).text();vm.runInNewContext(darkHTML.match(/<script>([\s\S]*?)<\/script>/)[1],context);assert.equal(context.window.Telegram.WebApp.colorScheme,'dark');assert.equal(cssVars['--tg-theme-text-color'],'#edf2fa');
   const snapshot=await(await fetch(app.origin+'/api/admin/search',{headers})).json();assert.equal(snapshot.queries.length,1);assert.equal(snapshot.queries[0].text,'худи мужское');
   const body=JSON.stringify({revision:snapshot.revision,queries:snapshot.queries.map(r=>({...r,priority:3}))});
   assert.equal((await fetch(app.origin+'/api/admin/search/queries',{method:'PUT',headers:{...headers,Origin:'https://untrusted.invalid'},body})).status,403);

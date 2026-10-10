@@ -7,6 +7,7 @@ import {searchDue,searchBackoff,retryAfter,nextSearchDelay} from './search_backo
 import {withReadBudget} from './read_guard.mjs';
 import {queryRules,discoveryQueries} from './query_control.mjs';
 import {recordDiscovery} from './admin_history.mjs';
+import {selectionReason,diverseChoice} from './selection_policy.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -43,9 +44,10 @@ export function postDue(s,last,now,manual=false){
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
-export function choose(rows,recent,total=0){
+export function choose(rows,recent,total=0,policy={}){
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
-  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key));
+  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
+  const custom=diverseChoice(eligible,recent,policy);if(custom!==undefined)return custom;
   const target=pattern[total%pattern.length],fallback={women:['women','neutral','men'],men:['men','women','neutral'],neutral:['neutral','women','men']}[target]||[target,'women','neutral','men'];
   for(const group of [...fallback,'any']){
     const matches=eligible.filter(row=>{const p=groups(JSON.parse(row.data));return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
@@ -93,7 +95,7 @@ export function cardDeal(card,policy={}){
   if(price<=0||policy.max_price&&price>policy.max_price||rating<Number(policy.min_rating??4.3)||p.feedbacks<Number(policy.min_feedbacks??20))return null;
   if((policy.blocked_words||[]).some(w=>text.includes(String(w).toLowerCase())))return null;
   if((policy.blacklist||[]).some(w=>String(w)===String(p.id)||p.brand.toLowerCase().includes(String(w).toLowerCase())))return null;
-  return p;
+  return selectionReason(p,policy)?null:p;
 }
 async function imageFor(env,p,fetcher,options={}){
   const vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
@@ -147,7 +149,7 @@ async function selectionState(env,header,preflight=false){
       AND NOT EXISTS(SELECT 1 FROM scheduler_claims c WHERE c.pid=scheduler_inventory.pid AND c.ts>? AND c.status IN ('pending','error','success'))
       AND NOT EXISTS(SELECT 1 FROM scheduler_posts p WHERE p.pid=scheduler_inventory.pid AND p.ts>?)
       ORDER BY queued_at,pid LIMIT 300`,sec(),sec(),...(preflight?[sec()-1800]:[]),sec()-7*86400,sec()-7*86400).all(),
-    q(env,'SELECT topic,title_key,ts FROM scheduler_deliveries WHERE ts>? ORDER BY ts DESC LIMIT 4032',sec()-86400).all()]);recent.results.reverse();
+    q(env,'SELECT topic,title_key,ts,data FROM scheduler_deliveries WHERE ts>? ORDER BY ts DESC LIMIT 4032',sec()-86400).all()]);recent.results.reverse();
   return {...header,ready:ready.results,recent:recent.results};
 }
 async function readState(env){
@@ -208,7 +210,7 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length);
+      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
@@ -402,7 +404,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
       state=await selectionState(env,state,true);
-      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length);
+      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
       if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
       await status(env,{last_preflight:now});
     }
@@ -431,7 +433,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
 export async function checkAutopost(env,fetcher=fetch){
-  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length),status=JSON.parse(state.row.status||'{}');
+  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length,state.policy),status=JSON.parse(state.row.status||'{}');
   const result={ok:true,dry_run:true,telegram_posts_created:0,cron:env.SCHEDULER_DRIVER==='cloudflare-native',last_scheduler_tick:status.last_scheduler_tick||0,heartbeat_stale:now-Number(status.last_scheduler_tick||0)>180,queue_size:state.count,eligible_products:state.ready.filter(p=>(state.recent.filter(r=>r.topic===p.topic).length)<8).length,next_product:item?.pid||null,posting_allowed:window.allowed,timezone:window.timezone,current_local_time:window.clock,quiet_hours:state.s.quiet_enabled?state.s.quiet_start+'–'+state.s.quiet_end:'OFF',telegram_configured:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),last_post:state.last,last_message_id:status.last_message_id||null};
   if(result.telegram_configured)try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getMe`,{signal:AbortSignal.timeout(5000)});result.telegram_auth=(await r.json()).ok===true;}catch{result.telegram_auth=false;}
   if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy),saved=JSON.parse(item.data);result.live_card=Boolean(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...saved},fetcher)).image;}}catch{result.live_card=false;}

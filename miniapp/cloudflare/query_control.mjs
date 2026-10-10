@@ -45,6 +45,7 @@ export async function queryRoute(request,e,{json,fail,payload}){
   if(path==='/api/admin/config/restore'&&request.method==='POST'){
     const data=await payload(request);if(!Number.isSafeInteger(data.id)||data.id<=0)fail(400,'Некорректная запись');
     const rows=await optionalRows(e,'SELECT scope,before_data FROM admin_changes WHERE id=?',data.id),row=rows?.[0];if(!row)fail(404,'Версия уже удалена из ограниченной истории');
+    if(row.scope==='selection'){const {saveSelection}=await import('./selection_control.mjs');return json(await saveSelection(e,{revision:data.revision,...JSON.parse(row.before_data)},fail));}
     if(row.scope!=='queries')fail(400,'Эта версия восстанавливается в своём разделе');
     return json(await saveQueries(e,{revision:data.revision,queries:JSON.parse(row.before_data)},fail));
   }

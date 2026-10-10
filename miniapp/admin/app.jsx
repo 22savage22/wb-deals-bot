@@ -7,8 +7,9 @@ import {createClient} from './client.mjs';
 import {days,stamp,queueHealth,searchState,mainProblem,insightText,visualErrorText} from './view.mjs';
 import {visualLabel} from '../cloudflare/visual_features.mjs';
 import {QueryManager} from './query-manager.jsx';
+import {SelectionManager} from './selection-manager.jsx';
 const tg=window.Telegram?.WebApp,client=createClient(tg?.initData||'');
-const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
+const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['selection','◎','Подбор'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
 function Panel({title,description,children}){return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>;}
 function Metric({label,value,note,tone}){return <div className={'metric '+(tone||'')}><span>{label}</span><strong>{value}</strong>{note&&<small>{note}</small>}</div>;}
 function Toggle({label,value,onChange}){return <label className="toggle"><span>{label}</span><Switch checked={value} onChange={e=>onChange(e.target.checked)}/></label>;}
@@ -94,6 +95,7 @@ function App(){
       {search.tone!=='green'&&<div className={'notice '+search.tone}><strong>{search.title}</strong><p>{search.detail||'Можно включить на экране «Поиск WB».'}</p></div>}
       <p className="subtle">Последний поиск WB: {stamp(status.last_search_success||status.last_scan_success,zone)}</p>
     </>}
+    {screen==='selection'&&<SelectionManager client={client} onDirty={setControlDirty}/>}
     {screen==='schedule'&&<>
       <Panel title="Расписание публикаций" description="Настройте удобный ритм. Изменения применяются только после сохранения.">
         <Toggle label="Автопостинг включён" value={schedule.enabled} onChange={v=>change('enabled',v)}/>

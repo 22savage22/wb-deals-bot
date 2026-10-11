@@ -1,8 +1,10 @@
-# Isolated Astra + Vision integration — approval still required
+# Astra + Vision integration — gated production rollout
 
 Branch: `codex/admin-vision-integration-20261011`.
 Own checkout: `D:\WB-Vision-Agent\.test-temp\admin-vision-integration-20261011`.
-Nothing merged to main, pushed, deployed, enabled or changed in production.
+At the initial integration checkpoint nothing was merged, deployed or enabled.
+The owner subsequently approved rollout, conditional on a verified full private
+production backup and preservation of existing runtime settings.
 No new AI calls or Neurons. No edits to another agent's checkout/branch.
 
 ## Verified dependencies (GitHub + remote refs, 2026-10-11)
@@ -61,14 +63,41 @@ Model confidence is not measured accuracy; subjective style remains a hypothesis
 This replaces the older archive-only probe in `vision-rollout-pr8-pr9.md` with
 an actual integration branch. All production gates in that document still apply.
 
-## Recommended rollout, ONLY after explicit approval
+## Production preflight — 2026-10-11
+
+- Owner explicitly approved official account-wide OAuth `d1:write`, but ALL
+  database operations are restricted to production `wb-finds-miniapp`. No other
+  database, including existing visual staging, is to be changed.
+- Fresh official Device Flow succeeded. Production D1 and Worker APIs returned
+  200. No temporary API token was created and no credential appears in Git.
+- Full SQL export, 4,093,580 bytes, kept in an ignored private directory with
+  NTFS access limited to the owner and SYSTEM. SHA256:
+  `06ea4a39767cc717bf887357c5c4f6f2e71aa3b3eef3433befaf0bc0ece7fcff`.
+- Local SQL restore and persisted SQLite readback passed `integrity_check` and
+  `foreign_key_check`; all 37 tables and 81 schema objects matched production.
+  Worker version `c3029fad-b261-4205-b57b-eb9a0f302c7e` and Time Travel/export
+  bookmarks were saved privately for recovery. The SQL is NOT a deployment file.
+- The exact integration's additive migrations and nine owner API GET endpoints
+  passed against a LOCAL restored copy. Existing inventory, deliveries, votes,
+  totals, reactions and public-user data were hash-equal before/after. Scheduler
+  settings/revision, policy and River config/model were byte-equal after reads.
+  Existing production interval30, enabled state and SHADOW were preserved;
+  no selection policy was present, so existing selection remains the fallback.
+- Local migration setup used 28 queries. This is a query count, NOT measured
+  Cloudflare rows_read. Local GET timing 2–70 ms is NOT Internet button latency.
+- Non-owner403, missing auth401, activation409, automatic analysis disabled;
+  zero external WB/Telegram/AI calls. No test data imported into production.
+- At this checkpoint no production migrations, merge or deployment had occurred.
+  Final remote CI and production observation remain mandatory before DONE.
+
+## Approved rollout — remaining mandatory gates
 
 1. Review this preview and integrated diff. Re-read current PR/main heads. If
    main or either agent's PR advanced, update ONLY the integration checkout,
    resolve/retest there. Separately review any discount/style-agent change;
    do not silently replace or fold that unfinished work into this rollout.
 2. Confirm Workers Builds production tracks only approved main. Push the
-   integration branch and create ONE integration PR against main after approval;
+   integration branch and create ONE integration PR against main;
    do not independently merge 7+9 as duplicate Vision features. Original draft
    PRs can be marked superseded only after the approved integration is merged.
    Review both source PR histories; retain their original branches unchanged.
@@ -76,14 +105,14 @@ an actual integration branch. All production gates in that document still apply.
    settings/revision, enabled state, timezone/quiet hours/limits, 30min interval,
    search settings/backoff, RiverSHADOW, queue/claims and last message receipt.
    Establish a recoverable D1 point and quota headroom. Do not expose secrets.
-4. Test this exact integrated commit in a NEW isolated environment first, using
-   a test database and NO production TG secrets/Cron. The existing Vision staging
-   is fetch-only; don't turn it into the production scheduler or reuse production
-   D1 bindings. No inference needed for cache/UI checks. Validate additive,
+4. Use the already verified local production restore and isolated UI preview,
+   with NO production TG secrets/Cron or external calls. Do not create another
+   database or change existing staging. No inference needed for cache/UI checks.
+   Validate additive,
    indexed migrations and their one-time D1 cost; don't import sample ledgers,
    local tokens, fake identities, historical test inventory or cached test
    settings into production. No migrations may replace existing settings.
-5. Obtain separate permission for the exact merge/deployment. Merge ONE reviewed
+5. Owner permission was supplied with the backup-first gate. Merge ONE reviewed
    integration PR into main and allow Workers Builds to deploy that approved
    commit. No secret/token rotation, Paid plan, Cron changes, polling restart or
    schedule migration. Keep VISUAL_AUTOMATIC_ALLOWED=false, effective OFF,

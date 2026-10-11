@@ -1,9 +1,13 @@
-import {schedulerRoute,ensureScheduler,validateSchedule,DEFAULT_SCHEDULE} from './scheduler_api.mjs';
+import {schedulerRoute,ensureScheduler,validateSchedule,DEFAULT_SCHEDULE,dayStart} from './scheduler_api.mjs';
 import {postingWindow,postDue,checkAutopost} from './native_scheduler.mjs';
 import {withReadBudget} from './read_guard.mjs';
 import {learningRoute} from './learning.mjs';
 import {queueRoute} from './admin_queue.mjs';
 import {nextSearchDelay} from './search_backoff.mjs';
+import {queryRoute} from './query_control.mjs';
+import {selectionRoute} from './selection_control.mjs';
+import {homeSummary,healthHistory,explainFailure,visionHealth} from './control_health.mjs';
+import {READ_LIMITS,WRITE_LIMITS} from './read_guard.mjs';
 export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
   if(!s.enabled||s.paused)return null;
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
@@ -21,13 +25,25 @@ export function nextPost(s,last,now=Math.floor(Date.now()/1000)){
     else t+=step*60;
   }return null;
 }
+export function scheduleForecast(s,last,claims=[],now=Math.floor(Date.now()/1000)){
+  const used=claims.map(r=>Number(r.ts)),future=[],dayCounts=new Map();for(const ts of used){const key=postingWindow(s,ts).date;dayCounts.set(key,(dayCounts.get(key)||0)+1);}
+  let cursor=now;for(let i=0;i<400&&cursor<=now+8*86400;i++){
+    const t=nextPost(s,last,cursor);if(t===null||t>now+8*86400)break;const date=postingWindow(s,t).date;
+    if((dayCounts.get(date)||0)>=s.max_posts_day){let end=t+3600;while(postingWindow(s,end).date===date)end+=3600;cursor=dayStart(end,s.timezone);continue;}
+    const hour=used.filter(x=>x>t-3600&&x<=t).sort((a,b)=>a-b);if(hour.length>=s.max_posts_hour){cursor=hour[hour.length-s.max_posts_hour]+3600;continue;}
+    future.push(t);used.push(t);dayCounts.set(date,(dayCounts.get(date)||0)+1);last=t;cursor=t+60;if(t>=now+86400&&future.length>=8)break;
+  }
+  return {next_posts:future.slice(0,8),expected_24h:future.filter(t=>t<now+86400).length,forecast_note:'Оценка при достаточном запасе и успешных проверках. Учитывает дни, тихие часы, часовой/суточный лимиты; новые ошибки и ручные публикации могут сдвинуть время.'};
+}
 export async function adminRoute(request,e,helpers){
   const {json,fail,payload,ctx}=helpers,path=new URL(request.url).pathname;
+  if(path.startsWith('/api/admin/selection'))return selectionRoute(request,e,helpers);
+  if(path.startsWith('/api/admin/search')||path.startsWith('/api/admin/config/'))return queryRoute(request,e,helpers);
   if(path==='/api/admin/queue')return queueRoute(request,e,helpers);
   if(path==='/api/admin/schedule/preview'&&request.method==='POST'){
     const input=await payload(request);let s;try{s=validateSchedule(input.schedule);}catch(error){fail(400,error.message);}
-    const row=await e.DB.prepare('SELECT MAX(ts) AS last FROM scheduler_posts').first();
-    return json({next_post:nextPost(s,row.last||0),preview:true});
+    const now=Math.floor(Date.now()/1000),row=await e.DB.prepare('SELECT MAX(ts) AS last FROM scheduler_posts').first(),claims=(await e.DB.prepare("SELECT ts FROM scheduler_claims WHERE ts>=? AND status<>'rejected' ORDER BY ts LIMIT 4032").bind(Math.min(dayStart(now,s.timezone),now-3600)).all()).results;
+    const forecast=scheduleForecast(s,row.last||0,claims,now);return json({next_post:forecast.next_posts[0]||null,...forecast,preview:true});
   }
   if(path.startsWith('/api/admin/learning')){await ensureScheduler(e);return learningRoute(request,e,helpers);}
   if(path==='/api/admin/check'&&request.method==='POST'){
@@ -48,7 +64,8 @@ export async function adminRoute(request,e,helpers){
     const c=await config.json(),s=c.status;
     const budget=await e.DB.prepare('SELECT lane,reads,writes FROM worker_read_budget WHERE day=? LIMIT 3').bind(new Date().toISOString().slice(0,10)).all();
     const webhook=await e.DB.prepare("SELECT value FROM metadata WHERE key='reaction_last_received'").first();
-    return json({worker:true,d1:true,cron:s.cron_active,telegram:s.native_credentials_ok,wb_source:!s.last_scan_error,last_search:s.last_search_success||s.last_scan_success,queue_size:s.queue_size,heartbeat:s.last_automatic_tick||s.clock_heartbeat,last_error:s.last_error||s.error||s.last_scan_error||'',webhook: webhook?JSON.parse(webhook.value):null,search_retry_at:s.search_retry_at||0,budget:budget.results,budget_note:'Счётчик Worker, не полный биллинг аккаунта'});
+    const history=await healthHistory(e);
+    return json({history,read_limits:READ_LIMITS,write_limits:WRITE_LIMITS,workers_ai:await visionHealth(e),worker:true,d1:true,cron:e.SCHEDULER_DRIVER==='cloudflare-native'&&Math.floor(Date.now()/1000)-Number(s.last_automatic_tick||0)<=180,telegram:s.last_post_success?!/TELEGRAM/.test(s.last_error_code||''):s.native_credentials_ok===false?false:null,telegram_configured:s.native_credentials_ok??null,last_post_success:s.last_post_success||null,wb_source:s.last_scan_error?false:s.last_search_success||s.last_scan_success?true:null,last_search:s.last_search_success||s.last_scan_success,queue_size:s.queue_size,heartbeat:s.last_automatic_tick||s.clock_heartbeat,last_error:s.last_error||s.error||s.last_scan_error?explainFailure(s.last_error||s.error||s.last_scan_error):'',webhook: webhook?JSON.parse(webhook.value):null,search_retry_at:s.search_retry_at||0,budget:budget.results,budget_note:'Счётчик Worker, не полный биллинг аккаунта'});
   }
   if(path==='/api/admin/overview'){
     // A first admin view is read-only even if the scheduler was never provisioned.
@@ -62,7 +79,9 @@ export async function adminRoute(request,e,helpers){
     const s=validateSchedule(stored),status=JSON.parse(row.status),now=Math.floor(Date.now()/1000),wall=postingWindow(s,now);
     const lastSearch=Number(status.last_scan_attempt||0),delay=nextSearchDelay(s,status.search_receipt?.added);
     const nextSearch=Math.max(now,Number(status.search_retry_at||0),Number(status.next_search||0)||lastSearch+delay);
-    return json({schedule:s,revision:row.revision,status:{...status,queue_size:row.ready,last_post_success:Math.max(row.latest||0,status.last_post_success||0),next_post:nextPost(s,row.latest||0,now),next_search:s.search_enabled||row.search_request?nextSearch:null,posting_allowed:wall.allowed,cron_active:e.SCHEDULER_DRIVER==='cloudflare-native'&&now-Number(status.last_automatic_tick||0)<=180},operations:{post:row.post_request?{state:'queued',id:row.post_request}:null,search:row.search_request?{state:'queued',id:row.search_request}:null}});
+    const today=await e.DB.prepare('SELECT COUNT(*) n FROM scheduler_posts WHERE ts>=?').bind(dayStart(now,s.timezone)).first();
+    const summary=await homeSummary(e,dayStart(now,s.timezone));
+    return json({summary,schedule:s,revision:row.revision,status:{...status,posted_today:today.n,queue_size:row.ready,last_post_success:Math.max(row.latest||0,status.last_post_success||0),next_post:nextPost(s,row.latest||0,now),next_search:s.search_enabled||row.search_request?nextSearch:null,posting_allowed:wall.allowed,cron_active:e.SCHEDULER_DRIVER==='cloudflare-native'&&now-Number(status.last_automatic_tick||0)<=180},operations:{post:row.post_request?{state:'queued',id:row.post_request}:null,search:row.search_request?{state:'queued',id:row.search_request}:null}});
   }
   return null;
 }

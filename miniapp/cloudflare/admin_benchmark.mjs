@@ -8,12 +8,18 @@ import {observeD1} from './d1_budget.mjs';
 import {queueRoute} from './admin_queue.mjs';
 import {ensureReactions} from './feedback.mjs';
 import {withReadBudget} from './read_guard.mjs';
+import {ensureControl} from './admin_history.mjs';
+import {queryRoute} from './query_control.mjs';
+import {selectionRoute} from './selection_control.mjs';
 const mf=new Miniflare(convertV4MiniflareOptions({workers:[{name:'admin-budget',compatibilityDate:'2026-09-01',modules:true,script:'export default {fetch(){return new Response("ok")}}',d1Databases:{DB:'local-admin-benchmark'}}],cf:false}));
 try{
   const DB=await mf.getD1Database('DB','admin-budget'),env={DB,SCHEDULER_DRIVER:'cloudflare-native'},now=Math.floor(Date.now()/1000),helpers={json:Response.json,payload:r=>r.json(),fail:(code,message)=>{throw Error(message);}};
   for(const sql of readFileSync(new URL('./schema.sql',import.meta.url),'utf8').split(';').filter(x=>x.trim()))await DB.prepare(sql).run();
   await ensureScheduler(env);await ensureLearning(env);
-  await ensureReactions(env);
+  await ensureReactions(env);await ensureControl(env);
+  await DB.prepare('INSERT INTO scheduler_policy VALUES(1,?)').bind(JSON.stringify({queries:Array.from({length:30},(_,i)=>'query'+i),max_price:1000,min_rating:4.3,min_feedbacks:20})).run();
+  await DB.prepare("INSERT INTO scheduler_posts SELECT 8000+value,?-value*1800 FROM json_each(?)").bind(now,JSON.stringify(Array.from({length:48},(_,i)=>i))).run();
+  await DB.prepare("INSERT INTO admin_search_runs(ts,query_id,query,origin,success,found,new_count,passed,added,error,data) SELECT ?-value*1200,'existing:query'||(value%30),'query'||(value%30),'cron',1,100,2,1,1,'','{}' FROM json_each(?)").bind(now,JSON.stringify(Array.from({length:500},(_,i)=>i))).run();
   const cards=Array.from({length:300},(_,i)=>({id:10000+i,title:'Fixture '+i,category:'category'+i%30,query:'query'+i%30,price:999,product:999,brand:'fixture',rating:4.8,feedbacks:100}));
   await DB.prepare("INSERT INTO products(id,data,checked_at) SELECT json_extract(value,'$.id'),value,? FROM json_each(?)").bind(now,JSON.stringify(cards)).run();
   const measure=async(label,operation)=>{const meter=observeD1(DB);await operation({...env,DB:meter.DB});console.log(JSON.stringify({label,...meter.metrics,top_queries:meter.topQueries()}));return meter.metrics;};
@@ -24,10 +30,16 @@ try{
   await measure('admin.learning.first_migration',e=>learningRoute(new Request('https://local/api/admin/learning'),e,helpers));
   const learning=await measure('admin.learning.steady',e=>learningRoute(new Request('https://local/api/admin/learning'),e,helpers));
   const queue=await measure('admin.queue_6',e=>queueRoute(new Request('https://local/api/admin/queue'),e,helpers));
+  const queries=await measure('admin.queries_30_history_500',e=>queryRoute(new Request('https://local/api/admin/search'),e,helpers));
+  const selection=await measure('admin.selection',e=>selectionRoute(new Request('https://local/api/admin/selection'),e,helpers));
+  const suggestions=await measure('admin.suggestions_120',e=>selectionRoute(new Request('https://local/api/admin/selection/suggestions'),e,helpers));
+  const filtered=await measure('admin.filtered_queue_100',e=>queueRoute(new Request('https://local/api/admin/queue?q=no-match'),e,helpers));
+  const diagnostics=await measure('admin.diagnostics',e=>adminRoute(new Request('https://local/api/admin/diagnostics'),e,helpers));
   const training=await measure('admin.train_batch',e=>learningRoute(new Request('https://local/api/admin/learning/train'),e,helpers));
   const imported=await measure('admin.import_20',e=>importFeedback(e,cards.slice(0,20).map(p=>({pid:p.id,likes:3,dislikes:2,bought:1}))));
   const rows=cards.map(p=>({pid:p.id,data:JSON.stringify(p)}));
   const shadow=await measure('admin.shadow_choice',e=>shadowChoice(e,rows,rows[0]));
-  const safety=10000,forecast=1440*guarded.rows_read+10*(learning.rows_read+queue.rows_read+20)+safety;
-  console.log('ADMIN_UI_ADDITIONAL_ROWS_DAY_ESTIMATE',forecast,'owner visible 24h at 60s refresh + 10 learning/queue opens; includes 10000 margin. Existing training/search/posting are separate.');
+  const steady=await measure('admin.overview.steady.with_budget',e=>withReadBudget(e,'core',25000,env=>adminRoute(new Request('https://local/api/admin/overview'),env,helpers),{writes:4}));
+  const safety=10000,forecast=1440*steady.rows_read+10*(learning.rows_read+queue.rows_read+queries.rows_read+selection.rows_read+suggestions.rows_read+filtered.rows_read+diagnostics.rows_read+20)+safety;
+  console.log('ADMIN_UI_ADDITIONAL_ROWS_DAY_ESTIMATE',forecast,'owner visible 24h at 60s refresh + 10 opens each learning/queue/query/selection/suggestions/filtered queue/diagnostic; includes 10000 margin. Existing training/search/posting are separate.');
 }finally{await mf.dispose();}

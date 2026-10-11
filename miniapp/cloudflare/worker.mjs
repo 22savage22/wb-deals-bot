@@ -286,7 +286,7 @@ export default {
       }
       const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
       if(diagnostic)lane='diagnostic';
-      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status','/api/admin/overview','/api/admin/diagnostics','/api/admin/queue'].includes(path);
+      const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status','/api/admin/overview','/api/admin/diagnostics','/api/admin/queue','/api/admin/search','/api/admin/search/history','/api/admin/config/history','/api/admin/selection','/api/admin/selection/similar','/api/admin/selection/suggestions'].includes(path);
       response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path.startsWith('/api/scheduler/learning/visual/')?{writes:request.method==='GET'?4:2048}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }

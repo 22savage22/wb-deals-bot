@@ -168,7 +168,7 @@ test('LEARNING is blocked; exploration bounded 0–30; CAS prevents overwriting 
   const e=environment();await prepared(e);
   assert.equal((await req(e,'/api/admin/learning','PUT',{mode:'LEARNING',exploration_percent:10})).status,409);
   assert.equal((await req(e,'/api/admin/learning','PUT',{mode:'SHADOW',exploration_percent:31})).status,400);
-  await req(e,'/api/admin/learning','PUT',{mode:'SHADOW',exploration_percent:30});
+  const settings=await(await req(e,'/api/admin/learning')).json();assert.equal((await req(e,'/api/admin/learning','PUT',{mode:'SHADOW',exploration_percent:30,revision:settings.revision})).status,200);
   const counts=new Map([['платье',7]]);assert.equal(await explorationQuery(e,['платье','сумка'],0,counts,[]),'сумка');assert.equal(await explorationQuery(e,['платье','сумка'],0,counts,['сумка']),'платье');
   const model=JSON.parse(e.db.prepare('SELECT model FROM learning_state').get().model);model.cursor=1;
   assert.equal((await req(e,'/api/admin/learning/train','PUT',{model,previous_cursor:0})).status,200);

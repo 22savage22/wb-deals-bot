@@ -21,38 +21,55 @@ export function profileFeatures(p){
   for(const fields of combinations.slice(0,8))if(fields.every(k=>values[k]))f['visual.combo='+fields.map(k=>k+':'+values[k]).join('+')]=1;
   return f;
 }
-export function normalizeAnalysis(raw,{image_index=0,url,hash}={}){
+// Normalization revision is independent of the image/model cache version:
+// upgrading a validator must not spend AI quota on seven unchanged photographs.
+export const NORMALIZATION_REVISION=3;
+const ALIASES={color:{gray:'grey',dark_blue:'navy',navy_blue:'navy',teal:'turquoise',turquoise_blue:'turquoise'},fit:{oversized:'oversize'},style:{sporty:'sport'},neckline:{crew_neck:'round',vneck:'v_neck'},sleeves:{short_sleeve:'short',long_sleeve:'long'}};
+// Diagnostics may identify these non-secret vocabulary tokens, never arbitrary
+// provider strings, evidence, prompts, unknown keys or raw JSON.
+const DIAGNOSTIC_TERMS=new Set([...Object.values(COMMON).flat(),...Object.values(SPECIFIC).flatMap(v=>Object.values(v).flat()),'unknown','off_shoulder','square_neck','strapless','bodycon','mini','maxi']);
+export function inspectAnalysis(raw,{image_index=0,url,hash,expected_group}={}){
   const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+  const diagnostic={revision:NORMALIZATION_REVISION,rejected:[],accepted_fields:0};
+  const fail=(code,reason)=>{const error=new Error(code);error.validation={...diagnostic,root_reason:reason};throw error;};
   let data=object(raw)?raw:null;
-  if(!data){const text=String(raw||'').trim();if(text.length>12000)throw new Error('VISUAL_INVALID_JSON');try{data=JSON.parse(text);}catch{throw new Error('VISUAL_INVALID_JSON');}}
-  if(!object(data)||Object.keys(data).some(k=>!['group','view','fields'].includes(k))||!GROUPS.includes(data.group)||!object(data.fields)||Object.keys(data.fields).length>12||data.view!==undefined&&!['front','back','both','side','detail','unknown'].includes(data.view))throw new Error('VISUAL_INVALID_PROFILE');
+  if(!data){const text=String(raw||'').trim();if(text.length>12000)fail('VISUAL_INVALID_JSON','JSON_SIZE');try{data=JSON.parse(text);}catch{fail('VISUAL_INVALID_JSON','JSON_PARSE');}}
+  if(!object(data))fail('VISUAL_INVALID_PROFILE','ROOT_TYPE');
+  if(Object.keys(data).some(k=>!['group','view','fields'].includes(k)))fail('VISUAL_INVALID_PROFILE','ROOT_KEYS');
+  if(!GROUPS.includes(data.group)||expected_group&&data.group!==expected_group)fail('VISUAL_INVALID_PROFILE','GROUP');
+  if(!object(data.fields)||Object.keys(data.fields).length>12)fail('VISUAL_INVALID_PROFILE','FIELDS_STRUCTURE');
+  if(data.view!==undefined&&!['front','back','both','side','detail','unknown'].includes(data.view))fail('VISUAL_INVALID_PROFILE','VIEW');
   const fields={},allowed={...COMMON,...SPECIFIC[data.group]};
+  const reject=(field,reason,token)=>diagnostic.rejected.push({field:Object.hasOwn(allowed,field)?field:'unsupported_field',reason,...(DIAGNOSTIC_TERMS.has(token)?{value_token:token}:{})});
   for(const [key,entry] of Object.entries(data.fields).slice(0,24)){
-    if(!allowed[key])continue;
-    if(!object(entry)||Object.keys(entry).some(k=>!['value','confidence','evidence'].includes(k))||typeof entry.value!=='string')throw new Error('VISUAL_INVALID_PROFILE');
-    if(!Number.isFinite(entry.confidence)||entry.confidence<0||entry.confidence>1||typeof entry.evidence!=='string')continue;
-    const aliases={gray:'grey',dark_blue:'navy',navy_blue:'navy',teal:'turquoise',turquoise_blue:'turquoise',oversized:'oversize',sporty:'sport',crew_neck:'round',vneck:'v_neck',short_sleeve:'short',long_sleeve:'long'};
-    const normalized=entry.value.trim().toLowerCase().replace(/[ -]+/g,'_');let value=aliases[normalized]||normalized;
-    if(value==='unknown')continue;
-    if(!allowed[key].includes(value))throw new Error('VISUAL_INVALID_PROFILE');
-    if(entry.confidence<.8||entry.evidence.trim().length<5||/\b(?:guess|likely|probably|inferred|title|advertis)\b/i.test(entry.evidence))continue;
-    if(key==='texture'&&value==='smooth'&&/\b(?:pebbled|ribbed|grain|woven)\b/i.test(entry.evidence))continue;
-    if(key==='palette'&&value==='bright'&&/reflective|metallic/i.test(entry.evidence)&&!/vibrant|saturated|vivid/i.test(entry.evidence))continue;
-    if(key==='pattern'&&value==='solid'&&/\b(?:main panels|upper)\b/i.test(entry.evidence))continue;
+    if(!Object.hasOwn(allowed,key)){reject(key,'CATEGORY_FIELD');continue;}
+    if(!object(entry)||Object.keys(entry).some(k=>!['value','confidence','evidence'].includes(k))||typeof entry.value!=='string'){reject(key,'FIELD_TYPE');continue;}
+    if(!Number.isFinite(entry.confidence)||entry.confidence<0||entry.confidence>1||typeof entry.evidence!=='string'){reject(key,'CONFIDENCE_OR_EVIDENCE_TYPE');continue;}
+    const normalized=entry.value.trim().toLowerCase().replace(/[ -]+/g,'_');let value=ALIASES[key]?.[normalized]||normalized;
+    if(value==='unknown'){reject(key,'UNKNOWN');continue;}
+    // Reject the attribute, not independent well-evidenced attributes. Never
+    // coerce an unsupported word/array into a convenient valid enum value.
+    if(!allowed[key].includes(value)){reject(key,'UNSUPPORTED_VALUE',normalized);continue;}
+    if(entry.confidence<.8||entry.evidence.trim().length<5||/\b(?:guess|likely|probably|inferred|title|advertis\w*)\b/i.test(entry.evidence)){reject(key,'WEAK_OR_INFERRED_EVIDENCE');continue;}
+    if(key==='texture'&&value==='smooth'&&/\b(?:pebbled|ribbed|grain|woven)\b/i.test(entry.evidence)){reject(key,'CONTRADICTORY_EVIDENCE');continue;}
+    if(key==='palette'&&value==='bright'&&/reflective|metallic/i.test(entry.evidence)&&!/vibrant|saturated|vivid/i.test(entry.evidence)){reject(key,'CONTRADICTORY_EVIDENCE');continue;}
+    if(key==='pattern'&&value==='solid'&&/\b(?:main panels|main body|upper|stripes?|logos?|graphics?|motifs?)\b/i.test(entry.evidence)){reject(key,'PARTIAL_OR_CONTRADICTORY_PATTERN');continue;}
     // All-over on the one visible panel does not establish coverage of the back.
     if(key==='print_location'&&value==='all_over'&&data.view!=='both'){
-      if(['front','back'].includes(data.view))value=data.view;else continue;
+      if(['front','back'].includes(data.view))value=data.view;else{reject(key,'UNSEEN_PANEL');continue;}
     }
     // Fiber composition, tactile feel, size in cm and unseen backs are unknown.
-    if(key==='print_location'&&value==='back'&&!['back','both'].includes(data.view))continue;
-    if(key==='print_location'&&value==='front_and_back'&&data.view!=='both')continue;
-    if(key==='print_location'&&value==='front'&&!['front','both'].includes(data.view))continue;
+    if(key==='print_location'&&value==='back'&&!['back','both'].includes(data.view)){reject(key,'UNSEEN_PANEL');continue;}
+    if(key==='print_location'&&value==='front_and_back'&&data.view!=='both'){reject(key,'UNSEEN_PANEL');continue;}
+    if(key==='print_location'&&value==='front'&&!['front','both'].includes(data.view)){reject(key,'UNSEEN_PANEL');continue;}
     if(key==='print_size'&&['solid'].includes(data.fields.pattern?.value))continue;
     fields[key]={value,confidence:entry.confidence,evidence:entry.evidence.trim().slice(0,160),image_index,...(key==='style'?{hypothesis:true}:{})};
   }
-  if(!fields.pattern||fields.pattern.value==='solid'){delete fields.print_size;delete fields.print_location;}
-  return {version:VISUAL_VERSION,group:data.group,view:data.view||'unknown',fields,image:{url,hash,index:image_index}};
+  if(!fields.pattern||fields.pattern.value==='solid')for(const key of ['print_size','print_location'])if(fields[key]){delete fields[key];reject(key,'NO_CONFIRMED_PRINT');}
+  diagnostic.accepted_fields=Object.keys(fields).length;
+  return {analysis:{version:VISUAL_VERSION,group:data.group,view:data.view||'unknown',fields,image:{url,hash,index:image_index},validation:diagnostic},diagnostic};
 }
+export function normalizeAnalysis(raw,options={}){return inspectAnalysis(raw,options).analysis;}
 export function mergeAnalyses(analyses,ts,model){
   const primary=analyses[0],fields={...primary.fields},conflicts=new Set();
   for(const a of analyses.slice(1))if(a.group===primary.group)for(const [k,v] of Object.entries(a.fields)){
@@ -63,6 +80,7 @@ export function mergeAnalyses(analyses,ts,model){
     }else if(!fields[k]||fields[k].confidence<v.confidence)fields[k]=v;
   }
   const profile={version:VISUAL_VERSION,group:primary.group,model,analyzed_at:ts,fields,images:analyses.map(a=>a.image),unknown:Object.keys({...COMMON,...SPECIFIC[primary.group]}).filter(k=>!fields[k]),back_print:analyses.some(a=>['back','both'].includes(a.view))?(fields.print_location&&['back','front_and_back'].includes(fields.print_location.value)?'visible':'unknown'):'unknown',confidence_note:'Model self-assessment, not calibrated probability; conflicting/unknown fields excluded',material:'unknown'};
+  profile.validation=analyses.map(a=>a.validation).filter(Boolean);
   profile.feature_keys=Object.keys(profileFeatures(profile));return profile;
 }
 export function visualPrompt(group=null,{retry=false}={}){

@@ -201,7 +201,7 @@ export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null,m
         if(failure?.failures>=2)throw new Error('VISUAL_FORMAT_RETRY_EXHAUSTED');
         try{
           const result=await infer(e,visualInputs(image.bytes,p.visual_group??null,{retry:!!failure?.failures,mime:image.mime}),{pid:row.pid,index}),text=modelText(result);
-          const analysis=normalizeAnalysis(text,{url,hash:image.hash,image_index:index});
+          const analysis=normalizeAnalysis(text,{url,hash:image.hash,image_index:index,expected_group:p.visual_group??null});
           if(Object.keys(analysis.fields).length<2)throw new Error('VISUAL_EMPTY_PROFILE');
           analysis.model=VISUAL_MODEL;
           analysis.image.usage=result.visual_usage;

@@ -113,19 +113,25 @@ test('missing or model-invented metering is unknown, not falsely called measured
 
 test('JSON is fully parsed, typed arrays/prose/truncation rejected, synonyms normalized without inventing evidence',()=>{
   assert.throws(()=>normalizeAnalysis('{"group":"apparel","fields":{"color":["navy"]}}.'),/INVALID_JSON/);
-  assert.throws(()=>normalizeAnalysis({group:'apparel',fields:{color:['navy']}}),/INVALID_PROFILE/);
+  assert.deepEqual(normalizeAnalysis({group:'apparel',fields:{color:['navy']}}).fields,{});
   assert.throws(()=>normalizeAnalysis('{"group":"apparel","fields":{}'),/INVALID_JSON/);
   assert.throws(()=>normalizeAnalysis('explanation {"group":"apparel","fields":{}}'),/INVALID_JSON/);
   const a=normalizeAnalysis({group:'apparel',view:'front',fields:{color:{value:'navy blue',confidence:.9,evidence:'Very dark blue body'},pattern:{value:'graphic',confidence:.9,evidence:'Small heart motifs visible'},print_location:{value:'all_over',confidence:.9,evidence:'Hearts across visible front'},fit:{value:'oversized',confidence:.9,evidence:'Probably loose based on the title'}}});
   const p=mergeAnalyses([a],1,VISUAL_MODEL);assert.equal(p.fields.color.value,'navy');assert.equal(p.fields.print_location.value,'front');assert.equal(p.back_print,'unknown');assert.equal(p.fields.fit,undefined);
 });
-test('format retry is once per image hash/model/version across restarts, empty profiles are never useful',async()=>{
+test('field type errors remain unknown, empty profiles stop without another inference',async()=>{
   const e=await env(),p=insert(e);p.image=p.image.replace('/1.webp','/9.webp');e.db.prepare('UPDATE scheduler_inventory SET data=? WHERE pid=?').run(JSON.stringify(p),p.id);
   e.AI.run=async(model,inputs)=>{e.calls++;assert.equal(model,VISUAL_MODEL);assert.equal(inputs.response_format.type,'json_object');if(e.calls===2)assert.match(inputs.messages[0].content[0].text,/FORMAT RETRY/);return {response:'{"group":"apparel","fields":{"color":["navy"]}}',usage:{neurons:7}};};
-  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_INVALID_PROFILE');e.db.prepare('UPDATE visual_queue SET retry_at=0').run();
-  assert.equal((await visualRun({...e},{force:true,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');assert.equal(e.calls,2);e.db.prepare("UPDATE visual_queue SET state='pending',retry_at=0").run();
-  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');assert.equal(e.calls,2);e.db.close();
+  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_EMPTY_PROFILE');assert.equal(e.calls,1);
+  assert.equal((await visualRun({...e},{force:true,fetcher:picture})).state,'idle');assert.equal(e.calls,1);e.db.close();
   const empty=await env();insert(empty);empty.AI.run=async()=>({response:{group:'apparel',view:'front',fields:{}},usage:{neurons:1}});assert.equal((await visualRun(empty,{force:true,fetcher:picture})).error,'VISUAL_EMPTY_PROFILE');assert.equal(empty.db.prepare('SELECT count(*) n FROM visual_profiles').get().n,0);empty.db.close();
+});
+test('malformed root gets only one bounded format retry across restarts',async()=>{
+  const e=await env();insert(e);e.AI.run=async()=>{e.calls++;return {response:{group:{apparel:{}},fields:{}},usage:{neurons:7}};};
+  assert.equal((await visualRun(e,{force:true,maxImages:1,fetcher:picture})).error,'VISUAL_INVALID_PROFILE');
+  e.db.prepare('UPDATE visual_queue SET retry_at=0').run();
+  assert.equal((await visualRun({...e},{force:true,maxImages:1,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');
+  assert.equal(e.calls,2);assert.equal((await visualRun({...e},{force:true,maxImages:1,fetcher:picture})).state,'idle');assert.equal(e.calls,2);e.db.close();
 });
 test('daily Neuron reserve settles actual usage; unmetered calls remain charged and provider quota stops all products',async()=>{
   const e=await env();insert(e);await complete(e);const day=new Date().toISOString().slice(0,10);
@@ -187,7 +193,7 @@ test('identical bytes across different products reuse global model/version/hash 
   await visualRun(e,{force:true,pid:400,fetcher:same});assert.equal((await visualRun(e,{force:true,pid:400,fetcher:same})).state,'complete');const before=e.calls;
   assert.equal((await visualRun(e,{force:true,pid:401,fetcher:same})).state,'complete');assert.equal(e.calls,before);assert.equal((await visualStatus(e)).products_today,1);e.db.close();
 });
-test('staging refuses production D1, missing auth, posting and search; fixed real sample uses AI then persistent cache',async()=>{
+test('staging refuses production D1, missing auth, posting/search and nonremaining inference; cache remains readable',async()=>{
   const e=await env();const request=(path,body)=>new Request('https://preview'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+e.MINIAPP_SYNC_KEY,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});
   assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
   e.VISUAL_STAGING='isolated';e.VISUAL_STAGING_DB_ID='d73d252d-3948-425b-b7c3-b65d0f5c6e5f';assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
@@ -203,7 +209,8 @@ test('staging refuses production D1, missing auth, posting and search; fixed rea
   assert.equal(staging.scheduled,undefined);
   assert.equal((await (await staging.fetch(request('/staging/init/experiment',{}),e)).json()).initialized,'experiment');
   const original=globalThis.fetch;globalThis.fetch=picture;
-  try{const first=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(first.state,'complete');assert.equal(e.calls,1);assert.ok(first.d1.queries>0);
+  try{assert.equal((await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).status,403);
+    const first=await visualRun(e,{force:true,pid:STAGING_PRODUCTS[0].id,maxImages:1,fetcher:picture});assert.equal(first.state,'complete');assert.equal(e.calls,1);
     const repeat=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(repeat.state,'cached');assert.deepEqual(repeat.profile,first.profile);assert.equal(e.calls,1);assert.equal((await staging.fetch(request('/staging/run',{pid:999}),e)).status,403);
   }finally{globalThis.fetch=original;e.db.close();}
 });

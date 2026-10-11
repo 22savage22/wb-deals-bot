@@ -6,6 +6,10 @@ export const VISUAL_TERMS_MODEL='@cf/meta/llama-3.2-11b-vision-instruct';
 export const VISUAL_DAILY_CALLS=40;
 export const VISUAL_DAILY_PRODUCTS=10;
 export const VISUAL_DAILY_NEURONS=5000;
+// Preparing/merging this PR is NOT permission to enable inference. A stale
+// enabled=1 from an earlier model must not silently start Gemma on Cron.
+// Unlocking automatic inference requires a separate reviewed change/approval.
+export const VISUAL_AUTOMATIC_ALLOWED=false;
 // Worst-case Gemma context (256k at 9091/M) + 900 output at 27273/M < 2500.
 // Reserve before dispatch; unmetered errors/timeouts keep the entire reservation.
 export const VISUAL_REQUEST_RESERVE=2500;
@@ -172,6 +176,7 @@ export async function maintainVisualEvents(e,pid=null){
   ]);
 }
 export async function visualRun(e,{fetcher=fetch,force=false,ts=now(),pid=null,maxImages=2}={}){
+  if(!force&&!VISUAL_AUTOMATIC_ALLOWED)return {state:'disabled'};
   await ensureVisual(e);
   const state=await q(e,'SELECT * FROM visual_state WHERE id=1').first();
   if(!state.enabled&&!force)return {state:'disabled'};
@@ -248,7 +253,7 @@ export async function visualStatus(e){
     const admitted=await q(e,'SELECT COUNT(*) n FROM visual_daily_products WHERE day=?',day).first();
     const coverage=await q(e,'SELECT COUNT(*) profiles FROM visual_profiles WHERE version=? AND json_extract(profile,\'$.model\')=?',VISUAL_VERSION,VISUAL_MODEL).first();
     const feedback=await q(e,"SELECT COUNT(*) events,COUNT(DISTINCT pid) products FROM visual_events WHERE kind IN ('like','dislike')").first();
-    return {initialized:true,enabled:!!state.enabled,model:VISUAL_MODEL,terms:terms?JSON.parse(terms.value):null,sample:sample?JSON.parse(sample.value):null,meter,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,daily_product_limit:VISUAL_DAILY_PRODUCTS,products_today:admitted?.n||0,profiles:coverage?.profiles||0,real_feedback:feedback,daily_neuron_limit:VISUAL_DAILY_NEURONS,neurons_charged:budget?.charged||0,budget_hold,request_reserve:VISUAL_REQUEST_RESERVE,other_account_usage:'unknown',automatic_analysis_allowed:false,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров и20 лайков/дизлайков. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
+    return {initialized:true,enabled:VISUAL_AUTOMATIC_ALLOWED&&!!state.enabled,configured_enabled:!!state.enabled,model:VISUAL_MODEL,terms:terms?JSON.parse(terms.value):null,sample:sample?JSON.parse(sample.value):null,meter,last_run:state.last_run,last_success:state.last_success,last_error:state.last_error,calls_today:usage?.calls||0,daily_call_limit:VISUAL_DAILY_CALLS,daily_product_limit:VISUAL_DAILY_PRODUCTS,products_today:admitted?.n||0,profiles:coverage?.profiles||0,real_feedback:feedback,daily_neuron_limit:VISUAL_DAILY_NEURONS,neurons_charged:budget?.charged||0,budget_hold,request_reserve:VISUAL_REQUEST_RESERVE,other_account_usage:'unknown',automatic_analysis_allowed:VISUAL_AUTOMATIC_ALLOWED,examples,next,insights:stats,note:'Наблюдения по реальным событиям, не причинный эффект. Интервал Wilson 95%; минимум20 наблюдений/5товаров и20 лайков/дизлайков. Self-confidence vision не калибрована. Неизвестные признаки не учитываются.'};
   }catch(error){if(missing(error))return {initialized:false,enabled:false,examples:[],insights:[]};throw error;}
 }
 export async function visualRoute(request,e,{json,fail}){

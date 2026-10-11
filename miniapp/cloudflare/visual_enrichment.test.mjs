@@ -164,6 +164,17 @@ test('native envelope metering is retained; a crashed unsettled call blocks anot
   assert.equal((await visualRun({...e},{force:true,pid:501,fetcher:picture})).state,'cached');assert.equal(e.calls,1);e.db.close();
 });
 
+test('automatic inference stays OFF even with a legacy enabled flag and a new isolate',async()=>{
+  const e=await env();insert(e,901);e.db.prepare('UPDATE visual_state SET enabled=1').run();
+  const before=e.db.prepare('SELECT * FROM visual_state').get();
+  assert.deepEqual(await visualRun({...e},{fetcher:()=>{throw Error('Automatic download forbidden');}}),{state:'disabled'});
+  assert.equal(e.calls,0);assert.deepEqual(e.db.prepare('SELECT * FROM visual_state').get(),before);
+  assert.equal((await visualStatus(e)).enabled,false);assert.equal((await visualStatus(e)).configured_enabled,true);
+  // Hard stop precedes D1 too: Cron cannot initialise or overwrite settings.
+  assert.deepEqual(await visualRun({AI:{run(){throw Error('No automatic AI');}},DB:{prepare(){throw Error('No automatic D1');}}}),{state:'disabled'});
+  e.db.close();
+});
+
 test('budget holds survive schema migration and are scoped to their UTC day',async()=>{
   const e=await env();const day=new Date().toISOString().slice(0,10);insert(e,503);
   e.db.prepare('INSERT INTO visual_inference_usage VALUES(?,?,?,?,?,?,?,?)').run('legacy-unmetered',1,day,500,0,'vision','success','{}');

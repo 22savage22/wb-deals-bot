@@ -42,7 +42,8 @@ string/nonnumeric confidence,missing evidence,unexpected enum,category mismatch,
 strict complete JSON,visibility,unknowns,old-cache access,one bounded root retry,
 atomic reservation/concurrency/unknown-cost/restart/over-reserve holds and
 nonresetting historical ledger. Synthetic unit fixtures are NOT live proof.
-Final local result: **180/180 Worker tests PASS**, `git diff --check` PASS.
+Before finalization: **180/180 Worker tests PASS**, `git diff --check` PASS.
+Final combined PR8+7+9 snapshot (including one extra hard-OFF test):201/201PASS.
 
 ## One isolated additional experiment, cap150
 
@@ -63,30 +64,42 @@ General production reserve2500 and900completion settings are unchanged.
 |nmId|Result|New provider Neurons|Evidence|
 |---|---|---:|---|
 |1113687154|8valid fields; neckline unknown|13.518181800842285|D1 profile,receipt,immediate cache replay with no AI|
-|1138890506|9valid fields|13.818181991577148|D1 profile+receipt after TLS-lost HTTP result; cache replay not completed|
-|449731422|NOT analysed|0|Stopped before inference after repeated TLS client failure|
+|1138890506|9valid fields|13.818181991577148|D1 profile+receipt; final cache replay confirmed, zero extra AI|
+|449731422|4valid fields|10.245454788208008|Exactly one remaining authorized attempt; D1 readback+provider receipt|
 
-**Additional measured27.336363792419434/150**,2calls,hold empty.
-Prior Gemma104.6454553604126 is not reset: combined Gemma131.98181915283203.
+**Additional measured37.58181858062744/150**,3calls,hold empty.
+This finalization used exactly ONE new AI call, costing10.245454788208008.
+Prior Gemma104.6454553604126 is not reset: combined Gemma142.22727394104004.
 Historical Llama cost remains separate, not credited back. These are provider
 `cf-ai-neurons`/usage receipts, not token estimates or a whole-account Usage claim.
-Current UTC-day staging ledger27.336363792419434; other account use unknown.
+Current UTC-day staging ledger37.58181858062744; other account use unknown.
 
-Read-only D1 confirms **9profiles/10**, including byte-identical seven old
-profiles. Eight immediate cache replay checks total (seven old,one new) with
-zero additional AI. Pink dress is durably saved and hash verified, but its
-separate replay check is explicitly unconfirmed, not called successful.
+Final persistent D1 readback confirms **10profiles/10**. All NINE profiles
+existing before finalization match their previous stored JSON, including the
+seven old profiles. Each was replayed through the deployed cache-first route:
+9cached results,9queries,36actual D1 rows_read,0rows_written,0extra AI calls,
+0extra Neurons. Pink dress replay is now confirmed. The tenth is confirmed by
+final D1 readback; a separate POST cache replay was not needed/not performed.
 
 The first setup failed before inference; PowerShell TLS and native curl35
 errors also interrupted requests. Non-AI session recovery switched Windows
 transport; only GET403 propagation reads were retried. No lost POST was resent.
-After the repeated TLS error the experiment stopped, with third item unspent.
-No additional inference to diagnose transport or recover the pink profile.
+After the repeated TLS error the earlier experiment stopped, with third item
+unspent. Its ledger had only2calls,so no model call for the tights occurred.
+The recorded failure was client-to-Cloudflare TLS (curl35), not a bad profile,
+WB image rejection or Workers AI quota error. The original low-level handshake
+cause cannot be established from the retained sanitized receipt; no certificate
+validation was disabled. The finalizer reused a normal Windows HttpClient TLS
+connection pool, skipped already-existing init and performed only GET403
+session-propagation retries. Cache/ledger preflight succeeded before its single
+remaining inference. No lost AI POST was resent and no budget was reset.
 Last observed fetch-only staging version12b5ae85-a211-4d3f-8257-a0186fc1ba54.
 After test stop, final defensive hardening deployed only to staging,
 version**2f709882-f81d-4b08-95a9-f096418b3e7c**; public health confirms pinned
 test D1 and `scheduled=false`. This deployment made zero AI calls. The saved
-test receipts/gallery correctly retain the earlier actual test deployment ID.
+test receipts retain the earlier actual test deployment ID. Final verification
+at2026-10-11T11:33:36Z used stage version113c09d3-1609-4aae-8821-7300b372e8ae
+(staging session-secret rotation only; same isolated fetch-only source).
 
 ## Photograph review / gallery
 
@@ -97,11 +110,14 @@ Read-only local browser preview: http://127.0.0.1:8771/ . It serves only the
 gallery and pinned public photos,never repo/config/auth/logs. Opened as a
 rendered browser page, not a source editor.
 
-38/40 returned frozen controls match,2missing of42 (unanalysed tights).
+40/42 frozen controls match,0missing,0changed photo hashes.
 These controls are small,non-independent and omit many attributes; NOT a95%
-general model accuracy claim. Colors9/9match the displayed photos. Black
+general model accuracy claim. Colors10/10match the displayed photos. Black
 dress color/short length/fitted torso agree. Pink dress color,small black
-heart print,short sleeves,round neck and visible front print agree.
+heart print,short sleeves,round neck and visible front print agree. Tights are
+white/solid/light; the skirt's plaid was not transferred to the tights and the
+advertisement's microfibre claim was not treated as visible material evidence.
+Their exact fine-knit texture is less certain at this image resolution.
 
 Remaining concerns: shoulder vs crossbody; smooth vs glossy are nonexclusive
 properties; whole-sneaker solid pattern is overbroad in an old preserved
@@ -110,9 +126,15 @@ Materials,absolute size,unseen back and uncertain fit remain unknown.
 
 ## Readiness and proposed gated rollout (NOT executed)
 
-**NOT READY for unattended production**: third item and pink cache replay
-remain unverified due transport; disputed cached attributes need exclusion.
-After a separately authorized remaining staging check and owner photo review:
+**Ready for an approved code integration with Vision OFF, not for unattended
+inference/ranking**. Live10/10 and nine-cache gate now pass. Disputed cached
+attributes still need exclusion and owner photo review before activation.
+Automatic calls are hard-disabled in code (`VISUAL_AUTOMATIC_ALLOWED=false`),
+even for a stale enabled1 flag. Default Cron exits before Visual D1/AI. Manual
+authorized staging calls still obey durable quotas/holds; `/activate` stays409.
+One new regression test plus the combined PR8/7/9 snapshot: **201/201PASS**.
+See [the exact compatibility/rollout plan](vision-rollout-pr8-pr9.md).
+After separate owner permission:
 
 1. Revalidate existing cached analyses offline,without AI; exclude contested
    fields. Preserve image/model/hash cache and measured budget history.

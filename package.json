@@ -12,6 +12,7 @@
     "shadow:taste-analysis": "node miniapp/shadow/taste_analysis.mjs",
     "shadow:prospective-photos": "node miniapp/shadow/prospective_report.mjs",
     "shadow:prospective-prepare": "node miniapp/shadow/prepare_prospective.mjs",
+    "shadow:prospective-audit": "node miniapp/shadow/audit_prospective.mjs",
     "deploy": "npm run build && wrangler deploy",
     "check:deploy": "npm run build && wrangler deploy --dry-run --outdir .test-temp/worker-build"
   },

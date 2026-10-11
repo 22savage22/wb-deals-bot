@@ -28,3 +28,30 @@ test('loss of response recovers actual persisted state without repeating/inflati
 test('wall clock rollback cannot delete a just-saved rating',async()=>{let time=Date.now();const f=await fixture({clock:()=>time});try{assert.equal((await f.rate({profile:'owner',id:1,action:'like'})).status,200);time-=1000;assert.equal((await f.get()).ratings.length,1);await f.rate({profile:'wife',id:1,action:'dislike'});const s=await f.get();assert.equal(s.ratings.length,2);assert.equal(s.revision,2);}finally{f.server.closeAllConnections();await new Promise(r=>f.server.close(r));}});
 
 test('non-fashion ratings stay archived on disk but cannot train style or receive new votes',async()=>{const f=await fixture();try{f.server.closeAllConnections();await new Promise(r=>f.server.close(r));const at=Date.now(),saved=setTasteRating(createTasteState(),{profile:'owner',nmId:7,action:'more',product:{id:7,category:'Книги',categoryVerified:true}},{now:at}).state;saved.localRevision=9;const bytes=JSON.stringify(saved)+'\n';await fs.writeFile(f.statePath,bytes);const second=await createGalleryServer({reportPath:f.reportPath,statePath:f.statePath,port:0});try{const url=`http://127.0.0.1:${second.address().port}`,s=await fetch(url+'/api/state').then(r=>r.json());assert.equal(s.ratings.length,1);assert.equal(s.archiveCounts.owner,1);assert.equal(s.profiles.owner.sampleProducts,0);assert.equal(s.revision,9);assert.ok(!s.compareByProfile.owner.candidateIds.includes(7));assert.equal(await fs.readFile(f.statePath,'utf8'),bytes);const r=await fetch(url+'/api/rate',{method:'POST',headers:{'content-type':'application/json',origin:url,'X-Shadow-CSRF':s.csrf},body:JSON.stringify({profile:'owner',id:7,action:'like'})});assert.equal(r.status,400);assert.equal(await fs.readFile(f.statePath,'utf8'),bytes);}finally{second.closeAllConnections();await new Promise(r=>second.close(r));}}finally{if(f.server.listening){f.server.closeAllConnections();await new Promise(r=>f.server.close(r));}}});
+
+test('derived report/results repeated GETs preserve votes byte-for-byte and isolate both profiles',async()=>{
+  const f=await fixture();try{
+    await f.rate({profile:'owner',id:1,action:'like'});await f.rate({profile:'wife',id:1,action:'dislike'});
+    const before=await fs.readFile(f.statePath,'utf8'),first=await f.get(),second=await f.get();
+    assert.equal(await fs.readFile(f.statePath,'utf8'),before);assert.equal(first.revision,second.revision);
+    assert.equal(first.tasteReport.profiles.owner.counts.like,1);assert.equal(first.tasteReport.profiles.wife.counts.dislike,1);
+    assert.ok(first.recommendationsByProfile.owner.newIds.includes(1));assert.ok(!first.recommendationsByProfile.wife.newIds.includes(1));
+    assert.equal(first.analysis.candidateCount,6);assert.match(first.analysis.candidateHash,/^[a-f0-9]{64}$/);assert.equal(first.analysis.productionWrites,0);
+    const html=await fetch(f.url).then(r=>r.text());assert.match(html,/id="results-profile"/);assert.match(html,/id="new-slate"/);assert.match(html,/id="legacy-slate"/);assert.match(html,/id="setup" hidden/);
+  }finally{f.server.closeAllConnections();await new Promise(r=>f.server.close(r));}
+});
+
+test('new reviewed manifest enriches derived report without rewriting old feature snapshots',async()=>{
+  const f=await fixture();try{
+    await f.rate({profile:'owner',id:1,action:'like'});const before=await fs.readFile(f.statePath,'utf8');
+    f.server.closeAllConnections();await new Promise(r=>f.server.close(r));
+    const p=JSON.parse(await fs.readFile(f.reportPath)).products[0],visualPath=path.join(f.dir,'reviewed.json');
+    await fs.writeFile(visualPath,JSON.stringify({profiles:{1:{nmId:1,reviewed:true,cacheVerified:true,imageHash:p.imageHash,group:'apparel',fields:{color:{value:'black',confidence:.95,evidence:'Verified black photographed front'}}}}}));
+    const second=await createGalleryServer({reportPath:f.reportPath,statePath:f.statePath,visualPath,port:0});
+    try{const url=`http://127.0.0.1:${second.address().port}`,x=await fetch(url+'/api/state').then(r=>r.json());
+      assert.equal(x.analysis.reviewedVisualProducts,1);assert.equal(x.ratings[0].features['visual.color=black'],undefined);
+      assert.equal(x.profiles.owner.evidence.find(row=>row.key==='visual.color=black').products,1);
+      assert.equal(await fs.readFile(f.statePath,'utf8'),before);
+    }finally{second.closeAllConnections();await new Promise(r=>second.close(r));}
+  }finally{if(f.server.listening){f.server.closeAllConnections();await new Promise(r=>f.server.close(r));}}
+});

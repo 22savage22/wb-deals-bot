@@ -144,25 +144,58 @@ function rowsFor(state, profile) {
   return state.ratings.filter(row => row.profile === profile && row.participant_id === person[profile]).map(row => ({...row, positive: Math.max(0, weights[row.action]), negative: Math.max(0, -weights[row.action]), events: 1}));
 }
 
+// Metadata for a reviewed visual snapshot, not a preference predictor itself.
+// Fail closed for imported/old snapshots with no group or conflicting groups.
+function visualGroup(features) {
+  const keys = Object.keys(features).filter(key => key.startsWith('visual.group='));
+  if (keys.length !== 1 || features[keys[0]] !== 1) return null;
+  const group = keys[0].slice('visual.group='.length);
+  return GROUPS.includes(group) ? group : null;
+}
+
+const preference = stat => round((stat.positive - stat.negative) / (stat.positive + stat.negative + 4));
+const evidenceOrder = (a, b) => b.preference - a.preference || b.products - a.products || a.key.localeCompare(b.key) || (a.group ?? '').localeCompare(b.group ?? '');
+
 export function buildTasteProfile(state, profile, options = {}) {
   checkState(state);
   if (!TASTE_PROFILES.includes(profile)) throw Error('TASTE_INVALID_PROFILE');
   const config = limits(options), rows = rowsFor(state, profile), stats = new Map();
-  for (const row of rows) for (const key of Object.keys(row.features)) {
-    const stat = stats.get(key) ?? {key, products: 0, positive: 0, negative: 0, events: 0, nmIds: []};
-    stat.products++;
-    stat.positive += row.positive;
-    stat.negative += row.negative;
-    stat.events += row.events;
-    stat.nmIds.push(row.nmId);
-    stats.set(key, stat);
+  for (const row of rows) {
+    const group = visualGroup(row.features);
+    for (const key of Object.keys(row.features)) {
+      if (key.startsWith('visual.group=')) continue;
+      const stat = stats.get(key) ?? {key, products: 0, positive: 0, negative: 0, events: 0, nmIds: [], groups: new Map()};
+      stat.products++;
+      stat.positive += row.positive;
+      stat.negative += row.negative;
+      stat.events += row.events;
+      stat.nmIds.push(row.nmId);
+      if (key.startsWith('visual.') && group) {
+        const bucket = stat.groups.get(group) ?? {group, products: 0, positive: 0, negative: 0, events: 0, nmIds: []};
+        // Support is unique product evidence, never repeated votes/import rows.
+        if (!bucket.nmIds.includes(row.nmId)) {
+          bucket.products++; bucket.positive += row.positive; bucket.negative += row.negative;
+          bucket.events += row.events; bucket.nmIds.push(row.nmId);
+          stat.groups.set(group, bucket);
+        }
+      }
+      stats.set(key, stat);
+    }
   }
   const configured = rows.length >= config.minSamples;
-  const evidence = Array.from(stats.values(), stat => ({...stat, preference: round((stat.positive - stat.negative) / (stat.positive + stat.negative + 4)), sufficient: configured && stat.products >= config.minFeatureSamples}));
-  evidence.sort((a, b) => b.preference - a.preference || b.products - a.products || a.key.localeCompare(b.key));
+  const evidence = Array.from(stats.values(), ({groups, ...stat}) => {
+    const summary = {...stat, preference: preference(stat)};
+    if (!stat.key.startsWith('visual.')) return {...summary, sufficient: configured && stat.products >= config.minFeatureSamples};
+    const groupEvidence = Array.from(groups.values(), bucket => ({...bucket, preference: preference(bucket), sufficient: configured && bucket.products >= config.minFeatureSamples})).sort((a, b) => a.group.localeCompare(b.group));
+    // The global statistic is descriptive only. A black bag and a black shoe
+    // cannot supply each other's minimum support or preference in scoring.
+    return {...summary, groupEvidence, sufficient: groupEvidence.some(bucket => bucket.sufficient)};
+  });
+  evidence.sort(evidenceOrder);
   const accepted = evidence.filter(row => row.sufficient);
-  const preferred = accepted.filter(row => row.preference > 0).slice(0, 12);
-  const avoided = accepted.filter(row => row.preference < 0).sort((a, b) => a.preference - b.preference).slice(0, 12);
+  const scoped = accepted.flatMap(row => !row.key.startsWith('visual.') ? [row] : row.groupEvidence.filter(bucket => bucket.sufficient).map(bucket => ({...row, ...bucket})));
+  const preferred = scoped.filter(row => row.preference > 0).sort(evidenceOrder).slice(0, 12);
+  const avoided = scoped.filter(row => row.preference < 0).sort((a, b) => a.preference - b.preference || evidenceOrder(a, b)).slice(0, 12);
   const unknown = ['category', 'budget', 'style', 'fit', 'pattern', 'color', 'silhouette'].filter(dimension => !accepted.some(row => row.key.startsWith(dimension === 'category' || dimension === 'budget' ? dimension + '=' : 'visual.' + dimension + '=')));
   return {
     version: TASTE_VERSION, profile, configured, sampleProducts: rows.length,
@@ -172,6 +205,7 @@ export function buildTasteProfile(state, profile, options = {}) {
     progress: {rated: rows.length, target: config.calibrationSize},
     preferred, avoided, evidence, unknown,
     blockedProducts: profile === 'audience' ? [] : rows.filter(row => row.action === 'block_similar').map(row => row.nmId),
+    dislikedProducts: profile === 'audience' ? [] : rows.filter(row => row.action === 'dislike').map(row => row.nmId),
     blockedExamples: profile === 'audience' ? [] : rows.filter(row => row.action === 'block_similar').map(row => ({nmId: row.nmId, features: {...row.features}})),
     uncertainty: !rows.length ? 'not_configured' : !configured ? 'insufficient_ratings' : 'small_sample',
     note: !rows.length ? 'Предпочтения ещё не настроены: нет настоящих оценок.' : !configured ? `Пока мало оценок: ${rows.length}/${config.minSamples}. Вкус не угадывается.` : 'Предпочтения основаны только на ваших оценках. Это не прогноз вероятности покупки; субъективные признаки остаются неизвестными без проверенного профиля.',
@@ -180,7 +214,8 @@ export function buildTasteProfile(state, profile, options = {}) {
 
 function blockedSimilarity(examples, features) {
   const category = Object.keys(features).find(key => key.startsWith('category='));
-  if (!category) return null;
+  const group = visualGroup(features);
+  if (!category || !group) return null;
   const structural = new Set(['pattern', 'silhouette', 'fit', 'style']);
   const visualMap = values => new Map(Object.keys(values).filter(key => key.startsWith('visual.') && !key.startsWith('visual.group=')).map(key => {
     const separator = key.indexOf('=');
@@ -188,7 +223,7 @@ function blockedSimilarity(examples, features) {
   }));
   const target = visualMap(features);
   for (const example of examples) {
-    if (!example.features[category]) continue;
+    if (!example.features[category] || visualGroup(example.features) !== group) continue;
     const source = visualMap(example.features), matched = [], conflicts = [];
     for (const [field, value] of source) if (target.has(field)) (target.get(field) === value ? matched : conflicts).push(field);
     // An explicit restriction may act before learned taste has enough samples.
@@ -201,7 +236,14 @@ function blockedSimilarity(examples, features) {
 export function scoreTaste(profile, product, {traits, now = Date.now()} = {}) {
   if (!plain(profile) || profile.version !== TASTE_VERSION || !TASTE_PROFILES.includes(profile.profile)) throw Error('TASTE_INVALID_PROFILE');
   const features = tasteFeatures(product, traits, {now}), keys = new Set(Object.keys(features));
-  const matched = profile.evidence.filter(row => row.sufficient && keys.has(row.key));
+  const group = visualGroup(features);
+  const matched = profile.evidence.flatMap(row => {
+    if (!row.sufficient || !keys.has(row.key) || row.key.startsWith('visual.group=')) return [];
+    if (!row.key.startsWith('visual.')) return [row];
+    const bucket = group && row.groupEvidence?.find(value => value.group === group && value.sufficient);
+    // Old profiles without group evidence are neutral until safely recomputed.
+    return bucket ? [{...row, ...bucket}] : [];
+  });
   // A popularity count is not 100 independent observations of a trait: support
   // above is the number of distinct rated products, including for the audience.
   const active = profile.configured && matched.length > 0;
@@ -209,10 +251,11 @@ export function scoreTaste(profile, product, {traits, now = Date.now()} = {}) {
   const exactBlocked = profile.blockedProducts.includes(idOf(product));
   const similar = exactBlocked ? null : blockedSimilarity(profile.blockedExamples ?? [], features);
   const blocked = exactBlocked || !!similar;
-  return {score, configured: profile.configured, supported: active, blocked, blockReason: exactBlocked ? 'explicit_product' : similar ? 'explicit_reviewed_similarity' : null, blockEvidence: similar,
-    sampleProducts: profile.sampleProducts, matchedFeatures: matched.map(row => ({key: row.key, preference: row.preference, products: row.products, nmIds: row.nmIds})),
+  const rejected = (profile.dislikedProducts ?? []).includes(idOf(product));
+  return {score, configured: profile.configured, supported: active, blocked, rejected, blockReason: exactBlocked ? 'explicit_product' : similar ? 'explicit_reviewed_similarity' : null, blockEvidence: similar,
+    sampleProducts: profile.sampleProducts, matchedFeatures: matched.map(row => ({key: row.key, ...(row.group ? {group: row.group} : {}), preference: row.preference, products: row.products, nmIds: row.nmIds})),
     uncertainty: !profile.configured ? profile.uncertainty : !active ? 'no_matching_evidence' : 'small_sample',
-    reason: exactBlocked ? 'Вы явно попросили не показывать этот товар. Похожесть без проверенных признаков не угадывается.' : similar ? `Похож на явно заблокированный товар ${similar.nmId}: одна категория и ${similar.matchingFields.length} проверенных визуальных совпадения, включая минимум два структурных.` : !profile.configured ? profile.note : !active ? 'Нет достаточных оценок похожих подтверждённых признаков; нейтральный вклад.' : 'Совпали признаки реально оценённых товаров; учитывается объём выборки, а не придумывается ваш вкус.'};
+    reason: exactBlocked ? 'Вы явно попросили не показывать этот товар. Похожесть без проверенных признаков не угадывается.' : rejected ? 'Вы отметили «Не нравится» именно этому товару. Предпочтение категории не отменяет личную оценку; похожие товары автоматически не запрещаются.' : similar ? `Похож на явно заблокированный товар ${similar.nmId}: одна категория и ${similar.matchingFields.length} проверенных визуальных совпадения, включая минимум два структурных.` : !profile.configured ? profile.note : !active ? 'Нет достаточных оценок похожих подтверждённых признаков; нейтральный вклад.' : 'Совпали признаки реально оценённых товаров; учитывается объём выборки, а не придумывается ваш вкус.'};
 }
 
 function photoOf(product) {

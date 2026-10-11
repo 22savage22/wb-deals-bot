@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "sourceCommit": "acf12f23cab9b8be7e55253de045e4c4a86969ee",
+  "sourceArtifact": "docs/vision-gemma-20261011/report.json",
+  "sourceModel": "@cf/google/gemma-4-26b-a4b-it",
+  "reviewMethod": "Existing frozen photo controls cross-checked against the same local photo bytes. Field-level review by assistant, not owner style confirmation. All unchecked fields, style hypotheses, composition, material and unseen backs remain unknown.",
+  "additionalAiCalls": 0,
+  "profiles": {
+    "742502965": {"nmId":742502965,"group":"shoes","imageHash":"6ac3c9bfb5ec1f5f0dec7fe7c4347b150b82ee9612a394bda109a3751a218f7c","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"black","confidence":1,"evidence":"Верх преимущественно чёрный; цветные логотипы видны отдельно."},
+      "closure":{"value":"laces","confidence":1,"evidence":"На верхней части видна система шнуровки."},
+      "sole":{"value":"thick","confidence":0.9,"evidence":"На боковой фотографии видна высокая толстая подошва."},
+      "height":{"value":"low","confidence":1,"evidence":"Верх обуви расположен ниже щиколотки."},
+      "toe":{"value":"round","confidence":0.9,"evidence":"Передняя часть обуви визуально округлая."}
+    }},
+    "1274857400": {"nmId":1274857400,"group":"shoes","imageHash":"5f8a4e72b6c47f7148e4e01dc2411ce8d12da6cd1a81c2d833a5af549c08c0b4","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"black","confidence":1,"evidence":"Верх чёрный, подошва светлая; это основной цвет верха."},
+      "closure":{"value":"laces","confidence":1,"evidence":"На верхней части видны чёрные шнурки."},
+      "sole":{"value":"thick","confidence":1,"evidence":"Видна выраженная толстая светлая платформа."},
+      "height":{"value":"low","confidence":1,"evidence":"Верх обуви ниже щиколотки."},
+      "toe":{"value":"round","confidence":0.9,"evidence":"Носок имеет округлую форму."}
+    }},
+    "1097989569": {"nmId":1097989569,"group":"bag","imageHash":"8df6eae987aa6d6755651daad66369c57c94f7ee20cc42329061457a53a69213","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"black","confidence":1,"evidence":"Корпус и длинные ручки сумки чёрные."},
+      "shape":{"value":"soft","confidence":0.9,"evidence":"Мягкий корпус складывается у верхнего края."},
+      "carry":{"value":"shoulder","confidence":1,"evidence":"Длинные интегрированные ручки рассчитаны на плечо; не вывод по названию."}
+    }},
+    "812988272": {"nmId":812988272,"group":"bag","imageHash":"c952c43acafc898e1d6cfa3644b33af8e92e098e0032e8f2ad9b4e98130db422","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"brown","confidence":0.95,"evidence":"Видимая поверхность корпуса тёмно-коричневая."},
+      "shape":{"value":"structured","confidence":0.9,"evidence":"У корпуса видны устойчивые очертания и оформленный клапан."},
+      "decoration":{"value":"hardware","confidence":0.9,"evidence":"По краям заметны металлические кольца, крепления и пряжка."}
+    }},
+    "1023816536": {"nmId":1023816536,"group":"accessory","imageHash":"0f8c1e7d3d19f357b1ceffe13b06600a329c48ae7709955f2382da88f0ddd4bb","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"rose_gold","confidence":0.95,"evidence":"Видимый металлический оттенок розовато-золотистый; состав металла неизвестен."},
+      "shape":{"value":"round","confidence":1,"evidence":"Обе серьги представлены круглыми кольцами."},
+      "decoration":{"value":"stones","confidence":1,"evidence":"На кольцах видны прозрачные прямоугольные вставки; тип камня неизвестен."}
+    }},
+    "1113687154": {"nmId":1113687154,"group":"apparel","imageHash":"a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"black","confidence":1,"evidence":"Видимая ткань платья чёрная."},
+      "pattern":{"value":"solid","confidence":1,"evidence":"На видимой передней части нет узора или печатного рисунка."},
+      "length":{"value":"short","confidence":1,"evidence":"Низ платья на фотографии выше колена."},
+      "silhouette":{"value":"fitted","confidence":0.8,"evidence":"Верх и талия прилегают к фигуре на этой фотографии; посадка других размеров неизвестна."}
+    }},
+    "1138890506": {"nmId":1138890506,"group":"apparel","imageHash":"322874c4cf93508b8a449e6267e68f80b8440511749787e218e55e0c2f4531c6","reviewed":true,"cacheVerified":true,"fields":{
+      "color":{"value":"pink","confidence":1,"evidence":"Основной видимый фон ткани светло-розовый."},
+      "pattern":{"value":"graphic","confidence":0.95,"evidence":"По ткани повторяются чёрные графические сердечки."},
+      "sleeves":{"value":"short","confidence":1,"evidence":"Рукава заканчиваются выше локтя."},
+      "neckline":{"value":"round","confidence":0.95,"evidence":"На фотографии виден круглый вырез."},
+      "length":{"value":"short","confidence":0.9,"evidence":"Длина на модели выше колена."},
+      "print_size":{"value":"small","confidence":0.9,"evidence":"Отдельные сердечки небольшие относительно передней части платья."},
+      "print_location":{"value":"front","confidence":0.9,"evidence":"Сердечки видны на передней части; задняя сторона не показана и неизвестна."}
+    }}
+  }
+}

@@ -23,7 +23,7 @@ export function rankProduct(product,{now=Date.now(),comparables=[],profile=null,
   if(taste?.configured){reasons.push(taste.reason);for(const feature of taste.matchedFeatures.slice(0,6))reasons.push(`${feature.preference>0?'Предпочитаемый':'Менее желательный'} признак: ${feature.key}; оценено разных вещей: ${feature.products}.`);}
   if(seen)reasons.push('Артикул уже опубликован в переданном окне истории.');
   if(duplicates.length)reasons.push('Похож на недавний товар: совпадение названия/типа или изображения.');
-  const blocked=Boolean(taste?.blocked),eligible=value.eligible&&!seen&&!duplicates.length&&!blocked;
+  const blocked=Boolean(taste?.blocked||taste?.rejected),eligible=value.eligible&&!seen&&!duplicates.length&&!blocked;
   if(blocked)reasons.push('Явно отклонён выбранным профилем предпочтений.');
   const criteria={value:clamp(value.criteria.realValue.score??0),priceConfidence:clamp(value.price.confidence*100),quality:value.criteria.quality?.score??0,preferences,diversity,freshness};
   // Hard gates are evaluated BEFORE the score; suspect quality cannot be
@@ -34,10 +34,11 @@ export function rankProduct(product,{now=Date.now(),comparables=[],profile=null,
 export function compareShadow(products,{legacyPick=null,limit=10,...context}={}){
   if(!Array.isArray(products)||products.length>100)throw new Error('SHADOW batch max100');
   const byId=new Map(products.map(p=>[p.id,p]));
-  const assessments=products.map(p=>rankProduct(p,{...context,comparables:products}));
+  const forProduct=p=>({...context,traits:context.traitsForProduct?context.traitsForProduct(p):context.traits,comparables:products});
+  const assessments=products.map(p=>rankProduct(p,forProduct(p)));
   const selected=[];let remaining=assessments.filter(p=>p.eligible);
   while(remaining.length&&selected.length<Math.min(30,limit)){
-    remaining=remaining.map(r=>rankProduct(byId.get(r.id),{...context,comparables:products,recent:[...(context.recent||[]),...selected.map(s=>byId.get(s.id))]})).filter(r=>r.eligible);
+    remaining=remaining.map(r=>rankProduct(byId.get(r.id),{...forProduct(byId.get(r.id)),recent:[...(context.recent||[]),...selected.map(s=>byId.get(s.id))]})).filter(r=>r.eligible);
     if(!remaining.length)break;
     remaining.sort((a,b)=>b.reviewScore-a.reviewScore||a.id-b.id);
     const item=remaining.shift(),p=byId.get(item.id);

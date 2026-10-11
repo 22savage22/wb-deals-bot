@@ -1,8 +1,15 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {adminEnvironment,adminRequest,rawPolicy,testCard} from './admin_test_support.mjs';
 import {selectionSettings,selectionReason,similarity,diverseChoice} from './selection_policy.mjs';
 import {cardDeal,choose} from './native_scheduler.mjs';
 const intent=()=>({confirmed:true,request_id:crypto.randomUUID()});
+test('both selection history UI paths send fresh confirmation intent after a user confirmation',()=>{
+  const selection=readFileSync(new URL('../admin/selection-manager.jsx',import.meta.url),'utf8');
+  const history=readFileSync(new URL('../admin/config-history.jsx',import.meta.url),'utf8');
+  assert.match(selection,/if\(!window\.confirm\('Восстановить эту версию подбора\?'\)\)return;await client\.api\('\/api\/admin\/config\/restore','POST',\{id:v\.id,revision:data\.revision,confirmed:true,request_id:crypto\.randomUUID\(\)\}\)/);
+  assert.match(history,/v\.scope==='selection'\?\{confirmed:true,request_id:crypto\.randomUUID\(\)\}/);
+});
 test('selection reads without writing defaults; save validates, preserves query/channel/30min and restores with CAS',async t=>{
   const e=await adminEnvironment(t),original=rawPolicy(e);const r=await(await adminRequest(e,'/api/admin/selection')).json();assert.equal(rawPolicy(e),original);assert.equal(r.active,false);assert.equal(r.styles_available,false);
   const settings={...r.settings,min_price:600,allowed_brands:['Fixture'],diversity_enabled:true};

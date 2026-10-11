@@ -41,7 +41,16 @@ or the owner's existing configuration history. Never restore the whole SQL
 backup over new posts, queue items or reactions. Do not overwrite unrelated
 concurrent user edits. Record the actual restoration result before DONE.
 
-Local208 Worker tests and admin asset build passed; remote CI and a normal
+Owner restored the old policy through the existing admin. A read-only check
+at 14:33:08 UTC confirmed audit record2 at1791728903, active→inactive, and
+all settings byte-equal to the pre-migration baseline. Only17 D1 rows read.
+Normal message2838, product1095105951, at1791729132 and subsequent automatic
+tick1791729152 confirmed posting continued; queue81 and error empty.
+This evidence predates the hardened save deployment, not its final gate.
+
+Both UI history paths now send fresh confirmation and idempotency intent;
+a regression test prevents omission of the inline selection restore path.
+Local209 Worker tests and admin asset build passed; remote CI and a normal
 post + later independent Cron after this guard's deployment remain mandatory.
 Automatic Vision stays OFF, River SHADOW, posting30min. PR10 and the third
 agent's work remain untouched. Rollback Worker version and additive D1

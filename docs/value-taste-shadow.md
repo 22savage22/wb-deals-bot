@@ -62,6 +62,9 @@ All are under `miniapp/shadow/`; none is imported by the production Worker.
 | `ranking.mjs` | Hard price/stock/quality/seen/duplicate/block gates **before** weighted score. Value35%, price trust20%, quality20%, taste15%, diversity8%, freshness2%. Reasons and uncertainty are separate from the numerical review score. |
 | `storage.mjs`, `schema.sql` | Proposed isolated D1 port only; no automatic migration. Explicit reviewed test database identity required in addition to separate binding. Indexed, bounded reads; atomic global300 new price observations/day; one pid/variant/context/day. Bounded retention. |
 | `gallery_server.mjs` | Localhost-only independent calibration UI, not Astra admin. Host/Origin/CSRF checks, trusted server-side products, photo hash verification, serialized atomic saves and revisions. No production credentials. |
+| `calibration.mjs`, `fashion_report.mjs` | Exact, confirmed WB fashion-subject allowlist; 40 different pinned real photos, group/category rotation, SKU/photo/family deduplication. Never fill a shortage with books, patches, parts or invented cards. Bounded sequential public CDN GETs; stop on 403/429 or unknown network outcome. |
+| `comparison.mjs` | Legacy and SHADOW inspect the same 40 factual snapshots with the same empty recent window. Read-only photo review order is separate from publication eligibility and does not claim a measured uplift. |
+| `budget_probe.mjs` | One public price-ascending search up to300₽, encompassing100/200₽ subsets. No retries or endpoint hopping after denial. Search-only results cannot establish matching size/stock/payment context. |
 
 Type/pack/payment context is never inferred from a name or discount. Lower
 thresholds cannot bypass quality defaults (rating4.3/reviews20), and an ultra-
@@ -79,15 +82,19 @@ a whole category. Personal state is capped100 products/profile/90days; audience
 
 ## Real evidence and gallery
 
-`docs/shadow-20261011/report.json` plus48 local, SHA256-verified WB photographs.
-All48 nmIds/categories were confirmed through their exact public WB CDN
-`info/ru/card.json` (two concurrent GETs, no retries). This metadata has no
-current price/stock; it is **not** a live bargain receipt.25 actual categories,
-24 distinct calibration products; both personal profiles start empty.
+`docs/shadow-20261011/report.json` now contains **40 fashion-only photographs**:
+clothing30, shoes3, bags3, accessories4, spanning16 confirmed WB subjects.
+All40 IDs/categories match exact public WB CDN `info/ru/card.json` metadata;
+photos are SHA256-pinned. This correction reused21 verified fashion photos and
+obtained19 more, using23 metadata GETs and19 photo GETs, sequentially, no retries.
+No books, document inserts, patches or random unrelated fillers are admitted.
+Metadata does not contain current price/stock; it is **not** a live bargain receipt.
+Some cards are historical already-published products, appropriate for style
+calibration but never claimed as newly discovered stock.
 
 Local saved queue100, price records8399, recent photographed posts384,
 historical feedback32 products (16likes/21dislikes/0bought). The gallery has
-three overlapping audience-feedback products. No raw Telegram user IDs or
+no overlapping audience-feedback products in the new fashion set. No raw Telegram user IDs or
 voter identities are exported. Latest historical price observation:
 2026-10-03T09:45:41Z. Each displayed queue price retains its OWN timestamp;
 a newer unrelated history sample is not relabelled as that price observation.
@@ -95,11 +102,14 @@ a newer unrelated history sample is not relabelled as that price observation.
 One local public `card.wb.ru/cards/v4/detail` request returned403; no retry or
 endpoint hunt. The authenticated production source credential was not exposed
 or copied, and production source/D1 was not used for this offline experiment.
+The new separate public search (`футболка`, sort=priceup, ceiling300₽) also
+returned **HTTP403** at2026-10-11T12:50:33Z. One request, no retry or bypass.
+Lower100/200₽ ceilings are subsets of that search, not extra successful calls.
 Therefore today's size-specific price and availability are unconfirmed.
 
 **Legacy on this restricted snapshot:742502965. New publishable choice:none.**
 This is reproducible snapshot selection with an empty recent window, NOT full
-production replay. All48 fail fresh-price/availability gates, with additional
+production replay. All40 fail fresh-price/availability gates, with additional
 quality/context reasons where applicable. ≤100/200/300₽:zero fresh confirmed
 deals. No fake uplift, new-item discovery receipt, bargain or stock claim.
 
@@ -110,16 +120,33 @@ npm run shadow:gallery
 ```
 
 Then `http://127.0.0.1:8772/`. It is intentionally local, not publicly deployed
-or accessible from a phone on another device. Choose “Мой вкус”/“Вкус жены”; use
-24-photo calibration or all48. Ratings persist only in ignored
+or accessible from a phone on another device. **Before assessment**, choose
+“Мой вкус”/“Вкус жены”, fashion group/category and min/max snapshot price.
+The two profiles also retain separate browser view filters after reload.
+All40 photographs are eligible for taste review, not for publication.
+Existing16 genuine owner ratings were preserved byte-for-byte; three fashion
+ratings inform style calibration,13 unrelated ratings remain archived and
+excluded from fashion learning. Wife starts with zero ratings, not copied votes.
+Ratings persist only in ignored
 `.test-temp/value-taste/ratings.json`; opening the page does not initialize
 production defaults or write any settings. Export is an explicit local action.
-Changing taste now can change explanations, not authorize stale publication.
+Changing taste now can change SHADOW explanations/review order, not authorize
+stale publication. Four explicit actions and undo are one vote/profile/item;
+double-click and uncertain network responses cannot silently inflate votes.
+No visual traits are invented: five items and three supporting observations
+are required for initial evidence; style/fit/color/prints remain unknown until
+reviewed Vision evidence exists. Categories come from WB, not search topics.
+
+Rebuild fashion evidence with `npm run shadow:report` (bounded public CDN reads;
+cached photos keep their original verification timestamps). Optional explicit
+`npm run shadow:budget-probe` does one fresh public search. Neither is Cron or
+production code. No automatically recurring source calls are introduced.
 
 ## Verification
 
-- New modules:113 Node tests (discovery34, value33, taste23, ranking8,
-  storage5, report3, local gallery7). Existing Worker148 tests.
+- Isolated modules:136 Node tests (discovery34, value33, taste23, ranking8,
+  storage5, report3, local gallery8, calibration11, comparison8, budget probe3).
+  Existing Worker148 tests also pass.
 - Local real SQLite: PK/index query plans, daily global cap/idempotency,
   timestamp normalization, bounded28/32/30/20 reads, retention and isolation.
   These are not Cloudflare billing measurements.
@@ -128,9 +155,12 @@ Changing taste now can change explanations, not authorize stale publication.
   products denied, tampered photos rejected, wall-clock rollback protection.
   One earlier integration attempt had an uncommitted POST; exact I/O cause was
   not captured. Tests now assert each HTTP receipt, not just later model score.
-- Browser: actual HTML rendered with real photos, 390×844 mobile width,
-  no horizontal overflow; visible photos loaded900px. No user taste votes were
-  fabricated during UI testing.
+- Browser: actual HTML rendered with real fashion photos, 390×844 mobile width,
+  no horizontal overflow; setup precedes assessment. Category/price filters
+  persist after reload, and owner3/wife0 are visibly independent. Lazy-loaded
+  photos enable voting only after loading; no broken loaded photographs observed.
+  No user taste votes were fabricated during UI testing. Local ratings hash
+  unchanged after read-only browser testing.
 - Local Python runner is absent from PATH; bundled Python lacks requests.
   Full dependency-installing Python/build checks are provided by Draft PR CI.
   Do not mistake this environment limitation for passed Python tests.
@@ -164,7 +194,7 @@ own reserve independent. Free D1 limits and billing semantics:
 
 ## Safe integration plan — requires a separate approval
 
-1. Owner/wife review the24 real-photo calibration; never import synthetic votes.
+1. Owner/wife review the40 fashion-only real-photo calibration; never import synthetic votes.
    Resolve questionable category/style metadata and keep unobservable traits
    unknown. Review this independent Draft PR without merging/deploying.
 2. After approved Astra/Vision integration, expose these component interfaces

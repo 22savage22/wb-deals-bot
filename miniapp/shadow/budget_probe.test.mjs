@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {probeBudget,budgetProbeReceipt} from './budget_probe.mjs';
+test('one shared public <=300 search covers lower ceilings without retries after denial',async()=>{let calls=0;const r=await probeBudget({at:123,get:async url=>{calls++;const u=new URL(url);assert.equal(u.searchParams.get('priceU'),'0;30000');assert.equal(u.searchParams.get('sort'),'priceup');return {blocked:403};}});assert.equal(calls,1);assert.equal(r.http,403);assert.equal(r.checkedAt,123);assert.deepEqual(r.tiers,[100,200,300]);assert.equal(r.status,'UNAVAILABLE');assert.deepEqual(r.confirmedProducts,[]);});
+test('network failure stops once and stores no raw response/header/credential',async()=>{let calls=0;const r=await probeBudget({get:async()=>{calls++;throw Error('sensitive/raw response must never be copied');}});assert.equal(calls,1);assert.equal(r.error,'PUBLIC_RESPONSE_UNAVAILABLE');assert.doesNotMatch(JSON.stringify(r),/sensitive|Authorization/);});
+test('200 cheap search rows without size-level availability do not become verified deals',()=>{const r=budgetProbeReceipt({card:{products:[{id:1,price:99,qty:1}]}},123);assert.equal(r.found,1);assert.equal(r.status,'UNAVAILABLE');assert.equal(r.http,200);assert.deepEqual(r.confirmedProducts,[]);});

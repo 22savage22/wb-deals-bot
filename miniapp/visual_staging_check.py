@@ -1,4 +1,4 @@
-"""Bounded native-AI preview check using the existing encrypted sync key.
+"""Bounded native-AI staging check using an isolated in-memory sync key.
 
 Only public products/profiles and safe metering are printed or written. No
 Cloudflare API token, deployment permission or Telegram send is used here.
@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import sys
 import time
+from datetime import datetime, timezone
 
 import requests
 
@@ -28,6 +29,22 @@ def assess_profile(sample, profile):
         checks.append({'field': field, 'expected': expected, 'predicted': predicted,
                        'returned': predicted != 'unknown', 'match': predicted == expected})
     return checks
+
+
+def require_free_budget(observation, now=None):
+    """A fresh provider dashboard observation, never a guessed remainder."""
+    now = time.time() if now is None else now
+    if not isinstance(observation, dict) or observation.get('source') != 'cloudflare-dashboard' or \
+            observation.get('account_id') != 'a4f7cbd9ad379d4b18087b99e9839205' or observation.get('plan') != 'free':
+        raise RuntimeError('Verified Free account budget unavailable; no AI call permitted')
+    seen = observation.get('observed_at')
+    total = observation.get('total_neurons')
+    if isinstance(seen, bool) or not isinstance(seen, (int, float)) or not 0 <= now - seen <= 60 or \
+            observation.get('day') != datetime.fromtimestamp(now, timezone.utc).date().isoformat():
+        raise RuntimeError('Account budget observation is stale; no AI call permitted')
+    if isinstance(total, bool) or not isinstance(total, (int, float)) or not 0 <= total <= 5000:
+        raise RuntimeError('Free remainder below full staging reserve; no AI call permitted')
+    return 10000 - total
 
 
 def save_receipt(receipt):
@@ -57,7 +74,7 @@ def save_receipt(receipt):
 
 def main():
     base = os.environ.get('VISUAL_STAGING_URL', '').rstrip('/')
-    if not re.fullmatch(r'https://[a-z0-9-]+-wb-finds-miniapp\.valeramyakishev000\.workers\.dev', base):
+    if not re.fullmatch(r'https://(?:[a-z0-9-]+-wb-finds-miniapp|wb-finds-visual-staging)\.valeramyakishev000\.workers\.dev', base):
         raise RuntimeError('An isolated version preview URL is required')
     key = os.environ.get('MINIAPP_SYNC_KEY', '')
     if len(key) < 32:
@@ -100,6 +117,11 @@ def main():
     before = call('/staging/status')
     if before.get('river_mode') != 'SHADOW' or before.get('database_id') != samples['database']['id']:
         raise RuntimeError('Pinned staging database and River SHADOW required before AI')
+    # Existing cached profiles may be read without spending. New inference
+    # requires a real dashboard observation acquired by the authorized operator.
+    budget_file = Path('.test-temp/visual-account-budget.json')
+    observation = json.loads(budget_file.read_text(encoding='utf-8')) if budget_file.is_file() else None
+    require_free_budget(observation)
     profiles = []
     format_retry_used = False
     for pid in selected:
@@ -117,6 +139,12 @@ def main():
                 time.sleep(min(30, max(0, deadline - time.monotonic())))
             result = call('/staging/run', {'pid': pid})
         if result.get('state') not in ('complete', 'cached'):
+            checkpoint = call('/staging/status')
+            save_receipt({'ok': False, 'profiles': profiles, 'accuracy': {'passed': False, 'reason': result.get('error', 'incomplete')},
+                          'deployment_id': health['deployment_id'], 'database_id': checkpoint['database_id'],
+                          'meter': checkpoint['meter'], 'neurons_charged': checkpoint['neurons_charged'],
+                          'budget_hold': checkpoint.get('budget_hold'), 'staging_enabled': checkpoint['enabled'],
+                          'river_mode': checkpoint['river_mode'], 'scope': 'Incomplete staging check; production unchanged'})
             raise RuntimeError('Real staging profile incomplete; inspect safe status before retry')
         profile = result.get('profile')
         if not isinstance(profile, dict):
@@ -130,6 +158,15 @@ def main():
             raise RuntimeError('Persistent cache check failed')
         profiles.append({'pid': pid, 'title': fixtures[pid]['title'], 'image': fixtures[pid]['image'],
                          'profile': profile, 'checks': checks})
+        # Save evidence immediately; a later timeout cannot erase completed work.
+        checkpoint = {'ok': False, 'profiles': profiles, 'accuracy': {'passed': False, 'reason': 'sample_in_progress'},
+                      'deployment_id': health['deployment_id'], 'database_id': after['database_id'],
+                      'meter': after['meter'], 'neurons_charged': after['neurons_charged'],
+                      'budget_hold': after.get('budget_hold'), 'staging_enabled': after['enabled'],
+                      'river_mode': after['river_mode'], 'scope': 'Incomplete staging check; production unchanged'}
+        save_receipt(checkpoint)
+        if after.get('budget_hold') or any(r['usage'].get('provider_neurons') is None for r in after['meter']):
+            raise RuntimeError('Actual inference cost unknown; further products stopped and evidence saved')
     status = call('/staging/status')
     metered = [r for r in status['meter'] if r['outcome'] == 'success']
     actual = [r['usage']['provider_neurons'] for r in metered]

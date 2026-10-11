@@ -48,7 +48,7 @@ test('free quota, AI 429 and missing photo back off without changing real queue/
   const e=await env();insert(e);const day=new Date().toISOString().slice(0,10);e.db.prepare('INSERT INTO visual_usage VALUES(?,?)').run(day,VISUAL_DAILY_CALLS);
   const r=await visualRun(e,{force:true,fetcher:picture});assert.equal(r.error,'VISUAL_FREE_QUOTA');assert.equal(e.calls,0);assert.equal(e.db.prepare('SELECT state FROM scheduler_inventory').get().state,'ready');
   e.db.prepare('DELETE FROM visual_usage').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{throw new Error('3036 allocation quota');};assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_FREE_QUOTA');
-  e.db.prepare('DELETE FROM visual_neuron_budget').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{throw new Error('must agree license');};assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_MODEL_TERMS_REQUIRED');assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);
+  e.db.prepare('DELETE FROM visual_neuron_budget').run();e.db.prepare('DELETE FROM visual_budget_holds').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{throw new Error('must agree license');};assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_MODEL_TERMS_REQUIRED');assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);
   assert.equal(JSON.parse(e.db.prepare('SELECT data FROM scheduler_config').get().data).post_interval_minutes,30);e.db.close();
 });
 test('visual feedback statistics are real, replay-safe, sparse and insufficient without five products',async()=>{
@@ -72,7 +72,7 @@ test('photo URL allowlist does not permit arbitrary fetch or unrelated shards',(
 test('provider diagnostics redact credentials and distinguish capacity from daily quota',async()=>{
   const e=await env();insert(e);e.AI.run=async()=>{throw new Error('3040 Capacity temporarily exceeded Bearer do-not-log-this-credential');};
   const capacity=await visualRun(e,{force:true,fetcher:picture});assert.equal(capacity.error,'VISUAL_MODEL_CAPACITY');assert.deepEqual(capacity.provider.codes,['3040']);assert.ok(!capacity.provider.detail.includes('do-not-log'));
-  e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{const err=new Error('AI upstream failure');err.cause={code:5016};throw err;};
+  e.db.prepare('DELETE FROM visual_budget_holds').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{const err=new Error('AI upstream failure');err.cause={code:5016};throw err;};
   const terms=await visualRun(e,{force:true,fetcher:picture});assert.equal(terms.error,'VISUAL_MODEL_TERMS_REQUIRED');assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);e.db.close();
 });
 
@@ -113,19 +113,25 @@ test('missing or model-invented metering is unknown, not falsely called measured
 
 test('JSON is fully parsed, typed arrays/prose/truncation rejected, synonyms normalized without inventing evidence',()=>{
   assert.throws(()=>normalizeAnalysis('{"group":"apparel","fields":{"color":["navy"]}}.'),/INVALID_JSON/);
-  assert.throws(()=>normalizeAnalysis({group:'apparel',fields:{color:['navy']}}),/INVALID_PROFILE/);
+  assert.deepEqual(normalizeAnalysis({group:'apparel',fields:{color:['navy']}}).fields,{});
   assert.throws(()=>normalizeAnalysis('{"group":"apparel","fields":{}'),/INVALID_JSON/);
   assert.throws(()=>normalizeAnalysis('explanation {"group":"apparel","fields":{}}'),/INVALID_JSON/);
   const a=normalizeAnalysis({group:'apparel',view:'front',fields:{color:{value:'navy blue',confidence:.9,evidence:'Very dark blue body'},pattern:{value:'graphic',confidence:.9,evidence:'Small heart motifs visible'},print_location:{value:'all_over',confidence:.9,evidence:'Hearts across visible front'},fit:{value:'oversized',confidence:.9,evidence:'Probably loose based on the title'}}});
   const p=mergeAnalyses([a],1,VISUAL_MODEL);assert.equal(p.fields.color.value,'navy');assert.equal(p.fields.print_location.value,'front');assert.equal(p.back_print,'unknown');assert.equal(p.fields.fit,undefined);
 });
-test('format retry is once per image hash/model/version across restarts, empty profiles are never useful',async()=>{
+test('field type errors remain unknown, empty profiles stop without another inference',async()=>{
   const e=await env(),p=insert(e);p.image=p.image.replace('/1.webp','/9.webp');e.db.prepare('UPDATE scheduler_inventory SET data=? WHERE pid=?').run(JSON.stringify(p),p.id);
   e.AI.run=async(model,inputs)=>{e.calls++;assert.equal(model,VISUAL_MODEL);assert.equal(inputs.response_format.type,'json_object');if(e.calls===2)assert.match(inputs.messages[0].content[0].text,/FORMAT RETRY/);return {response:'{"group":"apparel","fields":{"color":["navy"]}}',usage:{neurons:7}};};
-  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_INVALID_PROFILE');e.db.prepare('UPDATE visual_queue SET retry_at=0').run();
-  assert.equal((await visualRun({...e},{force:true,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');assert.equal(e.calls,2);e.db.prepare("UPDATE visual_queue SET state='pending',retry_at=0").run();
-  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');assert.equal(e.calls,2);e.db.close();
+  assert.equal((await visualRun(e,{force:true,fetcher:picture})).error,'VISUAL_EMPTY_PROFILE');assert.equal(e.calls,1);
+  assert.equal((await visualRun({...e},{force:true,fetcher:picture})).state,'idle');assert.equal(e.calls,1);e.db.close();
   const empty=await env();insert(empty);empty.AI.run=async()=>({response:{group:'apparel',view:'front',fields:{}},usage:{neurons:1}});assert.equal((await visualRun(empty,{force:true,fetcher:picture})).error,'VISUAL_EMPTY_PROFILE');assert.equal(empty.db.prepare('SELECT count(*) n FROM visual_profiles').get().n,0);empty.db.close();
+});
+test('malformed root gets only one bounded format retry across restarts',async()=>{
+  const e=await env();insert(e);e.AI.run=async()=>{e.calls++;return {response:{group:{apparel:{}},fields:{}},usage:{neurons:7}};};
+  assert.equal((await visualRun(e,{force:true,maxImages:1,fetcher:picture})).error,'VISUAL_INVALID_PROFILE');
+  e.db.prepare('UPDATE visual_queue SET retry_at=0').run();
+  assert.equal((await visualRun({...e},{force:true,maxImages:1,fetcher:picture})).error,'VISUAL_FORMAT_RETRY_EXHAUSTED');
+  assert.equal(e.calls,2);assert.equal((await visualRun({...e},{force:true,maxImages:1,fetcher:picture})).state,'idle');assert.equal(e.calls,2);e.db.close();
 });
 test('daily Neuron reserve settles actual usage; unmetered calls remain charged and provider quota stops all products',async()=>{
   const e=await env();insert(e);await complete(e);const day=new Date().toISOString().slice(0,10);
@@ -134,7 +140,9 @@ test('daily Neuron reserve settles actual usage; unmetered calls remain charged 
   assert.equal((await visualRun(e,{force:true,pid:124,fetcher:picture})).error,'VISUAL_FREE_QUOTA');assert.equal(e.calls,2);
   e.db.prepare('UPDATE visual_neuron_budget SET charged=0').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{e.calls++;throw new Error('3036 daily allocation');};
   await visualRun(e,{force:true,pid:124,fetcher:picture});insert(e,125);await visualRun(e,{force:true,pid:125,fetcher:picture});assert.equal(e.calls,3);assert.equal(e.db.prepare('SELECT charged FROM visual_neuron_budget WHERE day=?').get(day).charged,VISUAL_DAILY_NEURONS);
-  e.db.prepare('DELETE FROM visual_neuron_budget').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{e.calls++;return{response:raw()};};await visualRun(e,{force:true,pid:125,fetcher:picture});assert.equal(e.db.prepare('SELECT charged FROM visual_neuron_budget').get().charged,VISUAL_REQUEST_RESERVE);e.db.close();
+  e.db.prepare('DELETE FROM visual_neuron_budget').run();e.db.prepare('DELETE FROM visual_budget_holds').run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();e.AI.run=async()=>{e.calls++;return{response:raw()};};await visualRun(e,{force:true,pid:125,fetcher:picture});assert.equal(e.db.prepare('SELECT charged FROM visual_neuron_budget').get().charged,VISUAL_REQUEST_RESERVE);
+  const before=e.calls;insert(e,126);const stopped=await visualRun({...e},{force:true,pid:126,fetcher:picture});assert.equal(stopped.error,'VISUAL_BUDGET_UNKNOWN');assert.equal(e.calls,before);
+  const status=await visualStatus(e);assert.equal(status.budget_hold.reason,'provider_meter_not_returned');assert.equal(status.enabled,false);assert.equal(status.automatic_analysis_allowed,false);e.db.close();
 });
 test('new image versions verify bytes; same bytes and duplicate panels reuse cache, changed bytes reinfer',async()=>{
   const e=await env(),p=insert(e);await complete(e);const prior=e.calls;
@@ -142,6 +150,38 @@ test('new image versions verify bytes; same bytes and duplicate panels reuse cac
   assert.equal((await visualRun({...e},{force:true,pid:p.id,fetcher:picture})).state,'complete');assert.equal(e.calls,prior);
   p.image_version='changed';e.db.prepare('UPDATE scheduler_inventory SET data=? WHERE pid=?').run(JSON.stringify(p),p.id);
   const different=async()=>new Response(new Uint8Array([8,9,10]),{headers:{'Content-Type':'image/webp'}});let r=await visualRun(e,{force:true,pid:p.id,fetcher:different});if(r.state==='partial')r=await visualRun(e,{force:true,pid:p.id,fetcher:different});assert.equal(r.state,'complete');assert.equal(e.calls,prior+1);assert.equal(r.profile.back_print,'unknown');e.db.close();
+});
+
+test('native envelope metering is retained; a crashed unsettled call blocks another product after lease expiry',async()=>{
+  const e=await env();insert(e,501);
+  e.AI.run=async()=>{e.calls++;return Response.json({result:{response:raw()},usage:{neurons:9.5}});};
+  assert.equal((await visualRun(e,{force:true,pid:501,maxImages:1,fetcher:picture})).state,'complete');
+  assert.equal(e.db.prepare('SELECT charged FROM visual_neuron_budget').get().charged,9.5);
+  insert(e,502);const day=new Date().toISOString().slice(0,10);
+  e.db.prepare('INSERT INTO visual_inference_usage VALUES(?,?,?,?,?,?,?,?)').run('interrupted-fixture',1,day,500,0,'vision','attempt','{}');
+  const stopped=await visualRun({...e},{force:true,pid:502,fetcher:picture});assert.equal(stopped.error,'VISUAL_BUDGET_UNKNOWN');assert.equal(e.calls,1);
+  assert.equal((await visualStatus(e)).budget_hold.reason,'unsettled_inference');
+  assert.equal((await visualRun({...e},{force:true,pid:501,fetcher:picture})).state,'cached');assert.equal(e.calls,1);e.db.close();
+});
+
+test('automatic inference stays OFF even with a legacy enabled flag and a new isolate',async()=>{
+  const e=await env();insert(e,901);e.db.prepare('UPDATE visual_state SET enabled=1').run();
+  const before=e.db.prepare('SELECT * FROM visual_state').get();
+  assert.deepEqual(await visualRun({...e},{fetcher:()=>{throw Error('Automatic download forbidden');}}),{state:'disabled'});
+  assert.equal(e.calls,0);assert.deepEqual(e.db.prepare('SELECT * FROM visual_state').get(),before);
+  assert.equal((await visualStatus(e)).enabled,false);assert.equal((await visualStatus(e)).configured_enabled,true);
+  // Hard stop precedes D1 too: Cron cannot initialise or overwrite settings.
+  assert.deepEqual(await visualRun({AI:{run(){throw Error('No automatic AI');}},DB:{prepare(){throw Error('No automatic D1');}}}),{state:'disabled'});
+  e.db.close();
+});
+
+test('budget holds survive schema migration and are scoped to their UTC day',async()=>{
+  const e=await env();const day=new Date().toISOString().slice(0,10);insert(e,503);
+  e.db.prepare('INSERT INTO visual_inference_usage VALUES(?,?,?,?,?,?,?,?)').run('legacy-unmetered',1,day,500,0,'vision','success','{}');
+  e.db.prepare("DELETE FROM metadata WHERE key='visual_schema_v6'").run();await ensureVisual({...e});
+  assert.equal((await visualRun(e,{force:true,pid:503,fetcher:picture})).error,'VISUAL_BUDGET_UNKNOWN');assert.equal(e.calls,0);
+  e.db.prepare("UPDATE visual_budget_holds SET day='2000-01-01'").run();e.db.prepare('UPDATE visual_queue SET retry_at=0').run();
+  assert.equal((await visualRun(e,{force:true,pid:503,maxImages:1,fetcher:picture})).state,'complete');assert.equal(e.calls,1);e.db.close();
 });
 test('native AI binding input contains image bytes and constrained format, no external API credential',()=>{
   const i=visualInputs(new Uint8Array([1,2,3]),'shoes');assert.equal(i.max_completion_tokens,900);assert.equal(i.temperature,0);assert.equal(i.response_format.type,'json_object');assert.match(i.messages[0].content[1].image_url.url,/^data:image\/webp;base64,/);assert.equal(i.store,false);assert.equal(i.Authorization,undefined);
@@ -164,7 +204,7 @@ test('identical bytes across different products reuse global model/version/hash 
   await visualRun(e,{force:true,pid:400,fetcher:same});assert.equal((await visualRun(e,{force:true,pid:400,fetcher:same})).state,'complete');const before=e.calls;
   assert.equal((await visualRun(e,{force:true,pid:401,fetcher:same})).state,'complete');assert.equal(e.calls,before);assert.equal((await visualStatus(e)).products_today,1);e.db.close();
 });
-test('staging refuses production D1, missing auth, posting and search; fixed real sample uses AI then persistent cache',async()=>{
+test('staging refuses production D1, missing auth, posting/search and nonremaining inference; cache remains readable',async()=>{
   const e=await env();const request=(path,body)=>new Request('https://preview'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+e.MINIAPP_SYNC_KEY,'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});
   assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
   e.VISUAL_STAGING='isolated';e.VISUAL_STAGING_DB_ID='d73d252d-3948-425b-b7c3-b65d0f5c6e5f';assert.equal((await staging.fetch(request('/api/health'),e)).status,503);
@@ -178,17 +218,19 @@ test('staging refuses production D1, missing auth, posting and search; fixed rea
   await staging.fetch(request('/staging/seed',{}),e);
   assert.equal(e.db.prepare('SELECT SUM(charged) n FROM visual_neuron_budget').get().n,charged);
   assert.equal(staging.scheduled,undefined);
+  assert.equal((await (await staging.fetch(request('/staging/init/experiment',{}),e)).json()).initialized,'experiment');
   const original=globalThis.fetch;globalThis.fetch=picture;
-  try{const first=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(first.state,'complete');assert.equal(e.calls,1);assert.ok(first.d1.queries>0);
+  try{assert.equal((await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).status,403);
+    const first=await visualRun(e,{force:true,pid:STAGING_PRODUCTS[0].id,maxImages:1,fetcher:picture});assert.equal(first.state,'complete');assert.equal(e.calls,1);
     const repeat=await (await staging.fetch(request('/staging/run',{pid:STAGING_PRODUCTS[0].id}),e)).json();assert.equal(repeat.state,'cached');assert.deepEqual(repeat.profile,first.profile);assert.equal(e.calls,1);assert.equal((await staging.fetch(request('/staging/run',{pid:999}),e)).status,403);
   }finally{globalThis.fetch=original;e.db.close();}
 });
-test('explicit reviewed staging receipt seeds external daily usage once, activation stays SHADOW with fixed limits',async()=>{
+test('reviewed staging receipt seeds external daily usage once but cannot unlock unknown account budget',async()=>{
   const e=await env();insert(e);await complete(e);const fail=(status,message)=>{throw Object.assign(new Error(message),{status});};
   const body={approval:'visual-v2-reviewed-10-free',report_sha256:'a'.repeat(64),products_reviewed:10,review_neurons:141.22,day:new Date().toISOString().slice(0,10),external_neurons_today:50,staging:{ok:true,model:VISUAL_MODEL,version:2,usage_source:'provider',neurons:20,cache_extra_calls:0,d1_reads:100,d1_writes:50,deployment_id:'test-deployment'}};
   const review=()=>visualRoute(new Request('https://internal/api/scheduler/learning/visual/review',{method:'POST',body:JSON.stringify(body)}),e,{json:Response.json,fail});
   await review();await review();assert.equal(e.db.prepare('SELECT charged FROM visual_neuron_budget').get().charged,70);
   const activate=()=>visualRoute(new Request('https://internal/api/scheduler/learning/visual/activate',{method:'POST'}),e,{json:Response.json,fail});
   e.db.prepare('UPDATE learning_state SET config=?').run(JSON.stringify({mode:'LEGACY'}));await assert.rejects(activate(),x=>x.status===409);
-  e.db.prepare('UPDATE learning_state SET config=?').run(JSON.stringify({mode:'SHADOW'}));const result=await (await activate()).json();assert.equal(result.daily_product_limit,10);assert.equal(result.daily_neuron_limit,5000);assert.equal(result.river_mode,'SHADOW');e.db.close();
+  e.db.prepare('UPDATE learning_state SET config=?').run(JSON.stringify({mode:'SHADOW'}));await assert.rejects(activate(),x=>x.status===409&&/остаток/.test(x.message));assert.equal(e.db.prepare('SELECT enabled FROM visual_state').get().enabled,0);e.db.close();
 });

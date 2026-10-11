@@ -1,4 +1,69 @@
-# WB Vision: включение изолированного preview
+# WB Vision: отдельный staging Worker
+
+## Независимая ветка агента — 2026-10-10
+
+Текущий безопасный путь: рабочая копия `D:\WB-Vision-Agent`, ветка
+`codex/visual-staging-agent-20261010` от PR №7. Не менять checkout, процессы,
+Builds settings, секреты или production другого агента.
+
+Используется отдельный Worker **`wb-finds-visual-staging`**, а не version preview
+production Worker. Единственная D1 — `wb-finds-visual-staging` с UUID
+`5779987d-1100-45ad-8cd4-9df9c1436a20`. Native `AI` binding, fetch-only;
+нет Cron, Telegram секретов, публичного приложения или WB поиска.
+
+Локальная сборка без внешних изменений:
+
+```text
+node miniapp/cloudflare/deploy-visual-standalone.mjs
+```
+
+После отдельного официального Wrangler Device OAuth с минимальным
+`workers_scripts:write` в project-local `XDG_CONFIG_HOME=.test-temp/config`:
+
+```text
+node miniapp/cloudflare/deploy-visual-standalone.mjs --deploy
+```
+
+Helper удаляет унаследованные API/runtime credentials из своего окружения,
+никогда не читает global OAuth или старый AI token. Если staging Worker уже
+существует, сначала проверяет его реальные bindings и отсутствие scheduled
+handler. Только HTTP/provider unknown-script code 10007 допускает создание.
+Любая ошибка авторизации/сети не считается отсутствующим Worker.
+
+Новый staging sync secret генерируется только в RAM, передаётся Wrangler через
+stdin и тестовому процессу через env. Это не Cloudflare API token и не секрет
+production. Вывод CLI при операции с секретом скрыт. Без флага `--test` AI
+вообще не вызывается; миграции и тесты ещё не являются выполненными.
+
+Для `--deploy --test` предварительно нужна свежая подтверждённая информация из
+Workers AI Dashboard о Free plan и расходе текущих UTC-суток. Оператор сохраняет
+только несекретные данные в ignored `.test-temp/visual-account-budget.json`:
+`source=cloudflare-dashboard`, `account_id`, `plan=free`, `day=YYYY-MM-DD`,
+`observed_at` (Unix seconds), `total_neurons` (фактический расход аккаунта).
+Нельзя создавать этот файл из предположений или данных прошлого дня.
+Перед первым новым AI-вызовом снимок должен быть не старше 60 секунд и
+оставлять минимум 5000 Neurons из бесплатных 10000. Неизвестный/недостаточный
+остаток останавливает тест без AI. Уже полученные profiles и meter сохраняются
+после каждого товара, чтобы следующий сетевой сбой не уничтожил доказательства.
+
+Постоянные D1 guards: максимум 10 разных товаров/UTC day; 2500 до вызова;
+фактические provider Neurons уменьшают резерв до реальной стоимости. Если
+расход не возвращён, запрос прерван или остался незавершённый attempt,
+`visual_budget_holds` блокирует дальнейшие AI-вызовы за этот UTC-день, включая
+force и новые isolates. Кэш остаётся доступным. `/activate` не включает
+автоматический анализ: исторического staging receipt недостаточно для точного
+остатка бюджета всего аккаунта. River строго SHADOW.
+
+Статус 2026-10-10: локальные tests и standalone dry-run выполнены. Cloudflare
+Device OAuth истёк без подтверждённой авторизации; browser DOM/screenshot
+не отвечает. **Live staging deployment, remote D1 migration и новые 10 profiles
+пока не подтверждены**. Production не изменён; merge/deployment требуют нового
+явного разрешения после staging QA.
+
+## Исторический путь PR №7: shared preview (сейчас не использовать)
+
+Следующие шаги сохранены для контекста предыдущей ветки. Независимый агент
+не выполняет их и не меняет общие Workers Builds настройки.
 
 Готовая ветка: `codex/visual-enrichment-v2`, Draft PR [№7](https://github.com/22savage22/wb-deals-bot/pull/7).
 Тестовая D1: `wb-finds-visual-staging`, ID `5779987d-1100-45ad-8cd4-9df9c1436a20`.

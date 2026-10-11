@@ -1,0 +1,1705 @@
+{
+  "results": [
+    {
+      "state": "complete",
+      "title": "Однотонная футболка",
+      "nmId": 16001949,
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "apparel",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632094,
+        "fields": {
+          "color": {
+            "value": "navy",
+            "confidence": 0.95,
+            "evidence": "Dark blue fabric of the t-shirt",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "Uniform color without any patterns or prints",
+            "image_index": 0
+          },
+          "style": {
+            "value": "casual",
+            "confidence": 0.9,
+            "evidence": "Basic short-sleeved t-shirt design",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.8,
+            "evidence": "Even fabric surface without visible ribbing or heavy texture",
+            "image_index": 0
+          },
+          "neckline": {
+            "value": "round",
+            "confidence": 1,
+            "evidence": "Circular crew neck opening",
+            "image_index": 0
+          },
+          "sleeves": {
+            "value": "short",
+            "confidence": 1,
+            "evidence": "Sleeves end above the elbow",
+            "image_index": 0
+          },
+          "fit": {
+            "value": "regular",
+            "confidence": 0.8,
+            "evidence": "Follows the body shape without being excessively tight or oversized",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-02.wbbasket.ru/vol160/part16001/16001949/images/big/1.webp",
+            "hash": "c92d1c0b8c7d3401a6dbca2398cb6bfa3023193accb143a85107297946d31da7",
+            "index": 0,
+            "usage": {
+              "input_tokens": 833,
+              "output_tokens": 184,
+              "total_tokens": 1017,
+              "provider_neurons": 12.590909004211426,
+              "tokens_calculated_neurons": 12.591035,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "410eff0e-7bcc-4a48-b660-4e8a79d0d19c",
+              "elapsed_ms": 4496,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "palette",
+          "complexity",
+          "silhouette",
+          "length",
+          "print_size",
+          "print_location"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=navy",
+          "visual.pattern=solid",
+          "visual.style=casual",
+          "visual.texture=smooth",
+          "visual.neckline=round",
+          "visual.sleeves=short",
+          "visual.fit=regular",
+          "visual.group=apparel",
+          "visual.combo=color:navy+fit:regular"
+        ],
+        "source_version": "[[\"https://basket-02.wbbasket.ru/vol160/part16001/16001949/images/big/1.webp\",\"https://basket-02.wbbasket.ru/vol160/part16001/16001949/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632094
+      },
+      "image_file": "16001949.webp",
+      "cache": true,
+      "image_url": "https://basket-02.wbbasket.ru/vol160/part16001/16001949/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 39,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "state": "complete",
+      "title": "Бирюзовое поло",
+      "nmId": 163106569,
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "apparel",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632104,
+        "fields": {
+          "color": {
+            "value": "turquoise",
+            "confidence": 0.95,
+            "evidence": "Bright blue-green fabric color",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "bright",
+            "confidence": 0.9,
+            "evidence": "Vibrant turquoise hue",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "Uniform color without patterns",
+            "image_index": 0
+          },
+          "style": {
+            "value": "casual",
+            "confidence": 0.8,
+            "evidence": "Polo shirt design",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.8,
+            "evidence": "Even fabric surface",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "low",
+            "confidence": 0.9,
+            "evidence": "Simple design with no graphics",
+            "image_index": 0
+          },
+          "sleeves": {
+            "value": "short",
+            "confidence": 1,
+            "evidence": "Sleeves end above the elbow",
+            "image_index": 0
+          },
+          "neckline": {
+            "value": "collared",
+            "confidence": 1,
+            "evidence": "Presence of a polo collar and button placket",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-11.wbbasket.ru/vol1631/part163106/163106569/images/big/1.webp",
+            "hash": "bd346db1e884612f4afac6cc6c02949dc3b0943a26a64625689a5cb36cc6b803",
+            "index": 0,
+            "usage": {
+              "input_tokens": 833,
+              "output_tokens": 187,
+              "total_tokens": 1020,
+              "provider_neurons": 12.672727584838867,
+              "tokens_calculated_neurons": 12.672854,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "008b86df-e482-42a8-b38b-58c1803cb1b4",
+              "elapsed_ms": 2767,
+              "provider_keys": [
+                "id",
+                "object",
+                "created",
+                "model",
+                "choices",
+                "service_tier",
+                "usage",
+                "prompt_logprobs",
+                "prompt_token_ids",
+                "prompt_text",
+                "kv_transfer_params",
+                "ec_transfer_params",
+                "metrics"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "fit",
+          "silhouette",
+          "length",
+          "print_size",
+          "print_location"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=turquoise",
+          "visual.palette=bright",
+          "visual.pattern=solid",
+          "visual.style=casual",
+          "visual.texture=smooth",
+          "visual.complexity=low",
+          "visual.sleeves=short",
+          "visual.neckline=collared",
+          "visual.group=apparel"
+        ],
+        "source_version": "[[\"https://basket-11.wbbasket.ru/vol1631/part163106/163106569/images/big/1.webp\",\"https://basket-11.wbbasket.ru/vol1631/part163106/163106569/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632104
+      },
+      "image_file": "163106569.webp",
+      "cache": true,
+      "image_url": "https://basket-11.wbbasket.ru/vol1631/part163106/163106569/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 40,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "nmId": 742502965,
+      "image_url": "https://basket-35.wbbasket.ru/vol7425/part742502/742502965/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 41,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "title": "Чёрные кроссовки",
+      "image_file": "742502965.webp",
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "shoes",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632456,
+        "fields": {
+          "color": {
+            "value": "black",
+            "confidence": 1,
+            "evidence": "Black upper and midsole",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "dark",
+            "confidence": 1,
+            "evidence": "Predominantly black color scheme",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 0.9,
+            "evidence": "Main body is a solid black color",
+            "image_index": 0
+          },
+          "style": {
+            "value": "sport",
+            "confidence": 0.9,
+            "evidence": "Athletic silhouette and design",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "matte",
+            "confidence": 0.8,
+            "evidence": "Non-reflective finish on the fabric and synthetic panels",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "medium",
+            "confidence": 0.8,
+            "evidence": "Multiple overlapping panels and textures",
+            "image_index": 0
+          },
+          "shape": {
+            "value": "chunky",
+            "confidence": 0.8,
+            "evidence": "Thick, substantial midsole",
+            "image_index": 0
+          },
+          "height": {
+            "value": "low",
+            "confidence": 1,
+            "evidence": "Ankle height is below the ankle bone",
+            "image_index": 0
+          },
+          "sole": {
+            "value": "thick",
+            "confidence": 0.9,
+            "evidence": "Prominent, heavy midsole",
+            "image_index": 0
+          },
+          "toe": {
+            "value": "round",
+            "confidence": 0.9,
+            "evidence": "Rounded toe box shape",
+            "image_index": 0
+          },
+          "closure": {
+            "value": "laces",
+            "confidence": 1,
+            "evidence": "Visible lacing system on the upper",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-35.wbbasket.ru/vol7425/part742502/742502965/images/big/1.webp",
+            "hash": "6ac3c9bfb5ec1f5f0dec7fe7c4347b150b82ee9612a394bda109a3751a218f7c",
+            "index": 0,
+            "usage": {
+              "input_tokens": 791,
+              "output_tokens": 255,
+              "total_tokens": 1046,
+              "provider_neurons": 14.145454406738281,
+              "tokens_calculated_neurons": 14.145596,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "5b809bd5-e57f-4c5a-9965-0b202478da09",
+              "elapsed_ms": 5437,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=black",
+          "visual.palette=dark",
+          "visual.pattern=solid",
+          "visual.style=sport",
+          "visual.texture=matte",
+          "visual.complexity=medium",
+          "visual.shape=chunky",
+          "visual.height=low",
+          "visual.sole=thick",
+          "visual.toe=round",
+          "visual.closure=laces",
+          "visual.group=shoes",
+          "visual.combo=color:black+shape:chunky+sole:thick",
+          "visual.combo=style:sport+shape:chunky"
+        ],
+        "source_version": "[[\"https://basket-35.wbbasket.ru/vol7425/part742502/742502965/images/big/1.webp\",\"https://basket-35.wbbasket.ru/vol7425/part742502/742502965/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632456
+      },
+      "cache": true,
+      "state": "complete",
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "nmId": 1274857400,
+      "image_url": "https://basket-45.wbbasket.ru/vol12748/part1274857/1274857400/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 42,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "title": "Кроссовки с белой платформой",
+      "image_file": "1274857400.webp",
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "shoes",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632470,
+        "fields": {
+          "color": {
+            "value": "black",
+            "confidence": 1,
+            "evidence": "Black upper material",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "dark",
+            "confidence": 0.9,
+            "evidence": "Predominantly black upper",
+            "image_index": 0
+          },
+          "style": {
+            "value": "casual",
+            "confidence": 0.8,
+            "evidence": "Lifestyle sneaker design",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.9,
+            "evidence": "Smooth leather-like finish on the upper",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "low",
+            "confidence": 0.8,
+            "evidence": "Simple panel construction",
+            "image_index": 0
+          },
+          "shape": {
+            "value": "chunky",
+            "confidence": 0.9,
+            "evidence": "Thick platform sole",
+            "image_index": 0
+          },
+          "height": {
+            "value": "low",
+            "confidence": 1,
+            "evidence": "Ankle height is below the ankle bone",
+            "image_index": 0
+          },
+          "sole": {
+            "value": "thick",
+            "confidence": 1,
+            "evidence": "Large platform midsole",
+            "image_index": 0
+          },
+          "toe": {
+            "value": "round",
+            "confidence": 0.9,
+            "evidence": "Rounded toe box",
+            "image_index": 0
+          },
+          "closure": {
+            "value": "laces",
+            "confidence": 1,
+            "evidence": "Black laces through eyelets",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-45.wbbasket.ru/vol12748/part1274857/1274857400/images/big/1.webp",
+            "hash": "5f8a4e72b6c47f7148e4e01dc2411ce8d12da6cd1a81c2d833a5af549c08c0b4",
+            "index": 0,
+            "usage": {
+              "input_tokens": 791,
+              "output_tokens": 240,
+              "total_tokens": 1031,
+              "provider_neurons": 13.736363410949707,
+              "tokens_calculated_neurons": 13.736501,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "e5267145-9124-4571-a1ed-9f00d0fb5acb",
+              "elapsed_ms": 6112,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "pattern"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=black",
+          "visual.palette=dark",
+          "visual.style=casual",
+          "visual.texture=smooth",
+          "visual.complexity=low",
+          "visual.shape=chunky",
+          "visual.height=low",
+          "visual.sole=thick",
+          "visual.toe=round",
+          "visual.closure=laces",
+          "visual.group=shoes",
+          "visual.combo=color:black+shape:chunky+sole:thick",
+          "visual.combo=style:casual+shape:chunky"
+        ],
+        "source_version": "[[\"https://basket-45.wbbasket.ru/vol12748/part1274857/1274857400/images/big/1.webp\",\"https://basket-45.wbbasket.ru/vol12748/part1274857/1274857400/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632470
+      },
+      "cache": true,
+      "state": "complete",
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "nmId": 1097989569,
+      "image_url": "https://basket-42.wbbasket.ru/vol10979/part1097989/1097989569/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 43,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "title": "Чёрная сумка",
+      "image_file": "1097989569.webp",
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "bag",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632481,
+        "fields": {
+          "color": {
+            "value": "black",
+            "confidence": 1,
+            "evidence": "Solid black material body",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "dark",
+            "confidence": 1,
+            "evidence": "Deep black color",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "Uniform black surface without patterns",
+            "image_index": 0
+          },
+          "style": {
+            "value": "minimal",
+            "confidence": 0.9,
+            "evidence": "Simple design without visible hardware or embellishments",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "pebbled",
+            "confidence": 0.95,
+            "evidence": "Visible grainy leather-like texture",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "low",
+            "confidence": 0.9,
+            "evidence": "Simple silhouette and construction",
+            "image_index": 0
+          },
+          "shape": {
+            "value": "soft",
+            "confidence": 0.9,
+            "evidence": "Slouchy, non-rigid structure",
+            "image_index": 0
+          },
+          "carry": {
+            "value": "shoulder",
+            "confidence": 1,
+            "evidence": "Long integrated strap designed for shoulder carry",
+            "image_index": 0
+          },
+          "decoration": {
+            "value": "none",
+            "confidence": 1,
+            "evidence": "No visible prints, embroidery, or fringe",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-42.wbbasket.ru/vol10979/part1097989/1097989569/images/big/1.webp",
+            "hash": "8df6eae987aa6d6755651daad66369c57c94f7ee20cc42329061457a53a69213",
+            "index": 0,
+            "usage": {
+              "input_tokens": 792,
+              "output_tokens": 232,
+              "total_tokens": 1024,
+              "provider_neurons": 13.527273178100586,
+              "tokens_calculated_neurons": 13.527408,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "e5fdbb3b-5bc4-4c9a-aadc-c281d05b4934",
+              "elapsed_ms": 5114,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "size"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=black",
+          "visual.palette=dark",
+          "visual.pattern=solid",
+          "visual.style=minimal",
+          "visual.texture=pebbled",
+          "visual.complexity=low",
+          "visual.shape=soft",
+          "visual.carry=shoulder",
+          "visual.decoration=none",
+          "visual.group=bag",
+          "visual.combo=style:minimal+shape:soft",
+          "visual.combo=color:black+carry:shoulder"
+        ],
+        "source_version": "[[\"https://basket-42.wbbasket.ru/vol10979/part1097989/1097989569/images/big/1.webp\",\"https://basket-42.wbbasket.ru/vol10979/part1097989/1097989569/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632481
+      },
+      "cache": true,
+      "state": "complete",
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "nmId": 812988272,
+      "image_url": "https://basket-37.wbbasket.ru/vol8129/part812988/812988272/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 44,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "title": "Коричневая сумка",
+      "image_file": "812988272.webp",
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "bag",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632493,
+        "fields": {
+          "color": {
+            "value": "brown",
+            "confidence": 0.95,
+            "evidence": "Dark brown leather-like material",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "dark",
+            "confidence": 0.9,
+            "evidence": "Deep brown color tone",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "Uniform color without patterns",
+            "image_index": 0
+          },
+          "style": {
+            "value": "classic",
+            "confidence": 0.8,
+            "evidence": "Structured saddle bag shape",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.9,
+            "evidence": "Even, non-textured surface",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "low",
+            "confidence": 0.9,
+            "evidence": "Simple design with minimal elements",
+            "image_index": 0
+          },
+          "shape": {
+            "value": "structured",
+            "confidence": 0.9,
+            "evidence": "Defined edges and flap shape",
+            "image_index": 0
+          },
+          "carry": {
+            "value": "shoulder",
+            "confidence": 1,
+            "evidence": "Long adjustable strap attached to sides",
+            "image_index": 0
+          },
+          "decoration": {
+            "value": "hardware",
+            "confidence": 0.9,
+            "evidence": "Silver-tone metal clasps and rings",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-37.wbbasket.ru/vol8129/part812988/812988272/images/big/1.webp",
+            "hash": "c952c43acafc898e1d6cfa3644b33af8e92e098e0032e8f2ad9b4e98130db422",
+            "index": 0,
+            "usage": {
+              "input_tokens": 792,
+              "output_tokens": 227,
+              "total_tokens": 1019,
+              "provider_neurons": 13.390909194946289,
+              "tokens_calculated_neurons": 13.391043,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "1b600902-42de-4497-9198-47f872f03528",
+              "elapsed_ms": 4855,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "size"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=brown",
+          "visual.palette=dark",
+          "visual.pattern=solid",
+          "visual.style=classic",
+          "visual.texture=smooth",
+          "visual.complexity=low",
+          "visual.shape=structured",
+          "visual.carry=shoulder",
+          "visual.decoration=hardware",
+          "visual.group=bag",
+          "visual.combo=style:classic+shape:structured",
+          "visual.combo=color:brown+carry:shoulder"
+        ],
+        "source_version": "[[\"https://basket-37.wbbasket.ru/vol8129/part812988/812988272/images/big/1.webp\",\"https://basket-37.wbbasket.ru/vol8129/part812988/812988272/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632493
+      },
+      "cache": true,
+      "state": "complete",
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "nmId": 1023816536,
+      "image_url": "https://basket-41.wbbasket.ru/vol10238/part1023816/1023816536/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 45,
+        "rows_written": 30,
+        "metadata_available": true
+      },
+      "title": "Серьги-кольца",
+      "image_file": "1023816536.webp",
+      "error": null,
+      "profile": {
+        "version": 2,
+        "group": "accessory",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791632507,
+        "fields": {
+          "color": {
+            "value": "rose_gold",
+            "confidence": 0.95,
+            "evidence": "Rose-colored metallic finish on the hoops",
+            "image_index": 0
+          },
+          "shape": {
+            "value": "round",
+            "confidence": 1,
+            "evidence": "Circular hoop design",
+            "image_index": 0
+          },
+          "decoration": {
+            "value": "stones",
+            "confidence": 1,
+            "evidence": "Rectangular clear stones set into the hoops",
+            "image_index": 0
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.9,
+            "evidence": "Polished, shiny metal surface",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "medium",
+            "confidence": 0.8,
+            "evidence": "Hoop design with integrated stone settings",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-41.wbbasket.ru/vol10238/part1023816/1023816536/images/big/1.webp",
+            "hash": "0f8c1e7d3d19f357b1ceffe13b06600a329c48ae7709955f2382da88f0ddd4bb",
+            "index": 0,
+            "usage": {
+              "input_tokens": 776,
+              "output_tokens": 147,
+              "total_tokens": 923,
+              "provider_neurons": 11.063636779785156,
+              "tokens_calculated_neurons": 11.063747,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "30a302a2-0c68-441e-807f-2dfc825a1cc2",
+              "elapsed_ms": 3274,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "palette",
+          "pattern",
+          "style",
+          "size"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "feature_keys": [
+          "visual.color=rose_gold",
+          "visual.shape=round",
+          "visual.decoration=stones",
+          "visual.texture=smooth",
+          "visual.complexity=medium",
+          "visual.group=accessory"
+        ],
+        "source_version": "[[\"https://basket-41.wbbasket.ru/vol10238/part1023816/1023816536/images/big/1.webp\",\"https://basket-41.wbbasket.ru/vol10238/part1023816/1023816536/images/big/2.webp\"],null]",
+        "image_verified_at": 1791632507
+      },
+      "cache": true,
+      "state": "complete",
+      "origin": "prior_native_cache_preserved"
+    },
+    {
+      "profile": {
+        "version": 2,
+        "group": "apparel",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791715974,
+        "fields": {
+          "color": {
+            "value": "black",
+            "confidence": 1,
+            "evidence": "Solid black fabric of the dress",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "dark",
+            "confidence": 1,
+            "evidence": "Deep black color",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "No visible patterns or prints on the fabric",
+            "image_index": 0
+          },
+          "style": {
+            "value": "romantic",
+            "confidence": 0.8,
+            "evidence": "One-shoulder design with large decorative bow detail",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.9,
+            "evidence": "Even, non-textured fabric surface",
+            "image_index": 0
+          },
+          "complexity": {
+            "value": "low",
+            "confidence": 0.9,
+            "evidence": "Simple silhouette with a single focal design element",
+            "image_index": 0
+          },
+          "silhouette": {
+            "value": "fitted",
+            "confidence": 0.8,
+            "evidence": "Contoured to the waist and torso",
+            "image_index": 0
+          },
+          "length": {
+            "value": "short",
+            "confidence": 1,
+            "evidence": "Ends at the upper thigh",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-42.wbbasket.ru/vol11136/part1113687/1113687154/images/big/1.webp",
+            "hash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743",
+            "index": 0,
+            "usage": {
+              "input_tokens": 833,
+              "output_tokens": 218,
+              "total_tokens": 1051,
+              "provider_neurons": 13.518181800842285,
+              "tokens_calculated_neurons": 13.518317,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "6e3a5faa-3d79-4eb8-ad3f-dc133c1658de",
+              "elapsed_ms": 4878,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "fit",
+          "sleeves",
+          "print_size",
+          "print_location",
+          "neckline"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "validation": [
+          {
+            "revision": 3,
+            "rejected": [
+              {
+                "field": "neckline",
+                "reason": "UNSUPPORTED_VALUE",
+                "value_token": "off_shoulder"
+              }
+            ],
+            "accepted_fields": 8
+          }
+        ],
+        "feature_keys": [
+          "visual.color=black",
+          "visual.palette=dark",
+          "visual.pattern=solid",
+          "visual.style=romantic",
+          "visual.texture=smooth",
+          "visual.complexity=low",
+          "visual.silhouette=fitted",
+          "visual.length=short",
+          "visual.group=apparel",
+          "visual.combo=style:romantic+silhouette:fitted"
+        ],
+        "source_version": "[[\"https://basket-42.wbbasket.ru/vol11136/part1113687/1113687154/images/big/1.webp\",\"https://basket-42.wbbasket.ru/vol11136/part1113687/1113687154/images/big/2.webp\"],null]",
+        "image_verified_at": 1791715974
+      },
+      "title": "Чёрное платье",
+      "image_file": "1113687154.webp",
+      "nmId": 1113687154,
+      "image_url": "https://basket-42.wbbasket.ru/vol11136/part1113687/1113687154/images/big/1.webp",
+      "d1": {
+        "queries": 39,
+        "rows_read": 37,
+        "rows_written": 34,
+        "metadata_available": true
+      },
+      "state": "complete",
+      "error": null,
+      "cache": true
+    },
+    {
+      "nmId": 1138890506,
+      "title": "Платье с сердечками",
+      "image_url": "https://basket-43.wbbasket.ru/vol11388/part1138890/1138890506/images/big/1.webp",
+      "profile": {
+        "version": 2,
+        "group": "apparel",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791715989,
+        "fields": {
+          "color": {
+            "value": "pink",
+            "confidence": 1,
+            "evidence": "Light pink fabric color",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "graphic",
+            "confidence": 0.95,
+            "evidence": "Small black heart motifs distributed across the fabric",
+            "image_index": 0
+          },
+          "style": {
+            "value": "casual",
+            "confidence": 0.8,
+            "evidence": "Simple short-sleeved t-shirt dress style",
+            "image_index": 0,
+            "hypothesis": true
+          },
+          "palette": {
+            "value": "light",
+            "confidence": 0.9,
+            "evidence": "Light pink base color",
+            "image_index": 0
+          },
+          "print_size": {
+            "value": "small",
+            "confidence": 0.9,
+            "evidence": "Individual heart motifs are small relative to the garment",
+            "image_index": 0
+          },
+          "print_location": {
+            "value": "front",
+            "confidence": 0.9,
+            "evidence": "Heart pattern covers the entire visible surface of the dress",
+            "image_index": 0
+          },
+          "sleeves": {
+            "value": "short",
+            "confidence": 1,
+            "evidence": "T-shirt style short sleeves",
+            "image_index": 0
+          },
+          "neckline": {
+            "value": "round",
+            "confidence": 0.95,
+            "evidence": "Simple circular neckline",
+            "image_index": 0
+          },
+          "length": {
+            "value": "short",
+            "confidence": 0.9,
+            "evidence": "Dress ends at mid-thigh level",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-43.wbbasket.ru/vol11388/part1138890/1138890506/images/big/1.webp",
+            "hash": "322874c4cf93508b8a449e6267e68f80b8440511749787e218e55e0c2f4531c6",
+            "index": 0,
+            "usage": {
+              "input_tokens": 833,
+              "output_tokens": 229,
+              "total_tokens": 1062,
+              "provider_neurons": 13.818181991577148,
+              "tokens_calculated_neurons": 13.81832,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "2beab2fd-690f-45ae-89d5-0012944731bd",
+              "elapsed_ms": 4732,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "texture",
+          "complexity",
+          "fit",
+          "silhouette"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "validation": [
+          {
+            "revision": 3,
+            "rejected": [],
+            "accepted_fields": 9
+          }
+        ],
+        "feature_keys": [
+          "visual.color=pink",
+          "visual.pattern=graphic",
+          "visual.style=casual",
+          "visual.palette=light",
+          "visual.print_size=small",
+          "visual.print_location=front",
+          "visual.sleeves=short",
+          "visual.neckline=round",
+          "visual.length=short",
+          "visual.group=apparel",
+          "visual.combo=pattern:graphic+print_location:front"
+        ],
+        "source_version": "[[\"https://basket-43.wbbasket.ru/vol11388/part1138890/1138890506/images/big/1.webp\",\"https://basket-43.wbbasket.ru/vol11388/part1138890/1138890506/images/big/2.webp\"],null]",
+        "image_verified_at": 1791715989
+      },
+      "state": "cached",
+      "cache": true,
+      "d1": {
+        "queries": 1,
+        "rows_read": 4,
+        "rows_written": 0,
+        "metadata_available": true
+      },
+      "origin": "final_read_only_D1_verification",
+      "note": "Persistent cache replay; zero extra AI"
+    },
+    {
+      "nmId": 449731422,
+      "title": "Белые колготки",
+      "image_url": "https://basket-25.wbbasket.ru/vol4497/part449731/449731422/images/big/1.webp",
+      "profile": {
+        "version": 2,
+        "group": "apparel",
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "analyzed_at": 1791718410,
+        "fields": {
+          "color": {
+            "value": "white",
+            "confidence": 1,
+            "evidence": "The tights are solid white",
+            "image_index": 0
+          },
+          "pattern": {
+            "value": "solid",
+            "confidence": 1,
+            "evidence": "No pattern visible on the white fabric",
+            "image_index": 0
+          },
+          "palette": {
+            "value": "light",
+            "confidence": 0.9,
+            "evidence": "Bright white color",
+            "image_index": 0
+          },
+          "texture": {
+            "value": "smooth",
+            "confidence": 0.8,
+            "evidence": "Fine, even knit surface visible",
+            "image_index": 0
+          }
+        },
+        "images": [
+          {
+            "url": "https://basket-25.wbbasket.ru/vol4497/part449731/449731422/images/big/1.webp",
+            "hash": "bff28a34f48df4bdc130513bacc1e66aa49f14fb5ee80dcb29feb71fbf9dcf20",
+            "index": 0,
+            "usage": {
+              "input_tokens": 833,
+              "output_tokens": 98,
+              "total_tokens": 931,
+              "provider_neurons": 10.245454788208008,
+              "tokens_calculated_neurons": 10.245557,
+              "source": "provider",
+              "model": "@cf/google/gemma-4-26b-a4b-it",
+              "request_id": "7edd5ad6-838a-40d9-868f-4e8eb46c62ed",
+              "elapsed_ms": 2441,
+              "provider_keys": [
+                "choices",
+                "created",
+                "id",
+                "model",
+                "object",
+                "usage"
+              ],
+              "meter_header_names": [
+                "cf-ai-neurons",
+                "cf-ai-req-id"
+              ]
+            }
+          }
+        ],
+        "unknown": [
+          "style",
+          "complexity",
+          "fit",
+          "silhouette",
+          "length",
+          "sleeves",
+          "print_size",
+          "print_location",
+          "neckline"
+        ],
+        "back_print": "unknown",
+        "confidence_note": "Model self-assessment, not calibrated probability; conflicting/unknown fields excluded",
+        "material": "unknown",
+        "validation": [
+          {
+            "revision": 3,
+            "rejected": [],
+            "accepted_fields": 4
+          }
+        ],
+        "feature_keys": [
+          "visual.color=white",
+          "visual.pattern=solid",
+          "visual.palette=light",
+          "visual.texture=smooth",
+          "visual.group=apparel"
+        ],
+        "source_version": "[[\"https://basket-25.wbbasket.ru/vol4497/part449731/449731422/images/big/1.webp\",\"https://basket-25.wbbasket.ru/vol4497/part449731/449731422/images/big/2.webp\"],null]",
+        "image_verified_at": 1791718410
+      },
+      "state": "complete",
+      "cache": false,
+      "origin": "final_read_only_D1_verification",
+      "note": "Single remaining authorized attempt; persistent profile/provider receipt confirmed"
+    }
+  ],
+  "experiment": {
+    "id": "gemma-schema-20261011-150",
+    "charged": 37.58181858062744,
+    "calls": 3,
+    "hold": "",
+    "limit": 150,
+    "reserve": 110,
+    "max_calls": 3,
+    "allowed_products": [
+      1113687154,
+      1138890506,
+      449731422
+    ],
+    "calls_receipts": [
+      {
+        "image_hash": "0f8c1e7d3d19f357b1ceffe13b06600a329c48ae7709955f2382da88f0ddd4bb",
+        "charged": 11.063636779785156,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 613,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 6,
+          "valid_evidence_fields": 6,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "5f8a4e72b6c47f7148e4e01dc2411ce8d12da6cd1a81c2d833a5af549c08c0b4",
+        "charged": 13.736363410949707,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 962,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 11,
+          "valid_evidence_fields": 11,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "6ac3c9bfb5ec1f5f0dec7fe7c4347b150b82ee9612a394bda109a3751a218f7c",
+        "charged": 14.145454406738281,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 1033,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 11,
+          "valid_evidence_fields": 11,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "8df6eae987aa6d6755651daad66369c57c94f7ee20cc42329061457a53a69213",
+        "charged": 13.527273178100586,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 979,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 10,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743",
+        "charged": 13.518181800842285,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 903,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "bd346db1e884612f4afac6cc6c02949dc3b0943a26a64625689a5cb36cc6b803",
+        "charged": 12.672727584838867,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 744,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 8,
+          "valid_evidence_fields": 8,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "c92d1c0b8c7d3401a6dbca2398cb6bfa3023193accb143a85107297946d31da7",
+        "charged": 12.590909004211426,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 744,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 7,
+          "valid_evidence_fields": 7,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "c952c43acafc898e1d6cfa3644b33af8e92e098e0032e8f2ad9b4e98130db422",
+        "charged": 13.390909194946289,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 945,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 10,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "322874c4cf93508b8a449e6267e68f80b8440511749787e218e55e0c2f4531c6",
+        "charged": 13.818181991577148,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [],
+          "accepted_fields": 9,
+          "response_type": "string",
+          "response_length": 924,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743",
+        "charged": 13.518181800842285,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [
+            {
+              "field": "neckline",
+              "reason": "UNSUPPORTED_VALUE",
+              "value_token": "off_shoulder"
+            }
+          ],
+          "accepted_fields": 8,
+          "response_type": "string",
+          "response_length": 903,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "bff28a34f48df4bdc130513bacc1e66aa49f14fb5ee80dcb29feb71fbf9dcf20",
+        "charged": 10.245454788208008,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [],
+          "accepted_fields": 4,
+          "response_type": "string",
+          "response_length": 393,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 4,
+          "valid_evidence_fields": 4,
+          "finish_reason": "stop"
+        }
+      }
+    ]
+  },
+  "additional_experiment": {
+    "id": "gemma-schema-20261011-150",
+    "charged": 37.58181858062744,
+    "calls": 3,
+    "hold": "",
+    "limit": 150,
+    "reserve": 110,
+    "max_calls": 3,
+    "allowed_products": [
+      1113687154,
+      1138890506,
+      449731422
+    ],
+    "calls_receipts": [
+      {
+        "image_hash": "322874c4cf93508b8a449e6267e68f80b8440511749787e218e55e0c2f4531c6",
+        "charged": 13.818181991577148,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [],
+          "accepted_fields": 9,
+          "response_type": "string",
+          "response_length": 924,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743",
+        "charged": 13.518181800842285,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [
+            {
+              "field": "neckline",
+              "reason": "UNSUPPORTED_VALUE",
+              "value_token": "off_shoulder"
+            }
+          ],
+          "accepted_fields": 8,
+          "response_type": "string",
+          "response_length": 903,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "bff28a34f48df4bdc130513bacc1e66aa49f14fb5ee80dcb29feb71fbf9dcf20",
+        "charged": 10.245454788208008,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "validation": "VALID_PROFILE",
+          "revision": 3,
+          "rejected": [],
+          "accepted_fields": 4,
+          "response_type": "string",
+          "response_length": 393,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 4,
+          "valid_evidence_fields": 4,
+          "finish_reason": "stop"
+        }
+      }
+    ]
+  },
+  "prior_experiment": {
+    "id": "gemma-native-20261010-500",
+    "charged": 104.6454553604126,
+    "calls": 8,
+    "hold": "",
+    "limit": 500,
+    "reserve": 200,
+    "calls_receipts": [
+      {
+        "image_hash": "0f8c1e7d3d19f357b1ceffe13b06600a329c48ae7709955f2382da88f0ddd4bb",
+        "charged": 11.063636779785156,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 613,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 6,
+          "valid_evidence_fields": 6,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "5f8a4e72b6c47f7148e4e01dc2411ce8d12da6cd1a81c2d833a5af549c08c0b4",
+        "charged": 13.736363410949707,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 962,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 11,
+          "valid_evidence_fields": 11,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "6ac3c9bfb5ec1f5f0dec7fe7c4347b150b82ee9612a394bda109a3751a218f7c",
+        "charged": 14.145454406738281,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 1033,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 11,
+          "valid_evidence_fields": 11,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "8df6eae987aa6d6755651daad66369c57c94f7ee20cc42329061457a53a69213",
+        "charged": 13.527273178100586,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 979,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 10,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743",
+        "charged": 13.518181800842285,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 903,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 9,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "bd346db1e884612f4afac6cc6c02949dc3b0943a26a64625689a5cb36cc6b803",
+        "charged": 12.672727584838867,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 744,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 8,
+          "valid_evidence_fields": 8,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "c92d1c0b8c7d3401a6dbca2398cb6bfa3023193accb143a85107297946d31da7",
+        "charged": 12.590909004211426,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 744,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 7,
+          "valid_evidence_fields": 7,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_hash": "c952c43acafc898e1d6cfa3644b33af8e92e098e0032e8f2ad9b4e98130db422",
+        "charged": 13.390909194946289,
+        "outcome": "provider_metered",
+        "diagnostic": {
+          "response_type": "string",
+          "response_length": 945,
+          "json_parse_ok": true,
+          "root_group_type": "string",
+          "fields_count": 10,
+          "valid_evidence_fields": 9,
+          "finish_reason": "stop"
+        }
+      }
+    ]
+  },
+  "status": {
+    "deployment_id": "113c09d3-1609-4aae-8821-7300b372e8ae",
+    "river_mode": "SHADOW",
+    "enabled": false,
+    "automatic_analysis_allowed": false,
+    "budget_hold": null,
+    "neurons_charged": 37.58181858062744
+  },
+  "stop_reason": "",
+  "transport_error": null,
+  "finished_at": "2026-10-11T11:33:36.6283697+00:00",
+  "production_changed": false,
+  "cache_verification": {
+    "products": 9,
+    "extra_ai_calls": 0,
+    "extra_neurons": 0,
+    "extra_rows_written": 0,
+    "rows_read": 36
+  },
+  "previous_transport_stop": {
+    "phase": "experiment_init",
+    "detail": "STAGING_HTTP_FAILED_35",
+    "ai_calls": 2
+  },
+  "remaining_single_attempt": true,
+  "neurons_total_gemma": 142.22727394104004,
+  "quality": {
+    "correct": 40,
+    "wrong": 2,
+    "missing": 0,
+    "reference_total": 42,
+    "changed_images": 0,
+    "profiles": 10,
+    "cache_hits": 9,
+    "neurons": 37.58181858062744
+  }
+}

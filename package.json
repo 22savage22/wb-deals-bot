@@ -9,6 +9,7 @@
     "shadow:gallery": "node miniapp/shadow/gallery_server.mjs",
     "shadow:report": "node miniapp/shadow/fashion_report.mjs",
     "shadow:budget-probe": "node miniapp/shadow/budget_probe.mjs",
+    "shadow:taste-analysis": "node miniapp/shadow/taste_analysis.mjs",
     "deploy": "npm run build && wrangler deploy",
     "check:deploy": "npm run build && wrangler deploy --dry-run --outdir .test-temp/worker-build"
   },

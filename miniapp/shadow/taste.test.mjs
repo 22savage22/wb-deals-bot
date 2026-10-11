@@ -266,3 +266,85 @@ test('historical topics balance calibration without leaking into learned feature
   assert.deepEqual(sample.products.slice(0, 4).map(card => card.historicalTopic), ['A', 'B', 'A', 'B']);
   assert.ok(sample.products.every(card => Object.keys(tasteFeatures(card, undefined, {now})).every(key => !key.startsWith('category=') && !key.includes('historicalTopic'))));
 });
+
+// Pure unit-fixture votes only: no actual calibration files are changed.
+const colorTraits = group => ({reviewed: true, cacheVerified: true, group, fields: {color: {value: 'black', confidence: .9, evidence: 'Reviewed black visible product in this exact fixture photo'}}});
+const visualOnlyProduct = id => ({...product(id), category: 'unknown', observedAt: undefined});
+const rateVisual = (state, id, group, action = 'like') => setTasteRating(state, {profile: 'wife', nmId: id, action, product: visualOnlyProduct(id), traits: group ? colorTraits(group) : undefined}, {now}).state;
+
+test('four black products across shoes/bag/apparel cannot pool support into learned color', () => {
+  let state = createTasteState();
+  for (const [id, group] of [[1, 'shoes'], [2, 'shoes'], [3, 'bag'], [4, 'apparel'], [5, null]]) state = rateVisual(state, id, group);
+  const profile = buildTasteProfile(state, 'wife'), evidence = profile.evidence.find(row => row.key === 'visual.color=black');
+  assert.equal(profile.configured, true);assert.equal(evidence.products, 4);assert.equal(evidence.sufficient, false);
+  assert.deepEqual(evidence.groupEvidence.map(row => [row.group, row.products, row.sufficient]), [['apparel', 1, false], ['bag', 1, false], ['shoes', 2, false]]);
+  assert.ok(profile.unknown.includes('color'));assert.deepEqual(profile.preferred, []);
+  for (const group of ['apparel', 'bag', 'shoes']) {
+    const score = scoreTaste(profile, visualOnlyProduct(90), {traits: colorTraits(group), now});
+    assert.equal(score.score, 0);assert.equal(score.supported, false);assert.deepEqual(score.matchedFeatures, []);
+  }
+});
+
+test('three distinct reviewed apparel colors support apparel, not the same color in footwear', () => {
+  let state = createTasteState();
+  for (let id = 1; id <= 5; id++) state = rateVisual(state, id, id <= 3 ? 'apparel' : null);
+  const profile = buildTasteProfile(state, 'wife'), color = profile.evidence.find(row => row.key === 'visual.color=black');
+  assert.equal(color.sufficient, true);assert.equal(color.groupEvidence[0].products, 3);assert.ok(!profile.unknown.includes('color'));
+  const apparel = scoreTaste(profile, visualOnlyProduct(90), {traits: colorTraits('apparel'), now});
+  assert.equal(apparel.score, .4286);assert.deepEqual(apparel.matchedFeatures, [{key: 'visual.color=black', group: 'apparel', preference: .4286, products: 3, nmIds: [1, 2, 3]}]);
+  const shoes = scoreTaste(profile, visualOnlyProduct(91), {traits: colorTraits('shoes'), now});
+  assert.equal(shoes.score, 0);assert.equal(shoes.supported, false);
+});
+
+test('opposite same-color preferences in distinct groups never leak or cancel group scoring', () => {
+  let state = createTasteState();
+  for (let id = 1; id <= 6; id++) state = rateVisual(state, id, id <= 3 ? 'apparel' : 'shoes', id <= 3 ? 'like' : 'dislike');
+  const profile = buildTasteProfile(state, 'wife'), evidence = profile.evidence.find(row => row.key === 'visual.color=black');
+  assert.equal(evidence.preference, 0);assert.equal(evidence.sufficient, true);
+  assert.deepEqual(evidence.groupEvidence.map(row => [row.group, row.preference, row.products]), [['apparel', .4286, 3], ['shoes', -.4286, 3]]);
+  assert.deepEqual(profile.preferred.map(row => [row.key, row.group, row.preference]), [['visual.color=black', 'apparel', .4286]]);
+  assert.deepEqual(profile.avoided.map(row => [row.key, row.group, row.preference]), [['visual.color=black', 'shoes', -.4286]]);
+  for (const [group, expected, ids] of [['apparel', .4286, [1, 2, 3]], ['shoes', -.4286, [4, 5, 6]], ['bag', 0, []]]) {
+    const score = scoreTaste(profile, visualOnlyProduct(90), {traits: colorTraits(group), now});
+    assert.equal(score.score, expected);assert.deepEqual(score.matchedFeatures.flatMap(row => row.nmIds), ids);
+  }
+  assert.equal(buildTasteProfile(state, 'owner').sampleProducts, 0);assert.equal(buildTasteProfile(state, 'audience').sampleProducts, 0);
+});
+
+test('group metadata alone is never a visual predictor and old unscoped profiles fail closed', () => {
+  let state = createTasteState();for (let id = 1; id <= 5; id++) state = rateVisual(state, id, 'apparel');
+  const snapshot = JSON.parse(JSON.stringify(state));for (const row of snapshot.ratings) row.features = {'visual.group=apparel': 1};
+  const groupOnly = buildTasteProfile(snapshot, 'wife');assert.deepEqual(groupOnly.evidence, []);assert.ok(groupOnly.unknown.includes('color'));
+  const old = buildTasteProfile(state, 'wife');delete old.evidence[0].groupEvidence;
+  assert.equal(scoreTaste(old, visualOnlyProduct(90), {traits: colorTraits('apparel'), now}).score, 0);
+  const profile = buildTasteProfile(state, 'wife');assert.ok(!profile.evidence.some(row => row.key.startsWith('visual.group=')));
+});
+
+test('group support uses distinct products, custom minimum and valid single group snapshots', () => {
+  let state = createTasteState();for (let id = 1; id <= 5; id++) state = rateVisual(state, id, id <= 3 ? 'apparel' : null);
+  assert.equal(buildTasteProfile(state, 'wife', {minFeatureSamples: 4}).evidence[0].sufficient, false);
+  const repeated = JSON.parse(JSON.stringify(state));repeated.ratings = Array.from({length: 5}, () => ({...state.ratings[0]}));
+  assert.equal(buildTasteProfile(repeated, 'wife').evidence[0].groupEvidence[0].products, 1);assert.equal(buildTasteProfile(repeated, 'wife').evidence[0].sufficient, false);
+  for (const conflict of [false, true]) {
+    const snapshot = JSON.parse(JSON.stringify(state));
+    for (const row of snapshot.ratings) if (row.features['visual.color=black']) {if (conflict) row.features['visual.group=bag'] = 1;else delete row.features['visual.group=apparel'];}
+    const profile = buildTasteProfile(snapshot, 'wife');assert.equal(profile.evidence[0].sufficient, false);assert.deepEqual(profile.evidence[0].groupEvidence, []);
+  }
+});
+
+test('category and budget remain unchanged when visual color is insufficient across groups', () => {
+  let state = createTasteState();
+  for (const [id, group] of [[1, 'shoes'], [2, 'shoes'], [3, 'bag'], [4, 'apparel'], [5, null]]) state = setTasteRating(state, {profile: 'owner', nmId: id, action: 'like', product: product(id), traits: group ? colorTraits(group) : undefined}, {now}).state;
+  const profile = buildTasteProfile(state, 'owner'), score = scoreTaste(profile, product(90), {traits: colorTraits('bag'), now});
+  assert.deepEqual(score.matchedFeatures.map(row => row.key).sort(), ['budget=600–1000 ₽', 'category=Футболки']);assert.equal(score.score, .5556);
+  assert.equal(profile.evidence.find(row => row.key === 'category=Футболки').products, 5);assert.ok(profile.unknown.includes('color'));
+});
+
+test('explicit similar restriction also requires the same trusted visual group', () => {
+  const source = traits(), state = rate(createTasteState(), 1, 'block_similar', 'owner', source), profile = buildTasteProfile(state, 'owner');
+  const candidate = {...source, group: 'bag', fields: {color: source.fields.color, pattern: source.fields.pattern, style: {value: 'casual', confidence: .9, evidence: 'Reviewed visual style'}}};
+  source.fields.style = candidate.fields.style;
+  const reviewedState = rate(createTasteState(), 1, 'block_similar', 'owner', source);
+  assert.equal(scoreTaste(buildTasteProfile(reviewedState, 'owner'), product(2), {traits: candidate, now}).blocked, false);
+  assert.equal(scoreTaste(profile, product(2), {traits: traits(), now}).blocked, true);
+});

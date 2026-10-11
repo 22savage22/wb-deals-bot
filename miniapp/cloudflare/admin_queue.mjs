@@ -3,15 +3,15 @@ const q=(e,s,...v)=>e.DB.prepare(s).bind(...v);
 export async function queueRoute(request,e,{json,fail,payload}){
   const url=new URL(request.url),now=Math.floor(Date.now()/1000);
   if(request.method==='GET'){
-    const cursor=url.searchParams.get('cursor')||'',match=cursor.match(/^(\d+):(\d+)$/);
-    if(cursor&&!match)fail(400,'Некорректная страница');
-    const time=match?Number(match[1]):0,id=match?Number(match[2]):0;
-    if(!Number.isSafeInteger(time)||!Number.isSafeInteger(id))fail(400,'Некорректная страница');
-    const rows=(await q(e,`SELECT pid,data,topic,queued_at,checked_at,retry_at FROM scheduler_inventory
-      WHERE state='ready' AND (queued_at,pid)>(?,?) AND expires>?
-      ORDER BY queued_at,pid LIMIT 7`,time,id,now).all()).results;
-    const items=rows.slice(0,6).map(r=>{const p=JSON.parse(r.data);return {pid:r.pid,title:p.title,price:p.product||p.price,image:p.image,category:p.category||r.topic,query:r.topic,checked_at:r.checked_at,retry_at:r.retry_at,url:`https://www.wildberries.ru/catalog/${r.pid}/detail.aspx`,reason:'В запасе по теме «'+r.topic+'». Перед отправкой повторно проверим цену, фото и дубли.'};});
-    const last=rows[5];return json({items,next_cursor:rows.length>6?`${last.queued_at}:${last.pid}`:null,note:'Кандидаты из очереди, не обещание точного порядка: Legacy сохраняет разнообразие.'});
+    const cursor=url.searchParams.get('cursor')||'',match=cursor.match(/^(\d+):(\d+)$/),view=url.searchParams.get('view')||'ready',needle=(url.searchParams.get('q')||'').normalize('NFKC').toLowerCase().trim(),category=(url.searchParams.get('category')||'').toLowerCase().trim(),query=(url.searchParams.get('query')||'').toLowerCase().trim(),readiness=url.searchParams.get('readiness')||'all';
+    if(cursor&&!match||!['ready','published'].includes(view)||!['all','checked','waiting'].includes(readiness)||[needle,category,query].some(x=>x.length>100))fail(400,'Проверьте фильтры и страницу');
+    const time=match?Number(match[1]):view==='published'?now+1:0,id=match?Number(match[2]):0;if(!Number.isSafeInteger(time)||!Number.isSafeInteger(id))fail(400,'Некорректная страница');
+    const size=needle||category||query||readiness!=='all'?100:7;
+    const rows=(await (view==='published'?q(e,`SELECT pid,data,topic,ts AS queued_at,ts AS checked_at,0 AS retry_at,message_id FROM scheduler_deliveries WHERE ts>? AND (ts,pid)<(?,?) ORDER BY ts DESC,pid DESC LIMIT ?`,now-14*86400,time,id,size):q(e,`SELECT pid,data,topic,queued_at,checked_at,retry_at FROM scheduler_inventory WHERE state='ready' AND (queued_at,pid)>(?,?) AND expires>? ORDER BY queued_at,pid LIMIT ?`,time,id,now,size)).all()).results;
+    const mapped=rows.map(r=>{const p=JSON.parse(r.data),waiting=r.retry_at>now;return {pid:r.pid,title:p.title,price:p.product||p.price,image:p.image,brand:p.brand||'',rating:p.rating??null,feedbacks:p.feedbacks??null,category:p.category||r.topic,query:p.query||r.topic,checked_at:r.checked_at,retry_at:r.retry_at,posted_at:view==='published'?r.queued_at:null,readiness:view==='published'?'Опубликован':waiting?'Ожидает проверки':r.checked_at?'Цена и фото проверены; перед отправкой проверим снова':'Нужна проверка цены и фото',url:`https://www.wildberries.ru/catalog/${r.pid}/detail.aspx`,reason:view==='published'?'Подтверждённая публикация из сохранённой истории.':'Принят поиском по теме «'+r.topic+'». Порядок определяется правилами подбора; перед отправкой проверяются цена, фото и дубли.',_cursor:`${r.queued_at}:${r.pid}`};});
+    const filtered=mapped.filter(p=>(!needle||(p.title+' '+p.pid+' '+p.brand).toLowerCase().includes(needle))&&(!category||p.category.toLowerCase().includes(category))&&(!query||p.query.toLowerCase().includes(query))&&(readiness==='all'||readiness==='waiting'?(readiness==='all'||p.retry_at>now||!p.checked_at):p.checked_at>0&&p.retry_at<=now)),items=filtered.slice(0,6);
+    const next=filtered.length>6?items.at(-1)._cursor:rows.length===size?mapped.at(-1)?._cursor:null;
+    return json({items:items.map(({_cursor,...p})=>p),next_cursor:next,view,scanned:rows.length,note:view==='published'?'Сохранённые публикации за 14 дней.':'Проверяем до 100 карточек на страницу. Если совпадений нет, перейдите дальше. Это запас кандидатов, точный порядок зависит от проверки.'});
   }
   if(request.method!=='POST')fail(405,'Метод не поддерживается');
   const {action,pid,request_id}=await payload(request);

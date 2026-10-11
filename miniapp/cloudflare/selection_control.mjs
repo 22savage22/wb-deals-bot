@@ -2,7 +2,26 @@ import {selectionSettings,validateSelection,similarity,querySuggestions} from '.
 import {policyState,queryRules} from './query_control.mjs';
 import {ensureControl,auditStatement,pruneChanges} from './admin_history.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a);
-export async function saveSelection(e,input,fail){const old=await policyState(e);if(input.revision!==old.revision)fail(409,'Настройки изменились. Обновите страницу');let value;try{value=validateSelection(input.settings);}catch(er){fail(400,er.message);}const next={...old.policy,selection:value,max_price:value.max_price,min_rating:value.min_rating,min_feedbacks:value.min_feedbacks,blocked_words:value.blocked_words,blacklist:value.blacklist};if(input.active===false)delete next.selection;await ensureControl(e);const result=await e.DB.batch([q(e,'UPDATE scheduler_policy SET data=? WHERE id=1 AND data=?',JSON.stringify(next),old.raw),auditStatement(e,'selection',{settings:selectionSettings(old.policy),active:Boolean(old.policy.selection)},{settings:value,active:input.active!==false})]);if(!result[0].meta.changes)fail(409,'Настройки изменились во время сохранения');await pruneChanges(e);return {ok:true};}
+export async function saveSelection(e,input,fail){
+  // Loading examples, stale clients and background refreshes must never activate
+  // a new policy. Require the explicit owner-confirmed save contract, not a GET
+  // revision alone. Telegram signature/owner verification still happens first.
+  if(input.confirmed!==true||typeof input.request_id!=='string'||!/^[-a-zA-Z0-9_]{1,64}$/.test(input.request_id))fail(400,'Подтвердите сохранение в обновлённой админке. Настройки не изменены');
+  const key='selection-save:'+input.request_id;
+  if(await q(e,'SELECT request_id FROM scheduler_actions WHERE request_id=?',key).first())return {ok:true,duplicate:true};
+  const old=await policyState(e);if(input.revision!==old.revision)fail(409,'Настройки изменились. Обновите страницу');
+  let value;try{value=validateSelection(input.settings);}catch(er){fail(400,er.message);}
+  const next={...old.policy,selection:value,max_price:value.max_price,min_rating:value.min_rating,min_feedbacks:value.min_feedbacks,blocked_words:value.blocked_words,blacklist:value.blacklist};
+  if(input.active===false)delete next.selection;
+  await ensureControl(e);
+  const result=await e.DB.batch([
+    q(e,'UPDATE scheduler_policy SET data=? WHERE id=1 AND data=? AND NOT EXISTS(SELECT 1 FROM scheduler_actions WHERE request_id=?)',JSON.stringify(next),old.raw,key),
+    auditStatement(e,'selection',{settings:selectionSettings(old.policy),active:Boolean(old.policy.selection)},{settings:value,active:input.active!==false,confirmed:true,request_id:input.request_id}),
+    q(e,'INSERT OR IGNORE INTO scheduler_actions(request_id,ts) SELECT ?,? WHERE changes()>0',key,Math.floor(Date.now()/1000))
+  ]);
+  if(!result[0].meta.changes){if(await q(e,'SELECT request_id FROM scheduler_actions WHERE request_id=?',key).first())return {ok:true,duplicate:true};fail(409,'Настройки изменились во время сохранения');}
+  await pruneChanges(e);return {ok:true};
+}
 export async function selectionRoute(request,e,{json,fail,payload}){
   const u=new URL(request.url),current=await policyState(e);
   if(u.pathname==='/api/admin/selection'&&request.method==='PUT')return json(await saveSelection(e,await payload(request),fail));

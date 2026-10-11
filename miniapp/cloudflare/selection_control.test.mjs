@@ -1,15 +1,46 @@
 import test from 'node:test';import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {adminEnvironment,adminRequest,rawPolicy,testCard} from './admin_test_support.mjs';
 import {selectionSettings,selectionReason,similarity,diverseChoice} from './selection_policy.mjs';
 import {cardDeal,choose} from './native_scheduler.mjs';
+const intent=()=>({confirmed:true,request_id:crypto.randomUUID()});
+test('both selection history UI paths send fresh confirmation intent after a user confirmation',()=>{
+  const selection=readFileSync(new URL('../admin/selection-manager.jsx',import.meta.url),'utf8');
+  const history=readFileSync(new URL('../admin/config-history.jsx',import.meta.url),'utf8');
+  assert.match(selection,/if\(!window\.confirm\('Восстановить эту версию подбора\?'\)\)return;await client\.api\('\/api\/admin\/config\/restore','POST',\{id:v\.id,revision:data\.revision,confirmed:true,request_id:crypto\.randomUUID\(\)\}\)/);
+  assert.match(history,/v\.scope==='selection'\?\{confirmed:true,request_id:crypto\.randomUUID\(\)\}/);
+});
 test('selection reads without writing defaults; save validates, preserves query/channel/30min and restores with CAS',async t=>{
   const e=await adminEnvironment(t),original=rawPolicy(e);const r=await(await adminRequest(e,'/api/admin/selection')).json();assert.equal(rawPolicy(e),original);assert.equal(r.active,false);assert.equal(r.styles_available,false);
   const settings={...r.settings,min_price:600,allowed_brands:['Fixture'],diversity_enabled:true};
-  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{revision:r.revision,settings:{...settings,weights:{...settings.weights,other:0}}})).status,400);
-  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{revision:r.revision,settings})).status,200);const p=JSON.parse(rawPolicy(e));assert.equal(p.chat_id,JSON.parse(original).chat_id);assert.deepEqual(p.queries,JSON.parse(original).queries);assert.ok(cardDeal(testCard(),p));assert.equal(cardDeal({...testCard(),brand:'Another'},p),null);assert.equal(cardDeal(testCard(),{...p,selection:{...p.selection,min_price:800}}),null);
-  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{revision:r.revision,settings})).status,409);
-  const h=await(await adminRequest(e,'/api/admin/config/history')).json(),current=await(await adminRequest(e,'/api/admin/selection')).json();assert.equal((await adminRequest(e,'/api/admin/config/restore','POST',{id:h.items[0].id,revision:current.revision})).status,200);
+  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{...intent(),revision:r.revision,settings:{...settings,weights:{...settings.weights,other:0}}})).status,400);
+  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{...intent(),revision:r.revision,settings})).status,200);const p=JSON.parse(rawPolicy(e));assert.equal(p.chat_id,JSON.parse(original).chat_id);assert.deepEqual(p.queries,JSON.parse(original).queries);assert.ok(cardDeal(testCard(),p));assert.equal(cardDeal({...testCard(),brand:'Another'},p),null);assert.equal(cardDeal(testCard(),{...p,selection:{...p.selection,min_price:800}}),null);
+  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{...intent(),revision:r.revision,settings})).status,409);
+  const h=await(await adminRequest(e,'/api/admin/config/history')).json(),current=await(await adminRequest(e,'/api/admin/selection')).json();assert.equal((await adminRequest(e,'/api/admin/config/restore','POST',{...intent(),id:h.items[0].id,revision:current.revision})).status,200);
   assert.equal(JSON.parse(rawPolicy(e)).selection,undefined);assert.equal(JSON.parse(e.db.prepare('SELECT data FROM scheduler_config').get().data).post_interval_minutes,30);
+});
+test('unconfirmed or malformed selection saves cannot activate defaults or change any settings',async t=>{
+  const e=await adminEnvironment(t),original=rawPolicy(e),r=await(await adminRequest(e,'/api/admin/selection')).json();
+  for(const extra of [{},{confirmed:true},{confirmed:false,request_id:'valid'},{confirmed:true,request_id:'bad id'},{confirmed:true,request_id:'a'.repeat(65)}]){
+    assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{revision:r.revision,settings:{...r.settings,audiences:['women','men','unisex']},...extra})).status,400);
+    assert.equal(rawPolicy(e),original);
+  }
+  assert.equal((await adminRequest(e,'/api/admin/selection','PUT',{...intent(),revision:r.revision,settings:r.settings},22)).status,403);
+  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM scheduler_actions').get().n,0);
+  assert.equal((await(await adminRequest(e,'/api/admin/config/history')).json()).items.length,0);
+});
+test('confirmed selection retries are persistent idempotent and audited only once',async t=>{
+  const e=await adminEnvironment(t),r=await(await adminRequest(e,'/api/admin/selection')).json();
+  const data={...intent(),revision:r.revision,settings:{...r.settings,audiences:['women','men','unisex']}};
+  const results=await Promise.all([adminRequest(e,'/api/admin/selection','PUT',data),adminRequest(e,'/api/admin/selection','PUT',data)]);
+  assert.deepEqual(results.map(r=>r.status),[200,200]);
+  const current=rawPolicy(e);assert.equal((await(await adminRequest(e,'/api/admin/selection','PUT',data)).json()).duplicate,true);
+  assert.equal(rawPolicy(e),current);assert.equal(e.db.prepare('SELECT COUNT(*) n FROM scheduler_actions').get().n,1);
+  const history=(await(await adminRequest(e,'/api/admin/config/history')).json()).items;
+  assert.equal(history.length,1);assert.equal(history[0].after.confirmed,true);assert.equal(history[0].after.request_id,data.request_id);
+  const state=await(await adminRequest(e,'/api/admin/selection')).json();
+  assert.equal((await adminRequest(e,'/api/admin/config/restore','POST',{id:history[0].id,revision:state.revision})).status,400);
+  assert.equal(rawPolicy(e),current);
 });
 test('metadata filters do not invent audience; similarity rejects type, pack and dimension mismatch',()=>{
   const p={id:1,title:'Футболка хлопковая',category:'Футболки',brand:'Brand',price:500,rating:4.9,feedbacks:50},s=selectionSettings({}),policy={selection:{...s,audiences:['women'],include_unknown_audience:false}};

@@ -1,0 +1,3008 @@
+{
+  "version": 1,
+  "mode": "SHADOW_PROSPECTIVE_PHOTO_ONLY",
+  "generatedAt": 1791728679813,
+  "products": [
+    {
+      "id": 218806590,
+      "name": "Блузка с коротким рукавом фонариком офисная праздничная",
+      "price": 578,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "NB Fashion",
+      "category": "Блузки",
+      "categoryVerified": true,
+      "historicalTopic": "блузка женская",
+      "type": "Блузки",
+      "query": "блузка женская",
+      "available": null,
+      "observedAt": 1790956164000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/218806590/detail.aspx",
+      "history": [
+        {
+          "at": 1791017399000,
+          "price": 630,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791015260000,
+          "price": 630,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791013119000,
+          "price": 630,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790954423000,
+          "price": 630,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790952600000,
+          "price": 630,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 525,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790956164,
+      "metadataSource": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728677796,
+      "fashionGroup": "clothing",
+      "imageHash": "cd2b78fd594b375da972d2f359422121f70546c31b4bc72a825e20d8e8f94f33",
+      "localPhoto": "photos/218806590.webp",
+      "photoVerifiedAt": 1791728678446
+    },
+    {
+      "id": 1274675180,
+      "name": "Кеды демисезонные спортивные на высокой платформе",
+      "price": 624,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "RA&TA",
+      "category": "Кеды",
+      "categoryVerified": true,
+      "historicalTopic": "кроссовки женские",
+      "type": "Кеды",
+      "query": "кроссовки женские",
+      "available": null,
+      "observedAt": 1790931443000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-45.wbbasket.ru/vol12746/part1274675/1274675180/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1274675180/detail.aspx",
+      "history": [
+        {
+          "at": 1790931393000,
+          "price": 624,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790929300000,
+          "price": 624,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790931443,
+      "metadataSource": "https://basket-45.wbbasket.ru/vol12746/part1274675/1274675180/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728649799,
+      "fashionGroup": "shoes",
+      "imageHash": "492fb74fdb7d6a1b0e8d82c21ab5a7910422b781202d180bd5d81635fa782ff8",
+      "localPhoto": "photos/1274675180.webp",
+      "photoVerifiedAt": 1791728650536
+    },
+    {
+      "id": 218331075,
+      "name": "Сумка через плечо кросс боди, средняя, черная",
+      "price": 881,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "botacomoda",
+      "category": "Сумки",
+      "categoryVerified": true,
+      "historicalTopic": "сумка женская",
+      "type": "Сумки",
+      "query": "сумка женская",
+      "available": null,
+      "observedAt": 1790896720000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-14.wbbasket.ru/vol2183/part218331/218331075/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/218331075/detail.aspx",
+      "history": [
+        {
+          "at": 1790950131000,
+          "price": 818,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790948203000,
+          "price": 818,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790937325000,
+          "price": 818,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790935398000,
+          "price": 818,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790895797000,
+          "price": 881,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790893733000,
+          "price": 881,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790896720,
+      "metadataSource": "https://basket-14.wbbasket.ru/vol2183/part218331/218331075/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728668335,
+      "fashionGroup": "bags",
+      "imageHash": "eb737856f4753f0d183852d370b506691c651c4e1c90b94f01f3f7d54f26035b",
+      "localPhoto": "photos/218331075.webp",
+      "photoVerifiedAt": 1791728668986
+    },
+    {
+      "id": 312815734,
+      "name": "Серьги висячие длинные сердечки с жемчугом бижутерия",
+      "price": 777,
+      "oldPrice": 0,
+      "rating": 5,
+      "reviews": null,
+      "brand": "Аксессорика",
+      "category": "Серьги",
+      "categoryVerified": true,
+      "historicalTopic": "украшения женские",
+      "type": "Серьги",
+      "query": "украшения женские",
+      "available": null,
+      "observedAt": 1790866342000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/312815734/detail.aspx",
+      "history": [
+        {
+          "at": 1790946907000,
+          "price": 722,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790944953000,
+          "price": 722,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790934128000,
+          "price": 722,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790932163000,
+          "price": 722,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790919738000,
+          "price": 777,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790907945000,
+          "price": 777,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790905791000,
+          "price": 777,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790866342,
+      "metadataSource": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728645645,
+      "fashionGroup": "accessories",
+      "imageHash": "1ad3dccb5df8b60604b257adf500533dbe3f381fb9a76e69a4289a8aeb902fc1",
+      "localPhoto": "photos/312815734.webp",
+      "photoVerifiedAt": 1791728646286
+    },
+    {
+      "id": 1586871134,
+      "name": "Топ бюстгальтер бесшовный без косточек с открытой спиной",
+      "price": 481,
+      "oldPrice": 0,
+      "rating": 5,
+      "reviews": null,
+      "brand": "Your2skin",
+      "category": "Бюстгальтеры",
+      "categoryVerified": true,
+      "historicalTopic": "Уход за вещами",
+      "type": "Бюстгальтеры",
+      "query": "Уход за вещами",
+      "available": null,
+      "observedAt": 1790796022000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-49.wbbasket.ru/vol15868/part1586871/1586871134/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1586871134/detail.aspx",
+      "history": [
+        {
+          "at": 1790802734000,
+          "price": 477,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790800697000,
+          "price": 481,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790798759000,
+          "price": 481,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790795160000,
+          "price": 481,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790796022,
+      "metadataSource": "https://basket-49.wbbasket.ru/vol15868/part1586871/1586871134/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728672407,
+      "fashionGroup": "clothing",
+      "imageHash": "2840716679dc6074d69f88b66e327efc2712d23983825ddad3cd08cb0664e73d",
+      "localPhoto": "photos/1586871134.webp",
+      "photoVerifiedAt": 1791728673046
+    },
+    {
+      "id": 778497448,
+      "name": "Кроссовки Nike Air Force 1 форсы",
+      "price": 2019,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "Nike",
+      "category": "Кроссовки",
+      "categoryVerified": true,
+      "historicalTopic": "кроссовки мужские",
+      "type": "Кроссовки",
+      "query": "кроссовки мужские",
+      "available": null,
+      "observedAt": 1790766523000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/778497448/detail.aspx",
+      "history": [
+        {
+          "at": 1790766490000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790760797000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790758836000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790745103000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790739227000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790733404000,
+          "price": 2019,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790766523,
+      "metadataSource": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728670928,
+      "fashionGroup": "shoes",
+      "imageHash": "448d691b6f77b9adf1a2d5e7eb745b0fcdbf0cf1985ac605bfa0afb0f06e2583",
+      "localPhoto": "photos/778497448.webp",
+      "photoVerifiedAt": 1791728671715
+    },
+    {
+      "id": 796434104,
+      "name": "Сумка багет маленькая на плечо",
+      "price": 899,
+      "oldPrice": 0,
+      "rating": 4.6,
+      "reviews": null,
+      "brand": "JOYCITY",
+      "category": "Сумки",
+      "categoryVerified": true,
+      "historicalTopic": "сумка женская",
+      "type": "Сумки",
+      "query": "сумка женская",
+      "available": null,
+      "observedAt": 1790911787000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-36.wbbasket.ru/vol7964/part796434/796434104/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/796434104/detail.aspx",
+      "history": [
+        {
+          "at": 1790950131000,
+          "price": 763,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790948203000,
+          "price": 763,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790937325000,
+          "price": 763,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790935398000,
+          "price": 763,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790923629000,
+          "price": 899,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790911749000,
+          "price": 899,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790909926000,
+          "price": 899,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790911787,
+      "metadataSource": "https://basket-36.wbbasket.ru/vol7964/part796434/796434104/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728651800,
+      "fashionGroup": "bags",
+      "imageHash": "37463186a6ba06ba4377f1850abe002b887fbaf54d1380e707fe3291071a9d5a",
+      "localPhoto": "photos/796434104.webp",
+      "photoVerifiedAt": 1791728652504
+    },
+    {
+      "id": 1507944909,
+      "name": "Квадратные серьги-гвоздики",
+      "price": 269,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "SHAYON",
+      "category": "Серьги",
+      "categoryVerified": true,
+      "historicalTopic": "украшения женские",
+      "type": "Серьги",
+      "query": "украшения женские",
+      "available": null,
+      "observedAt": 1790947464000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-48.wbbasket.ru/vol15079/part1507944/1507944909/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1507944909/detail.aspx",
+      "history": [
+        {
+          "at": 1790946907000,
+          "price": 272,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790944953000,
+          "price": 272,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790934128000,
+          "price": 272,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790932163000,
+          "price": 272,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790905791000,
+          "price": 269,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790876367000,
+          "price": 299,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790849818000,
+          "price": 258,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790947464,
+      "metadataSource": "https://basket-48.wbbasket.ru/vol15079/part1507944/1507944909/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728625198,
+      "fashionGroup": "accessories",
+      "imageHash": "f152f60956c5b81b4e890802909540a2eff2d8ff0063fba39b40daf63695ffba",
+      "localPhoto": "photos/1507944909.webp",
+      "photoVerifiedAt": 1791728625920
+    },
+    {
+      "id": 169034403,
+      "name": "Джинсы клеш от колена с высокой посадкой",
+      "price": 2520,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "KYDENIM",
+      "category": "Джинсы",
+      "categoryVerified": true,
+      "historicalTopic": "джинсы женские",
+      "type": "Джинсы",
+      "query": "джинсы женские",
+      "available": null,
+      "observedAt": 1790770470000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/169034403/detail.aspx",
+      "history": [
+        {
+          "at": 1790770456000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790768630000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790766657000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790756892000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790749018000,
+          "price": 2520,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790770470,
+      "metadataSource": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728657161,
+      "fashionGroup": "clothing",
+      "imageHash": "811b1a34507b3d8aa5604dcfcabfeddc9692f95bcf537236f860915292a811e8",
+      "localPhoto": "photos/169034403.webp",
+      "photoVerifiedAt": 1791728657839
+    },
+    {
+      "id": 1274722797,
+      "name": "Кеды демисезонные спортивные",
+      "price": 456,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "RA&TA",
+      "category": "Кеды",
+      "categoryVerified": true,
+      "historicalTopic": "кроссовки женские",
+      "type": "Кеды",
+      "query": "кроссовки женские",
+      "available": null,
+      "observedAt": 1790935295000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1274722797/detail.aspx",
+      "history": [
+        {
+          "at": 1790935264000,
+          "price": 456,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790929300000,
+          "price": 456,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790935295,
+      "metadataSource": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728629946,
+      "fashionGroup": "shoes",
+      "imageHash": "12381cf15a3d5a9a0c381479b2c9a7125b78e3d5136bcef5f357e0e96e64ea45",
+      "localPhoto": "photos/1274722797.webp",
+      "photoVerifiedAt": 1791728630644
+    },
+    {
+      "id": 1105163131,
+      "name": "Сумка через плечо кросс-боди, средняя, серая",
+      "price": 973,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "botacomoda",
+      "category": "Сумки",
+      "categoryVerified": true,
+      "historicalTopic": "сумка женская",
+      "type": "Сумки",
+      "query": "сумка женская",
+      "available": null,
+      "observedAt": 1790924840000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-42.wbbasket.ru/vol11051/part1105163/1105163131/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1105163131/detail.aspx",
+      "history": [
+        {
+          "at": 1790950131000,
+          "price": 903,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790948203000,
+          "price": 903,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790937325000,
+          "price": 903,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790935398000,
+          "price": 903,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790923629000,
+          "price": 973,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790909926000,
+          "price": 973,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790896710000,
+          "price": 973,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790924840,
+      "metadataSource": "https://basket-42.wbbasket.ru/vol11051/part1105163/1105163131/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728631951,
+      "fashionGroup": "bags",
+      "imageHash": "a6e9e1333b55fb194691a3c142538c18aea0344d949edddc393183867667a061",
+      "localPhoto": "photos/1105163131.webp",
+      "photoVerifiedAt": 1791728632604
+    },
+    {
+      "id": 366719451,
+      "name": "вельветовый полузамок с брюками",
+      "price": 2365,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "TezTik",
+      "category": "Костюмы",
+      "categoryVerified": true,
+      "historicalTopic": "костюм женский",
+      "type": "Костюмы",
+      "query": "костюм женский",
+      "available": null,
+      "observedAt": 1790735238000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/366719451/detail.aspx",
+      "history": [
+        {
+          "at": 1790774576000,
+          "price": 2365,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790737283000,
+          "price": 2365,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790735222000,
+          "price": 2365,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790733404000,
+          "price": 2365,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790735238,
+      "metadataSource": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728641619,
+      "fashionGroup": "clothing",
+      "imageHash": "a327d7853c870d3a45087a0498c68f583d5ea7091639a8185ad9528fe65eade0",
+      "localPhoto": "photos/366719451.webp",
+      "photoVerifiedAt": 1791728642306
+    },
+    {
+      "id": 1084688290,
+      "name": "Кроссовки текстильные изи дышащие спортивные",
+      "price": 849,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "EVASHOES",
+      "category": "Кроссовки",
+      "categoryVerified": true,
+      "historicalTopic": "кроссовки мужские",
+      "type": "Кроссовки",
+      "query": "кроссовки мужские",
+      "available": null,
+      "observedAt": 1790877259000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-42.wbbasket.ru/vol10846/part1084688/1084688290/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1084688290/detail.aspx",
+      "history": [
+        {
+          "at": 1790996182000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790993657000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790991077000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790978409000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790974315000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790971819000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790969202000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790877259,
+      "metadataSource": "https://basket-42.wbbasket.ru/vol10846/part1084688/1084688290/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728634543,
+      "fashionGroup": "shoes",
+      "imageHash": "3e0005050a368f94a305f200ca75718f0e3d715db975d01a2d5d811f40c46c19",
+      "localPhoto": "photos/1084688290.webp",
+      "photoVerifiedAt": 1791728635206
+    },
+    {
+      "id": 402621776,
+      "name": "Платье лапша на завязках летнее",
+      "price": 586,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "BONTA LOVE",
+      "category": "Платья",
+      "categoryVerified": true,
+      "historicalTopic": "платье женское",
+      "type": "Платья",
+      "query": "платье женское",
+      "available": null,
+      "observedAt": 1790941636000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/402621776/detail.aspx",
+      "history": [
+        {
+          "at": 1790940479000,
+          "price": 648,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790938596000,
+          "price": 648,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790934766000,
+          "price": 648,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 586,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790813774000,
+          "price": 648,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790789340000,
+          "price": 648,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790941636,
+      "metadataSource": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728648452,
+      "fashionGroup": "clothing",
+      "imageHash": "423e757bec727149d0f6b496ba1d8a9cc47715c75ef944f4c74bcff515aea07d",
+      "localPhoto": "photos/402621776.webp",
+      "photoVerifiedAt": 1791728649108
+    },
+    {
+      "id": 1245009476,
+      "name": "Кроссовки демисезонные спортивные",
+      "price": 453,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "RA&TA",
+      "category": "Кроссовки",
+      "categoryVerified": true,
+      "historicalTopic": "кроссовки мужские",
+      "type": "Кроссовки",
+      "query": "кроссовки мужские",
+      "available": null,
+      "observedAt": 1790779743000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-44.wbbasket.ru/vol12450/part1245009/1245009476/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1245009476/detail.aspx",
+      "history": [
+        {
+          "at": 1791019528000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791017399000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791015260000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791013119000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791010500000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791007924000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791004054000,
+          "price": 549,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790779743,
+      "metadataSource": "https://basket-44.wbbasket.ru/vol12450/part1245009/1245009476/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728654428,
+      "fashionGroup": "shoes",
+      "imageHash": "3b53da5b02f655404d02699bbd8562e6012e37041ba9092ceb577a2954939391",
+      "localPhoto": "photos/1245009476.webp",
+      "photoVerifiedAt": 1791728655094
+    },
+    {
+      "id": 51017277,
+      "name": "Топ базовый бесшовный",
+      "price": 581,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "SAVOSHI",
+      "category": "Топы",
+      "categoryVerified": true,
+      "historicalTopic": "Уход за вещами",
+      "type": "Топы",
+      "query": "Уход за вещами",
+      "available": null,
+      "observedAt": 1790797970000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-04.wbbasket.ru/vol510/part51017/51017277/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/51017277/detail.aspx",
+      "history": [
+        {
+          "at": 1790802734000,
+          "price": 581,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790800697000,
+          "price": 581,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790797320000,
+          "price": 581,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790795160000,
+          "price": 581,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790797970,
+      "metadataSource": "https://basket-04.wbbasket.ru/vol510/part51017/51017277/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728655771,
+      "fashionGroup": "clothing",
+      "imageHash": "dbda7f20402e7008295e9ea5cdc316aa02679708e0f9cdb6e4935bb4ca6454d2",
+      "localPhoto": "photos/51017277.webp",
+      "photoVerifiedAt": 1791728656520
+    },
+    {
+      "id": 137585785,
+      "name": "Футболка летняя с принтом хлопок ткань Турция",
+      "price": 513,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "TINY BROOK",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка женская",
+      "type": "Футболки",
+      "query": "футболка женская",
+      "available": null,
+      "observedAt": 1790916392000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-10.wbbasket.ru/vol1375/part137585/137585785/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/137585785/detail.aspx",
+      "history": [
+        {
+          "at": 1790915831000,
+          "price": 513,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790895797000,
+          "price": 513,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790833847000,
+          "price": 478,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790784601000,
+          "price": 478,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790776517000,
+          "price": 478,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 478,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790762741000,
+          "price": 478,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790916392,
+      "metadataSource": "https://basket-10.wbbasket.ru/vol1375/part137585/137585785/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728669648,
+      "fashionGroup": "clothing",
+      "imageHash": "51c98a0f727a58424c3963978d1be468086747a3a5cbb802c79e56541641a87c",
+      "localPhoto": "photos/137585785.webp",
+      "photoVerifiedAt": 1791728670305
+    },
+    {
+      "id": 244531999,
+      "name": "Худи оверсайз на замке с начесом",
+      "price": 999,
+      "oldPrice": 0,
+      "rating": 4.7,
+      "reviews": null,
+      "brand": "Modjimoda",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "Худи",
+      "type": "Худи",
+      "query": "Худи",
+      "available": null,
+      "observedAt": 1790855735000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-16.wbbasket.ru/vol2445/part244531/244531999/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/244531999/detail.aspx",
+      "history": [
+        {
+          "at": 1790939898000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790937950000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790933461000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790931630000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790854459000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790851908000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790829930000,
+          "price": 999,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790855735,
+      "metadataSource": "https://basket-16.wbbasket.ru/vol2445/part244531/244531999/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728664478,
+      "fashionGroup": "clothing",
+      "imageHash": "08151b4254af01cca19bec7dec4c3d6015ddf60b1568c098244cbc30eb5e8764",
+      "localPhoto": "photos/244531999.webp",
+      "photoVerifiedAt": 1791728665142
+    },
+    {
+      "id": 415941058,
+      "name": "Юбка черная миди прямая классическая",
+      "price": 623,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "gloria jeans",
+      "category": "Юбки",
+      "categoryVerified": true,
+      "historicalTopic": "юбка женская",
+      "type": "Юбки",
+      "query": "юбка женская",
+      "available": null,
+      "observedAt": 1790948099000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/415941058/detail.aspx",
+      "history": [
+        {
+          "at": 1791019528000,
+          "price": 618,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790947571000,
+          "price": 618,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790942385000,
+          "price": 618,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790948099,
+      "metadataSource": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728644361,
+      "fashionGroup": "clothing",
+      "imageHash": "8d1d5e149c24d74fb1330465e1416cfce22edbda25c4cd9cd2d22e0e28bc7fea",
+      "localPhoto": "photos/415941058.webp",
+      "photoVerifiedAt": 1791728645013
+    },
+    {
+      "id": 791365839,
+      "name": "Блузка нарядная офисная летняя больших размеров",
+      "price": 722,
+      "oldPrice": 0,
+      "rating": 4.7,
+      "reviews": null,
+      "brand": "Текстиль Хаус",
+      "category": "Блузки",
+      "categoryVerified": true,
+      "historicalTopic": "блузка женская",
+      "type": "Блузки",
+      "query": "блузка женская",
+      "available": null,
+      "observedAt": 1791013815000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-36.wbbasket.ru/vol7913/part791365/791365839/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/791365839/detail.aspx",
+      "history": [
+        {
+          "at": 1791017399000,
+          "price": 978,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791015260000,
+          "price": 978,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791013119000,
+          "price": 978,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790954423000,
+          "price": 978,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790952600000,
+          "price": 978,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 700,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1791013815,
+      "metadataSource": "https://basket-36.wbbasket.ru/vol7913/part791365/791365839/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728661255,
+      "fashionGroup": "clothing",
+      "imageHash": "35009e4c118c5f4419d81fc8a27387661b72cb81958d75fb67597da617ec24bf",
+      "localPhoto": "photos/791365839.webp",
+      "photoVerifiedAt": 1791728661915
+    },
+    {
+      "id": 503823360,
+      "name": "Джинсы скинни",
+      "price": 2918,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "LTBI",
+      "category": "Джинсы",
+      "categoryVerified": true,
+      "historicalTopic": "джинсы женские",
+      "type": "Джинсы",
+      "query": "джинсы женские",
+      "available": null,
+      "observedAt": 1790765882000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-27.wbbasket.ru/vol5038/part503823/503823360/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/503823360/detail.aspx",
+      "history": [
+        {
+          "at": 1790770597000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790768630000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790766657000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790756892000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790749018000,
+          "price": 2918,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790765882,
+      "metadataSource": "https://basket-27.wbbasket.ru/vol5038/part503823/503823360/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728673698,
+      "fashionGroup": "clothing",
+      "imageHash": "9f7f523194bfcfafc82a6d65a7f0723a7b20950c0f10300e6054f7ba7c75910c",
+      "localPhoto": "photos/503823360.webp",
+      "photoVerifiedAt": 1791728674432
+    },
+    {
+      "id": 554813103,
+      "name": "Туника домашняя Платье повседневное",
+      "price": 861,
+      "oldPrice": 0,
+      "rating": 4.7,
+      "reviews": null,
+      "brand": "VaryaInspires",
+      "category": "Платья",
+      "categoryVerified": true,
+      "historicalTopic": "платье женское",
+      "type": "Платья",
+      "query": "платье женское",
+      "available": null,
+      "observedAt": 1790893755000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-29.wbbasket.ru/vol5548/part554813/554813103/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/554813103/detail.aspx",
+      "history": [
+        {
+          "at": 1790940479000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790938596000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790893733000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790888316000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790886330000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790880193000,
+          "price": 861,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790893755,
+      "metadataSource": "https://basket-29.wbbasket.ru/vol5548/part554813/554813103/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728665817,
+      "fashionGroup": "clothing",
+      "imageHash": "16149a5203ee31ab5d38b6e0df51025223ca5b1c31b41151c4a7f04e64978216",
+      "localPhoto": "photos/554813103.webp",
+      "photoVerifiedAt": 1791728666462
+    },
+    {
+      "id": 137985454,
+      "name": "Футболка базовая с v-образным вырезом",
+      "price": 456,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "Happyfox",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка мужская",
+      "type": "Футболки",
+      "query": "футболка мужская",
+      "available": null,
+      "observedAt": 1790753544000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-10.wbbasket.ru/vol1379/part137985/137985454/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/137985454/detail.aspx",
+      "history": [
+        {
+          "at": 1790894975000,
+          "price": 537,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790772569000,
+          "price": 456,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790770597000,
+          "price": 456,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790752982000,
+          "price": 456,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790750987000,
+          "price": 434,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790741193000,
+          "price": 434,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790735353000,
+          "price": 434,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790753544,
+      "metadataSource": "https://basket-10.wbbasket.ru/vol1379/part137985/137985454/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728658608,
+      "fashionGroup": "clothing",
+      "imageHash": "5d7c2aac4e1794dc9b516c33624ab5b26324c2b62afe33e8dc6c7a09743165b2",
+      "localPhoto": "photos/137985454.webp",
+      "photoVerifiedAt": 1791728659297
+    },
+    {
+      "id": 304866760,
+      "name": "Худи оверсайз теплое",
+      "price": 2284,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "Po.Co Style",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "худи мужское",
+      "type": "Худи",
+      "query": "худи мужское",
+      "available": null,
+      "observedAt": 1790730092000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-18.wbbasket.ru/vol3048/part304866/304866760/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/304866760/detail.aspx",
+      "history": [
+        {
+          "at": 1790774576000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790768630000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790766657000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790730073000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790728122000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790725685000,
+          "price": 2284,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790730092,
+      "metadataSource": "https://basket-18.wbbasket.ru/vol3048/part304866/304866760/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728676517,
+      "fashionGroup": "clothing",
+      "imageHash": "1cefd174a1c04c3e356b37f23d5b9d1e5af835d4b6e80bd1320a5aac8fa67549",
+      "localPhoto": "photos/304866760.webp",
+      "photoVerifiedAt": 1791728677165
+    },
+    {
+      "id": 541418448,
+      "name": "Школьная юбка синяя повседневная",
+      "price": 419,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "gloria jeans",
+      "category": "Юбки",
+      "categoryVerified": true,
+      "historicalTopic": "юбка женская",
+      "type": "Юбки",
+      "query": "юбка женская",
+      "available": null,
+      "observedAt": 1791019985000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-28.wbbasket.ru/vol5414/part541418/541418448/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/541418448/detail.aspx",
+      "history": [
+        {
+          "at": 1791019528000,
+          "price": 422,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790947571000,
+          "price": 422,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790942385000,
+          "price": 422,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1791019985,
+      "metadataSource": "https://basket-28.wbbasket.ru/vol5414/part541418/541418448/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728623861,
+      "fashionGroup": "clothing",
+      "imageHash": "be2bbc1ce4095dcf148177fe52d1e80124286b5d1f64a78c31ed03ece4ca24f5",
+      "localPhoto": "photos/541418448.webp",
+      "photoVerifiedAt": 1791728624510
+    },
+    {
+      "id": 827392064,
+      "name": "Блузка нарядная с воланами",
+      "price": 497,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "MOSHKA LOVE",
+      "category": "Блузки",
+      "categoryVerified": true,
+      "historicalTopic": "блузка женская",
+      "type": "Блузки",
+      "query": "блузка женская",
+      "available": null,
+      "observedAt": 1791020626000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-37.wbbasket.ru/vol8273/part827392/827392064/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/827392064/detail.aspx",
+      "history": [
+        {
+          "at": 1791020600000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791017399000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791015260000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791013119000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790954423000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790952600000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 497,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1791020626,
+      "metadataSource": "https://basket-37.wbbasket.ru/vol8273/part827392/827392064/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728622535,
+      "fashionGroup": "clothing",
+      "imageHash": "0dc53ce06c441a976df14e6f940874d2108a2ec7897ff60ffaa9c696fd60886d",
+      "localPhoto": "photos/827392064.webp",
+      "photoVerifiedAt": 1791728623171
+    },
+    {
+      "id": 960470703,
+      "name": "Джинсы палаццо широкие стрейч",
+      "price": 2070,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "VICO JEANS",
+      "category": "Джинсы",
+      "categoryVerified": true,
+      "historicalTopic": "джинсы женские",
+      "type": "Джинсы",
+      "query": "джинсы женские",
+      "available": null,
+      "observedAt": 1790772441000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/960470703/detail.aspx",
+      "history": [
+        {
+          "at": 1790776517000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790774576000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790772410000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790770597000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790768630000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790766657000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 2070,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790772441,
+      "metadataSource": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728637118,
+      "fashionGroup": "clothing",
+      "imageHash": "e158906dea25121959cf2ace89ac44684766b107813583f8a6111410cef8db85",
+      "localPhoto": "photos/960470703.webp",
+      "photoVerifiedAt": 1791728637766
+    },
+    {
+      "id": 954574390,
+      "name": "Летнее платье-рубашка больших размеров праздничное",
+      "price": 919,
+      "oldPrice": 0,
+      "rating": 4.6,
+      "reviews": null,
+      "brand": "Fart Favorita",
+      "category": "Платья",
+      "categoryVerified": true,
+      "historicalTopic": "платье женское",
+      "type": "Платья",
+      "query": "платье женское",
+      "available": null,
+      "observedAt": 1790942289000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-40.wbbasket.ru/vol9545/part954574/954574390/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/954574390/detail.aspx",
+      "history": [
+        {
+          "at": 1790942289000,
+          "price": 919,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790940479000,
+          "price": 919,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790938596000,
+          "price": 919,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790934766000,
+          "price": 919,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 963,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790789340000,
+          "price": 919,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790942289,
+      "metadataSource": "https://basket-40.wbbasket.ru/vol9545/part954574/954574390/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728627951,
+      "fashionGroup": "clothing",
+      "imageHash": "f603bb8e592b3f520c42b1239d86a0b15b3a27ee513f150d31e5f328a4b35c74",
+      "localPhoto": "photos/954574390.webp",
+      "photoVerifiedAt": 1791728628630
+    },
+    {
+      "id": 137987617,
+      "name": "Футболка базовая больших размеров",
+      "price": 558,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "Happyfox",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка мужская",
+      "type": "Футболки",
+      "query": "футболка мужская",
+      "available": null,
+      "observedAt": 1790760054000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-10.wbbasket.ru/vol1379/part137987/137987617/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/137987617/detail.aspx",
+      "history": [
+        {
+          "at": 1790894975000,
+          "price": 624,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790772569000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790770597000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790758700000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790756737000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790754781000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790752819000,
+          "price": 558,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790760054,
+      "metadataSource": "https://basket-10.wbbasket.ru/vol1379/part137987/137987617/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728638392,
+      "fashionGroup": "clothing",
+      "imageHash": "faf9b4f4775b95111de4ca478fae7828d7eeb57a58786ca94c093b9f471d2b2b",
+      "localPhoto": "photos/137987617.webp",
+      "photoVerifiedAt": 1791728639046
+    },
+    {
+      "id": 848758256,
+      "name": "Худи легкое",
+      "price": 925,
+      "oldPrice": 0,
+      "rating": 4.5,
+      "reviews": null,
+      "brand": "NOVOCH",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "Худи",
+      "type": "Худи",
+      "query": "Худи",
+      "available": null,
+      "observedAt": 1790943572000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/848758256/detail.aspx",
+      "history": [
+        {
+          "at": 1790943542000,
+          "price": 925,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790939898000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790937950000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790933461000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790931630000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790851908000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790829930000,
+          "price": 933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790943572,
+      "metadataSource": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728626570,
+      "fashionGroup": "clothing",
+      "imageHash": "c29ad5d44ed687c4b33bda76e9e1abba539f57535cdecb868ebf54af99ca7248",
+      "localPhoto": "photos/848758256.webp",
+      "photoVerifiedAt": 1791728627305
+    },
+    {
+      "id": 806862064,
+      "name": "Юбка короткая карандаш мини",
+      "price": 442,
+      "oldPrice": 0,
+      "rating": 5,
+      "reviews": null,
+      "brand": "Nebroska",
+      "category": "Юбки",
+      "categoryVerified": true,
+      "historicalTopic": "юбка женская",
+      "type": "Юбки",
+      "query": "юбка женская",
+      "available": null,
+      "observedAt": 1790944216000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-37.wbbasket.ru/vol8068/part806862/806862064/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/806862064/detail.aspx",
+      "history": [
+        {
+          "at": 1791019528000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790947571000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790944216000,
+          "price": 442,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790942385000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790782510000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790760797000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790758836000,
+          "price": 412,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790944216,
+      "metadataSource": "https://basket-37.wbbasket.ru/vol8068/part806862/806862064/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728662530,
+      "fashionGroup": "clothing",
+      "imageHash": "95bc2d4a8047673c8eaf7806c42b7b25f4e4b61817b6df08ae2011ddc1e35f01",
+      "localPhoto": "photos/806862064.webp",
+      "photoVerifiedAt": 1791728663192
+    },
+    {
+      "id": 993514951,
+      "name": "Блузка вечерняя прозрачная летняя",
+      "price": 870,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "ZARINA",
+      "category": "Блузки",
+      "categoryVerified": true,
+      "historicalTopic": "блузка женская",
+      "type": "Блузки",
+      "query": "блузка женская",
+      "available": null,
+      "observedAt": 1791019340000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/993514951/detail.aspx",
+      "history": [
+        {
+          "at": 1791019309000,
+          "price": 870,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791017399000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791015260000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1791013119000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790954423000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790952600000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790884215000,
+          "price": 869,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1791019340,
+      "metadataSource": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728642990,
+      "fashionGroup": "clothing",
+      "imageHash": "5a5d6390d54ae2dbd384025dec4337788b09debb6416e715c76b12161ad05256",
+      "localPhoto": "photos/993514951.webp",
+      "photoVerifiedAt": 1791728643719
+    },
+    {
+      "id": 248526944,
+      "name": "Футболка однотонная оверсайз",
+      "price": 317,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "LIACOLLECTION",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка женская",
+      "type": "Футболки",
+      "query": "футболка женская",
+      "available": null,
+      "observedAt": 1790917652000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-16.wbbasket.ru/vol2485/part248526/248526944/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/248526944/detail.aspx",
+      "history": [
+        {
+          "at": 1790917638000,
+          "price": 317,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790915831000,
+          "price": 317,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790895797000,
+          "price": 317,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790833847000,
+          "price": 266,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790784601000,
+          "price": 266,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790776517000,
+          "price": 266,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 266,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790917652,
+      "metadataSource": "https://basket-16.wbbasket.ru/vol2485/part248526/248526944/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728633252,
+      "fashionGroup": "clothing",
+      "imageHash": "1efc6dac39c59e8c48891a844bafec4b219a5d6a72a3ee5ce7a2f8f3a5c34da6",
+      "localPhoto": "photos/248526944.webp",
+      "photoVerifiedAt": 1791728633903
+    },
+    {
+      "id": 898473250,
+      "name": "Худи оверсайз с принтом y2k",
+      "price": 1758,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "VEXO",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "худи мужское",
+      "type": "Худи",
+      "query": "худи мужское",
+      "available": null,
+      "observedAt": 1790756129000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-39.wbbasket.ru/vol8984/part898473/898473250/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/898473250/detail.aspx",
+      "history": [
+        {
+          "at": 1790754923000,
+          "price": 1758,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790749018000,
+          "price": 1758,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790747066000,
+          "price": 1758,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790756129,
+      "metadataSource": "https://basket-39.wbbasket.ru/vol8984/part898473/898473250/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728640324,
+      "fashionGroup": "clothing",
+      "imageHash": "581421c275f240bf8fd00ea88aec676803ecfa434625df34da0ad6603b349807",
+      "localPhoto": "photos/898473250.webp",
+      "photoVerifiedAt": 1791728640985
+    },
+    {
+      "id": 1129080597,
+      "name": "Юбка шорты женские летние",
+      "price": 979,
+      "oldPrice": 0,
+      "rating": 4.6,
+      "reviews": null,
+      "brand": "Colani",
+      "category": "Юбки",
+      "categoryVerified": true,
+      "historicalTopic": "юбка женская",
+      "type": "Юбки",
+      "query": "юбка женская",
+      "available": null,
+      "observedAt": 1790919615000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1129080597/detail.aspx",
+      "history": [
+        {
+          "at": 1791019528000,
+          "price": 911,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790947571000,
+          "price": 911,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790942385000,
+          "price": 911,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790919585000,
+          "price": 979,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790917767000,
+          "price": 979,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790835801000,
+          "price": 911,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790821997000,
+          "price": 911,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790919615,
+      "metadataSource": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728679120,
+      "fashionGroup": "clothing",
+      "imageHash": "cf0b62a629b720b9733af4b64259a60c14cf1a09e466728378a195216e1f3af4",
+      "localPhoto": "photos/1129080597.webp",
+      "photoVerifiedAt": 1791728679795
+    },
+    {
+      "id": 480768026,
+      "name": "Футболка skims скимс серая облегающая",
+      "price": 551,
+      "oldPrice": 0,
+      "rating": 4.8,
+      "reviews": null,
+      "brand": "SOQ WAY",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "Уход за вещами",
+      "type": "Футболки",
+      "query": "Уход за вещами",
+      "available": null,
+      "observedAt": 1790799944000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-26.wbbasket.ru/vol4807/part480768/480768026/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/480768026/detail.aspx",
+      "history": [
+        {
+          "at": 1790802734000,
+          "price": 551,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790800697000,
+          "price": 551,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790798759000,
+          "price": 551,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790795160000,
+          "price": 551,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790799944,
+      "metadataSource": "https://basket-26.wbbasket.ru/vol4807/part480768/480768026/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728635829,
+      "fashionGroup": "clothing",
+      "imageHash": "6c1dfd3491094c6e4b0a82a1e162218c0aedb9fbca3c67cacc07bc98e9dac992",
+      "localPhoto": "photos/480768026.webp",
+      "photoVerifiedAt": 1791728636491
+    },
+    {
+      "id": 898486677,
+      "name": "Худи оверсайз с капюшоном y2k",
+      "price": 2051,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "VEXO",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "худи мужское",
+      "type": "Худи",
+      "query": "худи мужское",
+      "available": null,
+      "observedAt": 1790749598000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-39.wbbasket.ru/vol8984/part898486/898486677/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/898486677/detail.aspx",
+      "history": [
+        {
+          "at": 1790774576000,
+          "price": 1933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790768630000,
+          "price": 1933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790766657000,
+          "price": 1933,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790754923000,
+          "price": 2051,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790749018000,
+          "price": 2051,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790747066000,
+          "price": 2051,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790749598,
+      "metadataSource": "https://basket-39.wbbasket.ru/vol8984/part898486/898486677/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728659910,
+      "fashionGroup": "clothing",
+      "imageHash": "01283d4b81e50d5812d63ee13fd8e2e5dfe975acfc441b3dba35ae4b7af9d9be",
+      "localPhoto": "photos/898486677.webp",
+      "photoVerifiedAt": 1791728660605
+    },
+    {
+      "id": 822350297,
+      "name": "Футболка базовая женская летняя из хлопка",
+      "price": 361,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "Letto",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка женская",
+      "type": "Футболки",
+      "query": "футболка женская",
+      "available": null,
+      "observedAt": 1790917029000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-37.wbbasket.ru/vol8223/part822350/822350297/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/822350297/detail.aspx",
+      "history": [
+        {
+          "at": 1790915831000,
+          "price": 361,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790895797000,
+          "price": 361,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790833847000,
+          "price": 308,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790784601000,
+          "price": 308,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790776517000,
+          "price": 308,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790764678000,
+          "price": 308,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790762741000,
+          "price": 308,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790917029,
+      "metadataSource": "https://basket-37.wbbasket.ru/vol8223/part822350/822350297/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728653129,
+      "fashionGroup": "clothing",
+      "imageHash": "76b342511bfcc577289cc507e0a14e8b96d91a944592a7ef25606af5eeedd876",
+      "localPhoto": "photos/822350297.webp",
+      "photoVerifiedAt": 1791728653792
+    },
+    {
+      "id": 1404893158,
+      "name": "Худи оверсайз без начеса",
+      "price": 977,
+      "oldPrice": 0,
+      "rating": 4.5,
+      "reviews": null,
+      "brand": "FOREALS",
+      "category": "Худи",
+      "categoryVerified": true,
+      "historicalTopic": "Худи",
+      "type": "Худи",
+      "query": "Худи",
+      "available": null,
+      "observedAt": 1790912500000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-46.wbbasket.ru/vol14048/part1404893/1404893158/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1404893158/detail.aspx",
+      "history": [
+        {
+          "at": 1790925562000,
+          "price": 977,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790913903000,
+          "price": 977,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790911915000,
+          "price": 977,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790829930000,
+          "price": 788,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790912500,
+      "metadataSource": "https://basket-46.wbbasket.ru/vol14048/part1404893/1404893158/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728646966,
+      "fashionGroup": "clothing",
+      "imageHash": "c04ada0c6034b98d7b3baccb7ee1e9a835fee4f986a4319f08917c9cf95d0a88",
+      "localPhoto": "photos/1404893158.webp",
+      "photoVerifiedAt": 1791728647788
+    },
+    {
+      "id": 1007813513,
+      "name": "Футболка хлопковая с надписью",
+      "price": 356,
+      "oldPrice": 0,
+      "rating": 4.9,
+      "reviews": null,
+      "brand": "ТВОЕ",
+      "category": "Футболки",
+      "categoryVerified": true,
+      "historicalTopic": "футболка мужская",
+      "type": "Футболки",
+      "query": "футболка мужская",
+      "available": null,
+      "observedAt": 1790743026000,
+      "priceSource": "legacy_snapshot",
+      "currency": "RUB",
+      "variantKey": "unknown",
+      "context": null,
+      "image": "https://basket-41.wbbasket.ru/vol10078/part1007813/1007813513/images/big/1.webp",
+      "url": "https://www.wildberries.ru/catalog/1007813513/detail.aspx",
+      "history": [
+        {
+          "at": 1790894975000,
+          "price": 406,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790772569000,
+          "price": 333,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790770597000,
+          "price": 333,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790752982000,
+          "price": 356,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790750987000,
+          "price": 356,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790743026000,
+          "price": 356,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        },
+        {
+          "at": 1790741193000,
+          "price": 356,
+          "source": "legacy_observation",
+          "variantKey": "unknown",
+          "context": null
+        }
+      ],
+      "queuedAt": 1790743026,
+      "metadataSource": "https://basket-41.wbbasket.ru/vol10078/part1007813/1007813513/info/ru/card.json",
+      "evidenceNote": "Цена/рейтинг из сохранённого снимка, не подтверждены сегодня; наличие, размер и условия оплаты неизвестны.",
+      "alreadyPublished": true,
+      "metadataVerifiedAt": 1791728675112,
+      "fashionGroup": "clothing",
+      "imageHash": "a09785e541342f5a96825bb4de4dc9d81b0d7cfb8a0bb3955a5d9507f3ab7ddb",
+      "localPhoto": "photos/1007813513.webp",
+      "photoVerifiedAt": 1791728675826
+    }
+  ],
+  "collection": {
+    "metadataRequests": 47,
+    "imageRequests": 40,
+    "stop": null,
+    "maxSeconds": 180,
+    "maxMetadataRequests": 70,
+    "maxImageRequests": 40,
+    "parallelism": 1,
+    "minimumPauseMs": 500,
+    "reused": 0
+  },
+  "selection": {
+    "target": 40,
+    "total": 40,
+    "shortfall": 0,
+    "byGroup": {
+      "clothing": 30,
+      "shoes": 5,
+      "bags": 3,
+      "accessories": 2
+    },
+    "byCategory": {
+      "Блузки": 4,
+      "Кеды": 2,
+      "Сумки": 3,
+      "Серьги": 2,
+      "Бюстгальтеры": 1,
+      "Кроссовки": 3,
+      "Джинсы": 3,
+      "Костюмы": 1,
+      "Платья": 3,
+      "Топы": 1,
+      "Футболки": 7,
+      "Худи": 6,
+      "Юбки": 4
+    }
+  },
+  "allPreviouslyRatedExcluded": true,
+  "excludedRatedCount": 53,
+  "sourceNote": "Реальные товары из исторического снимка канала, но не из ваших оценок. Категория и фотографии проверены публичным WB CDN. Это не новый live-search и не подтверждение сегодняшней цены/наличия.",
+  "priceNote": "Цены и рейтинг исторические; число отзывов, сегодняшняя цена, наличие и размеры неизвестны. Фото-тест НЕ разрешает публикацию.",
+  "additionalAiCalls": 0,
+  "productionWrites": 0
+}

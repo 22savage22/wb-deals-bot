@@ -138,3 +138,18 @@ deduplication/change conflicts, category gates, action counts, archive roundtrip
 profile separation, exact reviewed-image evidence, hypothesis exclusion,
 group-scoped support/reporting, immutability and no I/O. It does not prove a
 production import route exists.
+# Prospective experiment extension (PR10, offline only)
+
+Future transport should support an immutable version-1 PHOTO_TASTE experiment:
+experiment ID, candidate/photo manifest hash, frozen training-file hash/time,
+strict owner-selected profile namespace, separate test votes and persistent
+idempotency receipts/revisions. Keep both algorithms on the same unseen batch.
+Do not import client-provided models, predicted scores, traits or completion
+metrics as trusted data. Recompute/verify server-side from a reviewed manifest.
+Opening an admin screen must remain read-only; creating/importing a test needs
+an explicit action and must preserve production's existing 30-minute settings.
+Do not retrain frozen predictions with test votes. Preserve first completion
+and mark later edits as corrections, not new blind trials. Reuse existing
+main-bot signed initData + allowlisted owner check. Local Host/CSRF protection
+is not an alternative production authentication mechanism. No admin route,
+D1 migration or production deployment is enabled by this extension.

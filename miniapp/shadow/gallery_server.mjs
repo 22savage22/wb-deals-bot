@@ -4,10 +4,13 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomBytes,createHash} from 'node:crypto';
 import {createTasteState,setTasteRating,setAudienceSignals,buildTasteProfile,trimTasteState} from './taste.mjs';
-import {compareShadow} from './ranking.mjs';
+import {compareSameCandidates} from './comparison.mjs';
+import {fashionCategory} from './calibration.mjs';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 export async function createGalleryServer({reportPath=path.join(root,'docs/shadow-20261011/report.json'),statePath=path.join(root,'.test-temp/value-taste/ratings.json'),port=8772,clock=Date.now}={}){
   const report=JSON.parse(await fs.readFile(reportPath,'utf8')),products=new Map(report.products.map(p=>[p.id,p]));
+  const fashionIds=new Set(report.products.filter(p=>fashionCategory(p).allowed&&(!report.fashionIds||report.fashionIds.includes(p.id))).map(p=>p.id));
+  const fashionProducts=report.products.filter(p=>fashionIds.has(p.id));
   const html=await fs.readFile(new URL('./gallery.html',import.meta.url));
   let ratings=createTasteState(),serial=Promise.resolve();const csrf=randomBytes(32).toString('base64url');
   // A wall-clock correction during one session must not trim just-saved votes.
@@ -20,7 +23,7 @@ export async function createGalleryServer({reportPath=path.join(root,'docs/shado
   // Import ONLY public aggregate feedback supplied in an offline artifact,
   // never voters, user IDs, production credentials or current D1 reads.
   for(const row of report.audienceSignals||[])if(products.has(row.id))ratings=setAudienceSignals(ratings,{nmId:row.id,product:products.get(row.id),likes:row.likes,dislikes:row.dislikes,bought:row.bought},{now:now()}).state;
-  const summary=()=>{const at=now();ratings=trimTasteState(ratings,{now:at}).state;const profiles=Object.fromEntries(['owner','wife','audience'].map(p=>[p,buildTasteProfile(ratings,p)]));const assessmentsByProfile=Object.fromEntries(['owner','wife'].map(p=>[p,compareShadow(report.products,{profile:profiles[p],now:at}).assessments]));return {revision,ratings:ratings.ratings,profiles,assessments:assessmentsByProfile.owner,assessmentsByProfile};};
+  const summary=()=>{const at=now();ratings=trimTasteState(ratings,{now:at}).state;const scope={...ratings,ratings:ratings.ratings.filter(r=>fashionIds.has(r.nmId)),audience:ratings.audience.filter(r=>fashionIds.has(r.nmId))};const profiles=Object.fromEntries(['owner','wife','audience'].map(p=>[p,buildTasteProfile(scope,p)]));const compareByProfile=Object.fromEntries(['owner','wife'].map(p=>[p,compareSameCandidates(fashionProducts,{profile:profiles[p],now:at,legacyCounter:report.comparison?.legacyCounter||0})]));const assessmentsByProfile=Object.fromEntries(['owner','wife'].map(p=>[p,compareByProfile[p].assessments]));const archiveCounts=Object.fromEntries(['owner','wife'].map(p=>[p,ratings.ratings.filter(r=>r.profile===p&&!fashionIds.has(r.nmId)).length]));return {revision,ratings:ratings.ratings,profiles,archiveCounts,compareByProfile,assessments:assessmentsByProfile.owner,assessmentsByProfile};};
   const json=(res,status,data)=>{res.writeHead(status,{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff'});res.end(JSON.stringify(data));};
   const server=http.createServer(async(req,res)=>{try{
     const ownPort=server.address().port,hosts=new Set([`127.0.0.1:${ownPort}`,`localhost:${ownPort}`]);
@@ -36,7 +39,7 @@ export async function createGalleryServer({reportPath=path.join(root,'docs/shado
     if(req.method==='POST'&&url.pathname==='/api/rate'){
       if(origin!==`http://${req.headers.host}`||req.headers['x-shadow-csrf']!==csrf)return json(res,403,{error:'CSRF_DENIED'});
       let body='';for await(const chunk of req){body+=chunk;if(body.length>1000)return json(res,413,{error:'BODY_TOO_LARGE'});}
-      const data=JSON.parse(body);if(Object.keys(data).some(k=>!['profile','id','action'].includes(k))||!['owner','wife'].includes(data.profile)||!products.has(data.id))return json(res,400,{error:'INVALID_RATING'});
+      const data=JSON.parse(body);if(Object.keys(data).some(k=>!['profile','id','action'].includes(k))||!['owner','wife'].includes(data.profile)||!products.has(data.id)||!fashionIds.has(data.id))return json(res,400,{error:'INVALID_RATING'});
       if(data.action!=='undo')await verifiedPhoto(data.id);
       // Resolve all product/feature data SERVER-side; never trust client traits.
       serial=serial.catch(()=>{}).then(async()=>{

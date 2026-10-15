@@ -13,6 +13,14 @@ export async function catalogue(db){
 }
 export async function account(db,uid){const row=await q(db,'SELECT version,model,filters FROM style_accounts WHERE user_id=?',uid).first();return row?{version:row.version,model:JSON.parse(row.model),filters:JSON.parse(row.filters)}:{version:0,model:emptySubscriber(),filters:{}};}
 export async function styleMe(db,uid){const a=await account(db,uid);return {version:a.version,filters:a.filters,...subscriberSummary(a.model),source:'INDIVIDUAL_SUBSCRIBER_ONLY'};}
+export async function forgetSubscriber(db,uid){
+  // Atomic privacy cleanup. Empty revision is the only retained tombstone;
+  // stale in-flight writes cannot resurrect erased personal history.
+  await db.batch([
+    q(db,'UPDATE style_accounts SET version=version+1,model=?,filters=\'{}\',last_request=? WHERE user_id=?',JSON.stringify(emptySubscriber()),crypto.randomUUID(),uid),
+    q(db,'DELETE FROM style_votes WHERE user_id=?',uid),q(db,'DELETE FROM style_saved WHERE user_id=?',uid),q(db,'DELETE FROM feature_requests WHERE user_id=?',uid)
+  ]);
+}
 export async function styleFeed(db,uid,{mode='learn',cursor=0,now=Date.now()}={}){
   const a=await account(db,uid),catalog=await catalogue(db),ids=JSON.stringify(catalog.map(row=>row.product.id));
   const [rated,saved]=await Promise.all([
@@ -61,11 +69,12 @@ export async function mutate(db,uid,input,kind,{now=Date.now()}={}){
       else operations.push(gated(`DELETE FROM style_saved WHERE user_id=? AND pid=? AND ${gate}`,uid,input.id));
     }
   }else if(kind==='filters')nextFilters=filters(input.filters);
-  else if(kind==='reset'){
-    nextModel=emptySubscriber();nextModel.saved=model.saved??0;nextFilters={};
+  else if(kind==='reset'||kind==='forget'){
+    nextModel=emptySubscriber();nextModel.saved=kind==='reset'?model.saved??0:0;nextFilters={};
     operations.push(gated(`DELETE FROM style_votes WHERE user_id=? AND ${gate}`,uid),gated(`DELETE FROM feature_requests WHERE user_id=? AND ${gate}`,uid));
+    if(kind==='forget')operations.push(gated(`DELETE FROM style_saved WHERE user_id=? AND ${gate}`,uid));
     // Keep only an empty account revision to reject stale pre-deletion requests.
-    response.deletedHistory=true;response.favoritesKept=true;
+    response.deletedHistory=true;response.favoritesKept=kind==='reset';
   }else if(kind==='super-settings'){
     const settings=superfindSettings(input.settings);
     operations.push(gated(`INSERT INTO superfind_settings(id,version,data) SELECT 1,?,? WHERE ${gate} ON CONFLICT(id) DO UPDATE SET version=excluded.version,data=excluded.data`,nextVersion,JSON.stringify(settings)));

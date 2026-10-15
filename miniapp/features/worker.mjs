@@ -1,6 +1,7 @@
 // Isolated PREVIEW entrypoint, NOT the production worker. No scheduled() or AI binding.
 // Reuses existing Telegram signature verification and the optional D1 budget lane.
 import {telegramUser} from '../cloudflare/auth.mjs';
+import {telegramPublicUser} from './telegram_signature.mjs';
 import {withReadBudget} from '../cloudflare/read_guard.mjs';
 import {observeD1} from '../cloudflare/d1_budget.mjs';
 import {FeatureError,bad,styleMe,styleFeed,favorites,mutate,superfindState,refreshSuperfind} from './store.mjs';
@@ -37,7 +38,7 @@ async function route(request,env,ctx){
   if(!path.startsWith('/api/style/')&&!path.startsWith('/api/admin/superfind'))bad(404,'Не найдено');
   const admin=path.startsWith('/api/admin/'),origin=request.headers.get('Origin');
   if(origin&&origin!==url.origin)bad(403,'Недопустимый источник запроса');
-  let uid;try{uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),admin?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN);}catch{bad(401,'Откройте приложение через своего Telegram-бота');}
+  let uid;try{uid=await (!admin&&env.STYLE_STAGING==='1'?telegramPublicUser(request.headers.get('X-Telegram-Init-Data'),env.PUBLIC_BOT_ID):telegramUser(request.headers.get('X-Telegram-Init-Data'),admin?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN));}catch{bad(401,'Откройте приложение через своего Telegram-бота');}
   if(admin&&String(uid)!==String(env.MINIAPP_ADMIN_ID))bad(403,'Доступ только владельцу');
   if(env.RATE_LIMITER&&!(await env.RATE_LIMITER.limit({key:'features:'+uid})).success)bad(429,'Слишком много действий, подождите');
   const isRefresh=path==='/api/admin/superfind/refresh'&&method==='POST';
@@ -62,8 +63,8 @@ async function route(request,env,ctx){
     if(row.status==='queued'||row.status==='running'&&row.lease_until<Date.now())ctx.waitUntil(budget(env,500,200,e=>refreshSuperfind(e.DB,id)).catch(()=>{}));
     return json({status:row.status,...JSON.parse(row.result)});
   }
-  const reset=path==='/api/style/me'&&method==='DELETE';
-  return budget(env,500,reset?1200:method==='GET'?8:20,async e=>{
+  const reset=['/api/style/me','/api/style/history'].includes(path)&&method==='DELETE';
+  return budget(env,500,reset?1600:method==='GET'?8:20,async e=>{
     if(path==='/api/style/me'&&method==='GET')return json(await styleMe(e.DB,uid));
     if(path==='/api/style/feed'&&method==='GET'){
       const mode=url.searchParams.get('mode')??'learn',cursor=Number(url.searchParams.get('cursor')??0);
@@ -77,6 +78,7 @@ async function route(request,env,ctx){
       '/api/style/favorite':['POST','favorite',['version','requestId','id','saved']],
       '/api/style/filters':['PUT','filters',['version','requestId','filters']],
       '/api/style/me':['DELETE','reset',['version','requestId']],
+      '/api/style/history':['DELETE','forget',['version','requestId']],
       '/api/admin/superfind/settings':['PUT','super-settings',['version','requestId','settings']],
       '/api/admin/superfind/decision':['POST','super-decision',['version','requestId','id','action']],
     },entry=endpoints[path];

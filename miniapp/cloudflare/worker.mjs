@@ -35,7 +35,7 @@ async function payload(request,max=32768) {
   let data;try{data=JSON.parse(new TextDecoder().decode(buffer));}catch{fail(400,'Некорректный JSON');}
   if(!data||typeof data!=='object'||Array.isArray(data))fail(400,'Нужен JSON-объект');return data;
 }
-async function route(request,env,ctx) {
+async function route(request,env,ctx,publicAuth=telegramUser) {
   const url=new URL(request.url),path=url.pathname,method=request.method;
   if(path==='/telegram/main/webhook'&&method==='POST'){
     if(!env.TG_BOT_TOKEN||!env.MINIAPP_SYNC_KEY||!equal(request.headers.get('X-Telegram-Bot-Api-Secret-Token'),await webhookSecret(env)))fail(403,'Нет доступа');
@@ -146,7 +146,7 @@ async function route(request,env,ctx) {
   const catalog=()=>catalogSnapshot(env.DB);
   let uid;
   if(!['/api/catalog','/api/sync','/api/health'].includes(path)) {
-    try{uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));}catch{fail(401,path.startsWith('/api/admin/')?'Откройте /admin в основном боте WBmarket':'Откройте приложение заново через Telegram');}
+    try{uid=await (path.startsWith('/api/admin/')?telegramUser:publicAuth)(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));}catch{fail(401,path.startsWith('/api/admin/')?'Откройте /admin в основном боте WBmarket':'Откройте приложение заново через Telegram');}
     // Optional Cloudflare rate-limiter binding. Identity comes only from verified Telegram data.
     if(env.RATE_LIMITER && !(await env.RATE_LIMITER.limit({key:String(uid)})).success)fail(429,'Слишком много запросов. Подождите минуту.');
   }
@@ -254,7 +254,9 @@ async function route(request,env,ctx) {
   }
   fail(404,'Не найдено');
 }
-export default {
+// Injection is server-code-only, used by isolated public staging. Production
+// still uses the original HMAC verifier; owner routes NEVER use publicAuth.
+export function createWorker(publicAuth=telegramUser){return {
   async scheduled(controller,env,ctx){
     const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
     try{return await withReadBudget(runtimeEnv,'core',25000,e=>env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime):scheduledTick(e,controller.scheduledTime));}
@@ -282,12 +284,12 @@ export default {
       if(path.startsWith('/api/scheduler/')||path==='/api/sync'){
         const key=env.MINIAPP_SYNC_KEY||'';budgeted=key.length>=32&&equal(request.headers.get('Authorization'),'Bearer '+key);lane=path==='/api/sync'||path.startsWith('/api/scheduler/learning')||path.startsWith('/api/scheduler/feedback')?'optional':'core';
       }else if(path.startsWith('/api/')&&path!=='/api/health'&&!budgeted){
-        try{const uid=await telegramUser(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
+        try{const uid=await (path.startsWith('/api/admin/')?telegramUser:publicAuth)(request.headers.get('X-Telegram-Init-Data'),appToken(env,path));budgeted=!path.startsWith('/api/admin/')||String(uid)===String(env.MINIAPP_ADMIN_ID);if(path.startsWith('/api/admin/')&&String(uid)===String(env.MINIAPP_ADMIN_ID)&&!path.startsWith('/api/admin/learning'))lane='core';}catch{}
       }
       const diagnostic=path==='/api/scheduler/diagnostic'&&request.method==='GET';
       if(diagnostic)lane='diagnostic';
       const readOnly=request.method==='GET'&&['/api/scheduler/config','/api/scheduler/budget','/api/scheduler/check','/api/scheduler/diagnostic','/api/scheduler/owner/status','/api/admin/overview','/api/admin/diagnostics','/api/admin/queue','/api/admin/search','/api/admin/search/history','/api/admin/config/history','/api/admin/selection','/api/admin/selection/similar','/api/admin/selection/suggestions'].includes(path);
-      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx),readOnly?{writes:4}:path.startsWith('/api/scheduler/learning/visual/')?{writes:request.method==='GET'?4:2048}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx);
+      response=budgeted?await withReadBudget(runtimeEnv,lane,diagnostic?1500:lane==='core'?25000:15000,e=>route(request,e,ctx,publicAuth),readOnly?{writes:4}:path.startsWith('/api/scheduler/learning/visual/')?{writes:request.method==='GET'?4:2048}:path.startsWith('/api/admin/learning')?{writes:512}:path==='/api/admin/schedule/preview'?{writes:4}:path==='/api/scheduler/bootstrap'?{writes:5000}:{}):await route(request,runtimeEnv,ctx,publicAuth);
       if(publicCatalog&&cache&&response.ok){const cached=response.clone();cached.headers.set('Cache-Control','public, max-age=60');ctx.waitUntil(cache.put(cacheKey,cached).catch(()=>{}));}
       }
     } catch(error) {
@@ -305,4 +307,5 @@ export default {
     secured.headers.set('Cache-Control',new URL(request.url).pathname.startsWith('/api/')?'no-store':'no-cache');
     return secured;
   }
-};
+};}
+export default createWorker();

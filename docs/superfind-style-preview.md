@@ -2,6 +2,12 @@
 
 Status: **Draft, local preview only. Not merged or deployed.**
 
+Continuation: the next isolated Telegram staging phase is documented in
+`docs/style-staging-rollout.md`. It adds a server-only public-auth factory to
+the existing Worker (default production HMAC behavior unchanged), copied public
+assets/navigation and a separate staging entrypoint/config. The statements
+below describe the initial local checkpoint; they are not a live staging receipt.
+
 ## Isolation and reuse
 
 Branch `codex/superfind-my-style-preview-20261014` starts at main
@@ -121,7 +127,8 @@ Local rows returned/statements must not be presented as billed D1 rows_read.
 - 203 existing SHADOW tests +209 existing Worker tests PASS (437 total).
 - `npm run build`, `npm run check:features`, JS syntax PASS. Isolated browser
   Worker bundle90.8 KiB; no Node SQLite module in that bundle.
-- Existing production/admin/public source diff against main is empty.
+- At the initial local checkpoint the production/admin/public source diff was
+  empty. See the subsequent reviewed auth-factory-only diff in the staging phase.
 - Chromium390x844: real photos decode, no horizontal overflow or page errors.
   Four ratings and one favorite persisted after reload; subscriber B remained
   empty. A server-committed vote whose response was deliberately lost stayed

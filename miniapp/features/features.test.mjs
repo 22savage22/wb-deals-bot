@@ -122,6 +122,19 @@ test('reset removes only that subscriber history/profile and rejects stale pre-r
     assert.equal((await f.call('/api/style/vote',{method:'POST',data:old})).status,409);assert.equal(f.db.sqlite.prepare('SELECT count(*) AS n FROM style_votes WHERE user_id=11').get().n,0);
   }finally{f.db.close();}
 });
+test('explicit full-history deletion also removes own favorites, keeps other user data and deduplicates retry',async()=>{
+  const f=await fixture();try{
+    await f.call('/api/style/vote',{method:'POST',data:command(0,700)});
+    await f.call('/api/style/favorite',{method:'POST',data:{version:1,requestId:'request-fixture-favorite-erase',id:700,saved:true}});
+    await f.call('/api/style/vote',{id:22,method:'POST',data:command(0,701)});
+    const data={version:2,requestId:'request-fixture-delete-all'};
+    assert.equal((await f.call('/api/style/history',{method:'DELETE',data})).status,200);
+    assert.equal((await f.call('/api/style/history',{method:'DELETE',data})).status,200);
+    assert.equal((await (await f.call('/api/style/me')).json()).rated,0);assert.deepEqual((await (await f.call('/api/style/favorites')).json()).items,[]);
+    assert.equal((await (await f.call('/api/style/me',{id:22})).json()).rated,1);
+    assert.equal((await f.call('/api/style/vote',{method:'POST',data:command(2,702)})).status,409);
+  }finally{f.db.close();}
+});
 test('indexed point/range queries and shared one-row catalogue, no history/count scans per click',async()=>{
   const f=await fixture();try{f.db.queries=[];await f.call('/api/style/feed');assert.ok(f.db.queries.some(x=>x.sql.includes('shared_catalog_snapshot')));
     assert.ok(!f.db.queries.some(x=>/count\(|SELECT.+FROM feature_catalog ORDER|SELECT.+FROM style_votes ORDER/i.test(x.sql)));

@@ -60,6 +60,14 @@ async function refresh(){if(adminPage)return loadAdmin();const me=await api('/ap
 async function start(){
   window.Telegram?.WebApp?.ready();window.Telegram?.WebApp?.expand();
   state.initData=window.Telegram?.WebApp?.initData??'';
+  if(!state.initData&&window.parent!==window){
+    state.initData=await new Promise((resolve,reject)=>{
+      const handler=event=>{if(event.origin===location.origin&&event.source===window.parent&&event.data?.type==='style-init'&&typeof event.data.initData==='string'){clearTimeout(timer);window.removeEventListener('message',handler);resolve(event.data.initData);}};
+      const timer=setTimeout(()=>{window.removeEventListener('message',handler);reject(Error('Откройте тестовую версию через кнопку Telegram-бота'));},10000);
+      window.addEventListener('message',handler);window.parent.postMessage({type:'style-ready'},location.origin);
+    });
+  }
+  if(window.parent!==window){const back=node('button','← Находки');back.onclick=()=>window.parent.postMessage({type:'style-close'},location.origin);document.querySelector('header').prepend(back);}
   if(!state.initData&&location.hostname==='127.0.0.1'){
     const profile=adminPage?'admin':new URL(location.href).searchParams.get('profile')??'a',response=await fetch(`/preview/session?profile=${encodeURIComponent(profile)}`),session=await response.json();state.initData=session.initData;
     if(!adminPage){$('session').hidden=false;$('demo-profile').value=profile;}
@@ -71,6 +79,7 @@ document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>showTab(b.datas
 $('demo-profile').onchange=()=>{const u=new URL(location.href);u.searchParams.set('profile',$('demo-profile').value);location.href=u;};
 $('filters-form').onsubmit=e=>{e.preventDefault();const filters={group:$('group').value};for(const [key,id] of [['minPrice','min-price'],['maxPrice','max-price']])if($(id).value!=='')filters[key]=Number($(id).value);write('/api/style/filters','PUT',{filters},async()=>{setFilterForm(filters);await loadFeed();});};
 $('reset').onclick=()=>{if(confirm('Удалить только ваши оценки, фильтры и профиль вкуса? Избранное останется.'))write('/api/style/me','DELETE',{},async()=>{setFilterForm({});preferences();await loadFeed();});};
+const eraseAll=node('button','Удалить также избранное «Моего стиля»','danger');$('reset').after(eraseAll);eraseAll.onclick=()=>{if(confirm('Удалить все ваши оценки, предпочтения, фильтры и избранное «Моего стиля»?'))write('/api/style/history','DELETE',{},async()=>{setFilterForm({});preferences();await loadFeed();});};
 $('super-settings').onsubmit=e=>{e.preventDefault();const settings={...state.superSettings,enabled:$('super-enabled').checked,minRating:Number($('min-rating').value),minReviews:Number($('min-reviews').value),minSavings:Number($('min-savings').value)};write('/api/admin/superfind/settings','PUT',{settings},loadAdmin);};
 $('refresh-super').onclick=async()=>{
   if(state.busy)return;busy(true);$('error').hidden=true;

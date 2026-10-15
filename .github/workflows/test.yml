@@ -95,4 +95,7 @@ jobs:
       - run: npm ci --ignore-scripts && npm run check:deploy
       - run: node --test miniapp/cloudflare/*.test.mjs
       - run: node --test miniapp/shadow/*.test.mjs
+      - run: node --test miniapp/features/*.test.mjs
+      - run: node --check miniapp/features/ui/app.js
+      - run: npm run check:features
       - run: docker build -f miniapp/Dockerfile -t finds-miniapp:test .

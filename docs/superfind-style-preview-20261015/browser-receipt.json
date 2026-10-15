@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-15",
+  "scope": "LOCAL_ISOLATED_PREVIEW_ONLY",
+  "viewport": "390x844",
+  "realPhotoCount": 80,
+  "reviewedVisualProfiles": 7,
+  "horizontalOverflow": false,
+  "pageErrors": [],
+  "lostCommittedResponse": {"votesBeforeRetry": 1, "votesAfterRetry": 1},
+  "doubleClick": "ONE_VOTE",
+  "subscriberA": {"ratings": 4, "favorites": 1, "persistedAfterReload": true},
+  "subscriberB": {"ratings": 0, "favorites": 0, "accountDefaultsWritten": false},
+  "superfind": {"checked": 40, "eligible": 0, "published": 0},
+  "localApiMilliseconds": {"initialMe": 11.7, "initialFeed": 58.2, "reloadMe": 7.8, "reloadFeed": 13.5},
+  "localSqlScenarioIncludingSeed": {"statements": 356, "returnedRows": 101, "d1BilledRowsRead": null},
+  "externalCalls": {"cloudflare": 0, "remoteD1": 0, "telegram": 0, "wildberries": 0, "ai": 0},
+  "limitations": ["Historical photos, not current price/stock proof", "Not an independent recommendation-quality test", "Not a deployed Telegram Mini App", "Local SQLite cannot measure D1 billing"]
+}

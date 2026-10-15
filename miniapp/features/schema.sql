@@ -1,0 +1,21 @@
+-- Additive isolated feature storage. NEVER execute against production without approval.
+CREATE TABLE IF NOT EXISTS feature_catalog(id INTEGER PRIMARY KEY,data TEXT NOT NULL,visual TEXT NOT NULL DEFAULT 'null',checked_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS feature_catalog_checked ON feature_catalog(checked_at DESC,id DESC);
+CREATE TABLE IF NOT EXISTS style_accounts(user_id INTEGER PRIMARY KEY,version INTEGER NOT NULL DEFAULT 0,model TEXT NOT NULL DEFAULT '{"version":1,"samples":0,"seen":0,"stats":{},"blocked":[]}',filters TEXT NOT NULL DEFAULT '{}',last_request TEXT NOT NULL DEFAULT '');
+CREATE TABLE IF NOT EXISTS style_votes(user_id INTEGER NOT NULL,pid INTEGER NOT NULL,action TEXT NOT NULL,features TEXT NOT NULL,ts INTEGER NOT NULL,PRIMARY KEY(user_id,pid));
+CREATE INDEX IF NOT EXISTS style_votes_user_ts ON style_votes(user_id,ts DESC,pid);
+CREATE TABLE IF NOT EXISTS style_saved(user_id INTEGER NOT NULL,pid INTEGER NOT NULL,ts INTEGER NOT NULL,PRIMARY KEY(user_id,pid));
+CREATE INDEX IF NOT EXISTS style_saved_user_ts ON style_saved(user_id,ts DESC,pid);
+CREATE TABLE IF NOT EXISTS feature_requests(user_id INTEGER NOT NULL,id TEXT NOT NULL,payload TEXT NOT NULL,response TEXT NOT NULL,version INTEGER NOT NULL,PRIMARY KEY(user_id,id));
+CREATE INDEX IF NOT EXISTS feature_requests_user_version ON feature_requests(user_id,version);
+CREATE TABLE IF NOT EXISTS feature_budget(day TEXT PRIMARY KEY,reads INTEGER NOT NULL,writes INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS feature_meta(key TEXT PRIMARY KEY,value TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS feature_publications(pid INTEGER PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS superfind_settings(id INTEGER PRIMARY KEY CHECK(id=1),version INTEGER NOT NULL,data TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS superfind_candidates(pid INTEGER PRIMARY KEY,data TEXT NOT NULL,assessment TEXT NOT NULL,evidence_hash TEXT NOT NULL,state TEXT NOT NULL,ts INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS superfind_candidates_state_ts ON superfind_candidates(state,ts DESC,pid);
+CREATE TABLE IF NOT EXISTS superfind_decisions(id INTEGER PRIMARY KEY AUTOINCREMENT,pid INTEGER NOT NULL,decision TEXT NOT NULL,ts INTEGER NOT NULL,evidence_hash TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS superfind_decisions_ts ON superfind_decisions(ts DESC,id DESC);
+CREATE TABLE IF NOT EXISTS feature_jobs(id TEXT PRIMARY KEY,status TEXT NOT NULL,created_at INTEGER NOT NULL,lease_until INTEGER NOT NULL DEFAULT 0,result TEXT NOT NULL DEFAULT '{}');
+CREATE INDEX IF NOT EXISTS feature_jobs_status_lease ON feature_jobs(status,lease_until);
+CREATE TABLE IF NOT EXISTS feature_job_lock(id INTEGER PRIMARY KEY CHECK(id=1),job_id TEXT NOT NULL,owner TEXT NOT NULL,expires INTEGER NOT NULL);

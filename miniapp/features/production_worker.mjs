@@ -1,5 +1,5 @@
-// PREPARED ENTRYPOINT ONLY. The checked-in production Wrangler config still
-// points at the original Worker. All new flags default OFF; no new Cron/token.
+// Feature-gated composition: original production scheduler and routes stay in
+// place. New subscriber features default OFF until explicitly enabled.
 import original from '../cloudflare/worker.mjs';
 import featureWorker from './worker.mjs';
 import {telegramUser} from '../cloudflare/auth.mjs';

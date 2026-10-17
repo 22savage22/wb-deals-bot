@@ -277,6 +277,7 @@ export async function bootstrap(env,data){
   ]);
   await status(env,{bootstrap_at:now,native_configured:true});return {ok:true,queue_size:(await readState(env)).count};
 }
+const WB_VALIDATION_UNAVAILABLE=Symbol('wb-validation-unavailable');
 async function validateQueued(env,item,policy,fetcher,options){
   const saved=JSON.parse(item.data),attemptAt=Date.now();let card,receipt;
   // Check the OLD queue before any network work, not just newly found cards.
@@ -288,7 +289,7 @@ async function validateQueued(env,item,policy,fetcher,options){
     // failed attempt is NOT a new price observation, even for a recent cache.
     const fallback={...saved,priceStatus:'unconfirmed',fallback:true,priceContextConfirmed:false,retailConfirmed:false,retailPriceConfirmed:false,
       validationAttemptAt:attemptAt,validationFailedAt:Date.now(),validation_error:/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable'};
-    await q(env,'UPDATE scheduler_inventory SET retry_at=?,data=? WHERE pid=?',sec()+300,JSON.stringify(fallback),item.pid).run();return null;
+    await q(env,'UPDATE scheduler_inventory SET retry_at=?,data=? WHERE pid=?',sec()+300,JSON.stringify(fallback),item.pid).run();return WB_VALIDATION_UNAVAILABLE;
   }
   const now=sec();let deal=card?cardDeal(card,policy,receipt):null;
   if(deal&&selectionReason(deal,policy))return null;
@@ -331,7 +332,11 @@ async function publish(env,state,fetcher,options){
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid,...(qualitySettings(current.policy).enabled?{selection_explanation:candidateQuality(JSON.parse(item.data),current.policy,feedback,feedback?.visual?.get(item.pid)||[])}:{})});
-      const deal=await validateQueued(env,item,current.policy,fetcher,options);if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
+      const deal=await validateQueued(env,item,current.policy,fetcher,options);
+      // Failing closed must not turn the removed cached-price send into up to
+      // three WB failures in one cycle. Wait for the existing scheduler retry.
+      if(deal===WB_VALIDATION_UNAVAILABLE){if(preferred)await cancelPreferred();return {result:preferred?'requested_product_invalid':'no_eligible_product'};}
+      if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.policy=JSON.parse(latest.policy||'{}');
@@ -536,7 +541,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
       state=await selectionState(env,state,true);
       const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
-      if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher,options))};
+      if(item){const validated=await validateQueued(env,item,state.policy,fetcher,options);results.preflight={product_id:item.pid,valid:validated!==WB_VALIDATION_UNAVAILABLE&&Boolean(validated)};}
       await status(env,{last_preflight:now});
     }
     // A successful send and a catalogue scan use separate minute ticks. This

@@ -6,12 +6,14 @@
 
 ## Автоматические проверки
 
-- Полный JS набор: **625 PASS, 0 FAIL, 1 штатный opt-in skip** (626 tests).
+- Полный JS набор: **626 PASS, 0 FAIL, 1 штатный opt-in skip** (627 tests).
   Cloudflare scheduler/admin, SHADOW, features/MyStyle, Superfind и prices.
 - Сценарий с 13-часовой ценой и повторными 403 теперь запрещает публикацию;
   исходные price/stock/checked timestamps сохраняются.
 - Недоступный дешёвый размер, противоречивые остатки, missing/duplicate SKU,
   копейки, HTTP/timeout fallback и безопасные подписи проверены отдельно.
+- Три recent cache кандидата + 403/timeout дают только один WB вызов и ноль
+  публикаций: удаление fallback не увеличивает WB нагрузку текущего post-cycle.
 - OFF/TTL, отдельная D1, run isolation, дедупликация, переполнение сообщения,
   сломанный поток, отказ хранилища и отсутствие утечки ошибок проверены.
 - Main deployment dry-run и отдельная сборка collector прошли. Dry-run не
@@ -76,7 +78,7 @@ Runtime включает явный start, captures и отказ после ter
 `.test-temp/passive-budget-report.json`. Они явно помечены synthetic/local;
 не содержат секретов или production database contents.
 
-Объём этапа: **29 файлов, +1551 / −53 строки** от `43fc5963`. Рабочий `wrangler.jsonc`,
+Объём этапа: **29 файлов, +1575 / −54 строки** от `43fc5963`. Рабочий `wrangler.jsonc`,
 MyStyle/features, PR14 bans, SHADOW/Vision и workflows в этом этапе не менялись.
 Цена после будущего исправления может не пройти публикацию при ошибке WB:
 неизменное расписание не должно превращать fallback в подтверждённую цену.

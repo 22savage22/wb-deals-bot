@@ -91,6 +91,20 @@ test('a recent cache also fails closed; a separate successful live response rest
   assert.equal(published.priceObservedAt,published.stockObservedAt);assert.equal(published.retailConfirmed,false);assert.equal(published.context.paymentBasis,'unknown');
 });
 
+test('unavailable WB stops this publication cycle after one request even with several recent cached candidates',async t=>{
+  for(const failure of ['403','timeout']){
+    const original=Date.now()-1000,queue=[1000,1001,1002].map(id=>({...queued(id),priceObservedAt:original,stockObservedAt:original}));
+    const env=await fixture(t,queue),calls=[];
+    env.db.prepare('UPDATE scheduler_inventory SET checked_at=?').run(Math.floor(original/1000));
+    const result=await nativeTick(env,Date.now(),async url=>{calls.push(url);assert.match(url,/card\.wb\.ru/);if(failure==='timeout')throw Error('fixture timeout');return new Response('fixture denied',{status:403});});
+    assert.equal(result.results.post.result,'no_eligible_product');assert.equal(calls.length,1);
+    assert.equal(env.db.prepare('SELECT count(*) n FROM scheduler_posts').get().n,0);
+    assert.equal(env.db.prepare("SELECT count(*) n FROM scheduler_inventory WHERE json_extract(data,'$.fallback')=1").get().n,1);
+    const rows=env.db.prepare('SELECT data,checked_at FROM scheduler_inventory').all();
+    assert.ok(rows.every(row=>row.checked_at===Math.floor(original/1000)&&JSON.parse(row.data).priceObservedAt===original));
+  }
+});
+
 test('passive callback runs after JSON, cannot mutate publication, and an unresolved hook promise does not delay posting',{timeout:5000},async t=>{
   const env=await fixture(t),calls=[],events=[],order=[];let completedAt=0,body;
   const fetcher=live(calls,{send:value=>{body=value;}});

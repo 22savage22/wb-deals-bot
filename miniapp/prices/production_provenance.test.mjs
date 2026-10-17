@@ -1,4 +1,4 @@
-// Forensic replay of unchanged production code; every external request is a
+// Forensic regression of the native price path; every external request is a
 // fixture. This is evidence of a code path, never a real price or Telegram send.
 import test from 'node:test';import assert from 'node:assert/strict';
 import {LocalD1} from '../features/local_d1.mjs';

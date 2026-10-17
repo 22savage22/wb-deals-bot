@@ -1,16 +1,19 @@
 import React,{useEffect,useRef,useState} from 'react';
+import {AudienceQuality} from './audience-quality.jsx';
 const groups={clothes:'Одежда',shoes:'Обувь',accessories:'Аксессуары',other:'Другое'};
 const lists={included_categories:'Включённые категории (пусто — все)',excluded_categories:'Исключённые категории',allowed_brands:'Разрешённые бренды (пусто — все)',excluded_brands:'Исключённые бренды',blocked_words:'Слова-исключения',blacklist:'Исключённые артикулы или части названия бренда'};
 export function SelectionManager({client,onDirty}){
   const [data,setData]=useState(null),[draft,setDraft]=useState(null),[dirty,setDirty]=useState(false),[busy,setBusy]=useState(false),[error,setError]=useState(''),[message,setMessage]=useState(''),[pid,setPid]=useState(''),[similar,setSimilar]=useState(null),[versions,setVersions]=useState(null);const lock=useRef(false);
-  async function load(){const r=await client.api('/api/admin/selection');setData(r);setDraft(r.settings);setDirty(false);onDirty(false);}
+  const [qualityDirty,setQualityDirty]=useState(false);
+  useEffect(()=>{onDirty(dirty||qualityDirty);},[dirty,qualityDirty]);
+  async function load(){const r=await client.api('/api/admin/selection');setData(r);setDraft(r.settings);setDirty(false);}
   useEffect(()=>{load().catch(e=>setError(e.message));},[]);
-  function edit(k,v){setDraft(x=>({...x,[k]:v}));setDirty(true);onDirty(true);setMessage('');}
+  function edit(k,v){setDraft(x=>({...x,[k]:v}));setDirty(true);setMessage('');}
   async function run(fn){if(lock.current)return;lock.current=true;setBusy(true);setError('');try{await fn();}catch(e){setError(e.message);}finally{lock.current=false;setBusy(false);}}
   const button=(label,fn,disabled=false)=><button type="button" className="control-button" disabled={busy||disabled} onClick={()=>run(fn)}>{label}</button>;
   async function confirmSave(){const tg=window.Telegram?.WebApp;return tg?.showConfirm?new Promise(resolve=>tg.showConfirm('Сохранить новые правила подбора? Это изменит фильтрацию товаров.',resolve)):window.confirm('Сохранить новые правила подбора? Это изменит фильтрацию товаров.');}
   if(!draft)return <div className="panel">{error||'Загружаем действующий подбор…'}{error&&button('Повторить',load)}</div>;
-  return <section aria-busy={busy}><div className="panel"><span className="eyebrow">Тема вашего канала</span><h2>🎯 Подбор товаров</h2><p>{data.note}</p>{!data.active&&<p className="notice muted">Расширенные правила ещё не сохранены. Работают прежние фильтры и порядок Legacy. Пример долей ниже не применяется.</p>}{error&&<p role="alert" className="notice red">{error}</p>}{message&&<p role="status" className="notice green">{message}</p>}
+  return <section aria-busy={busy}><AudienceQuality client={client} onDirty={setQualityDirty}/><div className="panel"><span className="eyebrow">Тема вашего канала</span><h2>🎯 Подбор товаров</h2><p>{data.note}</p>{!data.active&&<p className="notice muted">Расширенные правила ещё не сохранены. Работают прежние фильтры и порядок Legacy. Пример долей ниже не применяется.</p>}{error&&<p role="alert" className="notice red">{error}</p>}{message&&<p role="status" className="notice green">{message}</p>}
     <fieldset className="ui-controls" disabled={busy}>
       <div className="metrics">{Object.entries({min_price:'Цена от, ₽',max_price:'Цена до, ₽ (0 — без лимита)',min_rating:'Рейтинг от',min_feedbacks:'Число отзывов от'}).map(([k,label])=><label key={k} className="control-label">{label}<input type="number" min="0" step={k==='min_rating'?'.1':'1'} max={k==='min_rating'?5:10000000} value={draft[k]} onChange={e=>edit(k,Number(e.target.value))}/></label>)}</div>
       {Object.entries(lists).map(([k,label])=><label className="control-label" key={k}>{label}<textarea rows="2" value={Array.isArray(draft[k])?draft[k].join('\n'):draft[k]} onChange={e=>edit(k,e.target.value)} placeholder="Одно значение на строку"/></label>)}

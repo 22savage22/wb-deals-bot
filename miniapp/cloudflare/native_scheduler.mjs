@@ -8,6 +8,10 @@ import {withReadBudget} from './read_guard.mjs';
 import {queryRules,discoveryQueries} from './query_control.mjs';
 import {recordDiscovery} from './admin_history.mjs';
 import {selectionReason,diverseChoice} from './selection_policy.mjs';
+import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './audience_quality.mjs';
+import {audienceContext} from './audience_feedback.mjs';
+import {reconcileOwnerInventory} from './audience_inventory.mjs';
+import {enrichSubject} from './product_subject.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -44,18 +48,22 @@ export function postDue(s,last,now,manual=false){
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
-export function choose(rows,recent,total=0,policy={}){
+export function choose(rows,recent,total=0,policy={},feedback=null){
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
   const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
-  const custom=diverseChoice(eligible,recent,policy);if(custom!==undefined)return custom;
+  const quality=qualitySettings(policy).enabled,ordered=[];
+  const custom=diverseChoice(eligible,recent,policy);if(custom!==undefined&&!quality)return custom;
+  if(custom)ordered.push(custom);
   const target=pattern[total%pattern.length],fallback={women:['women','neutral','men'],men:['men','women','neutral'],neutral:['neutral','women','men']}[target]||[target,'women','neutral','men'];
   for(const group of [...fallback,'any']){
     const matches=eligible.filter(row=>{const p=groups(JSON.parse(row.data));return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
     if(matches.length){
       const verified=matches.filter(p=>p.checked_at>0&&safeImage(JSON.parse(p.data).image));
-      return verified.find(p=>p.topic!==recent.at(-1)?.topic)||verified[0]||matches.find(p=>p.topic!==recent.at(-1)?.topic)||matches[0];
+      const first=verified.find(p=>p.topic!==recent.at(-1)?.topic)||verified[0]||matches.find(p=>p.topic!==recent.at(-1)?.topic)||matches[0];
+      if(!quality)return first;
+      for(const row of [first,...verified,...matches])if(!ordered.includes(row))ordered.push(row);
     }
-  }return null;
+  }return quality?qualityRank(ordered,recent,policy,feedback)[0]||null:null;
 }
 async function runtime(env,body){
   const request=new Request('https://internal/api/scheduler/runtime',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
@@ -161,8 +169,10 @@ export async function bootstrap(env,data){
   // are accepted or persisted; the channel ID is configuration, not a bot token.
   if(!Array.isArray(data.queue)||data.queue.length>300||!data.policy||!Array.isArray(data.posts)||data.posts.length>3000)throw new Error('Invalid bootstrap');
   const raw=data.policy,policy={chat_id:String(raw.chat_id||''),queries:(raw.queries||[]).filter(x=>typeof x==='string'&&x.length<=100).slice(0,100),max_price:Number(raw.max_price||0),min_rating:Number(raw.min_rating??4.3),min_feedbacks:Number(raw.min_feedbacks??20),blacklist:(raw.blacklist||[]).map(String).slice(0,200),blocked_words:(raw.blocked_words||[]).map(String).slice(0,200),disabled_topics:(raw.disabled_topics||[]).map(x=>String(x).toLowerCase()).slice(0,200),total_posts:Number(raw.total_posts||0)};
+  const existingPolicy=await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first();
+  if(existingPolicy){const previous=JSON.parse(existingPolicy.data);if(previous.audience_quality)policy.audience_quality=previous.audience_quality;}
   if(!/^(?:-?\d{5,20}|@[a-zA-Z0-9_]{5,})$/.test(policy.chat_id)||!policy.queries.length||!Number.isFinite(policy.max_price)||policy.max_price<0)throw new Error('Invalid channel policy');
-  const now=sec(),counts=new Map(),queue=data.queue.filter(p=>{try{normalize(p);}catch{return false;}const t=topic(p);if((counts.get(t)||0)>=8)return false;counts.set(t,(counts.get(t)||0)+1);return true;});
+  const now=sec(),counts=new Map(),queue=data.queue.filter(p=>{try{normalize(p);}catch{return false;}if(selectionReason(p,policy))return false;const t=topic(p);if((counts.get(t)||0)>=8)return false;counts.set(t,(counts.get(t)||0)+1);return true;});
   const posts=data.posts.filter(p=>Number.isSafeInteger(p.pid)&&p.pid>0&&Number.isSafeInteger(p.ts)&&p.ts>now-14*86400&&p.ts<=now);
   await env.DB.batch([
     q(env,'INSERT OR REPLACE INTO scheduler_policy(id,data) VALUES(1,?)',JSON.stringify(policy)),
@@ -179,9 +189,13 @@ export async function bootstrap(env,data){
 }
 async function validateQueued(env,item,policy,fetcher){
   const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
+  // Check the OLD queue before any network work, not just newly found cards.
+  // Keep the row/history so re-enabling a category is reversible.
+  if(selectionReason(saved,policy))return null;
   try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
   catch(error){unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
   let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
+  if(deal&&selectionReason(deal,policy))return null;
   if(!deal||deal.product>saved.product*1.1){
     const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
     const reason=!card&&!unavailable?'WB_CARD_MISSING':!deal?'CARD_FILTER':'PRICE_INCREASE';
@@ -190,6 +204,10 @@ async function validateQueued(env,item,policy,fetcher){
   deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
   deal={...deal,...await imageFor(env,deal,fetcher)};
   if(!deal.image){deal.validation_error=deal.photo_exhausted?'PHOTO_EXHAUSTED':'PHOTO_SHARD_PENDING';await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
+  if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now});
+  if(selectionReason(deal,policy)){
+    await q(env,"UPDATE scheduler_inventory SET data=? WHERE pid=?",JSON.stringify(deal),item.pid).run();return null;
+  }
   await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
 }
 async function publish(env,state,fetcher){
@@ -198,6 +216,7 @@ async function publish(env,state,fetcher){
   try{
     const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
     let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
+    const feedback=qualitySettings(current.policy).enabled&&qualitySettings(current.policy).feedback_enabled?await audienceContext(env,current.ready.map(r=>r.pid)):null;
     const manual=current.row.post_request;
     const requested=JSON.parse(current.row.status||'{}');
     const preferred=manual&&requested.admin_product_request===manual?Number(requested.admin_product_id):0;
@@ -210,14 +229,16 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy);
+      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
-      await status(env,{last_post_attempt:now,selected_product:item.pid});
+      await status(env,{last_post_attempt:now,selected_product:item.pid,...(qualitySettings(current.policy).enabled?{selection_explanation:candidateQuality(JSON.parse(item.data),current.policy,feedback,feedback?.visual?.get(item.pid)||[])}:{})});
       const deal=await validateQueued(env,item,current.policy,fetcher);if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
       // Re-read pause/timezone after external calls, immediately before claim/send.
-      const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
+      const latest=await q(env,'SELECT data,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
+      current.policy=JSON.parse(latest.policy||'{}');
+      if(selectionReason(deal,current.policy)){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
       current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
       const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok){
         // A prior delivery claim (including uncertain/error) is a per-product
@@ -234,6 +255,13 @@ async function publish(env,state,fetcher){
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
       // Observe only the final valid selection, never every rejected candidate.
       if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
+      // Final owner gate immediately before forming/sending Telegram. A ban
+      // saved during slow WB/shadow work must win over a previously chosen row.
+      const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
+      if(selectionReason(deal,finalPolicy)){
+        await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
+        continue;
+      }
       const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
@@ -304,8 +332,9 @@ async function search(env,state,fetcher){
     while(offset<queries.length){const t=queries[(cursor+offset)%queries.length].toLowerCase();if(!state.policy.disabled_topics?.includes(t)&&(dailyCounts.get(t)||0)<8&&(counts.get(t)||0)<8)break;offset++;}
     await status(env,{search_cursor:cursor+offset+1});
     if(offset===queries.length&&!manual){if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});return {result:'daily_topics_at_cap'};}
-    let experiment=null;if(!manual&&old.learning_initialized)try{experiment=await explorationQuery(env,state.policy.queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
+    let experiment=null;if(!manual&&old.learning_initialized)try{experiment=await explorationQuery(env,queries,cursor,dailyCounts,state.policy.disabled_topics);}catch{}
     const query=manual?.text||(experiment&&(counts.get(experiment.toLowerCase())||0)<8?experiment:queries[(cursor+offset)%queries.length]);
+    if(queryOwnerReason(query,state.policy)){if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});return {result:'owner_query_excluded'};}
     const test=Boolean(manual&&old.admin_search_test===true);
     attempted={query,query_id:rules.find(r=>r.text===query)?.id||'existing:'+query,test,experiment:!!experiment};
     await status(env,{last_search_query:query});
@@ -337,9 +366,12 @@ async function search(env,state,fetcher){
       const p=cardDeal(live.get(candidate.id),state.policy);
       if(!p){rejected.card_missing++;continue;}p.query=query;
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
-      if(photo.image)verified.push({...p,image:photo.image,checked_at:now});else rejected.photo++;
+      if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now}):ready;
+        if(selectionReason(enriched,state.policy)){rejected.filter++;filter_reasons.owner_category=(filter_reasons.owner_category||0)+1;}else verified.push(enriched);
+      }else rejected.photo++;
     }
-    const records=(test?[]:verified).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
+    const admissionPolicy=verified.length?JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data):state.policy;
+    const records=(test?[]:verified).filter(p=>!selectionReason(p,admissionPolicy)).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
       SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,?,? FROM json_each(?)
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))
@@ -376,6 +408,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // bounded by active-state/time indexes and runs every five minutes.
     // Expired leases are also safe on acquire between maintenance ticks.
     if(!canPublish&&now>=Number(previous.last_maintenance||0)+300){
+    await reconcileOwnerInventory(env,state.policy,now);
     await q(env,"DELETE FROM scheduler_leases WHERE expires<=?",now).run();
     // Reconcile old delivery tombstones in one EXISTING maintenance query.
     // PK probes only, active ready buffer only; no full publication history.

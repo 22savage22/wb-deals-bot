@@ -2,6 +2,10 @@
 
 Статус: **Draft / LOCAL STAGING / production не подключён**.
 Основная база, текущий Worker, UI, расписание, Telegram и Vision не изменяются.
+Продолжение аудита: [почему production публикует цены при локальном0/20](PRODUCTION_SOURCE_AUDIT.md).
+Проверка production подтвердила живые WB ответы из Cloudflare. Локальный403
+нельзя трактовать как отсутствие источника в Worker. Но текущий cache fallback
+и потеря SKU/provenance не позволяют считать все публикации свежими retail offers.
 Этот модуль импортирует существующие проверяющие функции, но существующий Worker
 не импортирует этот модуль. `service.mjs` не содержит HTTP endpoint или Cron.
 

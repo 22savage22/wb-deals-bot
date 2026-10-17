@@ -1,5 +1,8 @@
 const $=id=>document.getElementById(id),adminPage=location.pathname==='/superfind';
 const state={initData:'',version:0,profile:{rated:0},items:[],tab:'learn',busy:false,loading:false,loaded:false,pending:null,retry:null,superSettings:null,cursor:0,filtersConfigured:false,emptyReason:null};
+// Existing subscribers may have ratings from before explicit filter setup.
+// Their empty filters mean all/unbounded, not a reason to write defaults.
+const needsOnboarding=()=>!state.filtersConfigured&&!(state.profile.rated>0||state.profile.seen>0);
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text!=null)el.textContent=text;if(cls)el.className=cls;return el;};
 let toastTimer;
 function toast(text){clearTimeout(toastTimer);$('toast').textContent=text;$('toast').classList.add('visible');toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),3000);}
@@ -53,15 +56,15 @@ function imageCard(item,{small=false}={}){
 function renderDeck(){
   const item=state.items[0];
   if(item)$('card').replaceChildren(imageCard(item));else{
-    const empty=node('div',null,'empty');empty.append(node('h2',!state.filtersConfigured?'Начните с ваших интересов':state.emptyReason==='fresh_price_evidence_unavailable'?'Нет подтверждённых цен под этот бюджет':state.emptyReason==='audience_evidence_unavailable'?'Для выбранного раздела пока мало данных':'Новых подходящих вещей пока нет'),node('p',!state.filtersConfigured?'Выберите, что вам интересно, и нажмите «Сохранить и смотреть». Настройки не сохранятся без вашего действия.':state.emptyReason==='fresh_price_evidence_unavailable'?'Не будем подменять свежую цену исторической. Можно убрать бюджет и оценивать стиль по фотографиям; цену вы увидите на Wildberries.':state.emptyReason==='audience_evidence_unavailable'?'В этой подборке не хватает подтверждённых данных «женское / мужское / унисекс». Мы не угадываем их по названию или внешности модели. Можно временно выбрать «Для всех».':'Все подходящие фото из текущей подборки уже оценены или не подходят под ваши фильтры. Старые вещи ради количества не повторяем.'));
-    const edit=node('button',state.filtersConfigured?'Изменить интересы и бюджет':'Выбрать интересы','primary');edit.onclick=openFilters;empty.append(edit);$('card').replaceChildren(empty);
+    const empty=node('div',null,'empty');empty.append(node('h2',needsOnboarding()?'Начните с ваших интересов':state.emptyReason==='fresh_price_evidence_unavailable'?'Нет подтверждённых цен под этот бюджет':state.emptyReason==='audience_evidence_unavailable'?'Для выбранного раздела пока мало данных':'Новых подходящих вещей пока нет'),node('p',needsOnboarding()?'Выберите, что вам интересно, и нажмите «Сохранить и смотреть». Настройки не сохранятся без вашего действия.':state.emptyReason==='fresh_price_evidence_unavailable'?'Не будем подменять свежую цену исторической. Можно убрать бюджет и оценивать стиль по фотографиям; цену вы увидите на Wildberries.':state.emptyReason==='audience_evidence_unavailable'?'В этой подборке не хватает подтверждённых данных «женское / мужское / унисекс». Мы не угадываем их по названию или внешности модели. Можно временно выбрать «Для всех».':'Все подходящие фото из текущей подборки уже оценены или не подходят под ваши фильтры. Старые вещи ради количества не повторяем.'));
+    const edit=node('button',needsOnboarding()?'Выбрать интересы':'Изменить интересы и бюджет','primary');edit.onclick=openFilters;empty.append(edit);$('card').replaceChildren(empty);
   }
   $('actions').hidden=!item;$('skip').hidden=!item;$('progress').textContent=`${state.profile.rated??0} оценено`;
   $('deck-title').textContent=state.tab==='recommend'?'❤️ Подобрано для вас':'Знакомимся с вашим вкусом';
   $('style-steps').textContent=state.tab==='recommend'?'Только ещё не оценённые вами вещи. Подбор учитывает ваши реакции, но не обещает идеальное попадание.':'Нравится — учит подбор. Больше такого — сильнее учитывает пример. «Не показывать похожее» исключает близкие подтверждённые фасоны, а не целую категорию.';controls();
 }
 async function vote(action){const item=state.items[0];if(!item||state.busy)return;await write('/api/style/vote','POST',{id:item.id,action},()=>{state.items.shift();renderDeck();if(!state.items.length)return loadFeed();});}
-async function loadFeed(){state.items=[];if(!state.filtersConfigured){renderDeck();return;}$('card').replaceChildren(node('p','Ищем ещё не оценённые вами вещи…','empty'));$('actions').hidden=true;$('skip').hidden=true;const result=await api(`/api/style/feed?mode=${state.tab==='recommend'?'recommend':'learn'}&cursor=${state.cursor++}`);state.items=result.items;state.emptyReason=result.emptyReason;state.version=result.version;renderDeck();}
+async function loadFeed(){state.items=[];if(needsOnboarding()){renderDeck();return;}$('card').replaceChildren(node('p','Ищем ещё не оценённые вами вещи…','empty'));$('actions').hidden=true;$('skip').hidden=true;const result=await api(`/api/style/feed?mode=${state.tab==='recommend'?'recommend':'learn'}&cursor=${state.cursor++}`);state.items=result.items;state.emptyReason=result.emptyReason;state.version=result.version;renderDeck();}
 function preferences(){
   const box=$('taste-summary');box.replaceChildren();const panel=node('div',null,'panel');panel.append(node('span',`${state.profile.rated??0} ваших оценок`,'pill'),node('h2',state.profile.ready?'Вкус постепенно складывается':'Начнём с нескольких вещей'),node('p',state.profile.note??''));
   for(const [key,title] of [['preferred','Чаще нравилось'],['avoided','Реже нравилось']]){panel.append(node('h2',title));const list=node('ul');for(const row of state.profile[key]??[])list.append(node('li',`${row.label} · ${row.products} разных вещей`));if(!list.children.length)list.append(node('li','Пока недостаточно подтверждённых примеров'));panel.append(list);}
@@ -76,7 +79,7 @@ function setFilterForm(filters={}){
   $('min-price').value=filters.minPrice??'';$('max-price').value=filters.maxPrice??'';
   const budget=filters.minPrice!=null&&filters.maxPrice!=null?`${filters.minPrice}–${filters.maxPrice} ₽`:filters.maxPrice!=null?`до ${filters.maxPrice} ₽`:filters.minPrice!=null?`от ${filters.minPrice} ₽`:'без лимита';
   $('filter-label').textContent=`${audienceLabels[audience]??'Для всех'} · ${groups.length?groups.map(group=>groupLabels[group]).join(', '):'Все вещи'} · ${budget}`;
-  $('onboarding-copy').hidden=state.filtersConfigured;$('apply-filters').textContent=state.filtersConfigured?'Сохранить изменения':'Сохранить и смотреть';if(!state.filtersConfigured)$('filters-panel').open=true;
+  $('onboarding-copy').hidden=!needsOnboarding();$('apply-filters').textContent=needsOnboarding()?'Сохранить и смотреть':'Сохранить изменения';if(needsOnboarding())$('filters-panel').open=true;
 }
 async function showTab(tab,{refresh=false}={}){
   if((state.busy||state.pending)&&!refresh)return;state.tab=tab;document.querySelectorAll('[data-tab]').forEach(b=>{b.classList.toggle('active',b.dataset.tab===tab);b.setAttribute('aria-selected',String(b.dataset.tab===tab));});

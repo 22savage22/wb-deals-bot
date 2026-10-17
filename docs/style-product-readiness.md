@@ -64,21 +64,38 @@ produces an honest empty result rather than silently ignoring that budget.
 
 ## Verification and evidence limits
 
-- Full Node Worker/SHADOW/features/admin regression:548PASS.
+- Full initial Node Worker/SHADOW/features/admin regression:548PASS. Additional
+  native Workerd redirect regression is included in CI after the live photo fix.
 - Existing `tests/run_all.py`: ALL TESTS PASSED.
 - Independent focused security pass:42PASS.
-- Mobile product browser scenarios:14PASS at320x740/390x844, including lost
+- Mobile product browser scenarios:15PASS at320x740/390x844, including lost
   response AFTER commit, double click, offline/retry, slow response, close/reopen,
   A/B isolation, reset, full deletion and actual local server/SQLite restart.
+- Existing rated profiles with old empty filters can still read both decks
+  without onboarding/default writes. A dedicated reopen regression confirms
+  no extra settings PUT and an identical persistent profile. New users still
+  explicitly choose their first interests.
 - These browser users and signatures are explicitly LOCAL FIXTURES. They are
   not two actual Telegram accounts, and no fake votes were added as real users.
 - Main independently inspected narrow-screen onboarding/card/favorites images.
-- Actual account evidence so far: owner confirmed the private public-bot button
-  opens the Mini App. Authenticated rating/favorite persistence over a fresh
-  Telegram launch and a second consenting real account remain UNCONFIRMED.
+- Actual account evidence now includes opening the existing private public-bot
+  button through Computer Use in Telegram Desktop, reading the real profile,
+  fully closing/reopening into a NEW Mini App window and reading the same saved
+  ratings/summary. No preferences were fabricated or submitted by the agent.
+  Actual favorite persistence and a second consenting real account still need
+  acceptance; personal counts/receipts are kept private, not in this public repo.
 - Worker CPU/phone p50/p95 and recommendation-quality uplift are not claimed.
   Unseen selection is tested mechanically; relevance needs future user feedback
   on new items, not retesting training examples as an uplift measurement.
+
+Live integration found a defect missed by Node's mock fetch: this Workerd
+runtime rejects `redirect:'error'` before contacting WB. Sanitized phase/type
+diagnostics plus a REAL local Workerd fixture reproduced the exception without
+external network. Worker requests now use `manual` and reject all non-2xx,
+including redirects, without following Location. Native-runtime tests cover
+200 photo/source, cache and302 rejection with zero foreign redirects. All three
+new real photos subsequently returned200/image-webp from LIVE staging with
+matching SHA256. No repeated WB source search or auth scope expansion was used.
 
 ## Genuine D1 cost measurements
 

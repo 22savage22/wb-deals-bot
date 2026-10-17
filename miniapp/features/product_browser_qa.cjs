@@ -92,6 +92,16 @@ async function main(){
     await step('full_page_close_reopen_keeps_votes_favorites_filters',async()=>{
       const before=snapshot(10001);await a.close();a=await pageFor(aContext);await open(a);await readyCard(a);await a.locator('#progress').filter({hasText:'2 оценено'}).waitFor();await a.locator('[data-tab="favorites"]').click();await a.locator('#favorites-list .product-card').waitFor();assert.equal(await a.locator('#favorites-list .product-card').count(),1);assert.deepEqual(snapshot(10001),before);await screen(a,'favorites-390');return snapshot(10001);
     });
+    await step('existing_ratings_empty_filters_read_without_default_write',async()=>{
+      // Explicit LOCAL legacy-record fixture: real preceding local UI votes,
+      // but no filter document, matching accounts created before onboarding.
+      preview.db.sqlite.prepare("UPDATE style_accounts SET filters='{}' WHERE user_id=10001").run();
+      const before=snapshot(10001),putsBefore=report.requests.filter(request=>request.profile==='a'&&request.path==='/api/style/filters'&&request.method==='PUT').length;
+      await a.close();a=await pageFor(aContext);await open(a);await readyCard(a);await a.locator('#progress').filter({hasText:'2 оценено'}).waitFor();assert.equal(await a.locator('#onboarding-copy').isHidden(),true);
+      await a.locator('[data-tab="recommend"]').click();await readyCard(a);
+      const putsAfter=report.requests.filter(request=>request.profile==='a'&&request.path==='/api/style/filters'&&request.method==='PUT').length;
+      assert.equal(putsAfter,putsBefore);assert.deepEqual(snapshot(10001),before);assert.deepEqual(before.filters,{});return {localLegacyShapeFixture:true,ratings:before.model.samples,seen:before.model.seen,extraSettingsWrites:putsAfter-putsBefore,filtersStillEmpty:true,learnAndRecommendationsAvailable:true};
+    });
     await step('second_local_fixture_separate_profile_not_real_account',async()=>{
       bContext=await contextFor('b');b=await pageFor(bContext);await open(b);assert.equal(snapshot(10002).accountExists,false);await choose(b,{groups:['shoes']});await readyCard(b);const favorite=b.waitForResponse(r=>new URL(r.url()).pathname==='/api/style/favorite');await b.getByRole('button',{name:'В избранное',exact:true}).click();assert.equal((await favorite).status(),200);await b.waitForFunction(()=>!document.querySelector('[data-action="like"]').disabled);await b.locator('[data-action="dislike"]').click();await b.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
       const aa=snapshot(10001),bb=snapshot(10002);assert.equal(aa.model.samples,2);assert.equal(bb.model.samples,1);assert.deepEqual(bb.filters.groups,['shoes']);assert.equal(bb.saved.length,1);return {a:aa,b:bb};

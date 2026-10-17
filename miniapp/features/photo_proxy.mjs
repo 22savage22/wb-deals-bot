@@ -27,5 +27,9 @@ async function servePhoto(request,env,ctx,{fetcher=fetch,cache=globalThis.caches
 }
 export async function stylePhoto(request,env,ctx,options={}){
   const diagnostic={};try{return await servePhoto(request,env,ctx,{...options,diagnostic});}
-  catch{console.error('STYLE_PHOTO_UNAVAILABLE',JSON.stringify({phase:diagnostic.phase??'unknown'}));return new Response('Photo temporarily unavailable',{status:503,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','X-Style-Photo-Phase':diagnostic.phase??'unknown'}});}
+  catch(e){
+    // Classify known runtime failures; NEVER emit raw messages, URLs or headers.
+    const raw=String(e?.message??''),kind=/illegal invocation/i.test(raw)?'runtime_binding':/redirect/i.test(raw)?'redirect_rejected':/abort|timeout/i.test(raw)||e?.name==='TimeoutError'?'timeout':/TLS|SSL|certificate/i.test(raw)?'tls':e?.name==='TypeError'?'request_type':e?.name==='StagingBudgetError'?'budget':'request_failed';
+    console.error('STYLE_PHOTO_UNAVAILABLE',JSON.stringify({phase:diagnostic.phase??'unknown',kind}));return new Response('Photo temporarily unavailable',{status:503,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','X-Style-Photo-Phase':diagnostic.phase??'unknown','X-Style-Photo-Failure':kind}});
+  }
 }

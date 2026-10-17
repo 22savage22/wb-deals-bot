@@ -128,6 +128,15 @@ async function main(){
       const beforeA=snapshot(10001),beforeB=snapshot(10002);await aContext.close();await bContext.close();preview.server.closeAllConnections();await preview.close();preview=await startPreview({port:8777,file,integrated:true});
       const nextContext=await contextFor('b'),next=await pageFor(nextContext);await open(next);await readyCard(next);await next.locator('#progress').filter({hasText:'1 оценено'}).waitFor();await next.locator('[data-tab="favorites"]').click();await next.locator('#favorites-list .product-card').waitFor();assert.deepEqual(snapshot(10001),beforeA);assert.deepEqual(snapshot(10002),beforeB);return {profileAndFavoritesSurvive:true,a:beforeA,b:beforeB};
     });
+    await step('public_release_labels_are_universal_read_only_and_staging_stays_labelled',async()=>{
+      const before=snapshot(10002),context=await contextFor('b');await context.addInitScript(()=>{globalThis.__WB_STYLE_ENABLED__=true;});
+      await context.route(origin+'/style',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('<html lang="ru">','<html lang="ru" data-style-runtime="public">')});});
+      const page=await pageFor(context);await page.goto(origin+'/',{waitUntil:'domcontentloaded'});await page.locator('#open-my-style').waitFor();
+      assert.equal(await page.locator('#open-my-style').textContent(),'❤️ Мой стиль');assert.equal(await page.getByText('Отдельная тестовая версия.',{exact:false}).count(),0);
+      await open(page);await readyCard(page);assert.equal(await page.locator('header .pill').count(),0);assert.equal(await page.locator('.preview-note').count(),0);assert.deepEqual(snapshot(10002),before);await screen(page,'public-release-390');
+      const stageContext=await contextFor('b'),stage=await pageFor(stageContext);await open(stage);assert.equal(await stage.locator('header .pill').textContent(),'Предпросмотр');assert.equal(await stage.locator('.preview-note').count(),1);assert.deepEqual(snapshot(10002),before);
+      return {publicButtonAvailableWithoutOwnerId:true,noDefaultWrites:true,stagingClearlyLabelled:true,signatures:'LOCAL_FIXTURES_NOT_REAL_ACCOUNTS'};
+    });
     assert.deepEqual(report.pageErrors,[]);report.status='PASS';report.final={subscriberA:snapshot(10001),subscriberB:snapshot(10002),billingRowsRead:'UNKNOWN_LOCAL_SQLITE_NOT_D1',localSqlStatements:preview.db.queries.length,localReturnedRows:preview.db.queries.reduce((n,q)=>n+(q.returned??0),0),realAccountsVerified:false};
   }catch(error){report.status='FAIL';report.error=error.message;for(const context of contexts)for(const page of context.pages())try{await screen(page,'failure-'+report.screenshots.length);}catch{};throw error;}
   finally{

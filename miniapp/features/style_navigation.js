@@ -1,8 +1,10 @@
-// Staging-only overlay added to COPIED public assets, never the production UI.
+// Shared overlay for copied assets. Production is enabled only by the server
+// flag; staging keeps its explicit preview notice. Neither is an identity gate.
 (()=>{
-  const tg=window.Telegram?.WebApp,button=document.createElement('button');button.className='filter-summary secondary';button.textContent='❤️ Мой стиль · тест';button.id='open-my-style';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls','my-style-frame');
+  const publicRelease=globalThis.__WB_STYLE_ENABLED__===true;
+  const tg=window.Telegram?.WebApp,button=document.createElement('button');button.className='filter-summary secondary';button.textContent=publicRelease?'❤️ Мой стиль':'❤️ Мой стиль · тест';button.id='open-my-style';button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls','my-style-frame');
   document.getElementById('edit-discovery')?.before(button);
-  const notice=document.createElement('p');notice.className='notice';notice.textContent='Отдельная тестовая версия. Сохранения здесь не меняют ваш профиль в основном приложении. Цены примеров не подтверждены сейчас.';document.querySelector('main')?.prepend(notice);
+  if(!publicRelease){const notice=document.createElement('p');notice.className='notice';notice.textContent='Отдельная тестовая версия. Сохранения здесь не меняют ваш профиль в основном приложении. Цены примеров не подтверждены сейчас.';document.querySelector('main')?.prepend(notice);}
   let frame,previousOverflow='',backWasVisible=false;
   const close=()=>{if(!frame)return;frame.remove();frame=null;document.body.style.overflow=previousOverflow;button.setAttribute('aria-expanded','false');if(!backWasVisible)tg?.BackButton?.hide();button.focus({preventScroll:true});};
   window.addEventListener('message',event=>{

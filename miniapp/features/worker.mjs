@@ -40,6 +40,8 @@ async function route(request,env,ctx){
   const admin=path.startsWith('/api/admin/'),origin=request.headers.get('Origin');
   if(origin&&origin!==url.origin)bad(403,'Недопустимый источник запроса');
   let uid;try{const raw=request.headers.get('X-Telegram-Init-Data');uid=env.STYLE_STAGING==='1'?await(admin?stagingAdminUser(raw,env):telegramPublicUser(raw,env.PUBLIC_BOT_ID)):await telegramUser(raw,admin?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN);}catch{bad(401,'Откройте приложение через своего Telegram-бота');}
+  // My Style is public to ANY verified subscriber. An owner allowlist belongs
+  // only to /api/admin/*; never reuse it for /api/style/* or accept a client ID.
   if(admin&&String(uid)!==String(env.MINIAPP_ADMIN_ID))bad(403,'Доступ только владельцу');
   if(env.RATE_LIMITER&&!(await env.RATE_LIMITER.limit({key:'features:'+uid})).success)bad(429,'Слишком много действий, подождите');
   const isRefresh=path==='/api/admin/superfind/refresh'&&method==='POST';

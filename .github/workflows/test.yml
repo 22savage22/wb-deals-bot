@@ -100,4 +100,6 @@ jobs:
       - run: node --check miniapp/features/ui/app.js
       - run: npm run check:features
       - run: npm run style:staging:check
+      - name: Prepare universal My Style release (dry-run only)
+        run: node miniapp/features/prepare_production.mjs
       - run: docker build -f miniapp/Dockerfile -t finds-miniapp:test .

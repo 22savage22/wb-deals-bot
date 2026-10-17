@@ -1,5 +1,10 @@
 # My Style / Superfind — product readiness (PR13, staging only)
 
+> Updated universal audience/launch contract:
+> [style-universal-launch.md](style-universal-launch.md). Every verified public-bot
+> user gets an independent profile automatically; the additional two-live-account
+> check is unverified but is NOT an access or release gate and needs no supplied ID.
+
 ## Scope and current-main compatibility
 
 Current main `0181c179` (merged PR14) was integrated into this isolated branch
@@ -64,11 +69,11 @@ produces an honest empty result rather than silently ignoring that budget.
 
 ## Verification and evidence limits
 
-- Full final Node Worker/SHADOW/features/admin regression:550PASS, including
+- Full final Node Worker/SHADOW/features/admin regression:554PASS, including
   native Workerd redirect200/302/cache/source regression (not just Node mocks).
 - Existing `tests/run_all.py`: ALL TESTS PASSED.
 - Independent focused security pass:42PASS.
-- Mobile product browser scenarios:15PASS at320x740/390x844, including lost
+- Mobile product browser scenarios:16PASS at320x740/390x844, including lost
   response AFTER commit, double click, offline/retry, slow response, close/reopen,
   A/B isolation, reset, full deletion and actual local server/SQLite restart.
 - Existing rated profiles with old empty filters can still read both decks

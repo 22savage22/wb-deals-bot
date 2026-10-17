@@ -1,4 +1,9 @@
 const $=id=>document.getElementById(id),adminPage=location.pathname==='/superfind';
+// The staged HTML is unchanged. Only the copied public production shell carries
+// this marker; it changes labels, never access control or Telegram verification.
+if(!adminPage&&document.documentElement.dataset.styleRuntime==='public'){
+  document.querySelector('header .pill')?.remove();document.querySelector('.preview-note')?.remove();
+}
 const state={initData:'',version:0,profile:{rated:0},items:[],tab:'learn',busy:false,loading:false,loaded:false,pending:null,retry:null,superSettings:null,cursor:0,filtersConfigured:false,emptyReason:null};
 // Existing subscribers may have ratings from before explicit filter setup.
 // Their empty filters mean all/unbounded, not a reason to write defaults.

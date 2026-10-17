@@ -3,6 +3,8 @@
 > Current product hardening, measured costs, catalogue proof and rollback:
 > [style-product-readiness.md](style-product-readiness.md). The dated entries
 > below are historical checkpoints, not the latest capability/quota report.
+> Latest audience/approval contract is `style-universal-launch.md`: no per-user
+> ID registration; second real-account testing is supplementary, not a blocker.
 
 ## Audit 2026-10-15
 

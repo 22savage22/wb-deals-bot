@@ -1,5 +1,9 @@
 # My Style: real Telegram staging / production gate
 
+> Current product hardening, measured costs, catalogue proof and rollback:
+> [style-product-readiness.md](style-product-readiness.md). The dated entries
+> below are historical checkpoints, not the latest capability/quota report.
+
 ## Audit 2026-10-15
 
 - PR13 remains Draft, main at7a11699a, PR10 at ea72c2d2, PR9 at acf12f23.

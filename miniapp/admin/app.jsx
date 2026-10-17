@@ -11,7 +11,9 @@ import {SelectionManager} from './selection-manager.jsx';
 import {QueueManager} from './queue-manager.jsx';
 import {ConfigHistory} from './config-history.jsx';
 const tg=window.Telegram?.WebApp,client=createClient(tg?.initData||'');
-const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['selection','◎','Подбор'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика']];
+const superfindPreviewEnabled=globalThis.__WB_SUPERFIND_PREVIEW__===true;
+const SuperfindPreview=React.lazy(()=>import('./superfind-preview.jsx'));
+const pages=[['home','⌂','Главная'],['schedule','◷','Расписание'],['search','⌕','Поиск WB'],['selection','◎','Подбор'],['learn','✦','Обучение'],['queue','▦','Очередь'],['diag','⚙','Диагностика'],...(superfindPreviewEnabled?[['superfind','🔥','Супернаходка']]:[])];
 function Panel({title,description,children}){return <section className="panel"><div className="panel-heading"><h2>{title}</h2>{description&&<p>{description}</p>}</div>{children}</section>;}
 function Metric({label,value,note,tone}){return <div className={'metric '+(tone||'')}><span>{label}</span><strong>{value}</strong>{note&&<small>{note}</small>}</div>;}
 function Toggle({label,value,onChange}){return <label className="toggle"><span>{label}</span><Switch checked={value} onChange={e=>onChange(e.target.checked)}/></label>;}
@@ -99,6 +101,7 @@ function App(){
       <p className="subtle">Последний поиск WB: {stamp(status.last_search_success||status.last_scan_success,zone)}</p>
     </>}
     {screen==='selection'&&<SelectionManager client={client} onDirty={setControlDirty}/>}
+    {superfindPreviewEnabled&&screen==='superfind'&&<React.Suspense fallback={<p role="status">Загружаем предпросмотр…</p>}><SuperfindPreview initData={tg?.initData||''} onClose={()=>open('home')}/></React.Suspense>}
     {screen==='schedule'&&<>
       <div className="metrics"><Metric label="Сейчас сохранено" value={live.mode==='interval'?live.post_interval_minutes+' мин':live.post_times.join(', ')}/><Metric label="Постов сегодня" value={status.posted_today??'Нет данных'}/><Metric label="Последний пост" value={stamp(status.last_post_success,zone)}/><Metric label="Следующий поиск WB" value={stamp(status.next_search,zone)}/></div>
       <Panel title="Расписание публикаций" description="Настройте удобный ритм. Изменения применяются только после сохранения.">

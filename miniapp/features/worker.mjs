@@ -2,6 +2,7 @@
 // Reuses existing Telegram signature verification and the optional D1 budget lane.
 import {telegramUser} from '../cloudflare/auth.mjs';
 import {telegramPublicUser} from './telegram_signature.mjs';
+import {stagingAdminUser} from './staging_owner.mjs';
 import {withReadBudget} from '../cloudflare/read_guard.mjs';
 import {observeD1} from '../cloudflare/d1_budget.mjs';
 import {FeatureError,bad,styleMe,styleFeed,favorites,mutate,superfindState,refreshSuperfind} from './store.mjs';
@@ -38,7 +39,7 @@ async function route(request,env,ctx){
   if(!path.startsWith('/api/style/')&&!path.startsWith('/api/admin/superfind'))bad(404,'Не найдено');
   const admin=path.startsWith('/api/admin/'),origin=request.headers.get('Origin');
   if(origin&&origin!==url.origin)bad(403,'Недопустимый источник запроса');
-  let uid;try{uid=await (!admin&&env.STYLE_STAGING==='1'?telegramPublicUser(request.headers.get('X-Telegram-Init-Data'),env.PUBLIC_BOT_ID):telegramUser(request.headers.get('X-Telegram-Init-Data'),admin?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN));}catch{bad(401,'Откройте приложение через своего Telegram-бота');}
+  let uid;try{const raw=request.headers.get('X-Telegram-Init-Data');uid=env.STYLE_STAGING==='1'?await(admin?stagingAdminUser(raw,env):telegramPublicUser(raw,env.PUBLIC_BOT_ID)):await telegramUser(raw,admin?env.TG_BOT_TOKEN:env.MINIAPP_BOT_TOKEN);}catch{bad(401,'Откройте приложение через своего Telegram-бота');}
   if(admin&&String(uid)!==String(env.MINIAPP_ADMIN_ID))bad(403,'Доступ только владельцу');
   if(env.RATE_LIMITER&&!(await env.RATE_LIMITER.limit({key:'features:'+uid})).success)bad(429,'Слишком много действий, подождите');
   const isRefresh=path==='/api/admin/superfind/refresh'&&method==='POST';
@@ -55,16 +56,16 @@ async function route(request,env,ctx){
       }
       return {accepted:true,requestId:data.requestId,publication:'NONE'};
     });
-    ctx.waitUntil(budget(env,500,200,e=>refreshSuperfind(e.DB,data.requestId)).catch(()=>{}));return json(result,202);
+    background(env,ctx,e=>refreshSuperfind(e.DB,data.requestId));return json(result,202);
   }
   if(isJob){
     const id=url.searchParams.get('id');if(!/^[A-Za-z0-9_-]{16,80}$/.test(id??''))bad(400,'Некорректная задача');
     const row=await budget(env,5,4,e=>q(e.DB,'SELECT status,result,lease_until FROM feature_jobs WHERE id=?',id).first());if(!row)bad(404,'Задача не найдена');
-    if(row.status==='queued'||row.status==='running'&&row.lease_until<Date.now())ctx.waitUntil(budget(env,500,200,e=>refreshSuperfind(e.DB,id)).catch(()=>{}));
+    if(row.status==='queued'||row.status==='running'&&row.lease_until<Date.now())background(env,ctx,e=>refreshSuperfind(e.DB,id));
     return json({status:row.status,...JSON.parse(row.result)});
   }
   const reset=['/api/style/me','/api/style/history'].includes(path)&&method==='DELETE';
-  return budget(env,500,reset?1600:method==='GET'?8:20,async e=>{
+  return budget(env,500,reset?2400:method==='GET'?8:admin?64:20,async e=>{
     if(path==='/api/style/me'&&method==='GET')return json(await styleMe(e.DB,uid));
     if(path==='/api/style/feed'&&method==='GET'){
       const mode=url.searchParams.get('mode')??'learn',cursor=Number(url.searchParams.get('cursor')??0);
@@ -85,6 +86,11 @@ async function route(request,env,ctx){
     if(!entry||method!==entry[0])bad(404,'Не найдено');
     const input=await body(request,entry[2]);return json(await mutate(e.DB,uid,input,entry[1]));
   });
+}
+function background(env,ctx,operation){
+  // Detached work has its own reservation; HTTP202 has already settled.
+  const work=e=>budget(e,1000,384,operation);
+  ctx.waitUntil((env.FEATURE_BACKGROUND?env.FEATURE_BACKGROUND(work):work(env)).catch(()=>console.error('STYLE_BACKGROUND_FAILED')));
 }
 export default {async fetch(request,env,ctx={waitUntil:p=>p.catch(()=>{})}){
   let response;try{response=await route(request,env,ctx);}catch(error){response=json({error:error instanceof FeatureError?error.message:error.status===429?error.message:'Новые функции временно недоступны'},error.status??503);}

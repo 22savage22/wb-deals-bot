@@ -10,7 +10,7 @@ const {chromium}=require(process.env.WB_BROWSER_QA_MODULE||'playwright');
     const auth=await (await context.request.get('http://127.0.0.1:8775/preview/session?profile=a')).json();
     await context.addInitScript(init=>{if(window===parent)window.Telegram={WebApp:{initData:init,ready(){},expand(){},BackButton:{onClick(){},show(){},hide(){}}}};},auth.initData);
     await page.goto('http://127.0.0.1:8775/',{waitUntil:'networkidle',timeout:15000});await page.locator('#skip-discovery').click();await page.locator('#open-my-style').click();
-    const frame=page.frameLocator('.style-overlay');await frame.locator('#card img').evaluate(img=>img.decode());
+    const frame=page.frameLocator('.style-overlay');await frame.locator('#apply-filters').click();await frame.locator('#card img').evaluate(img=>img.decode());
     await frame.locator('[data-action="like"]').click();await frame.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
     await frame.getByRole('button',{name:'← Находки',exact:true}).click();await page.locator('.style-overlay').waitFor({state:'detached'});
     await page.locator('#open-my-style').click();await frame.locator('#progress').filter({hasText:'1 оценено'}).waitFor();

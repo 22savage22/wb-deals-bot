@@ -1,0 +1,648 @@
+{
+  "entries": {
+    "16784378": {
+      "audience": "unknown",
+      "category": "Колготки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-02.wbbasket.ru/vol167/part16784/16784378/info/ru/card.json",
+      "observedAt": 1792238472626,
+      "imageHash": "500934eacb5aea7ef76645068e252038ba36c6b4755a59b9ac922504631d4186"
+    },
+    "28923894": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-03.wbbasket.ru/vol289/part28923/28923894/info/ru/card.json",
+      "observedAt": 1792238471993,
+      "imageHash": "9825d2e3ecc68305f1390797139fc73872bcc54aac75eb27b973fb9fb348e6d4"
+    },
+    "32293087": {
+      "audience": "unknown",
+      "category": "Колготки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-03.wbbasket.ru/vol322/part32293/32293087/info/ru/card.json",
+      "observedAt": 1792238473640,
+      "imageHash": "6cf61a080f84fe8f859e4190e18ea58d218c24fc9a1a239caa1ee2b9fb3b8522"
+    },
+    "51017277": {
+      "audience": "women",
+      "category": "Топы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-04.wbbasket.ru/vol510/part51017/51017277/info/ru/card.json",
+      "observedAt": 1792238475447,
+      "imageHash": "dbda7f20402e7008295e9ea5cdc316aa02679708e0f9cdb6e4935bb4ca6454d2"
+    },
+    "96614641": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-05.wbbasket.ru/vol966/part96614/96614641/info/ru/card.json",
+      "observedAt": 1792238473588,
+      "imageHash": "0d824c68908bd6d2c082736027f30b9193a2b7128655e7a7345659a19ffaeca1"
+    },
+    "137585785": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-10.wbbasket.ru/vol1375/part137585/137585785/info/ru/card.json",
+      "observedAt": 1792238475469,
+      "imageHash": "51c98a0f727a58424c3963978d1be468086747a3a5cbb802c79e56541641a87c"
+    },
+    "137985454": {
+      "audience": "men",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-10.wbbasket.ru/vol1379/part137985/137985454/info/ru/card.json",
+      "observedAt": 1792238475824,
+      "imageHash": "5d7c2aac4e1794dc9b516c33624ab5b26324c2b62afe33e8dc6c7a09743165b2"
+    },
+    "137987617": {
+      "audience": "men",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-10.wbbasket.ru/vol1379/part137987/137987617/info/ru/card.json",
+      "observedAt": 1792238476073,
+      "imageHash": "faf9b4f4775b95111de4ca478fae7828d7eeb57a58786ca94c093b9f471d2b2b"
+    },
+    "149450857": {
+      "audience": "unknown",
+      "category": "Пояса",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-10.wbbasket.ru/vol1494/part149450/149450857/info/ru/card.json",
+      "observedAt": 1792238472305,
+      "imageHash": "9be668936e0d019f55cc589594557f41e3707f5d6da19d0f594c2ad4bfc0b948"
+    },
+    "156651232": {
+      "audience": "women",
+      "category": "Лонгсливы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-10.wbbasket.ru/vol1566/part156651/156651232/info/ru/card.json",
+      "observedAt": 1792238473071,
+      "imageHash": "8885ce6725e6e93b61e1568b3f898c26d1bd7993cd28b7a0a291ec31a00a6dc3"
+    },
+    "169034403": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-12.wbbasket.ru/vol1690/part169034/169034403/info/ru/card.json",
+      "observedAt": 1792238475034,
+      "imageHash": "811b1a34507b3d8aa5604dcfcabfeddc9692f95bcf537236f860915292a811e8"
+    },
+    "205324812": {
+      "audience": "men",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-14.wbbasket.ru/vol2053/part205324/205324812/info/ru/card.json",
+      "observedAt": 1792238473403,
+      "imageHash": "ecd78079613a18ae868f6977ab4a1df091d925e68eb99ad43c4d7994b698ed4c"
+    },
+    "218331075": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-14.wbbasket.ru/vol2183/part218331/218331075/info/ru/card.json",
+      "observedAt": 1792238474535,
+      "imageHash": "eb737856f4753f0d183852d370b506691c651c4e1c90b94f01f3f7d54f26035b"
+    },
+    "218806590": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-14.wbbasket.ru/vol2188/part218806/218806590/info/ru/card.json",
+      "observedAt": 1792238474475,
+      "imageHash": "cd2b78fd594b375da972d2f359422121f70546c31b4bc72a825e20d8e8f94f33"
+    },
+    "223098321": {
+      "audience": "men",
+      "category": "Толстовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-15.wbbasket.ru/vol2230/part223098/223098321/info/ru/card.json",
+      "observedAt": 1792238473316,
+      "imageHash": "be48309ab665facfd68dea6b602b69a212a49b381be92715dfcef96721742c5b"
+    },
+    "226527745": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-15.wbbasket.ru/vol2265/part226527/226527745/info/ru/card.json",
+      "observedAt": 1792238473823,
+      "imageHash": "a034395655a39b529394e8dd88d1b8f0a95640f50b240ddccd4bc9ce35f9d3b9"
+    },
+    "227760261": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-15.wbbasket.ru/vol2277/part227760/227760261/info/ru/card.json",
+      "observedAt": 1792238473192,
+      "imageHash": "ff9a859ff192db16a43ddab080daa68795ecdc3c209ffe30d7d5cc86268abac1"
+    },
+    "235648705": {
+      "audience": "women",
+      "category": "Костюмы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-15.wbbasket.ru/vol2356/part235648/235648705/info/ru/card.json",
+      "observedAt": 1792238473032,
+      "imageHash": "9581d6ceb47f63d683195c3b7629f7bfec95764726873c80683ac41d69ac8109"
+    },
+    "244531999": {
+      "audience": "women",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-16.wbbasket.ru/vol2445/part244531/244531999/info/ru/card.json",
+      "observedAt": 1792238475572,
+      "imageHash": "08151b4254af01cca19bec7dec4c3d6015ddf60b1568c098244cbc30eb5e8764"
+    },
+    "248526944": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-16.wbbasket.ru/vol2485/part248526/248526944/info/ru/card.json",
+      "observedAt": 1792238476179,
+      "imageHash": "1efc6dac39c59e8c48891a844bafec4b219a5d6a72a3ee5ce7a2f8f3a5c34da6"
+    },
+    "304866760": {
+      "audience": "men",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-18.wbbasket.ru/vol3048/part304866/304866760/info/ru/card.json",
+      "observedAt": 1792238475910,
+      "imageHash": "1cefd174a1c04c3e356b37f23d5b9d1e5af835d4b6e80bd1320a5aac8fa67549"
+    },
+    "311486619": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-19.wbbasket.ru/vol3114/part311486/311486619/info/ru/card.json",
+      "observedAt": 1792238473606,
+      "imageHash": "a74572d8ebd7010746d8b00210304dbc956a0c437975f0eb11bbf30c33add159"
+    },
+    "312674333": {
+      "audience": "women",
+      "category": "Свитшоты",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-19.wbbasket.ru/vol3126/part312674/312674333/info/ru/card.json",
+      "observedAt": 1792238473290,
+      "imageHash": "17a119ee74dc8651136a67883ba862ccfdab8f3c124f0495dfb0a0a4cbf3f57c"
+    },
+    "312815734": {
+      "audience": "unknown",
+      "category": "Серьги",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-19.wbbasket.ru/vol3128/part312815/312815734/info/ru/card.json",
+      "observedAt": 1792238474566,
+      "imageHash": "1ad3dccb5df8b60604b257adf500533dbe3f381fb9a76e69a4289a8aeb902fc1"
+    },
+    "328429156": {
+      "audience": "unknown",
+      "category": "Носки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-20.wbbasket.ru/vol3284/part328429/328429156/info/ru/card.json",
+      "observedAt": 1792238473170,
+      "imageHash": "8f13b6317bee02120e59b33588f280e480b669d708f47a7be02fbcfedf44116a"
+    },
+    "366719451": {
+      "audience": "women",
+      "category": "Костюмы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-21.wbbasket.ru/vol3667/part366719/366719451/info/ru/card.json",
+      "observedAt": 1792238475188,
+      "imageHash": "a327d7853c870d3a45087a0498c68f583d5ea7091639a8185ad9528fe65eade0"
+    },
+    "402621776": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-23.wbbasket.ru/vol4026/part402621/402621776/info/ru/card.json",
+      "observedAt": 1792238475322,
+      "imageHash": "423e757bec727149d0f6b496ba1d8a9cc47715c75ef944f4c74bcff515aea07d"
+    },
+    "415941058": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-24.wbbasket.ru/vol4159/part415941/415941058/info/ru/card.json",
+      "observedAt": 1792238475592,
+      "imageHash": "8d1d5e149c24d74fb1330465e1416cfce22edbda25c4cd9cd2d22e0e28bc7fea"
+    },
+    "430870202": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-24.wbbasket.ru/vol4308/part430870/430870202/info/ru/card.json",
+      "observedAt": 1792238474256,
+      "imageHash": "025a016e1722962b8e092b91970f55c92ef89ec3cee75fb6be8d0a655e093b8c"
+    },
+    "440453737": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-25.wbbasket.ru/vol4404/part440453/440453737/info/ru/card.json",
+      "observedAt": 1792238474411,
+      "imageHash": "f398cbf593566dd3b8b21fb15739a4a88fd451c8425c3be2b6da0df0239f5783"
+    },
+    "474397318": {
+      "audience": "women",
+      "category": "Свитшоты",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-26.wbbasket.ru/vol4743/part474397/474397318/info/ru/card.json",
+      "observedAt": 1792238473808,
+      "imageHash": "72c879cd9947a77db29ff1788c3421c784092b1c9f582724dca6fe145f3ca456"
+    },
+    "480768026": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-26.wbbasket.ru/vol4807/part480768/480768026/info/ru/card.json",
+      "observedAt": 1792238476320,
+      "imageHash": "6c1dfd3491094c6e4b0a82a1e162218c0aedb9fbca3c67cacc07bc98e9dac992"
+    },
+    "503823360": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-27.wbbasket.ru/vol5038/part503823/503823360/info/ru/card.json",
+      "observedAt": 1792238475654,
+      "imageHash": "9f7f523194bfcfafc82a6d65a7f0723a7b20950c0f10300e6054f7ba7c75910c"
+    },
+    "518840488": {
+      "audience": "men",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-27.wbbasket.ru/vol5188/part518840/518840488/info/ru/card.json",
+      "observedAt": 1792238473494,
+      "imageHash": "d2ad881edc89eb8b98e889c48dcdf9a765ced4f4fb0e44d4336f8d08b28e2fc9"
+    },
+    "541418448": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-28.wbbasket.ru/vol5414/part541418/541418448/info/ru/card.json",
+      "observedAt": 1792238476007,
+      "imageHash": "be2bbc1ce4095dcf148177fe52d1e80124286b5d1f64a78c31ed03ece4ca24f5"
+    },
+    "554813103": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-29.wbbasket.ru/vol5548/part554813/554813103/info/ru/card.json",
+      "observedAt": 1792238475799,
+      "imageHash": "16149a5203ee31ab5d38b6e0df51025223ca5b1c31b41151c4a7f04e64978216"
+    },
+    "605699868": {
+      "audience": "unknown",
+      "category": "Пояса",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-30.wbbasket.ru/vol6056/part605699/605699868/info/ru/card.json",
+      "observedAt": 1792238472942,
+      "imageHash": "cee25da38f7bc0363b47f3866d18fe01b47e5f806f64b466a2d11469ae0b2547"
+    },
+    "612469250": {
+      "audience": "women",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-30.wbbasket.ru/vol6124/part612469/612469250/info/ru/card.json",
+      "observedAt": 1792238473838,
+      "imageHash": "32c6307e0d5c6dfc29a9d3fa8f59310c4a06c155fc27c313f2297aba58b81c3d"
+    },
+    "742502965": {
+      "audience": "men",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-35.wbbasket.ru/vol7425/part742502/742502965/info/ru/card.json",
+      "observedAt": 1792238472104,
+      "imageHash": "6ac3c9bfb5ec1f5f0dec7fe7c4347b150b82ee9612a394bda109a3751a218f7c"
+    },
+    "761344672": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-35.wbbasket.ru/vol7613/part761344/761344672/info/ru/card.json",
+      "observedAt": 1792238474427,
+      "imageHash": "d9d2f43679846c9228082ea8ef8093864c19712bf461bfffa9c1c03b6bcca6ea"
+    },
+    "778497448": {
+      "audience": "men",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-36.wbbasket.ru/vol7784/part778497/778497448/info/ru/card.json",
+      "observedAt": 1792238474767,
+      "imageHash": "448d691b6f77b9adf1a2d5e7eb745b0fcdbf0cf1985ac605bfa0afb0f06e2583"
+    },
+    "791365839": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-36.wbbasket.ru/vol7913/part791365/791365839/info/ru/card.json",
+      "observedAt": 1792238475623,
+      "imageHash": "35009e4c118c5f4419d81fc8a27387661b72cb81958d75fb67597da617ec24bf"
+    },
+    "796434104": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-36.wbbasket.ru/vol7964/part796434/796434104/info/ru/card.json",
+      "observedAt": 1792238474783,
+      "imageHash": "37463186a6ba06ba4377f1850abe002b887fbaf54d1380e707fe3291071a9d5a"
+    },
+    "806862064": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-37.wbbasket.ru/vol8068/part806862/806862064/info/ru/card.json",
+      "observedAt": 1792238476147,
+      "imageHash": "95bc2d4a8047673c8eaf7806c42b7b25f4e4b61817b6df08ae2011ddc1e35f01"
+    },
+    "812988272": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-37.wbbasket.ru/vol8129/part812988/812988272/info/ru/card.json",
+      "observedAt": 1792238472196,
+      "imageHash": "c952c43acafc898e1d6cfa3644b33af8e92e098e0032e8f2ad9b4e98130db422"
+    },
+    "822350297": {
+      "audience": "women",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-37.wbbasket.ru/vol8223/part822350/822350297/info/ru/card.json",
+      "observedAt": 1792238476351,
+      "imageHash": "76b342511bfcc577289cc507e0a14e8b96d91a944592a7ef25606af5eeedd876"
+    },
+    "827392064": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-37.wbbasket.ru/vol8273/part827392/827392064/info/ru/card.json",
+      "observedAt": 1792238476023,
+      "imageHash": "0dc53ce06c441a976df14e6f940874d2108a2ec7897ff60ffaa9c696fd60886d"
+    },
+    "848758256": {
+      "audience": "women",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-38.wbbasket.ru/vol8487/part848758/848758256/info/ru/card.json",
+      "observedAt": 1792238476103,
+      "imageHash": "c29ad5d44ed687c4b33bda76e9e1abba539f57535cdecb868ebf54af99ca7248"
+    },
+    "859380697": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-38.wbbasket.ru/vol8593/part859380/859380697/info/ru/card.json",
+      "observedAt": 1792238474019,
+      "imageHash": "954ea3ab1d0ca1caee4ea91e588d432d38e434232480179a07ea9006376dec88"
+    },
+    "898473250": {
+      "audience": "men",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-39.wbbasket.ru/vol8984/part898473/898473250/info/ru/card.json",
+      "observedAt": 1792238476282,
+      "imageHash": "581421c275f240bf8fd00ea88aec676803ecfa434625df34da0ad6603b349807"
+    },
+    "898486677": {
+      "audience": "men",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-39.wbbasket.ru/vol8984/part898486/898486677/info/ru/card.json",
+      "observedAt": 1792238476335,
+      "imageHash": "01283d4b81e50d5812d63ee13fd8e2e5dfe975acfc441b3dba35ae4b7af9d9be"
+    },
+    "931053146": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-40.wbbasket.ru/vol9310/part931053/931053146/info/ru/card.json",
+      "observedAt": 1792238473923,
+      "imageHash": "b726a5f0d2fb850cf02699f2ffb81be44a4e95d75e32ce226b22cd12b39745ec"
+    },
+    "954574390": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-40.wbbasket.ru/vol9545/part954574/954574390/info/ru/card.json",
+      "observedAt": 1792238476055,
+      "imageHash": "f603bb8e592b3f520c42b1239d86a0b15b3a27ee513f150d31e5f328a4b35c74"
+    },
+    "960470703": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-40.wbbasket.ru/vol9604/part960470/960470703/info/ru/card.json",
+      "observedAt": 1792238476039,
+      "imageHash": "e158906dea25121959cf2ace89ac44684766b107813583f8a6111410cef8db85"
+    },
+    "965892731": {
+      "audience": "men",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol9658/part965892/965892731/info/ru/card.json",
+      "observedAt": 1792238472436,
+      "imageHash": "d115b09ffa2fe57f164e0b659ccbf21ac241de3996fa72d6442d2634c2fbc572"
+    },
+    "978894465": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol9788/part978894/978894465/info/ru/card.json",
+      "observedAt": 1792238472420,
+      "imageHash": "9f699afa1a82d5ea6408ce61699fc4e7377db53302070f77067f40079a6a158c"
+    },
+    "993514951": {
+      "audience": "women",
+      "category": "Блузки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol9935/part993514/993514951/info/ru/card.json",
+      "observedAt": 1792238476163,
+      "imageHash": "5a5d6390d54ae2dbd384025dec4337788b09debb6416e715c76b12161ad05256"
+    },
+    "1007813513": {
+      "audience": "men",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol10078/part1007813/1007813513/info/ru/card.json",
+      "observedAt": 1792238476476,
+      "imageHash": "a09785e541342f5a96825bb4de4dc9d81b0d7cfb8a0bb3955a5d9507f3ab7ddb"
+    },
+    "1023816536": {
+      "audience": "unknown",
+      "category": "Серьги",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol10238/part1023816/1023816536/info/ru/card.json",
+      "observedAt": 1792238472545,
+      "imageHash": "0f8c1e7d3d19f357b1ceffe13b06600a329c48ae7709955f2382da88f0ddd4bb"
+    },
+    "1028431429": {
+      "audience": "men",
+      "category": "Футболки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-41.wbbasket.ru/vol10284/part1028431/1028431429/info/ru/card.json",
+      "observedAt": 1792238474444,
+      "imageHash": "61c7b152e808cc4a9902187c1a636883cb9137a62e62b70830553b29369839c1"
+    },
+    "1061013759": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-42.wbbasket.ru/vol10610/part1061013/1061013759/info/ru/card.json",
+      "observedAt": 1792238473622,
+      "imageHash": "04f58b86323aecb339e2a0dcd455a609e57ebcccf1cce82132a2ca725c302534"
+    },
+    "1084688290": {
+      "audience": "men",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-42.wbbasket.ru/vol10846/part1084688/1084688290/info/ru/card.json",
+      "observedAt": 1792238475203,
+      "imageHash": "3e0005050a368f94a305f200ca75718f0e3d715db975d01a2d5d811f40c46c19"
+    },
+    "1097989569": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-42.wbbasket.ru/vol10979/part1097989/1097989569/info/ru/card.json",
+      "observedAt": 1792238472527,
+      "imageHash": "8df6eae987aa6d6755651daad66369c57c94f7ee20cc42329061457a53a69213"
+    },
+    "1105163131": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-42.wbbasket.ru/vol11051/part1105163/1105163131/info/ru/card.json",
+      "observedAt": 1792238475083,
+      "imageHash": "a6e9e1333b55fb194691a3c142538c18aea0344d949edddc393183867667a061"
+    },
+    "1113687154": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-42.wbbasket.ru/vol11136/part1113687/1113687154/info/ru/card.json",
+      "observedAt": 1792238473699,
+      "imageHash": "a97972d927e2c18f067ee39de8d128d654ee6563c7e664b684852c3a32e55743"
+    },
+    "1129080597": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-43.wbbasket.ru/vol11290/part1129080/1129080597/info/ru/card.json",
+      "observedAt": 1792238476304,
+      "imageHash": "cf0b62a629b720b9733af4b64259a60c14cf1a09e466728378a195216e1f3af4"
+    },
+    "1138890506": {
+      "audience": "women",
+      "category": "Платья",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-43.wbbasket.ru/vol11388/part1138890/1138890506/info/ru/card.json",
+      "observedAt": 1792238474153,
+      "imageHash": "322874c4cf93508b8a449e6267e68f80b8440511749787e218e55e0c2f4531c6"
+    },
+    "1150434217": {
+      "audience": "women",
+      "category": "Джинсы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-43.wbbasket.ru/vol11504/part1150434/1150434217/info/ru/card.json",
+      "observedAt": 1792238474137,
+      "imageHash": "1afbdab00b13f24358773b8ea0a468f371379825676b6a2d7fc37a46fcaa8b8d"
+    },
+    "1213989589": {
+      "audience": "women",
+      "category": "Костюмы",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-44.wbbasket.ru/vol12139/part1213989/1213989589/info/ru/card.json",
+      "observedAt": 1792238473670,
+      "imageHash": "0b7f1f50c8ef3817293491d5c498256e1e448ffcb1787db116c87b48620eb101"
+    },
+    "1245009476": {
+      "audience": "men",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-44.wbbasket.ru/vol12450/part1245009/1245009476/info/ru/card.json",
+      "observedAt": 1792238475341,
+      "imageHash": "3b53da5b02f655404d02699bbd8562e6012e37041ba9092ceb577a2954939391"
+    },
+    "1245499830": {
+      "audience": "unknown",
+      "category": "Серьги",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-44.wbbasket.ru/vol12454/part1245499/1245499830/info/ru/card.json",
+      "observedAt": 1792238473050,
+      "imageHash": "c3869ca20e5cc6da201d20324152046dc554254a1d4be5a2a970a35e31abdd31"
+    },
+    "1252715305": {
+      "audience": "women",
+      "category": "Юбки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-44.wbbasket.ru/vol12527/part1252715/1252715305/info/ru/card.json",
+      "observedAt": 1792238474301,
+      "imageHash": "c823e0866459ba4378ce7d5309f0508f8d5063e178e656d6b95d1ff737ecb04b"
+    },
+    "1260407959": {
+      "audience": "unknown",
+      "category": "Сумки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-44.wbbasket.ru/vol12604/part1260407/1260407959/info/ru/card.json",
+      "observedAt": 1792238472841,
+      "imageHash": "6d1f2ed5e4ee7b3c868f9b118bc548ef8015be0229170363a421debae627a5ea"
+    },
+    "1274675180": {
+      "audience": "women",
+      "category": "Кеды",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-45.wbbasket.ru/vol12746/part1274675/1274675180/info/ru/card.json",
+      "observedAt": 1792238474506,
+      "imageHash": "492fb74fdb7d6a1b0e8d82c21ab5a7910422b781202d180bd5d81635fa782ff8"
+    },
+    "1274722797": {
+      "audience": "women",
+      "category": "Кеды",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-45.wbbasket.ru/vol12747/part1274722/1274722797/info/ru/card.json",
+      "observedAt": 1792238475054,
+      "imageHash": "12381cf15a3d5a9a0c381479b2c9a7125b78e3d5136bcef5f357e0e96e64ea45"
+    },
+    "1274857400": {
+      "audience": "women",
+      "category": "Кроссовки",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-45.wbbasket.ru/vol12748/part1274857/1274857400/info/ru/card.json",
+      "observedAt": 1792238472747,
+      "imageHash": "5f8a4e72b6c47f7148e4e01dc2411ce8d12da6cd1a81c2d833a5af549c08c0b4"
+    },
+    "1282297024": {
+      "audience": "unknown",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-45.wbbasket.ru/vol12822/part1282297/1282297024/info/ru/card.json",
+      "observedAt": 1792238474278,
+      "imageHash": "c08b6d009a0f2a0dca258cc9061085869f5a1bdbf26f68b78e546ffc9a0d468f"
+    },
+    "1404893158": {
+      "audience": "women",
+      "category": "Худи",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-46.wbbasket.ru/vol14048/part1404893/1404893158/info/ru/card.json",
+      "observedAt": 1792238476452,
+      "imageHash": "c04ada0c6034b98d7b3baccb7ee1e9a835fee4f986a4319f08917c9cf95d0a88"
+    },
+    "1507944909": {
+      "audience": "unknown",
+      "category": "Серьги",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-48.wbbasket.ru/vol15079/part1507944/1507944909/info/ru/card.json",
+      "observedAt": 1792238474920,
+      "imageHash": "f152f60956c5b81b4e890802909540a2eff2d8ff0063fba39b40daf63695ffba"
+    },
+    "1586871134": {
+      "audience": "unknown",
+      "category": "Бюстгальтеры",
+      "source": "official_wb_card_metadata",
+      "sourceURL": "https://basket-49.wbbasket.ru/vol15868/part1586871/1586871134/info/ru/card.json",
+      "observedAt": 1792238474673,
+      "imageHash": "2840716679dc6074d69f88b66e327efc2712d23983825ddad3cd08cb0664e73d"
+    }
+  },
+  "errors": [],
+  "attempted": 80,
+  "aiCalls": 0,
+  "priceEvidence": "NONE"
+}

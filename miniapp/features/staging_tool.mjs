@@ -18,13 +18,15 @@ export function verifyVersion(version,id){
   const value=version.resources?.bindings,bindings=Array.isArray(value)?value:Object.entries(value??{}).map(([name,b])=>({name,...b}));
   if(!bindings.length)throw Error('STAGING_BINDINGS_UNAVAILABLE');
   const db=bindings.find(b=>b.name==='DB');if(db?.type!=='d1'||db.id!==id)throw Error('STAGING_DB_BINDING_MISMATCH');
-  const allowed=new Set(['DB','ASSETS','CF_VERSION','RATE_LIMITER','STYLE_STAGING','STYLE_STAGING_DB_ID','PUBLIC_BOT_ID','FEATURE_PREVIEW','MINIAPP_BOT_USERNAME']);
+  const allowed=new Set(['DB','ASSETS','CF_VERSION','RATE_LIMITER','STYLE_STAGING','STYLE_STAGING_DB_ID','PUBLIC_BOT_ID','FEATURE_PREVIEW','MINIAPP_BOT_USERNAME','STAGING_OWNER_PREVIEW','MINIAPP_ADMIN_ID']);
   if(bindings.some(b=>!allowed.has(b.name)||['secret_text','ai','service'].includes(b.type)))throw Error('STAGING_UNEXPECTED_BINDING');
   const handlers=version.resources?.script?.handlers;
   if(!Array.isArray(handlers)||handlers.length!==1||handlers[0]!=='fetch')throw Error('STAGING_UNEXPECTED_HANDLER');
 }
 async function main(){
-  const deploy=process.argv.includes('--deploy');await prepareStaging();
+  const deploy=process.argv.includes('--deploy'),options=process.argv.includes('--owner-preview')?{ownerId:process.env.STYLE_STAGE_OWNER_ID}:{};
+  if(process.argv.includes('--owner-preview')&&!options.ownerId)throw Error('EXPLICIT_OWNER_ID_REQUIRED');
+  await prepareStaging(undefined,options);
   if(!deploy){cli(['deploy','--dry-run','--outdir',path.join(OUT,'bundle')]);console.log('STYLE_STAGING_DRY_RUN_OK: separate entrypoint/assets; no secrets, Cron, AI or Telegram sender');return;}
   const branch=spawnSync('git',['branch','--show-current'],{cwd:ROOT,encoding:'utf8',timeout:5000});
   if(branch.stdout.trim()!=='codex/superfind-my-style-preview-20261014')throw Error('OWN_PR13_BRANCH_REQUIRED');
@@ -32,7 +34,7 @@ async function main(){
   if(dirty.status!==0||dirty.stdout.trim())throw Error('CLEAN_COMMITTED_STAGING_SOURCE_REQUIRED');
   let dbs=cli(['d1','list','--json'],{json:true}),db=dbs.find(d=>d.name===STAGING_WORKER);
   if(!db){cli(['d1','create',STAGING_WORKER]);dbs=cli(['d1','list','--json'],{json:true});db=dbs.find(d=>d.name===STAGING_WORKER);}
-  const id=db?.uuid;if(!id)throw Error('EXACT_STAGING_DATABASE_NOT_FOUND');await prepareStaging(id);
+  const id=db?.uuid;if(!id)throw Error('EXACT_STAGING_DATABASE_NOT_FOUND');await prepareStaging(id,options);
   // Exact config guards reject both known production and Vision database IDs.
   cli(['d1','execute',STAGING_WORKER,'--remote','--file',path.join(OUT,'seed.sql'),'--yes']);
   cli(['deploy']);const base='https://'+STAGING_WORKER+'.valeramyakishev000.workers.dev';

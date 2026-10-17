@@ -18,4 +18,5 @@ CREATE TABLE IF NOT EXISTS superfind_decisions(id INTEGER PRIMARY KEY AUTOINCREM
 CREATE INDEX IF NOT EXISTS superfind_decisions_ts ON superfind_decisions(ts DESC,id DESC);
 CREATE TABLE IF NOT EXISTS feature_jobs(id TEXT PRIMARY KEY,status TEXT NOT NULL,created_at INTEGER NOT NULL,lease_until INTEGER NOT NULL DEFAULT 0,result TEXT NOT NULL DEFAULT '{}');
 CREATE INDEX IF NOT EXISTS feature_jobs_status_lease ON feature_jobs(status,lease_until);
+CREATE INDEX IF NOT EXISTS feature_jobs_created ON feature_jobs(created_at DESC,id DESC);
 CREATE TABLE IF NOT EXISTS feature_job_lock(id INTEGER PRIMARY KEY CHECK(id=1),job_id TEXT NOT NULL,owner TEXT NOT NULL,expires INTEGER NOT NULL);

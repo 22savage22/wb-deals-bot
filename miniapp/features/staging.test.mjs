@@ -9,6 +9,7 @@ import {createWorker} from '../cloudflare/worker.mjs';
 import {LocalD1} from './local_d1.mjs';
 import {forgetSubscriber} from './store.mjs';
 import {verifyVersion} from './staging_tool.mjs';
+import {STAGING_BUDGET_SCHEMA} from './staging_budget.mjs';
 const NOW=Math.floor(Date.now()/1000),encoder=new TextEncoder();
 async function signed(id=101,patch={},bot=PUBLIC_BOT_ID){
   const keys=await crypto.subtle.generateKey('Ed25519',true,['sign','verify']);
@@ -36,6 +37,7 @@ test('all administrative/webhook/scheduler/sync/session paths denied before D1',
 });
 test('local SQLite does not masquerade as genuine D1 billing metadata',async()=>{
   const db=new LocalD1(),id='11111111-1111-4111-8111-111111111111';db.exec(await fs.readFile(new URL('./schema.sql',import.meta.url),'utf8'));
+  db.exec(STAGING_BUDGET_SCHEMA);
   db.sqlite.prepare("INSERT INTO feature_meta VALUES('style_staging_database',?)").run(id);
   try{const r=await staging.fetch(new Request('https://stage.test/api/health'),{STYLE_STAGING:'1',PUBLIC_BOT_ID,STYLE_STAGING_DB_ID:id,DB:db},{});assert.equal(r.status,200);assert.equal(r.headers.get('X-Style-D1-Metadata'),'unknown');assert.equal(r.headers.get('X-Style-D1-Rows-Read'),'unknown');}finally{db.close();}
 });

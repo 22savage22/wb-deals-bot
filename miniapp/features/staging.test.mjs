@@ -32,7 +32,12 @@ test('staging has no Cron and rejects privileged bindings and protected database
 test('all administrative/webhook/scheduler/sync/session paths denied before D1',async()=>{
   const env={STYLE_STAGING:'1',FEATURE_PREVIEW:'1',PUBLIC_BOT_ID,STYLE_STAGING_DB_ID:'11111111-1111-4111-8111-111111111111',DB:{prepare(){throw Error('MUST_NOT_READ');}}};
   for(const path of ['/admin','/api/admin/overview','/api/admin/superfind','/telegram/main/webhook','/telegram/webhook','/api/sync','/api/scheduler/tick','/preview/session','/superfind'])assert.equal((await staging.fetch(new Request('https://stage.test'+path),env,{})).status,403,path);
-  assert.equal((await staging.fetch(new Request('https://stage.test/api/style/me',{headers:{'X-Telegram-Init-Data':'forged'}}),env,{})).status,401);
+  const rejected=await staging.fetch(new Request('https://stage.test/api/style/me',{headers:{'X-Telegram-Init-Data':'forged'}}),env,{});assert.equal(rejected.status,401);assert.equal(rejected.headers.get('X-Style-D1-Rows-Read'),'0');assert.equal(rejected.headers.get('X-Style-D1-Queries'),'0');
+});
+test('local SQLite does not masquerade as genuine D1 billing metadata',async()=>{
+  const db=new LocalD1(),id='11111111-1111-4111-8111-111111111111';db.exec(await fs.readFile(new URL('./schema.sql',import.meta.url),'utf8'));
+  db.sqlite.prepare("INSERT INTO feature_meta VALUES('style_staging_database',?)").run(id);
+  try{const r=await staging.fetch(new Request('https://stage.test/api/health'),{STYLE_STAGING:'1',PUBLIC_BOT_ID,STYLE_STAGING_DB_ID:id,DB:db},{});assert.equal(r.status,200);assert.equal(r.headers.get('X-Style-D1-Metadata'),'unknown');assert.equal(r.headers.get('X-Style-D1-Rows-Read'),'unknown');}finally{db.close();}
 });
 test('public API composition keeps favorites/preferences/outfits auth and does not grant owner access',async()=>{
   const db=new LocalD1();db.exec(await fs.readFile(new URL('../cloudflare/schema.sql',import.meta.url),'utf8'));

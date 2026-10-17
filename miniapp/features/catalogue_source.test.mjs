@@ -36,7 +36,7 @@ test('at most3 sequential products/6GETs, no cookies/custom headers, no existing
   try{
     await db.prepare('UPDATE products SET overrides=? WHERE id=?').bind('{"enabled":false}',1).run();
     const r=await collectNewCatalogueProducts(db,[1,2,3,4,5,6],{enabled:true,now:NOW,fetcher});assert.equal(r.verified,3);assert.equal(r.sourceCalls,6);assert.equal(maxActive,1);assert.deepEqual(r.entries.map(e=>e.product.id),[2,3,4]);
-    for(const {options} of calls){assert.equal(options.method,'GET');assert.equal(options.redirect,'error');assert.deepEqual(Object.keys(options.headers),['Accept']);assert.ok(options.signal);}
+    for(const {options} of calls){assert.equal(options.method,'GET');assert.equal(options.redirect,'manual');assert.deepEqual(Object.keys(options.headers),['Accept']);assert.ok(options.signal);}
     assert.equal(r.entries[0].product.audience,'women');assert.equal(r.entries[0].product.price,null);assert.equal(r.entries[0].product.available,null);assert.equal(r.entries[0].product.qualityVerified,false);assert.equal(r.aiCalls,0);
   }finally{db.close();}
 });
@@ -94,4 +94,14 @@ test('malicious metadata/photo and missing explicit gender never become visual g
   try{const r=await collectNewCatalogueProducts(db,[1],{enabled:true,now:NOW,fetcher});assert.equal(calls,2);assert.equal(r.entries.length,0);assert.equal(r.errors[0].code,'PHOTO_CONTENT_TYPE');
     assert.equal(db.sqlite.prepare('SELECT count(*) n FROM feature_catalog').get().n,0);
   }finally{db.close();}
+});
+test('metadata and photo redirects are rejected without following a foreign Location',async()=>{
+  for(const phase of ['metadata','photo']){
+    const db=await fixture(1),calls=[];const ordinary=sourceFetcher(calls),fetcher=async(url,options)=>{
+      assert.equal(options.redirect,'manual');
+      if((phase==='metadata')===url.endsWith('card.json'))return new Response('',{status:302,headers:{Location:'https://must-not-follow.invalid/redirect'}});
+      return ordinary(url,options);
+    };
+    try{const result=await collectNewCatalogueProducts(db,[1],{enabled:true,now:NOW,fetcher});assert.equal(result.verified,0);assert.equal(result.sourceCalls,phase==='metadata'?1:2);assert.equal(result.errors[0].status,302);assert.ok(calls.every(row=>new URL(row.url).hostname==='basket-01.wbbasket.ru'));}finally{db.close();}
+  }
 });

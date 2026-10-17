@@ -10,7 +10,7 @@ async function fixture({payload=bytes,patch={},fetcher,cacheEnabled=true}={}){
   const metrics={queries:0,guards:0,fetches:0,puts:0},pending=[],cached=new Map(),ctx={waitUntil:promise=>pending.push(promise)};
   const cache=cacheEnabled?{async match(r){return cached.get(r.url)?.clone();},async put(r,response){metrics.puts++;cached.set(r.url,response.clone());}}:null;
   const env={DB:{prepare(sql){metrics.queries++;assert.equal(sql,'SELECT data FROM feature_catalog WHERE id=?');return {bind(id){assert.equal(id,123);return this;},async first(){return {data:JSON.stringify(product)};}};}}};
-  const options={cache,guard:async(e,r,operation)=>{metrics.guards++;return operation(e);},fetcher:async(url,init)=>{metrics.fetches++;assert.equal(init.redirect,'error');assert.equal(init.headers.Accept,'image/webp');return fetcher?fetcher(url,init):new Response(payload,{headers:{'Content-Type':'image/webp'}});}};
+  const options={cache,guard:async(e,r,operation)=>{metrics.guards++;return operation(e);},fetcher:async(url,init)=>{metrics.fetches++;assert.equal(init.redirect,'manual');assert.equal(init.headers.Accept,'image/webp');return fetcher?fetcher(url,init):new Response(payload,{headers:{'Content-Type':'image/webp'}});}};
   const call=(method='GET',url='https://stage.unit'+path)=>stylePhoto(new Request(url,{method}),env,ctx,options);
   return {call,path,hash,product,metrics,pending,cached,options,env,ctx};
 }

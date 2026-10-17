@@ -13,7 +13,9 @@ async function servePhoto(request,env,ctx,{fetcher=fetch,cache=globalThis.caches
     const row=await e.DB.prepare('SELECT data FROM feature_catalog WHERE id=?').bind(Number(m[1])).first();if(!row)return notFound();
     let p,u;try{p=JSON.parse(row.data);u=new URL(p.image);}catch{return notFound();}
     if(p.id!==Number(m[1])||p.imageHash!==m[2]||p.displayImage!==path||u.protocol!=='https:'||u.username||u.password||u.port||u.search||u.hash||!/^basket-\d{2,3}\.wbbasket\.ru$/.test(u.hostname)||!new RegExp('^/vol[0-9]+/part[0-9]+/'+p.id+'/images/[^/]+/[1-9][0-9]*\\.webp$').test(u.pathname))return notFound();
-    diagnostic.phase='upstream';const response=await fetcher(u.href,{headers:{Accept:'image/webp'},redirect:'error',signal:AbortSignal.timeout(8000)});
+    // Workerd supports follow/manual, but rejects redirect:'error' before any
+    // request. Manual + !ok below preserves the same no-follow security gate.
+    diagnostic.phase='upstream';const response=await fetcher(u.href,{headers:{Accept:'image/webp'},redirect:'manual',signal:AbortSignal.timeout(8000)});
     if(!response.ok||!/^image\/webp(?:;|$)/i.test(response.headers.get('content-type')||''))return notFound();
     if(Number(response.headers.get('content-length'))>2*1024*1024)return notFound();
     diagnostic.phase='body';const reader=response.body?.getReader();if(!reader)return notFound();const chunks=[];let size=0;

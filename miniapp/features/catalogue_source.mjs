@@ -68,7 +68,9 @@ export async function collectNewCatalogueProducts(db,candidateIds,{enabled=false
       try{raw=JSON.parse(row.data);const overrides=JSON.parse(row.overrides??'{}');if(raw.id!==row.id||raw.enabled===false||overrides.enabled===false){reject(row.id);continue;}url=metadataURL(raw.image,row.id);}catch{errors.push({id:row.id,code:'UNTRUSTED_SOURCE_CARD'});reject(row.id);continue;}
       attempted++;
       try{
-        sourceCalls++;const metadata=await fetcher(url,{method:'GET',headers:{Accept:'application/json'},redirect:'error',signal:AbortSignal.timeout(CATALOGUE_SOURCE_LIMITS.timeoutMs)});
+        // Workerd rejects redirect:'error' at Request construction. Manual
+        // never follows a Location; the non-2xx branch rejects all redirects.
+        sourceCalls++;const metadata=await fetcher(url,{method:'GET',headers:{Accept:'application/json'},redirect:'manual',signal:AbortSignal.timeout(CATALOGUE_SOURCE_LIMITS.timeoutMs)});
         if(!metadata.ok){await metadata.body?.cancel();errors.push({id:row.id,status:metadata.status});if([403,429].includes(metadata.status)){blocked=metadata.status;retryDelay=retryAfter(metadata.headers.get('retry-after'),now);break;}if([404,410].includes(metadata.status)){reject(row.id);continue;}failed=true;continue;}
         const card=JSON.parse(new TextDecoder().decode(await boundedBytes(metadata,CATALOGUE_SOURCE_LIMITS.metadataBytes)));
         if(Number(card?.nm_id)!==row.id||typeof card.imt_name!=='string'||!card.imt_name.trim()||typeof card.subj_name!=='string'){
@@ -79,7 +81,7 @@ export async function collectNewCatalogueProducts(db,candidateIds,{enabled=false
           brand:typeof card.selling?.brand_name==='string'?card.selling.brand_name.trim().slice(0,80):null,brandVerified:typeof card.selling?.brand_name==='string',
           rating:Number.isFinite(raw.rating)&&raw.rating>0&&raw.rating<=5?raw.rating:null,reviews:Number.isSafeInteger(raw.reviews)&&raw.reviews>=0?raw.reviews:null,qualityVerified:false};
         if(!fashionCategory(product).allowed){errors.push({id:row.id,code:'OUTSIDE_CONFIRMED_FASHION'});reject(row.id);continue;}
-        sourceCalls++;const photo=await fetcher(trustedImage(raw.image,row.id).href,{method:'GET',headers:{Accept:'image/webp'},redirect:'error',signal:AbortSignal.timeout(CATALOGUE_SOURCE_LIMITS.timeoutMs)});
+        sourceCalls++;const photo=await fetcher(trustedImage(raw.image,row.id).href,{method:'GET',headers:{Accept:'image/webp'},redirect:'manual',signal:AbortSignal.timeout(CATALOGUE_SOURCE_LIMITS.timeoutMs)});
         if(!photo.ok){await photo.body?.cancel();errors.push({id:row.id,status:photo.status});if([403,429].includes(photo.status)){blocked=photo.status;retryDelay=retryAfter(photo.headers.get('retry-after'),now);break;}if([404,410].includes(photo.status)){reject(row.id);continue;}failed=true;continue;}
         if(!/^image\/webp(?:;|$)/i.test(photo.headers.get('content-type')??'')){await photo.body?.cancel();errors.push({id:row.id,code:'PHOTO_CONTENT_TYPE'});reject(row.id);continue;}
         const bytes=await boundedBytes(photo,CATALOGUE_SOURCE_LIMITS.imageBytes);if(!validWebP(bytes)){errors.push({id:row.id,code:'PHOTO_CONTAINER_INVALID'});reject(row.id);continue;}

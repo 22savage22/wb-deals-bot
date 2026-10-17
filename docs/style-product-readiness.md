@@ -64,8 +64,8 @@ produces an honest empty result rather than silently ignoring that budget.
 
 ## Verification and evidence limits
 
-- Full initial Node Worker/SHADOW/features/admin regression:548PASS. Additional
-  native Workerd redirect regression is included in CI after the live photo fix.
+- Full final Node Worker/SHADOW/features/admin regression:550PASS, including
+  native Workerd redirect200/302/cache/source regression (not just Node mocks).
 - Existing `tests/run_all.py`: ALL TESTS PASSED.
 - Independent focused security pass:42PASS.
 - Mobile product browser scenarios:15PASS at320x740/390x844, including lost

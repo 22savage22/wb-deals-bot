@@ -1,4 +1,6 @@
 {
+  "historical_checkpoint": true,
+  "superseded_by": "product-live-receipt.json",
   "date": "2026-10-17",
   "worker": "wb-finds-style-staging",
   "url": "https://wb-finds-style-staging.valeramyakishev000.workers.dev/",

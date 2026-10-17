@@ -7,6 +7,8 @@
     "test:worker": "node --test miniapp/cloudflare/*.test.mjs",
     "test:shadow": "node --test miniapp/shadow/*.test.mjs",
     "test:features": "node --test miniapp/features/*.test.mjs",
+    "test:prices": "node --test miniapp/prices/*.test.mjs",
+    "prices:probe": "node miniapp/prices/probe.mjs",
     "features:preview": "node miniapp/features/preview_server.mjs",
     "check:features": "esbuild miniapp/features/worker.mjs --bundle --format=esm --platform=browser --outdir=.test-temp/feature-worker-build",
     "style:staging:prepare": "node miniapp/features/prepare_staging.mjs",

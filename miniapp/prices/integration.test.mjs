@@ -20,7 +20,8 @@ const approved=p=>normalizeApprovedObservation(p,{authorizationReference:'fixtur
 async function fixture(t){const db=new LocalD1();t.after(()=>db.close());const env={PRICE_ISOLATED:'true',PRICE_DATABASE_ID:ID,PRICE_DB:db,DB:{prepare(){throw Error('PRODUCTION_FORBIDDEN');}}};const store=openPriceStore(env,{approvedDatabaseId:ID});await store.init();return {db,store,env};}
 test('discovery preserves quality/bans and cannot promote an unavailable cheap SKU or search quote',async t=>{
  const {store}=await fixture(t),raw={id:12,name:'Футболка хлопковая',subjectName:'Футболки',reviewRating:4.9,feedbacks:120,sizes:[{chrtId:1201,name:'S',qty:0,price:{product:10000,basic:90000}},{chrtId:1202,name:'M',qty:3,price:{product:24999,basic:90000}}]};
- assert.equal(cardDeal(raw,{max_price:200}).product,100); // Current legacy behaviour, not a real WB price.
+ assert.equal(cardDeal(raw,{max_price:200}),null); // Fixed scheduler now excludes the unavailable100RUB size.
+ assert.equal(cardDeal(raw,{max_price:300}).product,249.99);
  const source={readOnly:true,name:'wb-card',context:{currency:'RUB',destination:'-1257786',paymentBasis:'unknown'},search:async()=>({products:[raw,{...raw,id:13,name:'Учебник',subjectName:'Учебники'},{...raw,id:14,reviewRating:3}]})};
  const r=await discoverProspects({store,source,enabled:true,cursor:0,now:()=>NOW});assert.equal(r.prospects,0); // <=100 lane: the available SKU costs249.99.
  const r2=await discoverProspects({store,source,enabled:true,cursor:100,higherPriceWatch:true,now:()=>NOW+1200001});assert.equal(r2.prospects,1);assert.equal(r2.priceConfirmed,0);

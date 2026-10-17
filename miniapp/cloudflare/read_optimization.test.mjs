@@ -99,7 +99,7 @@ test('cold schema v2 upgrade plus successful native send stays inside 50-query F
   const result=await withReadBudget({...e,DB:{...e.DB},TG_BOT_TOKEN:'fixture'},'core',25000,env=>nativeTick(env,Date.now(),async url=>{
     if(url.includes('wbbasket'))return new Response('fixture',{headers:{'content-type':'image/webp'}});
     if(url.includes('sendPhoto'))return Response.json({ok:true,result:{message_id:123}});
-    return Response.json({products:[{id:1,name:'Fixture',reviewRating:4.8,feedbacks:100,sizes:[{qty:1,price:{product:70000,basic:70000}}]}]});
+    return Response.json({products:[{id:1,name:'Fixture',reviewRating:4.8,feedbacks:100,sizes:[{chrtId:11,name:'M',qty:1,price:{product:70000,basic:70000}}]}]});
   }));
   assert.equal(result.results.post.result,'success');assert.ok(e.calls.length<=50,'Cold migration+guard+publication queries: '+e.calls.length);
 });

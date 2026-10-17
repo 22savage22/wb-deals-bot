@@ -12,6 +12,7 @@ import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './a
 import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
+import {normalizeRuntimeQuote} from '../prices/runtime_quote.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -71,11 +72,83 @@ async function runtime(env,body){
   return result.json();
 }
 async function status(env,patch){await q(env,"UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1",JSON.stringify(patch)).run();}
-async function source(url,fetcher){
-  const r=await fetcher(url,{headers:{Accept:'application/json','Accept-Language':'ru-RU,ru;q=0.9'},redirect:'manual',signal:AbortSignal.timeout(10000)});
-  if(!r.ok){const error=new Error('WB HTTP '+r.status);error.status=r.status;error.retry_after=retryAfter(r.headers.get('Retry-After'),sec());
-    // Provenance only: never persist response bodies, cookies or credentials.
-    error.upstream={host:new URL(url).hostname,path:new URL(url).pathname,status:r.status,retry_after:error.retry_after,server:String(r.headers.get('server')||'').slice(0,80),content_type:String(r.headers.get('content-type')||'').slice(0,80),cf_ray:Boolean(r.headers.get('cf-ray'))};throw error;}return r.json();
+const WB_RECEIPT=Symbol('native-wb-response-receipt');
+function responseReceipt(url,status,receivedAt){
+  const u=new URL(url),kind=u.hostname==='card.wb.ru'?'details':'search';
+  return {receivedAt,status,method:'GET',kind,requestedContext:{currency:String(u.searchParams.get('curr')||'').toUpperCase(),
+    destination:u.searchParams.get('dest'),spp:u.searchParams.get('spp')||'unknown',paymentBasis:'unknown',authentication:'anonymous'}};
+}
+function publicWBCard(card){
+  if(!card||typeof card!=='object'||Array.isArray(card))return null;
+  const out={};
+  for(const key of ['id','reviewRating','rating','feedbacks','nmFeedbacks','packCount'])if(typeof card[key]==='number'&&Number.isFinite(card[key]))out[key]=card[key];
+  if(out.id===undefined&&/^\d{1,12}$/.test(String(card.id??'')))out.id=Number(card.id);
+  for(const [key,limit] of [['name',200],['brand',100],['subjectName',100],['subject',100],['category',100],['type',100],['priceBasis',60]]){
+    if(typeof card[key]==='string')out[key]=card[key].trim().slice(0,limit);
+  }
+  if(typeof card.subject==='number'&&Number.isFinite(card.subject))out.subject=card.subject;
+  if(Array.isArray(card.sizes))out.sizes=card.sizes.slice(0,100).map(raw=>{
+    if(!raw||typeof raw!=='object'||Array.isArray(raw))return {};
+    const size={};
+    for(const key of ['chrtId','chrtID','sizeId'])if(Object.hasOwn(raw,key)){
+      // Keep an invalid identity sentinel instead of dropping it and allowing
+      // a lower-priority identity field to change the shared SKU selection.
+      size[key]=raw[key]==null?null:typeof raw[key]==='number'&&Number.isFinite(raw[key])?raw[key]:'unknown';
+    }
+    for(const key of ['name','origName'])if(typeof raw[key]==='string')size[key]=raw[key].trim().slice(0,60);
+    if(typeof raw.qty==='number'&&Number.isFinite(raw.qty))size.qty=raw.qty;
+    if(Array.isArray(raw.stocks))size.stocks=raw.stocks.slice(0,100).map(row=>typeof row?.qty==='number'&&Number.isFinite(row.qty)?{qty:row.qty}:{});
+    if(raw.price&&typeof raw.price==='object'&&!Array.isArray(raw.price)){
+      size.price={};for(const key of ['product','basic'])if(typeof raw.price[key]==='number'&&Number.isFinite(raw.price[key]))size.price[key]=raw.price[key];
+      if(Object.hasOwn(raw.price,'condition')){
+        const condition=typeof raw.price.condition==='string'?raw.price.condition.trim().toLowerCase():'';
+        size.price.condition=['','standard','none','wallet','wb_wallet','card','credit','card_membership','membership','club','coupon','unknown'].includes(condition)?condition:'unknown';
+      }
+    }return size;
+  });
+  return out;
+}
+function notifyWB(options,url,receipt,payload){
+  // No hook means no product copy, SQL, service request or callback promise.
+  // The trusted server hook must bound its synchronous work and register its
+  // own waitUntil task. Its result is deliberately NEVER awaited by posting.
+  // Search pages are not needed by the natural-details observer. Return before
+  // looking up a callback or walking/copying any search result.
+  if(receipt.kind!=='details')return;
+  let handler;try{handler=options?.onWBResponse;}catch{return;}
+  if(typeof handler!=='function')return;
+  try{
+    const raw=Array.isArray(payload?.products)?payload.products:Array.isArray(payload?.data?.products)?payload.data.products:[];
+    // Copy only public fields used by the shared quote normalizer. Unused
+    // nested values, auth/cookie/header fields and arbitrary prices metadata
+    // never enter the callback. Keep room for the URL/context under 64 KiB.
+    const products=[];let bytes=2;
+    for(const card of raw.slice(0,20)){
+      const product=publicWBCard(card);if(!product)continue;
+      const size=new TextEncoder().encode(JSON.stringify(product)).byteLength+1;
+      if(bytes+size>60*1024)break;products.push(product);bytes+=size;
+    }
+    const ids=receipt.kind==='details'?(new URL(url).searchParams.get('nm')||'').split(';').filter(id=>/^\d{1,12}$/.test(id)).slice(0,20).map(Number):[];
+    const pending=handler.call(options,{url,receivedAt:receipt.receivedAt,status:receipt.status,products,kind:receipt.kind,method:'GET',requestedContext:{...receipt.requestedContext},ids});
+    if(pending&&typeof pending.then==='function')Promise.resolve(pending).catch(()=>{});
+  }catch{} // No upstream body, credential, raw error or hook error is logged.
+}
+async function source(url,fetcher,options){
+  let r,notified=false;
+  try{
+    r=await fetcher(url,{method:'GET',headers:{Accept:'application/json','Accept-Language':'ru-RU,ru;q=0.9'},redirect:'manual',signal:AbortSignal.timeout(10000)});
+    if(!r.ok){const receipt=responseReceipt(url,r.status,Date.now());notifyWB(options,url,receipt);notified=true;
+      const error=new Error('WB HTTP '+r.status);error.status=r.status;error.retry_after=retryAfter(r.headers.get('Retry-After'),sec());
+      // Provenance only: never persist response bodies, cookies or credentials.
+      error.upstream={host:new URL(url).hostname,path:new URL(url).pathname,status:r.status,retry_after:error.retry_after,server:String(r.headers.get('server')||'').slice(0,80),content_type:String(r.headers.get('content-type')||'').slice(0,80),cf_ray:Boolean(r.headers.get('cf-ray'))};throw error;
+    }
+    const payload=await r.json(),receipt=responseReceipt(url,r.status,Date.now());
+    // receivedAt is recorded AFTER the actual response JSON has completed. A
+    // scheduler start time or products.checked_at cannot establish price time.
+    notifyWB(options,url,receipt,payload);notified=true;
+    if(payload&&typeof payload==='object')Object.defineProperty(payload,WB_RECEIPT,{value:receipt});
+    return payload;
+  }catch(error){if(!notified)notifyWB(options,url,responseReceipt(url,r?.status||0,Date.now()));throw error;}
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
@@ -93,18 +166,35 @@ function rejectedCardReason(card,policy){
   if(raw.feedbacks<Number(policy.min_feedbacks??20))return 'reviews';
   return 'blocked';
 }
-export function cardDeal(card,policy={}){
-  const prices=(card?.sizes||[]).map(s=>s.price).filter(p=>p?.product>0&&p?.basic>=p.product);
-  if(!card?.id||!card.name||!prices.length)return null;
-  const stock=(card.sizes||[]).filter(s=>s.qty!=null);if(stock.length&&!stock.some(s=>s.qty>0))return null;
-  const best=prices.reduce((a,b)=>a.product<b.product?a:b),price=Math.floor(best.product/100),rating=Number(card.reviewRating||card.rating||0);
-  const p={id:Number(card.id),title:String(card.name).slice(0,200),brand:String(card.brand||'').slice(0,100),product:price,basic:price,discount:0,selection_mode:'good_price',rating,feedbacks:Number(card.feedbacks||card.nmFeedbacks||0),category:String(card.subjectName||card.subject||'другое')};
+export function cardDeal(card,policy={},receipt){
+  const receivedAt=receipt?.receivedAt,requested=receipt?.requestedContext;
+  const observed=Number.isSafeInteger(receivedAt)&&receivedAt>0&&receivedAt<=Date.now()&&receipt.status===200&&receipt.method==='GET'&&
+    ['details','search'].includes(receipt.kind)&&requested?.currency==='RUB'&&/^-?\d{1,10}$/.test(String(requested.destination??''));
+  // Reuse the existing strict normalizer: price and stock must belong to ONE
+  // available stable WB SKU, never the cheapest unavailable size plus stock
+  // from another. Names/array positions cannot become a history identity.
+  const quote=normalizeRuntimeQuote({...card,id:Number(card?.id)},{now:observed?receivedAt:Date.now(),context:observed?{...requested,paymentBasis:'unknown'}:
+    {currency:'RUB',destination:common.dest,spp:'unknown',paymentBasis:'unknown'}});
+  if(!quote||quote.variantKey==='unknown')return null;
+  const price=quote.price,rating=quote.rating??0,sourceCode=observed?receipt.kind==='details'?'wb_card':'wb_search':'unknown';
+  const p={...quote,product:price,basic:price,discount:0,selection_mode:'good_price',rating,feedbacks:quote.reviews??0,
+    category:String(card.subjectName||card.subject||'другое'),currency:observed?'RUB':null,
+    observedAt:observed?receivedAt:null,priceObservedAt:observed?receivedAt:null,stockObservedAt:observed?receivedAt:null,
+    priceSource:sourceCode,priceStatus:observed?'api_observed':'unconfirmed',fallback:false,
+    priceContextConfirmed:false,retailConfirmed:false,retailPriceConfirmed:false,
+    context:observed?{...quote.context,paymentBasis:'unknown',authentication:'anonymous'}:null,
+    variants:quote.variants.map(v=>({...v,currency:observed?'RUB':null,context:observed?{...v.context,paymentBasis:'unknown',authentication:'anonymous'}:null})),
+    requestedContext:observed?{...requested,paymentBasis:'unknown'}:null,
+    size:quote.variants.find(v=>v.variantKey===quote.variantKey&&v.available===true&&v.price===price)?.size||'unknown',
+    priceProvenance:observed?{method:'GET',kind:receipt.kind,status:receipt.status,receivedAt,requestedContext:{...requested,paymentBasis:'unknown'}}:null};
   const text=(p.title+' '+p.category).toLowerCase();
   if(price<=0||policy.max_price&&price>policy.max_price||rating<Number(policy.min_rating??4.3)||p.feedbacks<Number(policy.min_feedbacks??20))return null;
   if((policy.blocked_words||[]).some(w=>text.includes(String(w).toLowerCase())))return null;
   if((policy.blacklist||[]).some(w=>String(w)===String(p.id)||p.brand.toLowerCase().includes(String(w).toLowerCase())))return null;
   return selectionReason(p,policy)?null:p;
 }
+function publishableAPIQuote(product){return product?.fallback!==true&&product?.priceStatus==='api_observed'&&product?.priceProvenance?.kind==='details'&&
+  Number.isSafeInteger(product.priceObservedAt)&&product.priceObservedAt<=Date.now()&&Date.now()-product.priceObservedAt<=3600000&&product.available===true&&product.variantKey!=='unknown';}
 async function imageFor(env,p,fetcher,options={}){
   const vol=Math.floor(p.id/100000),part=Math.floor(p.id/1000);
   // Reuse a genuinely observed shard for this volume, but verify this product's
@@ -187,21 +277,29 @@ export async function bootstrap(env,data){
   ]);
   await status(env,{bootstrap_at:now,native_configured:true});return {ok:true,queue_size:(await readState(env)).count};
 }
-async function validateQueued(env,item,policy,fetcher){
-  const saved=JSON.parse(item.data),now=sec();let card,unavailable=false;
+const WB_VALIDATION_UNAVAILABLE=Symbol('wb-validation-unavailable');
+async function validateQueued(env,item,policy,fetcher,options){
+  const saved=JSON.parse(item.data),attemptAt=Date.now();let card,receipt;
   // Check the OLD queue before any network work, not just newly found cards.
   // Keep the row/history so re-enabling a category is reversible.
   if(selectionReason(saved,policy))return null;
-  try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
-  catch(error){unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
-  let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
+  try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher,options);receipt=response[WB_RECEIPT];card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
+  catch(error){
+    // Preserve the original observation timestamps and row checked_at. A new
+    // failed attempt is NOT a new price observation, even for a recent cache.
+    const fallback={...saved,priceStatus:'unconfirmed',fallback:true,priceContextConfirmed:false,retailConfirmed:false,retailPriceConfirmed:false,
+      validationAttemptAt:attemptAt,validationFailedAt:Date.now(),validation_error:/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable'};
+    await q(env,'UPDATE scheduler_inventory SET retry_at=?,data=? WHERE pid=?',sec()+300,JSON.stringify(fallback),item.pid).run();return WB_VALIDATION_UNAVAILABLE;
+  }
+  const now=sec();let deal=card?cardDeal(card,policy,receipt):null;
   if(deal&&selectionReason(deal,policy))return null;
   if(!deal||deal.product>saved.product*1.1){
-    const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
-    const reason=!card&&!unavailable?'WB_CARD_MISSING':!deal?'CARD_FILTER':'PRICE_INCREASE';
-    await q(env,"UPDATE scheduler_inventory SET state='rejected',data=json_set(data,'$.validation_error',?,'$.validation_price',?) WHERE pid=?",reason,raw?.product??null,item.pid).run();return null;
+    const raw=cardDeal(card,{min_rating:0,min_feedbacks:0},receipt);
+    const reason=!card?'WB_CARD_MISSING':!deal?'CARD_FILTER':'PRICE_INCREASE';
+    await q(env,"UPDATE scheduler_inventory SET state='rejected',data=json_set(data,'$.validation_error',?,'$.validation_price',?,'$.priceStatus','unconfirmed','$.validationAttemptAt',?) WHERE pid=?",reason,raw?.product??null,attemptAt,item.pid).run();return null;
   }
-  deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
+  if(!publishableAPIQuote(deal))return null;
+  deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1,validationAttemptAt:attemptAt};
   deal={...deal,...await imageFor(env,deal,fetcher)};
   if(!deal.image){deal.validation_error=deal.photo_exhausted?'PHOTO_EXHAUSTED':'PHOTO_SHARD_PENDING';await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
   if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now});
@@ -210,7 +308,7 @@ async function validateQueued(env,item,policy,fetcher){
   }
   await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
 }
-async function publish(env,state,fetcher){
+async function publish(env,state,fetcher,options){
   const owner=crypto.randomUUID(),lock=await runtime(env,{op:'acquire',kind:'post',owner,ttl:120});
   if(!lock.ok)return {result:'lock_busy'};
   try{
@@ -234,7 +332,11 @@ async function publish(env,state,fetcher){
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
       await status(env,{last_post_attempt:now,selected_product:item.pid,...(qualitySettings(current.policy).enabled?{selection_explanation:candidateQuality(JSON.parse(item.data),current.policy,feedback,feedback?.visual?.get(item.pid)||[])}:{})});
-      const deal=await validateQueued(env,item,current.policy,fetcher);if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
+      const deal=await validateQueued(env,item,current.policy,fetcher,options);
+      // Failing closed must not turn the removed cached-price send into up to
+      // three WB failures in one cycle. Wait for the existing scheduler retry.
+      if(deal===WB_VALIDATION_UNAVAILABLE){if(preferred)await cancelPreferred();return {result:preferred?'requested_product_invalid':'no_eligible_product'};}
+      if(!deal){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
       // Re-read pause/timezone after external calls, immediately before claim/send.
       const latest=await q(env,'SELECT data,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.policy=JSON.parse(latest.policy||'{}');
@@ -258,11 +360,12 @@ async function publish(env,state,fetcher){
       // Final owner gate immediately before forming/sending Telegram. A ban
       // saved during slow WB/shadow work must win over a previously chosen row.
       const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
-      if(selectionReason(deal,finalPolicy)){
+      if(selectionReason(deal,finalPolicy)||!publishableAPIQuote(deal)){
         await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
         continue;
       }
-      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
+      const size=deal.size&&deal.size!=='unknown'?deal.size:'SKU '+deal.variantKey;
+      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Цена из ответа WB: <b>${deal.product} ₽</b>\n📐 Вариант: ${escape(size)}\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nИтоговая цена и наличие на WB могут зависеть от размера, региона и условий оплаты.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
       let result;
@@ -309,7 +412,7 @@ async function publish(env,state,fetcher){
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}
 }
-async function search(env,state,fetcher){
+async function search(env,state,fetcher,options){
   const owner=crypto.randomUUID();if(!(await runtime(env,{op:'acquire',kind:'search',owner,ttl:90})).ok)return {result:'lock_busy'};
   let attempted=null;
   try{
@@ -340,10 +443,10 @@ async function search(env,state,fetcher){
     await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
     const params=discoveryParams(state.policy,query,cursor);
-    let response;try{response=await source(wbURL('search',params),fetcher);}catch(error){
+    let response;try{response=await source(wbURL('search',params),fetcher,options);}catch(error){
       if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
-      response=await source(wbURL('search',{...params,page:'1',sort:'popular',dest:'123585633'}),fetcher);
+      response=await source(wbURL('search',{...params,page:'1',sort:'popular',dest:'123585633'}),fetcher,options);
     }
     const found=(response.products||response.data?.products||[]).slice(0,100);
     // Filter known IDs/titles BEFORE the eight-card cap. Otherwise the first
@@ -356,14 +459,14 @@ async function search(env,state,fetcher){
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
     const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0},filter_reasons={};
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    const valid=[];for(const card of found){const p=cardDeal(card,state.policy,response[WB_RECEIPT]);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     // Sequential verified-image batch, bounded independently of posting.
     const verified=[],deadline=Date.now()+28000;
-    const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
+    const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher,options):{};
     const live=new Map((details.products||details.data?.products||[]).map(p=>[Number(p.id),p]));
     for(const candidate of valid.slice(0,3)){
       if(Date.now()>=deadline)break;
-      const p=cardDeal(live.get(candidate.id),state.policy);
+      const p=cardDeal(live.get(candidate.id),state.policy,details[WB_RECEIPT]);
       if(!p){rejected.card_missing++;continue;}p.query=query;
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
       if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now}):ready;
@@ -382,7 +485,7 @@ async function search(env,state,fetcher){
     // RETURNING counts only the inventory rows actually admitted, no extra query.
     const newIDs=inserted.results.map(p=>Number(p.pid));
     const finished=sec(),queueAfter=(await q(env,'SELECT ready FROM scheduler_counts WHERE id=1').first()).ready;
-    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',...attempted,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_found:Math.max(0,new Set(found.map(p=>String(p.id))).size-knownIDs.size),new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>test||newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,rating:p.rating,feedbacks:p.feedbacks,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
+    const receipt={at:finished,origin:env.SEARCH_ORIGIN||'cron',source:'search.wb.ru',...attempted,sort:params.sort,price_filter:params.priceU||null,found:found.length,already_known:knownIDs.size,new_found:Math.max(0,new Set(found.map(p=>String(p.id))).size-knownIDs.size),new_candidates:valid.length,valid:verified.length,added:newIDs.length,new_ids:newIDs,queue_before:state.count,queue_after:queueAfter,rejected,filter_reasons,products:verified.filter(p=>test||newIDs.includes(p.id)).map(p=>({id:p.id,title:p.title,price:p.product,priceStatus:p.priceStatus,priceObservedAt:p.priceObservedAt,stockObservedAt:p.stockObservedAt,variantKey:p.variantKey,size:p.size,retailConfirmed:false,rating:p.rating,feedbacks:p.feedbacks,image:p.image,url:`https://www.wildberries.ru/catalog/${p.id}/detail.aspx`}))};
     // Optional history cannot turn a successful discovery into another WB retry.
     await recordDiscovery(env,receipt).catch(()=>{});
     await status(env,{last_search_success:finished,last_scan_success:finished,last_scan_error:'',last_scan_error_code:'',search_upstream_error:null,search_retry_at:0,search_failures:0,search_backoff_seconds:0,last_scan_found:found.length,last_scan_known:knownIDs.size,last_scan_valid:verified.length,last_scan_added:newIDs.length,last_scan_new_ids:newIDs,last_search_query:query,last_search_experiment:!!experiment,next_search:finished+nextSearchDelay(state.s,newIDs.length),search_receipt:receipt,...(newIDs.length?{last_search_add_receipt:receipt}:{})});
@@ -397,7 +500,7 @@ async function search(env,state,fetcher){
   }finally{await runtime(env,{op:'release',kind:'search',owner});}
 }
 export {search as runDiscovery};
-export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron'){
+export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron',options={}){
   await ensureScheduler(env);const now=sec(),results={};
   await status(env,{last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true,...(origin==='cron'?{last_automatic_tick:now}:{})});
   try{
@@ -432,13 +535,13 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});
-    if(canPublish)try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
+    if(canPublish)try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher,options);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
     // Verify stale inventory between posts, instead of discovering a poisoned
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
       state=await selectionState(env,state,true);
       const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
-      if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
+      if(item){const validated=await validateQueued(env,item,state.policy,fetcher,options);results.preflight={product_id:item.pid,valid:validated!==WB_VALIDATION_UNAVAILABLE&&Boolean(validated)};}
       await status(env,{last_preflight:now});
     }
     // A successful send and a catalogue scan use separate minute ticks. This
@@ -447,7 +550,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
       // Separate accounting: discovery cannot spend the posting budget. The raw
       // binding bypasses only the outer meter, never its own atomic admission.
       results.search=await withReadBudget({...env,DB:env.DISCOVERY_DB||env.DB,SEARCH_ORIGIN:origin},'optional',15000,async e=>{
-        const result=await search(e,state,fetcher);
+        const result=await search(e,state,fetcher,options);
         if(!['backoff_or_not_due','lock_busy','queue_full'].includes(result.result)){
           // Official metadata of the completed discovery queries BEFORE this
           // single receipt write, no database scanning for instrumentation.
@@ -465,10 +568,10 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count,JSON.stringify(results));return {enabled:true,results,queue_size:count};
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
-export async function checkAutopost(env,fetcher=fetch){
+export async function checkAutopost(env,fetcher=fetch,options={}){
   await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length,state.policy),status=JSON.parse(state.row.status||'{}');
   const result={ok:true,dry_run:true,telegram_posts_created:0,cron:env.SCHEDULER_DRIVER==='cloudflare-native',last_scheduler_tick:status.last_scheduler_tick||0,heartbeat_stale:now-Number(status.last_scheduler_tick||0)>180,queue_size:state.count,eligible_products:state.ready.filter(p=>(state.recent.filter(r=>r.topic===p.topic).length)<8).length,next_product:item?.pid||null,posting_allowed:window.allowed,timezone:window.timezone,current_local_time:window.clock,quiet_hours:state.s.quiet_enabled?state.s.quiet_start+'–'+state.s.quiet_end:'OFF',telegram_configured:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),last_post:state.last,last_message_id:status.last_message_id||null};
   if(result.telegram_configured)try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getMe`,{signal:AbortSignal.timeout(5000)});result.telegram_auth=(await r.json()).ok===true;}catch{result.telegram_auth=false;}
-  if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy),saved=JSON.parse(item.data);result.live_card=Boolean(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...saved},fetcher)).image;}}catch{result.live_card=false;}
+  if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher,options);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy,cards[WB_RECEIPT]),saved=JSON.parse(item.data);result.live_card=publishableAPIQuote(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.priceStatus=deal.priceStatus;result.priceObservedAt=deal.priceObservedAt;result.variantKey=deal.variantKey;result.retailConfirmed=false;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...saved,...deal,image:saved.image||'',photo_probe:saved.photo_probe||1},fetcher)).image;}}catch{result.live_card=false;}
   result.ok=result.cron&&!result.heartbeat_stale&&result.telegram_configured&&result.telegram_auth&&result.queue_size>0&&result.live_card&&result.price_increase_ok&&Boolean(result.image);return result;
 }

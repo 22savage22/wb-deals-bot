@@ -1,6 +1,7 @@
 import {ensureControl,optionalRows,auditStatement,pruneChanges,changes} from './admin_history.mjs';
 import {searchDue,SEARCH_MIN_GAP} from './search_backoff.mjs';
 import {querySuggestions,fold} from './selection_policy.mjs';
+import {queryOwnerReason} from './audience_quality.mjs';
 const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/1000);
 export const queryKey=s=>s.normalize('NFKC').trim().replace(/\s+/gu,' ').toLocaleLowerCase('ru');
 export function queryRules(policy){
@@ -8,7 +9,7 @@ export function queryRules(policy){
   const active=(policy.queries||[]).map(text=>{const known=byText.get(queryKey(text));return {id:known?.id||'existing:'+text,text,origin:known?.origin||'existing',priority:known?.priority||1,enabled:!(policy.disabled_topics||[]).includes(text.toLowerCase()),archived:false};});
   return [...active,...saved.filter(r=>r.archived&&!active.some(x=>x.id===r.id))];
 }
-export function discoveryQueries(policy){const rules=queryRules(policy).filter(r=>!r.archived);return rules.flatMap(r=>Array(Math.max(1,Math.min(5,r.priority))).fill(r.text));}
+export function discoveryQueries(policy){const rules=queryRules(policy).filter(r=>!r.archived&&!queryOwnerReason(r.text,policy));return rules.flatMap(r=>Array(Math.max(1,Math.min(5,r.priority))).fill(r.text));}
 export async function fingerprint(raw){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(raw)))].map(n=>n.toString(16).padStart(2,'0')).join('');}
 export async function policyState(e){const row=await q(e,'SELECT data FROM scheduler_policy WHERE id=1').first();if(!row){const er=new Error('Подбор товаров ещё не настроен. Сохранение недоступно.');er.status=503;throw er;}return {raw:row.data,policy:JSON.parse(row.data),revision:await fingerprint(row.data)};}
 export function validateQueries(input,previous=[],suggestions=new Set()){
@@ -49,6 +50,7 @@ export async function queryRoute(request,e,{json,fail,payload}){
     const data=await payload(request);if(!Number.isSafeInteger(data.id)||data.id<=0)fail(400,'Некорректная запись');
     const rows=await optionalRows(e,'SELECT scope,before_data FROM admin_changes WHERE id=?',data.id),row=rows?.[0];if(!row)fail(404,'Версия уже удалена из ограниченной истории');
     if(row.scope==='selection'){const {saveSelection}=await import('./selection_control.mjs');return json(await saveSelection(e,{revision:data.revision,...JSON.parse(row.before_data),confirmed:data.confirmed,request_id:data.request_id},fail));}
+    if(row.scope==='audience_quality'){const {saveQuality}=await import('./selection_control.mjs');return json(await saveQuality(e,{revision:data.revision,settings:JSON.parse(row.before_data),confirmed:data.confirmed,request_id:data.request_id},fail));}
     if(row.scope==='schedule'){const {schedulerRoute}=await import('./scheduler_api.mjs');return schedulerRoute(new Request('https://internal/api/admin/schedule',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.revision,schedule:JSON.parse(row.before_data)})}),e,{json,fail,payload,admin:true});}
     if(row.scope==='learning'){const {learningRoute}=await import('./learning.mjs');return learningRoute(new Request('https://internal/api/admin/learning',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({revision:data.revision,...JSON.parse(row.before_data)})}),e,{json,fail,payload});}
     if(row.scope!=='queries')fail(400,'Эта версия восстанавливается в своём разделе');

@@ -1,4 +1,5 @@
 // Deterministic metadata rules. No model calls or inferred visual attributes.
+import {ownerReason} from './audience_quality.mjs';
 export const GROUPS=['clothes','shoes','accessories','other'];
 export const fold=s=>String(s||'').normalize('NFKC').toLocaleLowerCase('ru').replace(/ё/g,'е').trim();
 export function productGroup(p){const s=fold([p.category,p.title].join(' '));return /кроссов|кед[ыа ]|ботин|сапог|туфл|босонож|сандал|обув/.test(s)?'shoes':/сумк|рюкзак|кошелек|ремень|ремни|серьг|браслет|кепк|шапк|украшен|очк|кольцо|кольца/.test(s)?'accessories':/футбол|худи|джинс|плать|юбк|блуз|куртк|пальто|свитер|джемпер|брюк|шорт|рубаш|толстов|одежд/.test(s)?'clothes':'other';}
@@ -14,6 +15,7 @@ export function validateSelection(v){
   r.weights={};for(const k of GROUPS){if(!Number.isInteger(v.weights?.[k])||v.weights[k]<0||v.weights[k]>100)throw Error('Доли категорий: от 0 до 100%');r.weights[k]=v.weights[k];}if(Object.values(r.weights).reduce((a,b)=>a+b,0)!==100)throw Error('Сумма долей должна быть 100%');return r;
 }
 export function selectionReason(p,policy){
+  const owner=ownerReason(p,policy);if(owner)return owner;
   if(!policy.selection)return null;const s=selectionSettings(policy),text=fold(p.title+' '+p.category),cat=fold(p.category),brand=fold(p.brand),price=Number(p.product||p.price||0),a=audience(p);
   if(price<s.min_price||s.max_price&&price>s.max_price)return 'Цена вне диапазона';
   if(Number(p.rating||0)<s.min_rating||Number(p.feedbacks||0)<s.min_feedbacks)return 'Недостаточно рейтинга или отзывов';

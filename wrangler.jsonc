@@ -10,9 +10,9 @@
   "version_metadata": {"binding": "CF_VERSION"},
   "keep_vars": true,
   "vars": {
-    "SUBSCRIBER_STYLE_ENABLED": "0",
+    "SUBSCRIBER_STYLE_ENABLED": "1",
     "SUPERFIND_PREVIEW_ENABLED": "0",
-    "STYLE_CATALOGUE_REFRESH_ENABLED": "0"
+    "STYLE_CATALOGUE_REFRESH_ENABLED": "1"
   },
   "ai": {"binding": "AI"},
   "send_metrics": false,

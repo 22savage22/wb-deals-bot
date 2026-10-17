@@ -170,8 +170,8 @@ The isolated deployment is live:
 
 - URL: https://wb-finds-style-staging.valeramyakishev000.workers.dev/
 - D1: `43861c0c-aa50-4e5e-9014-7b36bd319e5b` (name matches the Worker).
-- Worker version: `dee3ee1d-12ed-4806-9cc4-12f64c0f3ff5`.
-- Deployed source: `4d7be7b2459b2c9afe72a5e9016a94d38cd8f435`.
+- Worker version: `5980b585-8664-4d8c-b4dd-3781358e6ddc`.
+- Deployed source: `74aa6729b27c3514bfc04342134138fcee44d108`.
 - Uploaded bindings/handler attestation PASS: only `fetch`, no AI, Cron,
   credential, service or Telegram sender. Admin/webhook/scheduler/local session
   routes denied; unsigned private style route returns401 before D1 access.
@@ -214,7 +214,22 @@ Phone launch must be a private web_app button from **@WbPodborr_bot**, not
 No global bot menu/webhook change is required. A direct HTTPS browser visit
 is useful for public UI only, not proof of authenticated persistence.
 
-Remaining gates: confirm private invitation delivery, owner close/reopen test,
+The private invitation was delivered (message_id23). Owner reported opening
+the app but could not identify the new section. A real390x844 unsigned-browser
+check found the ordinary catalogue discovery dialog obscuring the My Style
+entry. It showed no page errors/overflow, and the private API correctly denied
+unsigned access. A scoped remote read found0 owner style ratings/favorites and
+cost3 reads/0 writes; no preferences were invented or submitted on their behalf.
+
+The SAME private message was edited (no additional message) to open `/style`
+directly rather than `/`. The standalone page now explains the rating/favorite
+steps and has a same-origin return button preserving Telegram's launch fragment;
+the embedded path retains its checked parent handshake. Both launch paths,
+return fragment and close/reopen persistence PASS in local390x844 fixtures;
+8 focused staging tests PASS. Current real Telegram session/account acceptance
+still requires the human phone interaction. No synthetic remote ratings added.
+
+Remaining gates: owner close/reopen test via the updated direct launch button,
 second consenting real account isolation/deletion test, measured private request
 cost/headroom, then ask for separate final production approval. Do not merge,
 deploy production, enable superfind publication or change channel selection.

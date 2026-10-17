@@ -3,8 +3,8 @@
   "worker": "wb-finds-style-staging",
   "url": "https://wb-finds-style-staging.valeramyakishev000.workers.dev/",
   "database": "43861c0c-aa50-4e5e-9014-7b36bd319e5b",
-  "version": "dee3ee1d-12ed-4806-9cc4-12f64c0f3ff5",
-  "deployed_commit": "4d7be7b2459b2c9afe72a5e9016a94d38cd8f435",
+  "version": "5980b585-8664-4d8c-b4dd-3781358e6ddc",
+  "deployed_commit": "74aa6729b27c3514bfc04342134138fcee44d108",
   "auth": "TELEGRAM_ED25519_PINNED_PUBLIC_BOT",
   "remote_photo_cards": 80,
   "remote_public_products": 80,
@@ -18,11 +18,16 @@
   "cron": false,
   "admin_routes_denied": true,
   "unsigned_private_route_status": 401,
+  "private_invitation": {"message_id": 23, "delivered": true, "updated_in_place": true, "launch_path": "/style"},
+  "owner_phone_report": "Opened original catalogue root, did not identify My Style; real style acceptance not confirmed",
+  "owner_staging_counts_before_direct_launch": {"ratings": 0, "favorites": 0, "rows_read": 3, "rows_written": 0},
+  "live_unsigned_mobile_ui": {"original_discovery_dialog_obscured_entry": true, "page_errors": 0, "horizontal_overflow": false, "remote_mutations": 0},
+  "local_mobile_direct_launch_and_return": "PASS_EXPLICIT_FIXTURE_NOT_REAL_TELEGRAM_ACCOUNT",
   "d1_actual_metadata": {
     "health": {"queries": 2, "rows_read": 1, "rows_written": 0},
     "catalogue_initialization": {"queries": 17, "rows_read": null, "rows_written": null, "complete": false},
     "catalogue_repeat": {"queries": 1, "rows_read": 1, "rows_written": 0},
     "one_time_seed_diagnostic": {"rows_read": 161, "rows_written": 0}
   },
-  "pending": ["private invitation receipt", "real owner persistence", "second real account isolation and deletion", "private D1 request costs", "final production approval"]
+  "pending": ["real owner style login and persistence", "second real account isolation and deletion", "private D1 request costs", "final production approval"]
 }

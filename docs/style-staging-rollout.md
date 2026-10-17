@@ -93,10 +93,11 @@ At this conservative8k feature cap even50 such active people will be throttled;
 automatically. Measure p50/p95 reads/writes per endpoint in staging, add normal
 production usage and a large safety margin, then review capacity with owner.
 
-Remote D1 costs, phone latency, two-real-account persistence and live Worker
-CPU are currently **unverified until staging deployment/real sign-in**. Local
-SQLite statement/returned-row counts are not Cloudflare rows_read. No fake
-Neurons or invented subscriber success metrics are reported.
+Remote public-catalogue costs were measured on 2026-10-17 (below); private
+rating costs, phone latency, two-real-account persistence and Worker CPU are
+still **unverified until real sign-in**. Local SQLite statement/returned-row
+counts are not Cloudflare rows_read. No fake Neurons or invented subscriber
+success metrics are reported.
 
 ## Reproducible setup
 
@@ -160,3 +161,60 @@ additive user tables/data; do not restore an old full D1 snapshot over fresh
 votes, queues or delivery receipts. No scheduler or bot-token rotation.
 
 **Production deployment remains a separate explicit final approval gate.**
+
+## Live staging evidence — 2026-10-17
+
+Official Device OAuth completed, with only the already approved staging scopes.
+No API token, account-read scope, paid resource or production deployment added.
+The isolated deployment is live:
+
+- URL: https://wb-finds-style-staging.valeramyakishev000.workers.dev/
+- D1: `43861c0c-aa50-4e5e-9014-7b36bd319e5b` (name matches the Worker).
+- Worker version: `dee3ee1d-12ed-4806-9cc4-12f64c0f3ff5`.
+- Deployed source: `4d7be7b2459b2c9afe72a5e9016a94d38cd8f435`.
+- Uploaded bindings/handler attestation PASS: only `fetch`, no AI, Cron,
+  credential, service or Telegram sender. Admin/webhook/scheduler/local session
+  routes denied; unsigned private style route returns401 before D1 access.
+- Remote database:80 public products,80 photo cards,80 snapshot entries;
+  **0 real style accounts/votes** at the pre-phone baseline. No synthetic
+  remote accounts were created. Seven reviewed visual profiles reused,0 AI calls.
+
+Initial import contained a definite defect: a152,863-byte single SQL literal
+exceeded D1's100,000-byte statement limit. The provider returned the opaque
+`D1_RESET_DO` import error; the DB remained empty. Rather than retrying OAuth or
+changing production, the generator now constructs the bounded shared snapshot
+from existing catalogue rows with SQLite JSON aggregation. Largest SQL statement
+is3318 UTF-8 bytes. The same80-card seed imports successfully. A regression test
+checks the statement ceiling, structured JSON, visual count and absence of users.
+
+Latest focused feature suite:34 PASS. This is not a real-account acceptance test.
+Graphify AST update traced the shared generator to both preview and deploy;
+SQL was checked directly because the optional SQL parser was not installed.
+
+Actual HTTP request D1 metadata (not estimates or returned-row counts):
+
+| Request | Queries | Rows read | Rows written |
+| --- | ---: | ---: | ---: |
+| Health including DB canary |2|1|0|
+| First public catalogue initialization |17|unknown|unknown|
+| Repeated public catalogue |1|1|0|
+
+Initialization did not provide complete metadata, so its cost is explicitly
+unknown, never reported as zero. The separate remote diagnostic counting seed
+rows cost161 reads/0 writes; it is not a per-user action or daily recurring query.
+All staging API responses expose complete request costs in `X-Style-D1-*` when
+metadata exists, otherwise `unknown`. Metrics add no SQL and logs contain only
+endpoint/counters, never initData, Telegram IDs, votes or personal preferences.
+Private rating p50/p95 and free subscriber capacity remain pending real use;
+feature caps remain50k reads/8k writes/day, not an unlimited Free-tier promise.
+
+The public bot and the administrative bot are intentionally different.
+Phone launch must be a private web_app button from **@WbPodborr_bot**, not
+@WBmarket22_bot: the staging verifier is pinned to the public bot's identity.
+No global bot menu/webhook change is required. A direct HTTPS browser visit
+is useful for public UI only, not proof of authenticated persistence.
+
+Remaining gates: confirm private invitation delivery, owner close/reopen test,
+second consenting real account isolation/deletion test, measured private request
+cost/headroom, then ask for separate final production approval. Do not merge,
+deploy production, enable superfind publication or change channel selection.

@@ -42,7 +42,10 @@ export async function prepareStaging(databaseId='00000000-0000-0000-0000-0000000
   }
   if(catalog.length>120||catalog.length<30)throw Error('BOUNDED_FASHION_SEED_REQUIRED');
   const base=await fs.readFile(path.join(ROOT,'miniapp/cloudflare/schema.sql'),'utf8'),feature=await fs.readFile(path.join(ROOT,'miniapp/features/schema.sql'),'utf8');
-  statements.push(`INSERT OR REPLACE INTO feature_meta VALUES('shared_catalog_snapshot',${quote(JSON.stringify({products:catalog}))});`);
+  // Build the shared row from bounded existing rows INSIDE SQLite. Embedding
+  // the whole JSON catalogue as one SQL literal exceeded D1's100KB statement
+  // limit (152,863 bytes for80 real cards). Runtime still reads ONE snapshot.
+  statements.push("INSERT OR REPLACE INTO feature_meta(key,value) SELECT 'shared_catalog_snapshot',json_object('products',json_group_array(json_object('product',json(data),'visual',json(visual)))) FROM (SELECT data,visual FROM feature_catalog ORDER BY id LIMIT 120);");
   statements.push("INSERT OR REPLACE INTO metadata VALUES('public_schema_version','1');");
   statements.push(`INSERT OR REPLACE INTO feature_meta VALUES('style_staging_database',${quote(databaseId)});`);
   // Do not falsify synced_at, current price/stock or publication history proof.

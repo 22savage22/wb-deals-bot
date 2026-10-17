@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {verifyTelegramSignature,telegramPublicUser} from './telegram_signature.mjs';
 import staging,{PUBLIC_BOT_ID,assertStaging} from './staging_worker.mjs';
-import {configuration} from './prepare_staging.mjs';
+import {configuration,prepareStaging,OUT} from './prepare_staging.mjs';
 import {createWorker} from '../cloudflare/worker.mjs';
 import {LocalD1} from './local_d1.mjs';
 import {forgetSubscriber} from './store.mjs';
@@ -57,4 +57,12 @@ test('uploaded version attestation rejects a cron, production binding or hidden 
   const id='11111111-1111-4111-8111-111111111111',v={resources:{bindings:[{name:'DB',type:'d1',id}],script:{handlers:['fetch']}}};assert.doesNotThrow(()=>verifyVersion(v,id));
   for(const binding of [{name:'AI',type:'ai'},{name:'TG_BOT_TOKEN',type:'secret_text'},{name:'PRODUCTION',type:'service'}])assert.throws(()=>verifyVersion({resources:{...v.resources,bindings:[...v.resources.bindings,binding]}},id));
   assert.throws(()=>verifyVersion({resources:{...v.resources,script:{handlers:['fetch','scheduled']}}},id));
+});
+test('real-photo seed fits D1 SQL limits and builds one structured bounded catalogue snapshot',async()=>{
+  await prepareStaging();const sql=await fs.readFile(OUT+'/seed.sql','utf8');
+  for(const line of sql.split('\n'))assert.ok(Buffer.byteLength(line,'utf8')<90000,'D1 SQL statement too large');
+  const db=new LocalD1();try{db.exec(sql);const raw=db.sqlite.prepare("SELECT value FROM feature_meta WHERE key='shared_catalog_snapshot'").get(),snapshot=JSON.parse(raw.value);
+    assert.equal(snapshot.products.length,80);assert.equal(typeof snapshot.products[0].product,'object');assert.equal(snapshot.products.filter(row=>row.visual).length,7);
+    assert.equal(db.sqlite.prepare('SELECT count(*) AS n FROM style_accounts').get().n,0);
+  }finally{db.close();}
 });

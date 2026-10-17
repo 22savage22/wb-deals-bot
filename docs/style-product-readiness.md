@@ -82,8 +82,11 @@ produces an honest empty result rather than silently ignoring that budget.
   button through Computer Use in Telegram Desktop, reading the real profile,
   fully closing/reopening into a NEW Mini App window and reading the same saved
   ratings/summary. No preferences were fabricated or submitted by the agent.
-  Actual favorite persistence and a second consenting real account still need
-  acceptance; personal counts/receipts are kept private, not in this public repo.
+  A clearly labelled technical bookmark (NOT a taste rating) was then saved
+  through the same real UI, confirmed in D1, and displayed in Favorites after
+  another complete close/reopen. Existing ratings were not altered. The bookmark
+  remains in staging only. A second consenting real account is still unavailable;
+  personal counts/receipts are kept private, not in this public repo.
 - Worker CPU/phone p50/p95 and recommendation-quality uplift are not claimed.
   Unseen selection is tested mechanically; relevance needs future user feedback
   on new items, not retesting training examples as an uplift measurement.

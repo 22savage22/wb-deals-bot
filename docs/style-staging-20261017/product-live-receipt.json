@@ -23,7 +23,7 @@
   "unauthorized_api_rows_written":0,
   "private_owner_read_persistence":"REAL_TELEGRAM_DESKTOP_CLOSE_REOPEN_CONFIRMED; PERSONAL_RECEIPT_NOT_PUBLIC",
   "real_second_account_tested":false,
-  "real_favorite_persistence":"UNVERIFIED",
+  "real_favorite_persistence":"REAL_TELEGRAM_UI_TECHNICAL_BOOKMARK_D1_AND_FULL_CLOSE_REOPEN_CONFIRMED_NOT_A_TASTE_VOTE",
   "local_product_scenarios_passed":15,
   "local_product_scenarios_label":"EXPLICIT_LOCAL_FIXTURES_NOT_TWO_REAL_TELEGRAM_ACCOUNTS",
   "full_node_tests_passed":550,
@@ -38,5 +38,5 @@
   "superfind":"WAIT_NO_VERIFIED_CURRENT_PRICE_STOCK_OR_SAVINGS",
   "production_package":"PREPARED_DRY_RUN_ONLY_THREE_NEW_FLAGS_OFF",
   "required_production_command":"Внедряй",
-  "pending":["second consenting real account persistence/isolation","real favorite persistence","phone latency/Worker CPU/headroom acceptance","final production approval"]
+  "pending":["second consenting real account persistence/isolation","phone latency/Worker CPU/headroom acceptance","final production approval"]
 }

@@ -1,0 +1,16 @@
+{
+  "scope": "LOCAL_FIXTURE_NOT_LIVE_TELEGRAM",
+  "viewport": "390x844",
+  "navigationFromExistingApp": "PASS",
+  "sameOriginSignedSessionHandoff": "PASS",
+  "closeReopenPersistence": "PASS",
+  "pageErrors": [],
+  "horizontalOverflow": false,
+  "realTelegramAccountsTested": 0,
+  "remoteD1BillingMeasured": false,
+  "productionChanges": false,
+  "productionCallsInBrowserTest": 0,
+  "aiCalls": 0,
+  "tests": {"total":444,"passed":444},
+  "stagingDeploy": "PENDING_CLOUDFLARE_DEVICE_AUTH"
+}

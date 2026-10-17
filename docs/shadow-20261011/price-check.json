@@ -1,0 +1,12 @@
+{
+  "status": "UNAVAILABLE",
+  "checkedAt": 1791725584135,
+  "source": "search.wb.ru/exactmatch/ru/common/v9/search",
+  "attempts": 1,
+  "http": 403,
+  "error": null,
+  "tiers": [100,200,300],
+  "queriedCeiling": 300,
+  "confirmedProducts": [],
+  "note": "Свежие цена и наличие не подтверждены. Исторические цены в галерее не являются текущими предложениями. Без повторов, обходов, production и AI-запросов."
+}

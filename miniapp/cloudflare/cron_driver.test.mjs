@@ -68,10 +68,15 @@ test('fresh search runtime is authoritative while paused; old running flags cann
   assert.deepEqual((await scheduledTick(env,now*1000,fetcher)).results,{});
   env.db.close();
 });
-test('deployment config reuses production DB, publishes only assets and preserves vars',()=>{
+test('deployment config reuses production DB and clock; reproducible public assets allow only non-secret feature flags',()=>{
   const config=JSON.parse(readFileSync(new URL('../../wrangler.jsonc',import.meta.url),'utf8'));
   assert.equal(config.name,'wb-finds-miniapp');assert.equal(config.keep_vars,true);
   assert.equal(config.d1_databases[0].database_id,'d73d252d-3948-425b-b7c3-b65d0f5c6e5f');
-  assert.deepEqual(config.triggers.crons,['* * * * *']);assert.equal(config.assets.directory,'miniapp/public');
-  assert.equal(config.vars,undefined);
+  assert.deepEqual(config.triggers.crons,['* * * * *']);
+  assert.equal(config.main,'miniapp/features/production_worker.mjs');
+  assert.equal(config.assets.directory,'.test-temp/style-production/assets');
+  assert.equal(config.build.command,'node miniapp/features/prepare_production.mjs --assets-only');
+  assert.deepEqual(Object.keys(config.vars).sort(),['STYLE_CATALOGUE_REFRESH_ENABLED','SUBSCRIBER_STYLE_ENABLED','SUPERFIND_PREVIEW_ENABLED']);
+  for(const value of Object.values(config.vars))assert.ok(['0','1'].includes(value));
+  assert.equal(config.vars.SUPERFIND_PREVIEW_ENABLED,'0');
 });

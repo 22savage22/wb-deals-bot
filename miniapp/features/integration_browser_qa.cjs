@@ -14,8 +14,18 @@ const {chromium}=require(process.env.WB_BROWSER_QA_MODULE||'playwright');
     await frame.locator('[data-action="like"]').click();await frame.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
     await frame.getByRole('button',{name:'← Находки',exact:true}).click();await page.locator('.style-overlay').waitFor({state:'detached'});
     await page.locator('#open-my-style').click();await frame.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
+    await frame.getByRole('button',{name:'← Находки',exact:true}).click();
+    // Explicit local fixture only: direct Telegram launch bypasses the old
+    // catalogue discovery dialog and preserves auth on same-origin return.
+    await page.goto('http://127.0.0.1:8775/style#entry=qa',{waitUntil:'networkidle',timeout:15000});
+    await page.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
+    await page.locator('#style-steps').waitFor();
+    await page.screenshot({path:path.join(out,'direct-style-launch.png')});
+    await page.getByRole('button',{name:'← Находки',exact:true}).click();
+    await page.waitForURL('http://127.0.0.1:8775/#entry=qa');
+    await page.locator('#open-my-style').click();await frame.locator('#progress').filter({hasText:'1 оценено'}).waitFor();
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);if(overflow||errors.length)throw Error('INTEGRATION_UI_ERROR');
     await frame.locator('[data-action="like"]').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,'style-in-existing-app.png')});
-    const result={localFixture:true,realTelegramAccountsTested:0,viewport:'390x844',navigation:'PASS',sameOriginHandshake:'PASS',closeReopenPersistence:'PASS',errors,overflow,productionCalls:0,reportDirectory:out};await fs.writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+    const result={localFixture:true,realTelegramAccountsTested:0,viewport:'390x844',navigation:'PASS',directStyleLaunch:'PASS',sameOriginReturnFragment:'PASS',sameOriginHandshake:'PASS',closeReopenPersistence:'PASS',errors,overflow,productionCalls:0,reportDirectory:out};await fs.writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
   }finally{await browser?.close();await server.close();}
 })().catch(e=>{console.error('LOCAL_INTEGRATION_QA_FAILED',e.message);process.exitCode=1;});

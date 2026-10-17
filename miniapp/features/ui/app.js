@@ -7,7 +7,7 @@ async function api(path,{method='GET',data}={}){
   let response;try{response=await fetch(path,{method,headers:{'X-Telegram-Init-Data':state.initData,...(data?{'Content-Type':'application/json'}:{})},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(10000)});}catch{throw Object.assign(new Error('Сеть не ответила. Оценка могла сохраниться — повторим тот же запрос без дубля.'),{network:true});}
   const result=await response.json();if(!response.ok)throw Object.assign(new Error(result.error??'Не удалось выполнить действие'),{status:response.status});return result;
 }
-function showError(error){$('error').hidden=false;$('error-text').textContent=error.message;$('retry').hidden=!state.pending;}
+function showError(error){$('error').hidden=false;$('error-text').textContent=error.message;$('retry').hidden=!state.pending;$('error').scrollIntoView({block:'center'});}
 async function write(path,method,data,onSuccess){
   if(state.busy)return;const pending={path,method,data:{...data,version:state.version,requestId:crypto.randomUUID()},onSuccess};state.pending=pending;await sendPending();
 }
@@ -67,7 +67,14 @@ async function start(){
       window.addEventListener('message',handler);window.parent.postMessage({type:'style-ready'},location.origin);
     });
   }
-  if(window.parent!==window){const back=node('button','← Находки');back.onclick=()=>window.parent.postMessage({type:'style-close'},location.origin);document.querySelector('header').prepend(back);}
+  if(!adminPage){
+    const back=node('button','← Находки');
+    // A private Telegram button can open /style directly. Preserve Telegram's
+    // launch fragment on the same-origin return; never log or store initData.
+    back.onclick=()=>window.parent!==window?window.parent.postMessage({type:'style-close'},location.origin):location.assign('/'+location.hash);
+    document.querySelector('header').prepend(back);
+    document.querySelector('.brand').onclick=e=>{e.preventDefault();window.scrollTo({top:0});};
+  }
   if(!state.initData&&location.hostname==='127.0.0.1'){
     const profile=adminPage?'admin':new URL(location.href).searchParams.get('profile')??'a',response=await fetch(`/preview/session?profile=${encodeURIComponent(profile)}`),session=await response.json();state.initData=session.initData;
     if(!adminPage){$('session').hidden=false;$('demo-profile').value=profile;}

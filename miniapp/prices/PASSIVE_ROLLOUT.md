@@ -2,7 +2,9 @@
 
 Статус 2026-10-18: код подготовлен в существующей ветке PR15. **Production
 не развёрнут, наблюдение выключено, реальных наблюдений нового формата — 0.**
-Изолированный local staging использует синтетические WB/Telegram ответы.
+Изолированные local и remote staging используют синтетические WB/Telegram
+ответы. Remote staging выполнен в настоящих Cloudflare Workers; измерения и
+ограничение CPU: [REMOTE_STAGING_20261018.md](REMOTE_STAGING_20261018.md).
 
 ## Исправления в существующем пути публикации
 
@@ -108,12 +110,23 @@ fixtures. 20 simulated deliveries сравниваются с 20 сохранё�
 заполненную историю и измеряет реальные локальные D1 метаданные. Точные итоги
 последнего запуска приведены в `PASSIVE_VALIDATION.md`.
 
-Remote staging пока **не выполнен**: отсутствует авторизованный Cloudflare
-control-plane доступ. В доступных MCP подключениях нет Cloudflare D1/Workers
-управления; неинтерактивный Wrangler не имеет необходимых credentials.
-Новые токены и browser/localhost OAuth попытки не создавались.
+Remote staging **выполнен 18 октября 2026** через официальный Wrangler device
+flow с подтверждением владельца. Нового API-токена нет; OAuth credentials
+защищены локальным keyring. Владелец подтвердил Workers Free в Dashboard.
+20 ON и 20 OFF replay прошли в private Workers с отдельными D1. Проверены cap,
+ошибки WB/collector, search branch и настоящий staging rollback/Time Travel.
+Фактический account D1 запас достаточен, но стабильный запас CPU на Free
+**не доказан**: core P50 выше номинальных 10 ms как ON, так и OFF. Поэтому
+допустим только отдельно разрешённый ограниченный canary с мониторингом.
+Будущий production collector уже развёрнут **OFF**, его отдельная D1 пуста.
+Main Worker не загружался и не развёртывался; canary ещё не разрешён.
 
-## Подготовка remote staging и production после снятия gates
+## Процедура remote staging и production
+
+Шаги 1–5 выполнены; подробные receipts и план оставшихся шагов — в
+[измеренном отчёте](REMOTE_STAGING_20261018.md). Далее требуется отдельное
+разрешение владельца на шаг 7 с учётом риска CPU. При активации заново проверить
+квоты, main version/config и получить свежий backup bookmark.
 
 1. В Cloudflare выбрать аккаунт проекта. Workers & Pages → D1 SQL Database:
    проверить количество баз, размер и Metrics всех баз за текущие UTC сутки;
@@ -142,7 +155,9 @@ control-plane доступ. В доступных MCP подключениях �
 5. Зафиксировать текущие main SHA, Worker version/config/flags, расписание и
    [Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)
    bookmark основной D1 (Free: 7 дней); при необходимости private export + SHA.
-   Backup **не заявлен выполненным**. Не выгружать содержимое main D1 в PR,
+   На 18 октября bookmark main D1 получен, active version доступна, восстановление
+   из Time Travel и version rollback проверены только на staging. Это не
+   full export и не испытание восстановления основной базы. Не выгружать её содержимое в PR,
    отчёты, Obsidian или публичные CI artifacts. Проверить доступ к rollback.
 6. Показать итог staging, account budgets, backup и точный diff владельцу.
    Получить **отдельное разрешение на production deployment и 20 наблюдений**.

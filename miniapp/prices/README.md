@@ -1,10 +1,11 @@
 # Достоверные цены WB: изолированный модуль
 
-Статус: **Draft / LOCAL STAGING / production не подключён**.
+Статус: **Draft / REMOTE STAGING проверен / production canary OFF**.
 Основная база и развёрнутый Worker не изменялись. Ветка теперь содержит
 исправления существующей проверки цен и выключенный passive hook.
 Подробности: [план внедрения и отката](PASSIVE_ROLLOUT.md),
-[результаты staging](PASSIVE_VALIDATION.md).
+[локальные проверки](PASSIVE_VALIDATION.md),
+[измеренный remote staging и план canary](REMOTE_STAGING_20261018.md).
 Продолжение аудита: [почему production публикует цены при локальном0/20](PRODUCTION_SOURCE_AUDIT.md).
 Проверка production подтвердила живые WB ответы из Cloudflare. Локальный403
 нельзя трактовать как отсутствие источника в Worker. Но текущий cache fallback
@@ -138,9 +139,10 @@ ingestVerifiedProducts с настоящими WebP fixture bytes. Провер�
 
 Конструктор `openPriceStore` требует явный approvedDatabaseId, отдельный
 PRICE_DB и PRICE_ISOLATED:'true'. Открытие не мигрирует; `init()` только явно.
-Production DB и уже используемая Vision staging DB запрещены. Для будущего
-remote staging нужна **ещё одна отдельная разрешённая D1**, не они.
-Удалённый staging в этой работе не развёрнут, `wrangler.jsonc` не менялся.
+Production DB и уже используемая Vision staging DB запрещены. Для remote
+passive staging созданы отдельные fixture core и audit D1. Будущая canary D1
+тоже отдельная и не содержит fixtures. Remote staging уже выполнен;
+основной `wrangler.jsonc` не менялся, main Worker не развёртывался.
 
 Пример только для локального approved DB:
 
@@ -190,8 +192,9 @@ due20+acquire+ingest20+list100+history20+finish200 — **37SQL,1713reads/307writ
 40циклов по большему замеру —68520reads/12280writes; с25%запасом85650/15350.
 Это сценарий, а не гарантированный максимум billing. Незаполненные в замере
 внешние auth/budget guards должны уложиться в оставшиеся13SQL Free invocation.
-CPU реального Cloudflare Worker и весь аккаунт не измерены: это отдельные gates
-remote staging перед допуском. Количество исходящих HTTP запросов ограничено40,
+CPU реального Cloudflare Worker и account usage измерены в отдельном
+[passive remote staging](REMOTE_STAGING_20261018.md); долговременный запас CPU
+на Free не доказан. Количество исходящих HTTP запросов этого research-модуля ограничено40,
 внутренние цены/вызовы существующего бота в этот лимит не входят.
 
 Free D1:5млн rows read/сутки,100тыс written/сутки и5GBstorage, UTC reset;

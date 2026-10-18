@@ -3,6 +3,9 @@
 Дата: 2026-10-18. База сравнения этого этапа: `43fc5963` (предыдущий head PR15).
 Патч не merged и не deployed. Исторический аудит реального production описан
 отдельно в `PRODUCTION_SOURCE_AUDIT.md`; новые тесты не заменяют реальные данные.
+Это отчёт локального этапа. Позднее remote staging, account usage и backup/
+rollback проверены; актуальные результаты и риск CPU приведены в
+[REMOTE_STAGING_20261018.md](REMOTE_STAGING_20261018.md).
 
 ## Автоматические проверки
 
@@ -66,7 +69,7 @@ Runtime включает явный start, captures и отказ после ter
 остальные базы, migrations, monitoring и safety margin; остаток аккаунта этим
 тестом не подтверждается. Отдельный D1 не создаёт бесплатную квоту.
 
-## Что ещё не выполнено
+## Gates на момент локального этапа (до remote staging)
 
 - Новых реальных наблюдений/сравнений с реальными Telegram deliveries: **0**.
 - Remote staging, actual account Free plan/usage/storage/DB count и CPU — gates.

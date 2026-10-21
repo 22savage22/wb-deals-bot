@@ -30,7 +30,12 @@ const accessories={bags:/сумк|рюкзак|клатч|кошел/,belts:/р�
 function groups(p){const text=[p.title,p.query,p.category].join(' ').toLowerCase(),audience=text.includes('женск')?'women':text.includes('мужск')?'men':women.test(text)?'women':'neutral',accessory=Object.keys(accessories).find(k=>accessories[k].test(text));return {audience,accessory};}
 const formatters=new Map();
 export function postingWindow(schedule,now=sec()){
-  const s=validateSchedule(schedule),key=s.timezone;
+  return windowForSchedule(validateSchedule(schedule),now);
+}
+// Internal callers already hold a validated snapshot. Never reuse this window
+// after reading a changed schedule or across the final publication checks.
+function windowForSchedule(s,now){
+  const key=s.timezone;
   if(!formatters.has(key))formatters.set(key,new Intl.DateTimeFormat('en-GB',{timeZone:key,weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}));
   const p=Object.fromEntries(formatters.get(key).formatToParts(new Date(now*1000)).map(x=>[x.type,x.value]));
   const clock=p.hour+':'+p.minute,weekday=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(p.weekday);
@@ -38,12 +43,15 @@ export function postingWindow(schedule,now=sec()){
   return {allowed:s.enabled&&!s.paused&&s.weekdays.includes(weekday)&&!quiet,clock,date:p.year+'-'+p.month+'-'+p.day,timezone:key,quiet};
 }
 export function postDue(s,last,now,manual=false){
-  if(!postingWindow(s,now).allowed||now<last+s.min_post_gap_minutes*60)return false;
+  return dueInWindow(s,last,now,manual,postingWindow(s,now));
+}
+function dueInWindow(s,last,now,manual,current){
+  if(!current.allowed||now<last+s.min_post_gap_minutes*60)return false;
   if(manual)return true; // Owner request, never bypasses safety gap/quiet hours/caps.
   if(s.mode==='times'){
-    const wall=postingWindow(s,now).clock;
+    const wall=current.clock;
     // Catch a delayed minute execution without treating every later tick as due.
-    const previous=postingWindow(s,last||now-86400),current=postingWindow(s,now);
+    const previous=postingWindow(s,last||now-86400);
     return s.post_times.some(t=>t<=wall&&(previous.date!==current.date||previous.clock<t));
   }
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
@@ -239,6 +247,9 @@ export async function readHeader(env){
   const row=await q(env,`SELECT c.*,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,
       (SELECT MAX(ts) FROM scheduler_posts) AS last_post,
       (SELECT ready FROM scheduler_counts WHERE id=1) AS queue_size FROM scheduler_config c WHERE id=1`).first();
+  return headerState(row);
+}
+function headerState(row){
   return {row,s:validateSchedule(JSON.parse(row.data)),policy:JSON.parse(row.policy||'{}'),last:Number(row.last_post||0),count:row.queue_size};
 }
 async function selectionState(env,header,preflight=false){
@@ -502,10 +513,16 @@ async function search(env,state,fetcher,options){
 export {search as runDiscovery};
 export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron',options={}){
   await ensureScheduler(env);const now=sec(),results={};
-  await status(env,{last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true,...(origin==='cron'?{last_automatic_tick:now}:{})});
+  const heartbeat={last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true,...(origin==='cron'?{last_automatic_tick:now}:{})};
+  // One atomic header instead of a heartbeat write followed by a separate read.
+  // Keep the write outside the try, and decode/validate inside as before.
+  const row=await q(env,`UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1
+    RETURNING *, (SELECT data FROM scheduler_policy WHERE id=1) AS policy,
+      (SELECT MAX(ts) FROM scheduler_posts) AS last_post,
+      (SELECT ready FROM scheduler_counts WHERE id=1) AS queue_size`,JSON.stringify(heartbeat)).first();
   try{
-    let state=await readHeader(env),previous=JSON.parse(state.row.status||'{}');
-    const due=postDue(state.s,state.last,now,Boolean(state.row.post_request));
+    let state=headerState(row),previous=JSON.parse(state.row.status||'{}'),wall=windowForSchedule(state.s,now);
+    const due=dueInWindow(state.s,state.last,now,Boolean(state.row.post_request),wall);
     const canPublish=due&&state.count>0&&now>=Number(previous.post_retry_at||0);
     // Idle minute executions never load the inventory/history. Cleanup is
     // bounded by active-state/time indexes and runs every five minutes.
@@ -530,8 +547,8 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
       WHERE state='ready' AND topic IN (SELECT topic FROM scheduler_deliveries INDEXED BY scheduler_deliveries_time WHERE ts>? GROUP BY topic HAVING COUNT(*)>=8)`,now-86400,now+3600,now-86400).run();
     await status(env,{last_maintenance:now});
     state=await readHeader(env);
+    wall=windowForSchedule(state.s,now);
     }
-    const wall=postingWindow(state.s,now);
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});

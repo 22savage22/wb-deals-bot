@@ -1,5 +1,9 @@
 # PR15: измеренный remote staging и ограниченный canary
 
+Исторический отчёт18октября. Условное разрешение получено21октября, но
+canary не запущен из-за обязательного CPU gate. См.
+[актуальную production проверку и оптимизацию](PRODUCTION_SAFETY_20261021.md).
+
 Снимок: **18 октября 2026, 12:44 UTC / 15:44 МСК**.
 Runtime revision: `b55dd8062c4913034eeb7243192c8d70a68c1879`.
 [Draft PR15](https://github.com/22savage22/wb-deals-bot/pull/15).

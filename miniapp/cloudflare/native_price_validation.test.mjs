@@ -91,6 +91,20 @@ test('a recent cache also fails closed; a separate successful live response rest
   assert.equal(published.priceObservedAt,published.stockObservedAt);assert.equal(published.retailConfirmed,false);assert.equal(published.context.paymentBasis,'unknown');
 });
 
+test('owner pause during live details survives the atomic header and blocks Telegram delivery',async t=>{
+  const env=await fixture(t),calls=[],fetcher=live(calls);
+  await nativeTick(env,Date.now(),async(url,options)=>{
+    if(String(url).includes('card.wb.ru'))env.db.prepare("UPDATE scheduler_config SET data=json_set(data,'$.paused',json('true')) WHERE id=1").run();
+    return fetcher(url,options);
+  });
+  assert.equal(calls.filter(url=>url.includes('card.wb.ru')).length,1);
+  assert.equal(calls.some(url=>url.includes('sendPhoto')),false);
+  assert.equal(env.db.prepare('SELECT count(*) n FROM scheduler_posts').get().n,0);
+  const row=env.db.prepare('SELECT data,status FROM scheduler_config WHERE id=1').get();
+  assert.equal(JSON.parse(row.data).paused,true);
+  assert.ok(JSON.parse(row.status).clock_heartbeat>0);
+});
+
 test('unavailable WB stops this publication cycle after one request even with several recent cached candidates',async t=>{
   for(const failure of ['403','timeout']){
     const original=Date.now()-1000,queue=[1000,1001,1002].map(id=>({...queued(id),priceObservedAt:original,stockObservedAt:original}));

@@ -50,6 +50,27 @@ test('quota failure is not an empty database and does not retry schema writes',a
   let queries=0;const e={DB:{prepare(){return {bind(){return this;},async first(){queries++;throw new Error("D1_ERROR: Your account has exceeded D1's free tier daily row read limit.");}};},async batch(){throw new Error('DDL must not run');}}};
   await assert.rejects(ensureScheduler(e),/daily row read limit/);assert.equal(queries,1);
 });
+
+test('inner ledger retains nested metadata and outer diagnostics without duplicate SQL fingerprints',async()=>{
+  const result={results:[{value:7}],meta:{rows_read:4,rows_written:2}};
+  const statement={bind(){return this;},async all(){return result;}};
+  const outer=observeD1({prepare(){return statement;}});
+  const inner=observeD1(outer.DB,{trackQueries:false});
+  assert.equal(await inner.DB.prepare('SELECT value FROM private_fixture').first('value'),7);
+  assert.deepEqual(inner.metrics,outer.metrics);
+  assert.equal(inner.coverage.complete,true);assert.deepEqual(inner.topQueries(),[]);
+  assert.equal(outer.topQueries().length,1);assert.equal(outer.topQueries()[0].rows_read,4);
+  result.meta=undefined;
+  await inner.DB.prepare('SELECT value FROM private_fixture').first();
+  assert.equal(inner.coverage.complete,false);assert.equal(outer.coverage.complete,false);
+  assert.equal(inner.metrics.queries,2);assert.equal(inner.metrics.rows_read,4);
+});
+
+test('disabled fingerprint tracking does not hide a failed database operation',async()=>{
+  const inner=observeD1({prepare(){return {async all(){throw new Error('fixture database unavailable');}};}},{trackQueries:false});
+  await assert.rejects(inner.DB.prepare('SELECT 1').all(),/database unavailable/);
+  assert.equal(inner.coverage.complete,false);assert.equal(inner.metrics.metadata_available,false);
+});
 test('quota API response is actionable, secret-free, and specifies midnight UTC',async()=>{
   const error=new Error("D1_ERROR: Your account has exceeded D1's free tier daily row read limit. private data");
   const failure=d1QuotaFailure(error,Date.parse('2026-10-03T15:00:00Z'));

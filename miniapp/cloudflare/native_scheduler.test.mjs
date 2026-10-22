@@ -13,7 +13,7 @@ function environment(t){
 }
 const image='https://basket-01.wbbasket.ru/vol0/part1/1000/images/big/1.webp';
 const item=(id=1000,query='платье женское')=>({id,title:'Платье женское '+id,product:700,basic:700,rating:4.8,feedbacks:100,query,category:'Платья',image,queued_ts:Math.floor(Date.now()/1000)});
-const card=(id=1000)=>({id,name:'Платье женское '+id,reviewRating:4.8,feedbacks:100,subjectName:'Платья',sizes:[{qty:10,price:{product:70000,basic:70000}}]});
+const card=(id=1000)=>({id,name:'Платье женское '+id,reviewRating:4.8,feedbacks:100,subjectName:'Платья',sizes:[{chrtId:id+100000,name:'42',qty:10,price:{product:70000,basic:70000}}]});
 const seed=(env,queue=[item()],posts=[])=>bootstrap(env,{queue,posts,policy:{chat_id:'-100123456789',queries:['платье женское','сумка женская'],max_price:1000,min_rating:4.3}});
 test('server-side price budget and reviewed discovery preserve categories/pages and local filters',()=>{
   assert.deepEqual(discoveryParams({queries:['a','b'],max_price:1000},'b',3),{query:'b',page:'2',sort:'popular',resultset:'catalog',priceU:'0;100000'});

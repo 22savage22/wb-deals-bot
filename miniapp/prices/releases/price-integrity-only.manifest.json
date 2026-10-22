@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "status": "LOCAL_REVIEW_ARTIFACT_NOT_DEPLOYED",
+  "base": {
+    "sha": "524fbe8931b911e4c3bc4e05de7caf5003b1decc",
+    "verified_by": "parent read-only GitHub main/PR15 baseRefOid check",
+    "compiled_production": "21b5 (separate code-source verification required)"
+  },
+  "source_commits": [
+    "6a251aa419fa386f76e20e2d122651daa24e039d",
+    "b55dd8062c4913034eeb7243192c8d70a68c1879"
+  ],
+  "diff_paths": [
+    "miniapp/cloudflare/native_scheduler.mjs",
+    "miniapp/prices/runtime_quote.mjs",
+    "miniapp/cloudflare/native_price_integrity_only.test.mjs"
+  ],
+  "patch_sha256": "cb0361b8b6c8523d983251045677a51a2448d3d8b47ff62afc046852adcfcf33",
+  "files": [
+    {
+      "path": "miniapp/cloudflare/native_scheduler.mjs",
+      "sha256": "34f45029afa51eea77d18f220abf342dc213a4a042122bc5aff1281cd71137e9"
+    },
+    {
+      "path": "miniapp/prices/runtime_quote.mjs",
+      "sha256": "ef54e564258321431a2c0daa762eab0c8e7162a9fbe9451147b6a9ee86db60e1"
+    },
+    {
+      "path": "miniapp/cloudflare/native_price_integrity_only.test.mjs",
+      "sha256": "fbb1e553064169fdfd60e73062926f48aa831ac3d8a9f09de43e9adc4a49645d"
+    }
+  ],
+  "excluded": [
+    "observer hooks",
+    "collector",
+    "worker entrypoint",
+    "service bindings",
+    "Cron changes",
+    "CPU optimizations",
+    "timezone formatters",
+    "diagnostic changes",
+    "D1 migrations"
+  ],
+  "requires": [
+    "verify exact deployed production source against main",
+    "isolated staging and CPU quota gate",
+    "explicit owner production approval"
+  ],
+  "targeted_test_command": "node --test miniapp/cloudflare/native_price_integrity_only.test.mjs",
+  "network": "all tests synthetic and injected; no live WB/Telegram/Cloudflare requests",
+  "validation": {
+    "targeted_tests": {
+      "passed": 7,
+      "failed": 0
+    },
+    "builder_tests": {
+      "passed": 3,
+      "failed": 0
+    },
+    "git_apply_check": true,
+    "reproduced_canonical_lf_files_match": true,
+    "worker_entry_import": true,
+    "bundle": {
+      "tool": "existing local esbuild",
+      "bytes": 378067,
+      "sha256": "886dab8af57010f14c83571cf9f97cfba307c6ec13cd139fd37685083c076847"
+    },
+    "baseline_proof": {
+      "kind": "local synthetic",
+      "real_network_calls": 0,
+      "stale13h_send_base": 1,
+      "stale13h_send_patched": 0,
+      "unavailable_cheapest_base": 100,
+      "available_matching_sku_patched": 200.95,
+      "decimal_base": 200,
+      "decimal_patched": 200.95
+    },
+    "full_suite_gate": "PASS local 234/234 when optional fixture companion is included; runtime-only preserves 25 explicit legacy fixture failures",
+    "full_worker_regression": {
+      "assets_prepared": true,
+      "local_loopback_allowed": true,
+      "untouched_base": {
+        "passed": 227,
+        "failed": 0
+      },
+      "minimal_patch_unmodified_legacy_fixtures": {
+        "passed": 209,
+        "failed": 25,
+        "total": 234,
+        "new_targeted_tests_passed": 7
+      },
+      "temp_only_fixture_alignment": {
+        "passed": 234,
+        "failed": 0,
+        "legacy_tests_passed": 227,
+        "new_targeted_tests_passed": 7,
+        "changed_generators": [
+          "admin_test_support.testCard",
+          "native_scheduler.test.card",
+          "read_optimization cold rawcard"
+        ],
+        "assertions_changed": false,
+        "runtime_changed": false
+      },
+      "reason": "25 legacy fixture failures require stable SKU IDs/names; all disappear after only mock producer corrections",
+      "release_ci_ready": false,
+      "exported_with_companion": {
+        "passed": 234,
+        "failed": 0,
+        "legacy_tests_passed": 227,
+        "new_targeted_tests_passed": 7,
+        "prepared_with": "buildPriceIntegrityOnly({outDir,includeFixtureCorrections:true})",
+        "assertions_changed": false,
+        "runtime_changed_by_companion": false,
+        "local_loopback_only": true
+      },
+      "release_ci_note": "Local paired-patch suite passed; actual CI run remains to be verified"
+    }
+  },
+  "reproduction": {
+    "module": "miniapp/prices/prepare_price_integrity_only.mjs",
+    "export": "buildPriceIntegrityOnly({outDir,includeFixtureCorrections:false})",
+    "output_scope": ".test-temp subdirectories only; rejects symlink parents and nonempty output",
+    "git_base_object_required": true,
+    "line_endings": "git -c core.autocrlf=false archive/apply; canonical blob SHA256",
+    "companion_option": "Explicit boolean true only; default false"
+  },
+  "fixture_companion": {
+    "path": "miniapp/prices/releases/price-integrity-fixtures.patch",
+    "sha256": "ca6212e70201227ee30883f29f8e48807829c59ab2d6913dcf812cb1f00c1e22",
+    "default_enabled": false,
+    "diff_paths": [
+      "miniapp/cloudflare/admin_test_support.mjs",
+      "miniapp/cloudflare/native_scheduler.test.mjs",
+      "miniapp/cloudflare/read_optimization.test.mjs"
+    ],
+    "files": [
+      {
+        "path": "miniapp/cloudflare/admin_test_support.mjs",
+        "sha256": "141b0bc2b1736067664f8e377c4ecda7c93e0386cbbd2871824be87c21a6fe65"
+      },
+      {
+        "path": "miniapp/cloudflare/native_scheduler.test.mjs",
+        "sha256": "4358c534eb2071b67d70165cec15d2c2b29d6b858316055918e1e78c6602a959"
+      },
+      {
+        "path": "miniapp/cloudflare/read_optimization.test.mjs",
+        "sha256": "47e647a6ee0809288566a26579eed6d89df655e46f49c56219297ffa836c236a"
+      }
+    ],
+    "purpose": "Add stable chrtId and size name only to three synthetic WB fixture generators",
+    "assertions_changed": false,
+    "runtime_changed": false,
+    "validation": {
+      "git_apply_check": true,
+      "target_file_hashes_verified": true,
+      "all_legacy_assertions_unchanged": true,
+      "full_worker_suite_passed": 234,
+      "full_worker_suite_failed": 0
+    }
+  }
+}

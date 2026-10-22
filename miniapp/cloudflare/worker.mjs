@@ -3,7 +3,9 @@ import {normalize,build,integer,SLOTS,OCCASIONS} from './domain.mjs';
 import {schedulerRoute,ensureScheduler} from './scheduler_api.mjs';
 import {scheduledTick} from './cron_driver.mjs';
 import {nativeTick,bootstrap,checkAutopost} from './native_scheduler.mjs';
+import {createPassiveObserver} from '../prices/passive_capture.mjs';
 import {observeD1,d1QuotaFailure} from './d1_budget.mjs';
+import {safeRuntimeFailure} from './runtime_failure.mjs';
 import {catalogSnapshot,ensureCatalog,invalidateCatalog} from './catalog_cache.mjs';
 import {withReadBudget,ReadBudgetError} from './read_guard.mjs';
 import {productionDiagnostic} from './production_diagnostic.mjs';
@@ -259,8 +261,13 @@ async function route(request,env,ctx,publicAuth=telegramUser) {
 export function createWorker(publicAuth=telegramUser){return {
   async scheduled(controller,env,ctx){
     const meter=observeD1(env.DB),runtimeEnv={...env,DB:meter.DB,DISCOVERY_DB:env.DB};
-    try{return await withReadBudget(runtimeEnv,'core',25000,e=>env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime):scheduledTick(e,controller.scheduledTime));}
-    catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',quota?{retry_at:quota.retry_at}:{});throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
+    const onWBResponse=createPassiveObserver(env,ctx);
+    const tick=async e=>{
+      try{return await (env.SCHEDULER_DRIVER==='cloudflare-native'?nativeTick(e,controller.scheduledTime,fetch,'cron',{onWBResponse}):scheduledTick(e,controller.scheduledTime));}
+      catch(error){console.error('SCHEDULER_PRIMARY_ERROR',JSON.stringify(safeRuntimeFailure(error,'scheduled')));throw error;}
+    };
+    try{return await withReadBudget(runtimeEnv,'core',25000,tick);}
+    catch(error){const quota=d1QuotaFailure(error);console.error('SCHEDULER_ERROR',quota?.code||'RUNTIME_UNAVAILABLE',JSON.stringify({...safeRuntimeFailure(error,'scheduled'),...(quota?{retry_at:quota.retry_at}:{})}));throw new Error(quota?.code||'RUNTIME_UNAVAILABLE');}
     finally{
       console.log('D1_BUDGET',JSON.stringify({...meter.metrics,top_queries:meter.topQueries()}));
       // Independent optional work AFTER posting. Same minute trigger, no change

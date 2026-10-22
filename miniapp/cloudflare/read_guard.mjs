@@ -20,7 +20,9 @@ export async function withReadBudget(env,lane,ceiling,operation,options={}){
     await q('CREATE TABLE IF NOT EXISTS worker_read_budget(day TEXT NOT NULL,lane TEXT NOT NULL,reads INTEGER NOT NULL,writes INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(day,lane))').run();held=await reserve();
   }
   if(!held.meta.changes)throw new ReadBudgetError();
-  const meter=observeD1(env.DB);
+  // The outer runtime meter supplies SQL fingerprints for diagnostics. This
+  // inner ledger still observes every result/error, without hashing it twice.
+  const meter=observeD1(env.DB,{trackQueries:false});
   try{return await operation({...env,DB:meter.DB,D1_METER:meter.metrics});}
   finally{
     // Unknown metadata is NEVER treated as a free query. A crashed execution

@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-22",
+  "decision": "REJECT_PROJECTION_CPU_GATE",
+  "productionApproved": false,
+  "observerEnabled": false,
+  "base": "524fbe8931b911e4c3bc4e05de7caf5003b1decc",
+  "pricePatch": "cb0361b8b6c8523d983251045677a51a2448d3d8b47ff62afc046852adcfcf33",
+  "fixture": {
+    "synthetic": true,
+    "ready": 20,
+    "historical": 280,
+    "profiles": 300,
+    "votes": 500,
+    "categories": 12
+  },
+  "deployments": [
+    {
+      "slot": "reference",
+      "version": "58e23557-d565-4675-b3f5-59dacba60cf4",
+      "sha256": "2d188cc1c770aed2367d00048d8e9eb83f8111a44f849333e5512632283d7af3",
+      "startupMs": 3
+    },
+    {
+      "slot": "prepared",
+      "version": "22e1afc7-af82-407c-a46e-d9a0b6f2dc8b",
+      "sha256": "ec14b5793288d1e55ac6dd45fc076aa0bfabea5b5f25eeb61dd45c84d393faf6",
+      "startupMs": 4
+    },
+    {
+      "slot": "cleanup-reference",
+      "version": "57f150ad-106d-4f3e-9da5-4836742c85ae",
+      "sha256": "2d188cc1c770aed2367d00048d8e9eb83f8111a44f849333e5512632283d7af3",
+      "startupMs": 3
+    }
+  ],
+  "localTests": {
+    "priceRelease": 234,
+    "projectionStore": 16,
+    "differentialOracle": 17,
+    "priceBuilder": 3,
+    "localFullWorkerd": {
+      "postsPerArm": 11,
+      "idlePerArm": 8,
+      "durableColdHit": true,
+      "imageInvalidation": true
+    }
+  },
+  "remote": {
+    "realCloudflareRuntime": true,
+    "realWBRequests": 0,
+    "realTelegramPosts": 0,
+    "AIRequests": 0,
+    "successfulSyntheticPostsPerArm": 16,
+    "selectedIdsAndAllBusinessOutputsEqual": true,
+    "selectedIds": [
+      900000,
+      900006,
+      900004,
+      900012,
+      900010,
+      900016,
+      900018,
+      900001,
+      900013,
+      900002,
+      900003,
+      900007,
+      900014,
+      900008,
+      900015,
+      900005
+    ],
+    "reference": {
+      "d1": {
+        "queries": 512,
+        "rowsRead": 46658,
+        "rowsWritten": 576
+      },
+      "cpu": {
+        "expectedInvocations": 16,
+        "aggregateReportedCalls": 21,
+        "complete": false,
+        "samplingIntervals": [
+          1.75
+        ],
+        "p50": 33,
+        "p95": 45,
+        "p99": 70,
+        "max": 70,
+        "reportedErrors": 0,
+        "unit": "ms",
+        "scope": "Full original scheduled boundary invoked inside the isolated HTTP driver, including driver overhead; not a native Cron invocation"
+      },
+      "coldFirstInvocation": true,
+      "coldCpu": {
+        "expectedInvocations": 1,
+        "aggregateReportedCalls": 1,
+        "complete": true,
+        "samplingIntervals": [
+          1
+        ],
+        "p50": 70,
+        "p95": 70,
+        "p99": 70,
+        "max": 70,
+        "reportedErrors": 0,
+        "unit": "ms",
+        "scope": "Full original scheduled boundary invoked inside the isolated HTTP driver, including driver overhead; not a native Cron invocation"
+      },
+      "idleD1": {
+        "queries": 64,
+        "rowsRead": 88,
+        "rowsWritten": 40
+      },
+      "idleCpu": {
+        "expectedInvocations": 8,
+        "aggregateReportedCalls": 16,
+        "complete": false,
+        "samplingIntervals": [
+          2.2857142857142856
+        ],
+        "p50": 4,
+        "p95": 5,
+        "p99": 5,
+        "max": 5,
+        "reportedErrors": 0,
+        "unit": "ms",
+        "scope": "Full original scheduled boundary invoked inside the isolated HTTP driver, including driver overhead; not a native Cron invocation"
+      }
+    },
+    "prepared": {
+      "d1": {
+        "queries": 512,
+        "rowsRead": 43906,
+        "rowsWritten": 576
+      },
+      "cpu": {
+        "expectedInvocations": 16,
+        "aggregateReportedCalls": 11,
+        "complete": false,
+        "samplingIntervals": [
+          1
+        ],
+        "p50": 57,
+        "p95": 65,
+        "p99": 65,
+        "max": 65,
+        "reportedErrors": 0,
+        "unit": "ms",
+        "scope": "Full original scheduled boundary invoked inside the isolated HTTP driver, including driver overhead; not a native Cron invocation"
+      },
+      "initialPreparationD1": {
+        "queries": 30,
+        "rowsRead": 4485,
+        "rowsWritten": 900
+      },
+      "schemaInitD1": {
+        "queries": 7,
+        "rowsRead": 6,
+        "rowsWritten": 9
+      },
+      "refreshSelectedD1": {
+        "queries": 32,
+        "rowsRead": 208,
+        "rowsWritten": 32
+      },
+      "preparation20Cpu": {
+        "expectedInvocations": 15,
+        "aggregateReportedCalls": 5,
+        "complete": false,
+        "samplingIntervals": [
+          1
+        ],
+        "p50": 11,
+        "p95": 20,
+        "p99": 20,
+        "max": 20,
+        "reportedErrors": 0,
+        "unit": "ms",
+        "scope": "Full original scheduled boundary invoked inside the isolated HTTP driver, including driver overhead; not a native Cron invocation"
+      },
+      "remoteColdCron": "NOT_RUN_AFTER_CPU_GATE_REJECTION",
+      "remoteMissCron": "NOT_RUN_AFTER_CPU_GATE_REJECTION",
+      "remoteIdle": "NOT_RUN_AFTER_CPU_GATE_REJECTION"
+    }
+  },
+  "accounting": {
+    "knownSQLMetadata": {
+      "rowsRead": 103703,
+      "rowsWritten": 9767
+    },
+    "unknownReadOnlySetupResponseConservativelyCharged": {
+      "rowsRead": 25000,
+      "rowsWritten": 2000
+    },
+    "totalUpperBound": {
+      "rowsRead": 128703,
+      "rowsWritten": 11767
+    },
+    "cap": {
+      "rowsRead": 500000,
+      "rowsWritten": 20000
+    },
+    "safeStagingTimeTravelRecovery": true
+  },
+  "cleanup": {
+    "at": "2026-10-22T13:23:57.127Z",
+    "status": "CLOSED_NO_PRODUCTION_DEPLOY",
+    "databaseId": "aacdeded-216b-4f5a-af1a-081eef724d04",
+    "restoredInitialFixture": true,
+    "verified": {
+      "ready": 20,
+      "posts": 0,
+      "claims": 0,
+      "deliveries": 0,
+      "products": 0,
+      "projectionTable": 0,
+      "interval": 30
+    },
+    "privateWorker": "57f150ad-106d-4f3e-9da5-4836742c85ae",
+    "projectionPrototypeActive": false,
+    "deploymentsUsed": 3,
+    "upperBoundD1": {
+      "reads": 128703,
+      "writes": 11767,
+      "includesConservativeFailureReservation": true
+    },
+    "productionChanged": false,
+    "productionRestoreInvoked": false,
+    "collectorEnabled": false,
+    "paidServicesEnabled": false
+  },
+  "productionSafety": {
+    "checkedAt": "2026-10-22T13:25:56.134Z",
+    "version": "21b5e305-e447-4a14-82fb-230b51be6710",
+    "configAndPolicyUnchanged": true,
+    "interval": 30,
+    "searchEnabled": true,
+    "reactionsInitialized": 1,
+    "watchdogOverdue": false,
+    "deliveries": [
+      {
+        "pid": 1179660031,
+        "ts": 1792674903
+      },
+      {
+        "pid": 271597557,
+        "ts": 1792673032
+      },
+      {
+        "pid": 925012050,
+        "ts": 1792671173
+      },
+      {
+        "pid": 868856950,
+        "ts": 1792669309
+      },
+      {
+        "pid": 957854310,
+        "ts": 1792667455
+      }
+    ],
+    "audit": {
+      "runs": 0,
+      "events": 0,
+      "history": 0,
+      "activeRun": null
+    },
+    "accountConservativeUpperBound": {
+      "at": "2026-10-22T13:22:34.373Z",
+      "rowsRead": 511518,
+      "rowsWritten": 44641,
+      "method": "conservative day-baseline plus overlapping latest-hour",
+      "baselineAt": "2026-10-22T12:41:10.510Z",
+      "hourFrom": "2026-10-22T12:22:34.373Z",
+      "hourTo": "2026-10-22T13:22:34.373Z",
+      "cached": true
+    },
+    "databases": 6,
+    "relayClosed": true
+  },
+  "limitations": [
+    "CPU invocation estimates come from sampled/incomplete Logs; no full cohort P99 or future stability proof.",
+    "HTTP driver calls the full original scheduled boundary and adds equal driver overhead; this is not native production Cron telemetry.",
+    "Detailed per-function attribution of the observed CPU difference was not established.",
+    "One missing setup-query metadata receipt is charged at the full reservation; total SQL cost is an upper bound.",
+    "No remote cold/miss or further variants after the negative gate; local correctness cases remain documented.",
+    "Synthetic photo/profile corpus checks runtime semantics, not real image recognition quality."
+  ]
+}

@@ -1,0 +1,2 @@
+# Release patch hashes must be identical on Windows and Linux.
+miniapp/prices/releases/*.patch text eol=lf

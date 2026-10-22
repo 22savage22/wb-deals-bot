@@ -32,11 +32,16 @@ export async function ensureLearning(e){
   await q(e,`UPDATE scheduler_config SET status=json_set(status,'$.learning_initialized',1) WHERE id=1`).run();
 }
 const clocks=new Map();
-export function features(p,ts=now(),prior=.5,zone='Europe/Moscow'){
-  const text=[p.title,p.category,p.query].join(' ').toLowerCase();
+function featureClock(ts,zone){
   if(!clocks.has(zone))clocks.set(zone,new Intl.DateTimeFormat('en-GB',{timeZone:zone,weekday:'short',hour:'2-digit',hourCycle:'h23'}));
-  const wall=Object.fromEntries(clocks.get(zone).formatToParts(new Date(ts*1000)).map(p=>[p.type,p.value]));
+  return Object.fromEntries(clocks.get(zone).formatToParts(new Date(ts*1000)).map(p=>[p.type,p.value]));
+}
+function featuresAtClock(p,prior,clock){
+  const text=[p.title,p.category,p.query].join(' ').toLowerCase(),wall=clock();
   return {category:String(p.category||p.cat||p.query||'другое').slice(0,100),query:String(p.query||'').slice(0,100),brand:String(p.brand||'').slice(0,80),price:Math.log1p(Math.max(0,Number(p.product||p.price||0)))/12,discount:Number(p.discount||0)/100,rating:Number(p.rating||0)/5,reviews:Math.log1p(Math.max(0,Number(p.feedbacks||0)))/12,audience:p.audience||(/женск/.test(text)?'women':/мужск/.test(text)?'men':'neutral'),type:String(p.slot||p.category||'other').slice(0,60),hour:Number(wall.hour),weekday:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(wall.weekday),feedback_rate:prior};
+}
+export function features(p,ts=now(),prior=.5,zone='Europe/Moscow'){
+  return featuresAtClock(p,prior,()=>featureClock(ts,zone));
 }
 export function vector(f){const x={};for(const [k,v] of Object.entries(f))x[typeof v==='number'?k:k+'='+v]=typeof v==='number'?v:1;return x;}
 export function predict(model,f){let z=Number(model.intercept||0);for(const [k,v] of Object.entries(vector(f)))z+=(model.weights?.[k]||0)*v;return 1/(1+Math.exp(-Math.max(-35,Math.min(35,z))));}
@@ -50,9 +55,12 @@ export async function shadowChoice(e,rows,legacy,ts=now(),zone='Europe/Moscow'){
   const prior=p=>priors.get(String(p.category||p.cat||p.query||'другое'))??.5;
   const candidates=rows.slice(0,300).map(r=>({row:r,p:JSON.parse(r.data)}));
   const profiles=await cachedProfiles(e,candidates.map(c=>c.row.pid)),actual=JSON.parse(legacy.data);
-  const visual=p=>profileFeatures(profiles.get(p.id)),f={...features(actual,ts,prior(actual),zone),...visual(actual)};
+  // All candidates in this SHADOW observation use the same explicit ts/zone.
+  // Reuse only their clock parts; no model, profile, schedule or result cache.
+  let wall;const clock=()=>wall??=featureClock(ts,zone);
+  const visual=p=>profileFeatures(profiles.get(p.id)),feature=p=>featuresAtClock(p,prior(p),clock),f={...feature(actual),...visual(actual)};
   // SHADOW NEVER changes the selected product, diversity or publication gates.
-  const best=candidates.map(c=>({...c,score:predict(model,{...features(c.p,ts,prior(c.p),zone),...visual(c.p)})})).sort((a,b)=>b.score-a.score)[0];
+  const best=candidates.map(c=>({...c,score:predict(model,{...feature(c.p),...visual(c.p)})})).sort((a,b)=>b.score-a.score)[0];
   await q(e,'INSERT OR REPLACE INTO learning_shadow VALUES(?,?,?,?,?,?,?)',legacy.pid,ts,legacy.pid,best?.row.pid||legacy.pid,prior(actual),predict(model,f),JSON.stringify(f)).run();
 }
 export async function recordEvent(e,{key,pid,kind,ts=now(),weight=1}){

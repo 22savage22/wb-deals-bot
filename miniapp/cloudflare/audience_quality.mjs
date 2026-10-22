@@ -27,13 +27,18 @@ export function ownerCategory(p){
  for(const [key,re] of rules)if(re.test(title))return key;
  return null;
 }
+let typeMatchers;
+function productTypeMatchers(){
+ return typeMatchers??=[
+  ['tshirt',word('футболк|поло')],['longsleeve',word('лонгслив|водолазк')],['hoodie',word('худи|толстов')],['jeans',word('джинс')],['dress',word('плать')],['skirt',word('юбк')],['blouse',word('блуз|рубаш')],['outerwear',word('куртк|пальто')],['knitwear',word('свитер|джемпер|кофт')],['trousers',word('брюк|шорт')],['shoes',word('кроссов|кед[аы ]|ботин|сапог|туфл|босонож|сандал|обув')],['bag',word('сумк|рюкзак|кросс-боди|тоут|шоппер')],['accessory',word('серьг|сереж|браслет|колье|кольц|подвеск|цепоч|украшен|ремень|ремни|кепк|кошелек')]
+ ];
+}
 export function productType(p){
  const excluded=ownerCategory(p);if(excluded)return excluded;
  const head=s=>fold(s).split(/\s+для\s+/u)[0];
  const text=[head(p.category),head(p.title)].join(' ');
- for(const [key,re] of [
-  ['tshirt',word('футболк|поло')],['longsleeve',word('лонгслив|водолазк')],['hoodie',word('худи|толстов')],['jeans',word('джинс')],['dress',word('плать')],['skirt',word('юбк')],['blouse',word('блуз|рубаш')],['outerwear',word('куртк|пальто')],['knitwear',word('свитер|джемпер|кофт')],['trousers',word('брюк|шорт')],['shoes',word('кроссов|кед[аы ]|ботин|сапог|туфл|босонож|сандал|обув')],['bag',word('сумк|рюкзак|кросс-боди|тоут|шоппер')],['accessory',word('серьг|сереж|браслет|колье|кольц|подвеск|цепоч|украшен|ремень|ремни|кепк|кошелек')]
- ])if(re.test(text))return key;
+ // These exact, non-global/non-sticky matchers are immutable private rules.
+ for(const [key,re] of productTypeMatchers())if(re.test(text))return key;
  // Never collapse unrelated unknown subjects into one learnable category.
  return !['','другое','other'].includes(fold(p.category))?'wb:'+fold(p.category):'query:'+fold(p.query||'unknown');
 }
@@ -46,14 +51,20 @@ export function validateQuality(v){
 export function ownerReason(p,policy){const s=qualitySettings(policy),key=ownerCategory(p);return s.enabled&&s.excluded.includes(key)?'Запрет владельца: '+QUALITY_CATEGORIES[key]:null;}
 export function queryOwnerReason(query,policy){return ownerReason({title:query},policy);}
 export function summariseVotes(rows){
- const items=new Map(),traits=new Map();let likes=0,dislikes=0;
+ const items=new Map(),traits=new Map(),types=new Map();let likes=0,dislikes=0;
  const add=(key,row)=>{if(!traits.has(key))traits.set(key,{key,likes:0,dislikes:0,people:new Set(),products:new Set()});const s=traits.get(key);s[row.sentiment==='l'?'likes':'dislikes']++;s.people.add(row.voter);s.products.add(row.pid);};
  for(const r of rows){
   if(!['l','d'].includes(r.sentiment))continue;
-  let p;try{p=typeof r.data==='string'?JSON.parse(r.data):r.data;}catch{continue;}if(!p)continue;
+  let p,data;try{p=typeof r.data==='string'?JSON.parse(data=r.data):r.data;}catch{continue;}if(!p)continue;
   const item=items.get(r.pid)||{likes:0,dislikes:0};item[r.sentiment==='l'?'likes':'dislikes']++;items.set(r.pid,item);
   if(r.sentiment==='l')likes++;else dislikes++;
-  add('type:'+productType(p),r);
+  // Classify identical own JSON strings once in this call. Keep every parse,
+  // voter/product contribution and accessor/object-input evaluation unchanged.
+  let type;
+  if(typeof data==='string'&&Object.getOwnPropertyDescriptor(r,'data')?.value===data){
+   type=types.get(data);if(type===undefined){type=productType(p);types.set(data,type);}
+  }else type=productType(p);
+  add('type:'+type,r);
   // Passed in ONLY by current-image/model validated cachedProfiles(). No title style.
   for(const key of r.visual_keys||[])add(key,r);
  }

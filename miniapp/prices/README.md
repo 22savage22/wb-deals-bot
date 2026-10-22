@@ -2,8 +2,9 @@
 
 Статус: **Draft / REMOTE STAGING проверен / production canary OFF**.
 22 октября доступ к реальным логам восстановлен; полный remote fixture с
-feedback/profiles/SHADOW проверен. CPU gate не пройден (P99 57 мс),
-deployment не выполнен: [актуальный отчёт](PRODUCTION_SAFETY_20261022.md).
+feedback/profiles/SHADOW проверен. Полный CPU A/B не подтвердил улучшения:
+публикация P50/P95/P99 30/56/56 → 40/82/82 мс. Production deployment и сбор
+реальных цен не выполнялись: [актуальный отчёт](CRON_CPU_20261022.md).
 Основная база и развёрнутый Worker не изменялись. Ветка теперь содержит
 исправления существующей проверки цен и выключенный passive hook.
 Подробности: [план внедрения и отката](PASSIVE_ROLLOUT.md),

@@ -13,16 +13,18 @@ import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
 import {normalizeRuntimeQuote} from '../prices/runtime_quote.mjs';
+import {safeRuntimeFailure} from './runtime_failure.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
 const titleKey=p=>String(p.title||'').toLowerCase().replace(/[^\p{L}\p{N}]/gu,'');
 const escape=s=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-function runtimeError(error){
-  const message=String(error?.message||'');
+function runtimeError(error,stage='runtime'){
   // Whitelisted error classes only: never persist URLs, tokens or payloads.
-  const code=/too many|maximum.*quer|query.*limit/i.test(message)?'D1_QUERY_LIMIT':/D1.*daily|free tier/i.test(message)?'D1_DAILY_LIMIT':/D1_ERROR|SQLITE|no such|constraint/i.test(message)?'D1_SQL_ERROR':/CPU|execution time/i.test(message)?'WORKER_EXECUTION_LIMIT':/Telegram send outcome/i.test(message)?'TELEGRAM_UNKNOWN':/Missing Telegram/i.test(message)?'TELEGRAM_SECRET_MISSING':/Telegram rejected/i.test(message)?'TELEGRAM_REJECTED':'RUNTIME_UNEXPECTED';
-  console.error('NATIVE_RUNTIME_ERROR',JSON.stringify({code,type:String(error?.name||'Error').slice(0,60),...(code==='D1_SQL_ERROR'?{detail:message.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[hidden]').slice(0,160)}:{})}));return code;
+  const diagnostic=safeRuntimeFailure(error,stage),classification=diagnostic.causes[0]?.classification;
+  const code=diagnostic.cpu_signal?'WORKER_EXECUTION_LIMIT':classification==='D1_DAILY_QUOTA_EXCEEDED'?'D1_DAILY_LIMIT':
+    ['D1_QUERY_LIMIT','D1_DAILY_LIMIT','D1_SQL_ERROR','TELEGRAM_UNKNOWN','TELEGRAM_SECRET_MISSING','TELEGRAM_REJECTED'].includes(classification)?classification:'RUNTIME_UNEXPECTED';
+  console.error('NATIVE_RUNTIME_ERROR',JSON.stringify({code,...diagnostic}));return code;
 }
 const pattern=['bags','men','women','women','neutral','belts','women','men','women','women','caps','men','women','women','neutral','jewelry','women','men','women','women'];
 const women=/женск|плать|юбк|блуз|сумк|космет|макияж|серьг|кольц|туфл|колгот|леггин|бюстг|купальник/;
@@ -56,16 +58,21 @@ function dueInWindow(s,last,now,manual,current){
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
 export function choose(rows,recent,total=0,policy={},feedback=null){
+  // One selection call has an immutable D1 row snapshot. Reuse its decoded
+  // product and groups across the legacy fallback passes; never across ticks.
+  const decoded=new Map(),classified=new Map();
+  const product=row=>{if(!decoded.has(row))decoded.set(row,JSON.parse(row.data));return decoded.get(row);};
+  const groupFor=row=>{if(!classified.has(row))classified.set(row,groups(product(row)));return classified.get(row);};
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
-  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
+  const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(product(p),policy));
   const quality=qualitySettings(policy).enabled,ordered=[];
   const custom=diverseChoice(eligible,recent,policy);if(custom!==undefined&&!quality)return custom;
   if(custom)ordered.push(custom);
   const target=pattern[total%pattern.length],fallback={women:['women','neutral','men'],men:['men','women','neutral'],neutral:['neutral','women','men']}[target]||[target,'women','neutral','men'];
   for(const group of [...fallback,'any']){
-    const matches=eligible.filter(row=>{const p=groups(JSON.parse(row.data));return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
+    const matches=eligible.filter(row=>{const p=groupFor(row);return group==='any'||(Object.hasOwn(accessories,group)?p.accessory===group&&p.audience==='women':!p.accessory&&p.audience===group);});
     if(matches.length){
-      const verified=matches.filter(p=>p.checked_at>0&&safeImage(JSON.parse(p.data).image));
+      const verified=matches.filter(p=>p.checked_at>0&&safeImage(product(p).image));
       const first=verified.find(p=>p.topic!==recent.at(-1)?.topic)||verified[0]||matches.find(p=>p.topic!==recent.at(-1)?.topic)||matches[0];
       if(!quality)return first;
       for(const row of [first,...verified,...matches])if(!ordered.includes(row))ordered.push(row);
@@ -501,7 +508,7 @@ async function search(env,state,fetcher,options){
     console.log('SOURCE WB SEARCH_RESULTS',found.length,'VALID_PRODUCTS',verified.length,'ADDED_TO_QUEUE',newIDs.length,'NEW_NM_IDS',newIDs.join(','));return {result:'success',found:found.length,added:newIDs.length};
   }catch(error){
     const current=JSON.parse((await q(env,'SELECT status FROM scheduler_config WHERE id=1').first()).status);
-    const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error);
+    const code=/^WB HTTP \d{3}$/.test(error.message)?error.message:runtimeError(error,'discovery');
     const backoff=searchBackoff(current,error,sec());
     if(attempted)await recordDiscovery(env,{...attempted,at:sec(),error:code,retry_at:backoff.search_retry_at,origin:env.SEARCH_ORIGIN||'cron'}).catch(()=>{});
     await status(env,{...backoff,last_scan_error:'WB search unavailable; ready queue retained',last_scan_error_code:code,search_upstream_error:error.upstream||null});
@@ -510,6 +517,7 @@ async function search(env,state,fetcher,options){
 }
 export {search as runDiscovery};
 export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,origin='cron',options={}){
+  let stage='header';
   await ensureScheduler(env);const now=sec(),results={};
   const heartbeat={last_scheduler_tick:now,clock_heartbeat:now,heartbeat:now,clock_driver:'cloudflare-native',cron_active:true,...(origin==='cron'?{last_automatic_tick:now}:{})};
   // One atomic header instead of a heartbeat write followed by a separate read.
@@ -526,6 +534,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // bounded by active-state/time indexes and runs every five minutes.
     // Expired leases are also safe on acquire between maintenance ticks.
     if(!canPublish&&now>=Number(previous.last_maintenance||0)+300){
+    stage='maintenance';
     await reconcileOwnerInventory(env,state.policy,now);
     await q(env,"DELETE FROM scheduler_leases WHERE expires<=?",now).run();
     // Reconcile old delivery tombstones in one EXISTING maintenance query.
@@ -550,10 +559,11 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});
-    if(canPublish)try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher,options);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
+    if(canPublish)try{stage='selection';state=await selectionState(env,state);stage='publication';results.post=await publish(env,state,fetcher,options);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error,stage),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
     // Verify stale inventory between posts, instead of discovering a poisoned
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
+      stage='preflight';
       state=await selectionState(env,state,true);
       const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
       if(item){const validated=await validateQueued(env,item,state.policy,fetcher,options);results.preflight={product_id:item.pid,valid:validated!==WB_VALIDATION_UNAVAILABLE&&Boolean(validated)};}
@@ -565,6 +575,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
       // Separate accounting: discovery cannot spend the posting budget. The raw
       // binding bypasses only the outer meter, never its own atomic admission.
       results.search=await withReadBudget({...env,DB:env.DISCOVERY_DB||env.DB,SEARCH_ORIGIN:origin},'optional',15000,async e=>{
+        stage='discovery';
         const result=await search(e,state,fetcher,options);
         if(!['backoff_or_not_due','lock_busy','queue_full'].includes(result.result)){
           // Official metadata of the completed discovery queries BEFORE this
@@ -576,12 +587,13 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     }catch(error){console.log('WB_SEARCH_DEFERRED',error.status===429?'DISCOVERY_BUDGET':'DISCOVERY_UNAVAILABLE');results.search={result:'deferred'};}
     // Repairs are bounded and run ONLY on otherwise idle ticks. Never add
     // reaction work to the near-50-query posting/search Free-plan invocation.
-    if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}
+    if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{stage='reactions';await repairReactions(env,fetcher);}catch(error){runtimeError(error,'reactions');console.log('REACTION_REPAIR deferred; scheduler retained');}
+    stage='receipt';
     const count=(results.post||results.preflight||results.search)?(await q(env,'SELECT ready AS n FROM scheduler_counts WHERE id=1').first()).n:state.count;
     const last=results.post?.result==='success'?sec():state.last;
     await status(env,{queue_size:count,next_post:last+state.s.post_interval_minutes*60,post_running:false,scan_running:false,...(results.post?{last_post_result:results.post.result}:{})});
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count,JSON.stringify(results));return {enabled:true,results,queue_size:count};
-  }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
+  }catch(error){const code=runtimeError(error,stage);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
 export async function checkAutopost(env,fetcher=fetch,options={}){
   await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length,state.policy),status=JSON.parse(state.row.status||'{}');

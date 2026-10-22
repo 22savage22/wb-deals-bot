@@ -1,5 +1,5 @@
 // Native runtime: D1 bindings, existing claims and expiring leases; no CI token.
-import {ensureScheduler,validateSchedule,schedulerRoute} from './scheduler_api.mjs';
+import {ensureScheduler,validateSchedule,schedulerRoute,scheduleWallFormatter} from './scheduler_api.mjs';
 import {safeImage,normalize} from './domain.mjs';
 import {shadowChoice,explorationQuery} from './learning.mjs';
 import {repairReactions} from './feedback.mjs';
@@ -28,7 +28,6 @@ const pattern=['bags','men','women','women','neutral','belts','women','men','wom
 const women=/женск|плать|юбк|блуз|сумк|космет|макияж|серьг|кольц|туфл|колгот|леггин|бюстг|купальник/;
 const accessories={bags:/сумк|рюкзак|клатч|кошел/,belts:/ремн|реме|пояс/,caps:/кепк|бейсбол|панам|шляп/,jewelry:/украшен|серьг|кольц|брасл|цепоч|ожерел|кулон|брош/};
 function groups(p){const text=[p.title,p.query,p.category].join(' ').toLowerCase(),audience=text.includes('женск')?'women':text.includes('мужск')?'men':women.test(text)?'women':'neutral',accessory=Object.keys(accessories).find(k=>accessories[k].test(text));return {audience,accessory};}
-const formatters=new Map();
 export function postingWindow(schedule,now=sec()){
   return windowForSchedule(validateSchedule(schedule),now);
 }
@@ -36,8 +35,7 @@ export function postingWindow(schedule,now=sec()){
 // after reading a changed schedule or across the final publication checks.
 function windowForSchedule(s,now){
   const key=s.timezone;
-  if(!formatters.has(key))formatters.set(key,new Intl.DateTimeFormat('en-GB',{timeZone:key,weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}));
-  const p=Object.fromEntries(formatters.get(key).formatToParts(new Date(now*1000)).map(x=>[x.type,x.value]));
+  const p=Object.fromEntries(scheduleWallFormatter(key).formatToParts(new Date(now*1000)).map(x=>[x.type,x.value]));
   const clock=p.hour+':'+p.minute,weekday=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(p.weekday);
   const quiet=s.quiet_enabled&&(s.quiet_start<s.quiet_end?s.quiet_start<=clock&&clock<s.quiet_end:clock>=s.quiet_start||clock<s.quiet_end);
   return {allowed:s.enabled&&!s.paused&&s.weekdays.includes(weekday)&&!quiet,clock,date:p.year+'-'+p.month+'-'+p.day,timezone:key,quiet};

@@ -5,7 +5,18 @@ export const DEFAULT_SCHEDULE=Object.freeze({enabled:true,paused:false,mode:'int
 const time=/^(?:[01]\d|2[0-3]):[0-5]\d$/;
 const seconds=()=>Math.floor(Date.now()/1000);
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
-const validZones=new Set();
+const FORMATTER_CACHE_LIMIT=32,wallFormatters=new Map(),dayFormatters=new Map();
+const WALL_FORMAT={weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'};
+const DAY_FORMAT={year:'numeric',month:'2-digit',day:'2-digit'};
+function cachedFormatter(cache,locale,zone,options){
+  let formatter=cache.get(zone);if(formatter)return formatter;
+  formatter=new Intl.DateTimeFormat(locale,{timeZone:zone,...options});
+  if(cache.size>=FORMATTER_CACHE_LIMIT)cache.delete(cache.keys().next().value);
+  cache.set(zone,formatter);return formatter;
+}
+// Share formatter construction with timezone validation, never schedule/results.
+// Separate fixed locale/options caches preserve the existing wall/day formats.
+export function scheduleWallFormatter(zone){return cachedFormatter(wallFormatters,'en-GB',zone,WALL_FORMAT);}
 export function validateSchedule(input){
   if(!object(input))throw new Error('Некорректное расписание');
   const s={...DEFAULT_SCHEDULE,...input};
@@ -19,7 +30,7 @@ export function validateSchedule(input){
   s.weekdays=[...new Set(s.weekdays)].sort();
   if(!time.test(s.quiet_start)||!time.test(s.quiet_end)||s.quiet_enabled&&s.quiet_start===s.quiet_end)throw new Error('Проверьте часы тишины');
   if(typeof s.timezone!=='string'||s.timezone.length>80)throw new Error('Некорректный часовой пояс');
-  if(!validZones.has(s.timezone)){try{new Intl.DateTimeFormat('en',{timeZone:s.timezone}).format();validZones.add(s.timezone);}catch{throw new Error('Неизвестный часовой пояс');}}
+  try{scheduleWallFormatter(s.timezone);}catch{throw new Error('Неизвестный часовой пояс');}
   return Object.fromEntries(Object.keys(DEFAULT_SCHEDULE).map(k=>[k,s[k]]));
 }
 const schemas=[
@@ -82,8 +93,7 @@ async function initialize(env){
   await env.DB.batch(QUEUE_COUNTER_SCHEMA.map(sql=>q(sql)));
   await q("UPDATE scheduler_config SET status=json_set(status,'$.schema_version',3) WHERE id=1").run();
 }
-const dayFormatters=new Map();
-function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
+function dayAt(ts,zone){return cachedFormatter(dayFormatters,'en-CA',zone,DAY_FORMAT).format(new Date(ts*1000));}
 export function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
 const text=(v,max=120)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[\r\n]/.test(v)?v:null;
 const safeError=v=>typeof v==='string'?v.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[скрыто]').slice(0,180):'';

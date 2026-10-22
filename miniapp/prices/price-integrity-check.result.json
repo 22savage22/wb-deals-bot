@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT_NO_GO",
+  "date": "2026-10-22",
+  "originArtifact": "2facf6e2",
+  "base": "524fbe8931b911e4c3bc4e05de7caf5003b1decc",
+  "localTests": {"passed":234,"failed":0,"skipped":0,"targeted":7},
+  "production": {"version":"21b5e305-e447-4a14-82fb-230b51be6710","canonicalCodeSHA256":"779e6365dece9b70c779011f9cb87d6d1659745c7fd2c5a54130b789b8b86306","equalSourceModules":43,"includesPR14":true,"changed":false,"postIntervalMinutes":30,"searchEnabled":true,"river":"SHADOW","visionEnabled":false,"myStyleEnabled":true,"superfindEnabled":false,"deliveries24h":47,"deliveriesWithFullProvenance":0,"bookmarkReady":true,"rollbackVersionAccessible":true,"restoreInvoked":false},
+  "staging": {"fixture":{"products":300,"ready":20,"currentReactions":500,"reactionProducts":300,"cachedVisualProfiles":300,"riverMode":"SHADOW","ownerAndFeedbackChecks":true},"measurement":"full production scheduled composition invoked through isolated HTTP driver; optional style refresh not due; fixture search disabled; CPU includes driver/D1 meters; not native scheduled CPU","bundles":{"base":{"sha256":"209cf2bbf3e5bb43d986562492acd79796d71505d07f85173facaf0c178f7f71","bytes":518931},"patched":{"sha256":"183a2d65892be3d5499aa1bcf4aced9f6f04d58aeab73bfb3320beefe0eb1734","bytes":529650}},"remoteCalls":28,"actualWB":0,"actualTelegram":0,"actualAI":0,"CPU":{"base":{"expected":8,"observed":8,"complete":true,"unsampled":true,"p50_ms":37,"p95_ms":69,"p99_ms":69},"patched":{"expected":8,"observed":6,"complete":false,"unsampled":true,"p50_ms":70,"p95_ms":109,"p99_ms":109}},"D1":{"rowsRead":99519,"rowsWritten":10970,"metadataUnknown":false,"holdsOutstanding":0},"restoredPreviousVersion":"57f150ad-106d-4f3e-9da5-4836742c85ae","restoredReady":20,"restoredPosts":0},
+  "quota": {"at":"2026-10-22T14:19:58.923Z","rowsRead":642940,"rowsWritten":56774,"method":"conservative earlier day total plus overlapping 12:00-to-now; ingestion lag possible","includesAllAccountDatabases":true},
+  "productionCPU": [{"metric":"calls","outcome":"ok","value":47,"sampleCount":47,"sampleInterval":1},{"metric":"p50_ms","outcome":"ok","value":13,"sampleCount":47,"sampleInterval":1},{"metric":"p95_ms","outcome":"ok","value":86,"sampleCount":47,"sampleInterval":1},{"metric":"p99_ms","outcome":"ok","value":98,"sampleCount":47,"sampleInterval":1},{"metric":"max_ms","outcome":"ok","value":98,"sampleCount":47,"sampleInterval":1}],
+  "availabilityMeaning": "Synthetic actual nativeTick 24h; not actual WB outage rate; full outages cannot send fresh-price posts",
+  "blockers": ["Workers Free CPU headroom not proven; patch CPU cohort incomplete (6/8), no reliable paired quantile comparison","During a full WB outage a strict fresh-price post cannot be sent; no agreed price-free publication mode; real fallback dependence unknown"],
+  "productionApprovalRequested": false,
+  "collectorEnabled": false,
+  "furtherCPUExperiments": false,
+  "remoteBaseCases": [
+    {"scenario":"healthy","repeatedHealthyCalls":8,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":100,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"403","repeatedHealthyCalls":1,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":249.99,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"timeout","repeatedHealthyCalls":1,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":249.99,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"missing_size","repeatedHealthyCalls":1,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":100,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"missing_stock","repeatedHealthyCalls":1,"post":"invalid_candidates","selected":null,"simulatedSends":0,"details":3,"read":2889,"written":37,"queries":24,"price":null,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"stale403","repeatedHealthyCalls":1,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":249.99,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"recovery","repeatedHealthyCalls":1,"post":"not_due","selected":null,"simulatedSends":0,"details":0,"read":11,"written":5,"queries":8,"price":249.99,"sku":null,"size":null,"status":null,"fallback":null}
+  ],
+  "remotePatchedCases": [
+    {"scenario":"healthy","repeatedHealthyCalls":8,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":249.99,"sku":"9000002","size":"M","status":"api_observed","fallback":0},
+    {"scenario":"403","repeatedHealthyCalls":1,"post":"no_eligible_product","selected":null,"simulatedSends":0,"details":1,"read":2880,"written":13,"queries":20,"price":249.99,"sku":null,"size":null,"status":"unconfirmed","fallback":1},
+    {"scenario":"timeout","repeatedHealthyCalls":1,"post":"no_eligible_product","selected":null,"simulatedSends":0,"details":1,"read":2880,"written":13,"queries":20,"price":249.99,"sku":null,"size":null,"status":"unconfirmed","fallback":1},
+    {"scenario":"missing_size","repeatedHealthyCalls":1,"post":"invalid_candidates","selected":null,"simulatedSends":0,"details":3,"read":2889,"written":37,"queries":24,"price":null,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"missing_stock","repeatedHealthyCalls":1,"post":"invalid_candidates","selected":null,"simulatedSends":0,"details":3,"read":2889,"written":37,"queries":24,"price":null,"sku":null,"size":null,"status":null,"fallback":null},
+    {"scenario":"stale403","repeatedHealthyCalls":1,"post":"no_eligible_product","selected":null,"simulatedSends":0,"details":1,"read":2880,"written":13,"queries":20,"price":249.99,"sku":null,"size":null,"status":"unconfirmed","fallback":1},
+    {"scenario":"recovery","repeatedHealthyCalls":1,"post":"success","selected":900000,"simulatedSends":1,"details":1,"read":2993,"written":36,"queries":32,"price":249.99,"sku":"9000002","size":"M","status":"api_observed","fallback":0}
+  ],
+  "availabilityCheckedAtZero": [
+    {"runtime":"base","scenario":"healthy","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":30,"firstPostMinute":0,"lastPostMinute":1410,"calls":{"details":48,"search":0,"photos":48,"sends":48,"failedDetails":0}},
+    {"runtime":"base","scenario":"5min_at_due","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":36,"firstPostMinute":0,"lastPostMinute":1416,"calls":{"details":57,"search":0,"photos":48,"sends":48,"failedDetails":9}},
+    {"runtime":"base","scenario":"2h_at_due","posts":44,"ideal30MinuteSlots":48,"slotsWithoutPost":4,"maxGapMinutes":150,"firstPostMinute":0,"lastPostMinute":1410,"calls":{"details":224,"search":0,"photos":44,"sends":44,"failedDetails":180}},
+    {"runtime":"base","scenario":"all_day_403","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":2160,"search":0,"photos":0,"sends":0,"failedDetails":2160}},
+    {"runtime":"base","scenario":"all_day_timeout","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":2160,"search":0,"photos":0,"sends":0,"failedDetails":2160}},
+    {"runtime":"base","scenario":"every_10th_details_403","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":30,"firstPostMinute":0,"lastPostMinute":1410,"calls":{"details":53,"search":0,"photos":48,"sends":48,"failedDetails":5}},
+    {"runtime":"patched","scenario":"healthy","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":30,"firstPostMinute":0,"lastPostMinute":1410,"calls":{"details":48,"search":0,"photos":48,"sends":48,"failedDetails":0}},
+    {"runtime":"patched","scenario":"5min_at_due","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":35,"firstPostMinute":0,"lastPostMinute":1415,"calls":{"details":49,"search":0,"photos":48,"sends":48,"failedDetails":1}},
+    {"runtime":"patched","scenario":"2h_at_due","posts":44,"ideal30MinuteSlots":48,"slotsWithoutPost":4,"maxGapMinutes":150,"firstPostMinute":0,"lastPostMinute":1410,"calls":{"details":68,"search":0,"photos":44,"sends":44,"failedDetails":24}},
+    {"runtime":"patched","scenario":"all_day_403","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":288,"search":0,"photos":0,"sends":0,"failedDetails":288}},
+    {"runtime":"patched","scenario":"all_day_timeout","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":288,"search":0,"photos":0,"sends":0,"failedDetails":288}},
+    {"runtime":"patched","scenario":"every_10th_details_403","posts":48,"ideal30MinuteSlots":48,"slotsWithoutPost":0,"maxGapMinutes":35,"firstPostMinute":0,"lastPostMinute":1435,"calls":{"details":53,"search":0,"photos":48,"sends":48,"failedDetails":5}}
+  ],
+  "availabilityCheckedAtRecent": [
+    {"runtime":"base","scenario":"all_day_403","posts":12,"ideal30MinuteSlots":48,"slotsWithoutPost":36,"maxGapMinutes":30,"firstPostMinute":0,"lastPostMinute":330,"calls":{"details":1632,"search":0,"photos":12,"sends":12,"failedDetails":1632}},
+    {"runtime":"base","scenario":"all_day_timeout","posts":12,"ideal30MinuteSlots":48,"slotsWithoutPost":36,"maxGapMinutes":30,"firstPostMinute":0,"lastPostMinute":330,"calls":{"details":1632,"search":0,"photos":12,"sends":12,"failedDetails":1632}},
+    {"runtime":"patched","scenario":"all_day_403","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":288,"search":0,"photos":0,"sends":0,"failedDetails":288}},
+    {"runtime":"patched","scenario":"all_day_timeout","posts":0,"ideal30MinuteSlots":48,"slotsWithoutPost":48,"maxGapMinutes":null,"firstPostMinute":null,"lastPostMinute":null,"calls":{"details":288,"search":0,"photos":0,"sends":0,"failedDetails":288}}
+  ]
+}

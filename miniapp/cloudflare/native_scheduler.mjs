@@ -12,6 +12,7 @@ import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './a
 import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
+import {audienceProposal,audienceReceipt} from './audience_shadow.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -48,7 +49,7 @@ export function postDue(s,last,now,manual=false){
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
-export function choose(rows,recent,total=0,policy={},feedback=null){
+export function choose(rows,recent,total=0,policy={},feedback=null,scoreAdjust=null){
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
   const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
   const quality=qualitySettings(policy).enabled,ordered=[];
@@ -63,7 +64,7 @@ export function choose(rows,recent,total=0,policy={},feedback=null){
       if(!quality)return first;
       for(const row of [first,...verified,...matches])if(!ordered.includes(row))ordered.push(row);
     }
-  }return quality?qualityRank(ordered,recent,policy,feedback)[0]||null:null;
+  }return quality?qualityRank(ordered,recent,policy,feedback,scoreAdjust)[0]||null:null;
 }
 async function runtime(env,body){
   const request=new Request('https://internal/api/scheduler/runtime',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
@@ -254,7 +255,10 @@ async function publish(env,state,fetcher){
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
       // Observe only the final valid selection, never every rejected candidate.
-      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
+      if(JSON.parse(current.row.status||'{}').learning_initialized)try{const candidates=current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key));
+        const proposal=env.AUDIENCE_SHADOW_ENABLED==='1'&&feedback?.audience?audienceProposal(choose,candidates,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback):null;
+        const a=proposal?audienceReceipt({...proposal,legacy_pid:item.pid,selected_pid:item.pid,changed:proposal.proposed_pid!==item.pid},feedback.audience,candidates,sec()):null;
+        await shadowChoice(env,candidates,item,sec(),current.s.timezone,a);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       // Final owner gate immediately before forming/sending Telegram. A ban
       // saved during slow WB/shadow work must win over a previously chosen row.
       const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);

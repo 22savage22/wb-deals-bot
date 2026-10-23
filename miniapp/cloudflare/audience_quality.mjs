@@ -79,10 +79,10 @@ export function candidateQuality(p,policy,context=null,visualKeys=[]){
  }
  return {allowed:true,type,score:Math.max(.45,Math.min(1.5,score)),reason:reasons.join(' · ')||'Разрешён; независимых реакций пока недостаточно',reasons};
 }
-export function qualityRank(rows,recent,policy,context=null){
+export function qualityRank(rows,recent,policy,context=null,scoreAdjust=null){
  const s=qualitySettings(policy);if(!s.enabled)return rows;
  const types=recent.slice(-2).map(r=>productType(JSON.parse(r.data||'{}'))),last=types.length===2&&types[0]===types[1]?types[0]:null;
  const alternate=s.fashion_priority&&last&&rows.some(r=>productType(JSON.parse(r.data))!==last);
- return rows.map((row,i)=>{const p=JSON.parse(row.data),v=candidateQuality(p,policy,context,context?.visual?.get(row.pid)||[]);return {row,i,v,score:v.score*(alternate&&last===v.type?.replace(/^type:/,'')?.toString()?0.7:1)};})
+ return rows.map((row,i)=>{const p=JSON.parse(row.data),v=candidateQuality(p,policy,context,context?.visual?.get(row.pid)||[]),raw=scoreAdjust?.(p),adjust=Number.isFinite(raw)?Math.max(.85,Math.min(1.15,raw)):1;return {row,i,v,score:v.score*(alternate&&last===v.type?.replace(/^type:/,'')?.toString()?0.7:1)*adjust};})
   .filter(x=>x.v.allowed).sort((a,b)=>b.score-a.score||a.i-b.i).map(x=>x.row);
 }

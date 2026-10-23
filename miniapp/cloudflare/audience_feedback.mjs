@@ -1,6 +1,7 @@
 import {VOTE_WINDOW,summariseVotes} from './audience_quality.mjs';
 import {cachedProfiles} from './visual_enrichment.mjs';
 import {profileFeatures,visualLabel} from './visual_features.mjs';
+import {buildAudienceEvidence} from './audience_shadow.mjs';
 // Run only on a due posting attempt or an explicit owner diagnostic, NOT on
 // every idle Cron/callback. Unique current votes, never cumulative toggle events.
 export const FEEDBACK_SQL=`SELECT v.pid,v.voter,v.sentiment,COALESCE(i.data,p.data) AS data FROM
@@ -15,7 +16,9 @@ export async function audienceContext(e,candidateIds=[]){
   const visual=new Map([...profiles].map(([id,p])=>[id,Object.keys(profileFeatures(p)).filter(k=>!k.startsWith('visual.group=')&&!k.startsWith('visual.combo=')&&!(k.startsWith('visual.style=')&&p.fields?.style?.hypothesis!==false))]));
   const result=summariseVotes(rows.map(r=>({...r,visual_keys:visual.get(r.pid)||[]})));
   for(const [key,stat] of result.traits)if(key.startsWith('visual.'))stat.label=visualLabel(key);
-  return {...result,visual,available:true};
+  const visualGroups=new Map([...profiles].map(([id,p])=>[id,p.group]));
+  const audience=e.AUDIENCE_SHADOW_ENABLED==='1'?buildAudienceEvidence(rows.map(r=>({...r,scope:'channel',visual_keys:visual.get(r.pid)||[],visual_group:visualGroups.get(r.pid),visual_verified:profiles.has(r.pid)}))):undefined;
+  return {...result,visual,available:true,...(audience?{audience,visualGroups}:{})};
  }catch(error){
   // Feedback store failures never bypass owner exclusions or stop posting.
   console.log('AUDIENCE_FEEDBACK unavailable; unchanged Legacy fallback');

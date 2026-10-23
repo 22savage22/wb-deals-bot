@@ -48,6 +48,12 @@ export function postDue(s,last,now,manual=false){
   const jitter=s.natural_interval_enabled?((last%Math.max(1,2*s.jitter_minutes+1))-s.jitter_minutes)*60:0;
   return now>=last+Math.max(s.min_post_gap_minutes*60,s.post_interval_minutes*60+jitter);
 }
+export function selectionCursor(state){
+  const saved=JSON.parse(state.row.status||'{}').selection_cursor;
+  if(Number.isSafeInteger(saved)&&saved>=0&&saved<Number.MAX_SAFE_INTEGER)return saved;
+  // Seed once with the old phase; a sliding 24-hour count cannot advance it.
+  return Math.max(0,Math.floor(Number(state.policy.total_posts)||0))+(state.recent?.length||0);
+}
 export function choose(rows,recent,total=0,policy={},feedback=null){
   const counts=new Map();for(const p of recent)counts.set(p.topic,(counts.get(p.topic)||0)+1);
   const eligible=rows.filter(p=>(counts.get(p.topic)||0)<8&&!recent.some(r=>r.title_key===p.title_key)&&!selectionReason(JSON.parse(p.data),policy));
@@ -214,8 +220,9 @@ async function publish(env,state,fetcher){
   const owner=crypto.randomUUID(),lock=await runtime(env,{op:'acquire',kind:'post',owner,ttl:120});
   if(!lock.ok)return {result:'lock_busy'};
   try{
-    const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
-    let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
+    const latest=await q(env,'SELECT data,status,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
+    let current={...state,row:{...state.row,status:latest.status},s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
+    const cursor=selectionCursor(current);
     const feedback=qualitySettings(current.policy).enabled&&qualitySettings(current.policy).feedback_enabled?await audienceContext(env,current.ready.map(r=>r.pid)):null;
     const manual=current.row.post_request;
     const requested=JSON.parse(current.row.status||'{}');
@@ -229,7 +236,7 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
+      const item=choose(eligible,current.recent,cursor,current.policy,feedback);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
@@ -302,9 +309,9 @@ async function publish(env,state,fetcher){
       const sent=sec();await env.DB.batch([
         q(env,"UPDATE scheduler_inventory SET state='posted' WHERE pid=?",item.pid),
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
-        q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
+        q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent),
+        q(env,'UPDATE scheduler_config SET status=json_patch(status,?) WHERE id=1',JSON.stringify({selection_cursor:cursor+1,last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})}))
       ]);
-      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})});
       console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id};
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}
@@ -437,7 +444,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     // buffer only when the next publication is due. A scan uses a separate tick.
     if(!results.post&&state.count>=state.s.min_queue&&!state.row.search_request&&now>=Number(previous.last_preflight||0)+300&&now<Number(previous.last_scan_attempt||0)+state.s.search_interval_minutes*60){
       state=await selectionState(env,state,true);
-      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,state.policy.total_posts+state.recent.length,state.policy);
+      const item=choose(state.ready.filter(p=>p.checked_at<now-1800),state.recent,selectionCursor(state),state.policy);
       if(item)results.preflight={product_id:item.pid,valid:Boolean(await validateQueued(env,item,state.policy,fetcher))};
       await status(env,{last_preflight:now});
     }
@@ -466,7 +473,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }
 export async function checkAutopost(env,fetcher=fetch){
-  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,state.policy.total_posts+state.recent.length,state.policy),status=JSON.parse(state.row.status||'{}');
+  await ensureScheduler(env);const state=await readState(env),now=sec(),window=postingWindow(state.s,now),item=choose(state.ready,state.recent,selectionCursor(state),state.policy),status=JSON.parse(state.row.status||'{}');
   const result={ok:true,dry_run:true,telegram_posts_created:0,cron:env.SCHEDULER_DRIVER==='cloudflare-native',last_scheduler_tick:status.last_scheduler_tick||0,heartbeat_stale:now-Number(status.last_scheduler_tick||0)>180,queue_size:state.count,eligible_products:state.ready.filter(p=>(state.recent.filter(r=>r.topic===p.topic).length)<8).length,next_product:item?.pid||null,posting_allowed:window.allowed,timezone:window.timezone,current_local_time:window.clock,quiet_hours:state.s.quiet_enabled?state.s.quiet_start+'–'+state.s.quiet_end:'OFF',telegram_configured:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),last_post:state.last,last_message_id:status.last_message_id||null};
   if(result.telegram_configured)try{const r=await fetcher(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/getMe`,{signal:AbortSignal.timeout(5000)});result.telegram_auth=(await r.json()).ok===true;}catch{result.telegram_auth=false;}
   if(item)try{const cards=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);const card=(cards.products||cards.data?.products||[]).find(c=>c.id===item.pid),deal=cardDeal(card,state.policy),saved=JSON.parse(item.data);result.live_card=Boolean(deal);result.price_increase_ok=Boolean(deal&&deal.product<=saved.product*1.1);if(deal){result.title=deal.title;result.price=deal.product;result.url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;result.image=(await imageFor(env,{...deal,...saved},fetcher)).image;}}catch{result.live_card=false;}

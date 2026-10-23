@@ -15,7 +15,7 @@ export async function audienceContext(e,candidateIds=[]){
   const visual=new Map([...profiles].map(([id,p])=>[id,Object.keys(profileFeatures(p)).filter(k=>!k.startsWith('visual.group=')&&!k.startsWith('visual.combo=')&&!(k.startsWith('visual.style=')&&p.fields?.style?.hypothesis!==false))]));
   const result=summariseVotes(rows.map(r=>({...r,visual_keys:visual.get(r.pid)||[]})));
   for(const [key,stat] of result.traits)if(key.startsWith('visual.'))stat.label=visualLabel(key);
-  return {...result,visual,available:true};
+  return {...result,visual,profiles,available:true};
  }catch(error){
   // Feedback store failures never bypass owner exclusions or stop posting.
   console.log('AUDIENCE_FEEDBACK unavailable; unchanged Legacy fallback');

@@ -39,8 +39,9 @@ export function features(p,ts=now(),prior=.5,zone='Europe/Moscow'){
   return {category:String(p.category||p.cat||p.query||'другое').slice(0,100),query:String(p.query||'').slice(0,100),brand:String(p.brand||'').slice(0,80),price:Math.log1p(Math.max(0,Number(p.product||p.price||0)))/12,discount:Number(p.discount||0)/100,rating:Number(p.rating||0)/5,reviews:Math.log1p(Math.max(0,Number(p.feedbacks||0)))/12,audience:p.audience||(/женск/.test(text)?'women':/мужск/.test(text)?'men':'neutral'),type:String(p.slot||p.category||'other').slice(0,60),hour:Number(wall.hour),weekday:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(wall.weekday),feedback_rate:prior};
 }
 export function vector(f){const x={};for(const [k,v] of Object.entries(f))x[typeof v==='number'?k:k+'='+v]=typeof v==='number'?v:1;return x;}
-export function predict(model,f){let z=Number(model.intercept||0);for(const [k,v] of Object.entries(vector(f)))z+=(model.weights?.[k]||0)*v;return 1/(1+Math.exp(-Math.max(-35,Math.min(35,z))));}
-export async function shadowChoice(e,rows,legacy,ts=now(),zone='Europe/Moscow'){
+export const trainingFeatures=f=>{const {_fashion_shadow,...features}=f;return features;};
+export function predict(model,f){let z=Number(model.intercept||0);for(const [k,v] of Object.entries(vector(trainingFeatures(f))))z+=(model.weights?.[k]||0)*v;return 1/(1+Math.exp(-Math.max(-35,Math.min(35,z))));}
+export async function shadowChoice(e,rows,legacy,ts=now(),zone='Europe/Moscow',editorial=null){
   // A missing/disabled learning store must never run migrations in a posting tick.
   const state=await q(e,'SELECT * FROM learning_state WHERE id=1').first().catch(error=>{if(!/no such table.*learning_state/.test(error.message))throw error;return null;});
   if(!state||JSON.parse(state.config).mode!=='SHADOW')return;
@@ -53,13 +54,13 @@ export async function shadowChoice(e,rows,legacy,ts=now(),zone='Europe/Moscow'){
   const visual=p=>profileFeatures(profiles.get(p.id)),f={...features(actual,ts,prior(actual),zone),...visual(actual)};
   // SHADOW NEVER changes the selected product, diversity or publication gates.
   const best=candidates.map(c=>({...c,score:predict(model,{...features(c.p,ts,prior(c.p),zone),...visual(c.p)})})).sort((a,b)=>b.score-a.score)[0];
-  await q(e,'INSERT OR REPLACE INTO learning_shadow VALUES(?,?,?,?,?,?,?)',legacy.pid,ts,legacy.pid,best?.row.pid||legacy.pid,prior(actual),predict(model,f),JSON.stringify(f)).run();
+  await q(e,'INSERT OR REPLACE INTO learning_shadow VALUES(?,?,?,?,?,?,?)',legacy.pid,ts,legacy.pid,best?.row.pid||legacy.pid,prior(actual),predict(model,f),JSON.stringify({...f,...(editorial?{_fashion_shadow:editorial}:{})})).run();
 }
 export async function recordEvent(e,{key,pid,kind,ts=now(),weight=1}){
   await ensureLearning(e);
   if(!['like','dislike','buy','save','click'].includes(kind)||!Number.isSafeInteger(pid)||pid<=0||typeof key!=='string'||key.length>180||!Number.isFinite(weight)||weight<=0||weight>1000)throw new Error('Invalid learning event');
   const shadow=await q(e,'SELECT features FROM learning_shadow WHERE pid=?',pid).first();
-  let f=shadow?JSON.parse(shadow.features):null;
+  let f=shadow?trainingFeatures(JSON.parse(shadow.features)):null;
   if(!f){const row=await q(e,'SELECT data FROM scheduler_inventory WHERE pid=?',pid).first()||await q(e,'SELECT data FROM products WHERE id=?',pid).first();if(!row)return {ignored:true};f=features(JSON.parse(row.data),ts);}
   const cached=await cachedProfiles(e,[pid]);f={...f,...profileFeatures(cached.get(pid))};
   const r=await q(e,'INSERT OR IGNORE INTO learning_events(event_key,ts,pid,kind,weight,features) VALUES(?,?,?,?,?,?)',key,ts,pid,kind,weight,JSON.stringify(f)).run();return {added:!!r.meta.changes};
@@ -68,7 +69,7 @@ export async function importFeedback(e,rows){
   await ensureLearning(e);
   const clean=rows.filter(p=>Number.isSafeInteger(p.pid)&&p.pid>0),ids=JSON.stringify(clean.map(p=>p.pid));
   const old=new Map((await q(e,'SELECT * FROM learning_feedback WHERE pid IN (SELECT value FROM json_each(?))',ids).all()).results.map(p=>[p.pid,p]));
-  const shadows=new Map((await q(e,'SELECT pid,features FROM learning_shadow WHERE pid IN (SELECT value FROM json_each(?))',ids).all()).results.map(p=>[p.pid,JSON.parse(p.features)]));
+  const shadows=new Map((await q(e,'SELECT pid,features FROM learning_shadow WHERE pid IN (SELECT value FROM json_each(?))',ids).all()).results.map(p=>[p.pid,trainingFeatures(JSON.parse(p.features))]));
   const cards=new Map((await q(e,'SELECT pid,data FROM scheduler_inventory WHERE pid IN (SELECT value FROM json_each(?))',ids).all()).results.map(p=>[p.pid,JSON.parse(p.data)]));
   for(const p of (await q(e,'SELECT id,data FROM products WHERE id IN (SELECT value FROM json_each(?))',ids).all()).results)if(!cards.has(p.id))cards.set(p.id,JSON.parse(p.data));
   const events=[],updates=[];
@@ -105,8 +106,8 @@ export async function learningRoute(request,e,{payload,fail,json}){
     const profiles=await cachedProfiles(e,ids);
     // Enrich only the still-untrained real events. No duplicate event/replay or
     // retroactive change to the stored pre-delivery probability for comparison.
-    const enriched=events.map(row=>({...row,features:JSON.stringify({...JSON.parse(row.features),...profileFeatures(profiles.get(row.pid))})}));
-    return json({config,model,events:enriched,shadows});
+    const enriched=events.map(row=>({...row,features:JSON.stringify({...trainingFeatures(JSON.parse(row.features)),...profileFeatures(profiles.get(row.pid))})}));
+    return json({config,model,events:enriched,shadows:shadows.map(row=>({...row,features:JSON.stringify(trainingFeatures(JSON.parse(row.features)))}))});
   }
   if(path.endsWith('/train')&&method==='PUT'){
     const data=await payload(request,1024*1024),m=data.model;

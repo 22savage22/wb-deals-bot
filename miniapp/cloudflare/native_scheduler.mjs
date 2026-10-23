@@ -12,6 +12,8 @@ import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './a
 import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
+import {fashionShadow} from './fashion_selection.mjs';
+import {cachedProfiles} from './visual_enrichment.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -204,7 +206,7 @@ async function validateQueued(env,item,policy,fetcher){
   deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
   deal={...deal,...await imageFor(env,deal,fetcher)};
   if(!deal.image){deal.validation_error=deal.photo_exhausted?'PHOTO_EXHAUSTED':'PHOTO_SHARD_PENDING';await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
-  if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now});
+  if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now,fashion:env.FASHION_SHADOW_ENABLED==='1'});
   if(selectionReason(deal,policy)){
     await q(env,"UPDATE scheduler_inventory SET data=? WHERE pid=?",JSON.stringify(deal),item.pid).run();return null;
   }
@@ -254,7 +256,16 @@ async function publish(env,state,fetcher){
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
       // Observe only the final valid selection, never every rejected candidate.
-      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
+      if(JSON.parse(current.row.status||'{}').learning_initialized)try{
+        const rows=current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key));
+        let editorial=null;
+        if(env.FASHION_SHADOW_ENABLED==='1'){
+          const profiles=feedback?.profiles||await cachedProfiles(env,rows.map(r=>r.pid));
+          editorial=await fashionShadow(env,rows,current.recent,current.policy,{...feedback,profiles},sec());
+          if(editorial)editorial.legacy_pid=item.pid;
+        }
+        await shadowChoice(env,rows,item,sec(),current.s.timezone,editorial);
+      }catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       // Final owner gate immediately before forming/sending Telegram. A ban
       // saved during slow WB/shadow work must win over a previously chosen row.
       const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
@@ -366,7 +377,7 @@ async function search(env,state,fetcher){
       const p=cardDeal(live.get(candidate.id),state.policy);
       if(!p){rejected.card_missing++;continue;}p.query=query;
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
-      if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now}):ready;
+      if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now,fashion:env.FASHION_SHADOW_ENABLED==='1'}):ready;
         if(selectionReason(enriched,state.policy)){rejected.filter++;filter_reasons.owner_category=(filter_reasons.owner_category||0)+1;}else verified.push(enriched);
       }else rejected.photo++;
     }

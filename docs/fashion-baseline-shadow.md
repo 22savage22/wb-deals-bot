@@ -1,5 +1,41 @@
 # Fashion baseline: isolated editorial SHADOW
 
+## 24 October update: photograph quality precedes allocation
+
+Category admission is no longer sufficient for a proposal. `chooseFashion()`
+requires relevant verified photograph evidence or a recent editorial review of
+that exact item and image source version. An editorial review is a bounded
+per-item decision, not a learned audience preference; it expires after 24 hours,
+and changed photo sources invalidate it. Quotas are evaluated only after this
+gate. No review is inferred from a seller's declared cut, keyword, empty bucket,
+or two channel voters. The `Кофты` WB category is correctly admitted as clothing,
+but still needs the same photograph gate.
+
+The existing localhost gallery now shows 15 actual ready candidates from the
+24 October 00:02 Moscow snapshot, with 23 real photographs. Eight are editorial
+recommendations and seven are reserve, not a 15-item publication authorization.
+The native Worker does not read local gallery ratings/reviews. With the current
+zero usable native Vision profiles and no supplied editorial review context,
+its passive fashion proposal is empty. This is intentional. The previous
+category-only 15-item list is superseded as a publication proposal.
+
+The first live trial is limited to 10–15 owner-approved items, only after enough
+qualified supply and separate permission. It can use the existing admin queue's
+specific-product selection with per-send checks at least 30 minutes apart; no
+new sender, Mini App or learner is needed. Current eight recommendations fall
+short of ten. Rehearsal of those eight is local only, with all HTTP intercepted,
+on current main and PR17 separately. Reserve items never fill missing slots.
+
+Existing aggregate production Logs show scheduled CPU p50 12 ms / p99 107 ms /
+max 172 ms for the preceding 24 hours. These are sampled invocation metrics,
+not a benchmark of this branch and not proof of Free headroom. The declared
+Free Cron CPU limit is 10 ms; temporary platform flexibility is not a release
+guarantee. No production CPU experiment or tariff change was performed.
+
+Search evidence and the limited-pilot checklist are in the task's dated audit.
+The separately found rolling-count rotation defect is prepared on another
+branch based directly on main, not folded into PR17 or this fashion branch.
+
 The owner set the channel scope to adult men's/women's clothing, footwear, bags
 and accessories. This is an editorial policy, not a claim that two voters
 represent the audience. No personal style/gallery ratings train this filter.

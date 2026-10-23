@@ -4,12 +4,14 @@ import {selectionReason,similarity} from './selection_policy.mjs';
 import {ownerReason,productType} from './audience_quality.mjs';
 import {safeImage} from './domain.mjs';
 import {VISUAL_VERSION,COMMON,SPECIFIC} from './visual_features.mjs';
+import {visualSourceVersion} from './visual_enrichment.mjs';
 export const FASHION_VERSION=1;
 export const FASHION_TARGETS=Object.freeze({men:14,women:14,shoes:8,accessories:4});
 const fold=s=>String(s||'').normalize('NFKC').toLowerCase().replace(/ё/g,'е').trim();
 const excluded=new Set(['Гольфы','Носки','Колготки','Трусы','Бюстгальтеры','Комплекты белья','Пижамы','Халаты','Ночные сорочки','Купальники','Плавки','Тапочки','Сланцы','Шлепанцы'].map(fold));
 const categories=new Map(Object.entries(FASHION_CATEGORIES).flatMap(([group,list])=>list.filter(c=>!excluded.has(fold(c))).map(c=>[fold(c),group])));
-for(const c of ['Бомберы','Комплекты украшений','Подвески бижутерные'])categories.set(fold(c),c==='Бомберы'?'clothing':'accessories');
+for(const c of ['Бомберы','Кофты'])categories.set(fold(c),'clothing');
+for(const c of ['Комплекты украшений','Подвески бижутерные'])categories.set(fold(c),'accessories');
 const parse=s=>{try{return typeof s==='string'?JSON.parse(s):s;}catch{return null;}};
 const childOrUtility=/(?:детск|девоч|мальчик|малыш|новорожден|для кукол|для куклы|спецодеж|медицинск|карнавальн|костюмирован|униформа)/u;
 const token=s=>fold(s).split(/[;,/]/u).map(fold);
@@ -74,7 +76,12 @@ export function chooseFashion(rows,recent,policy={},context={},pilotHistory=[]){
  for(const row of rows.slice(0,300)){
   const p=parse(row.data);if(!p)continue;
   const a=assessFashion(p,policy,context.profiles?.get(row.pid));let reason=a.reason;
-  if(a.allowed&&((topicCounts.get(row.topic)||0)>=8||recent.some(r=>r.title_key===row.title_key)))reason='EXISTING_TOPIC_OR_TITLE_CAP';
+  const reviewed=context.reviewed?.get(row.pid),now=Number(context.now||Math.floor(Date.now()/1000));
+  const editorial=reviewed?.source==='editorial_photo_review'&&reviewed.approved===true&&reviewed.pid===row.pid&&reviewed.source_version===visualSourceVersion(p)&&Number.isSafeInteger(reviewed.reviewed_at)&&reviewed.reviewed_at<=now&&now-reviewed.reviewed_at<=86400;
+  const visualStyle=a.reasons?.some(k=>k.startsWith('PHOTO_')||k==='REVIEWED_PHOTO_STYLE');
+  // A category/declared keyword or an unfilled quota cannot authorize a post.
+  if(a.allowed&&!editorial&&!visualStyle)reason='PHOTO_QUALITY_REVIEW_REQUIRED';
+  else if(a.allowed&&((topicCounts.get(row.topic)||0)>=8||recent.some(r=>r.title_key===row.title_key)))reason='EXISTING_TOPIC_OR_TITLE_CAP';
   else if(a.allowed&&a.type===last)reason='TYPE_STREAK_LIMIT';
   else if(a.allowed&&recent.slice(-6).some(r=>similarity(parse(r.data)||{},p).score>=.8))reason='SIMILAR_RECENT_ITEM';
   else if(a.allowed){

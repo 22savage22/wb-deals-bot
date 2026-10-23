@@ -12,8 +12,8 @@ import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './a
 import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
-import {fashionShadow} from './fashion_selection.mjs';
-import {cachedProfiles} from './visual_enrichment.mjs';
+import {fashionShadow,parseReviewedPilot,chooseReviewedPilot,assessFashion} from './fashion_selection.mjs';
+import {cachedProfiles,visualSourceVersion} from './visual_enrichment.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -195,7 +195,7 @@ async function validateQueued(env,item,policy,fetcher){
   // Keep the row/history so re-enabling a category is reversible.
   if(selectionReason(saved,policy))return null;
   try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
-  catch(error){unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
+  catch(error){unavailable=true;if(env.FASHION_PILOT_ENABLED==='1'||now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
   let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
   if(deal&&selectionReason(deal,policy))return null;
   if(!deal||deal.product>saved.product*1.1){
@@ -223,7 +223,10 @@ async function publish(env,state,fetcher){
     const requested=JSON.parse(current.row.status||'{}');
     const preferred=manual&&requested.admin_product_request===manual?Number(requested.admin_product_id):0;
     const cancelPreferred=async()=>{await runtime(env,{op:'consume',kind:'post',owner,request_id:manual});await status(env,{admin_product_result:'Товар не прошёл проверку или уже выбыл. Другая вещь вместо него не отправлена.',admin_product_id:null,admin_product_request:null});};
-    if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+    const pilotEnabled=env.FASHION_PILOT_ENABLED==='1',pilot=pilotEnabled?parseReviewedPilot(env.FASHION_PILOT_REVIEW,sec()):null;
+    if(!postDue(current.s,current.last,sec(),Boolean(manual)&&!pilotEnabled))return {result:'not_due'};
+    if(pilotEnabled&&env.FASHION_SHADOW_ENABLED==='1'){if(preferred)await cancelPreferred();return {result:'no_eligible_product',reason:'PILOT_AND_SHADOW_FLAGS_CONFLICT'};}
+    if(pilotEnabled&&!pilot.ready){if(preferred)await cancelPreferred();return {result:'no_eligible_product',reason:pilot.reason};}
     if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     // A bad card cannot monopolize a due tick. Bound both work and wall time;
     // discovery/maintenance use a different invocation, not this publication.
@@ -231,7 +234,7 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
+      const item=pilotEnabled?chooseReviewedPilot(choose,eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback,pilot,sec()):choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
@@ -241,7 +244,9 @@ async function publish(env,state,fetcher){
       const latest=await q(env,'SELECT data,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.policy=JSON.parse(latest.policy||'{}');
       if(selectionReason(deal,current.policy)){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
-      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+      if(pilotEnabled){const approved=pilot.items.find(p=>p.pid===item.pid),actual={...JSON.parse(item.data),...deal};
+        if(sec()>=pilot.ends_at||sec()-approved.reviewed_at>86400||visualSourceVersion(actual)!==approved.source_version||!assessFashion(actual,current.policy).allowed){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}}
+      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)&&!pilotEnabled))return {result:'not_due'};
       const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok){
         // A prior delivery claim (including uncertain/error) is a per-product
         // tombstone. Never delete it or blindly resend, but don't let that card
@@ -256,7 +261,7 @@ async function publish(env,state,fetcher){
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
       // Observe only the final valid selection, never every rejected candidate.
-      if(JSON.parse(current.row.status||'{}').learning_initialized)try{
+      if(!pilotEnabled&&JSON.parse(current.row.status||'{}').learning_initialized)try{
         const rows=current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key));
         let editorial=null;
         if(env.FASHION_SHADOW_ENABLED==='1'){
@@ -273,7 +278,7 @@ async function publish(env,state,fetcher){
         await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
         continue;
       }
-      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
+      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 ${pilotEnabled?'В ответе WB':'Сейчас'}: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\n${pilotEnabled?'Цена получена из ответа WB перед публикацией. Для выбранного размера и условий оплаты она может отличаться.':'Цена проверена перед публикацией. На WB она может меняться.'}`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
       let result;

@@ -102,3 +102,29 @@ export async function fashionShadow(e,rows,recent,policy,context,ts){
  const r=chooseFashion(rows,recent,policy,context,history);
  return {version:r.version,frozen_at:ts,pilot_start:start,legacy_pid:null,proposed_pid:r.proposed_pid,bucket:r.bucket||null,counts:r.counts,unassigned:r.unassigned,reason:r.reason,assessment:r.assessment,targets:FASHION_TARGETS,unknown_visual:r.candidates.filter(x=>x.assessment?.unknown?.length).length,eligible:r.candidates.filter(x=>!x.rejected).length,rejected:r.candidates.filter(x=>x.rejected).map(x=>({pid:x.pid,reason:x.reason})),price_claim:'NO_VERIFIED_DISCOUNT',actual_selection:'LEGACY'};
 }
+// Optional finite pilot over the existing sender. No new table, schedule or model.
+export function parseReviewedPilot(raw,now){
+ const closed=reason=>({ready:false,reason});
+ if(typeof raw!=='string'||new TextEncoder().encode(raw).length>4800)return closed('PILOT_REVIEW_INVALID');
+ let p;try{p=JSON.parse(raw);}catch{return closed('PILOT_REVIEW_INVALID');}
+ if(!p||typeof p!=='object'||p.version!==1||p.owner_approved!==true||!Number.isSafeInteger(p.starts_at)||!Number.isSafeInteger(p.ends_at)||p.starts_at>now||p.ends_at<=now||p.ends_at-p.starts_at>43200||p.ends_at<=p.starts_at)return closed('PILOT_NOT_APPROVED_OR_OUTSIDE_WINDOW');
+ if(!Array.isArray(p.items)||p.items.length<10||p.items.length>15)return closed('PILOT_NEEDS_10_TO_15_REVIEWED_ITEMS');
+ const seen=new Set();for(const x of p.items){
+  if(!x||!Number.isSafeInteger(x.pid)||x.pid<=0||seen.has(x.pid)||typeof x.source_version!=='string'||x.source_version.length>1000||!['men','women','unisex','unknown'].includes(x.audience)||!Number.isSafeInteger(x.reviewed_at)||x.reviewed_at>now||now-x.reviewed_at>86400)return closed('PILOT_ITEM_REVIEW_INVALID');seen.add(x.pid);
+ }
+ return {...p,ready:true};
+}
+export function chooseReviewedPilot(selector,rows,recent,total,policy,feedback,pilot,now){
+ if(!pilot?.ready||now>=pilot.ends_at)return null;
+ const tail=recent.slice(-2).map(r=>productType(parse(r.data)||{})),last=tail.length===2&&tail[0]===tail[1]?tail[0]:null;
+ for(const approved of pilot.items){
+  const row=rows.find(r=>r.pid===approved.pid);if(!row)continue;let p=parse(row.data);
+  if(!p||visualSourceVersion(p)!==approved.source_version||now-approved.reviewed_at>86400)continue;
+  // Gender is retained from the already reviewed official WB card, never title.
+  p={...p,fashion_metadata:metadata(p)||{version:1,source:'wb-cdn',pid:p.id,image:p.image,checked_at:approved.reviewed_at,audience:approved.audience,options:{}}};
+  const a=assessFashion(p,policy);if(!a.allowed||a.type===last||recent.slice(-6).some(r=>similarity(parse(r.data)||{},p).score>=.8))continue;
+  const candidate={...row,data:JSON.stringify(p)};
+  if(selector([candidate],recent,total,policy,feedback))return candidate;
+ }
+ return null; // Never substitute an unreviewed Legacy product.
+}

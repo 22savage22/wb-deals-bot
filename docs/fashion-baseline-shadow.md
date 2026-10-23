@@ -20,11 +20,13 @@ its passive fashion proposal is empty. This is intentional. The previous
 category-only 15-item list is superseded as a publication proposal.
 
 The first live trial is limited to 10–15 owner-approved items, only after enough
-qualified supply and separate permission. It can use the existing admin queue's
-specific-product selection with per-send checks at least 30 minutes apart; no
-new sender, Mini App or learner is needed. Current eight recommendations fall
-short of ten. Rehearsal of those eight is local only, with all HTTP intercepted,
-on current main and PR17 separately. Reserve items never fill missing slots.
+qualified supply and separate permission. A default-OFF finite-list guard uses
+the existing selector, sender, leases and claims. Manual admin selection alone
+is insufficient: ordinary manual sends may bypass the 30-minute interval and
+Cron can pick a different item between requests. The finite guard removes both
+risks. Current eight recommendations fall short of ten and cannot start it.
+Rehearsal of those eight is local only, with all HTTP intercepted, on current
+main and PR17 separately. Reserve items never fill missing slots.
 
 Existing aggregate production Logs show scheduled CPU p50 12 ms / p99 107 ms /
 max 172 ms for the preceding 24 hours. These are sampled invocation metrics,
@@ -78,8 +80,26 @@ branch is not included. Reactions and existing feedback capture are unchanged.
 
 ## Integration and guardrails
 
-Default is OFF. This branch contains no live-selection switch. `choose()` and
-the final Telegram sender continue to use Legacy in every mode.
+Default is OFF. Without `FASHION_PILOT_ENABLED=1`, the final sender continues
+to select Legacy. No new deployment variables have been set. An explicitly
+approved finite live pilot is distinct from passive SHADOW:
+
+- `FASHION_PILOT_REVIEW` must contain an approved version-1 manifest of 10–15
+  unique real IDs, exact reviewed image source versions and official WB audience
+  metadata. Editorial reviews expire after 24 hours. The active window is at
+  most 12 hours and the manifest at most 4,800 UTF-8 bytes.
+- Only that list may reach the existing selector/sender; current owner rules,
+  official fashion categories, recent-type and similarity limits still apply.
+  A missing/changed/rejected item leaves a gap. No Legacy substitute is allowed.
+- The 30-minute interval also applies to manual requests. A current WB price
+  response is mandatory; the normal cached-price fallback is forbidden. The
+  caption describes the response price without claiming a verified discount.
+- Exhausted, invalid, expired or insufficient lists hold the slot. Existing
+  delivery claims prevent repeats. No extra D1 table, SQL read, AI or model is
+  required. Existing channel reactions remain captured.
+- Live and passive flags are mutually exclusive. Pilot deliveries are not
+  falsely logged as Legacy/River comparison observations. Synthetic ten-item
+  tests verify the guard, not real fashion quality or subscriber uplift.
 
 Only a separately approved deployment may set `FASHION_SHADOW_ENABLED=1` and an
 explicit Unix `FASHION_PILOT_START`. Without both, no pilot proposal is recorded.
@@ -135,12 +155,17 @@ metadata gaps; use the existing query administration to retire household
 queries and add the missing fashion directions; retain the budget/rating/owner
 limits; verify the quoted price/stock send path and remove any unproven discount
 claim; check the approved build within Free; obtain owner permission. A passive
-SHADOW release also needs explicit permission. This branch does not turn its
-proposal into a publication. First review proposed scope/diversity, then the
-first 40 actual pilot posts and real reactions without claiming two voters are
-the entire audience.
+SHADOW release also needs explicit permission. A passive proposal does not
+authorize a publication. First review the approved 10–15-item finite trial and
+its subsequent real reactions. The passive 40-item allocation simulation is
+secondary and cannot authorize additional sends or justify poor quota fillers.
+Two voters cannot establish audience-wide preferences.
 
-Rollback: disable only the fashion SHADOW flag, or return to the approved prior
-Worker code version. Keep posts, claims and votes. Never rewind D1 and resend
-already delivered items. The existing private backup was restored and checked
-locally; it is not a replay command or permission for production restoration.
+Rollback: after the current invocation completes and manual requests are
+drained, return to the approved prior Worker code version/settings, or disable
+only the passive SHADOW flag when that is what was enabled. Disabling a live
+pilot flag resumes Legacy, so it is an explicit rollback action, not automatic
+end-of-pilot behavior. Keep posts, claims and votes. Never rewind D1 and resend
+already delivered items. Recheck that 30 minutes have elapsed before resuming.
+The existing private backup was restored and checked locally; it is not a
+replay command or permission for production restoration.

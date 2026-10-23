@@ -11,6 +11,27 @@ import {bootstrap,cardDeal,choose,nativeTick,runDiscovery} from './native_schedu
 import {discoveryQueries} from './query_control.mjs';
 const proposed={enabled:true,excluded:Object.keys(QUALITY_CATEGORIES),feedback_enabled:true,fashion_priority:true};
 const policy={audience_quality:proposed};
+test('observed WB subject wins over competing garment keywords in real titles',()=>{
+ for(const [category,title,type] of [
+  ['Лонгсливы','Лонгслив женский спортивный кофта базовая футболка хлопок','longsleeve'],
+  ['Платья','Платье футболка миди облегающее летнее','dress'],
+  ['Юбки','Джинсовая мини-юбка с карманами','skirt'],
+  ['Костюмы','Летний льняной костюм с брюками','wb:костюмы']
+ ])assert.equal(productType({category,title,category_source:'wb-cdn'}),type);
+ assert.equal(productType({category:'другое',title:'Футболка хлопок'}),'tshirt');
+ assert.equal(productType({category:'Учебники',title:'Футболка',category_source:'wb-cdn'}),'textbooks');
+});
+test('verified subject keeps dislike evidence and consecutive-type rotation in the same type',()=>{
+ const p={id:1,category:'Лонгсливы',category_source:'wb-cdn',title:'Лонгслив кофта базовая футболка'},
+ alternate={id:2,category:'Футболки',category_source:'wb-cdn',title:'Футболка хлопок'};
+ const c=summariseVotes([{pid:1,voter:'one',sentiment:'d',data:p}]);
+ assert.equal(c.traits.get('type:longsleeve').dislikes,1);
+ assert.equal(c.traits.has('type:tshirt'),false);
+ const rows=[p,alternate].map(p=>({pid:p.id,data:JSON.stringify(p)}));
+ const recent=[p,p].map(p=>({data:JSON.stringify(p)}));
+ assert.equal(qualityRank(rows,recent,policy,c)[0].pid,2);
+ assert.equal(c.traits.get('type:longsleeve').multiplier,1);
+});
 const image='https://basket-01.wbbasket.ru/vol0/part0/777/images/big/1.webp';
 const product=(id,title='Футболка хлопок')=>({id,title,category:'другое',query:'футболка мужская',product:700,rating:4.9,feedbacks:50,image});
 const row=p=>({pid:p.id,data:JSON.stringify(p),topic:p.query,title_key:p.title,checked_at:1,queued_at:p.id});

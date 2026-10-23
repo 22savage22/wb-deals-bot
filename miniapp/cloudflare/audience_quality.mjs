@@ -30,10 +30,15 @@ export function ownerCategory(p){
 export function productType(p){
  const excluded=ownerCategory(p);if(excluded)return excluded;
  const head=s=>fold(s).split(/\s+для\s+/u)[0];
- const text=[head(p.category),head(p.title)].join(' ');
- for(const [key,re] of [
+ const types=[
   ['tshirt',word('футболк|поло')],['longsleeve',word('лонгслив|водолазк')],['hoodie',word('худи|толстов')],['jeans',word('джинс')],['dress',word('плать')],['skirt',word('юбк')],['blouse',word('блуз|рубаш')],['outerwear',word('куртк|пальто')],['knitwear',word('свитер|джемпер|кофт')],['trousers',word('брюк|шорт')],['shoes',word('кроссов|кед[аы ]|ботин|сапог|туфл|босонож|сандал|обув')],['bag',word('сумк|рюкзак|кросс-боди|тоут|шоппер')],['accessory',word('серьг|сереж|браслет|колье|кольц|подвеск|цепоч|украшен|ремень|ремни|кепк|кошелек')]
- ])if(re.test(text))return key;
+ ];
+ // A seller's title may list other garments ("платье футболка"). Keep the
+ // observed WB subject authoritative for both feedback and type rotation.
+ const category=head(p.category);
+ for(const [key,re] of types)if(re.test(category))return key;
+ if(p.category_source==='wb-cdn'&&!['','другое','other'].includes(category))return 'wb:'+fold(p.category);
+ for(const [key,re] of types)if(re.test(head(p.title)))return key;
  // Never collapse unrelated unknown subjects into one learnable category.
  return !['','другое','other'].includes(fold(p.category))?'wb:'+fold(p.category):'query:'+fold(p.query||'unknown');
 }

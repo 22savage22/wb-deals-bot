@@ -1,5 +1,5 @@
 // Native runtime: D1 bindings, existing claims and expiring leases; no CI token.
-import {ensureScheduler,validateSchedule,schedulerRoute} from './scheduler_api.mjs';
+import {ensureScheduler,validateSchedule,schedulerRoute,dayStart,dayAt,UNCERTAIN_DAY_CARRY_SECONDS} from './scheduler_api.mjs';
 import {safeImage,normalize} from './domain.mjs';
 import {shadowChoice,explorationQuery} from './learning.mjs';
 import {repairReactions} from './feedback.mjs';
@@ -210,12 +210,42 @@ async function validateQueued(env,item,policy,fetcher){
   }
   await q(env,'UPDATE scheduler_inventory SET data=?,checked_at=? WHERE pid=?',JSON.stringify(deal),now,item.pid).run();return deal;
 }
+async function finalSendGate(env,item,owner,schedule,manual,deal){
+  const at=sec(),start=dayStart(at,schedule.timezone),day=dayAt(at,schedule.timezone);
+  // Reuse the final policy read. All counters are indexed ranges in the same
+  // statement; exclude our own pending reservation and require its live lease.
+  const row=await q(env,`SELECT data,(SELECT data FROM scheduler_config WHERE id=1) AS schedule,
+    (SELECT MAX(ts) FROM scheduler_posts) AS last_post,
+    (SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?) AS daily_success,
+    (SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error') AND pid<>?) AS daily_reserved,
+    (SELECT COUNT(*) FROM scheduler_posts WHERE ts>?) AS hourly_success,
+    (SELECT COUNT(*) FROM scheduler_claims WHERE ts>? AND status IN ('pending','error') AND pid<>?) AS hourly_reserved,
+    EXISTS(SELECT 1 FROM scheduler_leases WHERE kind='post' AND owner=? AND expires>?) AS live_lease,
+    EXISTS(SELECT 1 FROM scheduler_claims WHERE pid=? AND owner=? AND status='pending') AS own_claim
+    FROM scheduler_policy WHERE id=1`,start,start-UNCERTAIN_DAY_CARRY_SECONDS,item.pid,at-3600,at-3600,item.pid,owner,at,item.pid,owner).first();
+  const policy=JSON.parse(row.data),latest=validateSchedule(JSON.parse(row.schedule));
+  if(selectionReason(deal,policy))return {allowed:false,reason:'owner_excluded'};
+  if(latest.timezone!==schedule.timezone||dayAt(sec(),latest.timezone)!==day||!row.live_lease||!row.own_claim||
+    !postDue(latest,Number(row.last_post||0),sec(),Boolean(manual))||
+    row.daily_success+row.daily_reserved>=latest.max_posts_day||row.hourly_success+row.hourly_reserved>=latest.max_posts_hour)
+    return {allowed:false,reason:'schedule_or_limit_or_lease_changed'};
+  return {allowed:true,schedule:latest,calendar_day:day,fills_day:row.daily_success+row.daily_reserved+1>=latest.max_posts_day,confirms_full_day:row.daily_success+1>=latest.max_posts_day};
+}
+const RESERVATION_RECHECK_SECONDS=300;
+function capacityHold(schedule,confirmed,at=sec()){
+  const start=dayStart(at,schedule.timezone),until=dayStart(start+90000,schedule.timezone);
+  return {post_capacity_until:confirmed?until:Math.min(until,at+RESERVATION_RECHECK_SECONDS),post_capacity_schedule:JSON.stringify(schedule),post_capacity_confirmed:confirmed};
+}
 async function publish(env,state,fetcher){
   const owner=crypto.randomUUID(),lock=await runtime(env,{op:'acquire',kind:'post',owner,ttl:120});
   if(!lock.ok)return {result:'lock_busy'};
   try{
-    const latest=await q(env,'SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
+    const smallDay=state.s.max_posts_day<=6,start=smallDay?dayStart(sec(),state.s.timezone):0;
+    const latest=await q(env,`SELECT data,(SELECT MAX(ts) FROM scheduler_posts) AS last_post
+      ${smallDay?",(SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?) AS daily_success,(SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')) AS daily_reserved":''}
+      FROM scheduler_config WHERE id=1`,...(smallDay?[start,start-UNCERTAIN_DAY_CARRY_SECONDS]:[])).first();
     let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
+    if(smallDay&&current.s.timezone===state.s.timezone&&dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&latest.daily_success+latest.daily_reserved>=current.s.max_posts_day){const hold=capacityHold(current.s,latest.daily_success>=current.s.max_posts_day);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
     const feedback=qualitySettings(current.policy).enabled&&qualitySettings(current.policy).feedback_enabled?await audienceContext(env,current.ready.map(r=>r.pid)):null;
     const manual=current.row.post_request;
     const requested=JSON.parse(current.row.status||'{}');
@@ -250,6 +280,12 @@ async function publish(env,state,fetcher){
           await q(env,"UPDATE scheduler_inventory SET state=? WHERE pid=? AND state='ready'",previousClaim.status==='success'?'posted':'uncertain',item.pid).run();
           continue;
         }
+        // Cache only a refusal, not admission. A full calendar day should not
+        // refetch WB every minute. Any schedule change invalidates this cache.
+        const start=dayStart(sec(),current.s.timezone),capacity=await q(env,`SELECT
+          (SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?) AS successful,
+          (SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')) AS reserved`,start,start-UNCERTAIN_DAY_CARRY_SECONDS).first();
+        if(dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&capacity.successful+capacity.reserved>=current.s.max_posts_day){const hold=capacityHold(current.s,capacity.successful>=current.s.max_posts_day);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
         return {result:claim.reason};
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
@@ -257,18 +293,19 @@ async function publish(env,state,fetcher){
       if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       // Final owner gate immediately before forming/sending Telegram. A ban
       // saved during slow WB/shadow work must win over a previously chosen row.
-      const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
-      if(selectionReason(deal,finalPolicy)){
+      const gate=await finalSendGate(env,item,owner,current.s,manual,deal);
+      if(!gate.allowed){
         await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
-        continue;
+        if(gate.reason==='owner_excluded')continue;
+        return {result:'publication_gate_changed'};
       }
       const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
-      let result;
+      let result,transportBlocked=false,sentGate=gate,sendOutcomeUncertain=true;
       try{
         const endpoint=`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendPhoto`;
-        const r=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();
+        const r=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();if(typeof result?.ok!=='boolean')throw new Error('Malformed Telegram outcome');if(result.ok===false)sendOutcomeUncertain=false;
         if(!result.ok){
           const description=String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180);
           await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:description});
@@ -282,17 +319,24 @@ async function publish(env,state,fetcher){
               while(true){const {value,done}=await reader.read();if(done)break;bytes+=value.length;if(bytes>5*1024*1024){await reader.cancel();throw new Error('Photo exceeds upload cap');}chunks.push(value);}
               const form=new FormData();form.set('chat_id',current.policy.chat_id);form.set('caption',caption);form.set('parse_mode','HTML');form.set('reply_markup',JSON.stringify(reply_markup));
               form.set('photo',new Blob(chunks,{type:photo.headers.get('content-type')}),'product-image');
-              result=await (await fetcher(endpoint,{method:'POST',body:form,signal:AbortSignal.timeout(15000)})).json();
+              // The first definitive photo rejection sent no message. Recheck
+              // limits/pause/owner/lease before the second physical attempt.
+              const retryGate=await finalSendGate(env,item,owner,current.s,manual,deal);
+              if(!retryGate.allowed)transportBlocked=true;
+              else{sentGate=retryGate;sendOutcomeUncertain=true;result=await (await fetcher(endpoint,{method:'POST',body:form,signal:AbortSignal.timeout(15000)})).json();if(typeof result?.ok!=='boolean')throw new Error('Malformed Telegram retry outcome');if(result.ok===false)sendOutcomeUncertain=false;}
               await status(env,{last_photo_delivery:'multipart',last_photo_fallback_reason:description});
             }
           }
         }
       }
-      catch{await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});await q(env,"UPDATE scheduler_inventory SET state='uncertain' WHERE pid=?",item.pid).run();throw new Error('Telegram send outcome unknown; automatic duplicate retry suppressed');}
+      catch{await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:!sendOutcomeUncertain});await q(env,"UPDATE scheduler_inventory SET state=? WHERE pid=?",sendOutcomeUncertain?'uncertain':'rejected',item.pid).run();throw new Error(sendOutcomeUncertain?'Telegram send outcome unknown; automatic duplicate retry suppressed':'Telegram rejected photo and its retry was unavailable');}
+      if(transportBlocked){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});return {result:'publication_gate_changed'};}
       if(!result.ok){
         const rejectedPhoto=result.error_code===400&&/http|webpage|image|photo|file identifier/i.test(String(result.description||''));
         await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180)});
-        await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:rejectedPhoto});
+        // A parsed Telegram ok:false is a known failed send, not an uncertain
+        // success. Preserve its product tombstone but release quota capacity.
+        await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
         await q(env,"UPDATE scheduler_inventory SET state=?,retry_at=? WHERE pid=?",rejectedPhoto?'rejected':'uncertain',sec()+Math.max(300,Number(result.parameters?.retry_after||0)),item.pid).run();
         if(rejectedPhoto)continue;throw new Error('Telegram rejected publication');
       }
@@ -304,8 +348,9 @@ async function publish(env,state,fetcher){
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
         q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
       ]);
-      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:sent+current.s.post_interval_minutes*60,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})});
-      console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id};
+      const hold=sentGate.fills_day&&dayAt(sent,sentGate.schedule.timezone)===sentGate.calendar_day?capacityHold(sentGate.schedule,sentGate.confirms_full_day,sent):{};
+      await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:Math.max(sent+current.s.post_interval_minutes*60,hold.post_capacity_until||0),...hold,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})});
+      console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id,...(hold.post_capacity_until?{capacity_until:hold.post_capacity_until}:{})};
     }return {result:'invalid_candidates'};
   }finally{await runtime(env,{op:'release',kind:'post',owner});}
 }
@@ -403,7 +448,9 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   try{
     let state=await readHeader(env),previous=JSON.parse(state.row.status||'{}');
     const due=postDue(state.s,state.last,now,Boolean(state.row.post_request));
-    const canPublish=due&&state.count>0&&now>=Number(previous.post_retry_at||0);
+    const capacityHeld=typeof previous.post_capacity_confirmed==='boolean'&&now<Number(previous.post_capacity_until||0)&&previous.post_capacity_schedule===JSON.stringify(state.s)&&
+      (previous.post_capacity_confirmed||previous.post_capacity_until<=now+RESERVATION_RECHECK_SECONDS);
+    const canPublish=due&&!capacityHeld&&state.count>0&&now>=Number(previous.post_retry_at||0);
     // Idle minute executions never load the inventory/history. Cleanup is
     // bounded by active-state/time indexes and runs every five minutes.
     // Expired leases are also safe on acquire between maintenance ticks.
@@ -429,7 +476,7 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     state=await readHeader(env);
     }
     const wall=postingWindow(state.s,now);
-    const overdue=wall.allowed&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
+    const overdue=wall.allowed&&!capacityHeld&&state.count>0&&now-state.last>Math.max(1800,state.s.post_interval_minutes*180);
     const verified=origin==='cron'&&Number(previous.last_post_success||0)>0&&now>previous.last_post_success&&Number.isInteger(previous.last_message_id);
     await status(env,{queue_size:state.count,posting_allowed:wall.allowed,current_local_time:wall.clock,active_timezone:wall.timezone,watchdog_overdue:overdue,native_credentials_ok:Boolean(env.TG_BOT_TOKEN&&state.policy.chat_id),...(verified?{production_chain_verified_at:now,production_chain_message_id:previous.last_message_id}:{})});
     if(canPublish)try{state=await selectionState(env,state);results.post=await publish(env,state,fetcher);if(['no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{last_error:'Нет готового подходящего товара; поиск пополняет очередь',error:'Нет готового подходящего товара; поиск пополняет очередь'});if(['duplicate_or_limit_or_no_lease','lock_busy','no_eligible_product','invalid_candidates'].includes(results.post.result))await status(env,{post_retry_at:now+(results.post.result==='invalid_candidates'?120:300)});}catch(error){const code=runtimeError(error),safe=/^Missing Telegram/.test(error.message)?'Missing Telegram runtime secret':error.message.startsWith('Telegram send outcome')?'Telegram delivery outcome unknown':'Publication failed; next Cron will retry';await status(env,{last_error:safe,error:safe,last_error_code:code,post_retry_at:now+300});results.post={result:'error',code};}
@@ -461,7 +508,8 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
     if(previous.reactions_initialized&&!results.post&&!results.preflight&&!results.search)try{await repairReactions(env,fetcher);}catch{console.log('REACTION_REPAIR deferred; scheduler retained');}
     const count=(results.post||results.preflight||results.search)?(await q(env,'SELECT ready AS n FROM scheduler_counts WHERE id=1').first()).n:state.count;
     const last=results.post?.result==='success'?sec():state.last;
-    await status(env,{queue_size:count,next_post:last+state.s.post_interval_minutes*60,post_running:false,scan_running:false,...(results.post?{last_post_result:results.post.result}:{})});
+    const capacityUntil=results.post?.capacity_until||(capacityHeld?previous.post_capacity_until:0);
+    await status(env,{queue_size:count,next_post:Math.max(last+state.s.post_interval_minutes*60,capacityUntil||0),post_running:false,scan_running:false,...(results.post?{last_post_result:results.post.result}:{})});
     console.log('SCHEDULER_TICK OK QUEUE_SIZE',count,JSON.stringify(results));return {enabled:true,results,queue_size:count};
   }catch(error){const code=runtimeError(error);await status(env,{last_error:'Scheduler execution failed; next Cron continues',error:'Scheduler execution failed; next Cron continues',last_error_code:code});return {enabled:true,error:'scheduler_error',code};}
 }

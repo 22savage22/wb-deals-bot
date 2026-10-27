@@ -1,0 +1,19 @@
+{
+  "production_applied": false,
+  "target": "existing scheduler_config via GET/revision + PUT /api/admin/schedule",
+  "patch": {
+    "timezone": "Europe/Moscow",
+    "mode": "interval",
+    "post_interval_minutes": 120,
+    "min_post_gap_minutes": 120,
+    "max_posts_hour": 1,
+    "max_posts_day": 6,
+    "natural_interval_enabled": false,
+    "jitter_minutes": 0
+  },
+  "cron": {
+    "proposed": "*/30 * * * *",
+    "production_applied": false,
+    "status": "BLOCKED_PENDING_HEARTBEAT_AND_OPTIONAL_JOB_CADENCE_REVIEW"
+  }
+}

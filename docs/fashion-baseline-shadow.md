@@ -1,5 +1,13 @@
 # Fashion baseline: isolated editorial SHADOW
 
+## 27 October approved-concept update
+
+Current preparation and release limits are in `fashion-concept-20261027.md`.
+Category budgets replace the old 1000 RUB proposal ceiling; owner-clarified
+dresses/skirts/shirts/cardigans are included. 35/35/20/10 now apply softly over
+a rolling window, without hard bucket caps or a 40-delivery stop. Older audit
+counts and first-trial examples below are historical, not current ready stock.
+
 ## 24 October update: photograph quality precedes allocation
 
 Category admission is no longer sufficient for a proposal. `chooseFashion()`

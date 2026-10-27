@@ -81,11 +81,18 @@ async function source(url,fetcher){
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
+export function discoveryPolicy(policy,query){
+  const rule=queryRules(policy).find(r=>r.text===query&&!r.archived),cap=rule?.max_price;
+  if(!Number.isInteger(cap)||cap<=0)return policy;
+  const ceiling=Math.min(cap,...[policy.max_price,policy.selection?.max_price].filter(x=>Number.isFinite(x)&&x>0));
+  return {...policy,max_price:ceiling,...(policy.selection?{selection:{...policy.selection,max_price:ceiling}}:{})};
+}
 export function discoveryParams(policy,query,cursor){
   // "New to our database" does not mean an unrated, just-created WB listing.
   // Rotate pages/queries but search established goods, then apply the unchanged
   // local quality filters and independently re-check detailed current prices.
-  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'priceup',resultset:'catalog',...(policy.max_price>0?{priceU:`0;${Math.floor(policy.max_price*100)}`}:{})};
+  const limits=discoveryPolicy(policy,query);
+  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'priceup',resultset:'catalog',...(limits.max_price>0?{priceU:`0;${Math.floor(limits.max_price*100)}`}:{})};
 }
 function rejectedCardReason(card,policy){
   const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
@@ -355,7 +362,7 @@ async function search(env,state,fetcher){
     attempted={query,query_id:rules.find(r=>r.text===query)?.id||'existing:'+query,test,experiment:!!experiment};
     await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
-    const params=discoveryParams(state.policy,query,cursor);
+    const searchPolicy=discoveryPolicy(state.policy,query),params=discoveryParams(searchPolicy,query,cursor);
     let response;try{response=await source(wbURL('search',params),fetcher);}catch(error){
       if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
@@ -372,14 +379,14 @@ async function search(env,state,fetcher){
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
     const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0},filter_reasons={};
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    const valid=[];for(const card of found){const p=cardDeal(card,searchPolicy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,searchPolicy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     // Sequential verified-image batch, bounded independently of posting.
     const verified=[],deadline=Date.now()+28000;
     const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
     const live=new Map((details.products||details.data?.products||[]).map(p=>[Number(p.id),p]));
     for(const candidate of valid.slice(0,3)){
       if(Date.now()>=deadline)break;
-      const p=cardDeal(live.get(candidate.id),state.policy);
+      const p=cardDeal(live.get(candidate.id),searchPolicy);
       if(!p){rejected.card_missing++;continue;}p.query=query;
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
       if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now,fashion:env.FASHION_SHADOW_ENABLED==='1'}):ready;
@@ -387,7 +394,8 @@ async function search(env,state,fetcher){
       }else rejected.photo++;
     }
     const admissionPolicy=verified.length?JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data):state.policy;
-    const records=(test?[]:verified).filter(p=>!selectionReason(p,admissionPolicy)).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
+    const activeRule=queryRules(admissionPolicy).find(r=>r.text===query&&!r.archived&&r.enabled),admissionLimits=discoveryPolicy(admissionPolicy,query);
+    const records=(test||!activeRule?[]:verified).filter(p=>!selectionReason(p,admissionLimits)&&(!admissionLimits.max_price||p.product<=admissionLimits.max_price)).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
       SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,?,? FROM json_each(?)
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))

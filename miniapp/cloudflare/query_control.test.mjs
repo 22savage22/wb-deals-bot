@@ -3,7 +3,26 @@ import assert from 'node:assert/strict';
 import {adminEnvironment,adminRequest,rawPolicy,discoveryFixture} from './admin_test_support.mjs';
 import {ensureControl,recordDiscovery} from './admin_history.mjs';
 import {discoveryQueries} from './query_control.mjs';
-import {runDiscovery,readHeader} from './native_scheduler.mjs';
+import {runDiscovery,readHeader,discoveryParams,discoveryPolicy} from './native_scheduler.mjs';
+
+test('per-query ceiling survives existing editor saves, clamps global limits and does not broaden another query',async t=>{
+ const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json();const queries=old.queries.map((r,i)=>i?{...r}:{...r,max_price:500});
+ const saved=await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries});assert.equal(saved.status,200);const state=await saved.json();
+ const omitted=state.queries.map(({max_price,...r})=>r);assert.equal((await adminRequest(e,'/api/admin/search/queries','PUT',{revision:state.revision,queries:omitted})).status,200);
+ const policy=JSON.parse(rawPolicy(e));assert.equal(policy.query_settings[0].max_price,500);assert.equal(discoveryParams(policy,policy.queries[0],0).priceU,'0;50000');assert.equal(discoveryParams(policy,policy.queries[1],0).priceU,'0;100000');
+ assert.equal(discoveryPolicy({...policy,query_settings:[{...policy.query_settings[0],max_price:2500}]},policy.queries[0]).max_price,1000);
+});
+test('server-ignored query price filter is enforced locally before detail/photo admission',async t=>{
+ const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json();await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries:old.queries.map((r,i)=>i?{...r,archived:true,enabled:false}:{...r,max_price:500})});
+ const calls=[],result=await runDiscovery(e,await readHeader(e),discoveryFixture(calls));assert.equal(result.result,'success');assert.equal(result.added,0);assert.equal(calls.filter(u=>u.hostname==='search.wb.ru').length,1);assert.equal(calls.filter(u=>u.hostname==='card.wb.ru').length,0);assert.equal(e.db.prepare('SELECT COUNT(*) n FROM scheduler_inventory').get().n,0);
+ const history=await(await adminRequest(e,'/api/admin/search/history')).json();assert.equal(history.items[0].receipt.filter_reasons.price,1);
+});
+test('lowered or archived query during WB I/O cannot admit a stale candidate',async t=>{
+ for(const archived of [false,true]){const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json();await adminRequest(e,'/api/admin/search/queries','PUT',{revision:old.revision,queries:old.queries.map((r,i)=>i?{...r,archived:true,enabled:false}:{...r,max_price:800})});
+  const fixture=discoveryFixture();await runDiscovery(e,await readHeader(e),async url=>{if(new URL(url).hostname==='search.wb.ru'){const policy=JSON.parse(rawPolicy(e));policy.query_settings[0].max_price=500;if(archived){policy.queries=[];policy.query_settings[0].archived=true;policy.query_settings[0].enabled=false;}e.db.prepare('UPDATE scheduler_policy SET data=?').run(JSON.stringify(policy));}return fixture(url);});
+  assert.equal(e.db.prepare('SELECT COUNT(*) n FROM scheduler_inventory').get().n,0);
+ }
+});
 
 test('imported query IDs from another copy reuse matching local identity and do not shadow it with an archive',async t=>{
   const e=await adminEnvironment(t),old=await(await adminRequest(e,'/api/admin/search')).json();

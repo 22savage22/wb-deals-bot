@@ -6,7 +6,7 @@ const q=(e,s,...a)=>e.DB.prepare(s).bind(...a),now=()=>Math.floor(Date.now()/100
 export const queryKey=s=>s.normalize('NFKC').trim().replace(/\s+/gu,' ').toLocaleLowerCase('ru');
 export function queryRules(policy){
   const saved=Array.isArray(policy.query_settings)?policy.query_settings:[],byText=new Map(saved.map(r=>[queryKey(r.text),r]));
-  const active=(policy.queries||[]).map(text=>{const known=byText.get(queryKey(text));return {id:known?.id||'existing:'+text,text,origin:known?.origin||'existing',priority:known?.priority||1,enabled:!(policy.disabled_topics||[]).includes(text.toLowerCase()),archived:false};});
+  const active=(policy.queries||[]).map(text=>{const known=byText.get(queryKey(text));return {id:known?.id||'existing:'+text,text,origin:known?.origin||'existing',priority:known?.priority||1,enabled:!(policy.disabled_topics||[]).includes(text.toLowerCase()),archived:false,...(known?.max_price!==undefined?{max_price:known.max_price}:{})};});
   return [...active,...saved.filter(r=>r.archived&&!active.some(x=>x.id===r.id))];
 }
 export function discoveryQueries(policy){const rules=queryRules(policy).filter(r=>!r.archived&&!queryOwnerReason(r.text,policy));return rules.flatMap(r=>Array(Math.max(1,Math.min(5,r.priority))).fill(r.text));}
@@ -21,7 +21,8 @@ export function validateQueries(input,previous=[],suggestions=new Set()){
     if(text.length<2||text.length>100||/[\u0000-\u001f\u007f]/.test(text)||seen.has(key))throw new Error('Фраза должна быть уникальной и содержать 2–100 символов');seen.add(key);
     if(typeof r.enabled!=='boolean'||typeof r.archived!=='boolean'||!Number.isInteger(r.priority)||r.priority<1||r.priority>5)throw new Error('Проверьте переключатели и приоритет от 1 до 5');
     const prev=old.get(r.id)||previous.find(x=>queryKey(x.text)===key),id=prev?.id||crypto.randomUUID();if(ids.has(id))throw new Error('Повторяющийся идентификатор запроса');ids.add(id);
-    return {id,text,enabled:r.enabled,archived:r.archived,priority:r.priority,origin:prev?.origin||(r.origin==='algorithm'&&suggestions.has(fold(text))?'algorithm':'manual')};
+    const ceiling=r.max_price===undefined?prev?.max_price:r.max_price;if(ceiling!==undefined&&(!Number.isInteger(ceiling)||ceiling<1||ceiling>4500))throw Error('Лимит запроса: от 1 до 4500 ₽');
+    return {id,text,enabled:r.enabled,archived:r.archived,priority:r.priority,origin:prev?.origin||(r.origin==='algorithm'&&suggestions.has(fold(text))?'algorithm':'manual'),...(ceiling!==undefined?{max_price:ceiling}:{})};
   });
 }
 export async function saveQueries(e,input,fail){

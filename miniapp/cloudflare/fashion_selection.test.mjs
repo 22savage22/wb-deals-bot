@@ -31,14 +31,15 @@ test('known photo fields help; hypotheses, low confidence, wrong group and contr
  const weak=profile({fit:'oversize'});weak.fields.fit.confidence=.7;assert.equal(assessFashion(p(),policy,weak).score,1);
  const item=p();item.fashion_metadata.options['покрой']='оверсайз';assert.equal(assessFashion(item,policy,profile({fit:'slim'})).reason,'CUT_PHOTO_CONFLICT');
 });
-test('adequate synthetic reviewed supply respects 14/14/8/4 and stops at 40',()=>{
+test('adequate synthetic reviewed supply approaches soft 35/35/20/10 and continues after 40',()=>{
  const rows=[];for(let i=0;i<20;i++)for(const [j,c,g] of [[0,'Футболки','Мужской'],[1,'Джинсы','Женский'],[2,'Кроссовки','Мужской'],[3,'Сумки','Женский']])rows.push(row(p(100+i*4+j,c,g)));
  const history=[],recent=[],context=reviewContext(rows);let pool=rows;while(history.length<40){const r=chooseFashion(pool,recent,policy,context,history);assert.ok(r.proposed_pid,r.reason);const picked=pool.find(x=>x.pid===r.proposed_pid);history.push({...picked,fashion_bucket:r.bucket});recent.push(picked);pool=pool.filter(x=>x!==picked);}
- const counts=Object.fromEntries(Object.keys(FASHION_TARGETS).map(k=>[k,history.filter(x=>x.fashion_bucket===k).length]));assert.deepEqual(counts,FASHION_TARGETS);assert.equal(chooseFashion(pool,recent,policy,{},history).reason,'PILOT_COMPLETE_REVIEW_REQUIRED');
+ const counts=Object.fromEntries(Object.keys(FASHION_TARGETS).map(k=>[k,history.filter(x=>x.fashion_bucket===k).length]));for(const k of Object.keys(counts))assert.ok(Math.abs(counts[k]-FASHION_TARGETS[k])<=2,JSON.stringify(counts));assert.ok(chooseFashion(pool,recent,policy,context,history).proposed_pid);
 });
-test('bucket shortages and repetitive queue cause a skip, never a household or quota renormalization',()=>{
+test('missing photo quality and repetitive queue cause a skip; soft shares do not cap a good category',()=>{
  const history=Array.from({length:4},(_,i)=>({...row(p(i+1,'Сумки')),fashion_bucket:'accessories'}));
  assert.equal(chooseFashion([row(p(100,'Сумки')),row(p(101,'Пледы'))],[],policy,{},history).proposed_pid,null);
+ const good=[row(p(100,'Сумки'))];assert.equal(chooseFashion(good,[],policy,reviewContext(good),history).proposed_pid,100);
  const recent=[row(p(1)),row(p(2))];assert.equal(chooseFashion([row(p(3))],recent,policy).proposed_pid,null);
  const alternatives=[row(p(3)),row(p(4,'Лонгсливы','Женский'))];assert.equal(chooseFashion(alternatives,recent,policy,reviewContext(alternatives)).proposed_pid,4);
  const many={...reviewContext([row(p(3))]),items:new Map([[3,{likes:0,dislikes:10000}]]),traits:new Map([['type:tshirt',{sufficient:true,multiplier:.01}]])};const r=chooseFashion([row(p(3))],[],policy,many);assert.equal(r.proposed_pid,3);assert.ok(r.candidates[0].itemAdjustment>=-.025);

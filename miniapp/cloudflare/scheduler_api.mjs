@@ -83,8 +83,12 @@ async function initialize(env){
   await q("UPDATE scheduler_config SET status=json_set(status,'$.schema_version',3) WHERE id=1").run();
 }
 const dayFormatters=new Map();
-function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
+export function dayAt(ts,zone){if(!dayFormatters.has(zone))dayFormatters.set(zone,new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}));return dayFormatters.get(zone).format(new Date(ts*1000));}
 export function dayStart(ts,zone){const day=dayAt(ts,zone);let lo=ts-90000,hi=ts;while(hi-lo>1){const mid=Math.floor((lo+hi)/2);if(dayAt(mid,zone)===day)hi=mid;else lo=mid;}return hi;}
+// A lost response near midnight may belong to either date. The maximum allowed
+// post lease is 1,800 seconds; reserve that boundary window conservatively.
+// This is reserved capacity, never a successful-publication counter.
+export const UNCERTAIN_DAY_CARRY_SECONDS=1800;
 const text=(v,max=120)=>typeof v==='string'&&v.length>0&&v.length<=max&&!/[\r\n]/.test(v)?v:null;
 const safeError=v=>typeof v==='string'?v.replace(/https?:\/\/\S+|(?:bearer|token|secret|password|authorization)\s*[:=]?\s*\S+/gi,'[скрыто]').slice(0,180):'';
 const number=v=>Number.isFinite(v)&&v>=0?Math.floor(v):0;
@@ -133,9 +137,10 @@ export async function schedulerRoute(request,env,{payload,fail,json,admin=false}
     if(!text(data.request_id)&&(!schedule.enabled||schedule.paused))return json({ok:false,reason:'posting_paused'});
     const gap=Math.max(data.min_gap_minutes??schedule.min_post_gap_minutes,schedule.min_post_gap_minutes),hour=Math.min(data.max_hour??schedule.max_posts_hour,schedule.max_posts_hour),day=Math.min(data.max_day??schedule.max_posts_day,schedule.max_posts_day),repost=data.repost_days??7,zone=schedule.timezone;
     if(!Number.isInteger(gap)||gap<5||gap>1440||!Number.isInteger(hour)||hour<1||hour>12||!Number.isInteger(day)||day<1||day>288||!Number.isInteger(repost)||repost<7||repost>365)fail(400,'Некорректные ограничения публикации');let start;try{start=dayStart(now,zone);}catch{fail(400,'Некорректный часовой пояс');}
-    // Unknown send outcomes also reserve capacity: lost Telegram responses must
-    // not allow a restarted runner to exceed hourly/daily limits.
-    const r=await q(`INSERT INTO scheduler_claims(pid,owner,ts,status,request_id) SELECT ?,?,?,'pending',? WHERE EXISTS(SELECT 1 FROM scheduler_leases WHERE kind='post' AND owner=? AND expires>?) AND NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE ts>?) AND (SELECT count(*) FROM scheduler_claims WHERE ts>? AND status<>'rejected')<? AND (SELECT count(*) FROM scheduler_claims WHERE ts>=? AND status<>'rejected')<? AND NOT EXISTS(SELECT 1 FROM scheduler_claims WHERE status IN ('pending','error') AND ts>?) ON CONFLICT(pid) DO UPDATE SET owner=excluded.owner,ts=excluded.ts,status='pending',request_id=excluded.request_id WHERE scheduler_claims.ts<?`,data.product_id,owner,now,text(data.request_id),owner,now,now-gap*60,now-3600,hour,start,day,now-gap*60,now-repost*86400).run();
+    // Success belongs to the actual successful-post timestamp, not claim time:
+    // a send begun before midnight can complete on the following calendar day.
+    // Uncertain outcomes reserve capacity separately and are never called posts.
+    const r=await q(`INSERT INTO scheduler_claims(pid,owner,ts,status,request_id) SELECT ?,?,?,'pending',? WHERE EXISTS(SELECT 1 FROM scheduler_leases WHERE kind='post' AND owner=? AND expires>?) AND NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE ts>?) AND ((SELECT count(*) FROM scheduler_posts WHERE ts>?)+(SELECT count(*) FROM scheduler_claims WHERE ts>? AND status IN ('pending','error')))<? AND ((SELECT count(*) FROM scheduler_posts WHERE ts>=?)+(SELECT count(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')))<? AND NOT EXISTS(SELECT 1 FROM scheduler_claims WHERE status IN ('pending','error') AND ts>?) ON CONFLICT(pid) DO UPDATE SET owner=excluded.owner,ts=excluded.ts,status='pending',request_id=excluded.request_id WHERE scheduler_claims.ts<?`,data.product_id,owner,now,text(data.request_id),owner,now,now-gap*60,now-3600,now-3600,hour,start,start-UNCERTAIN_DAY_CARRY_SECONDS,day,now-gap*60,now-repost*86400).run();
     return json({ok:!!r.meta.changes,...(!r.meta.changes?{reason:'duplicate_or_limit_or_no_lease'}:{})});
   }
   if(data.op==='complete'){

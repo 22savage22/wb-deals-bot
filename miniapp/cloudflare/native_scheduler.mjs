@@ -229,11 +229,12 @@ async function finalSendGate(env,item,owner,schedule,manual,deal){
     !postDue(latest,Number(row.last_post||0),sec(),Boolean(manual))||
     row.daily_success+row.daily_reserved>=latest.max_posts_day||row.hourly_success+row.hourly_reserved>=latest.max_posts_hour)
     return {allowed:false,reason:'schedule_or_limit_or_lease_changed'};
-  return {allowed:true,schedule:latest,calendar_day:day,fills_day:row.daily_success+row.daily_reserved+1>=latest.max_posts_day};
+  return {allowed:true,schedule:latest,calendar_day:day,fills_day:row.daily_success+row.daily_reserved+1>=latest.max_posts_day,confirms_full_day:row.daily_success+1>=latest.max_posts_day};
 }
-function capacityHold(schedule,at=sec()){
+const RESERVATION_RECHECK_SECONDS=300;
+function capacityHold(schedule,confirmed,at=sec()){
   const start=dayStart(at,schedule.timezone),until=dayStart(start+90000,schedule.timezone);
-  return {post_capacity_until:until,post_capacity_schedule:JSON.stringify(schedule)};
+  return {post_capacity_until:confirmed?until:Math.min(until,at+RESERVATION_RECHECK_SECONDS),post_capacity_schedule:JSON.stringify(schedule),post_capacity_confirmed:confirmed};
 }
 async function publish(env,state,fetcher){
   const owner=crypto.randomUUID(),lock=await runtime(env,{op:'acquire',kind:'post',owner,ttl:120});
@@ -244,7 +245,7 @@ async function publish(env,state,fetcher){
       ${smallDay?",(SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?) AS daily_success,(SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')) AS daily_reserved":''}
       FROM scheduler_config WHERE id=1`,...(smallDay?[start,start-UNCERTAIN_DAY_CARRY_SECONDS]:[])).first();
     let current={...state,s:validateSchedule(JSON.parse(latest.data)),last:Number(latest.last_post||0),ready:[...state.ready]};
-    if(smallDay&&current.s.timezone===state.s.timezone&&dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&latest.daily_success+latest.daily_reserved>=current.s.max_posts_day){const hold=capacityHold(current.s);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
+    if(smallDay&&current.s.timezone===state.s.timezone&&dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&latest.daily_success+latest.daily_reserved>=current.s.max_posts_day){const hold=capacityHold(current.s,latest.daily_success>=current.s.max_posts_day);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
     const feedback=qualitySettings(current.policy).enabled&&qualitySettings(current.policy).feedback_enabled?await audienceContext(env,current.ready.map(r=>r.pid)):null;
     const manual=current.row.post_request;
     const requested=JSON.parse(current.row.status||'{}');
@@ -282,9 +283,9 @@ async function publish(env,state,fetcher){
         // Cache only a refusal, not admission. A full calendar day should not
         // refetch WB every minute. Any schedule change invalidates this cache.
         const start=dayStart(sec(),current.s.timezone),capacity=await q(env,`SELECT
-          (SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?)+
-          (SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')) AS used`,start,start-UNCERTAIN_DAY_CARRY_SECONDS).first();
-        if(dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&capacity.used>=current.s.max_posts_day){const hold=capacityHold(current.s);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
+          (SELECT COUNT(*) FROM scheduler_posts WHERE ts>=?) AS successful,
+          (SELECT COUNT(*) FROM scheduler_claims WHERE ts>=? AND status IN ('pending','error')) AS reserved`,start,start-UNCERTAIN_DAY_CARRY_SECONDS).first();
+        if(dayAt(sec(),current.s.timezone)===dayAt(start,current.s.timezone)&&capacity.successful+capacity.reserved>=current.s.max_posts_day){const hold=capacityHold(current.s,capacity.successful>=current.s.max_posts_day);await status(env,hold);return {result:'daily_capacity_held',capacity_until:hold.post_capacity_until};}
         return {result:claim.reason};
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
@@ -347,7 +348,7 @@ async function publish(env,state,fetcher){
         q(env,'INSERT OR IGNORE INTO scheduler_deliveries(pid,ts,message_id,topic,title_key,data) VALUES(?,?,?,?,?,?)',item.pid,sent,message_id,item.topic,item.title_key,JSON.stringify(deal)),
         q(env,'INSERT INTO products(id,data,checked_at) VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET data=excluded.data,checked_at=excluded.checked_at',deal.id,JSON.stringify(normalize({...deal,checked_at:sent})),sent)
       ]);
-      const hold=sentGate.fills_day&&dayAt(sent,sentGate.schedule.timezone)===sentGate.calendar_day?capacityHold(sentGate.schedule,sent):{};
+      const hold=sentGate.fills_day&&dayAt(sent,sentGate.schedule.timezone)===sentGate.calendar_day?capacityHold(sentGate.schedule,sentGate.confirms_full_day,sent):{};
       await status(env,{last_post_success:sent,last_post:sent,last_message_id:message_id,last_error:'',last_error_code:'',telegram_error_code:0,telegram_error_description:'',error:'',post_retry_at:0,next_post:Math.max(sent+current.s.post_interval_minutes*60,hold.post_capacity_until||0),...hold,...(preferred?{admin_product_result:'✅ Товар '+item.pid+' опубликован, сообщение '+message_id+'.',admin_product_id:null,admin_product_request:null}:{})});
       console.log('SELECTED_PRODUCT',item.pid,'TELEGRAM_SEND SUCCESS message_id',message_id);return {result:'success',product_id:item.pid,message_id,...(hold.post_capacity_until?{capacity_until:hold.post_capacity_until}:{})};
     }return {result:'invalid_candidates'};
@@ -447,7 +448,8 @@ export async function nativeTick(env,scheduledTime=Date.now(),fetcher=fetch,orig
   try{
     let state=await readHeader(env),previous=JSON.parse(state.row.status||'{}');
     const due=postDue(state.s,state.last,now,Boolean(state.row.post_request));
-    const capacityHeld=now<Number(previous.post_capacity_until||0)&&previous.post_capacity_schedule===JSON.stringify(state.s);
+    const capacityHeld=typeof previous.post_capacity_confirmed==='boolean'&&now<Number(previous.post_capacity_until||0)&&previous.post_capacity_schedule===JSON.stringify(state.s)&&
+      (previous.post_capacity_confirmed||previous.post_capacity_until<=now+RESERVATION_RECHECK_SECONDS);
     const canPublish=due&&!capacityHeld&&state.count>0&&now>=Number(previous.post_retry_at||0);
     // Idle minute executions never load the inventory/history. Cleanup is
     // bounded by active-state/time indexes and runs every five minutes.

@@ -61,11 +61,18 @@ No quota cache can authorize a post: every admission still uses D1.
 ## Repeated Cron after six posts
 
 On a six-or-lower configured cap, the existing post-header query checks the
-day ledger before WB validation. When full, a skip-only marker in the existing
-`scheduler_config.status` lasts until the next local midnight. The marker is
-bound to the complete validated schedule, so a settings change invalidates it.
-It is also recorded in the existing successful status write when a confirmed
-send fills the remaining capacity on the same calendar day.
+day ledger before WB validation. A skip-only marker in the existing
+`scheduler_config.status` lasts until the next local midnight only when the
+confirmed successful-post count itself has reached the cap. If pending/error
+reservations are what fill the remaining capacity, the marker lasts at most
+300 seconds, then the indexed counters are rechecked before WB work. A late
+definitive failure can therefore free the sixth slot without a day-long hold.
+The same distinction is applied after a successful send when other unresolved
+reservations fill the rest of the capacity. Claims/tombstones are preserved.
+
+The marker is bound to the complete validated schedule and its confirmed versus
+reserved basis. A settings change invalidates it; old untyped markers are
+ignored. It is recorded in the existing successful status write when applicable.
 
 Subsequent capped ticks do not load posting candidates or revalidate WB. Idle
 maintenance, search and reaction repair remain available; reaching the cap is
@@ -75,10 +82,11 @@ seventh post. There is no new D1 table, background process or learned state.
 
 ## Local evidence and limits
 
-Eight focused cases cover: Moscow midnight success attribution, six versus
+Nine focused cases cover: Moscow midnight success attribution, six versus
 seven, manual 120-minute safety gap, confirmed failure, unknown reservations,
 fresh-environment persistence, parallel ticks, changed final caps and paused
-photo retries, expiry of the full-day marker and midnight during its precheck.
+photo retries, expiry of the full-day marker, midnight during its precheck and
+late failure releasing a reserved slot from both cache-creation paths.
 All network responses are intercepted fixtures; no real
 Telegram messages or live price/stock observations are produced.
 
@@ -95,7 +103,7 @@ claim rows. Last-six actual timestamps are retained in its private receipt.
 Fixture detailed prices/stock, if requested, are explicitly synthetic values
 from the saved products, not current verified offers.
 
-The existing Worker suite passes 235 cases (227 existing plus eight focused
+The existing Worker suite passes 236 cases (227 existing plus nine focused
 cases). Local build and `wrangler deploy --dry-run` pass. The generated admin
 assets had to be built before the complete suite; the initial three missing-
 asset failures were setup errors, not quota failures. No production CPU test,

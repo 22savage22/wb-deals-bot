@@ -87,7 +87,8 @@ and 100 successful-post rows. Twenty-five belong to the current Moscow day.
 A local replay with the proposed profile holds the first due tick and the
 following 30-minute tick: zero WB requests, zero Telegram calls, zero new posts.
 The first tick used 11 local SQL statements; the subsequent idle/maintenance
-tick used 14. Two source rows expired at the virtual replay time, using the
+tick used 15, including the preserved reaction-repair flag with no copied vote
+rows. Two source rows expired at the virtual replay time, using the
 existing expiry rules; production inventory did not change. The replay uses
 the actual successful ledger and does not invent or reconstruct historical
 claim rows. Last-six actual timestamps are retained in its private receipt.

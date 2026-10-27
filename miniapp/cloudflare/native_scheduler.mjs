@@ -304,7 +304,7 @@ async function publish(env,state,fetcher){
       let result,transportBlocked=false,sentGate=gate,sendOutcomeUncertain=true;
       try{
         const endpoint=`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendPhoto`;
-        const r=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();if(result?.ok===false)sendOutcomeUncertain=false;
+        const r=await fetcher(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:current.policy.chat_id,photo:deal.image,caption,parse_mode:'HTML',reply_markup}),signal:AbortSignal.timeout(15000)});result=await r.json();if(typeof result?.ok!=='boolean')throw new Error('Malformed Telegram outcome');if(result.ok===false)sendOutcomeUncertain=false;
         if(!result.ok){
           const description=String(result.description||'').replace(/https?:\/\/\S+|\d{6,}:[a-zA-Z0-9_-]{20,}/g,'[hidden]').slice(0,180);
           await status(env,{telegram_error_code:Number(result.error_code||0),telegram_error_description:description});
@@ -322,7 +322,7 @@ async function publish(env,state,fetcher){
               // limits/pause/owner/lease before the second physical attempt.
               const retryGate=await finalSendGate(env,item,owner,current.s,manual,deal);
               if(!retryGate.allowed)transportBlocked=true;
-              else{sentGate=retryGate;sendOutcomeUncertain=true;result=await (await fetcher(endpoint,{method:'POST',body:form,signal:AbortSignal.timeout(15000)})).json();if(result?.ok===false)sendOutcomeUncertain=false;}
+              else{sentGate=retryGate;sendOutcomeUncertain=true;result=await (await fetcher(endpoint,{method:'POST',body:form,signal:AbortSignal.timeout(15000)})).json();if(typeof result?.ok!=='boolean')throw new Error('Malformed Telegram retry outcome');if(result.ok===false)sendOutcomeUncertain=false;}
               await status(env,{last_photo_delivery:'multipart',last_photo_fallback_reason:description});
             }
           }

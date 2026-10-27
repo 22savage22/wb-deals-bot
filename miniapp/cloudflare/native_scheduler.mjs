@@ -12,6 +12,8 @@ import {qualitySettings,qualityRank,queryOwnerReason,candidateQuality} from './a
 import {audienceContext} from './audience_feedback.mjs';
 import {reconcileOwnerInventory} from './audience_inventory.mjs';
 import {enrichSubject} from './product_subject.mjs';
+import {fashionShadow,parseReviewedPilot,chooseReviewedPilot,assessFashion} from './fashion_selection.mjs';
+import {cachedProfiles,visualSourceVersion} from './visual_enrichment.mjs';
 const q=(env,sql,...args)=>env.DB.prepare(sql).bind(...args);
 const sec=()=>Math.floor(Date.now()/1000);
 const topic=p=>String(p.query||p.category||p.cat||'').trim().toLowerCase();
@@ -79,11 +81,18 @@ async function source(url,fetcher){
 }
 const common={appType:'1',curr:'rub',dest:'-1257786',spp:'30',lang:'ru'};
 function wbURL(kind,params={}){const url=new URL(kind==='search'?'https://search.wb.ru/exactmatch/ru/common/v9/search':'https://card.wb.ru/cards/v4/detail');url.search=new URLSearchParams({...common,...params}).toString();return url.href;}
+export function discoveryPolicy(policy,query){
+  const rule=queryRules(policy).find(r=>r.text===query&&!r.archived),cap=rule?.max_price;
+  if(!Number.isInteger(cap)||cap<=0)return policy;
+  const ceiling=Math.min(cap,...[policy.max_price,policy.selection?.max_price].filter(x=>Number.isFinite(x)&&x>0));
+  return {...policy,max_price:ceiling,...(policy.selection?{selection:{...policy.selection,max_price:ceiling}}:{})};
+}
 export function discoveryParams(policy,query,cursor){
   // "New to our database" does not mean an unrated, just-created WB listing.
   // Rotate pages/queries but search established goods, then apply the unchanged
   // local quality filters and independently re-check detailed current prices.
-  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'priceup',resultset:'catalog',...(policy.max_price>0?{priceU:`0;${Math.floor(policy.max_price*100)}`}:{})};
+  const limits=discoveryPolicy(policy,query);
+  return {query,page:String(1+Math.floor(cursor/policy.queries.length)%5),sort:cursor%2?'popular':'priceup',resultset:'catalog',...(limits.max_price>0?{priceU:`0;${Math.floor(limits.max_price*100)}`}:{})};
 }
 function rejectedCardReason(card,policy){
   const raw=cardDeal(card,{min_rating:0,min_feedbacks:0});
@@ -193,7 +202,7 @@ async function validateQueued(env,item,policy,fetcher){
   // Keep the row/history so re-enabling a category is reversible.
   if(selectionReason(saved,policy))return null;
   try{const response=await source(wbURL('cards',{nm:String(item.pid)}),fetcher);card=(response.products||response.data?.products||[]).find(p=>Number(p.id)===item.pid);}
-  catch(error){unavailable=true;if(now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
+  catch(error){unavailable=true;if(env.FASHION_PILOT_ENABLED==='1'||now-item.checked_at>6*3600||!saved.image){await q(env,"UPDATE scheduler_inventory SET retry_at=?,data=json_set(data,'$.validation_error',?) WHERE pid=?",now+300,/^WB HTTP \d{3}$/.test(error.message)?error.message:'WB unavailable',item.pid).run();return null;}}
   let deal=card?cardDeal(card,policy):unavailable&&now-item.checked_at<=6*3600?saved:null;
   if(deal&&selectionReason(deal,policy))return null;
   if(!deal||deal.product>saved.product*1.1){
@@ -204,7 +213,7 @@ async function validateQueued(env,item,policy,fetcher){
   deal={...deal,query:saved.query||'',image:saved.image||'',photo_probe:saved.photo_probe||1};
   deal={...deal,...await imageFor(env,deal,fetcher)};
   if(!deal.image){deal.validation_error=deal.photo_exhausted?'PHOTO_EXHAUSTED':'PHOTO_SHARD_PENDING';await q(env,"UPDATE scheduler_inventory SET data=?,retry_at=?,state=? WHERE pid=?",JSON.stringify(deal),now+300,deal.photo_exhausted?'rejected':'ready',item.pid).run();return null;}
-  if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now});
+  if(qualitySettings(policy).enabled)deal=await enrichSubject(deal,fetcher,{cached:saved,now,fashion:env.FASHION_SHADOW_ENABLED==='1'});
   if(selectionReason(deal,policy)){
     await q(env,"UPDATE scheduler_inventory SET data=? WHERE pid=?",JSON.stringify(deal),item.pid).run();return null;
   }
@@ -221,7 +230,10 @@ async function publish(env,state,fetcher){
     const requested=JSON.parse(current.row.status||'{}');
     const preferred=manual&&requested.admin_product_request===manual?Number(requested.admin_product_id):0;
     const cancelPreferred=async()=>{await runtime(env,{op:'consume',kind:'post',owner,request_id:manual});await status(env,{admin_product_result:'Товар не прошёл проверку или уже выбыл. Другая вещь вместо него не отправлена.',admin_product_id:null,admin_product_request:null});};
-    if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+    const pilotEnabled=env.FASHION_PILOT_ENABLED==='1',pilot=pilotEnabled?parseReviewedPilot(env.FASHION_PILOT_REVIEW,sec()):null;
+    if(!postDue(current.s,current.last,sec(),Boolean(manual)&&!pilotEnabled))return {result:'not_due'};
+    if(pilotEnabled&&env.FASHION_SHADOW_ENABLED==='1'){if(preferred)await cancelPreferred();return {result:'no_eligible_product',reason:'PILOT_AND_SHADOW_FLAGS_CONFLICT'};}
+    if(pilotEnabled&&!pilot.ready){if(preferred)await cancelPreferred();return {result:'no_eligible_product',reason:pilot.reason};}
     if(!env.TG_BOT_TOKEN||!current.policy.chat_id)throw new Error('Missing Telegram runtime secret');
     // A bad card cannot monopolize a due tick. Bound both work and wall time;
     // discovery/maintenance use a different invocation, not this publication.
@@ -229,7 +241,7 @@ async function publish(env,state,fetcher){
     for(let attempt=0;attempt<3&&Date.now()-started<45000;attempt++){
       if(attempt>0&&Number(env.D1_METER?.queries||0)>26)break;
       const eligible=preferred?current.ready.filter(r=>r.pid===preferred):current.ready;
-      const item=choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
+      const item=pilotEnabled?chooseReviewedPilot(choose,eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback,pilot,sec()):choose(eligible,current.recent,current.policy.total_posts+current.recent.length,current.policy,feedback);
       if(!item){if(preferred)await cancelPreferred();return {result:'no_eligible_product'};}
       current.ready=current.ready.filter(p=>p.pid!==item.pid);
       const now=sec();
@@ -239,7 +251,9 @@ async function publish(env,state,fetcher){
       const latest=await q(env,'SELECT data,(SELECT data FROM scheduler_policy WHERE id=1) AS policy,(SELECT MAX(ts) FROM scheduler_posts) AS last_post FROM scheduler_config WHERE id=1').first();
       current.policy=JSON.parse(latest.policy||'{}');
       if(selectionReason(deal,current.policy)){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}
-      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)))return {result:'not_due'};
+      if(pilotEnabled){const approved=pilot.items.find(p=>p.pid===item.pid),actual={...JSON.parse(item.data),...deal};
+        if(sec()>=pilot.ends_at||sec()-approved.reviewed_at>86400||visualSourceVersion(actual)!==approved.source_version||!assessFashion(actual,current.policy).allowed){if(preferred){await cancelPreferred();return {result:'requested_product_invalid'};}continue;}}
+      current.s=validateSchedule(JSON.parse(latest.data));current.last=Number(latest.last_post||0);if(!postDue(current.s,current.last,sec(),Boolean(manual)&&!pilotEnabled))return {result:'not_due'};
       const claim=await runtime(env,{op:'claim',owner,product_id:item.pid,request_id:manual||undefined});if(!claim.ok){
         // A prior delivery claim (including uncertain/error) is a per-product
         // tombstone. Never delete it or blindly resend, but don't let that card
@@ -254,7 +268,16 @@ async function publish(env,state,fetcher){
       }
       if(manual&&!consumed){if(!(await runtime(env,{op:'consume',kind:'post',owner,request_id:manual})).ok){await runtime(env,{op:'complete',owner,product_id:item.pid,success:false});return {result:'request_already_consumed'};}consumed=true;}
       // Observe only the final valid selection, never every rejected candidate.
-      if(JSON.parse(current.row.status||'{}').learning_initialized)try{await shadowChoice(env,current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key)),item,sec(),current.s.timezone);}catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
+      if(!pilotEnabled&&JSON.parse(current.row.status||'{}').learning_initialized)try{
+        const rows=current.ready.concat(item).filter(r=>(current.recent.filter(p=>p.topic===r.topic).length)<8&&!current.recent.some(p=>p.title_key===r.title_key));
+        let editorial=null;
+        if(env.FASHION_SHADOW_ENABLED==='1'){
+          const profiles=feedback?.profiles||await cachedProfiles(env,rows.map(r=>r.pid));
+          editorial=await fashionShadow(env,rows,current.recent,current.policy,{...feedback,profiles},sec());
+          if(editorial)editorial.legacy_pid=item.pid;
+        }
+        await shadowChoice(env,rows,item,sec(),current.s.timezone,editorial);
+      }catch{console.log('LEARNING_SHADOW unavailable; LEGACY retained');}
       // Final owner gate immediately before forming/sending Telegram. A ban
       // saved during slow WB/shadow work must win over a previously chosen row.
       const finalPolicy=JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data);
@@ -262,7 +285,7 @@ async function publish(env,state,fetcher){
         await runtime(env,{op:'complete',owner,product_id:item.pid,success:false,rejected:true});
         continue;
       }
-      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 Сейчас: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\nЦена проверена перед публикацией. На WB она может меняться.`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
+      const caption=`✨ <b>${escape(deal.title)}</b>\n\n💰 ${pilotEnabled?'В ответе WB':'Сейчас'}: <b>${deal.product} ₽</b>\n⭐ ${deal.rating} · ${deal.feedbacks} отзывов\n${escape(deal.brand)}\n\n${pilotEnabled?'Цена получена из ответа WB перед публикацией. Для выбранного размера и условий оплаты она может отличаться.':'Цена проверена перед публикацией. На WB она может меняться.'}`,url=`https://www.wildberries.ru/catalog/${deal.id}/detail.aspx`;
       const launch=env.MINIAPP_LINK_MODE==='startapp'?'startapp':'start',miniapp=`https://t.me/${env.MINIAPP_BOT_USERNAME||'WbPodborr_bot'}?${launch}=`;
       const reply_markup={inline_keyboard:[[{text:'Открыть на WB',url}],[{text:'👍 0',callback_data:'l'+deal.id},{text:'👎 0',callback_data:'d'+deal.id},{text:'🛒 Купил 0',callback_data:'b'+deal.id}],[{text:'🔖 Сохранить',url:miniapp+'save_'+deal.id},{text:'✨ Собрать образ',url:miniapp+'look_'+deal.id}]]};
       let result;
@@ -339,7 +362,7 @@ async function search(env,state,fetcher){
     attempted={query,query_id:rules.find(r=>r.text===query)?.id||'existing:'+query,test,experiment:!!experiment};
     await status(env,{last_search_query:query});
     if(state.row.search_request)await runtime(env,{op:'consume',kind:'search',owner,request_id:state.row.search_request});
-    const params=discoveryParams(state.policy,query,cursor);
+    const searchPolicy=discoveryPolicy(state.policy,query),params=discoveryParams(searchPolicy,query,cursor);
     let response;try{response=await source(wbURL('search',params),fetcher);}catch(error){
       if([403,429].includes(error.status))throw error;
       // One bounded alternative destination; no endless retries on a blocked IP.
@@ -356,22 +379,23 @@ async function search(env,state,fetcher){
       UNION SELECT title_key,'title' FROM scheduler_inventory WHERE title_key IN (SELECT value FROM json_each(?))`,ids,ids,ids,titles).all()).results;
     const knownIDs=new Set(known.filter(p=>p.kind==='pid').map(p=>p.key)),knownTitles=new Set(known.filter(p=>p.kind==='title').map(p=>p.key));
     const rejected={known:0,filter:0,title_duplicate:0,topic_cap:0,photo:0,card_missing:0},filter_reasons={};
-    const valid=[];for(const card of found){const p=cardDeal(card,state.policy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,state.policy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
+    const valid=[];for(const card of found){const p=cardDeal(card,searchPolicy);if(knownIDs.has(String(card.id))){rejected.known++;if(!test)continue;}if(!p){rejected.filter++;const reason=rejectedCardReason(card,searchPolicy);filter_reasons[reason]=(filter_reasons[reason]||0)+1;continue;}if(!test&&knownTitles.has(titleKey(p))){rejected.title_duplicate++;continue;}p.query=query;const t=topic(p);if(!test&&(state.policy.disabled_topics?.includes(t)||(counts.get(t)||0)>=8)){rejected.topic_cap++;continue;}counts.set(t,(counts.get(t)||0)+1);knownTitles.add(titleKey(p));valid.push(p);if(valid.length>=8)break;}
     // Sequential verified-image batch, bounded independently of posting.
     const verified=[],deadline=Date.now()+28000;
     const details=valid.length?await source(wbURL('cards',{nm:valid.slice(0,3).map(p=>p.id).join(';')}),fetcher):{};
     const live=new Map((details.products||details.data?.products||[]).map(p=>[Number(p.id),p]));
     for(const candidate of valid.slice(0,3)){
       if(Date.now()>=deadline)break;
-      const p=cardDeal(live.get(candidate.id),state.policy);
+      const p=cardDeal(live.get(candidate.id),searchPolicy);
       if(!p){rejected.card_missing++;continue;}p.query=query;
       const photo=await imageFor(env,p,fetcher,{maxProbes:6,deadline});
-      if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now}):ready;
+      if(photo.image){const ready={...p,image:photo.image,checked_at:now},enriched=qualitySettings(state.policy).enabled?await enrichSubject(ready,fetcher,{now,fashion:env.FASHION_SHADOW_ENABLED==='1'}):ready;
         if(selectionReason(enriched,state.policy)){rejected.filter++;filter_reasons.owner_category=(filter_reasons.owner_category||0)+1;}else verified.push(enriched);
       }else rejected.photo++;
     }
     const admissionPolicy=verified.length?JSON.parse((await q(env,'SELECT data FROM scheduler_policy WHERE id=1').first()).data):state.policy;
-    const records=(test?[]:verified).filter(p=>!selectionReason(p,admissionPolicy)).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
+    const activeRule=queryRules(admissionPolicy).find(r=>r.text===query&&!r.archived&&r.enabled),admissionLimits=discoveryPolicy(admissionPolicy,query);
+    const records=(test||!activeRule?[]:verified).filter(p=>!selectionReason(p,admissionLimits)&&(!admissionLimits.max_price||p.product<=admissionLimits.max_price)).map(p=>({id:p.id,data:JSON.stringify(p),topic:topic(p),title_key:titleKey(p)}));
     const inserted=await q(env,`INSERT OR IGNORE INTO scheduler_inventory(pid,data,topic,title_key,queued_at,checked_at,expires)
       SELECT json_extract(value,'$.id'),json_extract(value,'$.data'),json_extract(value,'$.topic'),json_extract(value,'$.title_key'),?,?,? FROM json_each(?)
       WHERE NOT EXISTS(SELECT 1 FROM scheduler_posts WHERE pid=json_extract(value,'$.id'))
